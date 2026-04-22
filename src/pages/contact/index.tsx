@@ -1,0 +1,156 @@
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
+export default function Contact() {
+    const [formData, setFormData] = useState({
+        name: "",
+        fromEmail: "",
+        company: "",
+        message: "",
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus("idle");
+
+        try {
+            const res = await fetch("/api/send-query", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: formData.name,
+                    fromEmail: formData.fromEmail,
+                    company: formData.company,
+                    message: formData.message,
+                }),
+            });
+
+            if (!res.ok) throw new Error("Failed");
+
+            setSubmitStatus("success");
+            setFormData({ name: "", fromEmail: "", company: "", message: "" });
+            setTimeout(() => setSubmitStatus("idle"), 4000);
+        } catch {
+            setSubmitStatus("error");
+            setTimeout(() => setSubmitStatus("idle"), 4000);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    return (
+        <div className="min-h-screen bg-[#050d18] pt-20">
+            {/* Hero Section */}
+            <section className="pt-16 pb-8 flex flex-col items-center text-center">
+                <span className="text-xs font-semibold tracking-widest text-green-400 mb-2">GET IN TOUCH</span>
+                <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
+                    <span className="text-white">Let&apos;s </span>
+                    <span className="text-green-400">Talk</span>
+                </h1>
+                <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+                    Ready to build something amazing? We&apos;d love to hear about your project.
+                </p>
+            </section>
+
+            {/* Contact Section */}
+            <section className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                {/* Contact Info */}
+                <div className="flex flex-col gap-6">
+                    <div>
+                        <h2 className="text-lg font-bold mb-4 text-white">Contact Information</h2>
+                        <ul className="flex flex-col gap-4">
+                            <li className="flex items-start gap-3">
+                                <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-green-400">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" stroke="none" /><path d="M22 6.5V18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6.5M22 6.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v.5m20 0-10 7-10-7" /></svg>
+                                </span>
+                                <div>
+                                    <div className="text-sm text-gray-400">Email</div>
+                                    <div className="font-semibold text-white">business@toadsters.com</div>
+                                </div>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-green-400">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5a2 2 0 0 1 2-2h2.09a2 2 0 0 1 2 1.72c.13.81.28 1.6.47 2.36a2 2 0 0 1-.45 2.11l-.27.27a16 16 0 0 0 6.29 6.29l.27-.27a2 2 0 0 1 2.11-.45c.76.19 1.55.34 2.36.47A2 2 0 0 1 22 16.92z" /></svg>
+                                </span>
+                                <div>
+                                    <div className="text-sm text-gray-400">Phone</div>
+                                    <div className="font-semibold text-white">084487 33347</div>
+                                </div>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-green-400">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="10" r="3" /><path d="M12 2a8 8 0 0 1 8 8c0 7-8 12-8 12S4 17 4 10a8 8 0 0 1 8-8z" /></svg>
+                                </span>
+                                <div>
+                                    <div className="text-sm text-gray-400">Location</div>
+                                    <div className="font-semibold text-white"> 🇮🇳 JAV Tower, H17, H Block, Sector 63, Noida, Uttar Pradesh 201309</div>
+                                    <div className="font-semibold text-white"> 🇦🇪 Level 1, Avenue Gate, South Zone, DIFC,
+                                        Dubai, UAE</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-4 mt-2">
+                        <div className="font-semibold text-white mb-1 text-sm">Office Hours</div>
+                        <div className="text-xs text-gray-400">Mon – Fri: 9:00 AM – 6:00 PM IST<br />Sat – Sun: Closed</div>
+                    </div>
+                </div>
+
+                {/* Contact Form */}
+                <div>
+                    <form onSubmit={handleSubmit} className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col gap-4">
+                        <h2 className="text-lg font-bold mb-2 text-white">Contact Us</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label className="block text-xs font-medium  mb-1 text-white">Name</label>
+                                <Input name="name" value={formData.name} onChange={handleChange} required type="text" className="text-white" placeholder="John Doe" />
+                            </div>
+                            <div>
+                                <label className="block text-xs font-medium text-gray-300 mb-1">Email</label>
+                                <Input name="fromEmail" value={formData.fromEmail} onChange={handleChange} required type="email" className="text-white" placeholder="john@company.com" />
+                            </div>
+                            <div className="md:col-span-2">
+                                <label className="block text-xs font-medium text-gray-300 mb-1">Company</label>
+                                <Input name="company" value={formData.company} onChange={handleChange} type="text"  className="text-white" placeholder="Your company" />
+                            </div>
+                            <div className="md:col-span-2">
+                                <label className="block text-xs font-medium text-gray-300 mb-1">Query</label>
+                                <Textarea name="message" value={formData.message} onChange={handleChange} required placeholder="Tell me about your query..." className="text-white focus:text-white" rows={4} />
+                            </div>
+                        </div>
+
+                        {submitStatus === "success" && (
+                            <div className="p-3 bg-green-900/30 border border-green-700/50 rounded-lg">
+                                <p className="text-green-400 text-sm">Message sent successfully! We'll get back to you soon.</p>
+                            </div>
+                        )}
+                        {submitStatus === "error" && (
+                            <div className="p-3 bg-red-900/30 border border-red-700/50 rounded-lg">
+                                <p className="text-red-400 text-sm">Failed to send message. Please try again.</p>
+                            </div>
+                        )}
+
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="mt-2 bg-green-900 hover:bg-green-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-md py-2 transition flex items-center justify-center gap-2"
+                        >
+                            {isSubmitting ? "Sending..." : "Send Message"}
+                            {!isSubmitting && (
+                                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 2 11 13" /><path d="m22 2-7 20-4-9-9-4Z" /></svg>
+                            )}
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    )
+}
