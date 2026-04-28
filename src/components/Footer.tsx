@@ -206,7 +206,7 @@ const Footer = () => {
                                 <li className="flex items-start gap-3">
                                     <Phone size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
                                     <motion.a
-                                        href="tel:+15550000000"
+                                        href="tel:+919220518139"
                                         whileHover={{ x: 5 }}
                                         transition={{ duration: 0.2 }}
                                         className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
