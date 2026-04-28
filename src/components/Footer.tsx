@@ -211,7 +211,7 @@ const Footer = () => {
                                         transition={{ duration: 0.2 }}
                                         className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
                                     >
-                                        +1 (555) 000-0000
+                                        +91 92205 18139
                                     </motion.a>
                                 </li>
                                 <li className="flex items-start gap-3">
