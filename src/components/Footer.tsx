@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Github, Instagram, Youtube } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Instagram, Youtube } from "lucide-react"
 import { motion } from "framer-motion"
 
 const Footer = () => {
