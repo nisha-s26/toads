@@ -24,6 +24,7 @@ import {
   Wand2,
   Cpu,
 } from "lucide-react"
+import { useNavigate } from "react-router-dom";
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false)
@@ -52,6 +53,8 @@ const clients = [
 ]
 
 export default function GenerativeAIPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-[#050d18] text-white">
 
@@ -75,7 +78,7 @@ export default function GenerativeAIPage() {
             Leverage the power of next-gen AI/ML to be a leading AI provider of AI solutions for businesses. We help you build AI-driven products, content engines, and automation workflows.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">
+            <button className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors" onClick={()=>navigate("/contact")}>
               Book a Free Consultation
             </button>
             <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">

@@ -82,7 +82,7 @@ export default function Contact() {
                                 </span>
                                 <div>
                                     <div className="text-sm text-gray-400">Phone</div>
-                                    <div className="font-semibold text-white">084487 33347</div>
+                                    <div className="font-semibold text-white">+91 92205 17988</div>
                                 </div>
                             </li>
                             <li className="flex items-start gap-3">
@@ -98,10 +98,7 @@ export default function Contact() {
                             </li>
                         </ul>
                     </div>
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-4 mt-2">
-                        <div className="font-semibold text-white mb-1 text-sm">Office Hours</div>
-                        <div className="text-xs text-gray-400">Mon – Fri: 9:00 AM – 6:00 PM IST<br />Sat – Sun: Closed</div>
-                    </div>
+                   
                 </div>
 
                 {/* Contact Form */}
@@ -111,11 +108,11 @@ export default function Contact() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label className="block text-xs font-medium  mb-1 text-white">Name</label>
-                                <Input name="name" value={formData.name} onChange={handleChange} required type="text" className="text-white" placeholder="John Doe" />
+                                <Input name="name" value={formData.name} onChange={handleChange} required type="text" className="text-white" placeholder="Enter your name" />
                             </div>
                             <div>
                                 <label className="block text-xs font-medium text-gray-300 mb-1">Email</label>
-                                <Input name="fromEmail" value={formData.fromEmail} onChange={handleChange} required type="email" className="text-white" placeholder="john@company.com" />
+                                <Input name="fromEmail" value={formData.fromEmail} onChange={handleChange} required type="email" className="text-white" placeholder="Enter your email" />
                             </div>
                             <div className="md:col-span-2">
                                 <label className="block text-xs font-medium text-gray-300 mb-1">Company</label>

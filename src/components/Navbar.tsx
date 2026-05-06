@@ -114,7 +114,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 shrink-0">
           <a href="/" onClick={closeMobile} className="flex items-center">
-            <img src="/green-logo.svg" alt="Toadster" className="h-7 w-auto select-none" />
+            <img src="/toadster-logo.svg" alt="Toadster" className="h-7 w-auto select-none" />
           </a>
           <button
             className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors"
@@ -202,13 +202,13 @@ export function Navbar({ activeSection }: { activeSection: string }) {
       <header className="absolute top-0 left-0 right-0 w-full flex justify-center px-3 sm:px-4 pt-3">
       {/* Floating pill container */}
       <nav
-        className="w-full bg-white max-w-7xl rounded-2xl shadow-xl px-3 sm:px-6 py-3 flex items-center justify-between min-w-0"
+        className="w-full bg-white/90 max-w-7xl rounded-2xl shadow-xl px-3 sm:px-6 py-3 flex items-center justify-between min-w-0"
         style={{ boxShadow: "0 4px 24px 0 rgba(0,0,0,0.08)" }}
       >
         {/* ── Logo ── */}
         <a href="/" className="flex items-center gap-2.5 shrink-0 min-w-0">
           <img
-            src="/green-logo.svg"
+            src="/toadster-logo.svg"
             alt="Toadster"
             className="h-7 sm:h-8 w-auto max-w-30 select-none"
           />

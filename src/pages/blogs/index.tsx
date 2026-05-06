@@ -24,7 +24,7 @@ export default function Blogs() {
       <section className="py-12 px-3 sm:px-4 md:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-toadster-green/10 via-transparent to-toadster-green/10"></div>
         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-toadster-green/5 to-transparent"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10 mt-10">
           <div className="mb-8 sm:mb-12 md:mb-16">
             <div className={`text-center transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-toadster-green">

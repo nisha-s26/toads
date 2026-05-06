@@ -53,17 +53,17 @@ export default function AboutPage() {
                     <div className="grid grid-cols-2 grid-rows-2 gap-4 h-[450px]">
                         {/* Top spanning horizontally */}
                         <div className="col-span-2 row-span-1 overflow-hidden rounded-3xl border border-white/5 relative group shadow-lg">
-                            <img src="/assets/about2.png" alt="Collaboration" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                            <img src="/about2.png" alt="Collaboration" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                             <div className="absolute inset-0 bg-[#050d18]/10 group-hover:bg-transparent transition-colors duration-500"></div>
                         </div>
                         {/* Bottom left */}
                         <div className="col-span-1 row-span-1 overflow-hidden rounded-3xl border border-white/5 relative group shadow-lg">
-                            <img src="/assets/about3.png" alt="Team Work" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                            <img src="/about3.png" alt="Team Work" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                             <div className="absolute inset-0 bg-[#050d18]/10 group-hover:bg-transparent transition-colors duration-500"></div>
                         </div>
                         {/* Bottom right */}
                         <div className="col-span-1 row-span-1 overflow-hidden rounded-3xl border border-white/5 relative group shadow-lg drop-shadow-xl">
-                            <img src="/assets/about4.jpeg" alt="Innovation" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                            <img src="/about1.png" alt="Innovation" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                             <div className="absolute inset-0 bg-[#050d18]/10 group-hover:bg-transparent transition-colors duration-500"></div>
                         </div>
                     </div>
@@ -100,25 +100,104 @@ export default function AboutPage() {
             </section>
 
             {/* ── Leadership ── Dark green bg, translucent cards */}
-            <section className="bg-[#050d18] py-20 px-6">
-                <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-12">
-                        <p className="text-xs font-semibold tracking-widest text-toadster-green uppercase mb-2">The Team</p>
-                        <h2 className="text-4xl font-extrabold text-white">Our Leadership</h2>
+            <section className="bg-[#050d18] py-20 px-6 relative overflow-hidden">
+                {/* Background decoration */}
+                <div className="absolute inset-0 opacity-5">
+                    <div className="absolute top-20 left-10 w-72 h-72 bg-toadster-green rounded-full blur-[100px]"></div>
+                    <div className="absolute bottom-20 right-10 w-96 h-96 bg-toadster-green rounded-full blur-[120px]"></div>
+                </div>
+
+                <div className="max-w-6xl mx-auto relative z-10">
+                    <div className="text-center mb-16">
+                        <p className="text-xs font-semibold tracking-widest text-toadster-green uppercase mb-3">The Team</p>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Our Leadership</h2>
+                        <p className="text-gray-400 text-lg max-w-2xl mx-auto">Meet the visionary driving innovation and excellence</p>
                     </div>
-                    <div className="grid md:grid-cols-4 gap-6">
-                        {[
-                            { initials: "AC", name: "Alex Chen", role: "CEO & Founder" },
-                            { initials: "SK", name: "Sarah Kim", role: "CTO" },
-                            { initials: "MJ", name: "Marcus Johnson", role: "VP Engineering" },
-                            { initials: "PP", name: "Priya Patel", role: "AI Research Lead" },
-                        ].map((person) => (
-                            <div key={person.name} className="bg-white/10 hover:bg-white/20 transition-colors rounded-2xl p-6 text-center">
-                                <div className="w-14 h-14 mx-auto rounded-full bg-toadster-green/20 border-2 border-toadster-green/40 flex items-center justify-center text-lg font-extrabold text-toadster-green mb-3">{person.initials}</div>
-                                <div className="font-bold text-white mb-1">{person.name}</div>
-                                <div className="text-toadster-green text-xs">{person.role}</div>
+
+                    {/* Leadership Card */}
+                    <div className="group relative max-w-4xl mx-auto">
+                        {/* Glow effect on hover */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-toadster-green/10 via-toadster-green/5 to-toadster-green/10 rounded-3xl blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+                        
+                        <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-3xl border border-white/10 group-hover:border-toadster-green/20 transition-all duration-300 overflow-hidden">
+                            {/* Top accent line */}
+                            <div className="h-1 bg-gradient-to-r from-transparent via-toadster-green to-transparent"></div>
+                            
+                            <div className="p-8 md:p-12">
+                                {/* Profile Image Container */}
+                                <div className="flex justify-center mb-8">
+                                    <div className="relative">
+                                        {/* Animated ring */}
+                                        <div className="absolute -inset-3 bg-gradient-to-r from-toadster-green/40 to-toadster-green/20 rounded-full blur-md transition-all duration-300"></div>
+                                        
+                                        {/* Image */}
+                                        <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-toadster-green/50 shadow-2xl group-hover:border-toadster-green/60 transition-all duration-300 transform">
+                                            <img 
+                                                src="/leader.jpeg" 
+                                                alt="Naveen Singh" 
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                                            />
+                                            {/* Overlay gradient on hover */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-toadster-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                        </div>
+
+                                        {/* Decorative dots */}
+                                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-toadster-green rounded-full animate-pulse"></div>
+                                        <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-toadster-green/60 rounded-full animate-pulse delay-75"></div>
+                                    </div>
+                                </div>
+
+                                {/* Text Content */}
+                                <div className="text-center space-y-4">
+                                    {/* Name */}
+                                    <div>
+                                        <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">
+                                            Mr. Naveen Singh
+                                        </h3>
+                                        <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-toadster-green/10 border border-toadster-green/30 rounded-full">
+                                            <div className="w-2 h-2 bg-toadster-green rounded-full animate-pulse"></div>
+                                            <h4 className="text-sm md:text-base font-semibold text-toadster-green">
+                                                Founder & Chief Executive Officer
+                                            </h4>
+                                        </div>
+                                        <p className="text-gray-400 text-sm mt-2">Toadster Technologies Pvt. Ltd.</p>
+                                    </div>
+
+                                    {/* Divider */}
+                                    <div className="flex items-center justify-center gap-2 py-4">
+                                        <div className="h-px w-12 bg-gradient-to-r from-transparent to-toadster-green/50"></div>
+                                        <div className="w-1.5 h-1.5 bg-toadster-green rounded-full"></div>
+                                        <div className="h-px w-12 bg-gradient-to-l from-transparent to-toadster-green/50"></div>
+                                    </div>
+
+                                    {/* Bio */}
+                                    <div className="max-w-3xl mx-auto">
+                                        <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                                            Mr. Naveen Singh is a technology leader with over <span className="text-toadster-green font-semibold">two decades of experience</span> turning bold ideas into scalable, real-world solutions. As the Founder and CEO of Toadster Technologies Pvt. Ltd., he drives <span className="text-toadster-green font-semibold">AI-powered innovation</span> that helps businesses operate smarter, faster, and more securely.
+                                        </p>
+                                        <p className="text-gray-400 text-base md:text-base leading-relaxed mt-4">
+                                            His career spans landmark roles at <span className="text-white font-medium">EA Sports</span> and <span className="text-white font-medium">Samsung India Electronics</span>, where he contributed to globally recognized products and set new benchmarks for technology excellence. A strategist at heart and a builder by nature, Mr. Singh continues to champion responsible innovation, forge meaningful partnerships, and deliver technology solutions that create lasting impact.
+                                        </p>
+                                    </div>
+
+                                    {/* Key Highlights */}
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-8 mt-8 border-t border-white/10">
+                                        <div className="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5 transition-colors duration-200">
+                                            <div className="text-2xl font-bold text-toadster-green mb-1">20+</div>
+                                            <div className="text-xs text-gray-400 uppercase tracking-wide">Years Experience</div>
+                                        </div>
+                                        <div className="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5 transition-colors duration-200">
+                                            <div className="text-2xl font-bold text-toadster-green mb-1">Global</div>
+                                            <div className="text-xs text-gray-400 uppercase tracking-wide">Impact & Reach</div>
+                                        </div>
+                                        <div className="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5 transition-colors duration-200">
+                                            <div className="text-2xl font-bold text-toadster-green mb-1">AI</div>
+                                            <div className="text-xs text-gray-400 uppercase tracking-wide">Innovation Leader</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </section>

@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Github, Instagram } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Github, Instagram, Youtube } from "lucide-react"
 import { motion } from "framer-motion"
 
 const Footer = () => {
@@ -24,7 +24,7 @@ const Footer = () => {
                             className="flex items-center gap-2 mb-4"
                         >
                             <img
-                                src="/green-logo.svg"
+                                src="/toadster-logo.svg"
                                 alt="Toadster"
                                 className="h-8 w-auto select-none"
                             />
@@ -77,20 +77,20 @@ const Footer = () => {
                                 <Linkedin size={20} />
                             </motion.a>
                             <motion.a
-                                href="https://github.com/team-toadster/"
-                                whileHover={{ y: -3 }}
-                                transition={{ duration: 0.2 }}
-                                className="text-gray-400 hover:text-gray-600 transition-colors"
-                            >
-                                <Github size={20} />
-                            </motion.a>
-                            <motion.a
-                                href="https://www.instagram.com/toadsters_24/"
+                                href="https://www.instagram.com/toadster_technologies"
                                 whileHover={{ y: -3 }}
                                 transition={{ duration: 0.2 }}
                                 className="text-gray-400 hover:text-gray-600 transition-colors"
                             >
                                 <Instagram size={20} />
+                            </motion.a>
+                            <motion.a
+                                href="https://www.youtube.com/@toadster-technologies"
+                                whileHover={{ y: -3 }}
+                                transition={{ duration: 0.2 }}
+                                className="text-gray-400 hover:text-gray-600 transition-colors"
+                            >
+                                <Youtube size={20} />
                             </motion.a>
                         </motion.div>
                     </motion.div>
@@ -211,15 +211,15 @@ const Footer = () => {
                                         transition={{ duration: 0.2 }}
                                         className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
                                     >
-                                        +91 92205 18139
+                                        +91 92205 17988
+
                                     </motion.a>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <MapPin size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
                                     <span className="text-gray-600 text-sm">
-                                        H-17, G-002, JAV Tower, SECTOR-63
-                                        <br />
-                                        Noida, India-201301
+                                        JAV Tower, H17, H Block, Sector 63,                                         <br />
+                                        Noida, Uttar Pradesh 201309
                                     </span>
                                 </li>
                             </ul>
