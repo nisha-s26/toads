@@ -128,7 +128,7 @@ export default function LLMDevelopmentPage() {
               ))}
             </div>
             <div className="rounded-3xl overflow-hidden border border-white/5 relative h-[400px] md:h-full group">
-              <img src="/assets/services/llm1.webp" alt="LLM Development Stack" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="LLM Development Stack" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
           </div>
         </div>
@@ -143,9 +143,9 @@ export default function LLMDevelopmentPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Legal AI", title: "LegalMind LLM", desc: "Fine-tuned LLaMA-3 on 50M+ legal documents. Outperformed GPT-4 on legal contract analysis tasks by 38% while reducing inference cost by 12×.", metric: "38% better vs GPT-4", img: "/assets/services/llm2.webp" },
-              { tag: "Medical AI", title: "ClinicalBot LLM", desc: "HIPAA-compliant medical LLM fine-tuned on clinical notes and medical literature — deployed on-premise for a hospital network.", metric: "100% on-premise", img: "/assets/services/llm3.webp" },
-              { tag: "FinTech AI", title: "FinLex Model", desc: "Custom financial LLM fine-tuned on earnings reports, analyst notes, and SEC filings. Powers real-time financial analysis for 500+ analysts.", metric: "500+ analysts served", img: "/assets/services/llm4.webp" },
+              { tag: "Legal AI", title: "LegalMind LLM", desc: "Fine-tuned LLaMA-3 on 50M+ legal documents. Outperformed GPT-4 on legal contract analysis tasks by 38% while reducing inference cost by 12×.", metric: "38% better vs GPT-4", img: "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Medical AI", title: "ClinicalBot LLM", desc: "HIPAA-compliant medical LLM fine-tuned on clinical notes and medical literature — deployed on-premise for a hospital network.", metric: "100% on-premise", img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "FinTech AI", title: "FinLex Model", desc: "Custom financial LLM fine-tuned on earnings reports, analyst notes, and SEC filings. Powers real-time financial analysis for 500+ analysts.", metric: "500+ analysts served", img: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div key={w.title} className="bg-[#050d18] rounded-2xl overflow-hidden border border-white/5 hover:border-green-700/30 transition-colors group shadow-lg">
                 <div className="h-44 overflow-hidden relative">

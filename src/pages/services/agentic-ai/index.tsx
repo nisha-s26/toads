@@ -223,7 +223,7 @@ export default function AgenticAIPage() {
             <div
               className="relative rounded-3xl overflow-hidden border border-white/5 min-h-100 flex items-center justify-center group"
               style={{
-                backgroundImage: "url('/assets/services/agentic1.webp')",
+                backgroundImage: "url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
@@ -345,9 +345,9 @@ export default function AgenticAIPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Agentic AI", title: "Autonomous Support Agent", desc: "Reduced support tickets by 78% for a fintech company using an autonomous triage agent.", metric: "78% reduction", image: "/assets/services/agentic3.webp" },
-              { tag: "LLM Integration", title: "Enterprise Document Intelligence", desc: "Deployed a RAG pipeline to process 100K+ legal documents with 95%+ accuracy.", metric: "95%+ accuracy", image: "/genai.webp" },
-              { tag: "AI Automation", title: "Supply Chain Optimizer", desc: "AI agent orchestrating real-time supply chain decisions, saving $2M+ annually.", metric: "$2M+ savings", image: "/assets/services/agentic4.webp" },
+              { tag: "Agentic AI", title: "Autonomous Support Agent", desc: "Reduced support tickets by 78% for a fintech company using an autonomous triage agent.", metric: "78% reduction", image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "LLM Integration", title: "Enterprise Document Intelligence", desc: "Deployed a RAG pipeline to process 100K+ legal documents with 95%+ accuracy.", metric: "95%+ accuracy", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "AI Automation", title: "Supply Chain Optimizer", desc: "AI agent orchestrating real-time supply chain decisions, saving $2M+ annually.", metric: "$2M+ savings", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}

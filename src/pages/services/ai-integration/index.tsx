@@ -128,7 +128,7 @@ export default function AIIntegrationPage() {
               ))}
             </div>
             <div className="rounded-3xl overflow-hidden border border-white/5 relative h-[400px] md:h-full group">
-              <img src="/assets/services/integration1.webp" alt="AI Integration Layer" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="AI Integration Layer" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
           </div>
         </div>
@@ -143,9 +143,9 @@ export default function AIIntegrationPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "CRM AI", title: "SalesBoostAI", desc: "Integrated GPT-4 into Salesforce for a B2B SaaS company — auto-generating meeting summaries and follow-up emails, saving reps 90 mins/day.", metric: "90 min/day saved", img: "/assets/services/integration2.webp" },
-              { tag: "Data AI", title: "InsightBridge", desc: "Connected 7 data sources to a central AI analytics layer, giving a fintech team unified AI insights across all platforms in real time.", metric: "7 systems unified", img: "/assets/services/integration3.webp" },
-              { tag: "Cloud AI", title: "AutoSupport", desc: "Integrated AWS Bedrock into a customer support platform, automating 65% of tier-1 tickets without human intervention.", metric: "65% auto-resolved", img: "/assets/services/integration4.webp" },
+              { tag: "CRM AI", title: "SalesBoostAI", desc: "Integrated GPT-4 into Salesforce for a B2B SaaS company — auto-generating meeting summaries and follow-up emails, saving reps 90 mins/day.", metric: "90 min/day saved", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Data AI", title: "InsightBridge", desc: "Connected 7 data sources to a central AI analytics layer, giving a fintech team unified AI insights across all platforms in real time.", metric: "7 systems unified", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Cloud AI", title: "AutoSupport", desc: "Integrated AWS Bedrock into a customer support platform, automating 65% of tier-1 tickets without human intervention.", metric: "65% auto-resolved", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div key={w.title} className="bg-[#0a1628] rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-colors group shadow-lg">
                 <div className="h-44 overflow-hidden relative">

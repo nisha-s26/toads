@@ -209,7 +209,7 @@ export default function NLPServicesPage() {
             <div
               className="relative rounded-3xl overflow-hidden border border-white/5 min-h-100 flex items-center justify-center group"
               style={{
-                backgroundImage: "url('/assets/services/nlp1.webp')",
+                backgroundImage: "url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
@@ -265,9 +265,9 @@ export default function NLPServicesPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Sentiment Analysis", title: "RetailPulse", desc: "Built a real-time sentiment analysis pipeline processing 500K+ customer reviews/day with 94% accuracy for a retail giant.", image: "/assets/services/nlp2.webp" },
-              { tag: "Document AI", title: "LegalMind", desc: "Deployed a contract intelligence system extracting 40+ entity types from legal documents, saving 2000+ man-hours/month.", image: "/assets/services/nlp3.webp" },
-              { tag: "Multilingual NLP", title: "GlobalSupport", desc: "Developed a multilingual support classifier supporting 18 languages, reducing misrouted tickets by 76%.", image: "/assets/services/nlp4.webp" },
+              { tag: "Sentiment Analysis", title: "RetailPulse", desc: "Built a real-time sentiment analysis pipeline processing 500K+ customer reviews/day with 94% accuracy for a retail giant.", image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Document AI", title: "LegalMind", desc: "Deployed a contract intelligence system extracting 40+ entity types from legal documents, saving 2000+ man-hours/month.", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Multilingual NLP", title: "GlobalSupport", desc: "Developed a multilingual support classifier supporting 18 languages, reducing misrouted tickets by 76%.", image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}

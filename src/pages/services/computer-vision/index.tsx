@@ -238,9 +238,9 @@ export default function ComputerVisionPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Manufacturing", title: "DefectScan AI", desc: "Automated visual quality inspection for an auto-parts manufacturer — 99.7% defect detection rate, replacing 3 manual inspection shifts.", metric: "99.7% accuracy", image: "/assets/services/vision1.webp" },
-              { tag: "Retail", title: "ShelfSight", desc: "Real-time shelf monitoring system for a retail chain — detecting out-of-stock shelves and planogram violations across 200+ stores.", metric: "200+ stores deployed", image: "/assets/services/vision2.webp" },
-              { tag: "Healthcare", title: "PathVision", desc: "Pathology slide analysis AI that assists radiologists in detecting anomalies with 94% sensitivity, reducing diagnosis time by 60%.", metric: "60% faster diagnosis", image: "/assets/services/vision3.webp" },
+              { tag: "Manufacturing", title: "DefectScan AI", desc: "Automated visual quality inspection for an auto-parts manufacturer — 99.7% defect detection rate, replacing 3 manual inspection shifts.", metric: "99.7% accuracy", image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Retail", title: "ShelfSight", desc: "Real-time shelf monitoring system for a retail chain — detecting out-of-stock shelves and planogram violations across 200+ stores.", metric: "200+ stores deployed", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Healthcare", title: "PathVision", desc: "Pathology slide analysis AI that assists radiologists in detecting anomalies with 94% sensitivity, reducing diagnosis time by 60%.", metric: "60% faster diagnosis", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}

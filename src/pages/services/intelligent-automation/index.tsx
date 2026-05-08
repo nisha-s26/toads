@@ -222,7 +222,7 @@ export default function IntelligentAutomationPage() {
               ))}
             </div>
             <div className="rounded-3xl overflow-hidden border border-white/5 relative h-[400px] md:h-full group">
-              <img src="/assets/services/auto1.webp" alt="Intelligent Automation Platform" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Intelligent Automation Platform" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
           </div>
         </div>
@@ -339,9 +339,9 @@ export default function IntelligentAutomationPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Process Automation", title: "Claims Processing Bot", desc: "Automated insurance claims workflow, reducing processing time from 3 days to 4 hours.", metric: "94% faster processing", img: "/assets/services/auto2.webp" },
-              { tag: "Document Automation", title: "Contract Analyzer", desc: "AI pipeline extracting key clauses from 50K+ contracts monthly with 97% accuracy.", metric: "97% accuracy", img: "/assets/services/auto3.webp" },
-              { tag: "Intelligent Automation", title: "Invoice Reconciliation", desc: "Fully automated accounts payable reconciliation saving 1,200+ manual hours per month.", metric: "1,200 hrs/month saved", img: "/assets/services/auto4.webp" },
+              { tag: "Process Automation", title: "Claims Processing Bot", desc: "Automated insurance claims workflow, reducing processing time from 3 days to 4 hours.", metric: "94% faster processing", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Document Automation", title: "Contract Analyzer", desc: "AI pipeline extracting key clauses from 50K+ contracts monthly with 97% accuracy.", metric: "97% accuracy", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Intelligent Automation", title: "Invoice Reconciliation", desc: "Fully automated accounts payable reconciliation saving 1,200+ manual hours per month.", metric: "1,200 hrs/month saved", img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}

@@ -210,7 +210,7 @@ export default function GenerativeAIPage() {
             <div
               className="relative rounded-3xl overflow-hidden border border-white/5 min-h-100 flex items-center justify-center group"
               style={{
-                backgroundImage: "url('/assets/services/genai1.webp')",
+                backgroundImage: "url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
@@ -266,9 +266,9 @@ export default function GenerativeAIPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "LLM", title: "VHW", desc: "Built an LLM-powered health assistant that triages patient queries and reduces ER visits by 40%.", image: "/assets/services/genai2.webp" },
-              { tag: "Generative AI", title: "Top Bakers", desc: "Generated 50,000+ personalized product descriptions monthly using fine-tuned GPT-4 for an e-commerce client.", image: "/assets/services/genai3.webp" },
-              { tag: "AI Agent", title: "Travel Map", desc: "AI travel planning agent that autonomously searches, compares, and books travel itineraries.", image: "/assets/services/genai4.webp" },
+              { tag: "LLM", title: "VHW", desc: "Built an LLM-powered health assistant that triages patient queries and reduces ER visits by 40%.", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Generative AI", title: "Top Bakers", desc: "Generated 50,000+ personalized product descriptions monthly using fine-tuned GPT-4 for an e-commerce client.", image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "AI Agent", title: "Travel Map", desc: "AI travel planning agent that autonomously searches, compares, and books travel itineraries.", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}
@@ -468,7 +468,7 @@ export default function GenerativeAIPage() {
       </section> */}
 
       {/* ── FAQ ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>

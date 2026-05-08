@@ -207,7 +207,7 @@ export default function AIDevelopmentPage() {
             <div
               className="relative rounded-3xl overflow-hidden border border-white/5 min-h-100 flex items-center justify-center group"
               style={{
-                backgroundImage: "url('/assets/services/ai-dev1.webp')",
+                backgroundImage: "url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
@@ -262,9 +262,9 @@ export default function AIDevelopmentPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Predictive AI", title: "InventoryIQ", desc: "Built a demand forecasting model reducing overstock costs by $1.8M/year for a retail chain across 300+ SKUs.", metric: "$1.8M saved", image: "/assets/services/ai-dev2.webp" },
-              { tag: "Computer Vision", title: "SafeGuard AI", desc: "Deployed a real-time workplace safety detection system with 98.5% accuracy on CCTV feeds across 50 facilities.", metric: "98.5% accuracy", image: "/assets/services/ai-dev3.webp" },
-              { tag: "MLOps", title: "StreamlineML", desc: "Redesigned a fintech company's ML infrastructure — reduced model deployment time from 2 weeks to 4 hours.", metric: "5× faster deploys", image: "/assets/services/ai-dev4.webp" },
+              { tag: "Predictive AI", title: "InventoryIQ", desc: "Built a demand forecasting model reducing overstock costs by $1.8M/year for a retail chain across 300+ SKUs.", metric: "$1.8M saved", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Computer Vision", title: "SafeGuard AI", desc: "Deployed a real-time workplace safety detection system with 98.5% accuracy on CCTV feeds across 50 facilities.", metric: "98.5% accuracy", image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "MLOps", title: "StreamlineML", desc: "Redesigned a fintech company's ML infrastructure — reduced model deployment time from 2 weeks to 4 hours.", metric: "5× faster deploys", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}

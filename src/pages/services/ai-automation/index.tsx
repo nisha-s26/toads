@@ -224,7 +224,7 @@ export default function AIAutomationPage() {
             <div
               className="relative rounded-3xl overflow-hidden border border-white/5 min-h-100 flex items-center justify-center group"
               style={{
-                backgroundImage: "url('/assets/services/automation1.webp')",
+                backgroundImage: "url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
@@ -346,9 +346,9 @@ export default function AIAutomationPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Process Automation", title: "Claims Processing Bot", desc: "Automated end-to-end insurance claims workflow, reducing processing time from 3 days to 4 hours.", metric: "94% faster processing", image: "/assets/services/automation2.webp" },
-              { tag: "Document Automation", title: "Legal Contract Extractor", desc: "AI pipeline extracting key clauses from 50K+ contracts monthly with 97% accuracy.", metric: "97% accuracy", image: "/assets/services/automation3.webp" },
-              { tag: "AI Automation", title: "Invoice & Finance Reconciliation", desc: "Fully automated accounts payable reconciliation saving 1,200+ manual hours per month.", metric: "1,200 hrs/month saved", image: "/assets/services/automation4.webp" },
+              { tag: "Process Automation", title: "Claims Processing Bot", desc: "Automated end-to-end insurance claims workflow, reducing processing time from 3 days to 4 hours.", metric: "94% faster processing", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Document Automation", title: "Legal Contract Extractor", desc: "AI pipeline extracting key clauses from 50K+ contracts monthly with 97% accuracy.", metric: "97% accuracy", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "AI Automation", title: "Invoice & Finance Reconciliation", desc: "Fully automated accounts payable reconciliation saving 1,200+ manual hours per month.", metric: "1,200 hrs/month saved", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}

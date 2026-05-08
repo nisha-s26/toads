@@ -131,7 +131,7 @@ export default function MachineLearningPage() {
               ))}
             </div>
             <div className="rounded-3xl overflow-hidden border border-white/5 relative h-[400px] md:h-full group">
-              <img src="/assets/services/ml1.webp" alt="Machine Learning Process" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="Machine Learning Process" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
           </div>
         </div>
@@ -174,9 +174,9 @@ export default function MachineLearningPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Predictive ML", title: "DemandEdge", desc: "Reduced forecast error by 62% for a FMCG client, saving $900K in overstock costs annually.", metric: "62% error reduction", img: "/assets/services/ml2.webp" },
-              { tag: "Fraud Detection", title: "SecureFlow", desc: "Built a real-time fraud detection model processing 2M+ transactions/day with 99.2% precision.", metric: "99.2% precision", img: "/assets/services/ml3.webp" },
-              { tag: "Churn ML", title: "RetainIQ", desc: "Predicted churn 45 days ahead for a SaaS platform, improving retention by 38% in 6 months.", metric: "38% retention gain", img: "/assets/services/ml4.webp" },
+              { tag: "Predictive ML", title: "DemandEdge", desc: "Reduced forecast error by 62% for a FMCG client, saving $900K in overstock costs annually.", metric: "62% error reduction", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Fraud Detection", title: "SecureFlow", desc: "Built a real-time fraud detection model processing 2M+ transactions/day with 99.2% precision.", metric: "99.2% precision", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Churn ML", title: "RetainIQ", desc: "Predicted churn 45 days ahead for a SaaS platform, improving retention by 38% in 6 months.", metric: "38% retention gain", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div key={w.title} className="bg-[#0a1628] rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-colors group shadow-lg">
                 <div className="h-44 overflow-hidden relative">

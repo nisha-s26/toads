@@ -69,6 +69,7 @@ const Footer = () => {
                             className="flex gap-4"
                         >
                             <motion.a
+                                target="_blank"
                                 href="https://in.linkedin.com/company/toadster-technologies-private-limited"
                                 whileHover={{ y: -3 }}
                                 transition={{ duration: 0.2 }}
@@ -77,6 +78,7 @@ const Footer = () => {
                                 <Linkedin size={20} />
                             </motion.a>
                             <motion.a
+                                target="_blank"
                                 href="https://www.instagram.com/toadster_technologies"
                                 whileHover={{ y: -3 }}
                                 transition={{ duration: 0.2 }}
@@ -85,6 +87,7 @@ const Footer = () => {
                                 <Instagram size={20} />
                             </motion.a>
                             <motion.a
+                                target="_blank"
                                 href="https://www.youtube.com/@toadster-technologies"
                                 whileHover={{ y: -3 }}
                                 transition={{ duration: 0.2 }}

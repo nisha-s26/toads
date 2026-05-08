@@ -130,7 +130,7 @@ export default function AIChatbotsPage() {
             <div
               className="relative rounded-3xl overflow-hidden border border-white/5 min-h-100 flex items-center justify-center group"
               style={{
-                backgroundImage: "url('/assets/services/chatbot1.webp')",
+                backgroundImage: "url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
@@ -149,9 +149,9 @@ export default function AIChatbotsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Support Bot", title: "HelpMind", desc: "Deployed an AI support chatbot for a fintech company that resolved 72% of queries automatically, cutting support costs by $400K/year.", metric: "72% auto-resolved", image: "/assets/services/chatbot2.webp" },
-              { tag: "Sales Bot", title: "LeadFlow AI", desc: "Built a sales qualification chatbot that engages 100% of website visitors and converts 3× more leads to demos.", metric: "3× more demos", image: "/assets/services/chatbot3.webp" },
-              { tag: "HR Bot", title: "HRConnect", desc: "Internal HR chatbot serving 2,000+ employees with policy answers, leave requests, and IT helpdesk — 89% self-service rate.", metric: "89% self-service", image: "/assets/services/chatbot4.webp" },
+              { tag: "Support Bot", title: "HelpMind", desc: "Deployed an AI support chatbot for a fintech company that resolved 72% of queries automatically, cutting support costs by $400K/year.", metric: "72% auto-resolved", image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Sales Bot", title: "LeadFlow AI", desc: "Built a sales qualification chatbot that engages 100% of website visitors and converts 3× more leads to demos.", metric: "3× more demos", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "HR Bot", title: "HRConnect", desc: "Internal HR chatbot serving 2,000+ employees with policy answers, leave requests, and IT helpdesk — 89% self-service rate.", metric: "89% self-service", image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}

@@ -185,7 +185,7 @@ export default function AIDataAnalyticsPage() {
             <div
               className="relative rounded-3xl overflow-hidden border border-white/5 min-h-100 flex items-center justify-center group"
               style={{
-                backgroundImage: "url('/assets/services/analytics1.webp')",
+                backgroundImage: "url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
@@ -223,9 +223,9 @@ export default function AIDataAnalyticsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Predictive Analytics", title: "ChurnGuard", desc: "ML churn prediction model for a telecom company — 82% precision, enabling proactive retention that saved $2.4M in annual revenue.", metric: "$2.4M revenue saved", image: "/assets/services/analytics1.webp" },
-              { tag: "Data Platform", title: "DataFoundation", desc: "Built a unified Snowflake data warehouse consolidating 40+ data sources for a retail group — cutting reporting time from days to minutes.", metric: "40+ sources unified", image: "/assets/services/analytics2.webp" },
-              { tag: "Real-Time Analytics", title: "TradeWatch", desc: "Real-time trading analytics platform processing 2M+ events/sec with sub-second latency dashboards for a fintech company.", metric: "2M+ events/sec", image: "/assets/services/analytics3.webp" },
+              { tag: "Predictive Analytics", title: "ChurnGuard", desc: "ML churn prediction model for a telecom company — 82% precision, enabling proactive retention that saved $2.4M in annual revenue.", metric: "$2.4M revenue saved", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Data Platform", title: "DataFoundation", desc: "Built a unified Snowflake data warehouse consolidating 40+ data sources for a retail group — cutting reporting time from days to minutes.", metric: "40+ sources unified", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Real-Time Analytics", title: "TradeWatch", desc: "Real-time trading analytics platform processing 2M+ events/sec with sub-second latency dashboards for a fintech company.", metric: "2M+ events/sec", image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}

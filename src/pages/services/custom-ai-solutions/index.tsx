@@ -130,7 +130,7 @@ export default function CustomAISolutionsPage() {
             <div
               className="relative rounded-3xl overflow-hidden border border-white/5 min-h-100 flex items-center justify-center group"
               style={{
-                backgroundImage: "url('/assets/services/customai1.webp')",
+                backgroundImage: "url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
@@ -150,9 +150,9 @@ export default function CustomAISolutionsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Custom NLP AI", title: "ClauseGuard", desc: "Built a bespoke contract analysis AI for a law firm, reviewing 200+ clause types with 96% accuracy.", metric: "96% accuracy", image: "/assets/services/customai2.webp" },
-              { tag: "Custom Vision AI", title: "QualityEye", desc: "Developed a custom defect detection vision system for a manufacturer, reducing QA failures by 84%.", metric: "84% fewer defects", image: "/assets/services/customai3.webp" },
-              { tag: "Custom Prediction AI", title: "PriceSense", desc: "Built a dynamic pricing AI for an e-commerce client, increasing revenue per visit by 22%.", metric: "22% revenue uplift", image: "/assets/services/customai4.webp" },
+              { tag: "Custom NLP AI", title: "ClauseGuard", desc: "Built a bespoke contract analysis AI for a law firm, reviewing 200+ clause types with 96% accuracy.", metric: "96% accuracy", image: "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Custom Vision AI", title: "QualityEye", desc: "Developed a custom defect detection vision system for a manufacturer, reducing QA failures by 84%.", metric: "84% fewer defects", image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Custom Prediction AI", title: "PriceSense", desc: "Built a dynamic pricing AI for an e-commerce client, increasing revenue per visit by 22%.", metric: "22% revenue uplift", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}
@@ -273,7 +273,7 @@ export default function CustomAISolutionsPage() {
       </section> */}
 
       {/* ── FAQ ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>

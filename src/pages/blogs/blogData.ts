@@ -20,7 +20,7 @@ export const allBlogs: BlogPost[] = [
     title: "Top Gen AI Companies In The USA & Global Leaders: What Sets Them Apart?",
     description:
       "Generative AI has taken the tech industry by storm, but what exactly sets the leading companies apart from the rest? From cutting-edge research to real-world applications, we dive deep into the innovations that define the true pioneers in the AI space.",
-    image: "/public/assets/blog-images/blog1.webp",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
     date: "March 15, 2024",
     readTime: "8 min read",
     author: "Ravi Patel",
@@ -59,7 +59,7 @@ The generative AI space will continue to consolidate around a handful of leading
     title: "Why Generative AI Is Crucial for Digital Transformation in 2024",
     description:
       "Explore how generative AI is revolutionizing business operations and driving unprecedented digital transformation across industries.",
-    image: "/public/assets/blog-images/blog2.webp",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
     date: "March 14, 2024",
     readTime: "6 min read",
     author: "Varun Singh",
@@ -94,7 +94,7 @@ Digital transformation with Gen AI isn't optional for companies that want to rem
     title: "The Future of Machine Learning: Trends to Watch",
     description:
       "Discover the emerging ML trends that will shape the future of artificial intelligence and automation in business.",
-    image: "/public/assets/blog-images/blog3.webp",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
     date: "March 13, 2024",
     readTime: "5 min read",
     author: "Ananya Sharma",
@@ -131,7 +131,7 @@ The industry is finally getting serious about the infrastructure needed to deplo
     title: "AI Ethics: Building Responsible AI Systems",
     description:
       "Understanding the importance of ethical AI development and implementation in today's rapidly evolving tech landscape.",
-    image: "/public/assets/blog-images/blog4.webp",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
     date: "March 12, 2024",
     readTime: "7 min read",
     author: "Vaishnavi Gupta",
@@ -168,7 +168,7 @@ The companies that build trust through responsible AI practices will be the ones
     title: "What is Generative AI? How It's Changing The Way We Communicate",
     description:
       "A comprehensive guide to understanding generative AI and its impact on modern communication methods.",
-    image: "/public/assets/blog-images/blog5.webp",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
     date: "March 11, 2024",
     readTime: "4 min read",
     author: "Mansi Mehta",
@@ -207,7 +207,7 @@ Despite all this, the human element remains essential. Generative AI is a tool t
     title: "Natural Language Processing: Breaking Down Language Barriers",
     description:
       "How NLP technology is transforming global communication and making information more accessible.",
-    image: "/public/assets/blog-images/blog6.webp",
+    image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
     date: "March 10, 2024",
     readTime: "5 min read",
     author: "Pooja Choudhary",
@@ -242,7 +242,7 @@ The next frontier for NLP is reasoning — not just understanding language, but 
     title: "Computer Vision Applications in Modern Business",
     description:
       "Real-world applications of computer vision technology across various industries and use cases.",
-    image: "/public/assets/blog-images/blog7.webp",
+    image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=1200&q=80",
     date: "March 9, 2024",
     readTime: "6 min read",
     author: "Meera Joshi",
@@ -283,7 +283,7 @@ The companies that will benefit most from computer vision are those that integra
     title: "Deep Learning Fundamentals: A Beginner's Guide",
     description:
       "Understanding the basics of deep learning and how neural networks power modern AI applications.",
-    image: "/public/assets/blog-images/blog9.webp",
+    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=1200&q=80",
     date: "March 8, 2024",
     readTime: "8 min read",
     author: "Nilesh Gond",
@@ -326,7 +326,7 @@ The barrier to entry for deep learning has never been lower. Frameworks like PyT
     title: "Robotics and AI: The Perfect Partnership",
     description:
       "Exploring the synergy between robotics and artificial intelligence in automation and manufacturing.",
-    image: "/public/assets/blog-images/blog8.webp",
+    image: "https://images.unsplash.com/photo-1561144257-e32e8efc6c4f?auto=format&fit=crop&w=1200&q=80",
     date: "March 7, 2024",
     readTime: "5 min read",
     author: "Amurtha Krishna",
@@ -363,7 +363,7 @@ As robots become more capable, the humans who work alongside them need new skill
     title: "AI in Healthcare: Revolutionizing Patient Care",
     description:
       "How artificial intelligence is transforming healthcare delivery, diagnosis, and treatment planning.",
-    image: "/public/assets/blog-images/blog10.webp",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
     date: "March 6, 2024",
     readTime: "7 min read",
     author: "Dr. Adarsh Verma",
@@ -400,7 +400,7 @@ Healthcare AI faces unique challenges: regulatory approval, liability, integrati
     title: "Reinforcement Learning: Training AI Through Experience",
     description:
       "Understanding reinforcement learning and its applications in game AI, robotics, and decision-making.",
-    image: "/public/assets/blog-images/blog11.webp",
+    image: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=1200&q=80",
     date: "March 5, 2024",
     readTime: "6 min read",
     author: "Shreya Iyer",
@@ -439,7 +439,7 @@ RL is notoriously sample-inefficient — it often requires millions of interacti
     title: "Edge AI: Bringing Intelligence to Devices",
     description:
       "The rise of edge computing and how AI is being deployed directly on devices for faster processing.",
-    image: "/public/assets/blog-images/blog12.webp",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
     date: "March 4, 2024",
     readTime: "5 min read",
     author: "Rohan Mehra",
@@ -478,7 +478,7 @@ Smart cameras, wearable health monitors, industrial quality inspection systems, 
     title: "AI in Finance: Transforming Banking and Investment",
     description:
       "How artificial intelligence is revolutionizing financial services, from fraud detection to algorithmic trading.",
-    image: "/public/assets/blog-images/blog13.webp",
+    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=80",
     date: "March 3, 2024",
     readTime: "6 min read",
     author: "Shivaganga Ahoratri",
