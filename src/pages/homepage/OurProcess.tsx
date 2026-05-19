@@ -44,9 +44,9 @@ const OurProcess = () => {
 
     return (
         <section ref={sectionRef} className="bg-[#050d18]">
-            <div className="max-w-7xl mx-auto px-6 py-20">
+            <div className="max-w-7xl mx-auto px-6 pt-10 pb-10">
                 <div className="text-center">
-                    <p className="text-sm tracking-[0.35em] text-toadster-green font-bold">OUR PROCESS</p>
+                    <p className="text-xl tracking-[0.35em] text-toadster-green font-bold">OUR PROCESS</p>
                     <h2 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-white">
                         How We <span className="text-toadster-green">Work</span>
                     </h2>
@@ -78,9 +78,8 @@ const OurProcess = () => {
                                     >
                                         <div className="mx-auto w-[104px] h-[104px]">
                                             <div
-                                                className={`relative w-full h-full rounded-full bg-[#0a1628] border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${
-                                                    isActive ? "border-toadster-green" : "border-white/10"
-                                                }`}
+                                                className={`relative w-full h-full rounded-full bg-[#0a1628] border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${isActive ? "border-toadster-green" : "border-white/10"
+                                                    }`}
                                             >
                                                 <motion.div
                                                     className="absolute inset-0 rounded-full"
@@ -88,13 +87,13 @@ const OurProcess = () => {
                                                     animate={
                                                         isActive
                                                             ? {
-                                                                  opacity: 1,
-                                                                  scale: 1.25,
-                                                              }
+                                                                opacity: 1,
+                                                                scale: 1.25,
+                                                            }
                                                             : {
-                                                                  opacity: 0,
-                                                                  scale: 0.5,
-                                                              }
+                                                                opacity: 0,
+                                                                scale: 0.5,
+                                                            }
                                                     }
                                                     transition={{ duration: 0.4, ease: "easeOut" }}
                                                     style={{
@@ -148,9 +147,8 @@ const OurProcess = () => {
                                         >
                                             <div className="w-[80px] h-[80px]">
                                                 <div
-                                                    className={`relative w-full h-full rounded-full bg-[#0a1628] border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${
-                                                        isActive ? "border-toadster-green" : "border-white/10"
-                                                    }`}
+                                                    className={`relative w-full h-full rounded-full bg-[#0a1628] border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${isActive ? "border-toadster-green" : "border-white/10"
+                                                        }`}
                                                 >
                                                     <motion.div
                                                         className="absolute inset-0 rounded-full"
@@ -158,13 +156,13 @@ const OurProcess = () => {
                                                         animate={
                                                             isActive
                                                                 ? {
-                                                                      opacity: 1,
-                                                                      scale: 1.25,
-                                                                  }
+                                                                    opacity: 1,
+                                                                    scale: 1.25,
+                                                                }
                                                                 : {
-                                                                      opacity: 0,
-                                                                      scale: 0.5,
-                                                                  }
+                                                                    opacity: 0,
+                                                                    scale: 0.5,
+                                                                }
                                                         }
                                                         transition={{ duration: 0.4, ease: "easeOut" }}
                                                         style={{

@@ -187,11 +187,11 @@ export default function AiCap() {
   }, [selected])
 
   return (
-    <section className="w-full bg-[#050d18] py-20 px-4">
+    <section className="w-full bg-[#050d18] px-4">
       {/* Header */}
       <div className="text-center mb-12">
-        <p className="text-sm tracking-[0.35em] text-toadster-green font-bold">
-          AI Capabilities
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold">
+          AI CAPABILITIES
         </p>
         <h2 className="text-5xl md:text-6xl font-extrabold mb-4">
           <span className="text-white">Intelligent </span>
@@ -209,10 +209,10 @@ export default function AiCap() {
             key={service.title}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ 
-              duration: 0.5, 
+            transition={{
+              duration: 0.5,
               ease: "easeOut",
-              delay: index * 0.1 
+              delay: index * 0.1
             }}
             viewport={{ once: true }}
             onClick={() => setSelected(service)}

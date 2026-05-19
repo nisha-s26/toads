@@ -78,7 +78,7 @@ export default function GenerativeAIPage() {
             Leverage the power of next-gen AI/ML to be a leading AI provider of AI solutions for businesses. We help you build AI-driven products, content engines, and automation workflows.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors" onClick={()=>navigate("/contact")}>
+            <button className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors" onClick={() => navigate("/contact")}>
               Book a Free Consultation
             </button>
             <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
@@ -96,7 +96,7 @@ export default function GenerativeAIPage() {
 
       {/* ── CLIENT LOGO MARQUEE ── */}
       <section className="bg-[#0a1628] py-10 overflow-hidden border-y border-white/5">
-        <p className="text-center text-xs tracking-widest text-gray-500 uppercase mb-6">
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5">
           Trusted by Innovative Teams Worldwide
         </p>
         <div className="relative flex overflow-hidden">

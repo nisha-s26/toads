@@ -35,7 +35,7 @@ const WhyUs = () => {
 
     return (
         <section ref={ref} className="bg-[#050d18]">
-            <div className="max-w-9xl mx-auto px-6 py-20">
+            <div className="max-w-9xl mx-auto px-6 pt-10 pb-10">
                 <div className="flex flex-col lg:flex-row items-center justify-center gap-14">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}

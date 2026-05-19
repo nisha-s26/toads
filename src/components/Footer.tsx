@@ -221,8 +221,17 @@ const Footer = () => {
                                 <li className="flex items-start gap-3">
                                     <MapPin size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
                                     <span className="text-gray-600 text-sm">
-                                        JAV Tower, H17, H Block, Sector 63,                                         <br />
-                                        Noida, Uttar Pradesh 201309
+                                        <div>
+                                            JAV Tower, H17, H Block, Sector 63,                                         <br />
+                                            Noida, Uttar Pradesh 201309
+                                        </div>
+                                    </span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <MapPin size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
+                                    <span className="text-gray-600 text-sm">
+                                        <div className="text-gray-600 text-sm"> Level 1, Avenue Gate, South Zone, DIFC,
+                                            Dubai, UAE</div>
                                     </span>
                                 </li>
                             </ul>

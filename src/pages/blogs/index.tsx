@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { featuredBlog, featuredBlogs, latestBlogs } from "./blogData"
 
 export default function Blogs() {
-  const [_, setHoveredCard] = useState<string | null>(null)
+  const [, setHoveredCard] = useState<string | null>(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const navigate = useNavigate()
 

@@ -86,7 +86,7 @@ export default function AgenticAIPage() {
 
       {/* ── CLIENT LOGO MARQUEE ── */}
       <section className="bg-[#070e1e] py-10 overflow-hidden border-y border-white/5">
-        <p className="text-center text-xs tracking-widest text-gray-500 uppercase mb-6">
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5">
           Trusted by Innovative Teams Worldwide
         </p>
         <div className="relative flex overflow-hidden">

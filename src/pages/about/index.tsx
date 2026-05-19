@@ -8,10 +8,19 @@ export default function AboutPage() {
 
             {/* ── Hero ── Background Image top section */}
             <section
-                className="relative overflow-hidden text-white px-6 py-32 md:py-48 border-b border-white/5 z-0 bg-[#092a1a]"
+                className="relative overflow-hidden text-white px-6 py-32 md:py-48 z-0"
             >
+                {/* Background Image from Unsplash */}
+                <img
+                    src="https://plus.unsplash.com/premium_photo-1661878265739-da90bc1af051?q=80&w=1086&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover z-0"
+                />
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 bg-[#050d18]/50 z-0"></div>
                 {/* Overlay: Soft fade into the dark background at the bottom */}
-                <div className="absolute inset-0 bg-linear-to-t from-[#050d18] via-[#050d18]/40 to-transparent z-0"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-[#050d18] via-[#050d18]/30 to-transparent z-0"></div>
 
                 <div className="max-w-5xl mx-auto relative z-10 hover:translate-x-2 transition-transform duration-700">
                     <span className="inline-block text-xs font-bold tracking-widest text-green-400 mb-6 uppercase border border-green-400/40 bg-green-500/10 backdrop-blur-md rounded-full px-4 py-1.5 shadow-lg">About Us</span>
@@ -26,7 +35,7 @@ export default function AboutPage() {
             </section>
 
             {/* ── Mission ── Dark bg, 2-col with stats */}
-            <section className="bg-[#050d18] py-20 px-6">
+            <section className="bg-[#050d18] px-6">
                 <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-2">Our Mission</p>
@@ -100,7 +109,7 @@ export default function AboutPage() {
             </section>
 
             {/* ── Leadership ── Dark green bg, translucent cards */}
-            <section className="bg-[#050d18] py-20 px-6 relative overflow-hidden">
+            <section className="bg-[#050d18] px-6 pb-20 relative overflow-hidden">
                 {/* Background decoration */}
                 <div className="absolute inset-0 opacity-5">
                     <div className="absolute top-20 left-10 w-72 h-72 bg-toadster-green rounded-full blur-[100px]"></div>
@@ -118,24 +127,24 @@ export default function AboutPage() {
                     <div className="group relative max-w-4xl mx-auto">
                         {/* Glow effect on hover */}
                         <div className="absolute -inset-1 bg-gradient-to-r from-toadster-green/10 via-toadster-green/5 to-toadster-green/10 rounded-3xl blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-                        
+
                         <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-3xl border border-white/10 group-hover:border-toadster-green/20 transition-all duration-300 overflow-hidden">
                             {/* Top accent line */}
                             <div className="h-1 bg-gradient-to-r from-transparent via-toadster-green to-transparent"></div>
-                            
+
                             <div className="p-8 md:p-12">
                                 {/* Profile Image Container */}
                                 <div className="flex justify-center mb-8">
                                     <div className="relative">
                                         {/* Animated ring */}
                                         <div className="absolute -inset-3 bg-gradient-to-r from-toadster-green/40 to-toadster-green/20 rounded-full blur-md transition-all duration-300"></div>
-                                        
+
                                         {/* Image */}
                                         <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-toadster-green/50 shadow-2xl group-hover:border-toadster-green/60 transition-all duration-300 transform">
-                                            <img 
-                                                src="/leader.jpeg" 
-                                                alt="Naveen Singh" 
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                                            <img
+                                                src="/leader.jpeg"
+                                                alt="Naveen Singh"
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                             />
                                             {/* Overlay gradient on hover */}
                                             <div className="absolute inset-0 bg-gradient-to-t from-toadster-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

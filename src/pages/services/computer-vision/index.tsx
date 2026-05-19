@@ -62,7 +62,7 @@ export default function ComputerVisionPage() {
 
       {/* ── MARQUEE ── */}
       <section className="bg-[#0a1628] py-10 overflow-hidden border-y border-white/5">
-        <p className="text-center text-xs tracking-widest text-gray-500 uppercase mb-6">Trusted by Innovative Teams Worldwide</p>
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5">Trusted by Innovative Teams Worldwide</p>
         <div className="relative flex overflow-hidden">
           <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-6">
             {[...clients, ...clients].map((c, i) => (<span key={i} className="text-gray-400 font-semibold text-sm opacity-60 shrink-0">{c}</span>))}
