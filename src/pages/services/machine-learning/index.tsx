@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { CTALink } from "@/components/CTALink"
 import { Zap, Brain, BarChart3, Database, Settings, Network, Shield, TrendingUp, Clock, Users, Target, ChevronDown, CheckCircle, Star, Cpu, Layers, Activity, Eye, Code2, GitBranch } from "lucide-react"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -18,7 +18,6 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 const clients = ["Paytm", "FireAI", "Noise", "MyChallan", "Axis Bank", "Reliance", "Tawuniya", "H&M", "Google"]
 
 export default function MachineLearningPage() {
-  const navigate = useNavigate()
   return (
     <div className="bg-[#050d18] text-white">
       {/* ── HERO ── */}
@@ -33,7 +32,7 @@ export default function MachineLearningPage() {
           </h1>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-10">Custom ML models that learn from your data, predict outcomes, and automate decisions — delivering measurable ROI at enterprise scale.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button onClick={() => navigate('/contact')} className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">Book a Free Consultation</button>
+            <CTALink to="/contact">Book a Free Consultation</CTALink>
             <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">See How It Works</button>
           </div>
           <div className="mt-14 flex flex-wrap gap-6 justify-center items-center opacity-50">
@@ -44,7 +43,7 @@ export default function MachineLearningPage() {
 
       {/* ── MARQUEE ── */}
       <section className="bg-[#0a1628] py-10 overflow-hidden border-y border-white/5">
-        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5">Trusted by Innovative Teams Worldwide</p>
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">Trusted by Innovative Teams Worldwide</p>
         <div className="relative flex overflow-hidden">
           <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-6">
             {[...clients, ...clients].map((c, i) => (<span key={i} className="text-gray-400 font-semibold text-sm opacity-60 shrink-0">{c}</span>))}
@@ -56,7 +55,7 @@ export default function MachineLearningPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">Top Machine Learning</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services to Transform Your Business</h3>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">Custom ML solutions built on your data to power predictions, automation, and intelligent decision-making.</p>
@@ -84,7 +83,7 @@ export default function MachineLearningPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Why It Matters</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why It Matters</p>
             <h2 className="text-4xl font-extrabold">Key <span className="text-green-400">Benefits</span> of Machine Learning for Businesses</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -112,7 +111,7 @@ export default function MachineLearningPage() {
       <section id="our-process" className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
             <h2 className="text-4xl font-extrabold">Our Process in Machine Learning</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -131,7 +130,7 @@ export default function MachineLearningPage() {
               ))}
             </div>
             <div className="rounded-3xl overflow-hidden border border-white/5 relative h-[400px] md:h-full group">
-              <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="Machine Learning Process" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="Machine Learning Process" title="Machine Learning Process" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
           </div>
         </div>
@@ -141,7 +140,7 @@ export default function MachineLearningPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Full Suite</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Full Suite</p>
             <h2 className="text-4xl font-extrabold">Explore Our Core ML Offerings</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -169,7 +168,7 @@ export default function MachineLearningPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
             <h2 className="text-4xl font-extrabold">Our Work Speaks for Itself</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -180,7 +179,7 @@ export default function MachineLearningPage() {
             ].map((w) => (
               <div key={w.title} className="bg-[#0a1628] rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-colors group shadow-lg">
                 <div className="h-44 overflow-hidden relative">
-                  <img src={w.img} alt={w.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={w.img} alt={w.title} title={w.title} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-[#0a1628]/10 group-hover:bg-transparent transition-colors duration-500"></div>
                 </div>
                 <div className="p-5 border-t border-white/5">
@@ -198,7 +197,7 @@ export default function MachineLearningPage() {
       {/* ── STATS ── */}
       <section className="bg-[#0a1628] py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">At a Glance</p>
+          <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">At a Glance</p>
           <h2 className="text-3xl font-extrabold mb-12">Highlights of <span className="text-green-400">Achievements</span></h2>
           <div className="grid md:grid-cols-4 gap-8">
             {[{ value: "500+", label: "AI Projects Delivered", icon: <TrendingUp size={26} /> }, { value: "99.9%", label: "Uptime Guaranteed", icon: <Shield size={26} /> }, { value: "10+", label: "Years of Experience", icon: <Clock size={26} /> }, { value: "24/7", label: "Client Support", icon: <Users size={26} /> }].map((s) => (
@@ -216,7 +215,7 @@ export default function MachineLearningPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Our Developers</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Developers</p>
             <h2 className="text-4xl font-extrabold max-w-3xl mx-auto">Hire Our ML Engineers to Build Scalable, Secure, and Smart Solutions</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -234,7 +233,7 @@ export default function MachineLearningPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
             <h2 className="text-4xl font-extrabold">Key Innovations in Machine Learning</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -259,7 +258,7 @@ export default function MachineLearningPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
             <h2 className="text-4xl font-extrabold">What Our Clients Say</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -291,7 +290,7 @@ export default function MachineLearningPage() {
       {/* <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
             <h2 className="text-4xl font-extrabold">Our Blogs</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -317,7 +316,7 @@ export default function MachineLearningPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[

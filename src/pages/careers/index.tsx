@@ -88,7 +88,7 @@ export default function Careers() {
         <div className="min-h-screen bg-[#050d18] pt-20">
             {/* Hero Section */}
             <section className="pt-16 pb-8 flex flex-col items-center text-center">
-                <span className="text-xs font-semibold tracking-widest text-green-400 mb-2">JOIN OUR TEAM</span>
+                <span className="text-xl font-semibold tracking-widest text-green-400 mb-2">JOIN OUR TEAM</span>
                 <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
                     <span className="text-white">Build the </span>
                     <span className="text-green-400">Future</span>
@@ -103,7 +103,7 @@ export default function Careers() {
             <section className="py-20">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <p className="text-sm tracking-widest text-green-400 font-medium mb-3">
+                        <p className="text-xl tracking-widest text-green-400 font-medium mb-3">
                             OUR VALUES
                         </p>
                         <h2 className="text-4xl md:text-5xl font-bold text-white">
@@ -136,7 +136,7 @@ export default function Careers() {
             <section className="py-20 bg-[#0a1628]">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <p className="text-sm tracking-widest text-green-400 font-medium mb-3">
+                        <p className="text-xl tracking-widest text-green-400 font-medium mb-3">
                             OPEN POSITIONS
                         </p>
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -219,12 +219,12 @@ export default function Careers() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Button 
                             onClick={() => openModal("General Application")}
-                            className="bg-[#1C3829] hover:bg-[#1C3829]/90 text-white px-8 py-3"
+                            className="bg-[#1C3829] hover:bg-[#1C3829]/90 text-white px-8 py-5"
                         >
                             <Mail className="w-5 h-5 mr-2 " />
                             Send Resume
                         </Button>
-                        <Button variant="outline" className="border-white/20 text-black hover:bg-white/10 px-8 py-3">
+                        <Button variant="outline" className="border-white/20 text-black hover:bg-white/10 px-8 py-5">
                             Learn More
                         </Button>
                     </div>
@@ -232,7 +232,7 @@ export default function Careers() {
                     <div className="mt-12 pt-8 border-t border-white/10">
                         <p className="text-gray-400 text-sm">
                             Questions about careers at Toadster? Contact us at{" "}
-                            <a href="mailto:careers@toadsters.com" className="text-toadster-green hover:underline">
+                            <a href="mailto:careers@toadsters.com" title="Email careers@toadsters.com" className="text-toadster-green hover:underline">
                                 careers@toadsters.com
                             </a>
                         </p>

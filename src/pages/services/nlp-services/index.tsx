@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { CTALink } from "@/components/CTALink"
 import {
   FileText,
   MessageSquare,
@@ -52,7 +52,6 @@ const clients = [
 ]
 
 export default function NLPServicesPage() {
-  const navigate = useNavigate()
 
   return (
     <div className="bg-[#050d18] text-white">
@@ -77,12 +76,7 @@ export default function NLPServicesPage() {
             Leverage the power of Natural Language Processing to extract insights from text, automate language tasks, and build intelligent communication systems that understand your customers.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button
-              onClick={() => navigate('/contact')}
-              className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors"
-            >
-              Book a Free Consultation
-            </button>
+            <CTALink to="/contact">Book a Free Consultation</CTALink>
             <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
               See How It Works
             </button>
@@ -97,7 +91,7 @@ export default function NLPServicesPage() {
 
       {/* ── CLIENT LOGO MARQUEE ── */}
       <section className="bg-[#0a1628] py-10 overflow-hidden border-y border-white/5">
-        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5">
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">
           Trusted by Innovative Teams Worldwide
         </p>
         <div className="relative flex overflow-hidden">
@@ -115,7 +109,7 @@ export default function NLPServicesPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">Top NLP Development</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services to Transform Your Business</h3>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
@@ -150,7 +144,7 @@ export default function NLPServicesPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Why It Matters</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why It Matters</p>
             <h2 className="text-4xl font-extrabold">
               Key <span className="text-green-400">Benefits</span> of NLP Development for Businesses
             </h2>
@@ -185,7 +179,7 @@ export default function NLPServicesPage() {
       <section id="our-process" className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
             <h2 className="text-4xl font-extrabold">Our Process in NLP Development</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -224,7 +218,7 @@ export default function NLPServicesPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Full Suite</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Full Suite</p>
             <h2 className="text-4xl font-extrabold">Explore Our Core NLP Offerings</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
               End-to-end NLP capabilities covering every language AI use case your business needs.
@@ -260,7 +254,7 @@ export default function NLPServicesPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
             <h2 className="text-4xl font-extrabold">Our Work Speaks for Itself</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -274,7 +268,7 @@ export default function NLPServicesPage() {
                 className="bg-[#0a1628] flex flex-col rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(74,222,128,0.15)]"
               >
                 <div className="h-48 relative overflow-hidden bg-[#050d18] shrink-0">
-                  <img src={w.image} alt={w.title} className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
+                  <img src={w.image} alt={w.title} title={w.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0a1628] via-transparent to-transparent pointer-events-none"></div>
                 </div>
                 <div className="p-6 relative -mt-6 flex flex-col grow">
@@ -293,7 +287,7 @@ export default function NLPServicesPage() {
       {/* ── STATS ── */}
       <section className="bg-[#0a1628] py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">At a Glance</p>
+          <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">At a Glance</p>
           <h2 className="text-3xl font-extrabold mb-12">
             Highlights of <span className="text-green-400">Achievements</span>
           </h2>
@@ -318,7 +312,7 @@ export default function NLPServicesPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Our Developers</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Developers</p>
             <h2 className="text-4xl font-extrabold max-w-3xl mx-auto">
               Hire Our NLP Developers to Build Scalable, Secure, and Smart Solutions
             </h2>
@@ -346,7 +340,7 @@ export default function NLPServicesPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
             <h2 className="text-4xl font-extrabold">Key Innovations in NLP Development</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -381,7 +375,7 @@ export default function NLPServicesPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
             <h2 className="text-4xl font-extrabold">What Our Clients Say</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -429,12 +423,7 @@ export default function NLPServicesPage() {
               </div>
             ))}
           </div>
-          <button
-            onClick={() => navigate('/contact')}
-            className="px-10 py-4 rounded-xl bg-[#1C3829] text-white font-semibold text-lg hover:bg-green-800 transition-colors"
-          >
-            Chat With Us
-          </button>
+          <CTALink to="/contact" className="px-10 py-4 text-lg">Chat With Us</CTALink>
         </div>
       </section>
 
@@ -442,7 +431,7 @@ export default function NLPServicesPage() {
       {/* <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
             <h2 className="text-4xl font-extrabold">Our Blogs</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -473,7 +462,7 @@ export default function NLPServicesPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[

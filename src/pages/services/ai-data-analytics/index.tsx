@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { CTALink } from "@/components/CTALink"
 import { BarChart3, Database, TrendingUp, Brain, Shield, Clock, Users, Zap, ChevronDown, CheckCircle, Star, Activity, Network, Settings, Eye, Server, LineChart } from "lucide-react"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -27,7 +27,6 @@ const industries = [
 ]
 
 export default function AIDataAnalyticsPage() {
-  const navigate = useNavigate()
   return (
     <div className="bg-[#050d18] text-white">
       {/* ── HERO ── */}
@@ -44,7 +43,7 @@ export default function AIDataAnalyticsPage() {
             Supercharge your strategy with AI Data Analytics that uncover real insights, find hidden patterns in your data, and turn your Business Intelligence to the next level.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button onClick={() => navigate('/contact')} className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">Explore AI Analytics</button>
+            <CTALink to="/contact">Explore AI Analytics</CTALink>
             <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">See How It Works</button>
           </div>
           <div className="mt-14 flex flex-wrap gap-6 justify-center items-center opacity-50">
@@ -55,7 +54,7 @@ export default function AIDataAnalyticsPage() {
 
       {/* ── MARQUEE ── */}
       <section className="bg-[#0a1628] py-10 overflow-hidden border-y border-white/5">
-        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5">Trusted by Innovative Teams Worldwide</p>
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">Trusted by Innovative Teams Worldwide</p>
         <div className="relative flex overflow-hidden">
           <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-6">
             {[...clients, ...clients].map((c, i) => (<span key={i} className="text-gray-400 font-semibold text-sm opacity-60 shrink-0">{c}</span>))}
@@ -67,7 +66,7 @@ export default function AIDataAnalyticsPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Our Offerings</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Offerings</p>
             <h2 className="text-4xl font-extrabold">Our AI Data Analytics</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services</h3>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">From raw data pipelines to executive dashboards and predictive models — we build end-to-end analytics platforms that turn your data into competitive advantage.</p>
@@ -95,7 +94,7 @@ export default function AIDataAnalyticsPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Why Us</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why Us</p>
             <h2 className="text-4xl font-extrabold">Why Choose Our Data Analytics</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">We don't just build dashboards. We engineer data products that drive measurable decisions and business outcomes.</p>
           </div>
@@ -122,7 +121,7 @@ export default function AIDataAnalyticsPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">What You Gain</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What You Gain</p>
             <h2 className="text-4xl font-extrabold">Benefits of Working with Mobcoder AI</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">Our clients consistently report faster decisions, lower costs, and higher revenue after deploying our analytics solutions.</p>
           </div>
@@ -145,7 +144,7 @@ export default function AIDataAnalyticsPage() {
       {/* ── STATS ── */}
       <section className="bg-[#0a1628] py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">At a Glance</p>
+          <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">At a Glance</p>
           <h2 className="text-3xl font-extrabold mb-4">Highlights of <span className="text-green-400">Achievements</span></h2>
           <p className="text-gray-400 max-w-xl mx-auto mb-12 text-sm">Proven results from data analytics engagements across 150+ clients and 20+ industries.</p>
           <div className="grid md:grid-cols-4 gap-8">
@@ -164,7 +163,7 @@ export default function AIDataAnalyticsPage() {
       <section id="our-process" className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
             <h2 className="text-4xl font-extrabold">Our AI Data Analytics</h2>
             <p className="text-gray-400 mt-3 max-w-xl mx-auto">A structured, iterative approach that goes from raw data to production analytics in weeks.</p>
           </div>
@@ -199,7 +198,7 @@ export default function AIDataAnalyticsPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Verticals</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Verticals</p>
             <h2 className="text-4xl font-extrabold">Industries We Serve</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">Every industry is drowning in data. We help you surface the insights that matter most for your specific context and challenges.</p>
           </div>
@@ -218,7 +217,7 @@ export default function AIDataAnalyticsPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
             <h2 className="text-4xl font-extrabold">Our Work Speaks for Itself</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -232,7 +231,7 @@ export default function AIDataAnalyticsPage() {
                 className="bg-[#0a1628] flex flex-col rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(74,222,128,0.15)]"
               >
                 <div className="h-48 relative overflow-hidden bg-[#050d18] shrink-0">
-                  <img src={w.image} alt={w.title} className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
+                  <img src={w.image} alt={w.title} title={w.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0a1628] via-transparent to-transparent pointer-events-none"></div>
                 </div>
                 <div className="p-6 relative -mt-6 flex flex-col grow">
@@ -256,7 +255,7 @@ export default function AIDataAnalyticsPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Tech Stack</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Tech Stack</p>
             <h2 className="text-4xl font-extrabold">Key Technologies in AI Development</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">We work across the full modern data stack to deliver analytics platforms that are scalable, reliable, and future-proof.</p>
           </div>
@@ -275,7 +274,7 @@ export default function AIDataAnalyticsPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
             <h2 className="text-4xl font-extrabold">What Our Clients Say</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -306,7 +305,7 @@ export default function AIDataAnalyticsPage() {
       {/* <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
             <h2 className="text-4xl font-extrabold">Our Blogs</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -332,7 +331,7 @@ export default function AIDataAnalyticsPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[

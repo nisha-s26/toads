@@ -44,9 +44,13 @@ export default function Blogs() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
               <div className="relative overflow-hidden rounded-xl group">
-                <img 
-                  src={featuredBlog.image} 
+                <img
+                  src={featuredBlog.image}
                   alt={featuredBlog.title}
+                  title={featuredBlog.title}
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                   className="w-full h-48 sm:h-56 md:h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -76,6 +80,7 @@ export default function Blogs() {
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <button
                     className="flex items-center justify-center gap-2 bg-[#1C3829] text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full hover:shadow-lg hover:shadow-toadster-green/25 transition-all duration-300 group text-sm sm:text-base"
+                    title="Read More"
                     onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${featuredBlog.slug}`) }}
                   >
                     Read More
@@ -83,6 +88,7 @@ export default function Blogs() {
                   </button>
                   <button
                     className="flex items-center justify-center gap-2 border border-gray-600 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full hover:border-toadster-green hover:text-toadster-green transition-all duration-300 text-sm sm:text-base"
+                    title="Explore More"
                     onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${featuredBlog.slug}`) }}
                   >
                     Explore More
@@ -113,9 +119,12 @@ export default function Blogs() {
               >
                 <div className="flex gap-3 sm:gap-4">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 relative overflow-hidden rounded-lg flex-shrink-0 flex items-center justify-center">
-                  <img 
-                    src={blog.image} 
+                  <img
+                    src={blog.image}
                     alt={blog.title}
+                    title={blog.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -150,12 +159,14 @@ export default function Blogs() {
                     <div className="flex gap-2">
                       <button
                         className="text-xs bg-[#1C3829] text-white px-2 sm:px-3 py-1 rounded-full hover:shadow-lg transition-all duration-300"
+                        title="Read More"
                         onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${blog.slug}`) }}
                       >
                         Read More
                       </button>
                       <button
                         className="text-xs border border-gray-600 text-gray-200 px-2 sm:px-3 py-1 rounded-full hover:border-toadster-green hover:text-toadster-green transition-all duration-300"
+                        title="Explore More"
                         onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${blog.slug}`) }}
                       >
                         Explore More
@@ -188,9 +199,12 @@ export default function Blogs() {
                 onClick={() => navigate(`/blogs/${blog.slug}`)}
               >
                 <div className="h-40 sm:h-44 md:h-48 bg-white flex items-center justify-center relative overflow-hidden">
-                  <img 
-                    src={blog.image} 
+                  <img
+                    src={blog.image}
                     alt={blog.title}
+                    title={blog.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -225,12 +239,14 @@ export default function Blogs() {
                   <div className="flex gap-2">
                     <button
                       className="text-xs bg-[#1C3829] text-white px-2 sm:px-3 py-1 rounded-full hover:shadow-lg transition-all duration-300"
+                      title="Read More"
                       onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${blog.slug}`) }}
                     >
                       Read More
                     </button>
                     <button
                       className="text-xs border border-gray-300 text-gray-600 px-2 sm:px-3 py-1 rounded-full hover:border-toadster-green hover:text-toadster-green transition-all duration-300"
+                      title="Explore More"
                       onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${blog.slug}`) }}
                     >
                       Explore More

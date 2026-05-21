@@ -14,7 +14,11 @@ export default function AboutPage() {
                 <img
                     src="https://plus.unsplash.com/premium_photo-1661878265739-da90bc1af051?q=80&w=1086&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt=""
+                    title="About Toadster Banner"
                     aria-hidden="true"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
                     className="absolute inset-0 w-full h-full object-cover z-0"
                 />
                 {/* Dark overlay for text readability */}
@@ -38,7 +42,7 @@ export default function AboutPage() {
             <section className="bg-[#050d18] px-6">
                 <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-2">Our Mission</p>
+                        <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Mission</p>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 leading-snug">
                             Democratizing AI for Every Business
                         </h2>
@@ -62,17 +66,17 @@ export default function AboutPage() {
                     <div className="grid grid-cols-2 grid-rows-2 gap-4 h-[450px]">
                         {/* Top spanning horizontally */}
                         <div className="col-span-2 row-span-1 overflow-hidden rounded-3xl border border-white/5 relative group shadow-lg">
-                            <img src="/about2.png" alt="Collaboration" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                            <img src="/about2.png" alt="Collaboration" title="Collaboration" loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                             <div className="absolute inset-0 bg-[#050d18]/10 group-hover:bg-transparent transition-colors duration-500"></div>
                         </div>
                         {/* Bottom left */}
                         <div className="col-span-1 row-span-1 overflow-hidden rounded-3xl border border-white/5 relative group shadow-lg">
-                            <img src="/about3.png" alt="Team Work" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                            <img src="/about3.png" alt="Team Work" title="Team Work" loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                             <div className="absolute inset-0 bg-[#050d18]/10 group-hover:bg-transparent transition-colors duration-500"></div>
                         </div>
                         {/* Bottom right */}
                         <div className="col-span-1 row-span-1 overflow-hidden rounded-3xl border border-white/5 relative group shadow-lg drop-shadow-xl">
-                            <img src="/about1.png" alt="Innovation" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                            <img src="/about1.png" alt="Innovation" title="Innovation" loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                             <div className="absolute inset-0 bg-[#050d18]/10 group-hover:bg-transparent transition-colors duration-500"></div>
                         </div>
                     </div>
@@ -83,7 +87,7 @@ export default function AboutPage() {
             <section className="bg-[#050d18] py-20 px-6">
                 <div className="max-w-5xl mx-auto">
                     <div className="text-center mb-12">
-                        <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-2">What We Stand For</p>
+                        <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Stand For</p>
                         <h2 className="text-4xl font-extrabold text-white">Our Values</h2>
                         <p className="text-gray-300 mt-3 max-w-xl mx-auto">The principles that guide every decision we make.</p>
                     </div>
@@ -118,7 +122,7 @@ export default function AboutPage() {
 
                 <div className="max-w-6xl mx-auto relative z-10">
                     <div className="text-center mb-16">
-                        <p className="text-xs font-semibold tracking-widest text-toadster-green uppercase mb-3">The Team</p>
+                        <p className="text-xl font-semibold tracking-widest text-toadster-green uppercase mb-3">The Team</p>
                         <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Our Leadership</h2>
                         <p className="text-gray-400 text-lg max-w-2xl mx-auto">Meet the visionary driving innovation and excellence</p>
                     </div>
@@ -144,6 +148,7 @@ export default function AboutPage() {
                                             <img
                                                 src="/leader.jpeg"
                                                 alt="Naveen Singh"
+                                                title="Naveen Singh"
                                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                             />
                                             {/* Overlay gradient on hover */}

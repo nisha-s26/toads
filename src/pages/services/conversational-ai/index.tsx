@@ -186,7 +186,7 @@ export default function ConversationalAIPage() {
 
       {/* ── MARQUEE ── */}
       <section className="bg-[#0a1628] py-10 overflow-hidden border-y border-white/5">
-        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5">
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">
           Trusted by Innovative Teams Worldwide
         </p>
         <div className="relative flex overflow-hidden">
@@ -204,7 +204,7 @@ export default function ConversationalAIPage() {
       <section id="what-we-build" className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               What We Build
             </p>
             <h2 className="text-4xl font-extrabold">Conversational AI</h2>
@@ -234,7 +234,7 @@ export default function ConversationalAIPage() {
       <section id="our-process" className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why It Matters
             </p>
             <h2 className="text-4xl font-extrabold">
@@ -281,7 +281,7 @@ export default function ConversationalAIPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Our Process
             </p>
             <h2 className="text-4xl font-extrabold">
@@ -309,7 +309,7 @@ export default function ConversationalAIPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Tech Stack
             </p>
             <h2 className="text-4xl font-extrabold">
@@ -339,7 +339,7 @@ export default function ConversationalAIPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why Toadster
             </p>
             <h2 className="text-4xl font-extrabold">
@@ -368,7 +368,7 @@ export default function ConversationalAIPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Client Stories
             </p>
             <h2 className="text-4xl font-extrabold">
@@ -417,7 +417,7 @@ export default function ConversationalAIPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               FAQ
             </p>
             <h2 className="text-4xl font-extrabold">
