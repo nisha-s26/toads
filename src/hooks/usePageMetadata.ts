@@ -1,6 +1,13 @@
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
-import { buildCanonicalUrl, getMetadataForPath } from "@/config/metadata"
+import {
+  buildCanonicalUrl,
+  getMetadataForPath,
+  SITE_OG_IMAGE,
+  SITE_OG_IMAGE_ALT,
+  SITE_OG_IMAGE_HEIGHT,
+  SITE_OG_IMAGE_WIDTH,
+} from "@/config/metadata"
 
 type TagKind = "meta" | "link"
 
@@ -82,6 +89,48 @@ export function usePageMetadata(): void {
         attribute: "content",
         value: metadata.description,
         identifier: { name: "name", value: "twitter:description" },
+      },
+      {
+        selector: 'meta[property="og:image"]',
+        kind: "meta",
+        attribute: "content",
+        value: SITE_OG_IMAGE,
+        identifier: { name: "property", value: "og:image" },
+      },
+      {
+        selector: 'meta[property="og:image:width"]',
+        kind: "meta",
+        attribute: "content",
+        value: String(SITE_OG_IMAGE_WIDTH),
+        identifier: { name: "property", value: "og:image:width" },
+      },
+      {
+        selector: 'meta[property="og:image:height"]',
+        kind: "meta",
+        attribute: "content",
+        value: String(SITE_OG_IMAGE_HEIGHT),
+        identifier: { name: "property", value: "og:image:height" },
+      },
+      {
+        selector: 'meta[property="og:image:alt"]',
+        kind: "meta",
+        attribute: "content",
+        value: SITE_OG_IMAGE_ALT,
+        identifier: { name: "property", value: "og:image:alt" },
+      },
+      {
+        selector: 'meta[name="twitter:image"]',
+        kind: "meta",
+        attribute: "content",
+        value: SITE_OG_IMAGE,
+        identifier: { name: "name", value: "twitter:image" },
+      },
+      {
+        selector: 'meta[name="twitter:image:alt"]',
+        kind: "meta",
+        attribute: "content",
+        value: SITE_OG_IMAGE_ALT,
+        identifier: { name: "name", value: "twitter:image:alt" },
       },
     ]
 

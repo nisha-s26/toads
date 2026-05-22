@@ -7,6 +7,11 @@ export interface PageMetadata {
 
 export const SITE_URL = "https://toadsters.com"
 
+export const SITE_OG_IMAGE = `${SITE_URL}/thumbnail.png`
+export const SITE_OG_IMAGE_WIDTH = 1828
+export const SITE_OG_IMAGE_HEIGHT = 951
+export const SITE_OG_IMAGE_ALT = "Toadster Hero Section Preview"
+
 export const DEFAULT_METADATA: PageMetadata = {
   title: "Toadster | AI Solutions & Web Development",
   description:
