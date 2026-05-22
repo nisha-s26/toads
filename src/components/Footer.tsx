@@ -1,5 +1,5 @@
 import type { ComponentType, ReactNode } from "react"
-import { Mail, Phone, MapPin, Linkedin, Instagram, Youtube } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Youtube } from "lucide-react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 
@@ -35,6 +35,11 @@ const SOCIAL_LINKS: SocialLink[] = [
         href: "https://in.linkedin.com/company/toadster-technologies-private-limited",
         icon: Linkedin,
         label: "Toadster on LinkedIn",
+    },
+    {
+        href: "https://x.com/technologi62401",
+        icon: Twitter,
+        label: "Toadster on X",
     },
     {
         href: "https://www.instagram.com/toadster_technologies",

@@ -43,7 +43,7 @@ const WhyUs = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="max-w-xl text-center lg:text-left"
                     >
-                        <p className="text-[10px] tracking-[0.35em] text-toadster-green">WHY US</p>
+                        <p className="text-xl font-semibold tracking-[0.25em] text-toadster-green uppercase">WHY US</p>
 
                         <h2 className="mt-4 text-4xl md:text-5xl font-extrabold leading-[1.05] text-white">
                             Why Choose
