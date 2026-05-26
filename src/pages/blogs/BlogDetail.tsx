@@ -1,8 +1,79 @@
 import { useParams, useNavigate, Link } from "react-router-dom"
-import { ArrowLeft, Calendar, Clock, User, Tag, Twitter, Linkedin, Facebook, ArrowRight, ChevronRight, MessageCircle, ThumbsUp } from "lucide-react"
+import { ArrowLeft, Calendar, Clock, User, Tag, Twitter, Linkedin, Facebook, ArrowRight, ChevronRight, MessageCircle, ThumbsUp, ChevronDown, HelpCircle } from "lucide-react"
 import { useState, useEffect } from "react"
-import { allBlogs } from "./blogData"
+import { motion, AnimatePresence } from "framer-motion"
+import { allBlogs, type BlogFaq } from "./blogData"
 import { staticComments } from "./commentsData"
+
+function FaqAccordion({ items }: { items: BlogFaq[] }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
+
+  return (
+    <div className="space-y-3">
+      {items.map((item, index) => {
+        const isOpen = openIndex === index
+        return (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.35, delay: index * 0.07, ease: "easeOut" }}
+            className={`bg-gray-900/50 border rounded-2xl overflow-hidden transition-colors ${
+              isOpen ? "border-toadster-green/40" : "border-gray-800 hover:border-gray-700"
+            }`}
+          >
+            <button
+              type="button"
+              onClick={() => setOpenIndex(isOpen ? null : index)}
+              className="w-full flex items-center justify-between gap-4 p-4 sm:p-5 text-left group"
+              aria-expanded={isOpen}
+            >
+              <span className="flex items-start gap-3 sm:gap-4 flex-1 min-w-0">
+                <span className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-toadster-green/10 text-toadster-green text-xs sm:text-sm font-bold border border-toadster-green/20">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className={`font-semibold text-base sm:text-lg leading-snug transition-colors ${
+                  isOpen ? "text-toadster-green" : "text-white group-hover:text-toadster-green"
+                }`}>
+                  {item.question}
+                </span>
+              </span>
+              <motion.span
+                animate={{ rotate: isOpen ? 180 : 0 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className={`shrink-0 transition-colors ${
+                  isOpen ? "text-toadster-green" : "text-gray-400 group-hover:text-toadster-green"
+                }`}
+              >
+                <ChevronDown size={20} />
+              </motion.span>
+            </button>
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  key="content"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.28, ease: "easeOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-4 sm:px-5 pb-5 pl-[3.25rem] sm:pl-[4.25rem]">
+                    <div className="h-px w-full bg-gradient-to-r from-toadster-green/40 via-toadster-green/10 to-transparent mb-4" />
+                    <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
+                      {item.answer}
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        )
+      })}
+    </div>
+  )
+}
 
 export default function BlogDetail() {
   const { slug } = useParams<{ slug: string }>()
@@ -281,7 +352,7 @@ export default function BlogDetail() {
             <aside className="lg:col-span-1 space-y-8">
               {/* Article Info Card */}
               <div className={`bg-gray-900/50 p-6 rounded-2xl border border-gray-800 sticky top-28 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1200ms' }}>
-                <h3 className="font-bold text-white mb-4 text-lg transition-all duration-1000 transform opacity-0 translate-y-8" style={{ transitionDelay: '1400ms' }}>Article Info</h3>
+                <h3 className="font-bold text-white mb-4 text-lg" >Article Info</h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-sm text-gray-400">
                     <div className="w-8 h-8 bg-[#015d19]/20 rounded-lg flex items-center justify-center">
@@ -323,37 +394,44 @@ export default function BlogDetail() {
                   )}
                 </div>
 
-                {/* Share Section in Sidebar */}
-                <div className="mt-6 pt-6 border-t border-gray-700">
-                  <div className={`text-sm font-semibold text-gray-300 mb-3 transition-all duration-1000 transform opacity-0 translate-y-8`} style={{ transitionDelay: '2600ms' }}>Share this article</div>
-                  <div className="flex gap-2">
-                    <a 
-                      href="https://x.com/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      title="Share on Twitter"
-                      className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-400 hover:bg-[#015d19] hover:border-[#015d19] hover:text-white transition-all duration-200 text-xs font-medium"
-                    >
-                      <Twitter size={13} />
-                      Twitter
-                    </a>
-                    <a 
-                      href="https://www.linkedin.com/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      title="Share on LinkedIn"
-                      className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-400 hover:bg-[#015d19] hover:border-[#015d19] hover:text-white transition-all duration-200 text-xs font-medium"
-                    >
-                      <Linkedin size={13} />
-                      LinkedIn
-                    </a>
-                  </div>
-                </div>
               </div>
             </aside>
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      {blog.faqs && blog.faqs.length > 0 && (
+        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-toadster-green/10 via-transparent to-toadster-green/5"></div>
+          <div className="absolute top-0 right-0 w-72 h-72 bg-toadster-green/5 rounded-full -translate-y-1/3 translate-x-1/3 blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-toadster-green/5 rounded-full translate-y-1/3 -translate-x-1/3 blur-3xl"></div>
+
+          <div className="max-w-4xl mx-auto relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="flex items-center gap-3 mb-8 sm:mb-10"
+            >
+              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-toadster-green to-[#0a7d2b] rounded-xl flex items-center justify-center shadow-lg shadow-toadster-green/20">
+                <HelpCircle size={20} className="text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-gray-400 text-xs sm:text-sm mt-0.5">
+                  Quick answers to common questions about this topic
+                </p>
+              </div>
+            </motion.div>
+
+            <FaqAccordion items={blog.faqs} />
+          </div>
+        </section>
+      )}
 
       {/* Related Articles */}
       {suggestedBlogs.length > 0 && (
