@@ -50,7 +50,7 @@ export default function Contact() {
         <div className="min-h-screen bg-[#050d18] pt-20">
             {/* Hero Section */}
             <section className="pt-16 pb-8 flex flex-col items-center text-center">
-                <span className="text-xs font-semibold tracking-widest text-green-400 mb-2">GET IN TOUCH</span>
+                <span className="text-xl font-semibold tracking-widest text-green-400 mb-2">GET IN TOUCH</span>
                 <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
                     <span className="text-white">Let&apos;s </span>
                     <span className="text-green-400">Talk</span>

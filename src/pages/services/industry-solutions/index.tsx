@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { CTALink } from "@/components/CTALink"
 import {
   Building,
   ChevronDown,
@@ -147,7 +147,6 @@ const faqs = [
 ]
 
 export default function IndustrySolutionsPage() {
-  const navigate = useNavigate()
   return (
     <div className="bg-[#050d18] text-white">
 
@@ -171,12 +170,7 @@ export default function IndustrySolutionsPage() {
             Specialised AI systems designed around the workflows, data, and compliance requirements of your sector — not generic tools retrofitted to your business.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button
-              onClick={() => navigate('/contact')}
-              className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors"
-            >
-              Let's Talk
-            </button>
+            <CTALink to="/contact">Let's Talk</CTALink>
             <button
               onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors"
@@ -194,7 +188,7 @@ export default function IndustrySolutionsPage() {
 
       {/* ── MARQUEE ── */}
       <section className="bg-[#0a1628] py-10 overflow-hidden border-y border-white/5">
-        <p className="text-center text-xs tracking-widest text-gray-500 uppercase mb-6">
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">
           Trusted by Innovative Teams Worldwide
         </p>
         <div className="relative flex overflow-hidden">
@@ -212,7 +206,7 @@ export default function IndustrySolutionsPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Verticals We Serve
             </p>
             <h2 className="text-4xl font-extrabold">Industry-Specific</h2>
@@ -242,7 +236,7 @@ export default function IndustrySolutionsPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why It Matters
             </p>
             <h2 className="text-4xl font-extrabold">
@@ -289,7 +283,7 @@ export default function IndustrySolutionsPage() {
       <section id="how-it-works" className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Our Process
             </p>
             <h2 className="text-4xl font-extrabold">
@@ -317,7 +311,7 @@ export default function IndustrySolutionsPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why Toadster
             </p>
             <h2 className="text-4xl font-extrabold">
@@ -346,7 +340,7 @@ export default function IndustrySolutionsPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Client Stories
             </p>
             <h2 className="text-4xl font-extrabold">
@@ -395,7 +389,7 @@ export default function IndustrySolutionsPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               FAQ
             </p>
             <h2 className="text-4xl font-extrabold">

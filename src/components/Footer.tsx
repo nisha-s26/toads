@@ -1,14 +1,116 @@
-import { Mail, Phone, MapPin, Linkedin, Instagram, Youtube } from "lucide-react"
+import type { ComponentType, ReactNode } from "react"
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Youtube } from "lucide-react"
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
+
+interface InternalLink {
+    to: string
+    label: string
+}
+
+const SERVICE_LINKS: InternalLink[] = [
+    { to: "/services/agentic-ai", label: "Agentic AI" },
+    { to: "/services/generative-ai", label: "Generative AI" },
+    { to: "/services/llm-development", label: "LLM Development" },
+    { to: "/services/ai-chatbots", label: "AI Chatbots" },
+    { to: "/services/nlp-services", label: "NLP Services" },
+    { to: "/services/intelligent-automation", label: "Intelligent Automation" },
+]
+
+const COMPANY_LINKS: InternalLink[] = [
+    { to: "/about", label: "About Us" },
+    { to: "/careers", label: "Careers" },
+    { to: "/blogs", label: "Blogs" },
+    { to: "/contact", label: "Contact" },
+]
+
+interface SocialLink {
+    href: string
+    icon: ComponentType<{ size?: number }>
+    label: string
+}
+
+const SOCIAL_LINKS: SocialLink[] = [
+    {
+        href: "https://in.linkedin.com/company/toadster-technologies-private-limited",
+        icon: Linkedin,
+        label: "Toadster on LinkedIn",
+    },
+    {
+        href: "https://x.com/technologi62401",
+        icon: Twitter,
+        label: "Toadster on X",
+    },
+    {
+        href: "https://www.instagram.com/toadster_technologies",
+        icon: Instagram,
+        label: "Toadster on Instagram",
+    },
+    {
+        href: "https://www.youtube.com/@toadster-technologies",
+        icon: Youtube,
+        label: "Toadster on YouTube",
+    },
+]
+
+const linkClassName =
+    "relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+
+function FooterInternalLink({ to, label }: InternalLink) {
+    return (
+        <li>
+            <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }} className="inline-block">
+                <Link to={to} title={label} className={linkClassName}>
+                    {label}
+                </Link>
+            </motion.div>
+        </li>
+    )
+}
+
+function FooterExternalLink({ href, label }: { href: string; label: string }) {
+    return (
+        <motion.a
+            href={href}
+            title={label}
+            whileHover={{ x: 5 }}
+            transition={{ duration: 0.2 }}
+            className={linkClassName}
+        >
+            {label}
+        </motion.a>
+    )
+}
+
+interface FooterColumnProps {
+    title: string
+    delay: number
+    className?: string
+    children: ReactNode
+}
+
+function FooterColumn({ title, delay, className, children }: FooterColumnProps) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay }}
+            viewport={{ once: true }}
+            className={className}
+        >
+            <h3 className="font-semibold text-gray-900 mb-4">{title}</h3>
+            {children}
+        </motion.div>
+    )
+}
 
 const Footer = () => {
     return (
         <footer className="bg-white border-t border-gray-200">
-            <div className="border-t border-gray-200"></div>
+            <div className="border-t border-gray-200" />
 
             <div className="max-w-7xl mx-auto px-6 py-16">
                 <div className="flex flex-col justify-between md:flex-row gap-12 mb-12">
-                    {/* Brand Section */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -23,11 +125,14 @@ const Footer = () => {
                             viewport={{ once: true }}
                             className="flex items-center gap-2 mb-4"
                         >
-                            <img
-                                src="/toadster-logo.svg"
-                                alt="Toadster"
-                                className="h-8 w-auto select-none"
-                            />
+                            <Link to="/" aria-label="Toadster home" title="Toadster Home">
+                                <img
+                                    src="/toadster-logo.svg"
+                                    alt="Toadster"
+                                    title="Toadster Logo"
+                                    className="h-8 w-auto select-none"
+                                />
+                            </Link>
                         </motion.div>
                         <motion.p
                             initial={{ opacity: 0 }}
@@ -39,28 +144,6 @@ const Footer = () => {
                             AI-powered digital engineering for enterprises and startups. Building the intelligent future, one system at a time.
                         </motion.p>
 
-                        {/* Newsletter */}
-                        {/* <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-                            viewport={{ once: true }}
-                        >
-                            <p className="font-semibold text-gray-900 mb-3">Stay updated</p>
-                            <div className="flex gap-2 mb-4">
-                                <Input placeholder="your@email.com" />
-                                <motion.div
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <Button variant={"default"} size={"icon"}>
-                                        <ArrowRight />
-                                    </Button>
-                                </motion.div>
-                            </div>
-                        </motion.div> */}
-
-                        {/* Social Links */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
@@ -68,168 +151,84 @@ const Footer = () => {
                             viewport={{ once: true }}
                             className="flex gap-4"
                         >
-                            <motion.a
-                                target="_blank"
-                                href="https://in.linkedin.com/company/toadster-technologies-private-limited"
-                                whileHover={{ y: -3 }}
-                                transition={{ duration: 0.2 }}
-                                className="text-gray-400 hover:text-gray-600 transition-colors"
-                            >
-                                <Linkedin size={20} />
-                            </motion.a>
-                            <motion.a
-                                target="_blank"
-                                href="https://www.instagram.com/toadster_technologies"
-                                whileHover={{ y: -3 }}
-                                transition={{ duration: 0.2 }}
-                                className="text-gray-400 hover:text-gray-600 transition-colors"
-                            >
-                                <Instagram size={20} />
-                            </motion.a>
-                            <motion.a
-                                target="_blank"
-                                href="https://www.youtube.com/@toadster-technologies"
-                                whileHover={{ y: -3 }}
-                                transition={{ duration: 0.2 }}
-                                className="text-gray-400 hover:text-gray-600 transition-colors"
-                            >
-                                <Youtube size={20} />
-                            </motion.a>
+                            {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
+                                <motion.a
+                                    key={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={href}
+                                    aria-label={label}
+                                    title={label}
+                                    whileHover={{ y: -3 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                                >
+                                    <Icon size={20} />
+                                </motion.a>
+                            ))}
                         </motion.div>
                     </motion.div>
 
                     <div className="w-full lg:justify-end md:flex-1 md:min-w-0 flex flex-col sm:flex-row sm:flex-wrap gap-12">
-                        {/* Services */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                            viewport={{ once: true }}
+                        <FooterColumn
+                            title="Services"
+                            delay={0.2}
                             className="max-w-[20rem] sm:flex-1 sm:min-w-[14rem]"
                         >
-                            <h3 className="font-semibold text-gray-900 mb-4">Services</h3>
                             <ul className="space-y-3">
-                                <li><motion.a
-                                    href="/services/agentic-ai"
-                                    whileHover={{ x: 5 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                >Agentic AI</motion.a></li>
-                                <li><motion.a
-                                    href="/services/generative-ai"
-                                    whileHover={{ x: 5 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                >Generative AI</motion.a></li>
-                                <li><motion.a
-                                    href="/services/llm-development"
-                                    whileHover={{ x: 5 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                >LLM Development</motion.a></li>
-                                <li><motion.a
-                                    href="/services/ai-chatbots"
-                                    whileHover={{ x: 5 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                >AI Chatbots</motion.a></li>
-                                <li><motion.a
-                                    href="/services/nlp-services"
-                                    whileHover={{ x: 5 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                >NLP Services</motion.a></li>
-                                <li><motion.a
-                                    href="/services/intelligent-automation"
-                                    whileHover={{ x: 5 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                >Intelligent Automation</motion.a></li>
+                                {SERVICE_LINKS.map((link) => (
+                                    <FooterInternalLink key={link.to} {...link} />
+                                ))}
                             </ul>
-                        </motion.div>
+                        </FooterColumn>
 
-                        {/* Company */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-                            viewport={{ once: true }}
+                        <FooterColumn
+                            title="Company"
+                            delay={0.4}
                             className="max-w-[10rem] sm:flex-1 sm:min-w-[8rem]"
                         >
-                            <h3 className="font-semibold text-gray-900 mb-4">Company</h3>
                             <ul className="space-y-3">
-                                <li><motion.a
-                                    href="/about"
-                                    whileHover={{ x: 5 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                >About Us</motion.a></li>
-                                <li><motion.a
-                                    href="/careers"
-                                    whileHover={{ x: 5 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                >Careers</motion.a></li>
-                                <li><motion.a
-                                    href="/blogs"
-                                    whileHover={{ x: 5 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                >Blogs</motion.a></li>
-                                <li><motion.a
-                                    href="/contact"
-                                    whileHover={{ x: 5 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                >Contact</motion.a></li>
+                                {COMPANY_LINKS.map((link) => (
+                                    <FooterInternalLink key={link.to} {...link} />
+                                ))}
                             </ul>
-                        </motion.div>
+                        </FooterColumn>
 
-                        {/* Get in Touch */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
-                            viewport={{ once: true }}
+                        <FooterColumn
+                            title="Get in Touch"
+                            delay={0.6}
                             className="max-w-[20rem] sm:flex-1 sm:min-w-[8rem]"
                         >
-                            <h3 className="font-semibold text-gray-900 mb-4">Get in Touch</h3>
                             <ul className="space-y-4">
                                 <li className="flex items-start gap-3">
                                     <Mail size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
-                                    <motion.a
+                                    <FooterExternalLink
                                         href="mailto:business@toadsters.com"
-                                        whileHover={{ x: 5 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                    >
-                                        business@toadsters.com
-                                    </motion.a>
+                                        label="business@toadsters.com"
+                                    />
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <Phone size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
-                                    <motion.a
-                                        href="tel:+919220518139"
-                                        whileHover={{ x: 5 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-                                    >
-                                        +91 92205 17988
-
-                                    </motion.a>
+                                    <FooterExternalLink href="tel:+919220517988" label="+91 92205 17988" />
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <MapPin size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
                                     <span className="text-gray-600 text-sm">
-                                        JAV Tower, H17, H Block, Sector 63,                                         <br />
+                                        JAV Tower, H17, H Block, Sector 63,
+                                        <br />
                                         Noida, Uttar Pradesh 201309
                                     </span>
                                 </li>
+                                <li className="flex items-start gap-3">
+                                    <MapPin size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
+                                    <span className="text-gray-600 text-sm">
+                                        Level 1, Avenue Gate, South Zone, DIFC, Dubai, UAE
+                                    </span>
+                                </li>
                             </ul>
-                        </motion.div>
+                        </FooterColumn>
                     </div>
                 </div>
-
             </div>
         </footer>
     )

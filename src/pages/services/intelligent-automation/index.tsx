@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { CTALink } from "@/components/CTALink"
 import {
   Brain,
   Zap,
@@ -51,7 +51,6 @@ const clients = [
 ]
 
 export default function IntelligentAutomationPage() {
-  const navigate = useNavigate()
   return (
     <div className="bg-[#050d18] text-white">
 
@@ -75,9 +74,7 @@ export default function IntelligentAutomationPage() {
             Combine AI, RPA, and analytics to automate complex business processes, drive efficiency, and enable smarter decision-making at scale.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button onClick={() => navigate('/contact')} className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">
-              Get Free Automation Audit
-            </button>
+            <CTALink to="/contact">Get Free Automation Audit</CTALink>
             <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
               See How It Works
             </button>
@@ -87,7 +84,7 @@ export default function IntelligentAutomationPage() {
 
       {/* ── CLIENT LOGO MARQUEE ── */}
       <section className="bg-[#070e1e] py-10 overflow-hidden border-y border-white/5">
-        <p className="text-center text-xs tracking-widest text-gray-500 uppercase mb-6">
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">
           Trusted by Innovative Teams Worldwide
         </p>
         <div className="relative flex overflow-hidden">
@@ -105,7 +102,7 @@ export default function IntelligentAutomationPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">Intelligent Automation Services</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
               AI-powered automation solutions that combine RPA, ML, and analytics to optimize every business process.
@@ -166,7 +163,7 @@ export default function IntelligentAutomationPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Capabilities</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Capabilities</p>
             <h2 className="text-4xl font-extrabold">Key Features of Intelligent Automation</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
               Unlock new levels of efficiency, accuracy, and agility with our intelligent automation platform.
@@ -200,7 +197,7 @@ export default function IntelligentAutomationPage() {
       <section id="our-process" className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
             <h2 className="text-4xl font-extrabold">Our Process</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -222,7 +219,7 @@ export default function IntelligentAutomationPage() {
               ))}
             </div>
             <div className="rounded-3xl overflow-hidden border border-white/5 relative h-[400px] md:h-full group">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Intelligent Automation Platform" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Intelligent Automation Platform" title="Intelligent Automation Platform" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
           </div>
         </div>
@@ -232,7 +229,7 @@ export default function IntelligentAutomationPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Why Choose Us</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why Choose Us</p>
             <h2 className="text-4xl font-extrabold">Benefits of Working With Us</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -263,7 +260,7 @@ export default function IntelligentAutomationPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Our Expertise</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Expertise</p>
             <h2 className="text-4xl font-extrabold">Intelligent Automation Expertise</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -305,7 +302,7 @@ export default function IntelligentAutomationPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Our Engineers</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Engineers</p>
             <h2 className="text-4xl font-extrabold max-w-3xl mx-auto">
               Why Our Intelligent Automation Engineers Deliver Results
             </h2>
@@ -333,7 +330,7 @@ export default function IntelligentAutomationPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
             <h2 className="text-4xl font-extrabold">Our Work Speaks for Itself</h2>
             <p className="text-gray-400 mt-3">Real intelligent automation solutions delivering real business results.</p>
           </div>
@@ -348,7 +345,7 @@ export default function IntelligentAutomationPage() {
                 className="bg-[#0d1b2e] rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-colors group shadow-lg"
               >
                 <div className="h-44 overflow-hidden relative">
-                  <img src={w.img} alt={w.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={w.img} alt={w.title} title={w.title} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-[#0d1b2e]/10 group-hover:bg-transparent transition-colors duration-500"></div>
                 </div>
                 <div className="p-5 border-t border-white/5">
@@ -367,7 +364,7 @@ export default function IntelligentAutomationPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
             <h2 className="text-4xl font-extrabold">Key Innovations in Intelligent Automation</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -397,7 +394,7 @@ export default function IntelligentAutomationPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
             <h2 className="text-4xl font-extrabold">What Our Clients Say</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -443,7 +440,7 @@ export default function IntelligentAutomationPage() {
       {/* <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
             <h2 className="text-4xl font-extrabold">Our Blogs</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -474,7 +471,7 @@ export default function IntelligentAutomationPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[

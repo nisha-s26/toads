@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { CTALink } from "@/components/CTALink"
 import {
   Brain,
   Zap,
@@ -51,7 +51,6 @@ const clients = [
 ]
 
 export default function AIAutomationPage() {
-  const navigate = useNavigate()
   return (
     <div className="bg-[#050d18] text-white">
 
@@ -75,9 +74,7 @@ export default function AIAutomationPage() {
             Eliminate repetitive tasks, accelerate workflows, and unlock operational excellence with intelligent AI automation solutions engineered for enterprise scale and reliability.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button onClick={() => navigate('/contact')} className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">
-              Get Free AI Audit
-            </button>
+            <CTALink to="/contact">Get Free AI Audit</CTALink>
             <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
               See How It Works
             </button>
@@ -87,7 +84,7 @@ export default function AIAutomationPage() {
 
       {/* ── CLIENT LOGO MARQUEE ── */}
       <section className="bg-[#070e1e] py-10 overflow-hidden border-y border-white/5">
-        <p className="text-center text-xs tracking-widest text-gray-500 uppercase mb-6">
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">
           Trusted by Innovative Teams Worldwide
         </p>
         <div className="relative flex overflow-hidden">
@@ -105,7 +102,7 @@ export default function AIAutomationPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">AI Automation Services</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
               End-to-end intelligent automation solutions that eliminate friction, reduce costs, and free your teams to focus on high-value work.
@@ -166,7 +163,7 @@ export default function AIAutomationPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Capabilities</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Capabilities</p>
             <h2 className="text-4xl font-extrabold">Key Features of AI Automation</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
               Our AI automation platform is built with enterprise-grade capabilities to deliver measurable outcomes at scale.
@@ -200,7 +197,7 @@ export default function AIAutomationPage() {
       <section id="our-process" className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
             <h2 className="text-4xl font-extrabold">Our Process</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -239,7 +236,7 @@ export default function AIAutomationPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Why Choose Us</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why Choose Us</p>
             <h2 className="text-4xl font-extrabold">Benefits of Working With Us</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -270,7 +267,7 @@ export default function AIAutomationPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Our Expertise</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Expertise</p>
             <h2 className="text-4xl font-extrabold">AI Automation Expertise Tailored to You</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -312,7 +309,7 @@ export default function AIAutomationPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Our Engineers</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Engineers</p>
             <h2 className="text-4xl font-extrabold max-w-3xl mx-auto">
               Why Our AI Automation Engineers to Build Scalable, Reliable, and Intelligent Solutions
             </h2>
@@ -340,7 +337,7 @@ export default function AIAutomationPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
             <h2 className="text-4xl font-extrabold">Our Work Speaks for Itself</h2>
             <p className="text-gray-400 mt-3">Real AI automation solutions delivering real business results.</p>
           </div>
@@ -355,7 +352,7 @@ export default function AIAutomationPage() {
                 className="bg-[#0d1b2e] flex flex-col rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(74,222,128,0.15)]"
               >
                 <div className="h-48 relative overflow-hidden bg-[#0a1628] shrink-0">
-                  <img src={w.image} alt={w.title} className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
+                  <img src={w.image} alt={w.title} title={w.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0d1b2e] via-transparent to-transparent pointer-events-none"></div>
                 </div>
                 <div className="p-6 relative -mt-6 flex flex-col grow">
@@ -379,7 +376,7 @@ export default function AIAutomationPage() {
       <section className="py-20 px-6 bg-[#050d18]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
             <h2 className="text-4xl font-extrabold">Key Innovations in AI Automation</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -409,7 +406,7 @@ export default function AIAutomationPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
             <h2 className="text-4xl font-extrabold">What Our Clients Say</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -455,7 +452,7 @@ export default function AIAutomationPage() {
       {/* <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
             <h2 className="text-4xl font-extrabold">Our Blogs</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -486,7 +483,7 @@ export default function AIAutomationPage() {
       <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
+            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[

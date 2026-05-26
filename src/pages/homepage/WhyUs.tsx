@@ -35,7 +35,7 @@ const WhyUs = () => {
 
     return (
         <section ref={ref} className="bg-[#050d18]">
-            <div className="max-w-9xl mx-auto px-6 py-20">
+            <div className="max-w-9xl mx-auto px-6 pt-10 pb-10">
                 <div className="flex flex-col lg:flex-row items-center justify-center gap-14">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -43,7 +43,7 @@ const WhyUs = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="max-w-xl text-center lg:text-left"
                     >
-                        <p className="text-[10px] tracking-[0.35em] text-toadster-green">WHY US</p>
+                        <p className="text-xl font-semibold tracking-[0.25em] text-toadster-green uppercase">WHY US</p>
 
                         <h2 className="mt-4 text-4xl md:text-5xl font-extrabold leading-[1.05] text-white">
                             Why Choose

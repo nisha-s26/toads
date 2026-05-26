@@ -28,7 +28,7 @@ const services: Service[] = [
   {
     icon: <Brain size={28} strokeWidth={1.5} />,
     title: "Artificial Intelligence Solutions",
-    shortDesc: "Enterprise-grade AI systems tailored to your business needs.",
+    shortDesc: "Enterprise-grade AI systems tailored by an AI development company.",
     description:
       "We build custom AI solutions that automate decision-making, optimize operations, and unlock new revenue streams. From natural language processing to recommendation engines, our AI systems are designed for production scale.",
     useCases: [
@@ -187,11 +187,11 @@ export default function AiCap() {
   }, [selected])
 
   return (
-    <section className="w-full bg-[#050d18] py-20 px-4">
+    <section className="w-full bg-[#050d18] px-4">
       {/* Header */}
       <div className="text-center mb-12">
-        <p className="text-sm tracking-[0.35em] text-toadster-green font-bold">
-          AI Capabilities
+        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold">
+          AI CAPABILITIES
         </p>
         <h2 className="text-5xl md:text-6xl font-extrabold mb-4">
           <span className="text-white">Intelligent </span>
@@ -209,16 +209,16 @@ export default function AiCap() {
             key={service.title}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ 
-              duration: 0.5, 
+            transition={{
+              duration: 0.5,
               ease: "easeOut",
-              delay: index * 0.1 
+              delay: index * 0.1
             }}
             viewport={{ once: true }}
             onClick={() => setSelected(service)}
             className="group relative bg-[#0d1b2e] border border-white/5 rounded-2xl p-6 hover:border-green-800/50 transition-colors"
           >
-            <span className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
+            <span className="w-10 h-10 rounded-xl mx-auto bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
               {service.icon}
             </span>
             <h3 className="text-base font-bold text-white mb-2 leading-snug">

@@ -120,7 +120,7 @@ const TrustedBy = () => {
     return (
         <section className="bg-[#050d18]">
             <div className="max-w-9xl mx-auto px-6 py-14">
-                <p className="text-center text-[10px] tracking-[0.35em] text-toadster-green">
+                <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">
                     TRUSTED BY INNOVATIVE TEAMS WORLDWIDE
                 </p>
 

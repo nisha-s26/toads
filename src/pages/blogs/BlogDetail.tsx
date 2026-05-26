@@ -72,9 +72,9 @@ export default function BlogDetail() {
         <div className="max-w-4xl mx-auto relative z-10">
           {/* Breadcrumb */}
           <nav className={`flex items-center gap-2 text-sm text-gray-300 mb-8 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
-            <Link to="/" className="hover:text-toadster-green transition-colors duration-200">Home</Link>
+            <Link to="/" title="Home" className="hover:text-toadster-green transition-colors duration-200">Home</Link>
             <ChevronRight size={14} className="text-gray-400" />
-            <Link to="/blogs" className="hover:text-toadster-green transition-colors duration-200">Blogs</Link>
+            <Link to="/blogs" title="Blogs" className="hover:text-toadster-green transition-colors duration-200">Blogs</Link>
             <ChevronRight size={14} className="text-gray-400" />
             <span className="text-toadster-green font-medium line-clamp-1">{blog.title}</span>
           </nav>
@@ -135,6 +135,7 @@ export default function BlogDetail() {
                 href="https://x.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                title="Share on Twitter"
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-toadster-green hover:text-white transition-all duration-200 text-gray-300"
               >
                 <Twitter size={14} />
@@ -143,6 +144,7 @@ export default function BlogDetail() {
                 href="https://www.linkedin.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                title="Share on LinkedIn"
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-toadster-green hover:text-white transition-all duration-200 text-gray-300"
               >
                 <Linkedin size={14} />
@@ -151,6 +153,7 @@ export default function BlogDetail() {
                 href="https://www.facebook.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                title="Share on Facebook"
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-toadster-green hover:text-white transition-all duration-200 text-gray-300"
               >
                 <Facebook size={14} />
@@ -165,9 +168,13 @@ export default function BlogDetail() {
         <div className="max-w-4xl mx-auto">
           <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
             <div className="w-full h-48 sm:h-56 md:h-72 lg:h-[420px] relative overflow-hidden group">
-              <img 
-                src={blog.image} 
+              <img
+                src={blog.image}
                 alt={blog.title}
+                title={blog.title}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -324,6 +331,7 @@ export default function BlogDetail() {
                       href="https://x.com/" 
                       target="_blank" 
                       rel="noopener noreferrer"
+                      title="Share on Twitter"
                       className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-400 hover:bg-[#015d19] hover:border-[#015d19] hover:text-white transition-all duration-200 text-xs font-medium"
                     >
                       <Twitter size={13} />
@@ -333,6 +341,7 @@ export default function BlogDetail() {
                       href="https://www.linkedin.com/" 
                       target="_blank" 
                       rel="noopener noreferrer"
+                      title="Share on LinkedIn"
                       className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-400 hover:bg-[#015d19] hover:border-[#015d19] hover:text-white transition-all duration-200 text-xs font-medium"
                     >
                       <Linkedin size={13} />
@@ -358,6 +367,7 @@ export default function BlogDetail() {
               </div>
               <Link
                 to="/blogs"
+                title="View All Blogs"
                 className="hidden md:flex items-center gap-2 text-[#015d19] font-medium text-sm hover:gap-3 transition-all duration-300 group"
               >
                 View All Blogs
@@ -370,13 +380,17 @@ export default function BlogDetail() {
                 <Link
                   key={relatedBlog.slug}
                   to={`/blogs/${relatedBlog.slug}`}
+                  title={relatedBlog.title}
                   className={`bg-gray-900/50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group border border-gray-800 hover:border-[#015d19]/20 hover:-translate-y-1 block transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                   style={{ transitionDelay: `${2800 + index * 100}ms` }}
                 >
                   <div className="h-36 relative overflow-hidden flex items-center justify-center">
-                    <img 
-                      src={relatedBlog.image} 
+                    <img
+                      src={relatedBlog.image}
                       alt={relatedBlog.title}
+                      title={relatedBlog.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -414,6 +428,7 @@ export default function BlogDetail() {
             <div className="mt-8 text-center md:hidden">
               <Link
                 to="/blogs"
+                title="View All Blogs"
                 className="inline-flex items-center gap-2 text-[#015d19] font-medium text-sm border border-[#015d19]/30 px-5 py-2.5 rounded-full hover:bg-[#015d19] hover:text-white transition-all duration-300"
               >
                 View All Blogs
@@ -492,12 +507,14 @@ export default function BlogDetail() {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
                   to="/contact"
+                  title="Get Started Today"
                   className="bg-white text-[#015d19] px-7 py-3 rounded-full font-semibold hover:shadow-xl hover:shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 text-sm"
                 >
                   Get Started Today
                 </Link>
                 <Link
                   to="/services/agentic-ai"
+                  title="Explore Services"
                   className="border border-white/50 text-white px-7 py-3 rounded-full font-medium hover:bg-white/10 transition-all duration-300 text-sm"
                 >
                   Explore Services
