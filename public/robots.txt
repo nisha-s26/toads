@@ -1,5 +1,33 @@
+# https://toadsters.com robots.txt
+# Allow all reputable crawlers; block only internal API surface.
+
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /api/
+
+# Explicitly permit major search and SEO crawlers
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
 
 Sitemap: https://toadsters.com/sitemap.xml
