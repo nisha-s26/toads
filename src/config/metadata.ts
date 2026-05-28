@@ -1,4 +1,4 @@
-import { allBlogs } from "@/pages/blogs/blogData"
+import { allBlogs } from "../pages/blogs/blogData"
 
 export interface PageMetadata {
   title: string
@@ -7,15 +7,16 @@ export interface PageMetadata {
 
 export const SITE_URL = "https://toadsters.com"
 
-export const SITE_OG_IMAGE = `${SITE_URL}/thumbnail.png`
-export const SITE_OG_IMAGE_WIDTH = 1828
-export const SITE_OG_IMAGE_HEIGHT = 951
-export const SITE_OG_IMAGE_ALT = "Toadster Hero Section Preview"
+export const SITE_OG_IMAGE = `${SITE_URL}/og-image.jpg`
+export const SITE_OG_IMAGE_TYPE = "image/jpeg"
+export const SITE_OG_IMAGE_WIDTH = 1200
+export const SITE_OG_IMAGE_HEIGHT = 630
+export const SITE_OG_IMAGE_ALT = "Toadsters — AI-Powered Digital Transformation"
 
 export const DEFAULT_METADATA: PageMetadata = {
-  title: "Toadster | AI Solutions & Web Development",
+  title: "Toadsters | Scalable AI Solutions & Enterprise Web Development",
   description:
-    "Toadster is a global IT company engineering enterprise-grade software. We build scalable AI solutions, high-throughput data pipelines, and MLOps platforms.",
+    "Toadsters is a global IT company engineering enterprise-grade software. We build scalable AI solutions, high-throughput data pipelines, and MLOps platforms.",
 }
 
 const SERVICE_DESCRIPTIONS_BASE =
@@ -159,4 +160,64 @@ export function getMetadataForPath(pathname: string): PageMetadata {
 export function buildCanonicalUrl(pathname: string): string {
   const normalized = pathname === "/" ? "/" : pathname.replace(/\/+$/, "")
   return `${SITE_URL}${normalized}`
+}
+
+export function getAllPrerenderRoutes(): string[] {
+  const staticRoutes = Object.keys(STATIC_PAGE_METADATA)
+  const blogRoutes = allBlogs.map((post) => `${BLOG_PREFIX}${post.slug}`)
+  return Array.from(new Set([...staticRoutes, ...blogRoutes]))
+}
+
+export function buildBlogJsonLd(pathname: string): string | null {
+  if (!pathname.startsWith(BLOG_PREFIX) || pathname === "/blogs") return null
+  const slug = pathname.slice(BLOG_PREFIX.length)
+  const blog = allBlogs.find((post) => post.slug === slug)
+  if (!blog) return null
+
+  const canonical = buildCanonicalUrl(pathname)
+  const datePublishedIso = toIsoDate(blog.date)
+
+  const jsonLd: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+    headline: blog.title,
+    description: blog.description,
+    image: [blog.image],
+    author: {
+      "@type": "Person",
+      name: blog.author,
+      ...(blog.authorRole ? { jobTitle: blog.authorRole } : {}),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Toadster",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/toadster-logo.svg` },
+    },
+    ...(datePublishedIso ? { datePublished: datePublishedIso, dateModified: datePublishedIso } : {}),
+    ...(blog.tags && blog.tags.length > 0 ? { keywords: blog.tags.join(", ") } : {}),
+    ...(blog.category ? { articleSection: blog.category } : {}),
+    url: canonical,
+  }
+
+  if (blog.faqs && blog.faqs.length > 0) {
+    const faqJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: blog.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    }
+    return `${JSON.stringify(jsonLd)}\n${JSON.stringify(faqJsonLd)}`
+  }
+
+  return JSON.stringify(jsonLd)
+}
+
+function toIsoDate(input: string): string | null {
+  const parsed = new Date(input)
+  if (Number.isNaN(parsed.getTime())) return null
+  return parsed.toISOString().slice(0, 10)
 }
