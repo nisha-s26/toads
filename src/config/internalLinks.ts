@@ -207,6 +207,7 @@ const PATH_TO_SERVICE: Map<string, ServiceMeta> = new Map(
 const BLOG_CATEGORY_TO_SERVICE_SLUGS: Record<string, string[]> = {
   "App Development": ["ai-development", "custom-ai-solutions", "ai-consultation"],
   "AI Development": ["ai-development", "agentic-ai", "llm-development"],
+  "AI Automation": ["ai-automation", "intelligent-automation", "agentic-ai"],
   "Generative AI": ["generative-ai", "llm-development", "ai-chatbots"],
   "Digital Transformation": ["ai-consultation", "intelligent-automation", "custom-ai-solutions"],
   "Machine Learning": ["machine-learning", "ai-data-analytics", "ai-development"],

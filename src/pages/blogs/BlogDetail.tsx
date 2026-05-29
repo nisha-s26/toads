@@ -10,10 +10,24 @@ type ContentBlock =
   | { kind: "h3"; text: string }
   | { kind: "image"; src: string; alt: string }
   | { kind: "ul"; items: string[] }
+  | { kind: "ol"; items: string[] }
+  | { kind: "blockquote"; text: string }
+  | { kind: "table"; headers: string[]; rows: string[][] }
   | { kind: "p"; text: string; fullyBold: boolean }
 
 const IMAGE_LINE_PATTERN = /^!\[([^\]]*)\]\(([^)]+)\)$/
 const FULLY_BOLD_LINE_PATTERN = /^\*\*([^*]+)\*\*$/
+const ORDERED_ITEM_PATTERN = /^\d+\.\s+(.+)$/
+const TABLE_SEPARATOR_CELL_PATTERN = /^:?-{3,}:?$/
+
+function parseTableRow(line: string): string[] {
+  const inner = line.replace(/^\|/, "").replace(/\|$/, "")
+  return inner.split("|").map((cell) => cell.trim())
+}
+
+function isTableSeparatorRow(cells: string[]): boolean {
+  return cells.length > 0 && cells.every((cell) => TABLE_SEPARATOR_CELL_PATTERN.test(cell))
+}
 
 function parseBlogContent(content: string): ContentBlock[] {
   const lines = content
@@ -24,6 +38,8 @@ function parseBlogContent(content: string): ContentBlock[] {
 
   const blocks: ContentBlock[] = []
   let listBuffer: string[] | null = null
+  let orderedBuffer: string[] | null = null
+  let tableBuffer: { headers: string[]; rows: string[][]; separatorSeen: boolean } | null = null
 
   const flushList = () => {
     if (listBuffer && listBuffer.length > 0) {
@@ -32,13 +48,62 @@ function parseBlogContent(content: string): ContentBlock[] {
     listBuffer = null
   }
 
+  const flushOrdered = () => {
+    if (orderedBuffer && orderedBuffer.length > 0) {
+      blocks.push({ kind: "ol", items: orderedBuffer })
+    }
+    orderedBuffer = null
+  }
+
+  const flushTable = () => {
+    if (tableBuffer && tableBuffer.headers.length > 0 && tableBuffer.rows.length > 0) {
+      blocks.push({ kind: "table", headers: tableBuffer.headers, rows: tableBuffer.rows })
+    }
+    tableBuffer = null
+  }
+
+  const flushAll = () => {
+    flushList()
+    flushOrdered()
+    flushTable()
+  }
+
   for (const line of lines) {
+    if (line.startsWith("|") && line.endsWith("|")) {
+      const cells = parseTableRow(line)
+      if (!tableBuffer) {
+        flushList()
+        flushOrdered()
+        tableBuffer = { headers: cells, rows: [], separatorSeen: false }
+      } else if (!tableBuffer.separatorSeen && isTableSeparatorRow(cells)) {
+        tableBuffer.separatorSeen = true
+      } else {
+        tableBuffer.rows.push(cells)
+      }
+      continue
+    }
+    flushTable()
+
     if (line.startsWith("- ")) {
+      flushOrdered()
       if (!listBuffer) listBuffer = []
       listBuffer.push(line.slice(2))
       continue
     }
     flushList()
+
+    const orderedMatch = ORDERED_ITEM_PATTERN.exec(line)
+    if (orderedMatch) {
+      if (!orderedBuffer) orderedBuffer = []
+      orderedBuffer.push(orderedMatch[1])
+      continue
+    }
+    flushOrdered()
+
+    if (line.startsWith("> ")) {
+      blocks.push({ kind: "blockquote", text: line.slice(2) })
+      continue
+    }
 
     const imageMatch = line.match(IMAGE_LINE_PATTERN)
     if (imageMatch) {
@@ -65,7 +130,7 @@ function parseBlogContent(content: string): ContentBlock[] {
     blocks.push({ kind: "p", text: line, fullyBold: false })
   }
 
-  flushList()
+  flushAll()
   return blocks
 }
 
@@ -355,8 +420,8 @@ export default function BlogDetail() {
       {/* Featured Image */}
       <section className="px-3 sm:px-4 md:px-6 lg:px-8 mb-8 sm:mb-12">
         <div className="max-w-4xl mx-auto">
-          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
-            <div className="w-full h-48 sm:h-56 md:h-72 lg:h-[420px] relative overflow-hidden group">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/5">
+            <div className="w-full h-48 sm:h-56 md:h-72 lg:h-[420px] relative overflow-hidden group bg-[#0b1a2b] flex items-center justify-center">
               <img
                 src={blog.image}
                 alt={blog.title}
@@ -365,15 +430,15 @@ export default function BlogDetail() {
                 decoding="async"
                 fetchPriority="high"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            
-            <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent"></div>
+
+            <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
             {blog.category && (
-              <div className="absolute top-4 left-4">
-                <span className="bg-white/90 backdrop-blur-sm text-toadster-green text-xs font-bold px-3 py-1.5 rounded-full">
+              <div className="absolute top-5 left-5 sm:top-7 sm:left-7">
+                <span className="inline-flex items-center bg-white/95 backdrop-blur-sm text-toadster-green text-xs sm:text-sm font-bold px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg shadow-black/20 ring-1 ring-black/5">
                   {blog.category}
                 </span>
               </div>
@@ -449,6 +514,83 @@ export default function BlogDetail() {
                           </li>
                         ))}
                       </ul>
+                    )
+                  }
+
+                  if (block.kind === "ol") {
+                    return (
+                      <ol key={keyPrefix} className="space-y-3 mb-5 sm:mb-6 list-none">
+                        {block.items.map((item, itemIndex) => (
+                          <li
+                            key={`${keyPrefix}-i${itemIndex}`}
+                            className="relative pl-12 text-gray-300 leading-relaxed text-base"
+                          >
+                            <span
+                              className="absolute left-0 top-0 inline-flex h-7 w-7 items-center justify-center rounded-lg bg-toadster-green/10 text-toadster-green text-xs font-bold border border-toadster-green/20"
+                              aria-hidden="true"
+                            >
+                              {String(itemIndex + 1).padStart(2, "0")}
+                            </span>
+                            {renderInline(item, `${keyPrefix}-i${itemIndex}`)}
+                          </li>
+                        ))}
+                      </ol>
+                    )
+                  }
+
+                  if (block.kind === "blockquote") {
+                    return (
+                      <blockquote
+                        key={keyPrefix}
+                        className="my-6 sm:my-8 border-l-4 border-toadster-green/60 bg-toadster-green/5 px-5 py-4 rounded-r-xl text-gray-200 text-base sm:text-lg italic leading-relaxed"
+                      >
+                        {renderInline(block.text, keyPrefix)}
+                      </blockquote>
+                    )
+                  }
+
+                  if (block.kind === "table") {
+                    return (
+                      <div
+                        key={keyPrefix}
+                        className="my-6 sm:my-8 overflow-x-auto rounded-xl border border-gray-800"
+                      >
+                        <table className="w-full border-collapse text-left text-sm sm:text-base">
+                          <thead className="bg-toadster-green/10">
+                            <tr>
+                              {block.headers.map((header, headerIndex) => (
+                                <th
+                                  key={`${keyPrefix}-h${headerIndex}`}
+                                  className="px-4 py-3 font-semibold text-toadster-green border-b border-gray-800 align-top"
+                                >
+                                  {renderInline(header, `${keyPrefix}-h${headerIndex}`)}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {block.rows.map((row, rowIndex) => (
+                              <tr
+                                key={`${keyPrefix}-r${rowIndex}`}
+                                className={
+                                  rowIndex % 2 === 0
+                                    ? "bg-gray-900/30"
+                                    : "bg-gray-900/10"
+                                }
+                              >
+                                {row.map((cell, cellIndex) => (
+                                  <td
+                                    key={`${keyPrefix}-r${rowIndex}-c${cellIndex}`}
+                                    className="px-4 py-3 text-gray-300 border-b border-gray-800/60 align-top leading-relaxed"
+                                  >
+                                    {renderInline(cell, `${keyPrefix}-r${rowIndex}-c${cellIndex}`)}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     )
                   }
 
