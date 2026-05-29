@@ -2,6 +2,7 @@ import { Suspense } from "react"
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
 import { Navbar } from "./components/Navbar"
 import Footer from "./components/Footer"
+import { RelatedLinks } from "./components/RelatedLinks"
 import { APP_ROUTES, resolveActiveSection } from "./config/routes"
 import { usePageMetadata } from "./hooks/usePageMetadata"
 
@@ -31,6 +32,7 @@ function AppInner() {
           ))}
         </Routes>
       </Suspense>
+      <RelatedLinks />
       <Footer />
     </div>
   )

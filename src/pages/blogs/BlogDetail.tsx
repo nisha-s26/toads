@@ -1,9 +1,133 @@
 import { useParams, useNavigate, Link } from "react-router-dom"
 import { ArrowLeft, Calendar, Clock, User, Tag, Twitter, Linkedin, Facebook, ArrowRight, ChevronRight, MessageCircle, ThumbsUp, ChevronDown, HelpCircle } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, Fragment, type ReactNode } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { allBlogs, type BlogFaq } from "./blogData"
 import { staticComments } from "./commentsData"
+
+type ContentBlock =
+  | { kind: "h2"; text: string }
+  | { kind: "h3"; text: string }
+  | { kind: "image"; src: string; alt: string }
+  | { kind: "ul"; items: string[] }
+  | { kind: "p"; text: string; fullyBold: boolean }
+
+const IMAGE_LINE_PATTERN = /^!\[([^\]]*)\]\(([^)]+)\)$/
+const FULLY_BOLD_LINE_PATTERN = /^\*\*([^*]+)\*\*$/
+
+function parseBlogContent(content: string): ContentBlock[] {
+  const lines = content
+    .trim()
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0)
+
+  const blocks: ContentBlock[] = []
+  let listBuffer: string[] | null = null
+
+  const flushList = () => {
+    if (listBuffer && listBuffer.length > 0) {
+      blocks.push({ kind: "ul", items: listBuffer })
+    }
+    listBuffer = null
+  }
+
+  for (const line of lines) {
+    if (line.startsWith("- ")) {
+      if (!listBuffer) listBuffer = []
+      listBuffer.push(line.slice(2))
+      continue
+    }
+    flushList()
+
+    const imageMatch = line.match(IMAGE_LINE_PATTERN)
+    if (imageMatch) {
+      blocks.push({ kind: "image", alt: imageMatch[1], src: imageMatch[2] })
+      continue
+    }
+
+    if (line.startsWith("### ")) {
+      blocks.push({ kind: "h3", text: line.slice(4) })
+      continue
+    }
+
+    if (line.startsWith("## ")) {
+      blocks.push({ kind: "h2", text: line.slice(3) })
+      continue
+    }
+
+    const fullyBold = FULLY_BOLD_LINE_PATTERN.exec(line)
+    if (fullyBold) {
+      blocks.push({ kind: "p", text: fullyBold[1], fullyBold: true })
+      continue
+    }
+
+    blocks.push({ kind: "p", text: line, fullyBold: false })
+  }
+
+  flushList()
+  return blocks
+}
+
+function renderInlineLinks(text: string, keyPrefix: string): ReactNode[] {
+  const parts = text.split(/\[([^\]]+)\]\(([^)]+)\)/g)
+  const nodes: ReactNode[] = []
+  for (let i = 0; i < parts.length; i++) {
+    const segment = parts[i]
+    if (i % 3 === 0) {
+      if (segment) nodes.push(<Fragment key={`${keyPrefix}-t${i}`}>{segment}</Fragment>)
+    } else if (i % 3 === 1) {
+      const linkText = segment
+      const url = parts[i + 1]
+      const isExternal = /^https?:\/\//i.test(url)
+      nodes.push(
+        isExternal ? (
+          <a
+            key={`${keyPrefix}-l${i}`}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-toadster-green underline-offset-2 hover:underline"
+          >
+            {linkText}
+          </a>
+        ) : (
+          <Link
+            key={`${keyPrefix}-l${i}`}
+            to={url}
+            className="text-toadster-green underline-offset-2 hover:underline"
+          >
+            {linkText}
+          </Link>
+        )
+      )
+      i += 1
+    }
+  }
+  return nodes
+}
+
+function renderInline(text: string, keyPrefix: string): ReactNode[] {
+  const boldSplit = text.split(/\*\*([^*]+)\*\*/g)
+  const nodes: ReactNode[] = []
+  boldSplit.forEach((segment, index) => {
+    if (segment.length === 0) return
+    if (index % 2 === 1) {
+      nodes.push(
+        <strong key={`${keyPrefix}-b${index}`} className="text-white font-semibold">
+          {renderInlineLinks(segment, `${keyPrefix}-b${index}`)}
+        </strong>
+      )
+    } else {
+      nodes.push(
+        <Fragment key={`${keyPrefix}-s${index}`}>
+          {renderInlineLinks(segment, `${keyPrefix}-s${index}`)}
+        </Fragment>
+      )
+    }
+  })
+  return nodes
+}
 
 function FaqAccordion({ items }: { items: BlogFaq[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
@@ -123,13 +247,7 @@ export default function BlogDetail() {
   const otherBlogs = allBlogs.filter((b) => b.slug !== slug).slice(0, 3 - relatedBlogs.length)
   const suggestedBlogs = [...relatedBlogs, ...otherBlogs].slice(0, 3)
 
-  const contentParagraphs = blog.content
-    ? blog.content
-        .trim()
-        .split("\n")
-        .map((line) => line.trim())
-        .filter((line) => line.length > 0)
-    : []
+  const contentBlocks: ContentBlock[] = blog.content ? parseBlogContent(blog.content) : []
 
   return (
     <div className="min-h-screen bg-[#050d18] text-white">
@@ -246,6 +364,7 @@ export default function BlogDetail() {
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -271,43 +390,82 @@ export default function BlogDetail() {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
-                {contentParagraphs.map((line, index) => {
-                  if (line.startsWith("## ")) {
+                {contentBlocks.map((block, index) => {
+                  const keyPrefix = `b${index}`
+
+                  if (block.kind === "h2") {
                     return (
                       <h2
-                        key={index}
+                        key={keyPrefix}
                         className="text-xl sm:text-2xl font-bold text-white mt-8 sm:mt-10 mb-3 sm:mb-4 pb-2 sm:pb-3 border-b border-gray-700 first:mt-0"
                       >
-                        {line.replace("## ", "")}
+                        {block.text}
                       </h2>
                     )
                   }
-                  if (line.startsWith("**") && line.endsWith("**")) {
+
+                  if (block.kind === "h3") {
                     return (
-                      <p key={index} className="font-bold text-white mt-3 sm:mt-4 mb-1 text-sm sm:text-base">
-                        {line.replace(/\*\*/g, "")}
-                      </p>
+                      <h3
+                        key={keyPrefix}
+                        className="text-lg sm:text-xl font-semibold text-white mt-6 sm:mt-8 mb-2 sm:mb-3"
+                      >
+                        {block.text}
+                      </h3>
                     )
                   }
-                  if (line.startsWith("**")) {
-                    const parts = line.split(/\*\*(.*?)\*\*/)
+
+                  if (block.kind === "image") {
                     return (
-                      <p key={index} className="text-gray-300 leading-relaxed mb-4">
-                        {parts.map((part, i) =>
-                          i % 2 === 1 ? (
-                            <strong key={i} className="text-white font-semibold">
-                              {part}
-                            </strong>
-                          ) : (
-                            part
-                          )
+                      <figure key={keyPrefix} className="my-6 sm:my-8">
+                        <img
+                          src={block.src}
+                          alt={block.alt}
+                          title={block.alt}
+                          loading="lazy"
+                          decoding="async"
+                          referrerPolicy="no-referrer"
+                          className="w-full h-auto rounded-xl sm:rounded-2xl border border-gray-800 shadow-2xl"
+                        />
+                        {block.alt && (
+                          <figcaption className="mt-2 text-center text-xs sm:text-sm text-gray-500 italic">
+                            {block.alt}
+                          </figcaption>
                         )}
+                      </figure>
+                    )
+                  }
+
+                  if (block.kind === "ul") {
+                    return (
+                      <ul key={keyPrefix} className="space-y-2 mb-5 sm:mb-6">
+                        {block.items.map((item, itemIndex) => (
+                          <li
+                            key={`${keyPrefix}-i${itemIndex}`}
+                            className="relative pl-6 text-gray-300 leading-relaxed text-base"
+                          >
+                            <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-toadster-green" aria-hidden="true" />
+                            {renderInline(item, `${keyPrefix}-i${itemIndex}`)}
+                          </li>
+                        ))}
+                      </ul>
+                    )
+                  }
+
+                  if (block.fullyBold) {
+                    return (
+                      <p
+                        key={keyPrefix}
+                        className="font-bold text-white mt-3 sm:mt-4 mb-1 text-sm sm:text-base"
+                      >
+                        {renderInline(block.text, keyPrefix)}
                       </p>
                     )
                   }
+
                   return (
-                    <p key={index} className="text-gray-300 leading-relaxed mb-4 text-base">
-                      {line}
+                    <p key={keyPrefix} className="text-gray-300 leading-relaxed mb-4 text-base">
+                      {renderInline(block.text, keyPrefix)}
                     </p>
                   )
                 })}
@@ -469,6 +627,7 @@ export default function BlogDetail() {
                       title={relatedBlog.title}
                       loading="lazy"
                       decoding="async"
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

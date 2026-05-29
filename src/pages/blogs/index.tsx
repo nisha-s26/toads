@@ -51,7 +51,8 @@ export default function Blogs() {
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
-                  className="w-full h-48 sm:h-56 md:h-64 object-cover"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-48 sm:h-56 md:h-80 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
@@ -125,6 +126,7 @@ export default function Blogs() {
                     title={blog.title}
                     loading="lazy"
                     decoding="async"
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -205,6 +207,7 @@ export default function Blogs() {
                     title={blog.title}
                     loading="lazy"
                     decoding="async"
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
