@@ -144,8 +144,8 @@ export function getMetadataForPath(pathname: string): PageMetadata {
     const blog = allBlogs.find((post) => post.slug === slug)
     if (blog) {
       return {
-        title: `${blog.title} | Toadster Blog`,
-        description: blog.description,
+        title: blog.metaTitle ?? `${blog.title} | Toadster Blog`,
+        description: blog.metaDescription ?? blog.description,
       }
     }
   }
@@ -176,6 +176,7 @@ export function buildBlogJsonLd(pathname: string): string | null {
 
   const canonical = buildCanonicalUrl(pathname)
   const datePublishedIso = toIsoDate(blog.date)
+  const imageUrl = absolutizeUrl(blog.image)
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -183,7 +184,7 @@ export function buildBlogJsonLd(pathname: string): string | null {
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
     headline: blog.title,
     description: blog.description,
-    image: [blog.image],
+    image: [imageUrl],
     author: {
       "@type": "Person",
       name: blog.author,
@@ -216,8 +217,17 @@ export function buildBlogJsonLd(pathname: string): string | null {
   return JSON.stringify(jsonLd)
 }
 
+function absolutizeUrl(url: string): string {
+  if (/^https?:\/\//i.test(url)) return url
+  if (url.startsWith("/")) return `${SITE_URL}${url}`
+  return `${SITE_URL}/${url}`
+}
+
 function toIsoDate(input: string): string | null {
   const parsed = new Date(input)
   if (Number.isNaN(parsed.getTime())) return null
-  return parsed.toISOString().slice(0, 10)
+  const year = parsed.getFullYear()
+  const month = String(parsed.getMonth() + 1).padStart(2, "0")
+  const day = String(parsed.getDate()).padStart(2, "0")
+  return `${year}-${month}-${day}`
 }

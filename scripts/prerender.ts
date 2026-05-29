@@ -16,6 +16,14 @@ import {
   STATIC_PAGE_METADATA,
 } from "../src/config/metadata"
 import { allBlogs } from "../src/pages/blogs/blogData"
+import {
+  getRelatedBlogsForBlog,
+  getRelatedBlogsForService,
+  getRelatedServices,
+  getRelatedServicesForBlog,
+  getServiceByPath,
+  type ServiceMeta,
+} from "../src/config/internalLinks"
 
 const HERE = dirname(fileURLToPath(import.meta.url))
 const DIST_DIR = resolve(HERE, "..", "dist")
@@ -200,6 +208,94 @@ function humanizeSegment(segment: string): string {
     .join(" ")
 }
 
+interface RelatedLinkItem {
+  href: string
+  title: string
+  description?: string
+}
+
+interface RelatedLinkSets {
+  services: RelatedLinkItem[]
+  blogs: RelatedLinkItem[]
+}
+
+function toAbsolute(href: string): string {
+  if (/^https?:\/\//i.test(href)) return href
+  return `${SITE_URL}${href.startsWith("/") ? href : `/${href}`}`
+}
+
+function serviceToLink(service: ServiceMeta): RelatedLinkItem {
+  return {
+    href: toAbsolute(service.path),
+    title: service.title,
+    description: service.description,
+  }
+}
+
+function getRelatedLinksForPath(pathname: string): RelatedLinkSets | null {
+  const service = getServiceByPath(pathname)
+  if (service) {
+    return {
+      services: getRelatedServices(service).map(serviceToLink),
+      blogs: getRelatedBlogsForService(service.slug).map((blog) => ({
+        href: toAbsolute(`/blogs/${blog.slug}`),
+        title: blog.title,
+        description: blog.description,
+      })),
+    }
+  }
+
+  if (pathname.startsWith("/blogs/") && pathname !== "/blogs") {
+    const slug = pathname.slice("/blogs/".length)
+    const blog = allBlogs.find((post) => post.slug === slug)
+    if (!blog) return null
+    return {
+      services: getRelatedServicesForBlog(blog).map(serviceToLink),
+      blogs: getRelatedBlogsForBlog(slug).map((relatedBlog) => ({
+        href: toAbsolute(`/blogs/${relatedBlog.slug}`),
+        title: relatedBlog.title,
+        description: relatedBlog.description,
+      })),
+    }
+  }
+
+  return null
+}
+
+function renderLinkList(label: string, items: RelatedLinkItem[]): string {
+  if (items.length === 0) return ""
+  const listItems = items
+    .map((item) => {
+      const href = escapeHtmlAttribute(item.href)
+      const title = escapeHtmlText(item.title)
+      const description = item.description
+        ? ` - ${escapeHtmlText(item.description)}`
+        : ""
+      return `      <li><a href="${href}">${title}</a>${description}</li>`
+    })
+    .join("\n")
+  return `  <section>\n    <h2>${escapeHtmlText(label)}</h2>\n    <ul>\n${listItems}\n    </ul>\n  </section>`
+}
+
+function injectRelatedLinks(html: string, pathname: string): string {
+  const sets = getRelatedLinksForPath(pathname)
+  if (!sets) return html
+  if (sets.services.length === 0 && sets.blogs.length === 0) return html
+
+  const sections = [
+    renderLinkList("Related services", sets.services),
+    renderLinkList("Related articles", sets.blogs),
+  ]
+    .filter(Boolean)
+    .join("\n")
+
+  const block = `<noscript aria-label="Related links">\n${sections}\n</noscript>\n`
+  if (html.includes("</body>")) {
+    return html.replace("</body>", `${block}</body>`)
+  }
+  return `${html}\n${block}`
+}
+
 function applyMetadataForRoute(baseHtml: string, pathname: string): string {
   const metadata = getMetadataForPath(pathname)
   const canonical = buildCanonicalUrl(pathname)
@@ -224,6 +320,7 @@ function applyMetadataForRoute(baseHtml: string, pathname: string): string {
   html = replaceHreflang(html, canonical)
   html = injectBreadcrumbJsonLd(html, pathname)
   html = injectBlogJsonLd(html, buildBlogJsonLd(pathname))
+  html = injectRelatedLinks(html, pathname)
 
   return html
 }

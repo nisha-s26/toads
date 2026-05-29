@@ -130,7 +130,9 @@ const Footer = () => {
                                     src="/toadster-logo.svg"
                                     alt="Toadster"
                                     title="Toadster Logo"
-                                    className="h-8 w-auto select-none"
+                                    className="select-none"
+                                    height={40}
+                                    width={180}
                                 />
                             </Link>
                         </motion.div>
