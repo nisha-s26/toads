@@ -43,7 +43,7 @@ export default function Blogs() {
             onClick={() => navigate(`/blogs/${featuredBlog.slug}`)}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-              <div className="relative overflow-hidden rounded-xl group">
+              <div className="relative overflow-hidden rounded-xl group bg-[#0b1a2b] flex items-center justify-center">
                 <img
                   src={featuredBlog.image}
                   alt={featuredBlog.title}
@@ -52,7 +52,7 @@ export default function Blogs() {
                   decoding="async"
                   fetchPriority="high"
                   referrerPolicy="no-referrer"
-                  className="w-full h-48 sm:h-56 md:h-80 object-cover"
+                  className="w-full h-48 sm:h-56 md:h-80 object-contain"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
