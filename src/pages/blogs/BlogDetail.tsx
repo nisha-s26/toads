@@ -457,32 +457,47 @@ export default function BlogDetail() {
               <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
                 {contentBlocks.map((block, index) => {
                   const keyPrefix = `b${index}`
+                  const revealProps = {
+                    initial: { opacity: 0, y: 24 },
+                    whileInView: { opacity: 1, y: 0 },
+                    viewport: { once: true, amount: 0.2 },
+                    transition: { duration: 0.5, ease: "easeOut" as const },
+                  }
 
                   if (block.kind === "h2") {
                     return (
-                      <h2
+                      <motion.h2
                         key={keyPrefix}
+                        {...revealProps}
                         className="text-xl sm:text-2xl font-bold text-white mt-8 sm:mt-10 mb-3 sm:mb-4 pb-2 sm:pb-3 border-b border-gray-700 first:mt-0"
                       >
                         {block.text}
-                      </h2>
+                      </motion.h2>
                     )
                   }
 
                   if (block.kind === "h3") {
                     return (
-                      <h3
+                      <motion.h3
                         key={keyPrefix}
+                        {...revealProps}
                         className="text-lg sm:text-xl font-semibold text-white mt-6 sm:mt-8 mb-2 sm:mb-3"
                       >
                         {block.text}
-                      </h3>
+                      </motion.h3>
                     )
                   }
 
                   if (block.kind === "image") {
                     return (
-                      <figure key={keyPrefix} className="my-6 sm:my-8">
+                      <motion.figure
+                        key={keyPrefix}
+                        initial={{ opacity: 0, y: 32, scale: 0.98 }}
+                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="my-6 sm:my-8"
+                      >
                         <img
                           src={block.src}
                           alt={block.alt}
@@ -497,32 +512,60 @@ export default function BlogDetail() {
                             {block.alt}
                           </figcaption>
                         )}
-                      </figure>
+                      </motion.figure>
                     )
                   }
 
                   if (block.kind === "ul") {
                     return (
-                      <ul key={keyPrefix} className="space-y-2 mb-5 sm:mb-6">
+                      <motion.ul
+                        key={keyPrefix}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.15 }}
+                        variants={{
+                          hidden: {},
+                          visible: { transition: { staggerChildren: 0.08 } },
+                        }}
+                        className="space-y-2 mb-5 sm:mb-6"
+                      >
                         {block.items.map((item, itemIndex) => (
-                          <li
+                          <motion.li
                             key={`${keyPrefix}-i${itemIndex}`}
+                            variants={{
+                              hidden: { opacity: 0, x: -16 },
+                              visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+                            }}
                             className="relative pl-6 text-gray-300 leading-relaxed text-base"
                           >
                             <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-toadster-green" aria-hidden="true" />
                             {renderInline(item, `${keyPrefix}-i${itemIndex}`)}
-                          </li>
+                          </motion.li>
                         ))}
-                      </ul>
+                      </motion.ul>
                     )
                   }
 
                   if (block.kind === "ol") {
                     return (
-                      <ol key={keyPrefix} className="space-y-3 mb-5 sm:mb-6 list-none">
+                      <motion.ol
+                        key={keyPrefix}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.15 }}
+                        variants={{
+                          hidden: {},
+                          visible: { transition: { staggerChildren: 0.08 } },
+                        }}
+                        className="space-y-3 mb-5 sm:mb-6 list-none"
+                      >
                         {block.items.map((item, itemIndex) => (
-                          <li
+                          <motion.li
                             key={`${keyPrefix}-i${itemIndex}`}
+                            variants={{
+                              hidden: { opacity: 0, x: -16 },
+                              visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+                            }}
                             className="relative pl-12 text-gray-300 leading-relaxed text-base"
                           >
                             <span
@@ -532,27 +575,35 @@ export default function BlogDetail() {
                               {String(itemIndex + 1).padStart(2, "0")}
                             </span>
                             {renderInline(item, `${keyPrefix}-i${itemIndex}`)}
-                          </li>
+                          </motion.li>
                         ))}
-                      </ol>
+                      </motion.ol>
                     )
                   }
 
                   if (block.kind === "blockquote") {
                     return (
-                      <blockquote
+                      <motion.blockquote
                         key={keyPrefix}
+                        initial={{ opacity: 0, x: -24 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.55, ease: "easeOut" }}
                         className="my-6 sm:my-8 border-l-4 border-toadster-green/60 bg-toadster-green/5 px-5 py-4 rounded-r-xl text-gray-200 text-base sm:text-lg italic leading-relaxed"
                       >
                         {renderInline(block.text, keyPrefix)}
-                      </blockquote>
+                      </motion.blockquote>
                     )
                   }
 
                   if (block.kind === "table") {
                     return (
-                      <div
+                      <motion.div
                         key={keyPrefix}
+                        initial={{ opacity: 0, y: 28 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.15 }}
+                        transition={{ duration: 0.55, ease: "easeOut" }}
                         className="my-6 sm:my-8 overflow-x-auto rounded-xl border border-gray-800"
                       >
                         <table className="w-full border-collapse text-left text-sm sm:text-base">
@@ -590,25 +641,30 @@ export default function BlogDetail() {
                             ))}
                           </tbody>
                         </table>
-                      </div>
+                      </motion.div>
                     )
                   }
 
                   if (block.fullyBold) {
                     return (
-                      <p
+                      <motion.p
                         key={keyPrefix}
+                        {...revealProps}
                         className="font-bold text-white mt-3 sm:mt-4 mb-1 text-sm sm:text-base"
                       >
                         {renderInline(block.text, keyPrefix)}
-                      </p>
+                      </motion.p>
                     )
                   }
 
                   return (
-                    <p key={keyPrefix} className="text-gray-300 leading-relaxed mb-4 text-base">
+                    <motion.p
+                      key={keyPrefix}
+                      {...revealProps}
+                      className="text-gray-300 leading-relaxed mb-4 text-base"
+                    >
                       {renderInline(block.text, keyPrefix)}
-                    </p>
+                    </motion.p>
                   )
                 })}
             </article>
@@ -762,7 +818,7 @@ export default function BlogDetail() {
                   className={`bg-gray-900/50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group border border-gray-800 hover:border-[#015d19]/20 hover:-translate-y-1 block transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                   style={{ transitionDelay: `${2800 + index * 100}ms` }}
                 >
-                  <div className="h-36 relative overflow-hidden flex items-center justify-center">
+                  <div className="h-44 relative overflow-hidden flex items-center justify-center bg-[#0b1a2b]">
                     <img
                       src={relatedBlog.image}
                       alt={relatedBlog.title}
@@ -770,12 +826,12 @@ export default function BlogDetail() {
                       loading="lazy"
                       decoding="async"
                       referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                     {relatedBlog.category && (
                       <div className="absolute top-3 left-3">
-                        <span className="bg-white/90 text-[#015d19] text-xs font-bold px-2 py-0.5 rounded-full">
+                        <span className="bg-white/90 text-[#015d19] text-xs font-bold px-2 py-0.5 rounded-full shadow-sm">
                           {relatedBlog.category}
                         </span>
                       </div>
