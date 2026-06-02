@@ -112,14 +112,14 @@ export default function Blogs() {
             {featuredBlogs.map((blog, index) => (
               <div
                 key={index}
-                className={`bg-gray-900/50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-700 group border border-gray-800 hover:shadow-toadster-green/10 hover:scale-105 cursor-pointer transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`group relative bg-[#0b1a2b] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border border-gray-800 hover:border-toadster-green/40 hover:shadow-toadster-green/10 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${600 + index * 100}ms` }}
                 onMouseEnter={() => setHoveredCard(`featured-${index}`)}
                 onMouseLeave={() => setHoveredCard(null)}
                 onClick={() => navigate(`/blogs/${blog.slug}`)}
               >
-                <div className="flex gap-3 sm:gap-4">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 relative overflow-hidden rounded-lg flex-shrink-0 flex items-center justify-center">
+                {/* Image Layer */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0b1a2b]">
                   <img
                     src={blog.image}
                     alt={blog.title}
@@ -127,52 +127,78 @@ export default function Blogs() {
                     loading="lazy"
                     decoding="async"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:blur-md group-hover:brightness-50"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 text-xs text-gray-300 mb-2">
-                      <span className="hidden sm:inline">{blog.date}</span>
-                      <span className="sm:hidden">{blog.date.split(',')[0]}</span>
+
+                  {/* Category badge — always visible */}
+                  {blog.category && (
+                    <div className="absolute top-3 left-3 z-20 transition-opacity duration-300 group-hover:opacity-0">
+                      <span className="inline-flex items-center bg-white/95 backdrop-blur-sm text-toadster-green text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full shadow-md shadow-black/30 ring-1 ring-black/5">
+                        {blog.category}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Minimal title strip — visible at rest, fades on hover */}
+                  <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-0 pointer-events-none">
+                    <div className="flex items-center gap-2 text-[11px] sm:text-xs text-gray-300 mb-1.5">
+                      <span>{blog.date.split(',')[0]}</span>
                       <span>•</span>
                       <span>{blog.readTime}</span>
                     </div>
-                    <h3 className="text-sm sm:text-lg font-semibold mb-2 group-hover:text-toadster-green transition-colors duration-300 line-clamp-2">
+                    <h3 className="text-sm sm:text-base font-semibold text-white line-clamp-2">
                       {blog.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-gray-200 mb-4 line-clamp-2">
-                      {blog.description}
-                    </p>
-                    
-                    {/* Author Information */}
-                    <div className="flex items-center gap-2 sm:gap-3 mb-4">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-toadster-green rounded-full flex items-center justify-center">
-                        <span className="text-white text-[8px] sm:text-xs font-bold">
-                          {blog.author.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 2)}
-                        </span>
+                  </div>
+
+                  {/* Hover Overlay — full content */}
+                  <div className="absolute inset-0 z-20 flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/85 to-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 p-4 sm:p-5">
+                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                      <div className="flex items-center gap-2 text-[11px] sm:text-xs text-gray-300 mb-2">
+                        <Calendar size={12} className="text-toadster-green" />
+                        <span>{blog.date}</span>
+                        <span>•</span>
+                        <Clock size={12} className="text-toadster-green" />
+                        <span>{blog.readTime}</span>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-xs sm:text-sm font-medium text-white truncate">{blog.author}</p>
-                        {blog.authorRole && <p className="text-xs text-gray-400 truncate hidden sm:block">{blog.authorRole}</p>}
+                      <h3 className="text-base sm:text-lg font-bold mb-2 text-white line-clamp-2 group-hover:text-toadster-green transition-colors duration-300">
+                        {blog.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-gray-200 mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
+                        {blog.description}
+                      </p>
+
+                      {/* Author */}
+                      <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                        <div className="w-7 h-7 sm:w-8 sm:h-8 bg-toadster-green rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-[9px] sm:text-xs font-bold">
+                            {blog.author.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 2)}
+                          </span>
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs sm:text-sm font-medium text-white truncate">{blog.author}</p>
+                          {blog.authorRole && <p className="text-[10px] sm:text-xs text-gray-300 truncate">{blog.authorRole}</p>}
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="flex gap-2">
-                      <button
-                        className="text-xs bg-[#1C3829] text-white px-2 sm:px-3 py-1 rounded-full hover:shadow-lg transition-all duration-300"
-                        title="Read More"
-                        onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${blog.slug}`) }}
-                      >
-                        Read More
-                      </button>
-                      <button
-                        className="text-xs border border-gray-600 text-gray-200 px-2 sm:px-3 py-1 rounded-full hover:border-toadster-green hover:text-toadster-green transition-all duration-300"
-                        title="Explore More"
-                        onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${blog.slug}`) }}
-                      >
-                        Explore More
-                      </button>
+
+                      {/* Buttons */}
+                      <div className="flex flex-wrap gap-2">
+                        <button
+                          className="inline-flex items-center gap-1.5 text-xs bg-toadster-green text-white px-3 py-1.5 rounded-full hover:shadow-lg hover:shadow-toadster-green/30 transition-all duration-300 font-medium"
+                          title="Read More"
+                          onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${blog.slug}`) }}
+                        >
+                          Read More
+                          <ArrowRight size={12} />
+                        </button>
+                        <button
+                          className="text-xs border border-white/30 text-white px-3 py-1.5 rounded-full hover:border-toadster-green hover:text-toadster-green hover:bg-white/5 transition-all duration-300"
+                          title="Explore More"
+                          onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${blog.slug}`) }}
+                        >
+                          Explore More
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -200,7 +226,7 @@ export default function Blogs() {
                 onMouseLeave={() => setHoveredCard(null)}
                 onClick={() => navigate(`/blogs/${blog.slug}`)}
               >
-                <div className="h-40 sm:h-44 md:h-48 bg-white flex items-center justify-center relative overflow-hidden">
+                <div className="h-44 sm:h-48 md:h-52 bg-[#0b1a2b] flex items-center justify-center relative overflow-hidden">
                   <img
                     src={blog.image}
                     alt={blog.title}
@@ -208,9 +234,9 @@ export default function Blogs() {
                     loading="lazy"
                     decoding="async"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
                 <div className="p-4 sm:p-6">
                   <div className="flex items-center gap-2 text-xs text-gray-300 mb-3">
