@@ -24,14 +24,14 @@ export interface BlogPost {
 export const allBlogs: BlogPost[] = [
   {
     id: 19,
-    slug: "why-generative-ai-hardest-problems-2026-agentic-ai",
+    slug: "agentic-ai-in-2026",
     title:
-      "Why Generative AI Still Has the Hardest Problems Left to Solve in 2026",
-    metaTitle: "Why Generative AI Matters in 2026: The Rise of Agentic AI",
+      "Agentic AI in 2026: How Autonomous AI Agents Are Transforming Business Operations",
+    metaTitle: "Agentic AI in 2026: Benefits, Use Cases & Enterprise Impact",
     description:
       "Generative AI is reshaping how work gets done - but the real shift in 2026 is about AI that acts, not just answers. Here's what that means for you.",
     metaDescription:
-      "Generative AI is reshaping how work gets done - but the real shift in 2026 is about AI that acts, not just answers. Here's what that means for you.",
+      "Agentic AI in 2026 transforms businesses through autonomous workflows, enterprise automation, multi-agent systems, and intelligent decision-making.",
     image:
       "https://lh3.googleusercontent.com/d/1FFPKYLNXdDn8XTl69Vk1Ap7M4dD8Zlwl=w1200",
     date: "June 4, 2026",
