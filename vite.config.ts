@@ -32,6 +32,8 @@ export default defineConfig({
   server: {
     allowedHosts: [
       "aghastly-saxifragaceous-louetta.ngrok-free.dev",
+      "xtoadsters.com",
+      "toadster.ai"
     ]
   }
 })
