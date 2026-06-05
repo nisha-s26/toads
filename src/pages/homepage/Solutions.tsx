@@ -6,50 +6,60 @@ import {
   Cloud,
   Sparkles,
   Bot,
-  LayoutGrid
+  LayoutGrid,
+  ArrowUpRight
 } from "lucide-react"
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
 const solutions = [
   {
     icon: Brain,
     title: "AI / ML Solutions",
-    desc: "Custom machine learning models, NLP systems, and intelligent automation for enterprise."
+    desc: "Custom machine learning models, NLP systems, and intelligent automation for enterprise.",
+    to: "/services/machine-learning"
   },
   {
     icon: Code2,
     title: "Full Stack Development",
-    desc: "Modern web applications built with React, Next.js, Node.js, and scalable cloud infrastructure."
+    desc: "Modern web applications built with React, Next.js, Node.js, and scalable cloud infrastructure.",
+    to: "/services/ai-development"
   },
   {
     icon: Layers,
     title: "MERN Development",
-    desc: "MongoDB, Express, React, Node.js — complete JavaScript ecosystem for rapid development."
+    desc: "MongoDB, Express, React, Node.js — complete JavaScript ecosystem for rapid development.",
+    to: "/services/ai-development"
   },
   {
     icon: LayoutGrid,
     title: "CRM Systems",
-    desc: "Custom CRM solutions that streamline customer relationships and boost sales efficiency."
+    desc: "Custom CRM solutions that streamline customer relationships and boost sales efficiency.",
+    to: "/services/custom-ai-solutions"
   },
   {
     icon: Database,
     title: "Data Engineering",
-    desc: "Large-scale data pipelines, ETL processes, and analytics platforms built for real-time insights."
+    desc: "Large-scale data pipelines, ETL processes, and analytics platforms built for real-time insights.",
+    to: "/services/ai-data-analytics"
   },
   {
     icon: Cloud,
     title: "Cloud & DevOps",
-    desc: "Cloud-native architecture, CI/CD pipelines, and infrastructure automation across AWS, GCP, and Azure."
+    desc: "Cloud-native architecture, CI/CD pipelines, and infrastructure automation across AWS, GCP, and Azure.",
+    to: "/services/ai-integration"
   },
   {
     icon: Sparkles,
     title: "SaaS Development",
-    desc: "Multi-tenant SaaS platforms with subscription management, analytics, and scalable architecture."
+    desc: "Multi-tenant SaaS platforms with subscription management, analytics, and scalable architecture.",
+    to: "/services/custom-ai-solutions"
   },
   {
     icon: Bot,
     title: "Automation Systems",
-    desc: "Intelligent process automation that reduces costs and eliminates repetitive manual workflows."
+    desc: "Intelligent process automation that reduces costs and eliminates repetitive manual workflows.",
+    to: "/services/intelligent-automation"
   }
 ]
 
@@ -93,40 +103,62 @@ export default function Solutions() {
                   delay: index * 0.1
                 }}
                 viewport={{ once: true }}
-                className="group bg-[#0d1b2e] border border-white/5 rounded-2xl p-6 hover:border-green-800/50 transition-colors"
               >
+                <Link
+                  to={item.to}
+                  title={item.title}
+                  className="group relative block bg-[#0d1b2e] border border-white/5 rounded-2xl p-6 hover:border-green-800/50 transition-colors h-full"
+                >
 
-                {/* Icon */}
+                  {/* Icon */}
 
-                <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
-                  <Icon size={20} />
-                </div>
-
-                {/* Title */}
-
-                <h3 className="font-semibold text-white text-base mb-2">
-                  {item.title}
-                </h3>
-
-                {/* Description */}
-
-                <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
-                  {item.desc}
-                </p>
-
-                {/* Hover indicator */}
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-8 h-8 bg-toadster-green rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                  <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
+                    <Icon size={20} />
                   </div>
-                </div>
+
+                  {/* Title */}
+
+                  <h3 className="font-semibold text-white text-base mb-2">
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+
+                  <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+                    {item.desc}
+                  </p>
+
+                  {/* Hover indicator */}
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-8 h-8 bg-toadster-green rounded-full flex items-center justify-center">
+                      <ArrowUpRight className="w-4 h-4 text-white" />
+                    </div>
+                  </div>
+                </Link>
 
               </motion.div>
             )
           })}
 
+        </div>
+
+        {/* Explore all services CTA */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            to="/services/ai-development"
+            title="Explore all AI development services"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#1C3829] px-7 py-3 text-white font-semibold transition-colors hover:bg-green-800"
+          >
+            Explore All Services
+            <ArrowUpRight size={18} />
+          </Link>
+          <Link
+            to="/contact"
+            title="Talk to our team about your project"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-7 py-3 text-white font-semibold transition-colors hover:bg-white/5"
+          >
+            Talk to Our Team
+          </Link>
         </div>
 
       </div>

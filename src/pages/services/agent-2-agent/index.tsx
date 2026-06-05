@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { CTALink } from "@/components/CTALink"
 import {
   GitBranch,
   ChevronDown,
@@ -442,12 +443,16 @@ export default function Agent2AgentPage() {
             Book a free A2A architecture review and discover how multi-agent systems can transform your operations.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="px-10 py-3.5 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">
+            <CTALink to="/contact" title="Book a free A2A architecture review">
               Book Free Review
-            </button>
-            <button className="px-10 py-3.5 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
-              View Case Studies
-            </button>
+            </CTALink>
+            <CTALink
+              to="/services/agentic-ai"
+              className="bg-transparent border border-white/20 hover:bg-white/5"
+              title="Explore Agentic AI"
+            >
+              Explore Agentic AI
+            </CTALink>
           </div>
         </div>
       </section>

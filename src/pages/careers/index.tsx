@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
-import { Users, Target, Heart, Zap, Mail, MapPin, Clock } from "lucide-react"
+import { Users, Target, Heart, Zap, Mail, MapPin, Clock, ArrowUpRight, BookOpen, Cpu, Info } from "lucide-react"
 import JobApplicationModal from "@/components/JobApplicationModal"
 
 export default function Careers() {
@@ -224,8 +225,10 @@ export default function Careers() {
                             <Mail className="w-5 h-5 mr-2 " />
                             Send Resume
                         </Button>
-                        <Button variant="outline" className="border-white/20 text-black hover:bg-white/10 px-8 py-5">
-                            Learn More
+                        <Button asChild variant="outline" className="border-white/20 text-black hover:bg-white/10 px-8 py-5">
+                            <Link to="/about" title="Learn more about Toadster">
+                                Learn More
+                            </Link>
                         </Button>
                     </div>
 
@@ -236,6 +239,65 @@ export default function Careers() {
                                 careers@toadsters.com
                             </a>
                         </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Explore More Section */}
+            <section className="pb-20 px-6">
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-10">
+                        <p className="text-sm font-semibold tracking-[0.25em] text-toadster-green uppercase mb-2">
+                            Get to Know Us
+                        </p>
+                        <h2 className="text-2xl md:text-3xl font-bold text-white">
+                            Before You Apply
+                        </h2>
+                        <p className="text-gray-400 mt-2 max-w-xl mx-auto text-sm">
+                            See what we build, who we are, and how we share what we learn.
+                        </p>
+                    </div>
+                    <div className="grid sm:grid-cols-3 gap-4">
+                        {[
+                            {
+                                icon: Cpu,
+                                title: "Our AI Services",
+                                desc: "From agentic systems to custom ML — see what our teams ship.",
+                                to: "/services/ai-development",
+                            },
+                            {
+                                icon: BookOpen,
+                                title: "Engineering Blog",
+                                desc: "Tutorials, research notes, and insights from our engineers.",
+                                to: "/blogs",
+                            },
+                            {
+                                icon: Info,
+                                title: "About Toadster",
+                                desc: "Our mission, values, and the people leading the company.",
+                                to: "/about",
+                            },
+                        ].map(({ icon: Icon, title, desc, to }) => (
+                            <Link
+                                key={title}
+                                to={to}
+                                title={title}
+                                className="group flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-toadster-green/40 hover:-translate-y-0.5 hover:bg-white/[0.05] transition-all"
+                            >
+                                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-toadster-green/10 text-toadster-green">
+                                    <Icon size={18} />
+                                </span>
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex items-center justify-between gap-2">
+                                        <p className="text-white font-semibold group-hover:text-toadster-green transition-colors">
+                                            {title}
+                                        </p>
+                                        <ArrowUpRight size={16} className="text-gray-500 group-hover:text-toadster-green transition-colors" />
+                                    </div>
+                                    <p className="text-gray-400 text-sm mt-1 leading-relaxed">{desc}</p>
+                                </div>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </section>

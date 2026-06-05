@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { CTALink } from "@/components/CTALink"
 import {
   Cpu,
   ChevronDown,
@@ -449,12 +450,16 @@ export default function AdvancedAITechPage() {
             Book a free research consultation and discover which advanced AI techniques can give your business a decisive edge.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="px-10 py-3.5 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">
+            <CTALink to="/contact" title="Book a free Advanced AI consultation">
               Book Free Consultation
-            </button>
-            <button className="px-10 py-3.5 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
-              View Research Portfolio
-            </button>
+            </CTALink>
+            <CTALink
+              to="/blogs"
+              className="bg-transparent border border-white/20 hover:bg-white/5"
+              title="Read our research and insights"
+            >
+              Read Research Insights
+            </CTALink>
           </div>
         </div>
       </section>

@@ -150,6 +150,7 @@ function renderInlineLinks(text: string, keyPrefix: string): ReactNode[] {
           <a
             key={`${keyPrefix}-l${i}`}
             href={url}
+            title={linkText}
             target="_blank"
             rel="noopener noreferrer"
             className="text-toadster-green underline-offset-2 hover:underline"
@@ -160,6 +161,7 @@ function renderInlineLinks(text: string, keyPrefix: string): ReactNode[] {
           <Link
             key={`${keyPrefix}-l${i}`}
             to={url}
+            title={linkText}
             className="text-toadster-green underline-offset-2 hover:underline"
           >
             {linkText}

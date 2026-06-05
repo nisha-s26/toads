@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { CTALink } from "@/components/CTALink"
 import {
   MessageSquare,
   ChevronDown,
@@ -443,12 +444,16 @@ export default function ConversationalAIPage() {
             Book a free consultation and see how conversational AI can transform your customer experience and operations.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="px-10 py-3.5 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">
+            <CTALink to="/contact" title="Book a free conversational AI consultation">
               Book Free Consultation
-            </button>
-            <button className="px-10 py-3.5 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
-              View Case Studies
-            </button>
+            </CTALink>
+            <CTALink
+              to="/services/ai-chatbots"
+              className="bg-transparent border border-white/20 hover:bg-white/5"
+              title="Explore AI Chatbots"
+            >
+              Explore AI Chatbots
+            </CTALink>
           </div>
         </div>
       </section>

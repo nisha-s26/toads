@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Brain, Database, ShieldCheck, Workflow } from "lucide-react"
+import { Brain, Database, ShieldCheck, Workflow, ArrowRight } from "lucide-react"
+import { Link } from "react-router-dom"
 
 const FEATURES = [
     {
@@ -54,6 +55,24 @@ const WhyUs = () => {
                             We don’t just build software—we engineer intelligent systems centered around data quality, ML reliability,
                             and production-grade delivery.
                         </p>
+
+                        <div className="mt-8 flex flex-col sm:flex-row gap-3 lg:justify-start justify-center">
+                            <Link
+                                to="/about"
+                                title="Learn more about Toadster"
+                                className="inline-flex items-center gap-2 rounded-xl bg-[#1C3829] px-6 py-3 text-white font-semibold transition-colors hover:bg-green-800"
+                            >
+                                Learn About Us
+                                <ArrowRight size={16} />
+                            </Link>
+                            <Link
+                                to="/services/ai-development"
+                                title="View our AI development services"
+                                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-6 py-3 text-white font-semibold transition-colors hover:bg-white/10"
+                            >
+                                View Our Services
+                            </Link>
+                        </div>
                     </motion.div>
 
                     <motion.div

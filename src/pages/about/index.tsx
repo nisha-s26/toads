@@ -1,6 +1,8 @@
 import { MdOutlineLightbulb } from "react-icons/md";
 import { FaHandshake, FaChartLine, FaGlobeAmericas, FaMedal } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
+import { Link } from "react-router-dom";
+import { ArrowUpRight, Briefcase, BookOpen, Cpu, MessageCircle } from "lucide-react";
 
 export default function AboutPage() {
     return (
@@ -212,6 +214,70 @@ export default function AboutPage() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Explore More ── Internal links to other key pages */}
+            <section className="bg-[#050d18] px-6 pb-20">
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-12">
+                        <p className="text-xl font-semibold tracking-widest text-toadster-green uppercase mb-3">Keep Exploring</p>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-white">Discover What We Build</h2>
+                        <p className="text-gray-300 mt-3 max-w-xl mx-auto">From production-grade AI services to insights and open roles — explore everything Toadster.</p>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                        {[
+                            {
+                                icon: Cpu,
+                                title: "Our AI Services",
+                                desc: "End-to-end AI development, agentic systems, and custom ML.",
+                                to: "/services/ai-development",
+                                cta: "View services",
+                            },
+                            {
+                                icon: BookOpen,
+                                title: "Insights & Blog",
+                                desc: "Research, case studies, and engineering perspectives.",
+                                to: "/blogs",
+                                cta: "Read articles",
+                            },
+                            {
+                                icon: Briefcase,
+                                title: "Careers",
+                                desc: "Join our team of engineers, scientists, and product builders.",
+                                to: "/careers",
+                                cta: "See open roles",
+                            },
+                            {
+                                icon: MessageCircle,
+                                title: "Talk to Us",
+                                desc: "Have a project in mind? Let's design it together.",
+                                to: "/contact",
+                                cta: "Get in touch",
+                            },
+                        ].map(({ icon: Icon, title, desc, to, cta }) => (
+                            <Link
+                                key={title}
+                                to={to}
+                                title={title}
+                                className="group flex flex-col h-full rounded-2xl border border-white/10 bg-white/[0.02] p-5 hover:border-toadster-green/40 hover:-translate-y-0.5 hover:bg-white/[0.04] transition-all"
+                            >
+                                <div className="flex items-center justify-between mb-4">
+                                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-toadster-green/10 text-toadster-green">
+                                        <Icon size={20} />
+                                    </span>
+                                    <ArrowUpRight size={16} className="text-gray-500 group-hover:text-toadster-green transition-colors" />
+                                </div>
+                                <h3 className="text-white font-semibold mb-1.5">{title}</h3>
+                                <p className="text-gray-400 text-sm leading-relaxed flex-1">{desc}</p>
+                                <p className="mt-4 text-sm font-semibold text-toadster-green group-hover:gap-2 inline-flex items-center gap-1.5 transition-all">
+                                    {cta}
+                                    <ArrowUpRight size={14} />
+                                </p>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </section>

@@ -16,7 +16,7 @@ export const SITE_OG_IMAGE_ALT = "Toadsters — AI-Powered Digital Transformatio
 export const DEFAULT_METADATA: PageMetadata = {
   title: "Toadsters | Scalable AI Solutions & Enterprise Web Development",
   description:
-    "Toadsters is a global IT company engineering enterprise-grade software. We build scalable AI solutions, high-throughput data pipelines, and MLOps platforms.",
+    "Toadsters delivers AI software development, MLOps, data engineering & custom software solutions for global enterprises, startups, and SMBs.",
 }
 
 const SERVICE_DESCRIPTIONS_BASE =

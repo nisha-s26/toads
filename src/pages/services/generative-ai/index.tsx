@@ -427,9 +427,18 @@ export default function GenerativeAIPage() {
               </div>
             ))}
           </div>
-          <button className="px-10 py-4 rounded-xl bg-[#1C3829] text-white font-semibold text-lg hover:bg-green-800 transition-colors">
-            Chat With Us
-          </button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <CTALink to="/contact" className="text-lg" title="Talk to our generative AI team">
+              Chat With Us
+            </CTALink>
+            <CTALink
+              to="/services/llm-development"
+              className="bg-transparent border border-white/20 hover:bg-white/5 text-lg"
+              title="Explore LLM Development"
+            >
+              Explore LLM Development
+            </CTALink>
+          </div>
         </div>
       </section>
 

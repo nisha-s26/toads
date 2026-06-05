@@ -282,7 +282,18 @@ export default function MachineLearningPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">Ready to Harness the Power of<br /><span className="text-green-400">AI for Your Business?</span></h2>
           <p className="text-gray-400 mb-8">Let our ML engineers build models that learn from your data and drive real business outcomes.</p>
-          <button className="px-10 py-4 rounded-xl bg-[#1C3829] text-white font-semibold text-lg hover:bg-green-800 transition-colors">Chat With Us</button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <CTALink to="/contact" className="text-lg" title="Talk to our ML engineers">
+              Chat With Us
+            </CTALink>
+            <CTALink
+              to="/services/ai-data-analytics"
+              className="bg-transparent border border-white/20 hover:bg-white/5 text-lg"
+              title="Explore AI Data Analytics"
+            >
+              Explore Data Analytics
+            </CTALink>
+          </div>
         </div>
       </section>
 

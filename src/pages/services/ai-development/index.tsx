@@ -424,9 +424,18 @@ export default function AIDevelopmentPage() {
               </div>
             ))}
           </div>
-          <button className="px-10 py-4 rounded-xl bg-[#1C3829] text-white font-semibold text-lg hover:bg-green-800 transition-colors">
-            Chat With Us
-          </button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <CTALink to="/contact" className="text-lg" title="Talk to our AI development team">
+              Chat With Us
+            </CTALink>
+            <CTALink
+              to="/services/ai-consultation"
+              className="bg-transparent border border-white/20 hover:bg-white/5 text-lg"
+              title="Explore AI Consultation"
+            >
+              Get AI Consultation
+            </CTALink>
+          </div>
         </div>
       </section>
 

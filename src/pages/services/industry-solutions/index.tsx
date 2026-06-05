@@ -415,12 +415,16 @@ export default function IndustrySolutionsPage() {
             Book a free AI readiness audit and see exactly how AI can create measurable value in your sector.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="px-10 py-3.5 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">
+            <CTALink to="/contact" title="Book a free industry AI audit">
               Book Free Audit
-            </button>
-            <button className="px-10 py-3.5 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
-              View Case Studies
-            </button>
+            </CTALink>
+            <CTALink
+              to="/blogs"
+              className="bg-transparent border border-white/20 hover:bg-white/5"
+              title="Read industry AI case studies"
+            >
+              Read Case Studies
+            </CTALink>
           </div>
         </div>
       </section>

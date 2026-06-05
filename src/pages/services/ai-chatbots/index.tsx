@@ -240,7 +240,18 @@ export default function AIChatbotsPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">Ready to Deploy Your<br /><span className="text-green-400">AI Chatbot?</span></h2>
           <p className="text-gray-400 mb-8">Let our team build an intelligent chatbot that works tirelessly for your customers — 24/7, at scale.</p>
-          <button className="px-10 py-4 rounded-xl bg-green-800 text-white font-semibold text-lg hover:bg-green-700 transition-colors">Chat With Us</button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <CTALink to="/contact" className="text-lg" title="Talk to our chatbot team">
+              Chat With Us
+            </CTALink>
+            <CTALink
+              to="/services/conversational-ai"
+              className="bg-transparent border border-white/20 hover:bg-white/5 text-lg"
+              title="Explore Conversational AI"
+            >
+              Explore Conversational AI
+            </CTALink>
+          </div>
         </div>
       </section>
 

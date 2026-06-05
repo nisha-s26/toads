@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight, Brain, Briefcase, Bot, BookOpen, MessageSquare, Sparkles } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -69,7 +71,7 @@ export default function Contact() {
                         <ul className="flex flex-col gap-4">
                             <li className="flex items-start gap-3">
                                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-green-400">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" stroke="none" /><path d="M22 6.5V18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6.5M22 6.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v.5m20 0-10 7-10-7" /></svg>
+                                    <svg role="img" aria-labelledby="contact-email-icon-title" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><title id="contact-email-icon-title">Email</title><path d="M4 4h16v16H4z" stroke="none" /><path d="M22 6.5V18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6.5M22 6.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v.5m20 0-10 7-10-7" /></svg>
                                 </span>
                                 <div>
                                     <div className="text-sm text-gray-400">Email</div>
@@ -78,7 +80,7 @@ export default function Contact() {
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-green-400">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5a2 2 0 0 1 2-2h2.09a2 2 0 0 1 2 1.72c.13.81.28 1.6.47 2.36a2 2 0 0 1-.45 2.11l-.27.27a16 16 0 0 0 6.29 6.29l.27-.27a2 2 0 0 1 2.11-.45c.76.19 1.55.34 2.36.47A2 2 0 0 1 22 16.92z" /></svg>
+                                    <svg role="img" aria-labelledby="contact-phone-icon-title" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><title id="contact-phone-icon-title">Phone</title><path d="M22 16.92V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5a2 2 0 0 1 2-2h2.09a2 2 0 0 1 2 1.72c.13.81.28 1.6.47 2.36a2 2 0 0 1-.45 2.11l-.27.27a16 16 0 0 0 6.29 6.29l.27-.27a2 2 0 0 1 2.11-.45c.76.19 1.55.34 2.36.47A2 2 0 0 1 22 16.92z" /></svg>
                                 </span>
                                 <div>
                                     <div className="text-sm text-gray-400">Phone</div>
@@ -87,7 +89,7 @@ export default function Contact() {
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-green-400">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="10" r="3" /><path d="M12 2a8 8 0 0 1 8 8c0 7-8 12-8 12S4 17 4 10a8 8 0 0 1 8-8z" /></svg>
+                                    <svg role="img" aria-labelledby="contact-location-icon-title" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><title id="contact-location-icon-title">Location</title><circle cx="12" cy="10" r="3" /><path d="M12 2a8 8 0 0 1 8 8c0 7-8 12-8 12S4 17 4 10a8 8 0 0 1 8-8z" /></svg>
                                 </span>
                                 <div>
                                     <div className="text-sm text-gray-400">Location</div>
@@ -142,10 +144,82 @@ export default function Contact() {
                         >
                             {isSubmitting ? "Sending..." : "Send Message"}
                             {!isSubmitting && (
-                                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 2 11 13" /><path d="m22 2-7 20-4-9-9-4Z" /></svg>
+                                <svg role="img" aria-labelledby="contact-send-icon-title" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><title id="contact-send-icon-title">Send Message</title><path d="M22 2 11 13" /><path d="m22 2-7 20-4-9-9-4Z" /></svg>
                             )}
                         </button>
                     </form>
+                </div>
+            </section>
+
+            {/* Explore More Section */}
+            <section className="max-w-6xl mx-auto px-4 pb-20">
+                <div className="text-center mb-10">
+                    <p className="text-sm font-semibold tracking-[0.25em] text-toadster-green uppercase mb-2">While You're Here</p>
+                    <h2 className="text-2xl md:text-3xl font-bold text-white">Explore Our Work</h2>
+                    <p className="text-gray-400 mt-2 max-w-xl mx-auto text-sm">
+                        Browse our top services, recent insights, and open roles while you wait.
+                    </p>
+                </div>
+
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {[
+                        {
+                            icon: Brain,
+                            title: "Agentic AI Services",
+                            desc: "Autonomous agents that plan, execute, and adapt at enterprise scale.",
+                            to: "/services/agentic-ai",
+                        },
+                        {
+                            icon: Sparkles,
+                            title: "Generative AI",
+                            desc: "AI systems that create content, copy, code, and creative workflows.",
+                            to: "/services/generative-ai",
+                        },
+                        {
+                            icon: Bot,
+                            title: "AI Chatbots",
+                            desc: "Intelligent conversational interfaces and enterprise assistants.",
+                            to: "/services/ai-chatbots",
+                        },
+                        {
+                            icon: MessageSquare,
+                            title: "Read the Blog",
+                            desc: "Research, tutorials, and engineering insights from our team.",
+                            to: "/blogs",
+                        },
+                        {
+                            icon: Briefcase,
+                            title: "We're Hiring",
+                            desc: "Join our team of engineers, data scientists, and product builders.",
+                            to: "/careers",
+                        },
+                        {
+                            icon: BookOpen,
+                            title: "About Toadster",
+                            desc: "Get to know our mission, values, and the people behind the work.",
+                            to: "/about",
+                        },
+                    ].map(({ icon: Icon, title, desc, to }) => (
+                        <Link
+                            key={title}
+                            to={to}
+                            title={title}
+                            className="group flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-toadster-green/40 hover:bg-white/[0.05] hover:-translate-y-0.5 transition-all"
+                        >
+                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-toadster-green/10 text-toadster-green">
+                                <Icon size={18} />
+                            </span>
+                            <div className="flex-1 min-w-0">
+                                <div className="flex items-center justify-between gap-2">
+                                    <p className="text-white font-semibold group-hover:text-toadster-green transition-colors">
+                                        {title}
+                                    </p>
+                                    <ArrowUpRight size={16} className="text-gray-500 group-hover:text-toadster-green transition-colors" />
+                                </div>
+                                <p className="text-gray-400 text-sm mt-1 leading-relaxed">{desc}</p>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </section>
         </div>

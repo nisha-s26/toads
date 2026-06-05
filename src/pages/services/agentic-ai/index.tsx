@@ -441,9 +441,18 @@ export default function AgenticAIPage() {
           <p className="text-gray-400 mb-8">
             Let's build intelligent agents that work for you — 24/7, at scale, without limits.
           </p>
-          <button className="px-10 py-4 rounded-xl bg-[#1C3829] text-white font-semibold text-lg hover:bg-green-800 transition-colors">
-            Chat With Us
-          </button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <CTALink to="/contact" className="text-lg" title="Talk to our Agentic AI team">
+              Chat With Us
+            </CTALink>
+            <CTALink
+              to="/services/ai-development"
+              className="bg-transparent border border-white/20 hover:bg-white/5 text-lg"
+              title="Explore AI Development Services"
+            >
+              Explore AI Development
+            </CTALink>
+          </div>
         </div>
       </section>
 
