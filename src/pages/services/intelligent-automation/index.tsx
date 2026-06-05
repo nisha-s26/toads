@@ -430,9 +430,18 @@ export default function IntelligentAutomationPage() {
           <p className="text-gray-400 mb-8">
             Let's build intelligent automation that works for you — 24/7, at scale, without limits.
           </p>
-          <button className="px-10 py-4 rounded-xl bg-[#1C3829] text-white font-semibold text-lg hover:bg-green-800 transition-colors">
-            Chat With Us
-          </button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <CTALink to="/contact" className="text-lg" title="Talk to our automation team">
+              Chat With Us
+            </CTALink>
+            <CTALink
+              to="/services/ai-automation"
+              className="bg-transparent border border-white/20 hover:bg-white/5 text-lg"
+              title="Explore AI Automation"
+            >
+              Explore AI Automation
+            </CTALink>
+          </div>
         </div>
       </section>
 

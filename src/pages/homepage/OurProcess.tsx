@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Search, PencilRuler, Hammer, Rocket } from "lucide-react"
+import { Search, PencilRuler, Hammer, Rocket, ArrowRight } from "lucide-react"
 import { useMemo, useRef, useState } from "react"
+import { Link } from "react-router-dom"
 
 const OurProcess = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null)
@@ -190,6 +191,24 @@ const OurProcess = () => {
                             })}
                         </div>
                     </div>
+                </div>
+
+                <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <Link
+                        to="/services/ai-consultation"
+                        title="Get a free AI consultation"
+                        className="inline-flex items-center gap-2 rounded-xl bg-[#1C3829] px-7 py-3 text-white font-semibold transition-colors hover:bg-green-800"
+                    >
+                        Start with AI Consultation
+                        <ArrowRight size={16} />
+                    </Link>
+                    <Link
+                        to="/blogs"
+                        title="See how we deliver projects"
+                        className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-7 py-3 text-white font-semibold transition-colors hover:bg-white/5"
+                    >
+                        See Our Insights
+                    </Link>
                 </div>
             </div>
         </section>

@@ -139,6 +139,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://toadsters.com/blogs/software-development-ai-what-teams-need-to-know</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toadsters.com/blogs/ai-workflow-automation-replacing-manual-workflows-2026</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>

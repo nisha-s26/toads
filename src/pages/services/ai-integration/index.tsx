@@ -226,7 +226,18 @@ export default function AIIntegrationPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">Ready to Connect AI<br /><span className="text-green-400">to Your Business Systems?</span></h2>
           <p className="text-gray-400 mb-8">Let our integration engineers wire AI into the tools you already use — fast, secure, and without disruption.</p>
-          <button className="px-10 py-4 rounded-xl bg-[#1C3829] text-white font-semibold text-lg hover:bg-green-800 transition-colors">Chat With Us</button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <CTALink to="/contact" className="text-lg" title="Talk to our integration engineers">
+              Chat With Us
+            </CTALink>
+            <CTALink
+              to="/services/ai-development"
+              className="bg-transparent border border-white/20 hover:bg-white/5 text-lg"
+              title="Explore AI Development"
+            >
+              Explore AI Development
+            </CTALink>
+          </div>
         </div>
       </section>
 

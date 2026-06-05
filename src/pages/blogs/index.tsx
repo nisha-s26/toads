@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import { ArrowRight, Calendar, Clock, User } from "lucide-react"
-import { useNavigate } from "react-router-dom"
+import { ArrowRight, Calendar, Clock, User, ArrowUpRight, Brain, Bot, Sparkles, MessageCircle } from "lucide-react"
+import { Link, useNavigate } from "react-router-dom"
 import { featuredBlog, featuredBlogs, latestBlogs } from "./blogData"
 
 export default function Blogs() {
@@ -283,6 +283,73 @@ export default function Blogs() {
                   </div>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Explore Our Services & CTA */}
+      <section className="py-16 sm:py-20 px-3 sm:px-4 md:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-toadster-green/8 via-transparent to-toadster-green/8"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-10 sm:mb-12">
+            <p className="text-sm sm:text-xl tracking-[0.25em] text-toadster-green font-bold uppercase mb-3">
+              Put Insights to Work
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+              Explore Our AI Services
+            </h2>
+            <p className="text-gray-300 mt-3 max-w-xl mx-auto text-sm sm:text-base">
+              Turn ideas from the blog into production-ready AI solutions for your business.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                icon: Brain,
+                title: "Agentic AI",
+                desc: "Autonomous agents for enterprise workflows.",
+                to: "/services/agentic-ai",
+              },
+              {
+                icon: Sparkles,
+                title: "Generative AI",
+                desc: "Content, copy, and code generation at scale.",
+                to: "/services/generative-ai",
+              },
+              {
+                icon: Bot,
+                title: "AI Chatbots",
+                desc: "Intelligent conversational interfaces.",
+                to: "/services/ai-chatbots",
+              },
+              {
+                icon: MessageCircle,
+                title: "Talk to Us",
+                desc: "Have a project in mind? Let's design it together.",
+                to: "/contact",
+              },
+            ].map(({ icon: Icon, title, desc, to }) => (
+              <Link
+                key={title}
+                to={to}
+                title={title}
+                className="group flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-gray-900/40 p-5 hover:border-toadster-green/40 hover:-translate-y-0.5 hover:bg-gray-900/60 transition-all"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-toadster-green/10 text-toadster-green">
+                  <Icon size={18} />
+                </span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-white font-semibold group-hover:text-toadster-green transition-colors">
+                      {title}
+                    </p>
+                    <ArrowUpRight size={16} className="text-gray-500 group-hover:text-toadster-green transition-colors" />
+                  </div>
+                  <p className="text-gray-400 text-sm mt-1 leading-relaxed">{desc}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

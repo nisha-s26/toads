@@ -226,7 +226,18 @@ export default function LLMDevelopmentPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">Ready to Build Your<br /><span className="text-green-400">Custom LLM?</span></h2>
           <p className="text-gray-400 mb-8">Let our LLM engineers help you build, fine-tune, and deploy a large language model that gives your business a true competitive edge.</p>
-          <button className="px-10 py-4 rounded-xl bg-[#1C3829] text-white font-semibold text-lg hover:bg-green-800 transition-colors">Start Your LLM Project</button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <CTALink to="/contact" className="text-lg" title="Start your LLM project with us">
+              Start Your LLM Project
+            </CTALink>
+            <CTALink
+              to="/services/generative-ai"
+              className="bg-transparent border border-white/20 hover:bg-white/5 text-lg"
+              title="Explore Generative AI"
+            >
+              Explore Generative AI
+            </CTALink>
+          </div>
         </div>
       </section>
 

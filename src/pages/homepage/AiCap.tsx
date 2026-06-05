@@ -11,6 +11,7 @@ import {
   Eye,
 } from "lucide-react"
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
 const BRAND_GREEN = "#1C3829"
 
@@ -22,6 +23,7 @@ interface Service {
   useCases: string[]
   technologies: string[]
   exampleProjects: string[]
+  to: string
 }
 
 const services: Service[] = [
@@ -42,6 +44,7 @@ const services: Service[] = [
       "AI-powered claims processing for insurance",
       "Smart inventory management system",
     ],
+    to: "/services/ai-development",
   },
   {
     icon: <Cpu size={28} strokeWidth={1.5} />,
@@ -60,6 +63,7 @@ const services: Service[] = [
       "Churn prediction for a SaaS platform",
       "Demand forecasting for retail",
     ],
+    to: "/services/machine-learning",
   },
   {
     icon: <Sparkles size={28} strokeWidth={1.5} />,
@@ -78,6 +82,7 @@ const services: Service[] = [
       "AI writing assistant for marketing teams",
       "Automated code review bot",
     ],
+    to: "/services/generative-ai",
   },
   {
     icon: <BarChart2 size={28} strokeWidth={1.5} />,
@@ -96,6 +101,7 @@ const services: Service[] = [
       "Real-time analytics dashboard for e-commerce",
       "Customer segmentation for fintech",
     ],
+    to: "/services/ai-data-analytics",
   },
   {
     icon: <Database size={28} strokeWidth={1.5} />,
@@ -114,6 +120,7 @@ const services: Service[] = [
       "Real-time log processing for cybersecurity",
       "Data lake migration for enterprise",
     ],
+    to: "/services/ai-data-analytics",
   },
   {
     icon: <Bot size={28} strokeWidth={1.5} />,
@@ -132,6 +139,7 @@ const services: Service[] = [
       "HR onboarding bot for enterprise",
       "24/7 customer support bot for e-commerce",
     ],
+    to: "/services/ai-chatbots",
   },
   {
     icon: <MessageSquare size={28} strokeWidth={1.5} />,
@@ -150,6 +158,7 @@ const services: Service[] = [
       "Voice assistant for healthcare appointments",
       "Conversational IVR for banking",
     ],
+    to: "/services/conversational-ai",
   },
   {
     icon: <Eye size={28} strokeWidth={1.5} />,
@@ -168,6 +177,7 @@ const services: Service[] = [
       "Automated defect detection for manufacturing",
       "Real-time crowd monitoring system",
     ],
+    to: "/services/computer-vision",
   },
 ]
 
@@ -227,6 +237,25 @@ export default function AiCap() {
             <p className="text-gray-400 text-sm leading-relaxed">{service.shortDesc}</p>
           </motion.button>
         ))}
+      </div>
+
+      {/* Bottom CTA Row */}
+      <div className="max-w-6xl mx-auto mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Link
+          to="/services/agentic-ai"
+          title="Explore agentic AI services"
+          className="inline-flex items-center gap-2 rounded-xl bg-[#1C3829] px-7 py-3 text-white font-semibold transition-colors hover:bg-green-800"
+        >
+          Explore Agentic AI
+          <span>→</span>
+        </Link>
+        <Link
+          to="/blogs"
+          title="Read AI insights and case studies"
+          className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-7 py-3 text-white font-semibold transition-colors hover:bg-white/5"
+        >
+          Read AI Insights
+        </Link>
       </div>
 
       {/* Modal Overlay */}
@@ -301,14 +330,27 @@ export default function AiCap() {
               </ul>
             </div>
 
-            {/* CTA */}
-            <button
-              className="flex items-center gap-2 px-6 py-3 rounded-xl text-white text-sm font-semibold transition-opacity hover:opacity-90"
-              style={{ backgroundColor: BRAND_GREEN }}
-            >
-              Talk to Experts
-              <span>→</span>
-            </button>
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                to="/contact"
+                title="Talk to our AI experts"
+                onClick={() => setSelected(null)}
+                className="flex items-center gap-2 px-6 py-3 rounded-xl text-white text-sm font-semibold transition-opacity hover:opacity-90"
+                style={{ backgroundColor: BRAND_GREEN }}
+              >
+                Talk to Experts
+                <span>→</span>
+              </Link>
+              <Link
+                to={selected.to}
+                title={`Explore ${selected.title}`}
+                onClick={() => setSelected(null)}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+              >
+                Explore Service
+              </Link>
+            </div>
           </div>
         </div>
       )}

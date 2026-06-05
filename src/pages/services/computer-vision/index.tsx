@@ -310,7 +310,18 @@ export default function ComputerVisionPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">Ready to Harness the Power of<br /><span className="text-green-400">AI for Your Business?</span></h2>
           <p className="text-gray-400 mb-8">Let's build a computer vision solution tailored to your operations, data, and goals.</p>
-          <button className="px-10 py-4 rounded-xl bg-[#1C3829] text-white font-semibold text-lg hover:bg-green-800 transition-colors">Let's Talk</button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <CTALink to="/contact" className="text-lg" title="Talk to our computer vision team">
+              Let's Talk
+            </CTALink>
+            <CTALink
+              to="/services/machine-learning"
+              className="bg-transparent border border-white/20 hover:bg-white/5 text-lg"
+              title="Explore Machine Learning"
+            >
+              Explore Machine Learning
+            </CTALink>
+          </div>
         </div>
       </section>
 

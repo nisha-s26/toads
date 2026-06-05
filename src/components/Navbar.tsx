@@ -113,8 +113,8 @@ export function Navbar({ activeSection }: { activeSection: string }) {
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 shrink-0">
-          <a href="/" onClick={closeMobile} className="flex items-center">
-            <img src="/toadster-logo.svg" alt="Toadster" className="h-5 w-auto select-none" />
+          <a href="/" onClick={closeMobile} title="Toadster Home" className="flex items-center">
+            <img src="/toadster-logo.svg" alt="Toadster" title="Toadster Logo" className="h-5 w-auto select-none" />
           </a>
           <button
             className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors"
@@ -131,6 +131,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
             <a
               key={link.label}
               href={link.href}
+              title={link.label}
               className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 activeSection === link.section
                   ? "text-[#1C3829] font-semibold bg-[#f0f7f3]"
@@ -172,6 +173,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                   <a
                     key={s.title}
                     href="#"
+                    title={s.title}
                     className="px-3 py-2 rounded-lg text-sm text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-colors"
                     onClick={(e) => {
                       e.preventDefault()
@@ -206,10 +208,11 @@ export function Navbar({ activeSection }: { activeSection: string }) {
         style={{ boxShadow: "0 4px 24px 0 rgba(0,0,0,0.08)" }}
       >
         {/* ── Logo ── */}
-        <a href="/" className="flex items-center gap-2.5 shrink-0 min-w-0">
+        <a href="/" title="Toadster Home" className="flex items-center gap-2.5 shrink-0 min-w-0">
           <img
             src="/toadster-logo.svg"
             alt="Toadster"
+            title="Toadster Logo"
             className="select-none"
             width={160}
             height={40}
@@ -262,6 +265,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                               <li key={s.title}>
                                 <NavigationMenuLink
                                   href={SERVICE_ROUTES[s.title] || "/services"}
+                                  title={s.title}
                                   className="flex items-start gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-gray-50 cursor-pointer"
                                 >
                                   <span className="w-9 h-9 shrink-0 flex items-center justify-center rounded-lg bg-[#e8f0ec] text-[#1C3829]">
@@ -283,6 +287,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                   <NavigationMenuItem key={link.label}>
                     <NavigationMenuLink
                       href={link.href}
+                      title={link.label}
                       onClick={e => {
                         e.preventDefault();
                         if (link.label === "Home") navigate("/");

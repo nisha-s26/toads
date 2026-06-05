@@ -412,12 +412,16 @@ export default function AIConsultationPage() {
             Book a free 45-minute strategy call and walk away with clarity on where AI can have the biggest impact for your business.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="px-10 py-3.5 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">
+            <CTALink to="/contact" title="Book a free AI strategy call">
               Book Free Strategy Call
-            </button>
-            <button className="px-10 py-3.5 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
-              Download AI Readiness Guide
-            </button>
+            </CTALink>
+            <CTALink
+              to="/blogs"
+              className="bg-transparent border border-white/20 hover:bg-white/5"
+              title="Read AI strategy insights"
+            >
+              Read AI Insights
+            </CTALink>
           </div>
         </div>
       </section>
