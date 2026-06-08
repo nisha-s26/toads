@@ -65,22 +65,22 @@ const solutions = [
 
 export default function Solutions() {
   return (
-    <section className="pt-10 pb-20 bg-[#050d18]">
+    <section className="pt-10 pb-20 bg-page-bg">
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-9xl mx-20 px-4">
 
         {/* Section Header */}
 
         <div className="text-center mb-16">
-          <p className="text-xl tracking-[0.35em] text-toadster-green font-bold">
+          <p className="text-lg tracking-[0.35em] section-eyebrow font-bold">
             SOLUTIONS
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-3">
+          <h2 className="text-4xl md:text-5xl font-bold text-page-fg mt-3">
             What We <span className="text-toadster-green">Deliver</span>
           </h2>
 
-          <p className="mt-4 text-gray-300 text-lg">
+          <p className="mt-4 text-page-fg-subtle text-lg">
             Comprehensive technology solutions from concept to scale.
           </p>
         </div>
@@ -107,31 +107,31 @@ export default function Solutions() {
                 <Link
                   to={item.to}
                   title={item.title}
-                  className="group relative block bg-[#0d1b2e] border border-white/5 rounded-2xl p-6 hover:border-green-800/50 transition-colors h-full"
+                  className="feature-card group block p-6 h-full"
                 >
 
                   {/* Icon */}
 
-                  <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
+                  <div className="feature-icon w-11 h-11 mb-4">
                     <Icon size={20} />
                   </div>
 
                   {/* Title */}
 
-                  <h3 className="font-semibold text-white text-base mb-2">
+                  <h3 className="font-semibold text-page-fg text-base mb-2 transition-colors group-hover:text-toadster-green">
                     {item.title}
                   </h3>
 
                   {/* Description */}
 
-                  <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+                  <p className="text-page-fg-muted text-sm leading-relaxed line-clamp-3">
                     {item.desc}
                   </p>
 
                   {/* Hover indicator */}
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 bg-toadster-green rounded-full flex items-center justify-center">
-                      <ArrowUpRight className="w-4 h-4 text-white" />
+                  <div className="absolute top-4 right-4 -translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="w-8 h-8 bg-toadster-green rounded-full flex items-center justify-center shadow-lg">
+                      <ArrowUpRight className="w-4 h-4 text-toadster-green-foreground" />
                     </div>
                   </div>
                 </Link>
@@ -155,7 +155,7 @@ export default function Solutions() {
           <Link
             to="/contact"
             title="Talk to our team about your project"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-7 py-3 text-white font-semibold transition-colors hover:bg-white/5"
+            className="inline-flex items-center gap-2 rounded-xl border border-page-border-strong px-7 py-3 text-page-fg font-semibold transition-colors hover:bg-page-fg/5"
           >
             Talk to Our Team
           </Link>

@@ -5,12 +5,12 @@ import { Zap, Brain, BarChart3, Database, Settings, Network, Shield, TrendingUp,
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className="border-b border-white/10 py-5">
+    <div className="border-b border-page-border py-5">
       <button className="flex items-center justify-between w-full text-left" onClick={() => setOpen(!open)}>
-        <span className="text-white font-medium pr-4">{question}</span>
+        <span className="text-page-fg font-medium pr-4">{question}</span>
         <ChevronDown className={`shrink-0 text-green-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`} size={20} />
       </button>
-      {open && <p className="mt-3 text-gray-400 text-sm leading-relaxed">{answer}</p>}
+      {open && <p className="mt-3 text-page-fg-muted text-sm leading-relaxed">{answer}</p>}
     </div>
   )
 }
@@ -19,9 +19,9 @@ const clients = ["Paytm", "FireAI", "Noise", "MyChallan", "Axis Bank", "Reliance
 
 export default function MachineLearningPage() {
   return (
-    <div className="bg-[#050d18] text-white">
+    <div className="bg-page-bg text-page-fg">
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden bg-linear-to-b from-[#092a1a] to-[#050d18] py-28 px-6">
+      <section className="relative overflow-hidden bg-linear-to-b from-[#092a1a] to-page-bg py-28">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20" style={{ background: "radial-gradient(ellipse at center, #1C3829 0%, transparent 70%)" }} />
         </div>
@@ -30,35 +30,35 @@ export default function MachineLearningPage() {
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
             Transform Your Business with the Top<br /><span className="text-green-400">Machine Learning</span> Company in USA
           </h1>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-10">Custom ML models that learn from your data, predict outcomes, and automate decisions — delivering measurable ROI at enterprise scale.</p>
+          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">Custom ML models that learn from your data, predict outcomes, and automate decisions — delivering measurable ROI at enterprise scale.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact">Book a Free Consultation</CTALink>
-            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">See How It Works</button>
+            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">See How It Works</button>
           </div>
           <div className="mt-14 flex flex-wrap gap-6 justify-center items-center opacity-50">
-            {["Nike", "Unicef", "Nikon", "HP", "Startplay"].map((b) => (<span key={b} className="text-gray-300 font-bold text-sm tracking-wide">{b}</span>))}
+            {["Nike", "Unicef", "Nikon", "HP", "Startplay"].map((b) => (<span key={b} className="text-page-fg-subtle font-bold text-sm tracking-wide">{b}</span>))}
           </div>
         </div>
       </section>
 
       {/* ── MARQUEE ── */}
-      <section className="bg-[#0a1628] py-10 overflow-hidden border-y border-white/5">
+      <section className="bg-page-bg-alt py-10 overflow-hidden border-y border-page-border">
         <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">Trusted by Innovative Teams Worldwide</p>
         <div className="relative flex overflow-hidden">
-          <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-6">
-            {[...clients, ...clients].map((c, i) => (<span key={i} className="text-gray-400 font-semibold text-sm opacity-60 shrink-0">{c}</span>))}
+          <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-4">
+            {[...clients, ...clients].map((c, i) => (<span key={i} className="text-page-fg-muted font-semibold text-sm opacity-60 shrink-0">{c}</span>))}
           </div>
         </div>
       </section>
 
       {/* ── SERVICES ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">Top Machine Learning</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services to Transform Your Business</h3>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">Custom ML solutions built on your data to power predictions, automation, and intelligent decision-making.</p>
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">Custom ML solutions built on your data to power predictions, automation, and intelligent decision-making.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
@@ -69,10 +69,10 @@ export default function MachineLearningPage() {
               { icon: <Settings size={22} />, title: "Feature Engineering & Selection", desc: "Expert feature crafting and selection to maximize model performance and reduce overfitting." },
               { icon: <Activity size={22} />, title: "ML Model Monitoring & Retraining", desc: "Continuous drift detection and automated retraining pipelines to keep models accurate." },
             ].map((s) => (
-              <div key={s.title} className="bg-[#0a1628] border border-white/5 rounded-2xl p-6 hover:border-green-800/50 transition-colors">
+              <div key={s.title} className="bg-page-bg-alt border border-page-border rounded-2xl p-6 hover:border-green-800/50 transition-colors">
                 <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">{s.icon}</div>
-                <h3 className="font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+                <h3 className="font-bold text-page-fg mb-2">{s.title}</h3>
+                <p className="text-page-fg-muted text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -80,7 +80,7 @@ export default function MachineLearningPage() {
       </section>
 
       {/* ── BENEFITS ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why It Matters</p>
@@ -95,11 +95,11 @@ export default function MachineLearningPage() {
               { icon: <Shield size={22} />, title: "Fraud & Risk Detection", desc: "Catch fraud patterns, compliance risks, and anomalies in real time before they cause damage." },
               { icon: <TrendingUp size={22} />, title: "Compounding ROI Over Time", desc: "ML models improve as they see more data — your competitive advantage grows the longer you deploy." },
             ].map((b) => (
-              <div key={b.title} className="bg-[#0a1628] border border-white/5 rounded-2xl p-6 flex gap-5 hover:border-green-800/40 transition-colors">
+              <div key={b.title} className="bg-page-bg-alt border border-page-border rounded-2xl p-6 flex gap-5 hover:border-green-800/40 transition-colors">
                 <div className="w-11 h-11 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 shrink-0">{b.icon}</div>
                 <div>
-                  <h3 className="font-bold text-white mb-1">{b.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{b.desc}</p>
+                  <h3 className="font-bold text-page-fg mb-1">{b.title}</h3>
+                  <p className="text-page-fg-muted text-sm leading-relaxed">{b.desc}</p>
                 </div>
               </div>
             ))}
@@ -108,7 +108,7 @@ export default function MachineLearningPage() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section id="our-process" className="py-20 px-6 bg-[#050d18]">
+      <section id="our-process" className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
@@ -125,11 +125,11 @@ export default function MachineLearningPage() {
               ].map((p) => (
                 <div key={p.step} className="flex gap-5 items-start">
                   <span className="text-3xl font-extrabold text-green-900 shrink-0 w-12">{p.step}</span>
-                  <div><h4 className="font-bold text-white mb-1">{p.title}</h4><p className="text-gray-400 text-sm">{p.desc}</p></div>
+                  <div><h4 className="font-bold text-page-fg mb-1">{p.title}</h4><p className="text-page-fg-muted text-sm">{p.desc}</p></div>
                 </div>
               ))}
             </div>
-            <div className="rounded-3xl overflow-hidden border border-white/5 relative h-[400px] md:h-full group">
+            <div className="rounded-3xl overflow-hidden border border-page-border relative h-[400px] md:h-full group">
               <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="Machine Learning Process" title="Machine Learning Process" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
           </div>
@@ -137,7 +137,7 @@ export default function MachineLearningPage() {
       </section>
 
       {/* ── OFFERINGS ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Full Suite</p>
@@ -154,10 +154,10 @@ export default function MachineLearningPage() {
               { icon: <Cpu size={22} />, title: "NLP & Text ML", desc: "Sentiment, classification, NER, and summarization models." },
               { icon: <GitBranch size={22} />, title: "Reinforcement Learning", desc: "RL agents for dynamic pricing, robotics, and game-theoretic problems." },
             ].map((o) => (
-              <div key={o.title} className="bg-[#050d18] border border-white/5 rounded-2xl p-6 hover:border-green-800/40 transition-colors">
+              <div key={o.title} className="bg-page-bg border border-page-border rounded-2xl p-6 hover:border-green-800/40 transition-colors">
                 <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">{o.icon}</div>
-                <h3 className="font-semibold text-white mb-2">{o.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{o.desc}</p>
+                <h3 className="font-semibold text-page-fg mb-2">{o.title}</h3>
+                <p className="text-page-fg-muted text-sm leading-relaxed">{o.desc}</p>
               </div>
             ))}
           </div>
@@ -165,7 +165,7 @@ export default function MachineLearningPage() {
       </section>
 
       {/* ── WORK ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
@@ -177,15 +177,15 @@ export default function MachineLearningPage() {
               { tag: "Fraud Detection", title: "SecureFlow", desc: "Built a real-time fraud detection model processing 2M+ transactions/day with 99.2% precision.", metric: "99.2% precision", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" },
               { tag: "Churn ML", title: "RetainIQ", desc: "Predicted churn 45 days ahead for a SaaS platform, improving retention by 38% in 6 months.", metric: "38% retention gain", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
-              <div key={w.title} className="bg-[#0a1628] rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-colors group shadow-lg">
+              <div key={w.title} className="bg-page-bg-alt rounded-2xl overflow-hidden border border-page-border hover:border-green-800/40 transition-colors group shadow-lg">
                 <div className="h-44 overflow-hidden relative">
                   <img src={w.img} alt={w.title} title={w.title} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-[#0a1628]/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                  <div className="absolute inset-0 bg-page-bg-alt/10 group-hover:bg-transparent transition-colors duration-500"></div>
                 </div>
-                <div className="p-5 border-t border-white/5">
+                <div className="p-5 border-t border-page-border">
                   <span className="text-xs text-green-400 font-semibold bg-green-900/20 px-2 py-0.5 rounded-full">{w.tag}</span>
-                  <h3 className="font-bold text-white mt-3 mb-2">{w.title}</h3>
-                  <p className="text-gray-400 text-sm mb-3 leading-relaxed">{w.desc}</p>
+                  <h3 className="font-bold text-page-fg mt-3 mb-2">{w.title}</h3>
+                  <p className="text-page-fg-muted text-sm mb-3 leading-relaxed">{w.desc}</p>
                   <p className="text-green-400 font-semibold text-sm">{w.metric}</p>
                 </div>
               </div>
@@ -195,16 +195,16 @@ export default function MachineLearningPage() {
       </section>
 
       {/* ── STATS ── */}
-      <section className="bg-[#0a1628] py-16 px-6">
+      <section className="bg-page-bg-alt py-16">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">At a Glance</p>
           <h2 className="text-3xl font-extrabold mb-12">Highlights of <span className="text-green-400">Achievements</span></h2>
           <div className="grid md:grid-cols-4 gap-8">
             {[{ value: "500+", label: "AI Projects Delivered", icon: <TrendingUp size={26} /> }, { value: "99.9%", label: "Uptime Guaranteed", icon: <Shield size={26} /> }, { value: "10+", label: "Years of Experience", icon: <Clock size={26} /> }, { value: "24/7", label: "Client Support", icon: <Users size={26} /> }].map((s) => (
-              <div key={s.label} className="bg-[#0a1628] rounded-2xl p-6 border border-white/5">
+              <div key={s.label} className="bg-page-bg-alt rounded-2xl p-6 border border-page-border">
                 <div className="text-green-400 flex justify-center mb-3">{s.icon}</div>
-                <div className="text-4xl font-extrabold text-white mb-2">{s.value}</div>
-                <div className="text-gray-400 text-sm">{s.label}</div>
+                <div className="text-4xl font-extrabold text-page-fg mb-2">{s.value}</div>
+                <div className="text-page-fg-muted text-sm">{s.label}</div>
               </div>
             ))}
           </div>
@@ -212,7 +212,7 @@ export default function MachineLearningPage() {
       </section>
 
       {/* ── DEVELOPERS ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Developers</p>
@@ -220,9 +220,9 @@ export default function MachineLearningPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {["scikit-learn & XGBoost", "PyTorch & TensorFlow", "Feature Engineering", "Model Interpretability (SHAP)", "Time Series (ARIMA/LSTM)", "MLflow & W&B Tracking", "Distributed Training", "Cloud ML (SageMaker/Vertex)", "A/B Testing & Experimentation", "Data Pipeline Engineering", "Model Compression & Distillation", "AutoML & Hyperparameter Tuning", "Computer Vision ML", "NLP & Text Classification", "Reinforcement Learning", "Real-time Inference APIs"].map((cap) => (
-              <div key={cap} className="bg-[#0a1628] rounded-xl p-4 border border-white/5 flex items-center gap-3 hover:border-green-800/40 transition-colors">
+              <div key={cap} className="bg-page-bg-alt rounded-xl p-4 border border-page-border flex items-center gap-3 hover:border-green-800/40 transition-colors">
                 <CheckCircle size={16} className="text-green-400 shrink-0" />
-                <span className="text-gray-300 text-sm font-medium">{cap}</span>
+                <span className="text-page-fg-subtle text-sm font-medium">{cap}</span>
               </div>
             ))}
           </div>
@@ -230,7 +230,7 @@ export default function MachineLearningPage() {
       </section>
 
       {/* ── INNOVATIONS ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
@@ -245,9 +245,9 @@ export default function MachineLearningPage() {
               { icon: <Activity size={22} />, label: "Real-time Streaming ML Pipelines" },
               { icon: <Shield size={22} />, label: "Explainable AI (XAI) & Fairness Tooling" },
             ].map((item) => (
-              <div key={item.label} className="bg-[#050d18] rounded-2xl p-5 border border-white/5 flex items-center gap-4 hover:border-green-800/40 transition-colors">
+              <div key={item.label} className="bg-page-bg rounded-2xl p-5 border border-page-border flex items-center gap-4 hover:border-green-800/40 transition-colors">
                 <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 shrink-0">{item.icon}</div>
-                <span className="text-white font-medium text-sm">{item.label}</span>
+                <span className="text-page-fg font-medium text-sm">{item.label}</span>
               </div>
             ))}
           </div>
@@ -255,7 +255,7 @@ export default function MachineLearningPage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
@@ -267,10 +267,10 @@ export default function MachineLearningPage() {
               { name: "Rohit Gupta", role: "CTO, PaySafe", text: "Their fraud detection model processes our transactions in under 50ms with 99%+ precision. We've cut chargebacks by 72% since deployment." },
               { name: "Emma Walsh", role: "Data Science Lead, GrowthCo", text: "The churn prediction model they built for us is incredibly accurate. We identified 30% more at-risk customers in the first week." },
             ].map((t) => (
-              <div key={t.name} className="bg-[#0a1628] rounded-2xl p-6 border border-white/5">
+              <div key={t.name} className="bg-page-bg-alt rounded-2xl p-6 border border-page-border">
                 <div className="flex gap-1 mb-4">{[...Array(5)].map((_, i) => (<Star key={i} size={14} className="text-green-400 fill-green-400" />))}</div>
-                <p className="text-gray-300 text-sm leading-relaxed mb-6">"{t.text}"</p>
-                <div><div className="font-bold text-white text-sm">{t.name}</div><div className="text-gray-500 text-xs">{t.role}</div></div>
+                <p className="text-page-fg-subtle text-sm leading-relaxed mb-6">"{t.text}"</p>
+                <div><div className="font-bold text-page-fg text-sm">{t.name}</div><div className="text-gray-500 text-xs">{t.role}</div></div>
               </div>
             ))}
           </div>
@@ -278,17 +278,17 @@ export default function MachineLearningPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">Ready to Harness the Power of<br /><span className="text-green-400">AI for Your Business?</span></h2>
-          <p className="text-gray-400 mb-8">Let our ML engineers build models that learn from your data and drive real business outcomes.</p>
+          <p className="text-page-fg-muted mb-8">Let our ML engineers build models that learn from your data and drive real business outcomes.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact" className="text-lg" title="Talk to our ML engineers">
               Chat With Us
             </CTALink>
             <CTALink
               to="/services/ai-data-analytics"
-              className="bg-transparent border border-white/20 hover:bg-white/5 text-lg"
+              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5 text-lg"
               title="Explore AI Data Analytics"
             >
               Explore Data Analytics
@@ -298,7 +298,7 @@ export default function MachineLearningPage() {
       </section>
 
       {/* ── BLOGS ── */}
-      {/* <section className="py-20 px-6 bg-[#050d18]">
+      {/* <section className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
@@ -310,11 +310,11 @@ export default function MachineLearningPage() {
               { tag: "MLOps", title: "How to Prevent Model Drift in Production ML Systems", date: "Feb 10, 2026" },
               { tag: "Predictive AI", title: "XGBoost vs Deep Learning: Choosing the Right Model for Your Data", date: "Jan 28, 2026" },
             ].map((b) => (
-              <div key={b.title} className="bg-[#0a1628] rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-colors cursor-pointer group">
-                <div className="h-36 bg-linear-to-br from-green-900/30 to-[#050d18] flex items-center justify-center"><Zap size={40} className="text-green-700" /></div>
+              <div key={b.title} className="bg-page-bg-alt rounded-2xl overflow-hidden border border-page-border hover:border-green-800/40 transition-colors cursor-pointer group">
+                <div className="h-36 bg-linear-to-br from-green-900/30 to-page-bg flex items-center justify-center"><Zap size={40} className="text-green-700" /></div>
                 <div className="p-5">
                   <span className="text-xs text-green-400 font-semibold bg-green-900/20 px-2 py-0.5 rounded-full">{b.tag}</span>
-                  <h3 className="font-bold text-white mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
+                  <h3 className="font-bold text-page-fg mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
                   <p className="text-gray-500 text-xs">{b.date}</p>
                 </div>
               </div>
@@ -324,7 +324,7 @@ export default function MachineLearningPage() {
       </section> */}
 
       {/* ── FAQ ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>

@@ -49,52 +49,52 @@ export default function Contact() {
     };
 
     return (
-        <div className="min-h-screen bg-[#050d18] pt-20">
+        <div className="min-h-screen bg-page-bg pt-20">
             {/* Hero Section */}
             <section className="pt-16 pb-8 flex flex-col items-center text-center">
                 <span className="text-xl font-semibold tracking-widest text-green-400 mb-2">GET IN TOUCH</span>
                 <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
-                    <span className="text-white">Let&apos;s </span>
+                    <span className="text-page-fg">Let&apos;s </span>
                     <span className="text-green-400">Talk</span>
                 </h1>
-                <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+                <p className="text-page-fg-subtle text-lg max-w-2xl mx-auto">
                     Ready to build something amazing? We&apos;d love to hear about your project.
                 </p>
             </section>
 
             {/* Contact Section */}
-            <section className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <section className="max-w-9xl mx-28 px-4 grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                 {/* Contact Info */}
                 <div className="flex flex-col gap-6">
                     <div>
-                        <h2 className="text-lg font-bold mb-4 text-white">Contact Information</h2>
+                        <h2 className="text-lg font-bold mb-4 text-page-fg">Contact Information</h2>
                         <ul className="flex flex-col gap-4">
                             <li className="flex items-start gap-3">
-                                <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-green-400">
+                                <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-page-fg/10 text-green-400">
                                     <svg role="img" aria-labelledby="contact-email-icon-title" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><title id="contact-email-icon-title">Email</title><path d="M4 4h16v16H4z" stroke="none" /><path d="M22 6.5V18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6.5M22 6.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v.5m20 0-10 7-10-7" /></svg>
                                 </span>
                                 <div>
-                                    <div className="text-sm text-gray-400">Email</div>
-                                    <div className="font-semibold text-white">business@toadsters.com</div>
+                                    <div className="text-sm text-page-fg-muted">Email</div>
+                                    <div className="font-semibold text-page-fg">business@toadsters.com</div>
                                 </div>
                             </li>
                             <li className="flex items-start gap-3">
-                                <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-green-400">
+                                <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-page-fg/10 text-green-400">
                                     <svg role="img" aria-labelledby="contact-phone-icon-title" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><title id="contact-phone-icon-title">Phone</title><path d="M22 16.92V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5a2 2 0 0 1 2-2h2.09a2 2 0 0 1 2 1.72c.13.81.28 1.6.47 2.36a2 2 0 0 1-.45 2.11l-.27.27a16 16 0 0 0 6.29 6.29l.27-.27a2 2 0 0 1 2.11-.45c.76.19 1.55.34 2.36.47A2 2 0 0 1 22 16.92z" /></svg>
                                 </span>
                                 <div>
-                                    <div className="text-sm text-gray-400">Phone</div>
-                                    <div className="font-semibold text-white">+91 92205 17988</div>
+                                    <div className="text-sm text-page-fg-muted">Phone</div>
+                                    <div className="font-semibold text-page-fg">+91 92205 17988</div>
                                 </div>
                             </li>
                             <li className="flex items-start gap-3">
-                                <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-green-400">
+                                <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-page-fg/10 text-green-400">
                                     <svg role="img" aria-labelledby="contact-location-icon-title" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><title id="contact-location-icon-title">Location</title><circle cx="12" cy="10" r="3" /><path d="M12 2a8 8 0 0 1 8 8c0 7-8 12-8 12S4 17 4 10a8 8 0 0 1 8-8z" /></svg>
                                 </span>
                                 <div>
-                                    <div className="text-sm text-gray-400">Location</div>
-                                    <div className="font-semibold text-white"> 🇮🇳 JAV Tower, H17, H Block, Sector 63, Noida, Uttar Pradesh 201309</div>
-                                    <div className="font-semibold text-white"> 🇦🇪 Level 1, Avenue Gate, South Zone, DIFC,
+                                    <div className="text-sm text-page-fg-muted">Location</div>
+                                    <div className="font-semibold text-page-fg"> 🇮🇳 JAV Tower, H17, H Block, Sector 63, Noida, Uttar Pradesh 201309</div>
+                                    <div className="font-semibold text-page-fg"> 🇦🇪 Level 1, Avenue Gate, South Zone, DIFC,
                                         Dubai, UAE</div>
                                 </div>
                             </li>
@@ -105,24 +105,24 @@ export default function Contact() {
 
                 {/* Contact Form */}
                 <div>
-                    <form onSubmit={handleSubmit} className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col gap-4">
-                        <h2 className="text-lg font-bold mb-2 text-white">Contact Us</h2>
+                    <form onSubmit={handleSubmit} className="bg-white/5 border border-page-border rounded-xl p-6 flex flex-col gap-4">
+                        <h2 className="text-lg font-bold mb-2 text-page-fg">Contact Us</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-xs font-medium  mb-1 text-white">Name</label>
-                                <Input name="name" value={formData.name} onChange={handleChange} required type="text" className="text-white" placeholder="Enter your name" />
+                                <label className="block text-xs font-medium  mb-1 text-page-fg">Name</label>
+                                <Input name="name" value={formData.name} onChange={handleChange} required type="text" className="text-page-fg" placeholder="Enter your name" />
                             </div>
                             <div>
-                                <label className="block text-xs font-medium text-gray-300 mb-1">Email</label>
-                                <Input name="fromEmail" value={formData.fromEmail} onChange={handleChange} required type="email" className="text-white" placeholder="Enter your email" />
+                                <label className="block text-xs font-medium text-page-fg-subtle mb-1">Email</label>
+                                <Input name="fromEmail" value={formData.fromEmail} onChange={handleChange} required type="email" className="text-page-fg" placeholder="Enter your email" />
                             </div>
                             <div className="md:col-span-2">
-                                <label className="block text-xs font-medium text-gray-300 mb-1">Company</label>
-                                <Input name="company" value={formData.company} onChange={handleChange} type="text"  className="text-white" placeholder="Your company" />
+                                <label className="block text-xs font-medium text-page-fg-subtle mb-1">Company</label>
+                                <Input name="company" value={formData.company} onChange={handleChange} type="text"  className="text-page-fg" placeholder="Your company" />
                             </div>
                             <div className="md:col-span-2">
-                                <label className="block text-xs font-medium text-gray-300 mb-1">Query</label>
-                                <Textarea name="message" value={formData.message} onChange={handleChange} required placeholder="Tell me about your query..." className="text-white focus:text-white" rows={4} />
+                                <label className="block text-xs font-medium text-page-fg-subtle mb-1">Query</label>
+                                <Textarea name="message" value={formData.message} onChange={handleChange} required placeholder="Tell me about your query..." className="text-page-fg focus:text-page-fg" rows={4} />
                             </div>
                         </div>
 
@@ -152,11 +152,11 @@ export default function Contact() {
             </section>
 
             {/* Explore More Section */}
-            <section className="max-w-6xl mx-auto px-4 pb-20">
+            <section className="max-w-9xl mx-20 px-4 pb-20">
                 <div className="text-center mb-10">
                     <p className="text-sm font-semibold tracking-[0.25em] text-toadster-green uppercase mb-2">While You're Here</p>
-                    <h2 className="text-2xl md:text-3xl font-bold text-white">Explore Our Work</h2>
-                    <p className="text-gray-400 mt-2 max-w-xl mx-auto text-sm">
+                    <h2 className="text-2xl md:text-3xl font-bold text-page-fg">Explore Our Work</h2>
+                    <p className="text-page-fg-muted mt-2 max-w-xl mx-auto text-sm">
                         Browse our top services, recent insights, and open roles while you wait.
                     </p>
                 </div>
@@ -204,19 +204,19 @@ export default function Contact() {
                             key={title}
                             to={to}
                             title={title}
-                            className="group flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-toadster-green/40 hover:bg-white/[0.05] hover:-translate-y-0.5 transition-all"
+                            className="group flex h-full items-start gap-4 rounded-2xl border border-page-border bg-white/[0.03] p-5 hover:border-toadster-green/40 hover:bg-white/[0.05] hover:-translate-y-0.5 transition-all"
                         >
                             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-toadster-green/10 text-toadster-green">
                                 <Icon size={18} />
                             </span>
                             <div className="flex-1 min-w-0">
                                 <div className="flex items-center justify-between gap-2">
-                                    <p className="text-white font-semibold group-hover:text-toadster-green transition-colors">
+                                    <p className="text-page-fg font-semibold group-hover:text-toadster-green transition-colors">
                                         {title}
                                     </p>
                                     <ArrowUpRight size={16} className="text-gray-500 group-hover:text-toadster-green transition-colors" />
                                 </div>
-                                <p className="text-gray-400 text-sm mt-1 leading-relaxed">{desc}</p>
+                                <p className="text-page-fg-muted text-sm mt-1 leading-relaxed">{desc}</p>
                             </div>
                         </Link>
                     ))}

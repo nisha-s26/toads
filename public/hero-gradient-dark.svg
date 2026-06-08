@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="base" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="emerald" cx="12%" cy="18%" r="52%">
+      <stop offset="0%" stop-color="#2aa807" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#2aa807" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amethyst" cx="92%" cy="82%" r="50%">
+      <stop offset="0%" stop-color="#9B59B6" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#9B59B6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="50%" cy="100%" r="45%">
+      <stop offset="0%" stop-color="#2ECC71" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#2ECC71" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#base)"/>
+  <rect width="1920" height="1080" fill="url(#emerald)"/>
+  <rect width="1920" height="1080" fill="url(#amethyst)"/>
+  <rect width="1920" height="1080" fill="url(#sun)"/>
+</svg>

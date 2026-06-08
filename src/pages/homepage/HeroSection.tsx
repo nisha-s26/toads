@@ -14,7 +14,6 @@ import {
   Layers,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { LazyVideo } from "@/components/LazyVideo"
 
 interface Ring {
   radius: { desktop: number; mobile: number }
@@ -54,7 +53,7 @@ function AnimatedTypewriter({ words }: { words: string[] }) {
   }, [text, deleting, index, words])
 
   return (
-    <span className="text-toadster-green">
+    <span className="hero-accent">
       {text}
       <span className="animate-pulse">|</span>
     </span>
@@ -65,7 +64,7 @@ function Typewriter({ words }: { words: string[] }) {
   const prefersReducedMotion = useReducedMotion()
 
   if (prefersReducedMotion) {
-    return <span className="text-toadster-green">{words[0]}</span>
+    return <span className="hero-accent">{words[0]}</span>
   }
 
   return <AnimatedTypewriter words={words} />
@@ -101,7 +100,7 @@ function Orbits({ variant }: OrbitsProps) {
                 className="absolute"
                 style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)`, transform: "translate(-50%, -50%)" }}
               >
-                <div className={`bg-[#0a1628] shadow-md border border-white/10 rounded-xl ${padding} hover:scale-110`}>
+                <div className={`bg-page-bg-alt shadow-md border border-page-border rounded-xl ${padding} hover:scale-110`}>
                   <Icon size={iconSize} className="text-toadster-green" />
                 </div>
               </div>
@@ -131,32 +130,32 @@ export default function HeroSection() {
   }, [prefersReducedMotion])
 
   return (
-    <section className="relative overflow-hidden sm:py-32 py-20">
-      <LazyVideo
-        src="https://dey5irgcg4c8.cloudfront.net/assets/video/banner-home.mp4"
-        poster="/2.webp"
-        className="absolute inset-0 w-full h-full object-cover z-0"
+    <section className="relative overflow-hidden sm:py-40 py-20">
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+        aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-[#050d18]/50 z-1" />
+      <div className="absolute inset-0 z-[1] bg-linear-to-b from-black/40 via-black/25 to-black/50" aria-hidden="true" />
 
       <motion.div
-        className="max-w-7xl mx-auto px-6 text-center relative z-20"
+        className="max-w-7xl px-40 mx-auto px-4 text-center relative z-20"
         initial={prefersReducedMotion ? false : { opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <motion.div
-          className="mb-3 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-sm"
+          className="mb-3 inline-flex items-center gap-2 px-4 py-2 rounded-full hero-badge backdrop-blur-sm border shadow-sm"
           initial={prefersReducedMotion ? false : { opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
         >
           <span className="w-2.5 h-2.5 bg-toadster-green rounded-full" />
-          <span className="text-sm font-medium text-white">AI-Powered Digital Transformation</span>
+          <span className="text-sm font-medium">AI-Powered Digital Transformation</span>
         </motion.div>
 
         <motion.h1
-          className="text-5xl md:text-7xl font-extrabold text-white leading-tight"
+          className="hero-title text-5xl md:text-7xl font-extrabold leading-tight"
           initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -170,7 +169,7 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.p
-          className="mt-6 md:text-lg sm:text-md text-base text-gray-300 max-w-2xl mx-auto"
+          className="hero-subtitle mt-2 md:text-lg sm:text-md text-base font-extrabold max-w-2xl mx-auto leading-tight"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -191,7 +190,7 @@ export default function HeroSection() {
             asChild
             style={{ padding: "1.5rem 2rem" }}
             variant="outline"
-            className="rounded-xl px-6 border-white/30 text-white hover:bg-white bg-transparent"
+            className="rounded-xl px-6 hero-outline-btn backdrop-blur-sm"
           >
             <Link to="/services/ai-automation" title="View AI Solutions">View AI Solutions</Link>
           </Button>
@@ -211,6 +210,8 @@ export default function HeroSection() {
           </div>
         </div>
       )}
+    
+
     </section>
   )
 }

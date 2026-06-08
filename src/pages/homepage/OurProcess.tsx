@@ -44,14 +44,14 @@ const OurProcess = () => {
     )
 
     return (
-        <section ref={sectionRef} className="bg-[#050d18]">
-            <div className="max-w-7xl mx-auto px-6 pt-10 pb-10">
+        <section ref={sectionRef} className="bg-page-bg">
+            <div className="max-w-9xl mx-20 px-4 pt-10 pb-10">
                 <div className="text-center">
-                    <p className="text-xl tracking-[0.35em] text-toadster-green font-bold">OUR PROCESS</p>
-                    <h2 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+                    <p className="text-lg tracking-[0.35em] section-eyebrow font-bold">OUR PROCESS</p>
+                    <h2 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-page-fg">
                         How We <span className="text-toadster-green">Work</span>
                     </h2>
-                    <p className="mt-4 text-sm md:text-base text-gray-300 max-w-2xl mx-auto">
+                    <p className="mt-4 text-sm md:text-base text-page-fg-subtle max-w-2xl mx-auto">
                         A proven methodology that turns complex challenges into scalable solutions.
                     </p>
                 </div>
@@ -59,12 +59,12 @@ const OurProcess = () => {
                 <div className="mt-12 md:mt-14">
                     {/* Desktop: horizontal line + steps */}
                     <div className="hidden md:block relative">
-                        <div className="absolute left-[104px] right-[104px] top-[52px] h-[2px] bg-white/10 rounded-full" />
+                        <div className="absolute inset-x-[104px] top-[52px] z-0 h-[2px] bg-page-fg/10 rounded-full" />
                         <motion.div
-                            className="absolute left-[104px] right-[104px] top-[52px] h-[2px] bg-toadster-green rounded-full origin-left"
+                            className="absolute inset-x-[104px] top-[52px] z-0 h-[2px] bg-toadster-green rounded-full origin-left"
                             style={{ scaleX: lineScaleX }}
                         />
-                        <div className="grid grid-cols-4 gap-8">
+                        <div className="relative z-10 grid grid-cols-4 gap-8">
                             {steps.map((step, i) => {
                                 const isActive = activeIndex === i
                                 const Icon = step.Icon
@@ -77,9 +77,9 @@ const OurProcess = () => {
                                         transition={{ type: "spring", stiffness: 260, damping: 18 }}
                                         className="text-center"
                                     >
-                                        <div className="mx-auto w-[104px] h-[104px]">
+                                        <div className="relative z-10 mx-auto w-[104px] h-[104px]">
                                             <div
-                                                className={`relative w-full h-full rounded-full bg-[#0a1628] border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${isActive ? "border-toadster-green" : "border-white/10"
+                                                className={`relative w-full h-full rounded-full bg-page-card border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${isActive ? "border-toadster-green" : "border-page-border"
                                                     }`}
                                             >
                                                 <motion.div
@@ -103,15 +103,15 @@ const OurProcess = () => {
                                                     }}
                                                 />
 
-                                                <Icon className={`transition-colors duration-300 ${isActive ? "text-white" : "text-gray-400"}`} size={28} />
-                                                <span className={`mt-1 text-[12px] font-bold transition-colors duration-300 ${isActive ? "text-white" : "text-gray-400"}`}>{step.id}</span>
+                                                <Icon className={`transition-colors duration-300 ${isActive ? "text-page-fg" : "text-page-fg-muted"}`} size={28} />
+                                                <span className={`mt-1 text-[12px] font-bold transition-colors duration-300 ${isActive ? "text-page-fg" : "text-page-fg-muted"}`}>{step.id}</span>
                                             </div>
                                         </div>
 
-                                        <p className={`mt-5 text-base font-extrabold transition-colors duration-300 ${isActive ? "text-white" : "text-gray-200"}`}>
+                                        <p className={`mt-5 text-base font-extrabold transition-colors duration-300 ${isActive ? "text-page-fg" : "text-page-fg-subtle"}`}>
                                             {step.title}
                                         </p>
-                                        <p className="mt-2 text-sm text-gray-400 leading-relaxed max-w-[18rem] mx-auto">
+                                        <p className="mt-2 text-sm text-page-fg-muted leading-relaxed max-w-[18rem] mx-auto">
                                             {step.description}
                                         </p>
                                     </motion.div>
@@ -122,9 +122,9 @@ const OurProcess = () => {
 
                     {/* Mobile: vertical line + left circle/right text */}
                     <div className="md:hidden relative">
-                        <div className="absolute left-[40px] top-[40px] bottom-[40px] w-[2px] bg-white/10 rounded-full" />
+                        <div className="absolute left-[40px] top-[40px] bottom-[40px] z-0 w-[2px] bg-page-fg/10 rounded-full" />
                         <motion.div
-                            className="absolute left-[40px] top-[40px] bottom-[40px] w-[2px] rounded-full overflow-hidden"
+                            className="absolute left-[40px] top-[40px] bottom-[40px] z-0 w-[2px] rounded-full overflow-hidden"
                         >
                             <motion.div
                                 className="absolute inset-0 bg-gradient-to-b from-transparent via-toadster-green to-transparent"
@@ -133,7 +133,7 @@ const OurProcess = () => {
                             />
                         </motion.div>
 
-                        <div className="space-y-12">
+                        <div className="relative z-10 space-y-12">
                             {steps.map((step, i) => {
                                 const isActive = activeIndex === i
                                 const Icon = step.Icon
@@ -146,9 +146,9 @@ const OurProcess = () => {
                                             transition={{ type: "spring", stiffness: 260, damping: 18 }}
                                             className="flex-shrink-0"
                                         >
-                                            <div className="w-[80px] h-[80px]">
+                                            <div className="relative z-10 w-[80px] h-[80px]">
                                                 <div
-                                                    className={`relative w-full h-full rounded-full bg-[#0a1628] border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${isActive ? "border-toadster-green" : "border-white/10"
+                                                    className={`relative w-full h-full rounded-full bg-page-card border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${isActive ? "border-toadster-green" : "border-page-border"
                                                         }`}
                                                 >
                                                     <motion.div
@@ -172,17 +172,17 @@ const OurProcess = () => {
                                                         }}
                                                     />
 
-                                                    <Icon className={`transition-colors duration-300 ${isActive ? "text-white" : "text-gray-400"}`} size={24} />
-                                                    <span className={`mt-1 text-[10px] font-bold transition-colors duration-300 ${isActive ? "text-white" : "text-gray-400"}`}>{step.id}</span>
+                                                    <Icon className={`transition-colors duration-300 ${isActive ? "text-page-fg" : "text-page-fg-muted"}`} size={24} />
+                                                    <span className={`mt-1 text-[10px] font-bold transition-colors duration-300 ${isActive ? "text-page-fg" : "text-page-fg-muted"}`}>{step.id}</span>
                                                 </div>
                                             </div>
                                         </motion.div>
 
                                         <div className="flex-1 pt-2">
-                                            <p className={`text-base font-extrabold transition-colors duration-300 ${isActive ? "text-white" : "text-gray-200"}`}>
+                                            <p className={`text-base font-extrabold transition-colors duration-300 ${isActive ? "text-page-fg" : "text-page-fg-subtle"}`}>
                                                 {step.title}
                                             </p>
-                                            <p className="mt-2 text-sm text-gray-400 leading-relaxed">
+                                            <p className="mt-2 text-sm text-page-fg-muted leading-relaxed">
                                                 {step.description}
                                             </p>
                                         </div>
@@ -205,7 +205,7 @@ const OurProcess = () => {
                     <Link
                         to="/blogs"
                         title="See how we deliver projects"
-                        className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-7 py-3 text-white font-semibold transition-colors hover:bg-white/5"
+                        className="inline-flex items-center gap-2 rounded-xl border border-page-border-strong px-7 py-3 text-page-fg font-semibold transition-colors hover:bg-page-fg/5"
                     >
                         See Our Insights
                     </Link>

@@ -181,7 +181,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
     if (segment.length === 0) return
     if (index % 2 === 1) {
       nodes.push(
-        <strong key={`${keyPrefix}-b${index}`} className="text-white font-semibold">
+        <strong key={`${keyPrefix}-b${index}`} className="text-page-fg font-semibold">
           {renderInlineLinks(segment, `${keyPrefix}-b${index}`)}
         </strong>
       )
@@ -210,8 +210,8 @@ function FaqAccordion({ items }: { items: BlogFaq[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.35, delay: index * 0.07, ease: "easeOut" }}
-            className={`bg-gray-900/50 border rounded-2xl overflow-hidden transition-colors ${
-              isOpen ? "border-toadster-green/40" : "border-gray-800 hover:border-gray-700"
+            className={`theme-card border rounded-2xl overflow-hidden transition-colors ${
+              isOpen ? "border-toadster-green/40" : "border-page-border hover:border-page-border-strong"
             }`}
           >
             <button
@@ -225,7 +225,7 @@ function FaqAccordion({ items }: { items: BlogFaq[] }) {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span className={`font-semibold text-base sm:text-lg leading-snug transition-colors ${
-                  isOpen ? "text-toadster-green" : "text-white group-hover:text-toadster-green"
+                  isOpen ? "text-toadster-green" : "text-page-fg group-hover:text-toadster-green"
                 }`}>
                   {item.question}
                 </span>
@@ -234,7 +234,7 @@ function FaqAccordion({ items }: { items: BlogFaq[] }) {
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
                 className={`shrink-0 transition-colors ${
-                  isOpen ? "text-toadster-green" : "text-gray-400 group-hover:text-toadster-green"
+                  isOpen ? "text-toadster-green" : "text-page-fg-muted group-hover:text-toadster-green"
                 }`}
               >
                 <ChevronDown size={20} />
@@ -252,7 +252,7 @@ function FaqAccordion({ items }: { items: BlogFaq[] }) {
                 >
                   <div className="px-4 sm:px-5 pb-5 pl-[3.25rem] sm:pl-[4.25rem]">
                     <div className="h-px w-full bg-gradient-to-r from-toadster-green/40 via-toadster-green/10 to-transparent mb-4" />
-                    <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
+                    <p className="text-page-fg-subtle leading-relaxed text-sm sm:text-base">
                       {item.answer}
                     </p>
                   </div>
@@ -295,10 +295,10 @@ export default function BlogDetail() {
 
   if (!blog) {
     return (
-      <div className="min-h-screen bg-[#050d18] flex items-center justify-center">
+      <div className="min-h-screen bg-page-bg flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Blog Not Found</h1>
-          <p className="text-gray-300 mb-8">The blog post you're looking for doesn't exist.</p>
+          <h1 className="text-4xl font-bold text-page-fg mb-4">Blog Not Found</h1>
+          <p className="text-page-fg-subtle mb-8">The blog post you're looking for doesn't exist.</p>
           <button
             onClick={() => navigate("/blogs")}
             className="bg-[#1C3829] text-white px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300"
@@ -317,21 +317,21 @@ export default function BlogDetail() {
   const contentBlocks: ContentBlock[] = blog.content ? parseBlogContent(blog.content) : []
 
   return (
-    <div className="min-h-screen bg-[#050d18] text-white">
+    <div className="min-h-screen bg-page-bg text-page-fg">
 
       {/* Hero Section */}
-      <section className="relative pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-28 pb-16 px-3 sm:px-4 lg:px-5 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-toadster-green/10 via-transparent to-toadster-green/10"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-toadster-green/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-toadster-green/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
         <div className="max-w-4xl mx-auto relative z-10">
           {/* Breadcrumb */}
-          <nav className={`flex items-center gap-2 text-sm text-gray-300 mb-8 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
+          <nav className={`flex items-center gap-2 text-sm text-page-fg-subtle mb-8 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
             <Link to="/" title="Home" className="hover:text-toadster-green transition-colors duration-200">Home</Link>
-            <ChevronRight size={14} className="text-gray-400" />
+            <ChevronRight size={14} className="text-page-fg-muted" />
             <Link to="/blogs" title="Blogs" className="hover:text-toadster-green transition-colors duration-200">Blogs</Link>
-            <ChevronRight size={14} className="text-gray-400" />
+            <ChevronRight size={14} className="text-page-fg-muted" />
             <span className="text-toadster-green font-medium line-clamp-1">{blog.title}</span>
           </nav>
 
@@ -355,24 +355,24 @@ export default function BlogDetail() {
           )}
 
           {/* Title */}
-          <h1 className={`text-4xl md:text-5xl font-bold mb-6 leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '600ms' }}>
+          <h1 className={`text-4xl md:text-5xl font-bold mb-6 leading-tight text-page-fg transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '600ms' }}>
             {blog.title}
           </h1>
 
           {/* Description */}
-          <p className={`text-lg text-gray-200 mb-8 leading-relaxed max-w-3xl transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '800ms' }}>
+          <p className={`text-lg text-page-fg-subtle mb-8 leading-relaxed max-w-3xl transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '800ms' }}>
             {blog.description}
           </p>
 
           {/* Meta Row */}
-          <div className={`flex flex-wrap items-center gap-6 text-sm text-gray-300 border-y border-gray-700 py-5 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1000ms' }}>
+          <div className={`flex flex-wrap items-center gap-6 text-sm text-page-fg-subtle border-y border-page-border-strong py-5 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1000ms' }}>
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-toadster-green rounded-full flex items-center justify-center">
                 <User size={14} className="text-white" />
               </div>
               <div>
-                <p className="font-semibold text-white text-sm">{blog.author}</p>
-                {blog.authorRole && <p className="text-xs text-gray-300">{blog.authorRole}</p>}
+                <p className="font-semibold text-page-fg text-sm">{blog.author}</p>
+                {blog.authorRole && <p className="text-xs text-page-fg-subtle">{blog.authorRole}</p>}
               </div>
             </div>
             <div className="flex items-center gap-1.5">
@@ -386,13 +386,13 @@ export default function BlogDetail() {
 
             {/* Share */}
             <div className="ml-auto flex items-center gap-3">
-              <span className="text-xs text-gray-400 font-medium">Share:</span>
+              <span className="text-xs text-page-fg-muted font-medium">Share:</span>
               <a 
                 href="https://x.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 title="Share on Twitter"
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-toadster-green hover:text-white transition-all duration-200 text-gray-300"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-page-accent-soft border border-page-border text-page-fg-muted hover:bg-toadster-green hover:text-white transition-all duration-200"
               >
                 <Twitter size={14} />
               </a>
@@ -401,7 +401,7 @@ export default function BlogDetail() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 title="Share on LinkedIn"
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-toadster-green hover:text-white transition-all duration-200 text-gray-300"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-page-accent-soft border border-page-border text-page-fg-muted hover:bg-toadster-green hover:text-white transition-all duration-200"
               >
                 <Linkedin size={14} />
               </a>
@@ -410,7 +410,7 @@ export default function BlogDetail() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 title="Share on Facebook"
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-toadster-green hover:text-white transition-all duration-200 text-gray-300"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-page-accent-soft border border-page-border text-page-fg-muted hover:bg-toadster-green hover:text-white transition-all duration-200"
               >
                 <Facebook size={14} />
               </a>
@@ -420,10 +420,10 @@ export default function BlogDetail() {
       </section>
 
       {/* Featured Image */}
-      <section className="px-3 sm:px-4 md:px-6 lg:px-8 mb-8 sm:mb-12">
+      <section className="px-3 sm:px-4 md:px-4 lg:px-5 mb-8 sm:mb-12">
         <div className="max-w-4xl mx-auto">
-          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/5">
-            <div className="w-full h-48 sm:h-56 md:h-72 lg:h-[420px] relative overflow-hidden group bg-[#0b1a2b] flex items-center justify-center">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-page-border">
+            <div className="w-full h-48 sm:h-56 md:h-72 lg:h-[420px] relative overflow-hidden group bg-page-bg-deep flex items-center justify-center">
               <img
                 src={blog.image}
                 alt={blog.title}
@@ -450,7 +450,7 @@ export default function BlogDetail() {
       </section>
 
       {/* Article Content */}
-      <section className="px-3 sm:px-4 md:px-6 lg:px-8 pb-12 sm:pb-16">
+      <section className="px-3 sm:px-4 md:px-4 lg:px-5 pb-12 sm:pb-16">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
 
@@ -471,7 +471,7 @@ export default function BlogDetail() {
                       <motion.h2
                         key={keyPrefix}
                         {...revealProps}
-                        className="text-xl sm:text-2xl font-bold text-white mt-8 sm:mt-10 mb-3 sm:mb-4 pb-2 sm:pb-3 border-b border-gray-700 first:mt-0"
+                        className="text-xl sm:text-2xl font-bold text-page-fg mt-8 sm:mt-10 mb-3 sm:mb-4 pb-2 sm:pb-3 border-b border-page-border-strong first:mt-0"
                       >
                         {block.text}
                       </motion.h2>
@@ -483,7 +483,7 @@ export default function BlogDetail() {
                       <motion.h3
                         key={keyPrefix}
                         {...revealProps}
-                        className="text-lg sm:text-xl font-semibold text-white mt-6 sm:mt-8 mb-2 sm:mb-3"
+                        className="text-lg sm:text-xl font-semibold text-page-fg mt-6 sm:mt-8 mb-2 sm:mb-3"
                       >
                         {block.text}
                       </motion.h3>
@@ -507,10 +507,10 @@ export default function BlogDetail() {
                           loading="lazy"
                           decoding="async"
                           referrerPolicy="no-referrer"
-                          className="w-full h-auto rounded-xl sm:rounded-2xl border border-gray-800 shadow-2xl"
+                          className="w-full h-auto rounded-xl sm:rounded-2xl border border-page-border shadow-2xl"
                         />
                         {block.alt && (
-                          <figcaption className="mt-2 text-center text-xs sm:text-sm text-gray-500 italic">
+                          <figcaption className="mt-2 text-center text-xs sm:text-sm text-page-fg-muted italic">
                             {block.alt}
                           </figcaption>
                         )}
@@ -538,7 +538,7 @@ export default function BlogDetail() {
                               hidden: { opacity: 0, x: -16 },
                               visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
                             }}
-                            className="relative pl-6 text-gray-300 leading-relaxed text-base"
+                            className="relative pl-6 text-page-fg-subtle leading-relaxed text-base"
                           >
                             <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-toadster-green" aria-hidden="true" />
                             {renderInline(item, `${keyPrefix}-i${itemIndex}`)}
@@ -568,7 +568,7 @@ export default function BlogDetail() {
                               hidden: { opacity: 0, x: -16 },
                               visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
                             }}
-                            className="relative pl-12 text-gray-300 leading-relaxed text-base"
+                            className="relative pl-12 text-page-fg-subtle leading-relaxed text-base"
                           >
                             <span
                               className="absolute left-0 top-0 inline-flex h-7 w-7 items-center justify-center rounded-lg bg-toadster-green/10 text-toadster-green text-xs font-bold border border-toadster-green/20"
@@ -591,7 +591,7 @@ export default function BlogDetail() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.55, ease: "easeOut" }}
-                        className="my-6 sm:my-8 border-l-4 border-toadster-green/60 bg-toadster-green/5 px-5 py-4 rounded-r-xl text-gray-200 text-base sm:text-lg italic leading-relaxed"
+                        className="my-6 sm:my-8 border-l-4 border-toadster-green/60 bg-toadster-green/5 px-5 py-4 rounded-r-xl text-page-fg-subtle text-base sm:text-lg italic leading-relaxed"
                       >
                         {renderInline(block.text, keyPrefix)}
                       </motion.blockquote>
@@ -606,7 +606,7 @@ export default function BlogDetail() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.15 }}
                         transition={{ duration: 0.55, ease: "easeOut" }}
-                        className="my-6 sm:my-8 overflow-x-auto rounded-xl border border-gray-800"
+                        className="my-6 sm:my-8 overflow-x-auto rounded-xl border border-page-border"
                       >
                         <table className="w-full border-collapse text-left text-sm sm:text-base">
                           <thead className="bg-toadster-green/10">
@@ -614,7 +614,7 @@ export default function BlogDetail() {
                               {block.headers.map((header, headerIndex) => (
                                 <th
                                   key={`${keyPrefix}-h${headerIndex}`}
-                                  className="px-4 py-3 font-semibold text-toadster-green border-b border-gray-800 align-top"
+                                  className="px-4 py-3 font-semibold text-toadster-green border-b border-page-border align-top"
                                 >
                                   {renderInline(header, `${keyPrefix}-h${headerIndex}`)}
                                 </th>
@@ -627,14 +627,14 @@ export default function BlogDetail() {
                                 key={`${keyPrefix}-r${rowIndex}`}
                                 className={
                                   rowIndex % 2 === 0
-                                    ? "bg-gray-900/30"
-                                    : "bg-gray-900/10"
+                                    ? "bg-page-accent-soft"
+                                    : "bg-page-card"
                                 }
                               >
                                 {row.map((cell, cellIndex) => (
                                   <td
                                     key={`${keyPrefix}-r${rowIndex}-c${cellIndex}`}
-                                    className="px-4 py-3 text-gray-300 border-b border-gray-800/60 align-top leading-relaxed"
+                                    className="px-4 py-3 text-page-fg-subtle border-b border-page-border align-top leading-relaxed"
                                   >
                                     {renderInline(cell, `${keyPrefix}-r${rowIndex}-c${cellIndex}`)}
                                   </td>
@@ -652,7 +652,7 @@ export default function BlogDetail() {
                       <motion.p
                         key={keyPrefix}
                         {...revealProps}
-                        className="font-bold text-white mt-3 sm:mt-4 mb-1 text-sm sm:text-base"
+                        className="font-bold text-page-fg mt-3 sm:mt-4 mb-1 text-sm sm:text-base"
                       >
                         {renderInline(block.text, keyPrefix)}
                       </motion.p>
@@ -663,7 +663,7 @@ export default function BlogDetail() {
                     <motion.p
                       key={keyPrefix}
                       {...revealProps}
-                      className="text-gray-300 leading-relaxed mb-4 text-base"
+                      className="text-page-fg-subtle leading-relaxed mb-4 text-base"
                     >
                       {renderInline(block.text, keyPrefix)}
                     </motion.p>
@@ -673,13 +673,13 @@ export default function BlogDetail() {
 
             {/* Tags */}
             {blog.tags && blog.tags.length > 0 && (
-              <div className={`mt-12 pt-8 border-t border-gray-700 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1600ms' }}>
-                <p className="text-sm font-semibold text-gray-300 mb-3 transition-all duration-1000 transform opacity-0 translate-y-8" style={{ transitionDelay: '1800ms' }}>Tags</p>
+              <div className={`mt-12 pt-8 border-t border-page-border-strong transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1600ms' }}>
+                <p className="text-sm font-semibold text-page-fg-subtle mb-3 transition-all duration-1000 transform opacity-0 translate-y-8" style={{ transitionDelay: '1800ms' }}>Tags</p>
                 <div className="flex flex-wrap gap-2">
                   {blog.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="inline-flex items-center gap-1 bg-gray-800 border border-gray-700 text-gray-300 text-sm px-3 py-1.5 rounded-full hover:border-toadster-green hover:text-toadster-green hover:bg-toadster-green/10 transition-all duration-200 cursor-pointer"
+                      className="inline-flex items-center gap-1 bg-page-accent-soft border border-page-border text-page-fg-subtle text-sm px-3 py-1.5 rounded-full hover:border-toadster-green hover:text-toadster-green hover:bg-toadster-green/10 transition-all duration-200 cursor-pointer"
                     >
                       <Tag size={12} />
                       {tag}
@@ -690,15 +690,15 @@ export default function BlogDetail() {
             )}
 
             {/* Author Card */}
-            <div className={`mt-10 p-6 bg-gray-900/50 rounded-2xl border border-gray-800 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '2000ms' }}>
+            <div className={`mt-10 p-6 theme-card rounded-2xl border transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '2000ms' }}>
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 bg-toadster-green rounded-full flex items-center justify-center flex-shrink-0">
                   <User size={22} className="text-white" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-bold text-white text-lg">{blog.author}</p>
-                  {blog.authorRole && <p className="text-xs text-gray-300">{blog.authorRole}</p>}
-                  <p className="text-gray-500 text-sm leading-relaxed">
+                  <p className="font-bold text-page-fg text-lg">{blog.author}</p>
+                  {blog.authorRole && <p className="text-xs text-page-fg-subtle">{blog.authorRole}</p>}
+                  <p className="text-page-fg-muted text-sm leading-relaxed">
                     {blog.author} is a {blog.authorRole || 'expert contributor'} at Toadsters, specializing in {blog.category || 'AI and emerging technologies'}. Bringing practical insights and cutting-edge knowledge to help businesses navigate the {blog.category || 'AI'} landscape.
                   </p>
                 </div>
@@ -709,44 +709,44 @@ export default function BlogDetail() {
             {/* Sidebar */}
             <aside className="lg:col-span-1 space-y-8">
               {/* Article Info Card */}
-              <div className={`bg-gray-900/50 p-6 rounded-2xl border border-gray-800 sticky top-28 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1200ms' }}>
-                <h3 className="font-bold text-white mb-4 text-lg" >Article Info</h3>
+              <div className={`theme-card p-6 rounded-2xl border sticky top-28 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1200ms' }}>
+                <h3 className="font-bold text-page-fg mb-4 text-lg" >Article Info</h3>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-sm text-gray-400">
+                  <div className="flex items-center gap-3 text-sm text-page-fg-muted">
                     <div className="w-8 h-8 bg-[#015d19]/20 rounded-lg flex items-center justify-center">
                       <Calendar size={14} className="text-[#015d19]" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-400">Published</p>
-                      <p className="font-medium text-gray-300">{getBlogDate(blog)}</p>
+                      <p className="text-xs text-page-fg-muted">Published</p>
+                      <p className="font-medium text-page-fg-subtle">{getBlogDate(blog)}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-400">
+                  <div className="flex items-center gap-3 text-sm text-page-fg-muted">
                     <div className="w-8 h-8 bg-[#015d19]/20 rounded-lg flex items-center justify-center">
                       <Clock size={14} className="text-[#015d19]" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-400">Read Time</p>
-                      <p className="font-medium text-gray-300">{blog.readTime}</p>
+                      <p className="text-xs text-page-fg-muted">Read Time</p>
+                      <p className="font-medium text-page-fg-subtle">{blog.readTime}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-400">
+                  <div className="flex items-center gap-3 text-sm text-page-fg-muted">
                     <div className="w-8 h-8 bg-[#015d19]/20 rounded-lg flex items-center justify-center">
                       <User size={14} className="text-[#015d19]" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-400">Author</p>
-                      <p className="font-medium text-gray-300">{blog.author}</p>
+                      <p className="text-xs text-page-fg-muted">Author</p>
+                      <p className="font-medium text-page-fg-subtle">{blog.author}</p>
                     </div>
                   </div>
                   {blog.category && (
-                    <div className="flex items-center gap-3 text-sm text-gray-400">
+                    <div className="flex items-center gap-3 text-sm text-page-fg-muted">
                       <div className="w-8 h-8 bg-[#015d19]/20 rounded-lg flex items-center justify-center">
                         <Tag size={14} className="text-[#015d19]" />
                       </div>
                       <div>
-                        <p className="text-xs text-gray-400">Category</p>
-                        <p className="font-medium text-gray-300">{blog.category}</p>
+                        <p className="text-xs text-page-fg-muted">Category</p>
+                        <p className="font-medium text-page-fg-subtle">{blog.category}</p>
                       </div>
                     </div>
                   )}
@@ -760,7 +760,7 @@ export default function BlogDetail() {
 
       {/* FAQ Section */}
       {blog.faqs && blog.faqs.length > 0 && (
-        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <section className="py-12 sm:py-16 px-3 sm:px-4 lg:px-5 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-toadster-green/10 via-transparent to-toadster-green/5"></div>
           <div className="absolute top-0 right-0 w-72 h-72 bg-toadster-green/5 rounded-full -translate-y-1/3 translate-x-1/3 blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-toadster-green/5 rounded-full translate-y-1/3 -translate-x-1/3 blur-3xl"></div>
@@ -777,10 +777,10 @@ export default function BlogDetail() {
                 <HelpCircle size={20} className="text-white" />
               </div>
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                <h2 className="text-2xl sm:text-3xl font-bold text-page-fg">
                   Frequently Asked Questions
                 </h2>
-                <p className="text-gray-400 text-xs sm:text-sm mt-0.5">
+                <p className="text-page-fg-muted text-xs sm:text-sm mt-0.5">
                   Quick answers to common questions about this topic
                 </p>
               </div>
@@ -793,13 +793,13 @@ export default function BlogDetail() {
 
       {/* Related Articles */}
       {suggestedBlogs.length > 0 && (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <section className="py-16 px-3 sm:px-4 lg:px-5 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#015d19]/10 via-transparent to-[#0a7d2b]/10"></div>
           <div className="max-w-4xl mx-auto relative z-10">
             <div className="flex items-center justify-between mb-10">
               <div>
-                <h2 className="text-3xl font-bold text-white">Related Articles</h2>
-                <p className="text-gray-400 text-sm mt-1">Continue reading more insights</p>
+                <h2 className="text-3xl font-bold text-page-fg">Related Articles</h2>
+                <p className="text-page-fg-muted text-sm mt-1">Continue reading more insights</p>
               </div>
               <Link
                 to="/blogs"
@@ -817,10 +817,10 @@ export default function BlogDetail() {
                   key={relatedBlog.slug}
                   to={`/blogs/${relatedBlog.slug}`}
                   title={relatedBlog.title}
-                  className={`bg-gray-900/50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group border border-gray-800 hover:border-[#015d19]/20 hover:-translate-y-1 block transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  className={`theme-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group border hover:border-[#015d19]/20 hover:-translate-y-1 block transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                   style={{ transitionDelay: `${2800 + index * 100}ms` }}
                 >
-                  <div className="h-44 relative overflow-hidden flex items-center justify-center bg-[#0b1a2b]">
+                  <div className="h-44 relative overflow-hidden flex items-center justify-center bg-page-bg-deep">
                     <img
                       src={relatedBlog.image}
                       alt={relatedBlog.title}
@@ -840,17 +840,17 @@ export default function BlogDetail() {
                     )}
                   </div>
                   <div className="p-5">
-                    <div className="flex items-center gap-2 text-xs text-gray-300 mb-2">
+                    <div className="flex items-center gap-2 text-xs text-page-fg-subtle mb-2">
                       <Calendar size={11} />
                       <span>{getBlogDate(relatedBlog)}</span>
                       <span>•</span>
                       <Clock size={11} />
                       <span>{relatedBlog.readTime}</span>
                     </div>
-                    <h3 className="text-sm font-semibold text-white group-hover:text-[#015d19] transition-colors duration-200 line-clamp-2 mb-2">
+                    <h3 className="text-sm font-semibold text-page-fg group-hover:text-[#015d19] transition-colors duration-200 line-clamp-2 mb-2">
                       {relatedBlog.title}
                     </h3>
-                    <p className="text-xs text-gray-300 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-page-fg-subtle line-clamp-2 leading-relaxed">
                       {relatedBlog.description}
                     </p>
                     <div className="mt-4 flex items-center gap-1 text-[#015d19] text-xs font-semibold group-hover:gap-2 transition-all duration-200">
@@ -877,7 +877,7 @@ export default function BlogDetail() {
       )}
 
       {/* Comments Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 relative">
+      <section className="py-16 px-3 sm:px-4 lg:px-5 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-[#015d19]/5 via-transparent to-[#0a7d2b]/5"></div>
         <div className="max-w-4xl mx-auto relative z-10">
 
@@ -889,8 +889,8 @@ export default function BlogDetail() {
                   <MessageCircle size={20} className="text-white" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-white">Comments</h2>
-                  <p className="text-gray-400 text-sm">{staticComments[slug].length} {staticComments[slug].length === 1 ? 'comment' : 'comments'}</p>
+                  <h2 className="text-2xl font-bold text-page-fg">Comments</h2>
+                  <p className="text-page-fg-muted text-sm">{staticComments[slug].length} {staticComments[slug].length === 1 ? 'comment' : 'comments'}</p>
                 </div>
               </div>
 
@@ -899,25 +899,25 @@ export default function BlogDetail() {
                 {staticComments[slug].map((comment, index) => (
                   <div
                     key={comment.id}
-                    className={`bg-gray-900/50 border border-gray-800 rounded-2xl p-5 hover:border-gray-700/60 transition-all duration-300 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                    className={`theme-card border rounded-2xl p-5 hover:border-page-border-strong transition-all duration-300 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                     style={{ transitionDelay: `${index * 80}ms` }}
                   >
                     <div className="flex items-start gap-4">
                       {/* Avatar */}
-                      <div className="w-10 h-10 bg-gradient-to-br from-[#015d19] to-[#0a7d2b] rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold">
+                      <div className="w-10 h-10 bg-gradient-to-br from-[#015d19] to-[#0a7d2b] rounded-2xl flex items-center justify-center shrink-0 text-white text-xs font-bold">
                         {getInitials(comment.name)}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-0.5">
-                          <span className="font-semibold text-white text-sm">{comment.name}</span>
+                          <span className="font-semibold text-page-fg text-sm">{comment.name}</span>
                           {comment.role && (
                             <span className="text-[#015d19] text-xs font-medium bg-[#015d19]/10 px-2 py-0.5 rounded-full">{comment.role}</span>
                           )}
                         </div>
-                        <p className="text-gray-500 text-xs mb-3">{comment.date}</p>
-                        <p className="text-gray-300 text-sm leading-relaxed">{comment.message}</p>
-                        <div className="mt-3 flex items-center gap-1.5 text-gray-500 text-xs">
-                          <ThumbsUp size={12} className="fill-gray-600 text-gray-600" />
+                        <p className="text-page-fg-muted text-xs mb-3">{comment.date}</p>
+                        <p className="text-page-fg-subtle text-sm leading-relaxed">{comment.message}</p>
+                        <div className="mt-3 flex items-center gap-1.5 text-page-fg-muted text-xs">
+                          <ThumbsUp size={12} className="fill-page-fg-muted text-page-fg-muted" />
                           <span>{comment.likes} likes</span>
                         </div>
                       </div>
@@ -931,7 +931,7 @@ export default function BlogDetail() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-3 sm:px-4 lg:px-5">
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-r from-[#015d19] to-[#0a7d2b] rounded-2xl p-10 text-center text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -952,7 +952,7 @@ export default function BlogDetail() {
                 <Link
                   to="/services/agentic-ai"
                   title="Explore Services"
-                  className="border border-white/50 text-white px-7 py-3 rounded-full font-medium hover:bg-white/10 transition-all duration-300 text-sm"
+                  className="border border-white/30 text-white px-7 py-3 rounded-full font-medium hover:bg-white/10 transition-all duration-300 text-sm"
                 >
                   Explore Services
                 </Link>

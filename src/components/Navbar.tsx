@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/ThemeToggle"
+import { ToadsterLogo } from "@/components/ToadsterLogo"
 import {
   Brain,
   Code2,
@@ -31,8 +33,6 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 
-const BRAND_GREEN = "#1C3829"
-
 const services = [
   { icon: "Brain", title: "Agentic AI", description: "Autonomous AI systems with reasoning capabilities" },
   { icon: "Code2", title: "AI Development", description: "End-to-end AI development services" },
@@ -58,6 +58,7 @@ const navLinks = [
   { label: "Home", href: "#", section: "home" },
   { label: "About Us", href: "#about", section: "about" },
   { label: "Services", href: "#services", dropdown: true, section: "services" },
+  { label: "Staff Augmentation", href: "#staff-augmentation", section: "staff-augmentation" },
   { label: "Blogs", href: "#blogs", section: "blogs" },
   { label: "Careers", href: "#careers", section: "careers" },
   { label: "Contact Us", href: "#contact", section: "contact" },
@@ -107,26 +108,29 @@ export function Navbar({ activeSection }: { activeSection: string }) {
 
       {/* ── Mobile Right-Side Drawer ── */}
       <div
-        className={`fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-white z-50 shadow-2xl flex flex-col md:hidden transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-page-card z-50 shadow-2xl flex flex-col md:hidden transform transition-transform duration-300 ease-in-out ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Drawer Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 shrink-0">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-page-border shrink-0">
           <a href="/" onClick={closeMobile} title="Toadster Home" className="flex items-center">
-            <img src="/toadster-logo.svg" alt="Toadster" title="Toadster Logo" className="h-5 w-auto select-none" />
+            <ToadsterLogo className="h-5 w-auto" />
           </a>
-          <button
-            className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors"
-            onClick={closeMobile}
-            aria-label="Close menu"
-          >
-            <X size={20} />
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle size="sm" />
+            <button
+              className="p-1.5 rounded-lg text-page-fg-muted hover:bg-page-accent-soft transition-colors"
+              onClick={closeMobile}
+              aria-label="Close menu"
+            >
+              <X size={20} />
+            </button>
+          </div>
         </div>
 
         {/* Drawer Links */}
-        <nav className="flex-1 overflow-y-auto px-4 py-3 flex flex-col gap-0.5">
+        <nav className="flex-1 rounded-xl overflow-y-auto px-4 py-3 flex flex-col gap-0.5">
           {navLinks.filter((l) => !l.dropdown).map((link) => (
             <a
               key={link.label}
@@ -134,8 +138,8 @@ export function Navbar({ activeSection }: { activeSection: string }) {
               title={link.label}
               className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 activeSection === link.section
-                  ? "text-[#1C3829] font-semibold bg-[#f0f7f3]"
-                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  ? "text-brand-green font-semibold bg-page-accent-soft"
+                  : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
               }`}
               onClick={(e) => {
                 e.preventDefault()
@@ -144,6 +148,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                 else if (link.label === "Contact Us") navigate("/contact")
                 else if (link.label === "About Us") navigate("/about")
                 else if (link.label === "Blogs") navigate("/blogs")
+                  else if (link.label === "Staff Augmentation") navigate("/staff-augmentation")
                 else if (link.label === "Careers") navigate("/careers")
               }}
             >
@@ -156,8 +161,8 @@ export function Navbar({ activeSection }: { activeSection: string }) {
             <button
               className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 activeSection === "services"
-                  ? "text-[#1C3829] font-semibold bg-[#f0f7f3]"
-                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  ? "text-brand-green font-semibold bg-page-accent-soft"
+                  : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
               }`}
               onClick={() => setMobileServicesOpen((p) => !p)}
             >
@@ -168,13 +173,13 @@ export function Navbar({ activeSection }: { activeSection: string }) {
               />
             </button>
             {mobileServicesOpen && (
-              <div className="mt-1 ml-3 pl-3 border-l-2 border-[#e8f0ec] flex flex-col gap-0.5">
+              <div className="mt-1 ml-3 pl-3 border-l-2 border-page-border flex flex-col gap-0.5">
                 {services.map((s) => (
                   <a
                     key={s.title}
                     href="#"
                     title={s.title}
-                    className="px-3 py-2 rounded-lg text-sm text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-colors"
+                    className="px-3 py-2 rounded-lg text-sm text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft transition-colors"
                     onClick={(e) => {
                       e.preventDefault()
                       closeMobile()
@@ -190,13 +195,12 @@ export function Navbar({ activeSection }: { activeSection: string }) {
         </nav>
 
         {/* Drawer Footer */}
-        <div className="px-5 py-4 border-t border-gray-100 shrink-0">
+        <div className="px-5 py-4 border-t border-page-border shrink-0">
           <Button
             onClick={() => { navigate("/contact"); closeMobile() }}
-            className="w-full rounded-xl text-sm font-semibold text-white"
-            style={{ backgroundColor: BRAND_GREEN }}
+            className="w-full rounded-xl text-sm font-semibold"
           >
-            Book a Call
+            Schedule a Call
           </Button>
         </div>
       </div>
@@ -204,19 +208,12 @@ export function Navbar({ activeSection }: { activeSection: string }) {
       <header className="absolute top-0 left-0 right-0 w-full flex justify-center px-3 sm:px-4 pt-3">
       {/* Floating pill container */}
       <nav
-        className="w-full bg-white/90 max-w-7xl rounded-2xl shadow-xl px-3 sm:px-6 py-3 flex items-center justify-between min-w-0"
-        style={{ boxShadow: "0 4px 24px 0 rgba(0,0,0,0.08)" }}
+        className="w-full max-w-9xl rounded-2xl px-6 mx-20 sm:px-8 py-3 flex items-center justify-between min-w-0 bg-page-nav backdrop-blur-md border border-page-border"
+        style={{ boxShadow: "var(--page-nav-shadow)" }}
       >
         {/* ── Logo ── */}
         <a href="/" title="Toadster Home" className="flex items-center gap-2.5 shrink-0 min-w-0">
-          <img
-            src="/toadster-logo.svg"
-            alt="Toadster"
-            title="Toadster Logo"
-            className="select-none"
-            width={160}
-            height={40}
-          />
+          <ToadsterLogo width={160} height={40} />
         </a>
 
         {/* ── Desktop Nav ── */}
@@ -227,17 +224,17 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                 link.dropdown ? (
                   <NavigationMenuItem className="relative" key={link.label}>
                     <NavigationMenuTrigger
-                      className={`px-4 py-2 text-sm font-medium bg-transparent rounded-full transition-colors hover:bg-gray-50 data-[state=open]:bg-gray-50 data-[state=open]:text-gray-900 ${activeSection === 'services' ? 'text-[#1C3829] font-semibold' : 'text-gray-500 hover:text-gray-900'}`}
+                      className={`px-4 py-2 text-sm font-medium bg-transparent rounded-full transition-colors hover:bg-page-accent-soft data-[state=open]:bg-page-accent-soft data-[state=open]:text-page-fg ${activeSection === 'services' ? 'text-brand-green font-semibold' : 'text-page-fg-muted hover:text-page-fg'}`}
                     >
                       <span className="relative">
                         {link.label}
                         {activeSection === 'services' && (
-                          <span className="block mx-auto h-0.5 rounded-full" style={{ backgroundColor: BRAND_GREEN, width: "100%", marginTop: 0 }} />
+                          <span className="block mx-auto h-0.5 rounded-full bg-primary" style={{ width: "100%", marginTop: 0 }} />
                         )}
                       </span>
                     </NavigationMenuTrigger>
                     <NavigationMenuContent className="left-auto! top-auto! w-auto!">
-                      <div className="bg-white rounded-2xl shadow-2xl p-5 w-195">
+                      <div className="bg-page-card rounded-2xl shadow-2xl p-5 w-195 border border-page-border">
                         <ul className="grid grid-cols-3 gap-1">
                           {services.map((s) => {
                             const icons = {
@@ -266,14 +263,14 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                                 <NavigationMenuLink
                                   href={SERVICE_ROUTES[s.title] || "/services"}
                                   title={s.title}
-                                  className="flex items-start gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-gray-50 cursor-pointer"
+                                  className="flex items-start gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-page-accent-soft cursor-pointer"
                                 >
-                                  <span className="w-9 h-9 shrink-0 flex items-center justify-center rounded-lg bg-[#e8f0ec] text-[#1C3829]">
+                                  <span className="w-9 h-9 shrink-0 flex items-center justify-center rounded-lg bg-page-accent-soft text-brand-green">
                                     {Icon && <Icon size={18} />}
                                   </span>
                                   <div>
-                                    <div className="text-sm font-semibold text-black leading-tight mb-0.5">{s.title}</div>
-                                    <div className="text-xs text-gray-400 leading-snug">{s.description}</div>
+                                    <div className="text-sm font-semibold text-page-fg leading-tight mb-0.5">{s.title}</div>
+                                    <div className="text-xs text-page-fg-muted leading-snug">{s.description}</div>
                                   </div>
                                 </NavigationMenuLink>
                               </li>
@@ -294,13 +291,14 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                         else if (link.label === "Contact Us") navigate("/contact");
                         else if (link.label === "About Us") navigate("/about");
                         else if (link.label === "Blogs") navigate("/blogs");
+                        else if (link.label === "Staff Augmentation") navigate("/staff-augmentation");
                         else if (link.label === "Careers") navigate("/careers");
                       }}
                       className={`
                         relative px-4 py-2 text-sm font-medium rounded-full transition-colors
                         ${activeSection === link.section
-                          ? "text-[#1C3829] font-semibold"
-                          : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
+                          ? "text-brand-green font-semibold"
+                          : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
                         }
                         ${activeSection === link.section ? "relative" : ""}
                       `}
@@ -309,8 +307,8 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                         {link.label}
                         {activeSection === link.section && (
                           <span
-                            className="block mx-auto h-0.5 rounded-full"
-                            style={{ backgroundColor: BRAND_GREEN, width: "100%", marginTop: 0 }}
+                            className="block mx-auto h-0.5 rounded-full bg-primary"
+                            style={{ width: "100%", marginTop: 0 }}
                           />
                         )}
                       </span>
@@ -322,25 +320,28 @@ export function Navbar({ activeSection }: { activeSection: string }) {
           </NavigationMenu>
         </div>
 
-        {/* ── CTA Button ── */}
-        <div className="hidden md:flex shrink-0">
+        {/* ── CTA + Theme ── */}
+        <div className="hidden md:flex shrink-0 items-center gap-2">
+          <ThemeToggle />
           <Button
             onClick={() => navigate("/contact")}
-            className="rounded-xl px-5 py-5 text-sm font-semibold text-white"
-            style={{ backgroundColor: BRAND_GREEN }}
+            className="rounded-xl px-5 py-5 text-sm font-semibold"
           >
-            Book a Call
+            Schedule a Call
           </Button>
         </div>
 
-        {/* ── Mobile Hamburger ── */}
-        <button
-          className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
-          onClick={() => setMobileOpen((prev) => !prev)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* ── Mobile Controls ── */}
+        <div className="md:hidden flex items-center gap-1">
+          <ThemeToggle size="sm" />
+          <button
+            className="p-2 rounded-lg text-page-fg-muted hover:bg-page-accent-soft transition-colors"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
     </header>
     </>

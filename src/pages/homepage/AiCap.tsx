@@ -13,8 +13,6 @@ import {
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 
-const BRAND_GREEN = "#1C3829"
-
 interface Service {
   icon: React.ReactNode
   title: string
@@ -197,23 +195,23 @@ export default function AiCap() {
   }, [selected])
 
   return (
-    <section className="w-full bg-[#050d18] px-4">
+    <section className="w-full bg-page-bg px-4">
       {/* Header */}
       <div className="text-center mb-12">
-        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold">
+        <p className="text-lg tracking-[0.35em] section-eyebrow font-bold">
           AI CAPABILITIES
         </p>
         <h2 className="text-5xl md:text-6xl font-extrabold mb-4">
-          <span className="text-white">Intelligent </span>
+          <span className="text-page-fg">Intelligent </span>
           <span className="text-toadster-green">Solutions</span>
         </h2>
-        <p className="text-gray-400 text-lg max-w-xl mx-auto">
+        <p className="text-page-fg-muted text-lg max-w-xl mx-auto">
           Comprehensive AI and ML capabilities to transform every aspect of your business.
         </p>
       </div>
 
       {/* Cards Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="max-w-9xl mx-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {services.map((service, index) => (
           <motion.button
             key={service.title}
@@ -226,15 +224,15 @@ export default function AiCap() {
             }}
             viewport={{ once: true }}
             onClick={() => setSelected(service)}
-            className="group relative bg-[#0d1b2e] border border-white/5 rounded-2xl p-6 hover:border-green-800/50 transition-colors"
+            className="feature-card group p-6 text-left"
           >
-            <span className="w-10 h-10 rounded-xl mx-auto bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
+            <span className="feature-icon w-11 h-11 mb-4">
               {service.icon}
             </span>
-            <h3 className="text-base font-bold text-white mb-2 leading-snug">
+            <h3 className="text-base font-bold text-page-fg mb-2 leading-snug transition-colors group-hover:text-toadster-green">
               {service.title}
             </h3>
-            <p className="text-gray-400 text-sm leading-relaxed">{service.shortDesc}</p>
+            <p className="text-page-fg-muted text-sm leading-relaxed">{service.shortDesc}</p>
           </motion.button>
         ))}
       </div>
@@ -252,7 +250,7 @@ export default function AiCap() {
         <Link
           to="/blogs"
           title="Read AI insights and case studies"
-          className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-7 py-3 text-white font-semibold transition-colors hover:bg-white/5"
+          className="inline-flex items-center gap-2 rounded-xl border border-page-border-strong px-7 py-3 text-page-fg font-semibold transition-colors hover:bg-page-fg/5"
         >
           Read AI Insights
         </Link>
@@ -266,13 +264,13 @@ export default function AiCap() {
           onClick={() => setSelected(null)}
         >
           <div
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-xl p-8 relative max-h-[90vh] overflow-y-auto"
+            className="theme-card rounded-2xl shadow-2xl w-full max-w-xl p-8 relative max-h-[90vh] overflow-y-auto border"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
               onClick={() => setSelected(null)}
-              className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 transition-colors"
+              className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-page-accent-soft hover:bg-page-bg-deep text-page-fg-muted hover:text-page-fg transition-colors"
               aria-label="Close"
             >
               <X size={16} />
@@ -280,22 +278,22 @@ export default function AiCap() {
 
             {/* Icon + Title */}
             <div className="flex items-center gap-4 mb-5">
-              <span className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gray-100 text-[#1C3829] shrink-0">
+              <span className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-page-accent-soft text-brand-green shrink-0">
                 {selected.icon}
               </span>
-              <h3 className="text-xl font-bold text-gray-900 leading-tight">{selected.title}</h3>
+              <h3 className="text-xl font-bold text-page-fg leading-tight">{selected.title}</h3>
             </div>
 
             {/* Description */}
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">{selected.description}</p>
+            <p className="text-page-fg-muted text-sm leading-relaxed mb-6">{selected.description}</p>
 
             {/* Use Cases */}
             <div className="mb-5">
-              <h4 className="text-sm font-bold text-gray-900 mb-2">Use Cases</h4>
+              <h4 className="text-sm font-bold text-page-fg mb-2">Use Cases</h4>
               <ul className="grid grid-cols-2 gap-x-6 gap-y-1">
                 {selected.useCases.map((uc) => (
-                  <li key={uc} className="flex items-center gap-1.5 text-sm text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gray-400 shrink-0" />
+                  <li key={uc} className="flex items-center gap-1.5 text-sm text-page-fg-muted">
+                    <span className="w-1.5 h-1.5 rounded-full bg-toadster-green shrink-0" />
                     {uc}
                   </li>
                 ))}
@@ -304,12 +302,12 @@ export default function AiCap() {
 
             {/* Technologies Used */}
             <div className="mb-5">
-              <h4 className="text-sm font-bold text-gray-900 mb-2">Technologies Used</h4>
+              <h4 className="text-sm font-bold text-page-fg mb-2">Technologies Used</h4>
               <div className="flex flex-wrap gap-2">
                 {selected.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 rounded-full border border-gray-200 text-xs text-gray-600 font-medium bg-gray-50"
+                    className="px-3 py-1 rounded-full border border-page-border text-xs text-page-fg-muted font-medium bg-page-accent-soft"
                   >
                     {tech}
                   </span>
@@ -319,11 +317,11 @@ export default function AiCap() {
 
             {/* Example Projects */}
             <div className="mb-7">
-              <h4 className="text-sm font-bold text-gray-900 mb-2">Example Projects</h4>
+              <h4 className="text-sm font-bold text-page-fg mb-2">Example Projects</h4>
               <ul className="flex flex-col gap-1.5">
                 {selected.exampleProjects.map((proj) => (
-                  <li key={proj} className="flex items-start gap-2 text-sm text-gray-600">
-                    <span className="mt-0.5 text-gray-400">→</span>
+                  <li key={proj} className="flex items-start gap-2 text-sm text-page-fg-muted">
+                    <span className="mt-0.5 text-page-fg-muted">→</span>
                     {proj}
                   </li>
                 ))}
@@ -336,8 +334,7 @@ export default function AiCap() {
                 to="/contact"
                 title="Talk to our AI experts"
                 onClick={() => setSelected(null)}
-                className="flex items-center gap-2 px-6 py-3 rounded-xl text-white text-sm font-semibold transition-opacity hover:opacity-90"
-                style={{ backgroundColor: BRAND_GREEN }}
+                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
               >
                 Talk to Experts
                 <span>→</span>
@@ -346,7 +343,7 @@ export default function AiCap() {
                 to={selected.to}
                 title={`Explore ${selected.title}`}
                 onClick={() => setSelected(null)}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-page-border-strong text-page-fg hover:bg-page-accent-soft transition-colors"
               >
                 Explore Service
               </Link>

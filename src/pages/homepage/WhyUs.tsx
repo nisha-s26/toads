@@ -35,23 +35,23 @@ const WhyUs = () => {
     const inView = useInView(ref, { amount: 0.35, once: true })
 
     return (
-        <section ref={ref} className="bg-[#050d18]">
-            <div className="max-w-9xl mx-auto px-6 pt-10 pb-10">
+        <section ref={ref} className="bg-page-bg">
+            <div className="max-w-9xl mx-20 px-4 pt-10 pb-10">
                 <div className="flex flex-col lg:flex-row items-center justify-center gap-14">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="max-w-xl text-center lg:text-left"
+                        className="max-w-4xl text-center lg:text-left"
                     >
-                        <p className="text-xl font-semibold tracking-[0.25em] text-toadster-green uppercase">WHY US</p>
+                        <p className="text-xl font-semibold tracking-[0.25em] section-eyebrow uppercase">WHY US</p>
 
-                        <h2 className="mt-4 text-4xl md:text-5xl font-extrabold leading-[1.05] text-white">
+                        <h2 className="mt-4 text-4xl md:text-5xl font-extrabold leading-[1.05] text-page-fg">
                             Why Choose
                             <span className="block text-toadster-green">Toadster</span>
                         </h2>
 
-                        <p className="mt-6 text-sm md:text-base text-gray-300 leading-relaxed">
+                        <p className="mt-6 text-sm md:text-base text-page-fg-subtle leading-relaxed">
                             We don’t just build software—we engineer intelligent systems centered around data quality, ML reliability,
                             and production-grade delivery.
                         </p>
@@ -68,7 +68,7 @@ const WhyUs = () => {
                             <Link
                                 to="/services/ai-development"
                                 title="View our AI development services"
-                                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-6 py-3 text-white font-semibold transition-colors hover:bg-white/10"
+                                className="inline-flex items-center gap-2 rounded-xl border border-page-border-strong px-6 py-3 text-page-fg font-semibold transition-colors hover:bg-page-fg/10"
                             >
                                 View Our Services
                             </Link>
@@ -98,20 +98,17 @@ const WhyUs = () => {
                                         show: { opacity: 1, x: 0 },
                                     }}
                                     transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.05 }}
-                                    whileHover={{ y: -2, x: 5 }}
-                                    className="group rounded-2xl  backdrop-blur shadow-gray-600 shadow-sm hover:shadow-md transition-shadow"
+                                    className="feature-card group"
                                 >
                                     <div className="flex gap-4 p-5">
-                                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 border border-white/5 text-toadster-green">
+                                        <div className="feature-icon h-11 w-11 shrink-0">
                                             <Icon size={18} />
                                         </div>
                                         <div className="min-w-0">
-                                            <p className="font-semibold text-white text-sm">{f.title}</p>
-                                            <p className="mt-1 text-xs md:text-sm text-gray-400 leading-relaxed">{f.description}</p>
+                                            <p className="font-semibold text-page-fg text-sm transition-colors group-hover:text-toadster-green">{f.title}</p>
+                                            <p className="mt-1 text-xs md:text-sm text-page-fg-muted leading-relaxed">{f.description}</p>
                                         </div>
                                     </div>
-
-                                    <div className="h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </motion.div>
                             )
                         })}

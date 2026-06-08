@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#1C3829" />
+  <meta name="theme-color" content="#ECF0F1" />
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
   <link rel="preconnect" href="https://plus.unsplash.com" crossorigin />
   <link rel="preconnect" href="https://dey5irgcg4c8.cloudfront.net" crossorigin />
@@ -13,7 +13,7 @@
   <link rel="dns-prefetch" href="https://plus.unsplash.com" />
   <link rel="dns-prefetch" href="https://dey5irgcg4c8.cloudfront.net" />
   <link rel="preload" href="/toadster-logo.svg" as="image" type="image/svg+xml" />
-  <link rel="preload" href="/2.webp" as="image" type="image/webp" />
+  <link rel="preload" href="/hero-gradient-light.svg" as="image" type="image/svg+xml" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="description"
     content="Toadsters delivers AI software development, MLOps, data engineering & custom software solutions for global enterprises, startups, and SMBs." />
@@ -42,6 +42,22 @@
   <link rel="alternate" hreflang="x-default" href="https://toadsters.com/" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <title>Toadster | Scalable AI Solutions & Enterprise Web Development</title>
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("toadster-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var isDark = stored === "dark" || (!stored && prefersDark);
+        var root = document.documentElement;
+        root.classList.toggle("dark", isDark);
+        root.style.colorScheme = isDark ? "dark" : "light";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", isDark ? "#000000" : "#ECF0F1");
+      } catch (e) {
+        document.documentElement.style.colorScheme = "light";
+      }
+    })();
+  </script>
   <link href="/src/style.css" rel="stylesheet">
   <script type="application/ld+json">
     {
