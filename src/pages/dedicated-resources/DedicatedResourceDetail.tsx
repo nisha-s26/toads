@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowUpRight, Code, ShieldCheck, Heart, Sparkles, Cpu, Layers } from "lucide-react"
+import { ArrowUpRight, Code, Sparkles, Cpu, Layers } from "lucide-react"
 
 interface ResourceInfo {
   title: string
@@ -219,9 +219,9 @@ export default function DedicatedResourceDetail() {
         {selectedDesign === "storyteller" ? (
           <div className="flex flex-col gap-24 pt-4">
 
-            {/* Section 1: Hero Section with pulsing abstract gradient background */}
-            <section className="relative w-full rounded-3xl py-24 px-8 overflow-hidden bg-gradient-to-br from-page-card via-page-bg-alt to-page-card border border-page-border flex flex-col items-center justify-center text-center">
-
+            {/* Section 1: Hero Section with pulsing abstract gradient background + RFP form card */}
+            <section className="relative w-full rounded-3xl py-16 px-8 sm:px-12 overflow-hidden bg-gradient-to-br from-[#F4F9F6] via-[#FCFDFD] to-[#F4F9F6] dark:from-[#08100C] dark:via-[#0E1712] dark:to-[#08100C] border border-toadster-green/20 dark:border-toadster-green/30 shadow-[0_20px_50px_rgba(0,102,0,0.04)] dark:shadow-[0_20px_60px_rgba(42,168,7,0.1)] transition-all duration-300">
+              
               {/* Pulsing glow spheres simulating abstract AI animation */}
               <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <motion.div
@@ -229,90 +229,195 @@ export default function DedicatedResourceDetail() {
                     scale: [1, 1.2, 1],
                     x: [0, 50, 0],
                     y: [0, -30, 0],
-                    opacity: [0.3, 0.45, 0.3]
+                    opacity: [0.4, 0.6, 0.4]
                   }}
                   transition={{
                     duration: 12,
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
-                  className="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-radial from-toadster-green/18 via-toadster-green/4 to-transparent blur-3xl"
+                  className="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-radial from-toadster-green/22 via-toadster-green/6 to-transparent blur-3xl"
                 />
                 <motion.div
                   animate={{
                     scale: [1.1, 0.9, 1.1],
                     x: [0, -60, 0],
                     y: [0, 40, 0],
-                    opacity: [0.25, 0.4, 0.25]
+                    opacity: [0.35, 0.5, 0.35]
                   }}
                   transition={{
                     duration: 15,
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
-                  className="absolute -bottom-24 -right-16 w-[450px] h-[450px] rounded-full bg-radial from-toadster-green/15 via-transparent to-transparent blur-3xl"
+                  className="absolute -bottom-24 -right-16 w-[450px] h-[450px] rounded-full bg-radial from-toadster-green/18 via-transparent to-transparent blur-3xl"
                 />
               </div>
 
-              {/* Hero content */}
-              <div className="relative z-10 max-w-4xl flex flex-col items-center gap-6">
-                <motion.span
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="text-xs font-bold uppercase tracking-[0.35em] text-toadster-green bg-toadster-green/10 py-1.5 px-4 rounded-full border border-toadster-green/20"
-                >
-                  Dedicated Resource Solution
-                </motion.span>
-
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.1 }}
-                  className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-page-fg tracking-tight leading-none"
-                >
-                  Hire <span className="text-toadster-green">{info.title}</span>
-                </motion.h1>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-page-fg-subtle text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl mt-2"
-                >
-                  {info.description}
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="flex flex-wrap justify-center gap-6 text-page-fg-muted mt-4 font-semibold"
-                >
-                  {info.bullets.map((bullet, index) => (
-                    <span key={index} className="flex items-center gap-2 text-sm sm:text-base">
-                      <span className="text-toadster-green text-lg">✓</span>
-                      {bullet}
-                    </span>
-                  ))}
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="mt-8"
-                >
-                  <Button
-                    onClick={() => {
-                      document.getElementById("rfp-section")?.scrollIntoView({ behavior: "smooth" })
-                    }}
-                    className="bg-[#1C3829] hover:bg-[#1C3829]/90 text-white font-bold py-6 px-12 rounded-xl text-base shadow-xl flex items-center gap-2 group transition-all duration-300 hover:scale-103 cursor-pointer"
+              {/* Hero content & RFP split */}
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                {/* Left Column: Title & Info */}
+                <div className="lg:col-span-7 flex flex-col gap-6 text-left">
+                  <motion.span
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-xs font-bold uppercase tracking-[0.35em] text-toadster-green bg-toadster-green/10 py-1.5 px-4 rounded-full border border-toadster-green/20 w-fit"
                   >
-                    REQUEST PROPOSAL
-                    <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Button>
-                </motion.div>
+                    Dedicated Resource Solution
+                  </motion.span>
+                  
+                  <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.1 }}
+                    className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-page-fg tracking-tight leading-tight"
+                  >
+                    Hire <br />
+                    <span className="text-toadster-green">{info.title}</span>
+                  </motion.h1>
+                  
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="text-page-fg-subtle text-lg sm:text-xl leading-relaxed max-w-xl"
+                  >
+                    {info.description}
+                  </motion.p>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="flex flex-col gap-3.5 text-page-fg-muted mt-2 font-semibold"
+                  >
+                    {info.bullets.map((bullet, index) => (
+                      <span key={index} className="flex items-center gap-3 text-base">
+                        <span className="w-5 h-5 shrink-0 rounded-full bg-toadster-green/10 text-toadster-green flex items-center justify-center font-bold text-xs">✓</span>
+                        {bullet}
+                      </span>
+                    ))}
+                  </motion.div>
+                </div>
+
+                {/* Right Column: RFP Form Card */}
+                <div className="lg:col-span-5 w-full">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  >
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full text-left">
+                      <div>
+                        <h2 className="text-xl font-bold text-page-fg">Request For Proposal</h2>
+                        <p className="text-xs text-page-fg-muted mt-1">Get custom quotes within 24 hours.</p>
+                      </div>
+                      
+                      <div className="flex flex-col gap-4 text-left">
+                        <div>
+                          <label className="block text-xs font-semibold uppercase tracking-wider text-page-fg-muted mb-1.5">
+                            Your Name *
+                          </label>
+                          <Input
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                            type="text"
+                            placeholder="Enter your name"
+                            className="text-page-fg bg-white/75 dark:bg-black/35 border-page-border-strong focus:bg-white dark:focus:bg-black/60 focus:border-toadster-green transition-all"
+                          />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-xs font-semibold uppercase tracking-wider text-page-fg-muted mb-1.5">
+                            Your Official Email *
+                          </label>
+                          <Input
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            type="email"
+                            placeholder="Enter your email"
+                            className="text-page-fg bg-white/75 dark:bg-black/35 border-page-border-strong focus:bg-white dark:focus:bg-black/60 focus:border-toadster-green transition-all"
+                          />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-xs font-semibold uppercase tracking-wider text-page-fg-muted mb-1.5">
+                            Contact Number (Optional)
+                          </label>
+                          <Input
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            type="text"
+                            placeholder="Enter your phone number"
+                            className="text-page-fg bg-white/75 dark:bg-black/35 border-page-border-strong focus:bg-white dark:focus:bg-black/60 focus:border-toadster-green transition-all"
+                          />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-xs font-semibold uppercase tracking-wider text-page-fg-muted mb-1.5">
+                            Project Details *
+                          </label>
+                          <Textarea
+                            name="details"
+                            value={formData.details}
+                            onChange={handleChange}
+                            required
+                            placeholder="Briefly describe your requirements..."
+                            rows={3}
+                            className="text-page-fg bg-white/75 dark:bg-black/35 border-page-border-strong focus:bg-white dark:focus:bg-black/60 focus:border-toadster-green transition-all"
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* Simulated reCAPTCHA */}
+                      <div className="flex items-center justify-between border border-toadster-green/15 rounded-xl p-3 bg-white/50 dark:bg-black/20 shadow-inner select-none text-left">
+                        <label className="flex items-center gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={captchaChecked}
+                            onChange={(e) => setCaptchaChecked(e.target.checked)}
+                            className="w-4 h-4 rounded border-page-border-strong accent-toadster-green cursor-pointer"
+                          />
+                          <span className="text-xs font-medium text-page-fg-subtle">I'm not a robot</span>
+                        </label>
+                        <div className="flex flex-col items-center gap-0.5">
+                          <img
+                            src="https://www.gstatic.com/recaptcha/api2/logo_48.png"
+                            alt="reCAPTCHA logo"
+                            className="w-5 h-5 opacity-75"
+                          />
+                          <span className="text-[8px] text-page-fg-muted font-medium">reCAPTCHA</span>
+                        </div>
+                      </div>
+                      
+                      {submitStatus === "success" && (
+                        <div className="p-3 bg-green-900/30 border border-green-700/50 rounded-xl text-center">
+                          <p className="text-green-400 text-xs font-medium">Proposal submitted successfully!</p>
+                        </div>
+                      )}
+                      {submitStatus === "error" && (
+                        <div className="p-3 bg-red-900/30 border border-red-700/50 rounded-xl text-center">
+                          <p className="text-red-400 text-xs font-medium">Failed to submit proposal.</p>
+                        </div>
+                      )}
+                      
+                      <Button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full bg-[#1C3829] hover:bg-[#1C3829]/90 disabled:opacity-50 text-white font-bold py-3.5 rounded-xl text-sm shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
+                      >
+                        {isSubmitting ? "SUBMITTING..." : "SUBMIT PROPOSAL"}
+                      </Button>
+                    </form>
+                  </motion.div>
+                </div>
               </div>
             </section>
 
@@ -371,121 +476,6 @@ export default function DedicatedResourceDetail() {
                     <p className="text-sm text-page-fg-muted leading-relaxed">{h.desc}</p>
                   </motion.div>
                 ))}
-              </div>
-            </section>
-
-            {/* Section 3: Centered Request For Proposal Form Section */}
-            <section id="rfp-section" className="w-full py-12 border-t border-page-border flex flex-col items-center">
-              <div className="w-full max-w-3xl">
-                <form onSubmit={handleSubmit} className="bg-gradient-to-br from-page-card to-page-bg-alt border border-page-border rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col gap-8">
-                  <div className="text-center">
-                    <h2 className="text-3xl font-extrabold text-page-fg">Request For Proposal</h2>
-                    <p className="text-base text-page-fg-muted mt-2">Fill in your information to receive custom proposals within 24 hours.</p>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-page-fg-muted mb-2">
-                        Your Name *
-                      </label>
-                      <Input
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        type="text"
-                        placeholder="Enter your name"
-                        className="text-page-fg bg-transparent border-page-border-strong focus:border-toadster-green py-6 px-4 text-base"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-page-fg-muted mb-2">
-                        Your Official Email *
-                      </label>
-                      <Input
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        type="email"
-                        placeholder="Enter your email"
-                        className="text-page-fg bg-transparent border-page-border-strong focus:border-toadster-green py-6 px-4 text-base"
-                      />
-                    </div>
-
-                    <div className="md:col-span-2">
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-page-fg-muted mb-2">
-                        Contact Number (Optional)
-                      </label>
-                      <Input
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        type="text"
-                        placeholder="Enter your phone number"
-                        className="text-page-fg bg-transparent border-page-border-strong focus:border-toadster-green py-6 px-4 text-base"
-                      />
-                    </div>
-
-                    <div className="md:col-span-2">
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-page-fg-muted mb-2">
-                        Project Details *
-                      </label>
-                      <Textarea
-                        name="details"
-                        value={formData.details}
-                        onChange={handleChange}
-                        required
-                        placeholder="Briefly describe your requirements..."
-                        rows={5}
-                        className="text-page-fg bg-transparent border-page-border-strong focus:border-toadster-green p-4 text-base"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Simulated reCAPTCHA */}
-                  <div className="flex items-center justify-between border border-page-border rounded-xl p-4 bg-white/[0.02] shadow-inner select-none max-w-md mx-auto w-full">
-                    <label className="flex items-center gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={captchaChecked}
-                        onChange={(e) => setCaptchaChecked(e.target.checked)}
-                        className="w-5 h-5 rounded border-page-border-strong accent-toadster-green cursor-pointer"
-                      />
-                      <span className="text-sm font-medium text-page-fg-subtle">I'm not a robot</span>
-                    </label>
-                    <div className="flex flex-col items-center gap-0.5">
-                      <img
-                        src="https://www.gstatic.com/recaptcha/api2/logo_48.png"
-                        alt="reCAPTCHA logo"
-                        className="w-6 h-6 opacity-75"
-                      />
-                      <span className="text-[9px] text-page-fg-muted font-medium">reCAPTCHA</span>
-                    </div>
-                  </div>
-
-                  {submitStatus === "success" && (
-                    <div className="p-4 bg-green-900/30 border border-green-700/50 rounded-xl text-center">
-                      <p className="text-green-400 text-sm font-semibold">Proposal submitted successfully! We'll get back to you soon.</p>
-                    </div>
-                  )}
-                  {submitStatus === "error" && (
-                    <div className="p-4 bg-red-900/30 border border-red-700/50 rounded-xl text-center">
-                      <p className="text-red-400 text-sm font-semibold">Failed to submit proposal. Please try again.</p>
-                    </div>
-                  )}
-
-                  <div className="flex justify-center">
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full max-w-md bg-[#1C3829] hover:bg-[#1C3829]/90 disabled:opacity-50 text-white font-bold py-5 rounded-xl text-base shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
-                    >
-                      {isSubmitting ? "SUBMITTING..." : "SUBMIT PROPOSAL"}
-                    </Button>
-                  </div>
-                </form>
               </div>
             </section>
 
