@@ -76,6 +76,10 @@ function AppInner() {
   usePageMetadata()
   useContentProtection()
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }, [pathname])
+
   return (
     <div>
       <div className="absolute top-0 left-0 right-0 z-30 w-full">
