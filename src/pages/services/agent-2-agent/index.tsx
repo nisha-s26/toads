@@ -17,6 +17,7 @@ import {
   Target,
   ArrowLeftRight,
 } from "lucide-react"
+import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false)
@@ -39,10 +40,6 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   )
 }
 
-const clients = [
-  "Paytm", "FireAI", "Noise", "MyChallan", "Axis Bank",
-  "Reliance", "Tawuniya", "H&M", "Google",
-]
 
 const capabilities = [
   {
@@ -150,7 +147,7 @@ export default function Agent2AgentPage() {
     <div className="bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden bg-linear-to-b from-[#092a1a] to-page-bg py-28">
+      <section className="relative overflow-hidden  py-28">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20"
@@ -183,22 +180,7 @@ export default function Agent2AgentPage() {
           </div>
         </div>
       </section>
-
-      {/* ── MARQUEE ── */}
-      <section className="bg-page-bg-alt py-10 overflow-hidden border-y border-page-border">
-        <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">
-          Trusted by Innovative Teams Worldwide
-        </p>
-        <div className="relative flex overflow-hidden">
-          <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-4">
-            {[...clients, ...clients].map((c, i) => (
-              <span key={i} className="text-page-fg-muted font-semibold text-sm opacity-60 shrink-0">
-                {c}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServicesTrustedBy />
 
       {/* ── CAPABILITIES ── */}
       <section id="agent-services" className="py-20 bg-page-bg">

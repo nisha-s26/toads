@@ -76,11 +76,11 @@ export default function Solutions() {
             SOLUTIONS
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-page-fg mt-3">
+          <h2 className="text-4xl md:text-6xl font-bold text-page-fg mt-3">
             What We <span className="text-toadster-green">Deliver</span>
           </h2>
 
-          <p className="mt-4 text-page-fg-subtle text-lg">
+          <p className="mt-4 text-page-fg-subtle text-xl">
             Comprehensive technology solutions from concept to scale.
           </p>
         </div>

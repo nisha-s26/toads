@@ -5,7 +5,6 @@ import AiCap from "./AiCap"
 import OurProcess from "./OurProcess"
 import GetStarted from "./GetStarted"
 import Solutions from "./Solutions"
-import ParallaxShowcase from "./ParallaxShowcase"
 
 const HomePage = () => {
   return (
@@ -14,7 +13,6 @@ const HomePage = () => {
         <TrustedBy/>
         <AiCap/>
         <OurProcess/>
-        <ParallaxShowcase/>
         <WhyUs/>
         <Solutions/>
         <GetStarted/>

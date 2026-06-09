@@ -139,7 +139,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-[1] bg-linear-to-b from-black/40 via-black/25 to-black/50" aria-hidden="true" />
 
       <motion.div
-        className="max-w-7xl px-40 mx-auto px-4 text-center relative z-20"
+        className="max-w-9xl mx-auto text-center relative z-20"
         initial={prefersReducedMotion ? false : { opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -155,7 +155,7 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.h1
-          className="hero-title text-5xl md:text-7xl font-extrabold leading-tight"
+          className="hero-title text-5xl md:text-[85px] font-extrabold leading-tight w-full"
           initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}

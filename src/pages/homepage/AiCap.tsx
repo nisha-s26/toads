@@ -195,7 +195,7 @@ export default function AiCap() {
   }, [selected])
 
   return (
-    <section className="w-full bg-page-bg px-4">
+    <section className="w-full bg-page-bg px-4 mt-5">
       {/* Header */}
       <div className="text-center mb-12">
         <p className="text-lg tracking-[0.35em] section-eyebrow font-bold">
@@ -205,7 +205,7 @@ export default function AiCap() {
           <span className="text-page-fg">Intelligent </span>
           <span className="text-toadster-green">Solutions</span>
         </h2>
-        <p className="text-page-fg-muted text-lg max-w-xl mx-auto">
+        <p className="text-page-fg-muted text-xl max-w-xl mx-auto">
           Comprehensive AI and ML capabilities to transform every aspect of your business.
         </p>
       </div>

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function GetStarted() {
   const navigate = useNavigate();
   return (
-    <section className="relative overflow-hidden py-28 bg-page-bg">
+    <section className="relative overflow-hidden py-16 bg-page-bg">
       
       <div className="max-w-4xl mx-auto text-center">
 
