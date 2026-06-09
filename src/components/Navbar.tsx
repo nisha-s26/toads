@@ -86,13 +86,13 @@ const SERVICE_ROUTES: Record<string, string> = {
 }
 
 const dedicatedResources = [
-  { icon: "Brain", title: "AI / ML Engineers", description: "model training, fine-tuning, experiment tracking, production deployment" },
+  { icon: "Brain", title: "AI / ML Engineers", description: "Model training, fine-tuning, experiment tracking, production deployment" },
   { icon: "MessageSquare", title: "LLM Application Developers", description: "RAG systems, enterprise copilots, LLM APIs, prompt engineering" },
-  { icon: "Bot", title: "Agentic AI Engineers", description: "agent orchestration, tool integration, multi-agent system design" },
-  { icon: "Database", title: "Data Engineers", description: "pipeline architecture, ETL, data quality, feature stores" },
+  { icon: "Bot", title: "Agentic AI Engineers", description: "Agent orchestration, tool integration, multi-agent system design" },
+  { icon: "Database", title: "Data Engineers", description: "Pipeline architecture, ETL, data quality, feature stores" },
   { icon: "Activity", title: "MLOps Engineers", description: "CI/CD for models, monitoring, drift detection, inference infrastructure" },
   { icon: "Code2", title: "Backend Developers (AI-adjacent)", description: "API development for AI services, microservice architecture" },
-  { icon: "Eye", title: "QA / AI Evaluation Engineers", description: "testing AI systems, evaluation suite design, red-teaming" },
+  { icon: "Eye", title: "QA / AI Evaluation Engineers", description: "Testing AI systems, evaluation suite design, red-teaming" },
 ]
 
 const DEDICATED_RESOURCES_ROUTES: Record<string, string> = {
