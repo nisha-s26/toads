@@ -27,7 +27,7 @@ const ParallaxShowcase = () => {
   return (
     <section
       ref={sectionRef}
-      className="section-full-bleed relative isolate w-full overflow-hidden min-h-[78vh] flex items-center"
+      className="section-full-bleed relative isolate w-full overflow-hidden min-h-[50vh] flex items-center"
     >
       {/* Parallax image layer (oversized so the translate never reveals edges) */}
       <motion.div
@@ -39,25 +39,25 @@ const ParallaxShowcase = () => {
           alt="Abstract AI technology circuit"
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover opacity-50"
+          className="h-full w-full object-cover opacity-40"
         />
       </motion.div>
 
       {/* Theme-adaptive overlays */}
       <div className="absolute inset-0 -z-10 parallax-overlay" />
-      <div className="absolute inset-0 -z-10 parallax-grid opacity-60" />
+      <div className="absolute inset-0 -z-10 parallax-grid opacity-30" />
 
       {/* Content */}
       <motion.div
         style={prefersReducedMotion ? undefined : { y: contentY }}
-        className="relative z-10 mx-auto w-full max-w-9xl px-24 py-24"
+        className="relative z-10 mx-auto w-full max-w-9xl px-24 py-16"
       >
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-sm md:text-base font-bold uppercase tracking-[0.35em] text-toadster-green"
+          className="text-sm md:text-xl font-bold uppercase tracking-[0.35em] text-toadster-green"
         >
           Engineered for Scale
         </motion.p>
@@ -78,7 +78,7 @@ const ParallaxShowcase = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true }}
-          className="mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-white/80"
+          className="mt-6 max-w-2xl text-base md:text-lg font-bold leading-relaxed text-white/80"
         >
           We architect intelligent systems on resilient data foundations—observable,
           secure, and built to perform under real-world load.
@@ -95,13 +95,13 @@ const ParallaxShowcase = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 + index * 0.1 }}
                 viewport={{ once: true }}
-                className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-5"
+                className="rounded-2xl border border-white/20 bg-white dark:bg-white/30 backdrop-blur-md p-5"
               >
                 <span className="feature-icon mb-3 h-10 w-10">
                   <Icon size={18} />
                 </span>
-                <p className="text-2xl font-extrabold text-white">{stat.value}</p>
-                <p className="mt-1 text-sm text-white/70">{stat.label}</p>
+                <p className="text-2xl font-extrabold dark:text-white text-black">{stat.value}</p>
+                <p className="mt-1 text-base dark:text-white text-black/70">{stat.label}</p>
               </motion.div>
             )
           })}
