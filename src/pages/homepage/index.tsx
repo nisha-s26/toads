@@ -5,6 +5,7 @@ import AiCap from "./AiCap"
 import OurProcess from "./OurProcess"
 import GetStarted from "./GetStarted"
 import Solutions from "./Solutions"
+import ParallaxShowcase from "./ParallaxShowcase"
 
 const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage = () => {
         <AiCap/>
         <OurProcess/>
         <WhyUs/>
+        <ParallaxShowcase/>
         <Solutions/>
         <GetStarted/>
     </div>

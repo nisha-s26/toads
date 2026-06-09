@@ -7,13 +7,13 @@ export function ServicesTrustedBy() {
   return (
     <section
       className={cn(
-        "py-10 overflow-hidden border-y border-page-border bg-white",
+        "py-2 overflow-hidden",
         // variant === "dark" ? "bg-[#070e1e]" : "bg-page-bg-alt dark:bg-[#070e1e]",
       )}
     >
-      <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">
+      {/* <p className="text-3xl tracking-wide text-white font-bold text-center mb-5">
         Trusted by Innovative Teams Worldwide
-      </p>
+      </p> */}
 
       <div className="relative overflow-hidden">
         <div
@@ -29,7 +29,7 @@ export function ServicesTrustedBy() {
           )}
         />
 
-        <div className="flex animate-marquee items-center gap-14 whitespace-nowrap px-4">
+        <div className="flex animate-marquee items-center gap-14 whitespace-nowrap px-4 bg-white py-3">
           {items.map((client, i) => (
             <div
               key={`${client.label}-${i}`}
@@ -42,7 +42,7 @@ export function ServicesTrustedBy() {
                   className="h-8 w-auto max-w-[140px] object-contain"
                 />
               ) : (
-                <span className="text-sm font-semibold text-black">
+                <span className="text-xl font-semibold text-black">
                   {client.label}
                 </span>
               )}

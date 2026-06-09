@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { Navbar } from "./components/Navbar"
 import Footer from "./components/Footer"
 import { RelatedLinks } from "./components/RelatedLinks"
-import { ContactPopup } from "./components/ContactPopup"
 import { APP_ROUTES, resolveActiveSection } from "./config/routes"
 import { usePageMetadata } from "./hooks/usePageMetadata"
 
@@ -91,7 +90,6 @@ function AppInner() {
       </Suspense>
       <RelatedLinks />
       <Footer />
-      <ContactPopup />
     </div>
   )
 }
