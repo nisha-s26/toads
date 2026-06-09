@@ -6,6 +6,7 @@ const Careers = lazy(() => import("@/pages/careers"))
 const Blogs = lazy(() => import("@/pages/blogs"))
 const BlogDetail = lazy(() => import("@/pages/blogs/BlogDetail"))
 const Contact = lazy(() => import("@/pages/contact"))
+const DedicatedResourceDetail = lazy(() => import("@/pages/dedicated-resources/DedicatedResourceDetail"))
 
 const AgenticAIPage = lazy(() => import("@/pages/services/agentic-ai"))
 const GenerativeAIPage = lazy(() => import("@/pages/services/generative-ai"))
@@ -39,6 +40,7 @@ export const APP_ROUTES: AppRoute[] = [
   { path: "/blogs/:slug", component: BlogDetail, section: "blogs" },
   { path: "/careers", component: Careers, section: "careers" },
   { path: "/contact", component: Contact, section: "contact" },
+  { path: "/dedicated-resources/:slug", component: DedicatedResourceDetail, section: "dedicated-resources" },
   { path: "/services/agentic-ai", component: AgenticAIPage, section: "services" },
   { path: "/services/generative-ai", component: GenerativeAIPage, section: "services" },
   { path: "/services/nlp-services", component: NLPServicesPage, section: "services" },
@@ -62,6 +64,7 @@ export const APP_ROUTES: AppRoute[] = [
 export function resolveActiveSection(pathname: string): string {
   if (pathname.startsWith("/blogs")) return "blogs"
   if (pathname.startsWith("/services")) return "services"
+  if (pathname.startsWith("/dedicated-resources")) return "dedicated-resources"
 
   const exact = APP_ROUTES.find((r) => r.path === pathname)
   return exact?.section ?? "home"
