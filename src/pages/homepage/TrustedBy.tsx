@@ -1,25 +1,19 @@
 import { motion, useAnimationFrame, useMotionValue, useMotionValueEvent, useScroll } from "framer-motion"
 import { useEffect, useMemo, useRef, useState } from "react"
 
-const LOGOS = [
-    "Google",
-    "Paytm",
-    "FireAI",
-    "Noise",
-    "MyChallan",
-    "Axis Bank",
-    "Reliance",
-    "Tawuniya",
-    "H&M",
-]
-
-const getInitials = (label: string) => {
-    const cleaned = label.replace(/&/g, " ").trim()
-    const parts = cleaned.split(/\s+/).filter(Boolean)
-    const first = parts[0]?.[0] ?? ""
-    const second = parts.length > 1 ? parts[1]?.[0] ?? "" : (parts[0]?.[1] ?? "")
-    return `${first}${second}`.toUpperCase()
+interface ClientLogo {
+    label: string
+    src: string
 }
+
+const LOGOS: ClientLogo[] = [
+    { label: "Google", src: "/trusted-by/google.webp" },
+    { label: "Paytm", src: "/trusted-by/paytm.webp" },
+    { label: "FireAI", src: "/trusted-by/fireai.webp" },
+    { label: "Axis Bank", src: "/trusted-by/axis.webp" },
+    { label: "Tawuniya", src: "/trusted-by/tawuniya.webp" },
+    { label: "H&M", src: "/trusted-by/hm.webp" },
+]
 
 const MarqueeRow = ({
     direction = "left",
@@ -83,21 +77,20 @@ const MarqueeRow = ({
 
     return (
         <div className="relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-linear-to-r from-[#050d18] to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-linear-to-l from-[#050d18] to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-linear-to-r from-page-bg dark:from-white to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-linear-to-l from-page-bg dark:from-white to-transparent" />
 
-            <motion.div ref={trackRef} className="flex w-max items-center gap-12 py-4" style={{ x }}>
-                {items.map((label, idx) => (
+            <motion.div ref={trackRef} className="flex w-max items-center gap-16 py-4" style={{ x }}>
+                {items.map(({ label, src }, idx) => (
                     <div
                         key={`${label}-${idx}`}
-                        className="flex items-center"
+                        className="flex shrink-0 items-center"
                     >
-                        <span className="group cursor-pointer inline-flex items-center gap-2 text-gray-400 text-xs tracking-wide font-semibold transition-colors duration-200 hover:text-white">
-                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-[10px] text-gray-400 transition-colors duration-200 group-hover:bg-white/20 group-hover:text-white">
-                                {getInitials(label)}
-                            </span>
-                            <span>{label}</span>
-                        </span>
+                        <img
+                            src={src}
+                            alt={label}
+                            className="h-8 w-auto max-w-[140px] object-contain transition-opacity duration-200 hover:opacity-100"
+                        />
                     </div>
                 ))}
             </motion.div>
@@ -118,14 +111,14 @@ const TrustedBy = () => {
     })
 
     return (
-        <section className="bg-[#050d18]">
-            <div className="max-w-9xl mx-auto px-6 py-14">
-                <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">
-                    TRUSTED BY INNOVATIVE TEAMS WORLDWIDE
-                </p>
+        <section className="section-full-bleed bg-page-bg dark:bg-white">
+            <div className="w-full px-4 py-14">
+                <h2 className="text-4xl md:text-6xl font-extrabold mb-4 text-center">
+                   <span className="text-page-fg dark:text-[#2C3E50]">Trusted By Innovative </span>
+                    <span className="text-green-400 dark:text-green-600">Teams Worldwide</span>
+                </h2>
 
                 <div className="mt-8 space-y-3">
-                    <MarqueeRow direction="left" scrollDirection={scrollDirection} />
                     <MarqueeRow direction="right" scrollDirection={scrollDirection} />
                 </div>
             </div>

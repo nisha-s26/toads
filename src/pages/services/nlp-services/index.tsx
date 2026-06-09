@@ -28,19 +28,19 @@ import {
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className="border-b border-white/10 py-5">
+    <div className="border-b border-page-border py-5">
       <button
         className="flex items-center justify-between w-full text-left"
         onClick={() => setOpen(!open)}
       >
-        <span className="text-white font-medium pr-4">{question}</span>
+        <span className="text-page-fg font-medium pr-4">{question}</span>
         <ChevronDown
           className={`shrink-0 text-green-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
           size={20}
         />
       </button>
       {open && (
-        <p className="mt-3 text-gray-400 text-sm leading-relaxed">{answer}</p>
+        <p className="mt-3 text-page-fg-muted text-sm leading-relaxed">{answer}</p>
       )}
     </div>
   )
@@ -54,10 +54,10 @@ const clients = [
 export default function NLPServicesPage() {
 
   return (
-    <div className="bg-[#050d18] text-white">
+    <div className="bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden bg-linear-to-b from-[#092a1a] to-[#050d18] py-28 px-6">
+      <section className="relative overflow-hidden bg-linear-to-b from-[#092a1a] to-page-bg py-28">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20"
@@ -72,32 +72,32 @@ export default function NLPServicesPage() {
             Transform Your Business with the Top<br />
             <span className="text-green-400">NLP Services</span> Company in USA
           </h1>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-10">
+          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             Leverage the power of Natural Language Processing to extract insights from text, automate language tasks, and build intelligent communication systems that understand your customers.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact">Book a Free Consultation</CTALink>
-            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
+            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">
               See How It Works
             </button>
           </div>
           <div className="mt-14 flex flex-wrap gap-6 justify-center items-center opacity-50">
             {["Nike", "Unicef", "Nikon", "HP", "Startplay"].map((b) => (
-              <span key={b} className="text-gray-300 font-bold text-sm tracking-wide">{b}</span>
+              <span key={b} className="text-page-fg-subtle font-bold text-sm tracking-wide">{b}</span>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── CLIENT LOGO MARQUEE ── */}
-      <section className="bg-[#0a1628] py-10 overflow-hidden border-y border-white/5">
+      <section className="bg-page-bg-alt py-10 overflow-hidden border-y border-page-border">
         <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">
           Trusted by Innovative Teams Worldwide
         </p>
         <div className="relative flex overflow-hidden">
-          <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-6">
+          <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-4">
             {[...clients, ...clients].map((c, i) => (
-              <span key={i} className="text-gray-400 font-semibold text-sm opacity-60 shrink-0">
+              <span key={i} className="text-page-fg-muted font-semibold text-sm opacity-60 shrink-0">
                 {c}
               </span>
             ))}
@@ -106,13 +106,13 @@ export default function NLPServicesPage() {
       </section>
 
       {/* ── NLP DEVELOPMENT SERVICES ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">Top NLP Development</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services to Transform Your Business</h3>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">
               As a top NLP services company, we build advanced text and language AI solutions tailored to your unique business needs.
             </p>
           </div>
@@ -127,13 +127,13 @@ export default function NLPServicesPage() {
             ].map((s) => (
               <div
                 key={s.title}
-                className="bg-[#0a1628] border border-white/5 rounded-2xl p-6 hover:border-green-800/50 transition-colors"
+                className="bg-page-bg-alt border border-page-border rounded-2xl p-6 hover:border-green-800/50 transition-colors"
               >
                 <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
                   {s.icon}
                 </div>
-                <h3 className="font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+                <h3 className="font-bold text-page-fg mb-2">{s.title}</h3>
+                <p className="text-page-fg-muted text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -141,7 +141,7 @@ export default function NLPServicesPage() {
       </section>
 
       {/* ── KEY BENEFITS ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why It Matters</p>
@@ -160,14 +160,14 @@ export default function NLPServicesPage() {
             ].map((b) => (
               <div
                 key={b.title}
-                className="bg-[#0a1628] border border-white/5 rounded-2xl p-6 flex gap-5 hover:border-green-800/40 transition-colors"
+                className="bg-page-bg-alt border border-page-border rounded-2xl p-6 flex gap-5 hover:border-green-800/40 transition-colors"
               >
                 <div className="w-11 h-11 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 shrink-0">
                   {b.icon}
                 </div>
                 <div>
-                  <h3 className="font-bold text-white mb-1">{b.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{b.desc}</p>
+                  <h3 className="font-bold text-page-fg mb-1">{b.title}</h3>
+                  <p className="text-page-fg-muted text-sm leading-relaxed">{b.desc}</p>
                 </div>
               </div>
             ))}
@@ -176,7 +176,7 @@ export default function NLPServicesPage() {
       </section>
 
       {/* ── OUR PROCESS ── */}
-      <section id="our-process" className="py-20 px-6 bg-[#050d18]">
+      <section id="our-process" className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
@@ -194,14 +194,14 @@ export default function NLPServicesPage() {
                 <div key={p.step} className="flex gap-5 items-start">
                   <span className="text-3xl font-extrabold text-green-900 shrink-0 w-12">{p.step}</span>
                   <div>
-                    <h4 className="font-bold text-white mb-1">{p.title}</h4>
-                    <p className="text-gray-400 text-sm">{p.desc}</p>
+                    <h4 className="font-bold text-page-fg mb-1">{p.title}</h4>
+                    <p className="text-page-fg-muted text-sm">{p.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
             <div
-              className="relative rounded-3xl overflow-hidden border border-white/5 min-h-100 flex items-center justify-center group"
+              className="relative rounded-3xl overflow-hidden border border-page-border min-h-100 flex items-center justify-center group"
               style={{
                 backgroundImage: "url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
@@ -215,12 +215,12 @@ export default function NLPServicesPage() {
       </section>
 
       {/* ── EXPLORE OFFERINGS ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Full Suite</p>
             <h2 className="text-4xl font-extrabold">Explore Our Core NLP Offerings</h2>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">
               End-to-end NLP capabilities covering every language AI use case your business needs.
             </p>
           </div>
@@ -237,13 +237,13 @@ export default function NLPServicesPage() {
             ].map((o) => (
               <div
                 key={o.title}
-                className="bg-[#050d18] border border-white/5 rounded-2xl p-6 hover:border-green-800/40 transition-colors"
+                className="bg-page-bg border border-page-border rounded-2xl p-6 hover:border-green-800/40 transition-colors"
               >
                 <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
                   {o.icon}
                 </div>
-                <h3 className="font-semibold text-white mb-2">{o.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{o.desc}</p>
+                <h3 className="font-semibold text-page-fg mb-2">{o.title}</h3>
+                <p className="text-page-fg-muted text-sm leading-relaxed">{o.desc}</p>
               </div>
             ))}
           </div>
@@ -251,7 +251,7 @@ export default function NLPServicesPage() {
       </section>
 
       {/* ── OUR WORK ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
@@ -265,9 +265,9 @@ export default function NLPServicesPage() {
             ].map((w) => (
               <div
                 key={w.title}
-                className="bg-[#0a1628] flex flex-col rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(74,222,128,0.15)]"
+                className="bg-page-bg-alt flex flex-col rounded-2xl overflow-hidden border border-page-border hover:border-green-800/40 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(74,222,128,0.15)]"
               >
-                <div className="h-48 relative overflow-hidden bg-[#050d18] shrink-0">
+                <div className="h-48 relative overflow-hidden bg-page-bg shrink-0">
                   <img src={w.image} alt={w.title} title={w.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0a1628] via-transparent to-transparent pointer-events-none"></div>
                 </div>
@@ -275,8 +275,8 @@ export default function NLPServicesPage() {
                   <div className="mb-4">
                     <span className="text-xs text-green-400 font-semibold bg-green-950 px-3 py-1 rounded-full border border-green-800/50 shadow-sm">{w.tag}</span>
                   </div>
-                  <h3 className="font-bold text-white text-lg mb-2 group-hover:text-green-400 transition-colors pt-1">{w.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed grow">{w.desc}</p>
+                  <h3 className="font-bold text-page-fg text-lg mb-2 group-hover:text-green-400 transition-colors pt-1">{w.title}</h3>
+                  <p className="text-page-fg-muted text-sm leading-relaxed grow">{w.desc}</p>
                 </div>
               </div>
             ))}
@@ -285,7 +285,7 @@ export default function NLPServicesPage() {
       </section>
 
       {/* ── STATS ── */}
-      <section className="bg-[#0a1628] py-16 px-6">
+      <section className="bg-page-bg-alt py-16">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">At a Glance</p>
           <h2 className="text-3xl font-extrabold mb-12">
@@ -298,10 +298,10 @@ export default function NLPServicesPage() {
               { value: "10+", label: "Years of Experience", icon: <Clock size={26} /> },
               { value: "24/7", label: "Client Support", icon: <Users size={26} /> },
             ].map((s) => (
-              <div key={s.label} className="bg-[#0a1628] rounded-2xl p-6 border border-white/5">
+              <div key={s.label} className="bg-page-bg-alt rounded-2xl p-6 border border-page-border">
                 <div className="text-green-400 flex justify-center mb-3">{s.icon}</div>
-                <div className="text-4xl font-extrabold text-white mb-2">{s.value}</div>
-                <div className="text-gray-400 text-sm">{s.label}</div>
+                <div className="text-4xl font-extrabold text-page-fg mb-2">{s.value}</div>
+                <div className="text-page-fg-muted text-sm">{s.label}</div>
               </div>
             ))}
           </div>
@@ -309,7 +309,7 @@ export default function NLPServicesPage() {
       </section>
 
       {/* ── WHY OUR NLP DEVELOPERS ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Developers</p>
@@ -326,10 +326,10 @@ export default function NLPServicesPage() {
             ].map((cap) => (
               <div
                 key={cap}
-                className="bg-[#0a1628] rounded-xl p-4 border border-white/5 flex items-center gap-3 hover:border-green-800/40 transition-colors"
+                className="bg-page-bg-alt rounded-xl p-4 border border-page-border flex items-center gap-3 hover:border-green-800/40 transition-colors"
               >
                 <CheckCircle size={16} className="text-green-400 shrink-0" />
-                <span className="text-gray-300 text-sm font-medium">{cap}</span>
+                <span className="text-page-fg-subtle text-sm font-medium">{cap}</span>
               </div>
             ))}
           </div>
@@ -337,7 +337,7 @@ export default function NLPServicesPage() {
       </section>
 
       {/* ── KEY INNOVATIONS ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
@@ -354,25 +354,25 @@ export default function NLPServicesPage() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="bg-[#050d18] rounded-2xl p-5 border border-white/5 flex items-center gap-4 hover:border-green-800/40 transition-colors"
+                className="bg-page-bg rounded-2xl p-5 border border-page-border flex items-center gap-4 hover:border-green-800/40 transition-colors"
               >
                 <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 shrink-0">
                   {item.icon}
                 </div>
-                <span className="text-white font-medium text-sm">{item.label}</span>
+                <span className="text-page-fg font-medium text-sm">{item.label}</span>
               </div>
             ))}
           </div>
           <div className="mt-10 flex flex-wrap gap-4 justify-center items-center opacity-60">
             {["AZRobot", "Startup.io", "HealthAI", "amazon", "Proxima", "Meta"].map((b) => (
-              <span key={b} className="text-gray-400 font-bold text-sm border border-white/10 px-4 py-2 rounded-lg">{b}</span>
+              <span key={b} className="text-page-fg-muted font-bold text-sm border border-page-border px-4 py-2 rounded-lg">{b}</span>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
@@ -384,15 +384,15 @@ export default function NLPServicesPage() {
               { name: "Sarah Lin", role: "CTO, FeedbackLoop", text: "We deployed their sentiment analysis API across our entire feedback system. Reduced our analyst workload by 80% in the first month alone." },
               { name: "Raj Patel", role: "VP Engineering, TalkSmart", text: "Their multilingual NLP solution handles 12 languages for our global support system. Customer satisfaction scores improved by 35% post-deployment." },
             ].map((t) => (
-              <div key={t.name} className="bg-[#0a1628] rounded-2xl p-6 border border-white/5">
+              <div key={t.name} className="bg-page-bg-alt rounded-2xl p-6 border border-page-border">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={14} className="text-green-400 fill-green-400" />
                   ))}
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed mb-6">"{t.text}"</p>
+                <p className="text-page-fg-subtle text-sm leading-relaxed mb-6">"{t.text}"</p>
                 <div>
-                  <div className="font-bold text-white text-sm">{t.name}</div>
+                  <div className="font-bold text-page-fg text-sm">{t.name}</div>
                   <div className="text-gray-500 text-xs">{t.role}</div>
                 </div>
               </div>
@@ -402,13 +402,13 @@ export default function NLPServicesPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">
             Ready to Harness the Power of<br />
             <span className="text-green-400">AI for Your Business?</span>
           </h2>
-          <p className="text-gray-400 mb-4">
+          <p className="text-page-fg-muted mb-4">
             Let our NLP experts build intelligent language systems that understand your customers — at scale.
           </p>
           <div className="flex flex-wrap gap-4 justify-center mb-10">
@@ -417,8 +417,8 @@ export default function NLPServicesPage() {
               { label: "Custom Solutions", sub: "Tailored to your text data" },
               { label: "Proven Results", sub: "500+ AI projects delivered" },
             ].map((item) => (
-              <div key={item.label} className="bg-[#0a1628] rounded-xl px-5 py-3 border border-white/5 text-left">
-                <div className="text-white font-semibold text-sm">{item.label}</div>
+              <div key={item.label} className="bg-page-bg-alt rounded-xl px-5 py-3 border border-page-border text-left">
+                <div className="text-page-fg font-semibold text-sm">{item.label}</div>
                 <div className="text-gray-500 text-xs">{item.sub}</div>
               </div>
             ))}
@@ -428,7 +428,7 @@ export default function NLPServicesPage() {
       </section>
 
       {/* ── BLOGS ── */}
-      {/* <section className="py-20 px-6 bg-[#050d18]">
+      {/* <section className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
@@ -442,14 +442,14 @@ export default function NLPServicesPage() {
             ].map((b) => (
               <div
                 key={b.title}
-                className="bg-[#0a1628] rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-colors cursor-pointer group"
+                className="bg-page-bg-alt rounded-2xl overflow-hidden border border-page-border hover:border-green-800/40 transition-colors cursor-pointer group"
               >
-                <div className="h-36 bg-linear-to-br from-green-900/30 to-[#050d18] flex items-center justify-center">
+                <div className="h-36 bg-linear-to-br from-green-900/30 to-page-bg flex items-center justify-center">
                   <Languages size={40} className="text-green-700" />
                 </div>
                 <div className="p-5">
                   <span className="text-xs text-green-400 font-semibold bg-green-900/20 px-2 py-0.5 rounded-full">{b.tag}</span>
-                  <h3 className="font-bold text-white mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
+                  <h3 className="font-bold text-page-fg mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
                   <p className="text-gray-500 text-xs">{b.date}</p>
                 </div>
               </div>
@@ -459,7 +459,7 @@ export default function NLPServicesPage() {
       </section> */}
 
       {/* ── FAQ ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>

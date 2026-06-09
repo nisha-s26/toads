@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 export default function GetStarted() {
   const navigate = useNavigate();
   return (
-    <section className="relative overflow-hidden py-28 bg-[#050d18]">
+    <section className="relative overflow-hidden py-28 bg-page-bg">
       
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="max-w-4xl mx-auto text-center">
 
         {/* Heading */}
         <motion.h2 
@@ -30,7 +30,7 @@ export default function GetStarted() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true }}
-          className="mt-6 text-gray-200 text-lg max-w-2xl mx-auto"
+          className="mt-6 text-page-fg-subtle text-lg max-w-2xl mx-auto"
         >
           Let's partner to design and build the AI-powered future your business
           deserves.
@@ -64,7 +64,7 @@ export default function GetStarted() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
           viewport={{ once: true }}
-          className="mt-12 flex flex-wrap justify-center gap-8 text-gray-200 text-sm"
+          className="mt-12 flex flex-wrap justify-center gap-8 text-page-fg-subtle text-sm"
         >
 
           <div className="flex items-center gap-2">

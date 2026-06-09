@@ -18,7 +18,7 @@ export function CTALink({ to, className, children, ariaLabel, title }: CTALinkPr
       aria-label={ariaLabel}
       title={title || ariaLabel || (typeof children === 'string' ? children : undefined)}
       className={cn(
-        "inline-flex items-center justify-center rounded-xl bg-[#1C3829] px-8 py-3 text-white font-semibold transition-colors hover:bg-green-800",
+        "inline-flex items-center justify-center rounded-xl bg-primary px-8 py-3 text-primary-foreground font-semibold shadow-sm transition-all hover:bg-primary-hover hover:shadow-md",
         className,
       )}
     >

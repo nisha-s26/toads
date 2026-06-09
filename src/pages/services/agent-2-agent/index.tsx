@@ -21,19 +21,19 @@ import {
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className="border-b border-white/10 py-5">
+    <div className="border-b border-page-border py-5">
       <button
         className="flex items-center justify-between w-full text-left"
         onClick={() => setOpen(!open)}
       >
-        <span className="text-white font-medium pr-4">{question}</span>
+        <span className="text-page-fg font-medium pr-4">{question}</span>
         <ChevronDown
           className={`shrink-0 text-green-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
           size={20}
         />
       </button>
       {open && (
-        <p className="mt-3 text-gray-400 text-sm leading-relaxed">{answer}</p>
+        <p className="mt-3 text-page-fg-muted text-sm leading-relaxed">{answer}</p>
       )}
     </div>
   )
@@ -147,10 +147,10 @@ const faqs = [
 
 export default function Agent2AgentPage() {
   return (
-    <div className="bg-[#050d18] text-white">
+    <div className="bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden bg-linear-to-b from-[#092a1a] to-[#050d18] py-28 px-6">
+      <section className="relative overflow-hidden bg-linear-to-b from-[#092a1a] to-page-bg py-28">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20"
@@ -165,34 +165,34 @@ export default function Agent2AgentPage() {
             Build Autonomous <br />
             <span className="text-green-400">Multi-Agent Systems</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-10">
+          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             Enable AI agents to discover, communicate, and collaborate securely — unlocking swarm intelligence for complex enterprise workflows.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button onClick={() => document.getElementById('agent-services')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">
               Explore A2A Solutions
             </button>
-            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
+            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">
               See How It Works
             </button>
           </div>
           <div className="mt-14 flex flex-wrap gap-6 justify-center items-center opacity-50">
             {["Nike", "Unicef", "Nikon", "HP", "Startplay"].map((b) => (
-              <span key={b} className="text-gray-300 font-bold text-sm tracking-wide">{b}</span>
+              <span key={b} className="text-page-fg-subtle font-bold text-sm tracking-wide">{b}</span>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── MARQUEE ── */}
-      <section className="bg-[#0a1628] py-10 overflow-hidden border-y border-white/5">
+      <section className="bg-page-bg-alt py-10 overflow-hidden border-y border-page-border">
         <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">
           Trusted by Innovative Teams Worldwide
         </p>
         <div className="relative flex overflow-hidden">
-          <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-6">
+          <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-4">
             {[...clients, ...clients].map((c, i) => (
-              <span key={i} className="text-gray-400 font-semibold text-sm opacity-60 shrink-0">
+              <span key={i} className="text-page-fg-muted font-semibold text-sm opacity-60 shrink-0">
                 {c}
               </span>
             ))}
@@ -201,7 +201,7 @@ export default function Agent2AgentPage() {
       </section>
 
       {/* ── CAPABILITIES ── */}
-      <section id="agent-services" className="py-20 px-6 bg-[#050d18]">
+      <section id="agent-services" className="py-20 bg-page-bg">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
@@ -209,7 +209,7 @@ export default function Agent2AgentPage() {
             </p>
             <h2 className="text-4xl font-extrabold">Agent-to-Agent</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services</h3>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">
               Build, deploy, and manage autonomous multi-agent networks that communicate, negotiate, and collaborate at enterprise scale.
             </p>
           </div>
@@ -217,13 +217,13 @@ export default function Agent2AgentPage() {
             {capabilities.map((s) => (
               <div
                 key={s.title}
-                className="bg-[#0a1628] border border-white/5 rounded-2xl p-6 hover:border-green-800/50 transition-colors"
+                className="bg-page-bg-alt border border-page-border rounded-2xl p-6 hover:border-green-800/50 transition-colors"
               >
                 <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
                   {s.icon}
                 </div>
-                <h3 className="font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+                <h3 className="font-bold text-page-fg mb-2">{s.title}</h3>
+                <p className="text-page-fg-muted text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -231,7 +231,7 @@ export default function Agent2AgentPage() {
       </section>
 
       {/* ── BENEFITS ── */}
-      <section id="our-process" className="py-20 px-6 bg-[#0a1628]">
+      <section id="our-process" className="py-20 bg-page-bg-alt">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
@@ -245,14 +245,14 @@ export default function Agent2AgentPage() {
             {benefits.map((b) => (
               <div
                 key={b.title}
-                className="bg-[#050d18] border border-white/5 rounded-2xl p-6 flex gap-5 hover:border-green-800/40 transition-colors"
+                className="bg-page-bg border border-page-border rounded-2xl p-6 flex gap-5 hover:border-green-800/40 transition-colors"
               >
                 <div className="w-11 h-11 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 shrink-0">
                   {b.icon}
                 </div>
                 <div>
-                  <h3 className="font-bold text-white mb-1">{b.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{b.desc}</p>
+                  <h3 className="font-bold text-page-fg mb-1">{b.title}</h3>
+                  <p className="text-page-fg-muted text-sm leading-relaxed">{b.desc}</p>
                 </div>
               </div>
             ))}
@@ -261,16 +261,16 @@ export default function Agent2AgentPage() {
       </section>
 
       {/* ── STATS ── */}
-      <section className="py-16 px-6 bg-[#050d18]">
+      <section className="py-16 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="bg-[#0a1628] border border-white/5 rounded-2xl p-6 text-center"
+                className="bg-page-bg-alt border border-page-border rounded-2xl p-6 text-center"
               >
                 <div className="text-4xl font-extrabold text-green-400 mb-1">{s.value}</div>
-                <div className="text-gray-400 text-sm">{s.label}</div>
+                <div className="text-page-fg-muted text-sm">{s.label}</div>
               </div>
             ))}
           </div>
@@ -278,7 +278,7 @@ export default function Agent2AgentPage() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
@@ -295,10 +295,10 @@ export default function Agent2AgentPage() {
               { step: "03", title: "Agent Network Build", desc: "We build and deploy your multi-agent system with full observability, security, and escalation controls." },
               { step: "04", title: "Scale & Evolve", desc: "We expand the agent mesh, onboard new agents, and continuously optimise communication and task flows." },
             ].map((item) => (
-              <div key={item.step} className="bg-[#050d18] border border-white/5 rounded-2xl p-6">
+              <div key={item.step} className="bg-page-bg border border-page-border rounded-2xl p-6">
                 <div className="text-green-400 text-xs font-bold tracking-widest mb-3">{item.step}</div>
-                <h3 className="font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="font-bold text-page-fg mb-2">{item.title}</h3>
+                <p className="text-page-fg-muted text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -306,7 +306,7 @@ export default function Agent2AgentPage() {
       </section>
 
       {/* ── KEY TECHNOLOGIES ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
@@ -315,7 +315,7 @@ export default function Agent2AgentPage() {
             <h2 className="text-4xl font-extrabold">
               Key Technologies in <span className="text-green-400">A2A Development</span>
             </h2>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">
               We leverage the latest protocols, frameworks, and infrastructure to build production-grade agent networks.
             </p>
           </div>
@@ -326,9 +326,9 @@ export default function Agent2AgentPage() {
               "Redis Streams", "NATS Messaging", "Mutual TLS / mTLS", "JWT & OAuth 2.0",
               "Kubernetes Operators", "Service Mesh (Istio)", "OpenTelemetry", "Vector Databases",
             ].map((t) => (
-              <div key={t} className="bg-[#0a1628] rounded-xl p-4 border border-white/5 flex items-center gap-3 hover:border-green-800/40 transition-colors">
+              <div key={t} className="bg-page-bg-alt rounded-xl p-4 border border-page-border flex items-center gap-3 hover:border-green-800/40 transition-colors">
                 <CheckCircle size={16} className="text-green-400 shrink-0" />
-                <span className="text-gray-300 text-sm font-medium">{t}</span>
+                <span className="text-page-fg-subtle text-sm font-medium">{t}</span>
               </div>
             ))}
           </div>
@@ -336,7 +336,7 @@ export default function Agent2AgentPage() {
       </section>
 
       {/* ── WHY TOADSTER ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
@@ -355,9 +355,9 @@ export default function Agent2AgentPage() {
               "Human-in-the-loop and escalation policies built into every deployment",
               "Flexible engagement: proof-of-concept to full-scale agent mesh",
             ].map((point) => (
-              <div key={point} className="flex items-start gap-3 bg-[#050d18] border border-white/5 rounded-xl p-4">
+              <div key={point} className="flex items-start gap-3 bg-page-bg border border-page-border rounded-xl p-4">
                 <CheckCircle size={18} className="text-green-400 shrink-0 mt-0.5" />
-                <span className="text-gray-300 text-sm">{point}</span>
+                <span className="text-page-fg-subtle text-sm">{point}</span>
               </div>
             ))}
           </div>
@@ -365,7 +365,7 @@ export default function Agent2AgentPage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
@@ -395,16 +395,16 @@ export default function Agent2AgentPage() {
             ].map((t) => (
               <div
                 key={t.name}
-                className="bg-[#0a1628] border border-white/5 rounded-2xl p-6 flex flex-col gap-4"
+                className="bg-page-bg-alt border border-page-border rounded-2xl p-6 flex flex-col gap-4"
               >
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={14} className="text-green-400 fill-green-400" />
                   ))}
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed">"{t.text}"</p>
+                <p className="text-page-fg-subtle text-sm leading-relaxed">"{t.text}"</p>
                 <div>
-                  <div className="font-bold text-white text-sm">{t.name}</div>
+                  <div className="font-bold text-page-fg text-sm">{t.name}</div>
                   <div className="text-green-400 text-xs">{t.role}</div>
                 </div>
               </div>
@@ -414,7 +414,7 @@ export default function Agent2AgentPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
@@ -433,13 +433,13 @@ export default function Agent2AgentPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 px-6 bg-[#050d18] text-center">
+      <section className="py-24 bg-page-bg text-center">
         <div className="max-w-3xl mx-auto">
           <GitBranch size={48} className="text-green-400 mx-auto mb-6" />
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
             Ready to Build Your <span className="text-green-400">Agent Network</span>?
           </h2>
-          <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
+          <p className="text-page-fg-subtle text-lg mb-8 max-w-xl mx-auto">
             Book a free A2A architecture review and discover how multi-agent systems can transform your operations.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -448,7 +448,7 @@ export default function Agent2AgentPage() {
             </CTALink>
             <CTALink
               to="/services/agentic-ai"
-              className="bg-transparent border border-white/20 hover:bg-white/5"
+              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5"
               title="Explore Agentic AI"
             >
               Explore Agentic AI

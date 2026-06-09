@@ -2,6 +2,7 @@ import type { ComponentType, ReactNode } from "react"
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Youtube } from "lucide-react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
+import { ToadsterLogo } from "@/components/ToadsterLogo"
 
 interface InternalLink {
     to: string
@@ -54,7 +55,7 @@ const SOCIAL_LINKS: SocialLink[] = [
 ]
 
 const linkClassName =
-    "relative inline-block text-gray-600 hover:text-gray-900 text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+    "relative inline-block text-page-fg-muted hover:text-page-fg text-sm transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
 
 function FooterInternalLink({ to, label }: InternalLink) {
     return (
@@ -98,7 +99,7 @@ function FooterColumn({ title, delay, className, children }: FooterColumnProps) 
             viewport={{ once: true }}
             className={className}
         >
-            <h3 className="font-semibold text-gray-900 mb-4">{title}</h3>
+            <h3 className="font-semibold text-page-fg mb-4">{title}</h3>
             {children}
         </motion.div>
     )
@@ -106,10 +107,10 @@ function FooterColumn({ title, delay, className, children }: FooterColumnProps) 
 
 const Footer = () => {
     return (
-        <footer className="bg-white border-t border-gray-200">
-            <div className="border-t border-gray-200" />
+        <footer className="section-full-bleed bg-page-card border-t border-page-border">
+            <div className="border-t border-page-border" />
 
-            <div className="max-w-7xl mx-auto px-6 py-16">
+            <div className="max-w-9xl mx-20 px-4 py-16">
                 <div className="flex flex-col justify-between md:flex-row gap-12 mb-12">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -126,14 +127,7 @@ const Footer = () => {
                             className="flex items-center gap-2 mb-4"
                         >
                             <Link to="/" aria-label="Toadster home" title="Toadster Home">
-                                <img
-                                    src="/toadster-logo.svg"
-                                    alt="Toadster"
-                                    title="Toadster Logo"
-                                    className="select-none"
-                                    height={40}
-                                    width={180}
-                                />
+                                <ToadsterLogo height={40} width={180} />
                             </Link>
                         </motion.div>
                         <motion.p
@@ -141,7 +135,7 @@ const Footer = () => {
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                             viewport={{ once: true }}
-                            className="text-gray-600 text-sm leading-relaxed mb-6"
+                            className="text-page-fg-muted text-sm leading-relaxed mb-6"
                         >
                             AI-powered digital engineering for enterprises and startups. Building the intelligent future, one system at a time.
                         </motion.p>
@@ -163,7 +157,7 @@ const Footer = () => {
                                     title={label}
                                     whileHover={{ y: -3 }}
                                     transition={{ duration: 0.2 }}
-                                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                                    className="text-page-fg-muted hover:text-page-fg transition-colors"
                                 >
                                     <Icon size={20} />
                                 </motion.a>
@@ -203,27 +197,27 @@ const Footer = () => {
                         >
                             <ul className="space-y-4">
                                 <li className="flex items-start gap-3">
-                                    <Mail size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
+                                    <Mail size={18} className="text-page-fg-muted mt-0.5 flex-shrink-0" />
                                     <FooterExternalLink
                                         href="mailto:business@toadsters.com"
                                         label="business@toadsters.com"
                                     />
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <Phone size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
+                                    <Phone size={18} className="text-page-fg-muted mt-0.5 flex-shrink-0" />
                                     <FooterExternalLink href="tel:+919220517988" label="+91 92205 17988" />
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <MapPin size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
-                                    <span className="text-gray-600 text-sm">
+                                    <MapPin size={18} className="text-page-fg-muted mt-0.5 flex-shrink-0" />
+                                    <span className="text-page-fg-muted text-sm">
                                         JAV Tower, H17, H Block, Sector 63,
                                         <br />
                                         Noida, Uttar Pradesh 201309
                                     </span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <MapPin size={18} className="text-gray-600 mt-0.5 flex-shrink-0" />
-                                    <span className="text-gray-600 text-sm">
+                                    <MapPin size={18} className="text-page-fg-muted mt-0.5 flex-shrink-0" />
+                                    <span className="text-page-fg-muted text-sm">
                                         Level 1, Avenue Gate, South Zone, DIFC, Dubai, UAE
                                     </span>
                                 </li>

@@ -5,12 +5,12 @@ import { BarChart3, Database, TrendingUp, Brain, Shield, Clock, Users, Zap, Chev
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className="border-b border-white/10 py-5">
+    <div className="border-b border-page-border py-5">
       <button className="flex items-center justify-between w-full text-left" onClick={() => setOpen(!open)}>
-        <span className="text-white font-medium pr-4">{question}</span>
+        <span className="text-page-fg font-medium pr-4">{question}</span>
         <ChevronDown className={`shrink-0 text-green-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`} size={20} />
       </button>
-      {open && <p className="mt-3 text-gray-400 text-sm leading-relaxed">{answer}</p>}
+      {open && <p className="mt-3 text-page-fg-muted text-sm leading-relaxed">{answer}</p>}
     </div>
   )
 }
@@ -28,9 +28,9 @@ const industries = [
 
 export default function AIDataAnalyticsPage() {
   return (
-    <div className="bg-[#050d18] text-white">
+    <div className="bg-page-bg text-page-fg">
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden bg-linear-to-b from-[#092a1a] to-[#050d18] py-28 px-6">
+      <section className="relative overflow-hidden bg-linear-to-b from-[#092a1a] to-page-bg py-28">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20" style={{ background: "radial-gradient(ellipse at center, #1C3829 0%, transparent 70%)" }} />
         </div>
@@ -39,37 +39,37 @@ export default function AIDataAnalyticsPage() {
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
             Transform Your Data with<br /><span className="text-green-400">AI Data Analytics Services</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-10">
+          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             Supercharge your strategy with AI Data Analytics that uncover real insights, find hidden patterns in your data, and turn your Business Intelligence to the next level.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact">Explore AI Analytics</CTALink>
-            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">See How It Works</button>
+            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">See How It Works</button>
           </div>
           <div className="mt-14 flex flex-wrap gap-6 justify-center items-center opacity-50">
-            {["Nike", "Unicef", "Nikon", "HP", "Startplay"].map((b) => (<span key={b} className="text-gray-300 font-bold text-sm tracking-wide">{b}</span>))}
+            {["Nike", "Unicef", "Nikon", "HP", "Startplay"].map((b) => (<span key={b} className="text-page-fg-subtle font-bold text-sm tracking-wide">{b}</span>))}
           </div>
         </div>
       </section>
 
       {/* ── MARQUEE ── */}
-      <section className="bg-[#0a1628] py-10 overflow-hidden border-y border-white/5">
+      <section className="bg-page-bg-alt py-10 overflow-hidden border-y border-page-border">
         <p className="text-xl tracking-[0.35em] text-toadster-green font-bold text-center mb-5 uppercase">Trusted by Innovative Teams Worldwide</p>
         <div className="relative flex overflow-hidden">
-          <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-6">
-            {[...clients, ...clients].map((c, i) => (<span key={i} className="text-gray-400 font-semibold text-sm opacity-60 shrink-0">{c}</span>))}
+          <div className="flex gap-14 animate-marquee whitespace-nowrap items-center px-4">
+            {[...clients, ...clients].map((c, i) => (<span key={i} className="text-page-fg-muted font-semibold text-sm opacity-60 shrink-0">{c}</span>))}
           </div>
         </div>
       </section>
 
       {/* ── SERVICES ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Offerings</p>
             <h2 className="text-4xl font-extrabold">Our AI Data Analytics</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services</h3>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">From raw data pipelines to executive dashboards and predictive models — we build end-to-end analytics platforms that turn your data into competitive advantage.</p>
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">From raw data pipelines to executive dashboards and predictive models — we build end-to-end analytics platforms that turn your data into competitive advantage.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
@@ -80,10 +80,10 @@ export default function AIDataAnalyticsPage() {
               { icon: <Brain size={22} />, title: "AI-Powered Forecasting & Optimisation", desc: "Time-series forecasting, price optimisation, inventory planning, and resource allocation models tuned for your business." },
               { icon: <Settings size={22} />, title: "Analytics & Risk Management", desc: "Data quality frameworks, governance policies, and risk dashboards that ensure your analytics are accurate, compliant, and trusted." },
             ].map((s) => (
-              <div key={s.title} className="bg-[#0a1628] border border-white/5 rounded-2xl p-6 hover:border-green-800/40 transition-colors">
+              <div key={s.title} className="bg-page-bg-alt border border-page-border rounded-2xl p-6 hover:border-green-800/40 transition-colors">
                 <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">{s.icon}</div>
-                <h3 className="font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+                <h3 className="font-bold text-page-fg mb-2">{s.title}</h3>
+                <p className="text-page-fg-muted text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -91,12 +91,12 @@ export default function AIDataAnalyticsPage() {
       </section>
 
       {/* ── WHY CHOOSE ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why Us</p>
             <h2 className="text-4xl font-extrabold">Why Choose Our Data Analytics</h2>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">We don't just build dashboards. We engineer data products that drive measurable decisions and business outcomes.</p>
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">We don't just build dashboards. We engineer data products that drive measurable decisions and business outcomes.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -107,10 +107,10 @@ export default function AIDataAnalyticsPage() {
               { icon: <Database size={28} />, title: "Modern Data Stack Expertise", desc: "We work across Snowflake, Databricks, dbt, Airflow, BigQuery, and all major cloud platforms — no vendor lock-in." },
               { icon: <Users size={28} />, title: "Trusted Data Partners", desc: "Long-term partnerships with 150+ clients who rely on our analytics platforms as the source of truth for their business." },
             ].map((b) => (
-              <div key={b.title} className="bg-[#050d18] border border-white/5 rounded-2xl p-6 hover:border-green-800/30 transition-colors text-center">
+              <div key={b.title} className="bg-page-bg border border-page-border rounded-2xl p-6 hover:border-green-800/30 transition-colors text-center">
                 <div className="w-12 h-12 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4 mx-auto">{b.icon}</div>
-                <h3 className="font-bold text-white mb-2">{b.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{b.desc}</p>
+                <h3 className="font-bold text-page-fg mb-2">{b.title}</h3>
+                <p className="text-page-fg-muted text-sm leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -118,12 +118,12 @@ export default function AIDataAnalyticsPage() {
       </section>
 
       {/* ── BENEFITS CAROUSEL STYLE ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What You Gain</p>
             <h2 className="text-4xl font-extrabold">Benefits of Working with Mobcoder AI</h2>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">Our clients consistently report faster decisions, lower costs, and higher revenue after deploying our analytics solutions.</p>
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">Our clients consistently report faster decisions, lower costs, and higher revenue after deploying our analytics solutions.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {[
@@ -132,9 +132,9 @@ export default function AIDataAnalyticsPage() {
               { icon: <Server size={22} />, title: "Scalable Data Infrastructure", desc: "Cloud-native data platforms that scale cost-efficiently from gigabytes to petabytes without re-architecting." },
               { icon: <Activity size={22} />, title: "Seamless Data Integration", desc: "Connect every source — CRM, ERP, IoT, SaaS, and databases — into a unified data layer that powers all your analytics." },
             ].map((b) => (
-              <div key={b.title} className="bg-[#0a1628] border border-white/5 rounded-2xl p-6 flex gap-5 hover:border-green-800/30 transition-colors">
+              <div key={b.title} className="bg-page-bg-alt border border-page-border rounded-2xl p-6 flex gap-5 hover:border-green-800/30 transition-colors">
                 <div className="w-11 h-11 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 shrink-0">{b.icon}</div>
-                <div><h3 className="font-bold text-white mb-1">{b.title}</h3><p className="text-gray-400 text-sm leading-relaxed">{b.desc}</p></div>
+                <div><h3 className="font-bold text-page-fg mb-1">{b.title}</h3><p className="text-page-fg-muted text-sm leading-relaxed">{b.desc}</p></div>
               </div>
             ))}
           </div>
@@ -142,17 +142,17 @@ export default function AIDataAnalyticsPage() {
       </section>
 
       {/* ── STATS ── */}
-      <section className="bg-[#0a1628] py-16 px-6">
+      <section className="bg-page-bg-alt py-16">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">At a Glance</p>
           <h2 className="text-3xl font-extrabold mb-4">Highlights of <span className="text-green-400">Achievements</span></h2>
-          <p className="text-gray-400 max-w-xl mx-auto mb-12 text-sm">Proven results from data analytics engagements across 150+ clients and 20+ industries.</p>
+          <p className="text-page-fg-muted max-w-xl mx-auto mb-12 text-sm">Proven results from data analytics engagements across 150+ clients and 20+ industries.</p>
           <div className="grid md:grid-cols-4 gap-8">
             {[{ value: "10+", label: "Years of Expertise", icon: <Clock size={26} /> }, { value: "99.7%", label: "Data Accuracy Rate", icon: <BarChart3 size={26} /> }, { value: "24/7", label: "Pipeline Monitoring", icon: <Activity size={26} /> }, { value: "30%", label: "Avg. Efficiency Gains", icon: <TrendingUp size={26} /> }].map((s) => (
-              <div key={s.label} className="bg-[#050d18] rounded-2xl p-6 border border-white/5">
+              <div key={s.label} className="bg-page-bg rounded-2xl p-6 border border-page-border">
                 <div className="text-green-400 flex justify-center mb-3">{s.icon}</div>
-                <div className="text-4xl font-extrabold text-white mb-2">{s.value}</div>
-                <div className="text-gray-400 text-sm">{s.label}</div>
+                <div className="text-4xl font-extrabold text-page-fg mb-2">{s.value}</div>
+                <div className="text-page-fg-muted text-sm">{s.label}</div>
               </div>
             ))}
           </div>
@@ -160,12 +160,12 @@ export default function AIDataAnalyticsPage() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section id="our-process" className="py-20 px-6 bg-[#050d18]">
+      <section id="our-process" className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
             <h2 className="text-4xl font-extrabold">Our AI Data Analytics</h2>
-            <p className="text-gray-400 mt-3 max-w-xl mx-auto">A structured, iterative approach that goes from raw data to production analytics in weeks.</p>
+            <p className="text-page-fg-muted mt-3 max-w-xl mx-auto">A structured, iterative approach that goes from raw data to production analytics in weeks.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-7">
@@ -177,12 +177,12 @@ export default function AIDataAnalyticsPage() {
               ].map((p) => (
                 <div key={p.step} className="flex gap-5 items-start">
                   <span className="text-3xl font-extrabold text-green-900 shrink-0 w-12">{p.step}</span>
-                  <div><h4 className="font-bold text-white mb-1">{p.title}</h4><p className="text-gray-400 text-sm">{p.desc}</p></div>
+                  <div><h4 className="font-bold text-page-fg mb-1">{p.title}</h4><p className="text-page-fg-muted text-sm">{p.desc}</p></div>
                 </div>
               ))}
             </div>
             <div
-              className="relative rounded-3xl overflow-hidden border border-white/5 min-h-100 flex items-center justify-center group"
+              className="relative rounded-3xl overflow-hidden border border-page-border min-h-100 flex items-center justify-center group"
               style={{
                 backgroundImage: "url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
@@ -195,18 +195,18 @@ export default function AIDataAnalyticsPage() {
       </section>
 
       {/* ── INDUSTRIES ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Verticals</p>
             <h2 className="text-4xl font-extrabold">Industries We Serve</h2>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">Every industry is drowning in data. We help you surface the insights that matter most for your specific context and challenges.</p>
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">Every industry is drowning in data. We help you surface the insights that matter most for your specific context and challenges.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {industries.map((ind) => (
-              <div key={ind.name} className="bg-[#050d18] rounded-2xl p-6 border border-white/5 hover:border-green-800/30 transition-colors">
+              <div key={ind.name} className="bg-page-bg rounded-2xl p-6 border border-page-border hover:border-green-800/30 transition-colors">
                 <h3 className="font-bold text-green-400 mb-2">{ind.name}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{ind.desc}</p>
+                <p className="text-page-fg-muted text-sm leading-relaxed">{ind.desc}</p>
               </div>
             ))}
           </div>
@@ -214,7 +214,7 @@ export default function AIDataAnalyticsPage() {
       </section>
 
       {/* ── WORK ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
@@ -228,9 +228,9 @@ export default function AIDataAnalyticsPage() {
             ].map((w) => (
               <div
                 key={w.title}
-                className="bg-[#0a1628] flex flex-col rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/40 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(74,222,128,0.15)]"
+                className="bg-page-bg-alt flex flex-col rounded-2xl overflow-hidden border border-page-border hover:border-green-800/40 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(74,222,128,0.15)]"
               >
-                <div className="h-48 relative overflow-hidden bg-[#050d18] shrink-0">
+                <div className="h-48 relative overflow-hidden bg-page-bg shrink-0">
                   <img src={w.image} alt={w.title} title={w.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0a1628] via-transparent to-transparent pointer-events-none"></div>
                 </div>
@@ -238,9 +238,9 @@ export default function AIDataAnalyticsPage() {
                   <div className="mb-4">
                     <span className="text-xs text-green-400 font-semibold bg-green-950 px-3 py-1 rounded-full border border-green-800/50 shadow-sm">{w.tag}</span>
                   </div>
-                  <h3 className="font-bold text-white text-lg mb-2 group-hover:text-green-400 transition-colors pt-1">{w.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed grow mb-4">{w.desc}</p>
-                  <div className="flex items-center gap-2 mt-auto pt-4 border-t border-white/5">
+                  <h3 className="font-bold text-page-fg text-lg mb-2 group-hover:text-green-400 transition-colors pt-1">{w.title}</h3>
+                  <p className="text-page-fg-muted text-sm leading-relaxed grow mb-4">{w.desc}</p>
+                  <div className="flex items-center gap-2 mt-auto pt-4 border-t border-page-border">
                     <Activity size={16} className="text-green-500" />
                     <span className="text-xs font-semibold text-green-400 uppercase tracking-wider">{w.metric}</span>
                   </div>
@@ -252,18 +252,18 @@ export default function AIDataAnalyticsPage() {
       </section>
 
       {/* ── KEY TECHNOLOGIES ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Tech Stack</p>
             <h2 className="text-4xl font-extrabold">Key Technologies in AI Development</h2>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">We work across the full modern data stack to deliver analytics platforms that are scalable, reliable, and future-proof.</p>
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">We work across the full modern data stack to deliver analytics platforms that are scalable, reliable, and future-proof.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {["Snowflake & BigQuery", "Databricks & Spark", "dbt (Data Build Tool)", "Apache Airflow / Prefect", "Kafka & Kinesis Streaming", "Power BI & Tableau", "Looker & Metabase", "Python (Pandas, PySpark)", "Scikit-learn & XGBoost", "Prophet & NeuralProphet", "MLflow & Vertex AI", "Monte Carlo (Data Quality)", "Great Expectations", "AWS / GCP / Azure", "Terraform & dbt Cloud", "Fivetran & Airbyte"].map((t) => (
-              <div key={t} className="bg-[#050d18] rounded-xl p-4 border border-white/5 flex items-center gap-3 hover:border-green-800/30 transition-colors">
+              <div key={t} className="bg-page-bg rounded-xl p-4 border border-page-border flex items-center gap-3 hover:border-green-800/30 transition-colors">
                 <CheckCircle size={16} className="text-green-400 shrink-0" />
-                <span className="text-gray-300 text-sm font-medium">{t}</span>
+                <span className="text-page-fg-subtle text-sm font-medium">{t}</span>
               </div>
             ))}
           </div>
@@ -271,7 +271,7 @@ export default function AIDataAnalyticsPage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-20 px-6 bg-[#050d18]">
+      <section className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
@@ -282,10 +282,10 @@ export default function AIDataAnalyticsPage() {
               { name: "Todd Williams", role: "Chief Data Officer, RetailGroup", text: "Toadster consolidated 40 data sources into a single Snowflake platform. Our analysts now spend time on insights instead of data wrangling — a complete transformation." },
               { name: "Anish Mehta", role: "VP Analytics, FinTechFlow", text: "The real-time analytics platform they built handles 2M events per second with sub-second dashboards. We now have the data infrastructure to compete with the largest players." },
             ].map((t) => (
-              <div key={t.name} className="bg-[#0a1628] rounded-2xl p-6 border border-white/5">
+              <div key={t.name} className="bg-page-bg-alt rounded-2xl p-6 border border-page-border">
                 <div className="flex gap-1 mb-4">{[...Array(5)].map((_, i) => (<Star key={i} size={14} className="text-green-400 fill-green-400" />))}</div>
-                <p className="text-gray-300 text-sm leading-relaxed mb-6">"{t.text}"</p>
-                <div><div className="font-bold text-white text-sm">{t.name}</div><div className="text-gray-500 text-xs">{t.role}</div></div>
+                <p className="text-page-fg-subtle text-sm leading-relaxed mb-6">"{t.text}"</p>
+                <div><div className="font-bold text-page-fg text-sm">{t.name}</div><div className="text-gray-500 text-xs">{t.role}</div></div>
               </div>
             ))}
           </div>
@@ -293,17 +293,17 @@ export default function AIDataAnalyticsPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">Ready to Harness the Power of<br /><span className="text-green-400">AI for Your Business?</span></h2>
-          <p className="text-gray-400 mb-8">Turn your data into decisions. Let's build your AI data analytics platform together.</p>
+          <p className="text-page-fg-muted mb-8">Turn your data into decisions. Let's build your AI data analytics platform together.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact" className="text-lg" title="Talk to our analytics engineers">
               Let's Talk
             </CTALink>
             <CTALink
               to="/services/machine-learning"
-              className="bg-transparent border border-white/20 hover:bg-white/5 text-lg"
+              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5 text-lg"
               title="Explore Machine Learning"
             >
               Explore Machine Learning
@@ -313,7 +313,7 @@ export default function AIDataAnalyticsPage() {
       </section>
 
       {/* ── BLOGS ── */}
-      {/* <section className="py-20 px-6 bg-[#050d18]">
+      {/* <section className="py-20 bg-page-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
@@ -325,11 +325,11 @@ export default function AIDataAnalyticsPage() {
               { tag: "Predictive Analytics", title: "The Operational Data Science Transformation Shift You Need to Know About", date: "Feb 22, 2026" },
               { tag: "AI Analytics", title: "Identity Analytics: AI Different from Other AI-Based Analytics Services?", date: "Feb 8, 2026" },
             ].map((b) => (
-              <div key={b.title} className="bg-[#0a1628] rounded-2xl overflow-hidden border border-white/5 hover:border-green-800/30 transition-colors cursor-pointer group">
-                <div className="h-36 bg-linear-to-br from-green-900/30 to-[#050d18] flex items-center justify-center"><BarChart3 size={40} className="text-green-700" /></div>
+              <div key={b.title} className="bg-page-bg-alt rounded-2xl overflow-hidden border border-page-border hover:border-green-800/30 transition-colors cursor-pointer group">
+                <div className="h-36 bg-linear-to-br from-green-900/30 to-page-bg flex items-center justify-center"><BarChart3 size={40} className="text-green-700" /></div>
                 <div className="p-5">
                   <span className="text-xs text-green-400 font-semibold bg-green-900/20 px-2 py-0.5 rounded-full">{b.tag}</span>
-                  <h3 className="font-bold text-white mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
+                  <h3 className="font-bold text-page-fg mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
                   <p className="text-gray-500 text-xs">{b.date}</p>
                 </div>
               </div>
@@ -339,7 +339,7 @@ export default function AIDataAnalyticsPage() {
       </section> */}
 
       {/* ── FAQ ── */}
-      <section className="py-20 px-6 bg-[#0a1628]">
+      <section className="py-20 bg-page-bg-alt">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
