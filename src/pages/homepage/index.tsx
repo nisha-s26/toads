@@ -14,8 +14,8 @@ const HomePage = () => {
         <TrustedBy/>
         <AiCap/>
         <OurProcess/>
-        <ParallaxShowcase/>
         <WhyUs/>
+        <ParallaxShowcase/>
         <Solutions/>
         <GetStarted/>
     </div>

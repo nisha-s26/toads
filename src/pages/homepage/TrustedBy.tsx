@@ -111,14 +111,14 @@ const TrustedBy = () => {
     })
 
     return (
-        <section className="section-full-bleed bg-page-bg dark:bg-white">
-            <div className="w-full px-4 py-14">
-                <h2 className="text-4xl md:text-6xl font-extrabold mb-4 text-center">
-                   <span className="text-page-fg dark:text-[#2C3E50]">Trusted By Innovative </span>
-                    <span className="text-green-400 dark:text-green-600">Teams Worldwide</span>
-                </h2>
+        <section className="section-full-bleed bg-page-bg ">
+            <div className="w-full px-4 pb-3">
+                {/* <h2 className="text-4xl md:text-6xl font-extrabold mb-4 text-center">
+                   <span className="text-black dark:text-white">Trusted By Innovative </span>
+                    <span className="hero-accent">Teams Worldwide</span>
+                </h2> */}
 
-                <div className="mt-8 space-y-3">
+                <div className="dark:bg-white">
                     <MarqueeRow direction="right" scrollDirection={scrollDirection} />
                 </div>
             </div>

@@ -21,7 +21,7 @@ export default function AboutPage() {
                     loading="eager"
                     decoding="async"
                     fetchPriority="high"
-                    className="absolute inset-0 w-full h-full object-cover z-0"
+                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
                 />
                 {/* Dark overlay for text readability */}
                 <div className="absolute inset-0 bg-page-bg/50 z-0"></div>
@@ -41,7 +41,7 @@ export default function AboutPage() {
             </section>
 
             {/* ── Mission ── Dark bg, 2-col with stats */}
-            <section className="bg-page-bg">
+            <section className="bg-page-bg mt-10">
                 <div className="max-w-9xl mx-20 grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Mission</p>

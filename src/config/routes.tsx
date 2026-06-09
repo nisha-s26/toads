@@ -7,6 +7,13 @@ const Blogs = lazy(() => import("@/pages/blogs"))
 const BlogDetail = lazy(() => import("@/pages/blogs/BlogDetail"))
 const Contact = lazy(() => import("@/pages/contact"))
 const DedicatedResourceDetail = lazy(() => import("@/pages/dedicated-resources/DedicatedResourceDetail"))
+const IndiaCountryPage = lazy(() => import("@/pages/country/India"))
+const UaeCountryPage = lazy(() => import("@/pages/country/Uae"))
+const NoidaCountryPage = lazy(() => import("@/pages/country/Noida"))
+const DelhiCountryPage = lazy(() => import("@/pages/country/Delhi"))
+const BangaloreCountryPage = lazy(() => import("@/pages/country/Bangalore"))
+const MumbaiCountryPage = lazy(() => import("@/pages/country/Mumbai"))
+const HyderabadCountryPage = lazy(() => import("@/pages/country/Hyderabad"))
 
 const AgenticAIPage = lazy(() => import("@/pages/services/agentic-ai"))
 const GenerativeAIPage = lazy(() => import("@/pages/services/generative-ai"))
@@ -41,6 +48,13 @@ export const APP_ROUTES: AppRoute[] = [
   { path: "/careers", component: Careers, section: "careers" },
   { path: "/contact", component: Contact, section: "contact" },
   { path: "/dedicated-resources/:slug", component: DedicatedResourceDetail, section: "dedicated-resources" },
+  { path: "/ai-development-company-india", component: IndiaCountryPage, section: "country" },
+  { path: "/ai-development-company-uae", component: UaeCountryPage, section: "country" },
+  { path: "/ai-development-company-noida", component: NoidaCountryPage, section: "country" },
+  { path: "/ai-development-company-delhi", component: DelhiCountryPage, section: "country" },
+  { path: "/ai-development-company-bangalore", component: BangaloreCountryPage, section: "country" },
+  { path: "/ai-development-company-mumbai", component: MumbaiCountryPage, section: "country" },
+  { path: "/ai-development-company-hyderabad", component: HyderabadCountryPage, section: "country" },
   { path: "/services/agentic-ai", component: AgenticAIPage, section: "services" },
   { path: "/services/generative-ai", component: GenerativeAIPage, section: "services" },
   { path: "/services/nlp-services", component: NLPServicesPage, section: "services" },
@@ -65,6 +79,7 @@ export function resolveActiveSection(pathname: string): string {
   if (pathname.startsWith("/blogs")) return "blogs"
   if (pathname.startsWith("/services")) return "services"
   if (pathname.startsWith("/dedicated-resources")) return "dedicated-resources"
+  if (pathname.startsWith("/ai-development-company-")) return "country"
 
   const exact = APP_ROUTES.find((r) => r.path === pathname)
   return exact?.section ?? "home"

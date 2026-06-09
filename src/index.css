@@ -132,10 +132,10 @@
     --page-nav: #000000;
     --page-nav-shadow: 0 6px 28px -6px rgba(0, 0, 0, 0.65);
 
-    --brand-green: #2aa807;
-    --toadster-green: #2aa807;
-    --toadster-green-foreground: #0f1a0f;
-    --primary-hover: #00e600;
+    --brand-green: #2ECC71;
+    --toadster-green: #2ECC71;
+    --toadster-green-foreground: #000000;
+    --primary-hover: #28B865;
 
     --background: transparent;
     --foreground: var(--page-fg);
@@ -143,8 +143,8 @@
     --card-foreground: var(--page-fg);
     --popover: var(--page-card);
     --popover-foreground: var(--page-fg);
-    --primary: #2aa807;
-    --primary-foreground: #0f1a0f;
+    --primary: #2ECC71;
+    --primary-foreground: #000000;
     --secondary: var(--page-accent-soft);
     --secondary-foreground: var(--page-fg);
     --muted: rgba(149, 165, 166, 0.14);
@@ -162,8 +162,8 @@
     --chart-5: #ECF0F1;
     --sidebar: var(--page-card);
     --sidebar-foreground: var(--page-fg);
-    --sidebar-primary: #2aa807;
-    --sidebar-primary-foreground: #0f1a0f;
+    --sidebar-primary: #2ECC71;
+    --sidebar-primary-foreground: #000000;
     --sidebar-accent: var(--page-accent-soft);
     --sidebar-accent-foreground: var(--page-fg);
     --sidebar-border: var(--page-border);
