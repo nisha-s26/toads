@@ -78,7 +78,7 @@ export default function IntelligentAutomationPage() {
           </div>
         </div>
       </section>
-      <ServicesTrustedBy variant="dark" />
+      <ServicesTrustedBy />
 
       {/* ── SERVICES GRID ── */}
       <section className="py-20 bg-page-bg">

@@ -77,7 +77,7 @@ export default function AgenticAIPage() {
           </div>
         </div>
       </section>
-      <ServicesTrustedBy variant="dark" />
+      <ServicesTrustedBy />
 
       {/* ── SERVICES GRID ── */}
       <section className="py-20 px-4 bg-page-bg">

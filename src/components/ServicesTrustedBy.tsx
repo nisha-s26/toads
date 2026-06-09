@@ -1,11 +1,7 @@
 import { TRUSTED_BY_CLIENTS } from "@/constants/trustedByClients"
 import { cn } from "@/lib/utils"
 
-interface ServicesTrustedByProps {
-  variant?: "default" | "dark"
-}
-
-export function ServicesTrustedBy({ variant = "default" }: ServicesTrustedByProps) {
+export function ServicesTrustedBy() {
   const items = [...TRUSTED_BY_CLIENTS, ...TRUSTED_BY_CLIENTS]
 
   return (
