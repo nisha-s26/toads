@@ -112,7 +112,7 @@ const TrustedBy = () => {
 
     return (
         <section className="section-full-bleed bg-page-bg dark:bg-white">
-            <div className="w-full px-4 py-14">
+            <div className="w-full px-4 pb-3 pt-5">
                 <h2 className="text-4xl md:text-6xl font-extrabold mb-4 text-center">
                    <span className="text-page-fg dark:text-[#2C3E50]">Trusted By Innovative </span>
                     <span className="text-green-400 dark:text-green-600">Teams Worldwide</span>
