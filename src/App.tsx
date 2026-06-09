@@ -75,7 +75,7 @@ function AppInner() {
   const activeSection = resolveActiveSection(pathname)
 
   usePageMetadata()
-  // useContentProtection()
+  useContentProtection()
 
   return (
     <div>
