@@ -40,7 +40,7 @@ export default defineConfig(({ mode }) => {
         "toadster.ai"
       ],
       proxy: {
-        "/api": {
+        "/api/public": {
           target: apiTarget,
           changeOrigin: true,
           secure: true,
