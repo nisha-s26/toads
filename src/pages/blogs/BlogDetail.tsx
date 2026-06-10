@@ -2,6 +2,7 @@ import { useParams, useNavigate, Link } from "react-router-dom"
 import { ArrowLeft, Calendar, Clock, User, Tag, Twitter, Linkedin, Facebook, ArrowRight, ChevronRight, MessageCircle, ThumbsUp, ChevronDown, HelpCircle } from "lucide-react"
 import { useState, useEffect, Fragment, type ReactNode } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { fetchAllBlogs, fetchBlogBySlug } from "@/lib/api"
 import { type BlogFaq, type BlogPost } from "./blogData"
 import { staticComments } from "./commentsData"
 
@@ -279,15 +280,9 @@ export default function BlogDetail() {
       try {
         setIsLoading(true)
         if (slug) {
-          const res = await fetch(`http://localhost:5000/api/public/blogs/${slug}`)
-          const data = await res.json()
-          if (res.ok) setBlog(data)
+          setBlog(await fetchBlogBySlug(slug))
         }
-        
-        const allRes = await fetch("http://localhost:5000/api/public/blogs")
-        const allData = await allRes.json()
-        if (allRes.ok) setAllBlogs(allData.blogs || [])
-        
+        setAllBlogs(await fetchAllBlogs())
       } catch (error) {
         console.error("Failed to fetch blog data", error)
       } finally {

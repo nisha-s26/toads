@@ -8,6 +8,7 @@ import {
   SITE_OG_IMAGE_HEIGHT,
   SITE_OG_IMAGE_WIDTH,
 } from "@/config/metadata"
+import { fetchAllBlogs } from "@/lib/api"
 import type { BlogPost } from "@/pages/blogs/blogData"
 
 type TagKind = "meta" | "link"
@@ -39,9 +40,7 @@ export function usePageMetadata(): void {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/public/blogs")
-        const data = await response.json()
-        setAllBlogs(data.blogs || [])
+        setAllBlogs(await fetchAllBlogs())
       } catch (error) {
         console.error("Failed to fetch blogs:", error)
       }

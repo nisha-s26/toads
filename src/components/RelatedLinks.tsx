@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { ArrowUpRight, BookOpen, Compass } from "lucide-react"
+import { fetchAllBlogs } from "@/lib/api"
 import type { BlogPost } from "@/pages/blogs/blogData"
 import { useState, useEffect } from "react"
 import {
@@ -46,9 +47,7 @@ export function RelatedLinks() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/public/blogs")
-        const data = await response.json()
-        setAllBlogs(data.blogs || [])
+        setAllBlogs(await fetchAllBlogs())
       } catch (error) {
         console.error("Failed to fetch blogs:", error)
       }

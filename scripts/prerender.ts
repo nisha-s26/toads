@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "fs/promises"
 import { dirname, join, resolve } from "path"
 import { fileURLToPath } from "url"
+import { loadEnv } from "vite"
 import {
   buildBlogJsonLd,
   buildCanonicalUrl,
@@ -26,8 +27,16 @@ import {
 } from "../src/config/internalLinks"
 
 const HERE = dirname(fileURLToPath(import.meta.url))
-const DIST_DIR = resolve(HERE, "..", "dist")
+const ROOT_DIR = resolve(HERE, "..")
+const DIST_DIR = join(ROOT_DIR, "dist")
 const SOURCE_HTML = join(DIST_DIR, "index.html")
+
+const env = loadEnv("production", ROOT_DIR, "")
+const API_BASE_URL = (env.VITE_API_BASE_URL ?? "").replace(/\/$/, "")
+
+interface BlogsListResponse {
+  blogs?: BlogPost[]
+}
 
 function escapeHtmlAttribute(value: string): string {
   return value
@@ -339,10 +348,14 @@ async function prerender(): Promise<void> {
   
   let allBlogs: BlogPost[] = []
   try {
-    const res = await fetch("http://localhost:5000/api/public/blogs")
+    const res = await fetch(`${API_BASE_URL}/api/public/blogs`, {
+      headers: {
+        "ngrok-skip-browser-warning": "true",
+      },
+    })
     if (res.ok) {
-      const data: any = await res.json()
-      allBlogs = data.blogs || []
+      const data = (await res.json()) as BlogsListResponse
+      allBlogs = data.blogs ?? []
     }
   } catch (err) {
     console.error("[prerender] failed to fetch blogs, using empty list", err)

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { ArrowRight, Calendar, Clock, User, ArrowUpRight, Brain, Bot, Sparkles, MessageCircle } from "lucide-react"
 import { Link, useNavigate } from "react-router-dom"
+import { fetchAllBlogs } from "@/lib/api"
 import type { BlogPost } from "./blogData"
 
 export default function Blogs() {
@@ -13,9 +14,7 @@ export default function Blogs() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/public/blogs")
-        const data = await response.json()
-        setBlogs(data.blogs || [])
+        setBlogs(await fetchAllBlogs())
       } catch (error) {
         console.error("Failed to fetch blogs:", error)
       } finally {
