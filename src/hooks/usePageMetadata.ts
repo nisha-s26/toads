@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 import {
   buildCanonicalUrl,
@@ -8,6 +8,7 @@ import {
   SITE_OG_IMAGE_HEIGHT,
   SITE_OG_IMAGE_WIDTH,
 } from "@/config/metadata"
+import type { BlogPost } from "@/pages/blogs/blogData"
 
 type TagKind = "meta" | "link"
 
@@ -33,9 +34,23 @@ function upsertHeadTag({ selector, kind, attribute, value, identifier }: TagDesc
 
 export function usePageMetadata(): void {
   const { pathname } = useLocation()
+  const [allBlogs, setAllBlogs] = useState<BlogPost[]>([])
 
   useEffect(() => {
-    const metadata = getMetadataForPath(pathname)
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/public/blogs")
+        const data = await response.json()
+        setAllBlogs(data.blogs || [])
+      } catch (error) {
+        console.error("Failed to fetch blogs:", error)
+      }
+    }
+    fetchBlogs()
+  }, [])
+
+  useEffect(() => {
+    const metadata = getMetadataForPath(pathname, allBlogs)
     const canonicalUrl = buildCanonicalUrl(pathname)
 
     document.title = metadata.title
@@ -135,5 +150,5 @@ export function usePageMetadata(): void {
     ]
 
     tags.forEach(upsertHeadTag)
-  }, [pathname])
+  }, [pathname, allBlogs])
 }

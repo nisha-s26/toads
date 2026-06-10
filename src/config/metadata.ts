@@ -1,4 +1,4 @@
-import { allBlogs } from "../pages/blogs/blogData"
+import { type BlogPost } from "../pages/blogs/blogData"
 
 export interface PageMetadata {
   title: string
@@ -138,7 +138,7 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
 
 const BLOG_PREFIX = "/blogs/"
 
-export function getMetadataForPath(pathname: string): PageMetadata {
+export function getMetadataForPath(pathname: string, allBlogs: BlogPost[] = []): PageMetadata {
   if (pathname.startsWith(BLOG_PREFIX) && pathname !== "/blogs") {
     const slug = pathname.slice(BLOG_PREFIX.length)
     const blog = allBlogs.find((post) => post.slug === slug)
@@ -162,13 +162,13 @@ export function buildCanonicalUrl(pathname: string): string {
   return `${SITE_URL}${normalized}`
 }
 
-export function getAllPrerenderRoutes(): string[] {
+export function getAllPrerenderRoutes(allBlogs: BlogPost[] = []): string[] {
   const staticRoutes = Object.keys(STATIC_PAGE_METADATA)
   const blogRoutes = allBlogs.map((post) => `${BLOG_PREFIX}${post.slug}`)
   return Array.from(new Set([...staticRoutes, ...blogRoutes]))
 }
 
-export function buildBlogJsonLd(pathname: string): string | null {
+export function buildBlogJsonLd(pathname: string, allBlogs: BlogPost[] = []): string | null {
   if (!pathname.startsWith(BLOG_PREFIX) || pathname === "/blogs") return null
   const slug = pathname.slice(BLOG_PREFIX.length)
   const blog = allBlogs.find((post) => post.slug === slug)

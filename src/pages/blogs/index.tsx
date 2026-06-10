@@ -1,19 +1,34 @@
 import { useState, useEffect } from "react"
 import { ArrowRight, Calendar, Clock, User, ArrowUpRight, Brain, Bot, Sparkles, MessageCircle } from "lucide-react"
 import { Link, useNavigate } from "react-router-dom"
-import { featuredBlog, featuredBlogs, latestBlogs } from "./blogData"
+import type { BlogPost } from "./blogData"
 
 export default function Blogs() {
   const [, setHoveredCard] = useState<string | null>(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const navigate = useNavigate()
+  const [blogs, setBlogs] = useState<BlogPost[]>([])
+  const [isLoadingBlogs, setIsLoadingBlogs] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true)
-    }, 100)
-    return () => clearTimeout(timer)
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/public/blogs")
+        const data = await response.json()
+        setBlogs(data.blogs || [])
+      } catch (error) {
+        console.error("Failed to fetch blogs:", error)
+      } finally {
+        setIsLoadingBlogs(false)
+        setTimeout(() => setIsLoaded(true), 100)
+      }
+    }
+    fetchBlogs()
   }, [])
+
+  const featuredBlog = blogs.length > 0 ? blogs[0] : null
+  const featuredBlogs = blogs.slice(1, 4)
+  const latestBlogs = blogs.slice(4)
 
 
 
@@ -37,68 +52,76 @@ export default function Blogs() {
           </div>
 
           {/* Featured Blog Card */}
-          <div
-            className={`theme-card rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-700 group border cursor-pointer transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-            style={{ transitionDelay: '200ms' }}
-            onClick={() => navigate(`/blogs/${featuredBlog.slug}`)}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-              <div className="relative overflow-hidden rounded-xl group bg-page-bg-deep flex items-center justify-center">
-                <img
-                  src={featuredBlog.image}
-                  alt={featuredBlog.title}
-                  title={featuredBlog.title}
-                  loading="eager"
-                  decoding="async"
-                  fetchPriority="high"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-48 sm:h-56 md:h-80 object-contain"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <div>
-                <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-page-fg-subtle mb-3 sm:mb-4">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar size={14} />
-                    <span className="hidden sm:inline">{featuredBlog.date}</span>
-                    <span className="sm:hidden">{featuredBlog.date.split(',')[0]}</span>
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock size={14} />
-                    {featuredBlog.readTime}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <User size={14} />
-                    <span className="truncate max-w-[120px] sm:max-w-none">{featuredBlog.author}</span>
-                  </span>
+          {isLoadingBlogs ? (
+            <div className="flex justify-center items-center py-20">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-toadster-green"></div>
+            </div>
+          ) : featuredBlog ? (
+            <div
+              className={`theme-card rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-700 group border cursor-pointer transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+              style={{ transitionDelay: '200ms' }}
+              onClick={() => navigate(`/blogs/${featuredBlog.slug}`)}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+                <div className="relative overflow-hidden rounded-xl group bg-page-bg-deep flex items-center justify-center">
+                  <img
+                    src={featuredBlog?.image}
+                    alt={featuredBlog?.title}
+                    title={featuredBlog?.title}
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-48 sm:h-56 md:h-80 object-contain"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 group-hover:text-toadster-green transition-colors duration-300">
-                  {featuredBlog.title}
-                </h2>
-                <p className="text-sm sm:text-base text-page-fg-subtle mb-4 sm:mb-6 leading-relaxed line-clamp-3 sm:line-clamp-4">
-                  {featuredBlog.description}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <button
-                    className="flex items-center justify-center gap-2 bg-[#1C3829] text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full hover:shadow-lg hover:shadow-toadster-green/25 transition-all duration-300 group text-sm sm:text-base"
-                    title="Read More"
-                    onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${featuredBlog.slug}`) }}
-                  >
-                    Read More
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
-                  <button
-                    className="flex items-center justify-center gap-2 border border-page-border-strong text-page-fg px-4 sm:px-6 py-2.5 sm:py-3 rounded-full hover:border-toadster-green hover:text-toadster-green hover:bg-page-accent-soft transition-all duration-300 text-sm sm:text-base"
-                    title="Explore More"
-                    onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${featuredBlog.slug}`) }}
-                  >
-                    Explore More
-                    <ArrowRight size={16} />
-                  </button>
+                <div>
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-page-fg-subtle mb-3 sm:mb-4">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar size={14} />
+                      <span className="hidden sm:inline">{featuredBlog?.date}</span>
+                      <span className="sm:hidden">{featuredBlog?.date?.split(',')[0]}</span>
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock size={14} />
+                      {featuredBlog?.readTime}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <User size={14} />
+                      <span className="truncate max-w-[120px] sm:max-w-none">{featuredBlog?.author}</span>
+                    </span>
+                  </div>
+                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 group-hover:text-toadster-green transition-colors duration-300">
+                    {featuredBlog?.title}
+                  </h2>
+                  <p className="text-sm sm:text-base text-page-fg-subtle mb-4 sm:mb-6 leading-relaxed line-clamp-3 sm:line-clamp-4">
+                    {featuredBlog?.description}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <button
+                      className="flex items-center justify-center gap-2 bg-[#1C3829] text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full hover:shadow-lg hover:shadow-toadster-green/25 transition-all duration-300 group text-sm sm:text-base"
+                      title="Read More"
+                      onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${featuredBlog?.slug}`) }}
+                    >
+                      Read More
+                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                    </button>
+                    <button
+                      className="flex items-center justify-center gap-2 border border-page-border-strong text-page-fg px-4 sm:px-6 py-2.5 sm:py-3 rounded-full hover:border-toadster-green hover:text-toadster-green hover:bg-page-accent-soft transition-all duration-300 text-sm sm:text-base"
+                      title="Explore More"
+                      onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${featuredBlog?.slug}`) }}
+                    >
+                      Explore More
+                      <ArrowRight size={16} />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div className="text-center py-10 text-page-fg-subtle">No blogs found.</div>
+          )}
         </div>
       </section>
 
@@ -142,7 +165,7 @@ export default function Blogs() {
                   {/* Minimal title strip — visible at rest, fades on hover */}
                   <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-0 pointer-events-none">
                     <div className="flex items-center gap-2 text-[11px] sm:text-xs text-white/80 mb-1.5">
-                      <span>{blog.date.split(',')[0]}</span>
+                      <span>{blog.date?.split(',')[0]}</span>
                       <span>•</span>
                       <span>{blog.readTime}</span>
                     </div>
@@ -172,7 +195,7 @@ export default function Blogs() {
                       <div className="flex items-center gap-2 mb-3 sm:mb-4">
                         <div className="w-7 h-7 sm:w-8 sm:h-8 bg-toadster-green rounded-full flex items-center justify-center flex-shrink-0">
                           <span className="text-white text-[9px] sm:text-xs font-bold">
-                            {blog.author.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 2)}
+                            {blog.author?.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 2)}
                           </span>
                         </div>
                         <div className="min-w-0 flex-1">
@@ -241,7 +264,7 @@ export default function Blogs() {
                 <div className="p-4 sm:p-6">
                   <div className="flex items-center gap-2 text-xs text-page-fg-subtle mb-3">
                     <span className="hidden sm:inline">{blog.date}</span>
-                    <span className="sm:hidden">{blog.date.split(',')[0]}</span>
+                    <span className="sm:hidden">{blog.date?.split(',')[0]}</span>
                     <span>•</span>
                     <span>{blog.readTime}</span>
                   </div>
@@ -251,12 +274,12 @@ export default function Blogs() {
                   <p className="text-xs sm:text-sm text-page-fg-subtle mb-4 line-clamp-2 sm:line-clamp-3">
                     {blog.description}
                   </p>
-                  
+
                   {/* Author Information */}
                   <div className="flex items-center gap-2 sm:gap-3 mb-4">
                     <div className="w-6 h-6 sm:w-8 sm:h-8 bg-toadster-green rounded-full flex items-center justify-center">
                       <span className="text-white text-[8px] sm:text-xs font-bold">
-                        {blog.author.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 2)}
+                        {blog.author?.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 2)}
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -264,7 +287,7 @@ export default function Blogs() {
                       {blog.authorRole && <p className="text-xs text-page-fg-muted truncate hidden sm:block">{blog.authorRole}</p>}
                     </div>
                   </div>
-                  
+
                   <div className="flex gap-2">
                     <button
                       className="text-xs bg-[#1C3829] text-white px-2 sm:px-3 py-1 rounded-full hover:shadow-lg transition-all duration-300"

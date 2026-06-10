@@ -2,7 +2,7 @@ import { useParams, useNavigate, Link } from "react-router-dom"
 import { ArrowLeft, Calendar, Clock, User, Tag, Twitter, Linkedin, Facebook, ArrowRight, ChevronRight, MessageCircle, ThumbsUp, ChevronDown, HelpCircle } from "lucide-react"
 import { useState, useEffect, Fragment, type ReactNode } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { allBlogs, type BlogFaq } from "./blogData"
+import { type BlogFaq, type BlogPost } from "./blogData"
 import { staticComments } from "./commentsData"
 
 type ContentBlock =
@@ -210,9 +210,8 @@ function FaqAccordion({ items }: { items: BlogFaq[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.35, delay: index * 0.07, ease: "easeOut" }}
-            className={`theme-card border rounded-2xl overflow-hidden transition-colors ${
-              isOpen ? "border-toadster-green/40" : "border-page-border hover:border-page-border-strong"
-            }`}
+            className={`theme-card border rounded-2xl overflow-hidden transition-colors ${isOpen ? "border-toadster-green/40" : "border-page-border hover:border-page-border-strong"
+              }`}
           >
             <button
               type="button"
@@ -224,18 +223,16 @@ function FaqAccordion({ items }: { items: BlogFaq[] }) {
                 <span className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-toadster-green/10 text-toadster-green text-xs sm:text-sm font-bold border border-toadster-green/20">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className={`font-semibold text-base sm:text-lg leading-snug transition-colors ${
-                  isOpen ? "text-toadster-green" : "text-page-fg group-hover:text-toadster-green"
-                }`}>
+                <span className={`font-semibold text-base sm:text-lg leading-snug transition-colors ${isOpen ? "text-toadster-green" : "text-page-fg group-hover:text-toadster-green"
+                  }`}>
                   {item.question}
                 </span>
               </span>
               <motion.span
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className={`shrink-0 transition-colors ${
-                  isOpen ? "text-toadster-green" : "text-page-fg-muted group-hover:text-toadster-green"
-                }`}
+                className={`shrink-0 transition-colors ${isOpen ? "text-toadster-green" : "text-page-fg-muted group-hover:text-toadster-green"
+                  }`}
               >
                 <ChevronDown size={20} />
               </motion.span>
@@ -270,27 +267,53 @@ export default function BlogDetail() {
   const { slug } = useParams<{ slug: string }>()
   const navigate = useNavigate()
   const [isLoaded, setIsLoaded] = useState(false)
+  const [blog, setBlog] = useState<BlogPost | null>(null)
+  const [allBlogs, setAllBlogs] = useState<BlogPost[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   const getInitials = (name: string) =>
-    name.split(' ').map((w: string) => w[0]).join('').toUpperCase().slice(0, 2)
+    name?.split(' ').map((w: string) => w[0]).join('').toUpperCase().slice(0, 2)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true)
-    }, 100)
-    return () => clearTimeout(timer)
-  }, [])
+    const fetchBlogData = async () => {
+      try {
+        setIsLoading(true)
+        if (slug) {
+          const res = await fetch(`http://localhost:5000/api/public/blogs/${slug}`)
+          const data = await res.json()
+          if (res.ok) setBlog(data)
+        }
+        
+        const allRes = await fetch("http://localhost:5000/api/public/blogs")
+        const allData = await allRes.json()
+        if (allRes.ok) setAllBlogs(allData.blogs || [])
+        
+      } catch (error) {
+        console.error("Failed to fetch blog data", error)
+      } finally {
+        setIsLoading(false)
+        setTimeout(() => setIsLoaded(true), 100)
+      }
+    }
+    fetchBlogData()
+  }, [slug])
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [slug])
 
-  const blog = slug ? allBlogs.find((b) => b.slug === slug) : null
-
   // Helper function to get blog date
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getBlogDate = (blog: any) => {
     return blog.date || 'Unknown date'
+  }
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-page-bg flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-toadster-green"></div>
+      </div>
+    )
   }
 
   if (!blog) {
@@ -387,27 +410,27 @@ export default function BlogDetail() {
             {/* Share */}
             <div className="ml-auto flex items-center gap-3">
               <span className="text-xs text-page-fg-muted font-medium">Share:</span>
-              <a 
-                href="https://x.com/" 
-                target="_blank" 
+              <a
+                href="https://x.com/"
+                target="_blank"
                 rel="noopener noreferrer"
                 title="Share on Twitter"
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-page-accent-soft border border-page-border text-page-fg-muted hover:bg-toadster-green hover:text-white transition-all duration-200"
               >
                 <Twitter size={14} />
               </a>
-              <a 
-                href="https://www.linkedin.com/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
                 rel="noopener noreferrer"
                 title="Share on LinkedIn"
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-page-accent-soft border border-page-border text-page-fg-muted hover:bg-toadster-green hover:text-white transition-all duration-200"
               >
                 <Linkedin size={14} />
               </a>
-              <a 
-                href="https://www.facebook.com/" 
-                target="_blank" 
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
                 rel="noopener noreferrer"
                 title="Share on Facebook"
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-page-accent-soft border border-page-border text-page-fg-muted hover:bg-toadster-green hover:text-white transition-all duration-200"
@@ -425,9 +448,9 @@ export default function BlogDetail() {
           <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-page-border">
             <div className="w-full h-48 sm:h-56 md:h-72 lg:h-[420px] relative overflow-hidden group bg-page-bg-deep flex items-center justify-center">
               <img
-                src={blog.image}
-                alt={blog.title}
-                title={blog.title}
+                src={blog?.image}
+                alt={blog?.title}
+                title={blog?.title}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
@@ -441,7 +464,7 @@ export default function BlogDetail() {
             {blog.category && (
               <div className="absolute top-5 left-5 sm:top-7 sm:left-7">
                 <span className="inline-flex items-center bg-white/95 backdrop-blur-sm text-toadster-green text-xs sm:text-sm font-bold px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg shadow-black/20 ring-1 ring-black/5">
-                  {blog.category}
+                  {blog?.category}
                 </span>
               </div>
             )}
@@ -669,41 +692,41 @@ export default function BlogDetail() {
                     </motion.p>
                   )
                 })}
-            </article>
+              </article>
 
-            {/* Tags */}
-            {blog.tags && blog.tags.length > 0 && (
-              <div className={`mt-12 pt-8 border-t border-page-border-strong transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1600ms' }}>
-                <p className="text-sm font-semibold text-page-fg-subtle mb-3 transition-all duration-1000 transform opacity-0 translate-y-8" style={{ transitionDelay: '1800ms' }}>Tags</p>
-                <div className="flex flex-wrap gap-2">
-                  {blog.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="inline-flex items-center gap-1 bg-page-accent-soft border border-page-border text-page-fg-subtle text-sm px-3 py-1.5 rounded-full hover:border-toadster-green hover:text-toadster-green hover:bg-toadster-green/10 transition-all duration-200 cursor-pointer"
-                    >
-                      <Tag size={12} />
-                      {tag}
-                    </span>
-                  ))}
+              {/* Tags */}
+              {blog.tags && blog.tags.length > 0 && (
+                <div className={`mt-12 pt-8 border-t border-page-border-strong transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1600ms' }}>
+                  <p className="text-sm font-semibold text-page-fg-subtle mb-3 transition-all duration-1000 transform opacity-0 translate-y-8" style={{ transitionDelay: '1800ms' }}>Tags</p>
+                  <div className="flex flex-wrap gap-2">
+                    {blog.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="inline-flex items-center gap-1 bg-page-accent-soft border border-page-border text-page-fg-subtle text-sm px-3 py-1.5 rounded-full hover:border-toadster-green hover:text-toadster-green hover:bg-toadster-green/10 transition-all duration-200 cursor-pointer"
+                      >
+                        <Tag size={12} />
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Author Card */}
+              <div className={`mt-10 p-6 theme-card rounded-2xl border transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '2000ms' }}>
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-toadster-green rounded-full flex items-center justify-center flex-shrink-0">
+                    <User size={22} className="text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-bold text-page-fg text-lg">{blog.author}</p>
+                    {blog.authorRole && <p className="text-xs text-page-fg-subtle">{blog.authorRole}</p>}
+                    <p className="text-page-fg-muted text-sm leading-relaxed">
+                      {blog.author} is a {blog.authorRole || 'expert contributor'} at Toadsters, specializing in {blog.category || 'AI and emerging technologies'}. Bringing practical insights and cutting-edge knowledge to help businesses navigate the {blog.category || 'AI'} landscape.
+                    </p>
+                  </div>
                 </div>
               </div>
-            )}
-
-            {/* Author Card */}
-            <div className={`mt-10 p-6 theme-card rounded-2xl border transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '2000ms' }}>
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-toadster-green rounded-full flex items-center justify-center flex-shrink-0">
-                  <User size={22} className="text-white" />
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-page-fg text-lg">{blog.author}</p>
-                  {blog.authorRole && <p className="text-xs text-page-fg-subtle">{blog.authorRole}</p>}
-                  <p className="text-page-fg-muted text-sm leading-relaxed">
-                    {blog.author} is a {blog.authorRole || 'expert contributor'} at Toadsters, specializing in {blog.category || 'AI and emerging technologies'}. Bringing practical insights and cutting-edge knowledge to help businesses navigate the {blog.category || 'AI'} landscape.
-                  </p>
-                </div>
-              </div>
-            </div>
             </div>
 
             {/* Sidebar */}
