@@ -19,7 +19,7 @@ import {
   UserCog,
   Zap,
 } from "lucide-react"
-import { allBlogs, type BlogPost } from "@/pages/blogs/blogData"
+import { type BlogPost } from "@/pages/blogs/blogData"
 
 export interface ServiceMeta {
   slug: string
@@ -259,7 +259,7 @@ export function getRelatedServicesForBlog(blog: BlogPost): ServiceMeta[] {
     .filter((s): s is ServiceMeta => Boolean(s))
 }
 
-export function getRelatedBlogsForService(serviceSlug: string, limit = 3): BlogPost[] {
+export function getRelatedBlogsForService(serviceSlug: string, allBlogs: BlogPost[], limit = 3): BlogPost[] {
   const categories = SERVICE_TO_BLOG_CATEGORIES[serviceSlug] ?? []
   const matches: BlogPost[] = []
   const seenSlugs = new Set<string>()
@@ -284,6 +284,6 @@ export function getRelatedBlogsForService(serviceSlug: string, limit = 3): BlogP
   return matches
 }
 
-export function getRelatedBlogsForBlog(currentSlug: string, limit = 3): BlogPost[] {
+export function getRelatedBlogsForBlog(currentSlug: string, allBlogs: BlogPost[], limit = 3): BlogPost[] {
   return allBlogs.filter((blog) => blog.slug !== currentSlug).slice(0, limit)
 }

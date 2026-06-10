@@ -1,6 +1,7 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises"
-import { dirname, join, resolve } from "node:path"
-import { fileURLToPath } from "node:url"
+import { mkdir, readFile, writeFile } from "fs/promises"
+import { dirname, join, resolve } from "path"
+import { fileURLToPath } from "url"
+import { loadEnv } from "vite"
 import {
   buildBlogJsonLd,
   buildCanonicalUrl,
@@ -15,7 +16,7 @@ import {
   SITE_URL,
   STATIC_PAGE_METADATA,
 } from "../src/config/metadata"
-import { allBlogs } from "../src/pages/blogs/blogData"
+import { type BlogPost } from "../src/pages/blogs/blogData"
 import {
   getRelatedBlogsForBlog,
   getRelatedBlogsForService,
@@ -26,8 +27,16 @@ import {
 } from "../src/config/internalLinks"
 
 const HERE = dirname(fileURLToPath(import.meta.url))
-const DIST_DIR = resolve(HERE, "..", "dist")
+const ROOT_DIR = resolve(HERE, "..")
+const DIST_DIR = join(ROOT_DIR, "dist")
 const SOURCE_HTML = join(DIST_DIR, "index.html")
+
+const env = loadEnv("production", ROOT_DIR, "")
+const API_BASE_URL = (env.VITE_API_BASE_URL ?? "").replace(/\/$/, "")
+
+interface BlogsListResponse {
+  blogs?: BlogPost[]
+}
 
 function escapeHtmlAttribute(value: string): string {
   return value
@@ -105,11 +114,13 @@ function injectBlogJsonLd(html: string, jsonLdBlob: string | null): string {
   return html.replace("</head>", `${scripts}\n</head>`)
 }
 
-const KNOWN_ROUTES = new Set<string>([
-  "/",
-  ...Object.keys(STATIC_PAGE_METADATA),
-  ...allBlogs.map((blog) => `/blogs/${blog.slug}`),
-])
+function getKnownRoutes(allBlogs: BlogPost[]) {
+  return new Set<string>([
+    "/",
+    ...Object.keys(STATIC_PAGE_METADATA),
+    ...allBlogs.map((blog) => `/blogs/${blog.slug}`),
+  ])
+}
 
 const ACRONYMS = new Set([
   "ai",
@@ -125,10 +136,10 @@ const ACRONYMS = new Set([
   "kpi",
 ])
 
-function injectBreadcrumbJsonLd(html: string, pathname: string): string {
+function injectBreadcrumbJsonLd(html: string, pathname: string, allBlogs: BlogPost[]): string {
   if (pathname === "/") return html
 
-  const crumbs = buildBreadcrumbTrail(pathname)
+  const crumbs = buildBreadcrumbTrail(pathname, allBlogs)
   if (crumbs.length === 0) return html
 
   const items = [
@@ -163,23 +174,24 @@ interface Crumb {
   url: string
 }
 
-function buildBreadcrumbTrail(pathname: string): Crumb[] {
+function buildBreadcrumbTrail(pathname: string, allBlogs: BlogPost[]): Crumb[] {
   const segments = pathname.split("/").filter(Boolean)
   const trail: Crumb[] = []
+  const KNOWN_ROUTES = getKnownRoutes(allBlogs)
 
   segments.forEach((segment, index) => {
     const cumulative = `/${segments.slice(0, index + 1).join("/")}`
     const isLast = index === segments.length - 1
     if (!isLast && !KNOWN_ROUTES.has(cumulative)) return
 
-    const name = resolveSegmentName(cumulative, segment)
+    const name = resolveSegmentName(cumulative, segment, allBlogs)
     trail.push({ name, url: buildCanonicalUrl(cumulative) })
   })
 
   return trail
 }
 
-function resolveSegmentName(cumulative: string, segment: string): string {
+function resolveSegmentName(cumulative: string, segment: string, allBlogs: BlogPost[]): string {
   const meta = STATIC_PAGE_METADATA[cumulative]
   if (meta) return shortenMetaTitle(meta.title)
 
@@ -232,12 +244,12 @@ function serviceToLink(service: ServiceMeta): RelatedLinkItem {
   }
 }
 
-function getRelatedLinksForPath(pathname: string): RelatedLinkSets | null {
+function getRelatedLinksForPath(pathname: string, allBlogs: BlogPost[]): RelatedLinkSets | null {
   const service = getServiceByPath(pathname)
   if (service) {
     return {
       services: getRelatedServices(service).map(serviceToLink),
-      blogs: getRelatedBlogsForService(service.slug).map((blog) => ({
+      blogs: getRelatedBlogsForService(service.slug, allBlogs).map((blog) => ({
         href: toAbsolute(`/blogs/${blog.slug}`),
         title: blog.title,
         description: blog.description,
@@ -251,7 +263,7 @@ function getRelatedLinksForPath(pathname: string): RelatedLinkSets | null {
     if (!blog) return null
     return {
       services: getRelatedServicesForBlog(blog).map(serviceToLink),
-      blogs: getRelatedBlogsForBlog(slug).map((relatedBlog) => ({
+      blogs: getRelatedBlogsForBlog(slug, allBlogs).map((relatedBlog) => ({
         href: toAbsolute(`/blogs/${relatedBlog.slug}`),
         title: relatedBlog.title,
         description: relatedBlog.description,
@@ -277,8 +289,8 @@ function renderLinkList(label: string, items: RelatedLinkItem[]): string {
   return `  <section>\n    <h2>${escapeHtmlText(label)}</h2>\n    <ul>\n${listItems}\n    </ul>\n  </section>`
 }
 
-function injectRelatedLinks(html: string, pathname: string): string {
-  const sets = getRelatedLinksForPath(pathname)
+function injectRelatedLinks(html: string, pathname: string, allBlogs: BlogPost[]): string {
+  const sets = getRelatedLinksForPath(pathname, allBlogs)
   if (!sets) return html
   if (sets.services.length === 0 && sets.blogs.length === 0) return html
 
@@ -296,8 +308,8 @@ function injectRelatedLinks(html: string, pathname: string): string {
   return `${html}\n${block}`
 }
 
-function applyMetadataForRoute(baseHtml: string, pathname: string): string {
-  const metadata = getMetadataForPath(pathname)
+function applyMetadataForRoute(baseHtml: string, pathname: string, allBlogs: BlogPost[]): string {
+  const metadata = getMetadataForPath(pathname, allBlogs)
   const canonical = buildCanonicalUrl(pathname)
 
   let html = baseHtml
@@ -318,9 +330,9 @@ function applyMetadataForRoute(baseHtml: string, pathname: string): string {
   html = replaceMeta(html, { name: "name", value: "twitter:image:alt" }, SITE_OG_IMAGE_ALT)
   html = replaceCanonical(html, canonical)
   html = replaceHreflang(html, canonical)
-  html = injectBreadcrumbJsonLd(html, pathname)
-  html = injectBlogJsonLd(html, buildBlogJsonLd(pathname))
-  html = injectRelatedLinks(html, pathname)
+  html = injectBreadcrumbJsonLd(html, pathname, allBlogs)
+  html = injectBlogJsonLd(html, buildBlogJsonLd(pathname, allBlogs))
+  html = injectRelatedLinks(html, pathname, allBlogs)
 
   return html
 }
@@ -333,7 +345,23 @@ function pathnameToOutputFile(pathname: string): string {
 
 async function prerender(): Promise<void> {
   const baseHtml = await readFile(SOURCE_HTML, "utf8")
-  const routes = getAllPrerenderRoutes()
+  
+  let allBlogs: BlogPost[] = []
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/public/blogs`, {
+      headers: {
+        "ngrok-skip-browser-warning": "true",
+      },
+    })
+    if (res.ok) {
+      const data = (await res.json()) as BlogsListResponse
+      allBlogs = data.blogs ?? []
+    }
+  } catch (err) {
+    console.error("[prerender] failed to fetch blogs, using empty list", err)
+  }
+
+  const routes = getAllPrerenderRoutes(allBlogs)
 
   console.log(
     `[prerender] rendering ${routes.length} routes (home metadata fallback: "${DEFAULT_METADATA.title}")`
@@ -341,7 +369,7 @@ async function prerender(): Promise<void> {
 
   let count = 0
   for (const pathname of routes) {
-    const html = applyMetadataForRoute(baseHtml, pathname)
+    const html = applyMetadataForRoute(baseHtml, pathname, allBlogs)
     const outFile = pathnameToOutputFile(pathname)
     await mkdir(dirname(outFile), { recursive: true })
     await writeFile(outFile, html, "utf8")

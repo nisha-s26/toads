@@ -1,8 +1,9 @@
 import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { ArrowUpRight, BookOpen, Compass } from "lucide-react"
+import { fetchAllBlogs } from "@/lib/api"
 import type { BlogPost } from "@/pages/blogs/blogData"
-import { allBlogs } from "@/pages/blogs/blogData"
+import { useState, useEffect } from "react"
 import {
   getRelatedBlogsForBlog,
   getRelatedBlogsForService,
@@ -17,12 +18,12 @@ interface RelatedLinksData {
   blogs: BlogPost[]
 }
 
-function getDataForPath(pathname: string): RelatedLinksData | null {
+function getDataForPath(pathname: string, allBlogs: BlogPost[]): RelatedLinksData | null {
   const service = getServiceByPath(pathname)
   if (service) {
     return {
       services: getRelatedServices(service),
-      blogs: getRelatedBlogsForService(service.slug),
+      blogs: getRelatedBlogsForService(service.slug, allBlogs),
     }
   }
 
@@ -32,7 +33,7 @@ function getDataForPath(pathname: string): RelatedLinksData | null {
     if (!blog) return null
     return {
       services: getRelatedServicesForBlog(blog),
-      blogs: getRelatedBlogsForBlog(slug),
+      blogs: getRelatedBlogsForBlog(slug, allBlogs),
     }
   }
 
@@ -41,7 +42,20 @@ function getDataForPath(pathname: string): RelatedLinksData | null {
 
 export function RelatedLinks() {
   const { pathname } = useLocation()
-  const data = getDataForPath(pathname)
+  const [allBlogs, setAllBlogs] = useState<BlogPost[]>([])
+  
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        setAllBlogs(await fetchAllBlogs())
+      } catch (error) {
+        console.error("Failed to fetch blogs:", error)
+      }
+    }
+    fetchBlogs()
+  }, [])
+
+  const data = getDataForPath(pathname, allBlogs)
   if (!data) return null
   if (data.services.length === 0 && data.blogs.length === 0) return null
 
