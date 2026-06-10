@@ -10,14 +10,17 @@ import ParallaxShowcase from "./ParallaxShowcase"
 const HomePage = () => {
   return (
     <div className="bg-page-bg">
-        <HeroSection />
-        <TrustedBy/>
-        <AiCap/>
-        <OurProcess/>
-        <WhyUs/>
-        <ParallaxShowcase/>
-        <Solutions/>
-        <GetStarted/>
+      <HeroSection />
+      <div className="homepage-sections">
+        <div className="homepage-sections-gradient" aria-hidden />
+        <TrustedBy />
+        <AiCap />
+        <OurProcess />
+        <WhyUs />
+        <ParallaxShowcase />
+        <Solutions />
+        <GetStarted />
+      </div>
     </div>
   )
 }

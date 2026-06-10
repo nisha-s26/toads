@@ -138,17 +138,8 @@ const WhyUs = () => {
   const inView = useInView(ref, { amount: 0.25, once: true })
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-page-bg py-16 md:py-20">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-toadster-green/10 blur-3xl dark:bg-toadster-green/15"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-toadster-green/8 blur-3xl"
-      />
-
-      <div className="relative mx-auto max-w-9xl px-4 lg:px-20">
+    <section ref={ref} className="relative py-16 md:py-20">
+      <div className="mx-auto max-w-9xl px-4 lg:px-20">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
           {/* Left — copy & CTAs */}
           <motion.div

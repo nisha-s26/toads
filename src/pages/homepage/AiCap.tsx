@@ -227,7 +227,7 @@ export default function AiCap() {
   }, [selected])
 
   return (
-    <section className="w-full bg-page-bg px-4 mt-5">
+    <section className="w-full px-4 mt-5">
       {/* Header */}
       <div className="text-center mb-12">
         <p className="text-lg tracking-[0.35em] section-eyebrow font-bold">

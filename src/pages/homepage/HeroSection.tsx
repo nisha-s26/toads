@@ -14,6 +14,12 @@ import {
   Layers,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useTheme } from "@/hooks/theme"
+
+const HERO_BACKGROUNDS = {
+  light: "/hero-dark.png",
+  dark: "/hero-light.png",
+} as const
 
 interface Ring {
   radius: { desktop: number; mobile: number }
@@ -113,6 +119,7 @@ function Orbits({ variant }: OrbitsProps) {
 }
 
 export default function HeroSection() {
+  const { theme } = useTheme()
   const prefersReducedMotion = useReducedMotion()
   const [showOrbits, setShowOrbits] = useState(false)
 
@@ -132,11 +139,18 @@ export default function HeroSection() {
   return (
     <section className="relative overflow-hidden sm:py-40 py-20">
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-[background-image] duration-500"
+        style={{ backgroundImage: `url('${HERO_BACKGROUNDS[theme]}')` }}
         aria-hidden="true"
       />
-      <div className="absolute inset-0 z-[1] bg-linear-to-b from-black/40 via-black/25 to-black/50" aria-hidden="true" />
+      <div
+        className={`absolute inset-0 z-[1] bg-linear-to-b ${
+          theme === "dark"
+            ? "from-black/30 via-black/15 to-black/40"
+            : "from-black/25 via-black/10 to-black/35"
+        }`}
+        aria-hidden="true"
+      />
 
       <motion.div
         className="max-w-9xl mx-auto text-center relative z-20"
@@ -155,13 +169,13 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.h1
-          className="hero-title text-5xl md:text-[85px] font-extrabold leading-tight w-full"
+          className="hero-title text-5xl md:text-7xl font-extrabold leading-tight w-full"
           initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           Build Intelligent Systems with
-          <div className="mt-3">
+          <div className="mt-3 italic">
             <Typewriter
               words={["Data Science", "Machine Learning", "AI Automation", "Predictive Analytics"]}
             />
