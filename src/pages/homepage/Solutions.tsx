@@ -187,13 +187,8 @@ function SolutionTile({
 
 export default function Solutions() {
   return (
-    <section className="relative overflow-hidden bg-page-bg pb-20 pt-10">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-64 w-[80%] -translate-x-1/2 rounded-full bg-toadster-green/5 blur-3xl dark:bg-toadster-green/10"
-      />
-
-      <div className="relative mx-auto max-w-9xl px-4 lg:px-20">
+    <section className="relative pb-20 pt-10">
+      <div className="mx-auto max-w-9xl px-4 lg:px-20">
         <div className="mb-14 text-center">
           <p className="text-lg font-bold tracking-[0.35em] section-eyebrow">SOLUTIONS</p>
           <h2 className="mt-3 text-4xl font-bold text-page-fg md:text-6xl">

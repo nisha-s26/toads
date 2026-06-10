@@ -44,7 +44,7 @@ const OurProcess = () => {
     )
 
     return (
-        <section ref={sectionRef} className="bg-page-bg">
+        <section ref={sectionRef} className="relative">
             <div className="max-w-9xl mx-20 px-4 pt-10 pb-10">
                 <div className="text-center">
                     <p className="text-lg tracking-[0.35em] section-eyebrow font-bold">OUR PROCESS</p>

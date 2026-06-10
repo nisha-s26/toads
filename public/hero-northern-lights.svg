@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050510"/>
+      <stop offset="35%" stop-color="#0a0a1f"/>
+      <stop offset="70%" stop-color="#12082a"/>
+      <stop offset="100%" stop-color="#050510"/>
+    </linearGradient>
+
+    <radialGradient id="aurora-1" cx="18%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.45"/>
+      <stop offset="45%" stop-color="#7c4dff" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#7c4dff" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="aurora-2" cx="82%" cy="18%" r="50%">
+      <stop offset="0%" stop-color="#ff4fd8" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#5b2cff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#5b2cff" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="aurora-3" cx="50%" cy="88%" r="48%">
+      <stop offset="0%" stop-color="#2aa807" stop-opacity="0.28"/>
+      <stop offset="55%" stop-color="#00c2ff" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#00c2ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="bubble-a" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="18%" stop-color="#b388ff" stop-opacity="0.35"/>
+      <stop offset="55%" stop-color="#00e5ff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#12082a" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="bubble-b" cx="68%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="20%" stop-color="#ff80ab" stop-opacity="0.32"/>
+      <stop offset="58%" stop-color="#7c4dff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#12082a" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="bubble-c" cx="24%" cy="68%" r="58%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.42"/>
+      <stop offset="22%" stop-color="#69f0ae" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#00b0ff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#12082a" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="bubble-d" cx="76%" cy="72%" r="62%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.48"/>
+      <stop offset="18%" stop-color="#40c4ff" stop-opacity="0.3"/>
+      <stop offset="55%" stop-color="#ea80fc" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#12082a" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="bubble-e" cx="50%" cy="48%" r="68%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="25%" stop-color="#b39ddb" stop-opacity="0.22"/>
+      <stop offset="65%" stop-color="#18ffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#12082a" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#aurora-1)"/>
+  <rect width="1920" height="1080" fill="url(#aurora-2)"/>
+  <rect width="1920" height="1080" fill="url(#aurora-3)"/>
+
+  <g filter="url(#glow)" opacity="0.95">
+    <circle cx="360" cy="250" r="170" fill="url(#bubble-a)"/>
+    <circle cx="1480" cy="320" r="210" fill="url(#bubble-b)"/>
+    <circle cx="420" cy="760" r="190" fill="url(#bubble-c)"/>
+    <circle cx="1540" cy="700" r="230" fill="url(#bubble-d)"/>
+    <circle cx="960" cy="520" r="280" fill="url(#bubble-e)"/>
+    <circle cx="1120" cy="180" r="95" fill="url(#bubble-a)" opacity="0.75"/>
+    <circle cx="220" cy="500" r="80" fill="url(#bubble-b)" opacity="0.7"/>
+    <circle cx="1680" cy="520" r="110" fill="url(#bubble-c)" opacity="0.72"/>
+    <circle cx="760" cy="860" r="120" fill="url(#bubble-d)" opacity="0.68"/>
+  </g>
+</svg>
