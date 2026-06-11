@@ -1,3 +1,7 @@
+"use client"
+
+import Image from "next/image"
+
 interface CountrySectionCardProps {
   title: string
   paragraphs: string[]
@@ -22,13 +26,13 @@ export function CountrySectionCard({
           imageFirst ? "sm:order-1" : "sm:order-2"
         }`}
       >
-        <img
+        <Image
           src={image}
           alt={imageAlt}
-          loading="lazy"
-          decoding="async"
+          fill
           referrerPolicy="no-referrer"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 640px) 100vw, 38vw"
         />
         <div className="absolute inset-0 bg-linear-to-br from-[#0a1f12]/50 via-transparent to-[#2ECC71]/10" />
         <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent sm:bg-linear-to-r sm:from-black/30 sm:to-transparent" />

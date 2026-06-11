@@ -1,3 +1,6 @@
+"use client"
+
+import Image from "next/image"
 import { useTheme } from "@/hooks/theme"
 
 interface ToadsterLogoProps {
@@ -17,13 +20,14 @@ export function ToadsterLogo({
   const src = theme === "dark" ? "/toadster-logo-dark.svg" : "/toadster-logo.svg"
 
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
       title="Toadster Logo"
       className={`toadster-logo select-none ${className}`}
-      height={height}
-      width={width}
+      height={height ?? 40}
+      width={width ?? 160}
+      unoptimized
     />
   )
 }

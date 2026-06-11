@@ -1,21 +1,28 @@
-import type { BlogPost } from "@/pages/blogs/blogData"
+import type { BlogPost } from "@/views/blogs/blogData"
 
 interface BlogsListResponse {
   blogs?: BlogPost[]
 }
 
 function getApiBaseUrl(): string {
-  // Dev: same-origin /api/public/* is proxied to ngrok by Vite (avoids CORS).
-  if (import.meta.env.DEV) return ""
-  return (import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/$/, "")
+  const envUrl =
+    process.env.API_BASE_URL ??
+    process.env.NEXT_PUBLIC_API_BASE_URL ??
+    process.env.VITE_API_BASE_URL ??
+    ""
+
+  // Server: use API_BASE_URL directly. Client in dev: same-origin via Next.js rewrite.
+  if (typeof window === "undefined") {
+    return envUrl.replace(/\/$/, "")
+  }
+  if (process.env.NODE_ENV === "development") return ""
+  return envUrl.replace(/\/$/, "")
 }
 
 function getRequestHeaders(init?: RequestInit): HeadersInit {
   const headers: Record<string, string> = {}
 
-  // In dev the Vite proxy adds ngrok-skip-browser-warning server-side.
-  // Sending it from the browser on a cross-origin request triggers a CORS preflight.
-  if (!import.meta.env.DEV) {
+  if (typeof window !== "undefined" && process.env.NODE_ENV !== "development") {
     headers["ngrok-skip-browser-warning"] = "true"
   }
 
@@ -35,9 +42,18 @@ function apiUrl(path: string): string {
 }
 
 export async function apiFetch(path: string, init?: RequestInit): Promise<Response> {
-  return fetch(apiUrl(path), {
+  const url = apiUrl(path)
+  if (!url.startsWith("http")) {
+    return new Response(JSON.stringify({ blogs: [] }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    })
+  }
+
+  return fetch(url, {
     ...init,
     headers: getRequestHeaders(init),
+    next: { revalidate: 3600 },
   })
 }
 

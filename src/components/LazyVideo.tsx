@@ -1,3 +1,6 @@
+"use client"
+
+import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 
 interface LazyVideoProps {
@@ -58,7 +61,7 @@ export function LazyVideo({ src, className, poster, ariaHidden = true }: LazyVid
   }, [])
 
   return (
-    <div ref={containerRef} className={className} aria-hidden={ariaHidden}>
+    <div ref={containerRef} className={`relative ${className ?? ""}`} aria-hidden={ariaHidden}>
       {shouldRender ? (
         <video
           autoPlay
@@ -71,16 +74,14 @@ export function LazyVideo({ src, className, poster, ariaHidden = true }: LazyVid
           src={src}
         />
       ) : poster ? (
-        <img
+        <Image
           src={poster}
           alt=""
-          aria-hidden="true"
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore — fetchpriority is valid HTML but not yet in React types
-          fetchpriority="high"
-          loading="eager"
-          decoding="sync"
-          className="w-full h-full object-cover"
+          aria-hidden
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
         />
       ) : null}
     </div>

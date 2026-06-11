@@ -1,4 +1,4 @@
-import { type BlogPost } from "../pages/blogs/blogData"
+import { type BlogPost } from "../views/blogs/blogData"
 
 export interface PageMetadata {
   title: string

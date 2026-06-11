@@ -1,3 +1,5 @@
+"use client"
+
 import { motion } from "framer-motion"
 import type { LucideIcon } from "lucide-react"
 import {
@@ -9,7 +11,7 @@ import {
   MessageSquare,
   Sparkles,
 } from "lucide-react"
-import { Link } from "react-router-dom"
+import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 interface ExploreItem {
@@ -152,7 +154,7 @@ export function ExploreLinkCards() {
           return (
             <motion.div key={card.title} variants={item}>
               <Link
-                to={card.to}
+                href={card.to}
                 title={card.title}
                 className={cn(
                   "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-page-border",

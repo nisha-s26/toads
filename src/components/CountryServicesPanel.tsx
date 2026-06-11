@@ -1,3 +1,5 @@
+"use client"
+
 import {
   ArrowUpRight,
   Bot,
@@ -11,7 +13,8 @@ import {
   Workflow,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
-import { Link } from "react-router-dom"
+import Image from "next/image"
+import Link from "next/link"
 import { ScrollReveal } from "@/components/ScrollReveal"
 import { TECH_IMAGES } from "@/constants/countryTechImages"
 import { cn } from "@/lib/utils"
@@ -78,14 +81,14 @@ function ServiceCard({ name, index }: { name: string; index: number }) {
       )}
     >
       {/* Background image */}
-      <img
+      <Image
         src={image}
         alt=""
         aria-hidden
-        loading="lazy"
-        decoding="async"
+        fill
         referrerPolicy="no-referrer"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+        sizes="(max-width: 640px) 100vw, 25vw"
       />
 
       {/* Gradient + dark overlay stack */}
@@ -143,7 +146,7 @@ function ServiceCard({ name, index }: { name: string; index: number }) {
 
   if (href) {
     return (
-      <Link to={href} title={name} className="block h-full">
+      <Link href={href} title={name} className="block h-full">
         {card}
       </Link>
     )

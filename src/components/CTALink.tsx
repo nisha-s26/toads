@@ -1,5 +1,7 @@
+"use client"
+
 import type { ReactNode } from "react"
-import { Link } from "react-router-dom"
+import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 
@@ -14,7 +16,7 @@ interface CTALinkProps {
 export function CTALink({ to, className, children, ariaLabel, title }: CTALinkProps) {
   return (
     <Link
-      to={to}
+      href={to}
       aria-label={ariaLabel}
       title={title || ariaLabel || (typeof children === 'string' ? children : undefined)}
       className={cn(

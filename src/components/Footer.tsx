@@ -1,7 +1,9 @@
+"use client"
+
 import type { ComponentType, ReactNode } from "react"
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Youtube } from "lucide-react"
 import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
+import Link from "next/link"
 import { ToadsterLogo } from "@/components/ToadsterLogo"
 
 interface InternalLink {
@@ -61,7 +63,7 @@ function FooterInternalLink({ to, label }: InternalLink) {
     return (
         <li>
             <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }} className="inline-block">
-                <Link to={to} title={label} className={linkClassName}>
+                <Link href={to} title={label} className={linkClassName}>
                     {label}
                 </Link>
             </motion.div>
@@ -126,7 +128,7 @@ const Footer = () => {
                             viewport={{ once: true }}
                             className="flex items-center gap-2 mb-4"
                         >
-                            <Link to="/" aria-label="Toadster home" title="Toadster Home">
+                            <Link href="/" aria-label="Toadster home" title="Toadster Home">
                                 <ToadsterLogo height={40} width={180} />
                             </Link>
                         </motion.div>

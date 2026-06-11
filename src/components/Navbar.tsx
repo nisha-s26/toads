@@ -1,5 +1,8 @@
+"use client"
+
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { ChevronDown, Globe2, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ThemeToggle"
@@ -126,7 +129,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
   const [mobileDedicatedOpen, setMobileDedicatedOpen] = useState(false)
   const [mobileCountriesOpen, setMobileCountriesOpen] = useState(false)
   const [desktopCountriesOpen, setDesktopCountriesOpen] = useState(false)
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const closeMobile = () => {
     setMobileOpen(false)
@@ -140,7 +143,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
     <>
       {/* ── Blur Backdrop ── */}
       <div
-        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 md:hidden ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
         onClick={closeMobile}
         aria-hidden="true"
@@ -148,14 +151,14 @@ export function Navbar({ activeSection }: { activeSection: string }) {
 
       {/* ── Mobile Right-Side Drawer ── */}
       <div
-        className={`fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-page-card z-50 shadow-2xl flex flex-col md:hidden transform transition-transform duration-300 ease-in-out ${mobileOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-0 right-0 z-[60] flex h-full w-72 max-w-[85vw] transform flex-col bg-page-card shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-page-border shrink-0">
-          <a href="/" onClick={closeMobile} title="Toadster Home" className="flex items-center">
+          <Link href="/" onClick={closeMobile} title="Toadster Home" className="flex items-center">
             <ToadsterLogo className="h-5 w-auto" />
-          </a>
+          </Link>
           <div className="flex items-center gap-2">
             <ThemeToggle size="sm" />
             <button
@@ -199,7 +202,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                             onClick={(e) => {
                               e.preventDefault()
                               closeMobile()
-                              navigate(SERVICE_ROUTES[s.title] || "/services")
+                              router.push(SERVICE_ROUTES[s.title] || "/services")
                             }}
                           >
                             {s.title}
@@ -237,7 +240,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                     onClick={(e) => {
                       e.preventDefault()
                       closeMobile()
-                      navigate(country.href)
+                      router.push(country.href)
                     }}
                   >
                     <span aria-hidden className="text-base leading-none">{country.flag}</span>
@@ -276,7 +279,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                             onClick={(e) => {
                               e.preventDefault()
                               closeMobile()
-                              navigate(DEDICATED_RESOURCES_ROUTES[s.title] || "/dedicated-resources")
+                              router.push(DEDICATED_RESOURCES_ROUTES[s.title] || "/dedicated-resources")
                             }}
                           >
                             {s.title}
@@ -300,11 +303,11 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                   onClick={(e) => {
                     e.preventDefault()
                     closeMobile()
-                    if (link.label === "Home") navigate("/")
-                    else if (link.label === "Contact Us") navigate("/contact")
-                    else if (link.label === "About Us") navigate("/about")
-                    else if (link.label === "Blogs") navigate("/blogs")
-                    else if (link.label === "Careers") navigate("/careers")
+                    if (link.label === "Home") router.push("/")
+                    else if (link.label === "Contact Us") router.push("/contact")
+                    else if (link.label === "About Us") router.push("/about")
+                    else if (link.label === "Blogs") router.push("/blogs")
+                    else if (link.label === "Careers") router.push("/careers")
                   }}
                 >
                   {link.label}
@@ -318,7 +321,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
         {/* Drawer Footer */}
         <div className="px-5 py-4 border-t border-page-border shrink-0">
           <Button
-            onClick={() => { navigate("/contact"); closeMobile() }}
+            onClick={() => { router.push("/contact"); closeMobile() }}
             className="w-full rounded-xl text-sm font-semibold"
           >
             Schedule a Call
@@ -326,19 +329,18 @@ export function Navbar({ activeSection }: { activeSection: string }) {
         </div>
       </div>
 
-      <header className="absolute top-0 left-0 right-0 w-full flex justify-center px-3 sm:px-4 pt-3">
-        {/* Floating pill container */}
+      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center bg-transparent px-3 pt-3 sm:px-4 sm:pt-4 md:px-6">
         <nav
-          className="w-full max-w-9xl rounded-2xl px-6 mx-20 sm:px-8 py-3 flex items-center justify-between min-w-0 bg-page-nav backdrop-blur-md border border-page-border"
+          className="pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-3 rounded-2xl border border-page-border/70 bg-page-nav/85 px-4 py-2.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-3 lg:max-w-[88rem] lg:px-8"
           style={{ boxShadow: "var(--page-nav-shadow)" }}
         >
           {/* ── Logo ── */}
-          <a href="/" title="Toadster Home" className="flex items-center gap-2.5 shrink-0 min-w-0">
-            <ToadsterLogo width={160} height={40} />
-          </a>
+          <Link href="/" title="Toadster Home" className="flex shrink-0 items-center gap-2.5 min-w-0">
+            <ToadsterLogo width={132} height={34} className="h-7 w-auto sm:h-8 md:h-9" />
+          </Link>
 
           {/* ── Desktop Nav ── */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex min-w-0 flex-1 items-center justify-center">
             <NavigationMenu>
               <NavigationMenuList className="gap-0">
                 {navLinks.map((link) => (
@@ -455,12 +457,12 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                         title={link.label}
                         onClick={e => {
                           e.preventDefault();
-                          if (link.label === "Home") navigate("/");
-                          else if (link.label === "Contact Us") navigate("/contact");
-                          else if (link.label === "About Us") navigate("/about");
-                          else if (link.label === "Blogs") navigate("/blogs");
-                          else if (link.label === "Dedicated Resources") navigate("/dedicated-resources");
-                          else if (link.label === "Careers") navigate("/careers");
+                          if (link.label === "Home") router.push("/");
+                          else if (link.label === "Contact Us") router.push("/contact");
+                          else if (link.label === "About Us") router.push("/about");
+                          else if (link.label === "Blogs") router.push("/blogs");
+                          else if (link.label === "Dedicated Resources") router.push("/dedicated-resources");
+                          else if (link.label === "Careers") router.push("/careers");
                         }}
                         className={`
                         relative px-4 py-2 text-sm font-medium rounded-full transition-colors
@@ -489,7 +491,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
           </div>
 
         {/* ── CTA + Theme ── */}
-        <div className="hidden md:flex shrink-0 items-center gap-2">
+        <div className="hidden shrink-0 items-center gap-1.5 lg:flex lg:gap-2">
           <div className="relative">
             <button
               type="button"
@@ -520,7 +522,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                         className="flex w-full items-start gap-3 rounded-xl px-4 py-3 text-left transition-colors hover:bg-page-accent-soft"
                         onClick={() => {
                           setDesktopCountriesOpen(false)
-                          navigate(country.href)
+                          router.push(country.href)
                         }}
                       >
                         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-lg leading-none">
@@ -543,7 +545,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
           </div>
           <ThemeToggle />
           <Button
-            onClick={() => navigate("/contact")}
+            onClick={() => router.push("/contact")}
             className="rounded-xl px-5 py-5 text-sm font-semibold"
           >
             Schedule a Call
@@ -551,7 +553,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
         </div>
 
           {/* ── Mobile Controls ── */}
-          <div className="md:hidden flex items-center gap-1">
+          <div className="flex shrink-0 items-center gap-1 lg:hidden">
             <ThemeToggle size="sm" />
             <button
               className="p-2 rounded-lg text-page-fg-muted hover:bg-page-accent-soft transition-colors"

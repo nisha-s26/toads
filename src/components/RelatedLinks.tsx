@@ -1,8 +1,11 @@
-import { useLocation } from "react-router-dom"
-import { Link } from "react-router-dom"
+"use client"
+
+import { usePathname } from "next/navigation"
+import Image from "next/image"
+import Link from "next/link"
 import { ArrowUpRight, BookOpen, Compass } from "lucide-react"
 import { fetchAllBlogs } from "@/lib/api"
-import type { BlogPost } from "@/pages/blogs/blogData"
+import type { BlogPost } from "@/views/blogs/blogData"
 import { useState, useEffect } from "react"
 import {
   getRelatedBlogsForBlog,
@@ -41,7 +44,7 @@ function getDataForPath(pathname: string, allBlogs: BlogPost[]): RelatedLinksDat
 }
 
 export function RelatedLinks() {
-  const { pathname } = useLocation()
+  const pathname = usePathname()
   const [allBlogs, setAllBlogs] = useState<BlogPost[]>([])
   
   useEffect(() => {
@@ -92,7 +95,7 @@ export function RelatedLinks() {
                   return (
                     <li key={service.slug}>
                       <Link
-                        to={service.path}
+                        href={service.path}
                         title={service.title}
                         className="group flex h-full items-start gap-3 sm:gap-4 rounded-2xl border border-page-border bg-page-card p-4 sm:p-5 transition-all hover:border-toadster-green/50 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_-12px_rgba(74,222,128,0.25)]"
                       >
@@ -133,19 +136,19 @@ export function RelatedLinks() {
                 {data.blogs.map((blog) => (
                   <li key={blog.slug}>
                     <Link
-                      to={`/blogs/${blog.slug}`}
+                      href={`/blogs/${blog.slug}`}
                       title={blog.title}
                       className="group flex gap-3 sm:gap-4 rounded-2xl border border-page-border bg-page-card p-3 sm:p-4 transition-all hover:border-toadster-green/50 hover:-translate-y-0.5"
                     >
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl overflow-hidden bg-black/30">
-                        <img
+                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-black/30 sm:h-20 sm:w-20">
+                        <Image
                           src={blog.image}
                           alt={blog.title}
                           title={blog.title}
-                          loading="lazy"
-                          decoding="async"
+                          fill
                           referrerPolicy="no-referrer"
-                          className="w-full h-full object-cover"
+                          className="object-cover"
+                          sizes="80px"
                         />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -166,7 +169,7 @@ export function RelatedLinks() {
                 ))}
               </ul>
               <Link
-                to="/blogs"
+                href="/blogs"
                 title="View all blog posts"
                 className="mt-5 sm:mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-toadster-green hover:gap-2 transition-all"
               >

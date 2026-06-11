@@ -1,5 +1,7 @@
+"use client"
+
 import { ArrowRight } from "lucide-react"
-import { Link } from "react-router-dom"
+import Link from "next/link"
 import { ScrollReveal } from "@/components/ScrollReveal"
 
 export interface IndiaLocationLink {
@@ -38,7 +40,7 @@ export function IndiaLocationSwitcher({
               return (
                 <Link
                   key={location.label}
-                  to={location.href}
+                  href={location.href}
                   aria-current={isActive ? "page" : undefined}
                   className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                     isActive

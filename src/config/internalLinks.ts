@@ -19,7 +19,7 @@ import {
   UserCog,
   Zap,
 } from "lucide-react"
-import { type BlogPost } from "@/pages/blogs/blogData"
+import { type BlogPost } from "@/views/blogs/blogData"
 
 export interface ServiceMeta {
   slug: string

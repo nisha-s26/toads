@@ -1,3 +1,6 @@
+"use client"
+
+import Image from "next/image"
 import { TRUSTED_BY_CLIENTS } from "@/constants/trustedByClients"
 import { cn } from "@/lib/utils"
 
@@ -36,9 +39,11 @@ export function ServicesTrustedBy() {
               className="flex h-10 shrink-0 min-w-[120px] items-center justify-center"
             >
               {client.src ? (
-                <img
+                <Image
                   src={client.src}
                   alt={client.label}
+                  width={140}
+                  height={40}
                   className="h-8 w-auto max-w-[140px] object-contain"
                 />
               ) : (

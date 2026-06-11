@@ -1,3 +1,6 @@
+"use client"
+
+import Image from "next/image"
 import { MapPin } from "lucide-react"
 import type { ReactNode } from "react"
 import { ScrollReveal } from "@/components/ScrollReveal"
@@ -41,14 +44,15 @@ export function CountryHero({
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="relative overflow-hidden rounded-2xl border border-page-border shadow-lg">
-            <img
+          <div className="relative h-56 overflow-hidden rounded-2xl border border-page-border shadow-lg md:h-64 lg:h-72">
+            <Image
               src={heroImage}
               alt={heroImageAlt}
-              className="h-56 w-full object-cover md:h-64 lg:h-72"
-              loading="eager"
-              decoding="async"
+              fill
+              priority
               referrerPolicy="no-referrer"
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 45vw"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
             <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
