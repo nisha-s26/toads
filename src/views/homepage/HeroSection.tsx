@@ -16,11 +16,6 @@ import {
   Layers,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useTheme } from "@/hooks/theme"
-
-const HERO_BACKGROUNDS = {
-  dark: "/hero-light.png",
-} as const
 
 interface Ring {
   radius: { desktop: number; mobile: number }
@@ -121,7 +116,6 @@ function Orbits({ variant }: OrbitsProps) {
 }
 
 export default function HeroSection() {
-  const { theme } = useTheme()
   const prefersReducedMotion = useReducedMotion()
   const [showOrbits, setShowOrbits] = useState(false)
 
@@ -139,45 +133,30 @@ export default function HeroSection() {
   }, [prefersReducedMotion])
 
   return (
-    <section className="relative overflow-hidden sm:py-56 py-20">
-      {theme === "dark" && (
-        <div
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-[background-image] duration-500"
-          style={{ backgroundImage: `url('${HERO_BACKGROUNDS.dark}')` }}
-          aria-hidden="true"
-        />
-      )}
-      {theme === "dark" && (
-        <div
-          className="absolute inset-0 z-[1] bg-linear-to-b from-black/30 via-black/15 to-black/40"
-          aria-hidden="true"
-        />
-      )}
-
-      <motion.div
+    <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-center overflow-hidden px-4 pb-2 pt-[calc(4.75rem+env(safe-area-inset-top,0px))] sm:px-6">      <motion.div
         className="max-w-9xl mx-auto text-center relative z-20"
         initial={prefersReducedMotion ? false : { opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <motion.div
-          className="mb-3 inline-flex items-center gap-2 px-4 py-2 rounded-full hero-badge backdrop-blur-sm border shadow-sm"
+          className="mb-2 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 shadow-sm hero-badge backdrop-blur-sm sm:mb-3 sm:px-4 sm:py-2 [@media(max-height:720px)]:mb-1.5 [@media(max-height:720px)]:px-2.5 [@media(max-height:720px)]:py-1"
           initial={prefersReducedMotion ? false : { opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
         >
           <span className="w-2.5 h-2.5 bg-toadster-green rounded-full" />
-          <span className="text-sm font-medium">AI-Powered Digital Transformation</span>
+          <span className="text-xs font-medium sm:text-sm">AI-Powered Digital Transformation</span>
         </motion.div>
 
         <motion.h1
-          className="hero-title text-5xl md:text-7xl font-extrabold leading-tight w-full"
+          className="hero-title w-full text-[clamp(1.65rem,4.2vw+0.75rem,4.5rem)] font-extrabold leading-[1.08] [@media(max-height:720px)]:text-[clamp(1.45rem,3.8vw+0.5rem,2.25rem)]"
           initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           Build Intelligent Systems with
-          <div className="mt-3 italic">
+          <div className="mt-1.5 italic sm:mt-2 [@media(max-height:720px)]:mt-1">
             <FadeText
               words={["Data Science", "Machine Learning", "AI Automation", "Predictive Analytics"]}
             />
@@ -185,7 +164,7 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.p
-          className="hero-subtitle mt-2 md:text-lg sm:text-md text-base font-semibold max-w-2xl mx-auto leading-tight"
+          className="hero-subtitle mx-auto mt-1.5 max-w-2xl text-sm font-semibold leading-snug sm:mt-2 sm:text-base md:text-lg [@media(max-height:720px)]:mt-1 [@media(max-height:720px)]:text-xs [@media(max-height:720px)]:sm:text-sm"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -194,19 +173,18 @@ export default function HeroSection() {
         </motion.p>
 
         <motion.div
-          className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3"
+          className="mt-4 flex flex-col items-center justify-center gap-2.5 sm:mt-6 sm:flex-row sm:gap-3 [@media(max-height:720px)]:mt-3 [@media(max-height:720px)]:gap-2"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <Button asChild style={{ padding: "1.5rem 2rem" }} className="rounded-xl px-6">
+          <Button asChild className="rounded-xl px-5 py-5 text-sm sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs">
             <Link href="/contact" title="Get Started">Get Started</Link>
           </Button>
           <Button
             asChild
-            style={{ padding: "1.5rem 2rem" }}
             variant="outline"
-            className="rounded-xl px-6 hero-outline-btn backdrop-blur-sm"
+            className="hero-outline-btn rounded-xl px-5 py-5 text-sm backdrop-blur-sm sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs"
           >
             <Link href="/services/ai-automation" title="View AI Solutions">View AI Solutions</Link>
           </Button>
@@ -215,7 +193,7 @@ export default function HeroSection() {
 
       {showOrbits && !prefersReducedMotion && (
         <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 opacity-50"
+          className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center opacity-40 [@media(max-height:720px)]:hidden"
           aria-hidden="true"
         >
           <div className="hidden md:block">
@@ -226,8 +204,6 @@ export default function HeroSection() {
           </div>
         </div>
       )}
-    
-
-    </section>
+    </div>
   )
 }

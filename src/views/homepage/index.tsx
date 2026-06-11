@@ -2,26 +2,34 @@
 
 import HeroSection from "./HeroSection"
 import TrustedBy from "./TrustedBy"
+import { HeroScrollIndicator } from "./HeroScrollIndicator"
 import WhyUs from "./WhyUs"
+import HireResources from "./HireResources"
 import AiCap from "./AiCap"
 import OurProcess from "./OurProcess"
 import GetStarted from "./GetStarted"
 import Solutions from "./Solutions"
-import ParallaxShowcase from "./ParallaxShowcase"
+// import ParallaxShowcase from "./ParallaxShowcase"
 
 const HomePage = () => {
   return (
-    <div className="relative isolate">
-      <div className="homepage-bg-gradient" aria-hidden="true" />
-
+    <div className="page-ambient-shell relative isolate">
       <div className="homepage-content">
-        <HeroSection />
-        <div className="homepage-sections">
-          <TrustedBy />
+        <section
+          id="homepage-hero-viewport"
+          className="homepage-hero-viewport relative flex min-h-[100dvh] max-h-[100dvh] flex-col overflow-hidden"
+        >
+          <HeroSection />
+          <TrustedBy compact />
+          <HeroScrollIndicator targetId="#homepage-sections" />
+        </section>
+
+        <div id="homepage-sections" className="homepage-sections">
           <AiCap />
           <OurProcess />
           <WhyUs />
-          <ParallaxShowcase />
+          <HireResources />
+          {/* <ParallaxShowcase /> */}
           <Solutions />
           <GetStarted />
         </div>

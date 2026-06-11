@@ -71,7 +71,7 @@ export default function AIDevelopmentPage() {
             <span className="text-green-400">AI Development</span> Company in USA
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
-            End-to-end AI development services — from strategy and data engineering to model training, deployment, and MLOps. We build production-grade AI that delivers measurable ROI.
+            End-to-end AI development services - from strategy and data engineering to model training, deployment, and MLOps. We build production-grade AI that delivers measurable ROI.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact">Book a Free Consultation</CTALink>
@@ -96,7 +96,7 @@ export default function AIDevelopmentPage() {
             <h2 className="text-4xl font-extrabold">Top AI Development</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services to Transform Your Business</h3>
             <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">
-              Comprehensive AI engineering services from ideation to production — tailored to your industry and scale.
+              Comprehensive AI engineering services from ideation to production - tailored to your industry and scale.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -170,7 +170,7 @@ export default function AIDevelopmentPage() {
               {[
                 { step: "01", title: "Discovery & AI Strategy", desc: "We assess your data, goals, and constraints to design a high-ROI AI roadmap for your business." },
                 { step: "02", title: "Data Engineering & Preparation", desc: "Build pipelines to collect, clean, label, and structure your data for reliable model training." },
-                { step: "03", title: "Model Development & Training", desc: "Select, architect, and train the right model — from fine-tuned LLMs to custom deep learning networks." },
+                { step: "03", title: "Model Development & Training", desc: "Select, architect, and train the right model - from fine-tuned LLMs to custom deep learning networks." },
                 { step: "04", title: "Evaluation, Testing & Iteration", desc: "Rigorously evaluate with offline/online metrics and iterate until production benchmarks are met." },
                 { step: "05", title: "Deployment, MLOps & Monitoring", desc: "Ship to production with full CI/CD, observability, drift detection, and continuous improvement." },
               ].map((p) => (
@@ -208,7 +208,7 @@ export default function AIDevelopmentPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: <Brain size={22} />, title: "Deep Learning Models", desc: "CNNs, RNNs, Transformers — custom architectures for vision, NLP, and tabular data." },
+              { icon: <Brain size={22} />, title: "Deep Learning Models", desc: "CNNs, RNNs, Transformers - custom architectures for vision, NLP, and tabular data." },
               { icon: <Settings size={22} />, title: "ML Model Training", desc: "Supervised, unsupervised, and reinforcement learning pipelines at scale." },
               { icon: <GitBranch size={22} />, title: "MLOps & CI/CD for ML", desc: "Automated model versioning, testing, and deployment with full observability." },
               { icon: <Eye size={22} />, title: "Computer Vision AI", desc: "Object detection, image classification, OCR, and video analytics systems." },
@@ -243,7 +243,7 @@ export default function AIDevelopmentPage() {
             {[
               { tag: "Predictive AI", title: "InventoryIQ", desc: "Built a demand forecasting model reducing overstock costs by $1.8M/year for a retail chain across 300+ SKUs.", metric: "$1.8M saved", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" },
               { tag: "Computer Vision", title: "SafeGuard AI", desc: "Deployed a real-time workplace safety detection system with 98.5% accuracy on CCTV feeds across 50 facilities.", metric: "98.5% accuracy", image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=1200&q=80" },
-              { tag: "MLOps", title: "StreamlineML", desc: "Redesigned a fintech company's ML infrastructure — reduced model deployment time from 2 weeks to 4 hours.", metric: "5× faster deploys", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "MLOps", title: "StreamlineML", desc: "Redesigned a fintech company's ML infrastructure - reduced model deployment time from 2 weeks to 4 hours.", metric: "5× faster deploys", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}
@@ -366,8 +366,8 @@ export default function AIDevelopmentPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Vikram Nair", role: "CTO, LogiStack", text: "Toadster's AI team rebuilt our entire forecasting system from scratch. The new model outperforms our previous solution by 40% — and deploys in hours, not weeks." },
-              { name: "Anjali Kapoor", role: "Head of Data, MediCore", text: "They built a clinical NLP pipeline that extracts diagnoses from doctor's notes with 97% precision. The time saved is extraordinary — 6 hours of manual work per day, gone." },
+              { name: "Vikram Nair", role: "CTO, LogiStack", text: "Toadster's AI team rebuilt our entire forecasting system from scratch. The new model outperforms our previous solution by 40% - and deploys in hours, not weeks." },
+              { name: "Anjali Kapoor", role: "Head of Data, MediCore", text: "They built a clinical NLP pipeline that extracts diagnoses from doctor's notes with 97% precision. The time saved is extraordinary - 6 hours of manual work per day, gone." },
               { name: "David Park", role: "Founder, VisionLabs", text: "Our computer vision product went from PoC to production in 8 weeks with Toadster. The model's accuracy exceeded every benchmark we set." },
             ].map((t) => (
               <div key={t.name} className="bg-page-bg-alt rounded-2xl p-6 border border-page-border">
@@ -464,7 +464,7 @@ export default function AIDevelopmentPage() {
           </div>
           {[
             { q: "What does end-to-end AI development include?", a: "It covers the full lifecycle: data strategy, data engineering, model design and training, evaluation, deployment, MLOps infrastructure, and ongoing monitoring and maintenance." },
-            { q: "How long does it take to build a custom AI solution?", a: "A PoC typically takes 2–4 weeks. Full production deployments range from 8–20 weeks depending on data readiness, model complexity, and integration scope." },
+            { q: "How long does it take to build a custom AI solution?", a: "A PoC typically takes 2-4 weeks. Full production deployments range from 8-20 weeks depending on data readiness, model complexity, and integration scope." },
             { q: "Can you integrate AI into our existing systems?", a: "Yes. We design AI solutions with an integration-first approach and can connect to any REST API, database, cloud service, CRM, or ERP." },
             { q: "How do you ensure the quality and accuracy of AI models?", a: "We use rigorous evaluation frameworks including offline metrics (precision, recall, F1, RMSE), A/B testing, shadow deployments, and continuous monitoring with automated alerts on performance degradation." },
             { q: "What industries do you build AI solutions for?", a: "We serve fintech, healthcare, legal, e-commerce, logistics, manufacturing, media, and more. Our AI solutions are always tailored to the specific workflows and compliance requirements of each domain." },

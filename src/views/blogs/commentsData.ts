@@ -22,7 +22,7 @@ export const staticComments: Record<string, StaticComment[]> = {
       name: "Vipul Gupta",
       role: "ML Engineer",
       date: "March 17, 2024",
-      message: "The point about infrastructure investment is spot-on. It's not just about research — you need massive compute to convert breakthroughs into real products.",
+      message: "The point about infrastructure investment is spot-on. It's not just about research - you need massive compute to convert breakthroughs into real products.",
       likes: 18,
     },
     {
@@ -40,7 +40,7 @@ export const staticComments: Record<string, StaticComment[]> = {
       name: "Dev Patel",
       role: "CTO at FinEdge",
       date: "March 15, 2024",
-      message: "The 30–50% developer productivity stat really jumped out at me. We've seen similar numbers in our own teams since rolling out AI coding assistants. The ROI is real.",
+      message: "The 30-50% developer productivity stat really jumped out at me. We've seen similar numbers in our own teams since rolling out AI coding assistants. The ROI is real.",
       likes: 42,
     },
     {
@@ -48,7 +48,7 @@ export const staticComments: Record<string, StaticComment[]> = {
       name: "Shreya Ghosh",
       role: "Digital Strategy Lead",
       date: "March 16, 2024",
-      message: "Excellent article. One thing I'd add — change management is the biggest blocker for Gen AI adoption, not technology readiness. The people side is harder than the tech side.",
+      message: "Excellent article. One thing I'd add - change management is the biggest blocker for Gen AI adoption, not technology readiness. The people side is harder than the tech side.",
       likes: 29,
     },
   ],
@@ -180,7 +180,7 @@ export const staticComments: Record<string, StaticComment[]> = {
       name: "Abhishek Dubey",
       role: "Data Analyst",
       date: "March 11, 2024",
-      message: "The frameworks section was super helpful. PyTorch vs TensorFlow deserves its own full article though — the choice really matters depending on your use case.",
+      message: "The frameworks section was super helpful. PyTorch vs TensorFlow deserves its own full article though - the choice really matters depending on your use case.",
       likes: 19,
     },
   ],
@@ -252,7 +252,7 @@ export const staticComments: Record<string, StaticComment[]> = {
       name: "Umesh Pawar",
       role: "Embedded Systems Engineer",
       date: "March 5, 2024",
-      message: "The hardware section is really timely. The new NPU architectures are incredible — we're running models on micro-controllers that would have required a cloud VM 3 years ago.",
+      message: "The hardware section is really timely. The new NPU architectures are incredible - we're running models on micro-controllers that would have required a cloud VM 3 years ago.",
       likes: 38,
     },
     {
@@ -278,7 +278,7 @@ export const staticComments: Record<string, StaticComment[]> = {
       name: "Jyoti Khandelwal",
       role: "FinTech Product Lead",
       date: "March 5, 2024",
-      message: "Robo-advisors are a fascinating space. The real disruption won't be replacing advisors — it's making sophisticated financial planning accessible to people who could never afford it before.",
+      message: "Robo-advisors are a fascinating space. The real disruption won't be replacing advisors - it's making sophisticated financial planning accessible to people who could never afford it before.",
       likes: 34,
     },
     {

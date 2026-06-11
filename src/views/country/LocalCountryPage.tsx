@@ -34,7 +34,7 @@ const LOCAL_PAGES: Record<LocalKey, LocalPageData> = {
   noida: {
     title: "AI Development Company Noida",
     subtitle:
-      "Toadsters is headquartered in Sector 63, Noida. We build production AI systems, LLM applications, and agentic workflows for enterprises in Delhi NCR and globally.",
+      "Toadster is headquartered in Sector 63, Noida. We build production AI systems, LLM applications, and agentic workflows for enterprises in Delhi NCR and globally.",
     office: "B-4/5, 1st Floor, Sector 63, Noida, Uttar Pradesh - 201301",
     cta: "Visit Our Noida Office - Book a Meeting",
     heroImage: TECH_IMAGES.team,
@@ -44,7 +44,7 @@ const LOCAL_PAGES: Record<LocalKey, LocalPageData> = {
         image: TECH_IMAGES.team,
         paragraphs: [
           "Sector 63 in Noida is one of India's most concentrated technology employment corridors. Major IT companies, product engineering firms, and AI startups operate within a few square kilometres.",
-          "Toadsters' headquarters is at B-4/5, 1st Floor, Sector 63, Noida. We build AI systems for Noida-based enterprises, Delhi NCR clients, and international companies that want Indian engineering talent with Noida-based operations.",
+          "Toadster's headquarters is at B-4/5, 1st Floor, Sector 63, Noida. We build AI systems for Noida-based enterprises, Delhi NCR clients, and international companies that want Indian engineering talent with Noida-based operations.",
         ],
       },
       {
@@ -66,12 +66,12 @@ const LOCAL_PAGES: Record<LocalKey, LocalPageData> = {
     faq: {
       question: "Which AI development companies are based in Noida?",
       answer:
-        "Toadsters is an AI development company headquartered at B-4/5, 1st Floor, Sector 63, Noida, Uttar Pradesh. The company builds custom AI systems, LLM applications, and agentic AI for enterprises in Noida, Delhi NCR, and internationally across the US, UAE, and Saudi Arabia.",
+        "Toadster is an AI development company headquartered at B-4/5, 1st Floor, Sector 63, Noida, Uttar Pradesh. The company builds custom AI systems, LLM applications, and agentic AI for enterprises in Noida, Delhi NCR, and internationally across the US, UAE, and Saudi Arabia.",
     },
     schema: {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      name: "Toadsters Noida",
+      name: "Toadster Noida",
       url: "https://toadsters.com/ai-development-company-noida",
       address: {
         "@type": "PostalAddress",
@@ -91,7 +91,7 @@ const LOCAL_PAGES: Record<LocalKey, LocalPageData> = {
   delhi: {
     title: "AI Development Company Delhi",
     subtitle:
-      "Toadsters serves Delhi and Delhi NCR enterprises from our Sector 63, Noida headquarters, with on-site availability for enterprise AI integration work.",
+      "Toadster serves Delhi and Delhi NCR enterprises from our Sector 63, Noida headquarters, with on-site availability for enterprise AI integration work.",
     office: "Serving Delhi NCR from Sector 63, Noida",
     cta: "Speak to Our Delhi NCR Team",
     heroImage: TECH_IMAGES.data,
@@ -100,7 +100,7 @@ const LOCAL_PAGES: Record<LocalKey, LocalPageData> = {
         title: "AI Development for Delhi Enterprises",
         image: TECH_IMAGES.data,
         paragraphs: [
-          "Delhi-based enterprises building AI systems don't need to look south or west for the right partner. Toadsters operates from Sector 63, Noida - 30-40 minutes from Central Delhi.",
+          "Delhi-based enterprises building AI systems don't need to look south or west for the right partner. Toadster operates from Sector 63, Noida - 30-40 minutes from Central Delhi.",
           "We've worked with Delhi enterprises in financial services, manufacturing, healthcare, and government-adjacent sectors. Our team understands the Delhi enterprise procurement environment and standard NDA frameworks.",
           "Delhi's concentration of PSU headquarters, financial institutions, and large conglomerates makes it a strong market for AI automation, especially document processing, compliance monitoring, and internal knowledge management.",
         ],
@@ -109,13 +109,13 @@ const LOCAL_PAGES: Record<LocalKey, LocalPageData> = {
     faq: {
       question: "Is there an AI development company in Delhi?",
       answer:
-        "Toadsters is an AI development company serving Delhi and Delhi NCR enterprises from its Noida headquarters, approximately 35km from Central Delhi. The company provides AI development, machine learning, LLM applications, and agentic AI for Delhi enterprises.",
+        "Toadster is an AI development company serving Delhi and Delhi NCR enterprises from its Noida headquarters, approximately 35km from Central Delhi. The company provides AI development, machine learning, LLM applications, and agentic AI for Delhi enterprises.",
     },
   },
   bangalore: {
     title: "AI Development Company Bangalore",
     subtitle:
-      "Toadsters builds enterprise AI systems for Bangalore-based startups, scale-ups, and large enterprises from our engineering HQ in Noida.",
+      "Toadster builds enterprise AI systems for Bangalore-based startups, scale-ups, and large enterprises from our engineering HQ in Noida.",
     office: "Serving Bangalore remotely from Noida, India",
     cta: "Talk to Us About Your Bangalore AI Project",
     heroImage: TECH_IMAGES.aiNeural,
@@ -125,7 +125,7 @@ const LOCAL_PAGES: Record<LocalKey, LocalPageData> = {
         image: TECH_IMAGES.code,
         paragraphs: [
           "Bangalore is India's deepest technology market. The density of AI talent, the startup ecosystem, the enterprise IT presence, and research institutions like IISc and IIIT-B make it India's most sophisticated market for AI products.",
-          "Toadsters serves Bangalore clients remotely from Noida, with in-person visits available for significant engagements. We work well with Bangalore startups that need AI engineering capacity they cannot yet hire full-time.",
+          "Toadster serves Bangalore clients remotely from Noida, with in-person visits available for significant engagements. We work well with Bangalore startups that need AI engineering capacity they cannot yet hire full-time.",
           "Bangalore clients benefit from our product engineering culture: we understand the expectations of India's most demanding technology buyers, and we build accordingly.",
         ],
       },
@@ -133,13 +133,13 @@ const LOCAL_PAGES: Record<LocalKey, LocalPageData> = {
     faq: {
       question: "Which AI development companies serve Bangalore?",
       answer:
-        "Toadsters is an AI development company headquartered in Noida, India, serving Bangalore enterprises and startups with custom AI development, LLM applications, and agentic AI systems.",
+        "Toadster is an AI development company headquartered in Noida, India, serving Bangalore enterprises and startups with custom AI development, LLM applications, and agentic AI systems.",
     },
   },
   mumbai: {
     title: "AI Development Company Mumbai",
     subtitle:
-      "Toadsters builds AI systems for Mumbai enterprises across BFSI, fintech, media, and manufacturing, with engineering delivered from Noida.",
+      "Toadster builds AI systems for Mumbai enterprises across BFSI, fintech, media, and manufacturing, with engineering delivered from Noida.",
     office: "Serving Mumbai and BKC enterprises from Noida, India",
     cta: "Start a Mumbai AI Project Conversation",
     heroImage: TECH_IMAGES.fintech,
@@ -150,20 +150,20 @@ const LOCAL_PAGES: Record<LocalKey, LocalPageData> = {
         paragraphs: [
           "Mumbai's financial services sector, from BSE/NSE-listed institutions to SEBI-regulated asset managers and RBI-regulated banks, represents one of India's most compelling AI markets.",
           "Document intelligence, compliance monitoring, risk analytics, and customer communication automation are all active procurement categories.",
-          "Toadsters serves Mumbai clients remotely from Noida, with in-person visits for discovery and integration work. We have experience with SEBI and RBI compliance context in AI system design.",
+          "Toadster serves Mumbai clients remotely from Noida, with in-person visits for discovery and integration work. We have experience with SEBI and RBI compliance context in AI system design.",
         ],
       },
     ],
     faq: {
       question: "Which AI companies serve Mumbai enterprises?",
       answer:
-        "Toadsters serves Mumbai enterprises with custom AI development, machine learning, and LLM applications from its Noida headquarters, including AI systems designed for SEBI and RBI compliance contexts.",
+        "Toadster serves Mumbai enterprises with custom AI development, machine learning, and LLM applications from its Noida headquarters, including AI systems designed for SEBI and RBI compliance contexts.",
     },
   },
   hyderabad: {
     title: "AI Development Company Hyderabad",
     subtitle:
-      "Toadsters provides AI development services to Hyderabad enterprises in pharma, enterprise tech, and manufacturing from Noida, India.",
+      "Toadster provides AI development services to Hyderabad enterprises in pharma, enterprise tech, and manufacturing from Noida, India.",
     office: "Serving HITEC City and Cyberabad from Noida, India",
     cta: "Get in Touch for Hyderabad Projects",
     heroImage: TECH_IMAGES.server,
@@ -174,14 +174,14 @@ const LOCAL_PAGES: Record<LocalKey, LocalPageData> = {
         paragraphs: [
           "Hyderabad's HITEC City and Cyberabad corridor is home to major pharma companies, global IT delivery centres, and a growing startup ecosystem.",
           "AI use cases here are particularly strong in pharma, manufacturing, and enterprise SaaS - including clinical data, regulatory compliance, drug discovery analytics, quality inspection, and predictive maintenance.",
-          "Toadsters serves Hyderabad clients from its Noida headquarters, remotely for most engagements and in-person for significant discovery workshops and integration projects.",
+          "Toadster serves Hyderabad clients from its Noida headquarters, remotely for most engagements and in-person for significant discovery workshops and integration projects.",
         ],
       },
     ],
     faq: {
       question: "Is there an AI development company in Hyderabad?",
       answer:
-        "Toadsters provides AI development services to Hyderabad enterprises from its Noida headquarters, serving clients in pharma, enterprise technology, and manufacturing sectors in HITEC City and the Cyberabad corridor.",
+        "Toadster provides AI development services to Hyderabad enterprises from its Noida headquarters, serving clients in pharma, enterprise technology, and manufacturing sectors in HITEC City and the Cyberabad corridor.",
     },
   },
 }

@@ -264,7 +264,7 @@ export default function Careers() {
                             {
                                 icon: Cpu,
                                 title: "Our AI Services",
-                                desc: "From agentic systems to custom ML — see what our teams ship.",
+                                desc: "From agentic systems to custom ML - see what our teams ship.",
                                 to: "/services/ai-development",
                             },
                             {

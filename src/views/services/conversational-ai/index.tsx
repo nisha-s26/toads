@@ -73,7 +73,7 @@ const services = [
   {
     icon: <Brain size={22} />,
     title: "RAG-Powered Knowledge Bots",
-    desc: "Retrieval-augmented generation systems that ground conversations in your enterprise data — accurate, cited, and hallucination-resistant.",
+    desc: "Retrieval-augmented generation systems that ground conversations in your enterprise data - accurate, cited, and hallucination-resistant.",
   },
 ]
 
@@ -101,7 +101,7 @@ const benefits = [
   {
     icon: <Globe size={22} />,
     title: "Omnichannel Deployment",
-    desc: "Deploy once, serve everywhere — web, mobile, WhatsApp, Slack, Teams, voice, and custom channels from a single platform.",
+    desc: "Deploy once, serve everywhere - web, mobile, WhatsApp, Slack, Teams, voice, and custom channels from a single platform.",
   },
   {
     icon: <Users size={22} />,
@@ -121,7 +121,7 @@ const faqs = [
   {
     question: "What is conversational AI?",
     answer:
-      "Conversational AI encompasses technologies that enable machines to understand, process, and respond to human language naturally — including chatbots, voice assistants, and dialogue systems powered by NLP, NLU, and generative AI.",
+      "Conversational AI encompasses technologies that enable machines to understand, process, and respond to human language naturally - including chatbots, voice assistants, and dialogue systems powered by NLP, NLU, and generative AI.",
   },
   {
     question: "How is conversational AI different from a simple chatbot?",
@@ -141,7 +141,7 @@ const faqs = [
   {
     question: "What's the typical deployment timeline?",
     answer:
-      "A production-ready conversational AI system typically takes 4-8 weeks — including NLU training, dialogue design, integration, testing, and deployment. Simpler FAQ bots can go live in 1-2 weeks.",
+      "A production-ready conversational AI system typically takes 4-8 weeks - including NLU training, dialogue design, integration, testing, and deployment. Simpler FAQ bots can go live in 1-2 weeks.",
   },
 ]
 
@@ -166,7 +166,7 @@ export default function ConversationalAIPage() {
             <span className="text-green-400">Conversational Experiences</span>
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
-            AI-powered chatbots, voice assistants, and dialogue systems that understand context, speak naturally, and resolve queries — across every channel and language.
+            AI-powered chatbots, voice assistants, and dialogue systems that understand context, speak naturally, and resolve queries - across every channel and language.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button onClick={() => document.getElementById('what-we-build')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">
@@ -195,7 +195,7 @@ export default function ConversationalAIPage() {
             <h2 className="text-4xl font-extrabold">Conversational AI</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services</h3>
             <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">
-              End-to-end conversational AI solutions — from intent recognition and dialogue management to voice synthesis and omnichannel deployment.
+              End-to-end conversational AI solutions - from intent recognition and dialogue management to voice synthesis and omnichannel deployment.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -276,7 +276,7 @@ export default function ConversationalAIPage() {
           <div className="grid md:grid-cols-4 gap-6">
             {[
               { step: "01", title: "Discovery & Design", desc: "We map your conversation flows, user intents, and integration requirements to design the optimal dialogue architecture." },
-              { step: "02", title: "NLU Training", desc: "We train and fine-tune NLU models on your domain data — intent classification, entity extraction, and sentiment analysis." },
+              { step: "02", title: "NLU Training", desc: "We train and fine-tune NLU models on your domain data - intent classification, entity extraction, and sentiment analysis." },
               { step: "03", title: "Build & Integrate", desc: "We build the conversational system, integrate with your backend, and deploy across your chosen channels." },
               { step: "04", title: "Optimise & Scale", desc: "We monitor conversations, identify improvement opportunities, and continuously retrain models for better performance." },
             ].map((item) => (
@@ -336,7 +336,7 @@ export default function ConversationalAIPage() {
               "Dedicated conversational AI team with linguistics and NLP expertise",
               "60+ production chatbots and voice assistants deployed across industries",
               "Deep integration experience with CRMs, ERPs, and contact centre platforms",
-              "Multilingual support — 50+ languages with code-switching capability",
+              "Multilingual support - 50+ languages with code-switching capability",
               "Full conversation analytics and continuous model improvement",
               "Flexible engagement: quick-start bots to enterprise conversational platforms",
             ].map((point) => (
@@ -375,7 +375,7 @@ export default function ConversationalAIPage() {
               {
                 name: "Aisha M.",
                 role: "CTO, Healthcare Startup",
-                text: "Their RAG-powered knowledge bot answers patient queries with cited sources from our medical database. Accuracy is incredible — and fully HIPAA compliant.",
+                text: "Their RAG-powered knowledge bot answers patient queries with cited sources from our medical database. Accuracy is incredible - and fully HIPAA compliant.",
               },
             ].map((t) => (
               <div

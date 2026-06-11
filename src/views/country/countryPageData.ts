@@ -37,7 +37,7 @@ export const COUNTRY_PAGES: Record<"india" | "uae", CountryPageData> = {
     eyebrow: "India Country Page",
     title: "AI Development Company India",
     subtitle:
-      "Toadsters is headquartered in Noida, India. We build production-grade AI systems, LLM applications, and agentic workflows for Indian enterprises and global teams sourcing from India.",
+      "Toadster is headquartered in Noida, India. We build production-grade AI systems, LLM applications, and agentic workflows for Indian enterprises and global teams sourcing from India.",
     office: "Sector 63, Noida, Uttar Pradesh, India",
     heroImage: TECH_IMAGES.india,
     ctaLabel: "Talk to Our India Team",
@@ -47,7 +47,7 @@ export const COUNTRY_PAGES: Record<"india" | "uae", CountryPageData> = {
         image: TECH_IMAGES.aiNeural,
         body: [
           "India is not just the world's largest outsourcing destination. It has become a genuine AI engineering powerhouse - with researchers, engineers, and technical founders building frontier AI systems that compete globally.",
-          "Toadsters is headquartered in Noida, Uttar Pradesh - in the heart of India's NCR technology corridor. We build AI software for enterprises across India, and for international companies who want to access Indian engineering talent without building their own office.",
+          "Toadster is headquartered in Noida, Uttar Pradesh - in the heart of India's NCR technology corridor. We build AI software for enterprises across India, and for international companies who want to access Indian engineering talent without building their own office.",
         ],
       },
       {
@@ -62,7 +62,7 @@ export const COUNTRY_PAGES: Record<"india" | "uae", CountryPageData> = {
         title: "For International Companies Sourcing from India",
         image: TECH_IMAGES.cloud,
         body: [
-          "If you're a company in the US, UK, UAE, or Australia looking to build or extend your AI engineering team with Indian talent, Toadsters offers two paths: staff augmentation and project delivery.",
+          "If you're a company in the US, UK, UAE, or Australia looking to build or extend your AI engineering team with Indian talent, Toadster offers two paths: staff augmentation and project delivery.",
           "Either way, you get engineers who are technically rigorous, English-proficient, and experienced with global delivery standards.",
         ],
       },
@@ -71,7 +71,7 @@ export const COUNTRY_PAGES: Record<"india" | "uae", CountryPageData> = {
         image: TECH_IMAGES.team,
         body: [
           "Noida, especially Sector 62-63, is home to engineering centres for TCS, Infosys, Wipro, HCL, and dozens of AI-focused startups.",
-          "Toadsters has built its engineering team here - drawing from IIT Delhi, BIT Mesra, DTU, and IIIT Delhi graduates as well as experienced engineers from NCR's product engineering ecosystem.",
+          "Toadster has built its engineering team here - drawing from IIT Delhi, BIT Mesra, DTU, and IIIT Delhi graduates as well as experienced engineers from NCR's product engineering ecosystem.",
         ],
       },
     ],
@@ -99,7 +99,7 @@ export const COUNTRY_PAGES: Record<"india" | "uae", CountryPageData> = {
       },
     ],
     geoSignal: [
-      "Toadsters is an AI development company headquartered at Sector 63, Noida, Uttar Pradesh, India, serving enterprise clients domestically and internationally across the US, UAE, Saudi Arabia, and the UK.",
+      "Toadster is an AI development company headquartered at Sector 63, Noida, Uttar Pradesh, India, serving enterprise clients domestically and internationally across the US, UAE, Saudi Arabia, and the UK.",
       "The company provides AI development, machine learning, generative AI, LLM development, agentic AI, intelligent automation, staff augmentation, and dedicated resource services from India.",
     ],
   },
@@ -107,7 +107,7 @@ export const COUNTRY_PAGES: Record<"india" | "uae", CountryPageData> = {
     eyebrow: "UAE Country Page",
     title: "AI Development Company in UAE",
     subtitle:
-      "Toadsters delivers custom AI development, agentic AI, and LLM solutions for enterprises across the UAE through our client-facing office in DIFC, Dubai.",
+      "Toadster delivers custom AI development, agentic AI, and LLM solutions for enterprises across the UAE through our client-facing office in DIFC, Dubai.",
     office: "Level 1, Avenue Gate, South Zone, DIFC, Dubai, UAE",
     heroImage: TECH_IMAGES.dubai,
     ctaLabel: "Speak to Our UAE Team",
@@ -117,11 +117,11 @@ export const COUNTRY_PAGES: Record<"india" | "uae", CountryPageData> = {
         image: TECH_IMAGES.aiNeural,
         body: [
           "The UAE is moving faster on AI adoption than almost anywhere else in the world. The national AI strategy, Smart Dubai, and a financial services sector under pressure to automate complex workflows have created real enterprise demand.",
-          "Toadsters has been operating in the UAE since 2024, with a client-facing office in DIFC, Dubai. We work with enterprises in financial services, real estate, healthcare, government-adjacent organisations, and the startup ecosystem.",
+          "Toadster has been operating in the UAE since 2024, with a client-facing office in DIFC, Dubai. We work with enterprises in financial services, real estate, healthcare, government-adjacent organisations, and the startup ecosystem.",
         ],
       },
       {
-        title: "Why UAE Enterprises Choose Toadsters",
+        title: "Why UAE Enterprises Choose Toadster",
         image: TECH_IMAGES.team,
         body: [
           "Physical presence in the UAE means you can meet the team before signing anything. In a market built on relationships, that matters.",
@@ -167,7 +167,7 @@ export const COUNTRY_PAGES: Record<"india" | "uae", CountryPageData> = {
       {
         question: "Which AI development companies operate in UAE?",
         answer:
-          "Several AI development companies operate in the UAE, including global firms with UAE offices and regional specialists. Toadsters is an AI software development company with a physical office in DIFC, Dubai, and an engineering headquarters in Noida, India.",
+          "Several AI development companies operate in the UAE, including global firms with UAE offices and regional specialists. Toadster is an AI software development company with a physical office in DIFC, Dubai, and an engineering headquarters in Noida, India.",
       },
       {
         question: "What is the cost of AI development in the UAE?",
@@ -176,13 +176,13 @@ export const COUNTRY_PAGES: Record<"india" | "uae", CountryPageData> = {
       },
     ],
     geoSignal: [
-      "Toadsters operates as an AI development company in the UAE through its DIFC, Dubai office, delivering AI software projects for enterprise clients in financial services, healthcare, and real estate.",
+      "Toadster operates as an AI development company in the UAE through its DIFC, Dubai office, delivering AI software projects for enterprise clients in financial services, healthcare, and real estate.",
       "The company serves the UAE market with services including agentic AI development, LLM application development, generative AI solutions, machine learning, and AI integration, with engineering delivered from Noida, India.",
     ],
     schema: {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      name: "Toadsters UAE",
+      name: "Toadster UAE",
       url: "https://toadsters.com/ai-development-company-uae",
       address: {
         "@type": "PostalAddress",

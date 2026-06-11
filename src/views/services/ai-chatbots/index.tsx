@@ -33,7 +33,7 @@ export default function AIChatbotsPage() {
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
             Transform Your Customer Experience with<br /><span className="text-green-400">Intelligent AI Chatbots</span>
           </h1>
-          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">Deploy AI chatbots that understand context, remember conversations, and resolve customer queries intelligently — 24/7, at unlimited scale, without increasing headcount.</p>
+          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">Deploy AI chatbots that understand context, remember conversations, and resolve customer queries intelligently - 24/7, at unlimited scale, without increasing headcount.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact" className="bg-green-800 hover:bg-green-700">Book a Free Consultation</CTALink>
             <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">See How It Works</button>
@@ -52,7 +52,7 @@ export default function AIChatbotsPage() {
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">Top AI Chatbot</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Development Services for Your Business</h3>
-            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">Intelligent conversational AI built for your specific use case — support, sales, HR, or custom workflows.</p>
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">Intelligent conversational AI built for your specific use case - support, sales, HR, or custom workflows.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
@@ -82,12 +82,12 @@ export default function AIChatbotsPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { icon: <Clock size={22} />, title: "24/7 Availability at Zero Extra Cost", desc: "AI chatbots handle unlimited concurrent conversations at any hour — no overtime, no staffing costs." },
-              { icon: <Zap size={22} />, title: "Instant Query Resolution", desc: "Respond to customer queries in under 1 second — dramatically improving satisfaction and NPS scores." },
-              { icon: <BarChart3 size={22} />, title: "Reduced Support Costs", desc: "Automate 60–80% of tier-1 support queries, freeing your human agents for high-value interactions." },
-              { icon: <TrendingUp size={22} />, title: "Increased Conversions", desc: "Sales chatbots that engage visitors, qualify leads, and guide them to purchase — boosting conversion rates." },
-              { icon: <Eye size={22} />, title: "Deep Customer Insights", desc: "Every conversation is a data point — analytics reveal common issues, FAQs, and product improvement areas." },
-              { icon: <Shield size={22} />, title: "Consistent Brand Voice", desc: "Every response is on-brand, compliant, and accurate — eliminating inconsistency from human agents." },
+              { icon: <Clock size={22} />, title: "24/7 Availability at Zero Extra Cost", desc: "AI chatbots handle unlimited concurrent conversations at any hour - no overtime, no staffing costs." },
+              { icon: <Zap size={22} />, title: "Instant Query Resolution", desc: "Respond to customer queries in under 1 second - dramatically improving satisfaction and NPS scores." },
+              { icon: <BarChart3 size={22} />, title: "Reduced Support Costs", desc: "Automate 60-80% of tier-1 support queries, freeing your human agents for high-value interactions." },
+              { icon: <TrendingUp size={22} />, title: "Increased Conversions", desc: "Sales chatbots that engage visitors, qualify leads, and guide them to purchase - boosting conversion rates." },
+              { icon: <Eye size={22} />, title: "Deep Customer Insights", desc: "Every conversation is a data point - analytics reveal common issues, FAQs, and product improvement areas." },
+              { icon: <Shield size={22} />, title: "Consistent Brand Voice", desc: "Every response is on-brand, compliant, and accurate - eliminating inconsistency from human agents." },
             ].map((b) => (
               <div key={b.title} className="bg-page-bg border border-page-border rounded-2xl p-6 flex gap-5 hover:border-green-800/40 transition-colors">
                 <div className="w-11 h-11 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 shrink-0">{b.icon}</div>
@@ -144,7 +144,7 @@ export default function AIChatbotsPage() {
             {[
               { tag: "Support Bot", title: "HelpMind", desc: "Deployed an AI support chatbot for a fintech company that resolved 72% of queries automatically, cutting support costs by $400K/year.", metric: "72% auto-resolved", image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80" },
               { tag: "Sales Bot", title: "LeadFlow AI", desc: "Built a sales qualification chatbot that engages 100% of website visitors and converts 3× more leads to demos.", metric: "3× more demos", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" },
-              { tag: "HR Bot", title: "HRConnect", desc: "Internal HR chatbot serving 2,000+ employees with policy answers, leave requests, and IT helpdesk — 89% self-service rate.", metric: "89% self-service", image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "HR Bot", title: "HRConnect", desc: "Internal HR chatbot serving 2,000+ employees with policy answers, leave requests, and IT helpdesk - 89% self-service rate.", metric: "89% self-service", image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
                 key={w.title}
@@ -215,9 +215,9 @@ export default function AIChatbotsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Priya Kapoor", role: "Head of CX, FinSupportAI", text: "Toadster's chatbot handles 72% of our support volume automatically. Our agents now focus only on complex cases — morale and productivity are both up." },
+              { name: "Priya Kapoor", role: "Head of CX, FinSupportAI", text: "Toadster's chatbot handles 72% of our support volume automatically. Our agents now focus only on complex cases - morale and productivity are both up." },
               { name: "Tom Bradley", role: "VP Sales, GrowthSaaS", text: "The sales bot qualifies every visitor 24/7 and books demos directly into our calendar. Lead-to-demo conversion tripled in the first month." },
-              { name: "Sunita Rao", role: "HR Director, TechCorp", text: "Our HR chatbot answers 89% of employee queries without human involvement. Employees love the instant answers — HR loves the time saved." },
+              { name: "Sunita Rao", role: "HR Director, TechCorp", text: "Our HR chatbot answers 89% of employee queries without human involvement. Employees love the instant answers - HR loves the time saved." },
             ].map((t) => (
               <div key={t.name} className="bg-page-bg rounded-2xl p-6 border border-page-border">
                 <div className="flex gap-1 mb-4">{[...Array(5)].map((_, i) => (<Star key={i} size={14} className="text-green-400 fill-green-400" />))}</div>
@@ -233,7 +233,7 @@ export default function AIChatbotsPage() {
       <section className="py-20 bg-page-bg-alt">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">Ready to Deploy Your<br /><span className="text-green-400">AI Chatbot?</span></h2>
-          <p className="text-page-fg-muted mb-8">Let our team build an intelligent chatbot that works tirelessly for your customers — 24/7, at scale.</p>
+          <p className="text-page-fg-muted mb-8">Let our team build an intelligent chatbot that works tirelessly for your customers - 24/7, at scale.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact" className="text-lg" title="Talk to our chatbot team">
               Chat With Us
@@ -284,11 +284,11 @@ export default function AIChatbotsPage() {
           </div>
           {[
             { q: "What makes an AI chatbot different from a traditional chatbot?", a: "Traditional chatbots follow rigid decision trees. AI chatbots use LLMs to understand natural language, handle complex multi-turn conversations, retrieve from knowledge bases, and improve over time." },
-            { q: "How long does it take to build and deploy an AI chatbot?", a: "Simple chatbots can be live in 2–3 weeks. Multi-channel bots with custom knowledge bases and integrations typically take 4–8 weeks." },
+            { q: "How long does it take to build and deploy an AI chatbot?", a: "Simple chatbots can be live in 2-3 weeks. Multi-channel bots with custom knowledge bases and integrations typically take 4-8 weeks." },
             { q: "Can the chatbot handle complex, multi-turn conversations?", a: "Yes. Our LLM-powered chatbots maintain full conversation context across multiple turns, remember user preferences, and handle complex, nuanced queries accurately." },
             { q: "Which channels can the chatbot be deployed on?", a: "We deploy across web, mobile apps, WhatsApp, Telegram, Facebook Messenger, Slack, Microsoft Teams, SMS, and voice channels from a single unified backend." },
             { q: "How do you ensure the chatbot gives accurate responses?", a: "We use RAG (Retrieval-Augmented Generation) to ground responses in your knowledge base, implement strict guardrails, and continuously monitor and improve response accuracy." },
-            { q: "Can the chatbot escalate to a human agent when needed?", a: "Yes — we implement intelligent escalation logic that detects when a human is needed (sentiment, confidence, explicit request) and hands off seamlessly with full conversation context." },
+            { q: "Can the chatbot escalate to a human agent when needed?", a: "Yes - we implement intelligent escalation logic that detects when a human is needed (sentiment, confidence, explicit request) and hands off seamlessly with full conversation context." },
           ].map((item) => (<FAQItem key={item.q} question={item.q} answer={item.a} />))}
         </div>
       </section>

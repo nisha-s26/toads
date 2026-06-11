@@ -1,10 +1,18 @@
 import type { Metadata } from "next"
+import { Plus_Jakarta_Sans } from "next/font/google"
 import Script from "next/script"
 import "@/index.css"
 import { ThemeProvider } from "@/hooks/ThemeProvider"
 import { ClientShell } from "@/components/ClientShell"
 import { createStaticMetadata } from "@/lib/next-metadata"
 import { SITE_URL } from "@/config/metadata"
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta-sans",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   ...createStaticMetadata("/"),
@@ -27,7 +35,7 @@ const organizationJsonLd = {
   url: "https://toadsters.com/",
   logo: "https://toadsters.com/toadster-logo.svg",
   description:
-    "Toadsters delivers AI software development, MLOps, data engineering & custom software solutions for global enterprises, startups, and SMBs.",
+    "Toadster delivers AI software development, MLOps, data engineering & custom software solutions for global enterprises, startups, and SMBs.",
   email: "business@toadsters.com",
   telephone: "+91-92205-17988",
   sameAs: [
@@ -67,7 +75,7 @@ const websiteJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={plusJakartaSans.variable} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://plus.unsplash.com" crossOrigin="anonymous" />
@@ -85,7 +93,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body>
+      <body className={plusJakartaSans.className}>
         <Script id="theme-init" strategy="beforeInteractive">
           {`(function(){try{var stored=localStorage.getItem("toadster-theme");var isDark=stored!=="light";var root=document.documentElement;root.classList.toggle("dark",isDark);root.style.colorScheme=isDark?"dark":"light";var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute("content",isDark?"#000000":"#ECF0F1");}catch(e){document.documentElement.style.colorScheme="dark";document.documentElement.classList.add("dark");}})();`}
         </Script>

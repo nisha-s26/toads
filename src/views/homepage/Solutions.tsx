@@ -37,7 +37,7 @@ const solutions: {
   {
     icon: Layers,
     title: "MERN Development",
-    desc: "MongoDB, Express, React, Node.js — complete JavaScript ecosystem for rapid development.",
+    desc: "MongoDB, Express, React, Node.js - complete JavaScript ecosystem for rapid development.",
     to: "/services/ai-development",
   },
   {
@@ -87,15 +87,16 @@ function SolutionTile({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55, ease: "easeOut", delay: index * 0.07 }}
       viewport={{ once: true }}
+      className="h-full"
     >
       <Link
         href={item.to}
         title={item.title}
         className={cn(
-          "capability-card-surface group flex min-h-[260px] flex-col overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 md:p-7",
+          "capability-card-surface group flex h-full flex-col overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 md:p-7",
         )}
       >
-        <div className="relative z-10 flex flex-1 flex-col">
+        <div className="relative z-10 flex h-full flex-col">
           <div className="mb-5 flex items-start justify-between gap-4">
             <span
               className={cn(
@@ -126,7 +127,7 @@ function SolutionTile({
 
           <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600 md:text-base">{item.desc}</p>
 
-          <p className="mt-5 font-mono text-xs uppercase tracking-[0.2em] text-slate-700 transition-colors duration-300 group-hover:text-slate-900">
+          <p className="mt-auto pt-5 font-mono text-xs uppercase tracking-[0.2em] text-slate-700 transition-colors duration-300 group-hover:text-slate-900">
             View solution
           </p>
 
@@ -154,7 +155,7 @@ export default function Solutions() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {solutions.map((item, index) => (
             <SolutionTile key={item.title} item={item} index={index} />
           ))}

@@ -35,7 +35,7 @@ export const allBlogs: BlogPost[] = [
   //     "https://lh3.googleusercontent.com/d/1s0JYSYPUJWn9cryktn7DgY1XrQJgvLNE=w1200",
   //   date: "June 5, 2026",
   //   readTime: "9 min read",
-  //   author: "Toadsters Team",
+  //   author: "Toadster Team",
   //   authorRole: "AI Development Insights",
   //   category: "AI Development",
   //   tags: [
@@ -62,7 +62,7 @@ export const allBlogs: BlogPost[] = [
 
   // ## How is AI changing software engineering in 2026?
 
-  // The most immediate change is in developer productivity. AI coding tools now handle boilerplate generation, test scaffolding, and repetitive refactoring - work that consumed real hours on every sprint. Independent studies put productivity gains at 30–55% on contained tasks. That's not a rounding error.
+  // The most immediate change is in developer productivity. AI coding tools now handle boilerplate generation, test scaffolding, and repetitive refactoring - work that consumed real hours on every sprint. Independent studies put productivity gains at 30-55% on contained tasks. That's not a rounding error.
 
   // But [agentic AI development](/services/agentic-ai) is the shift worth watching closely. Agentic systems don't just autocomplete - they plan multi-step tasks, call APIs, write and run tests, and iterate on output without constant human prompting. [LLM application development](/services/llm-development) and RAG-based architectures are already in production at companies that were experimenting with them 18 months ago. The gap between early adopters and everyone else is widening.
 
@@ -100,7 +100,7 @@ export const allBlogs: BlogPost[] = [
 
   // Custom software development pricing varies widely, and most published ranges are too broad to be useful. A 5-screen mobile application and a multi-tenant SaaS platform are both "custom software" - they don't belong in the same pricing conversation.
 
-  // What drives cost: complexity of integrations, number of user roles and permission layers, real-time data requirements, regulatory compliance (HIPAA, GDPR, SOC 2), and the level of AI capability built in. A rough benchmark: a well-scoped MVP from a credible custom software development company in India runs $25,000–$80,000. The same scope with a US-based agency typically runs 2.5–4x higher.
+  // What drives cost: complexity of integrations, number of user roles and permission layers, real-time data requirements, regulatory compliance (HIPAA, GDPR, SOC 2), and the level of AI capability built in. A rough benchmark: a well-scoped MVP from a credible custom software development company in India runs $25,000-$80,000. The same scope with a US-based agency typically runs 2.5-4x higher.
 
   // Get a detailed technical scope before any pricing conversation. A vendor who quotes without scoping is guessing - and you'll pay for the gap.
   //     `,
@@ -123,7 +123,7 @@ export const allBlogs: BlogPost[] = [
   //     {
   //       question: "How long does a software development project take?",
   //       answer:
-  //         "A focused MVP takes 8–16 weeks with a well-scoped brief and a dedicated team. A full enterprise application with integrations, compliance requirements, and multiple user types typically runs 6–18 months. The number one cause of schedule overrun isn't slow development - it's scope that wasn't fully defined before build started.",
+  //         "A focused MVP takes 8-16 weeks with a well-scoped brief and a dedicated team. A full enterprise application with integrations, compliance requirements, and multiple user types typically runs 6-18 months. The number one cause of schedule overrun isn't slow development - it's scope that wasn't fully defined before build started.",
   //     },
   //     {
   //       question: "What are the latest software development trends worth paying attention to?",
@@ -156,7 +156,7 @@ export const allBlogs: BlogPost[] = [
   //     "https://lh3.googleusercontent.com/d/1xQGmWht_XW79qBY-u1CbAEO2nr6ln7be=w1200",
   //   date: "June 4, 2026",
   //   readTime: "9 min read",
-  //   author: "Toadsters Team",
+  //   author: "Toadster Team",
   //   authorRole: "AI Development Insights",
   //   category: "AI Development",
   //   tags: [
@@ -283,7 +283,7 @@ export const allBlogs: BlogPost[] = [
   //     "https://lh3.googleusercontent.com/d/1FFPKYLNXdDn8XTl69Vk1Ap7M4dD8Zlwl=w1200",
   //   date: "June 4, 2026",
   //   readTime: "8 min read",
-  //   author: "Toadsters Team",
+  //   author: "Toadster Team",
   //   authorRole: "AI Development Insights",
   //   category: "Generative AI",
   //   tags: [
@@ -404,7 +404,7 @@ export const allBlogs: BlogPost[] = [
   //     "https://lh3.googleusercontent.com/d/1Zm0-W6WHflLcQgTurfSNgCigx7uWR_fS=w1200",
   //   date: "June 2, 2026",
   //   readTime: "8 min read",
-  //   author: "Toadsters Team",
+  //   author: "Toadster Team",
   //   authorRole: "AI Development Insights",
   //   category: "AI Development",
   //   tags: [
@@ -472,9 +472,9 @@ export const allBlogs: BlogPost[] = [
 
   // In AI-assisted software engineering, you should separate:
 
-  // - **Design prompts** — reasoning, trade-offs, diagrams in text
-  // - **Implementation prompts** — actual source code
-  // - **Review prompts** — identify bugs, security risks, complexity issues
+  // - **Design prompts** - reasoning, trade-offs, diagrams in text
+  // - **Implementation prompts** - actual source code
+  // - **Review prompts** - identify bugs, security risks, complexity issues
 
   // Claude Code can explain why a pattern is suitable. That explanation often surfaces hidden assumptions in your own thinking.
 
@@ -525,7 +525,7 @@ export const allBlogs: BlogPost[] = [
 
   // Both require human review. Neither replaces code review discipline.
 
-  // ![Claude Code vs GitHub Copilot — how AI coding tools compare across developer workflows](https://lh3.googleusercontent.com/d/1VF7uVTC6VMoFz_NdtnwgSaAOiHgwUs-O=w1200)
+  // ![Claude Code vs GitHub Copilot - how AI coding tools compare across developer workflows](https://lh3.googleusercontent.com/d/1VF7uVTC6VMoFz_NdtnwgSaAOiHgwUs-O=w1200)
 
   // ## What Are the Limitations You Should Be Aware Of?
 
@@ -553,7 +553,7 @@ export const allBlogs: BlogPost[] = [
   //     {
   //       question: "How do I actually use Claude Code day to day?",
   //       answer:
-  //         "You describe a task in structured detail, review the output, test it locally, and iterate with corrective prompts. Treat each response as a draft you refine — not a final answer — and you'll get steady, reliable progress instead of one-shot guesses.",
+  //         "You describe a task in structured detail, review the output, test it locally, and iterate with corrective prompts. Treat each response as a draft you refine - not a final answer - and you'll get steady, reliable progress instead of one-shot guesses.",
   //     },
   //     {
   //       question: "Can Claude Code build a full-stack application?",
@@ -583,7 +583,7 @@ export const allBlogs: BlogPost[] = [
   //     {
   //       question: "What is the biggest mistake when using Claude Code?",
   //       answer:
-  //         "Giving vague prompts and trusting the first answer without testing it. Specific constraints in, useful code out — and every output still needs to clear your normal review and testing bar before it ships.",
+  //         "Giving vague prompts and trusting the first answer without testing it. Specific constraints in, useful code out - and every output still needs to clear your normal review and testing bar before it ships.",
   //     },
   //   ],
   // },
@@ -602,7 +602,7 @@ export const allBlogs: BlogPost[] = [
   //     "https://lh3.googleusercontent.com/d/1pkAbJLlOunFYK2A89R5riK8v1120VkC7=w1200",
   //   date: "June 1, 2026",
   //   readTime: "8 min read",
-  //   author: "Toadsters Team",
+  //   author: "Toadster Team",
   //   authorRole: "Data Engineering Insights",
   //   category: "Data Engineering",
   //   tags: [
@@ -694,12 +694,12 @@ export const allBlogs: BlogPost[] = [
   //     {
   //       question: "What's a realistic number to budget for data engineering work?",
   //       answer:
-  //         "A properly scoped pipeline build - cloud infrastructure, integrations, basic monitoring - typically runs between $30,000 and $150,000. That range shifts based on how many source systems you have, whether you need real-time processing, and how much governance scaffolding is required. Ongoing maintenance usually adds 15–25% of the build cost annually.",
+  //         "A properly scoped pipeline build - cloud infrastructure, integrations, basic monitoring - typically runs between $30,000 and $150,000. That range shifts based on how many source systems you have, whether you need real-time processing, and how much governance scaffolding is required. Ongoing maintenance usually adds 15-25% of the build cost annually.",
   //     },
   //     {
   //       question: "How long before a data pipeline is actually stable in production?",
   //       answer:
-  //         "A focused build with a clear scope can reach production in 4–8 weeks. If you're dealing with multiple source systems, streaming requirements, or enterprise governance needs, realistic stability is closer to 3–6 months - and any team quoting faster without knowing your environment is guessing.",
+  //         "A focused build with a clear scope can reach production in 4-8 weeks. If you're dealing with multiple source systems, streaming requirements, or enterprise governance needs, realistic stability is closer to 3-6 months - and any team quoting faster without knowing your environment is guessing.",
   //     },
   //   ],
   // },
@@ -716,7 +716,7 @@ export const allBlogs: BlogPost[] = [
   //   image: "https://lh3.googleusercontent.com/d/1-g0h1XifBUXwbcnhtA2mESKG_Xa6OvDV=w1200",
   //   date: "May 29, 2026",
   //   readTime: "9 min read",
-  //   author: "Toadsters Team",
+  //   author: "Toadster Team",
   //   authorRole: "AI Automation Insights",
   //   category: "AI Automation",
   //   tags: [
@@ -763,7 +763,7 @@ export const allBlogs: BlogPost[] = [
   // |---|---|---|
   // | Support ticket routing | Human reads and assigns each one | AI classifies, prioritises, drafts response instantly |
   // | Invoice matching | Spreadsheet review, manual validation | Automated 3-way matching with exception flagging |
-  // | HR onboarding | Manual coordination across 4–5 teams | AI orchestrates tasks, sends documents, tracks completion |
+  // | HR onboarding | Manual coordination across 4-5 teams | AI orchestrates tasks, sends documents, tracks completion |
   // | Compliance checks | Periodic manual audit, high error rate | Continuous monitoring with real-time alerts |
   // | Reporting | Hours of data pulling and formatting | Auto-generated from live data on a schedule |
   // | Lead qualification | Sales team reviews every inbound manually | AI scores, enriches, and routes before human touch |
@@ -869,7 +869,7 @@ export const allBlogs: BlogPost[] = [
   //   image: "https://lh3.googleusercontent.com/d/1zD5wyqmX9NHsCN_o23HpzCqdtnCE6aCY=w1200",
   //   date: "May 28, 2026",
   //   readTime: "10 min read",
-  //   author: "Toadsters Team",
+  //   author: "Toadster Team",
   //   authorRole: "AI Development Insights",
   //   category: "App Development",
   //   tags: ["App Development Cost", "India", "MVP", "AI Development", "Pricing Guide"],
@@ -1046,7 +1046,7 @@ export const allBlogs: BlogPost[] = [
   //   image: "https://lh3.googleusercontent.com/d/1bYDrxMi9uiSFKmjRYNZPOY6D5Ql2L_iA=w1200",
   //   date: "May 26, 2026",
   //   readTime: "7 min read",
-  //   author: "Toadsters Team",
+  //   author: "Toadster Team",
   //   authorRole: "AI Development Insights",
   //   category: "AI Development",
   //   tags: ["Claude Code", "AI Coding", "Developer Productivity", "AI Strategy"],

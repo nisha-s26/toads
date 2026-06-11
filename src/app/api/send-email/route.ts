@@ -29,7 +29,7 @@ Additional Info: ${formData.additionalInfo}
 
     const mailOptions: nodemailer.SendMailOptions = {
       to: "hr@toadsters.com",
-      from: `"Toadsters Careers" <${process.env.SMTP_USER}>`,
+      from: `"Toadster Careers" <${process.env.SMTP_USER}>`,
       replyTo: `"${formData.name}" <${formData.fromEmail}>`,
       subject: `Job Application: ${formData.jobTitle} - ${formData.name}`,
       text: emailContent,

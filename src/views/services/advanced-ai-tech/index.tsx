@@ -53,12 +53,12 @@ const services = [
   {
     icon: <Network size={22} />,
     title: "Federated Learning",
-    desc: "Train powerful AI models across decentralised data sources without moving sensitive data — privacy-preserving machine learning at enterprise scale.",
+    desc: "Train powerful AI models across decentralised data sources without moving sensitive data - privacy-preserving machine learning at enterprise scale.",
   },
   {
     icon: <Atom size={22} />,
     title: "Quantum-Ready AI",
-    desc: "AI architectures designed to leverage quantum computing advantages — from optimisation problems to molecular simulation and cryptography.",
+    desc: "AI architectures designed to leverage quantum computing advantages - from optimisation problems to molecular simulation and cryptography.",
   },
   {
     icon: <Scan size={22} />,
@@ -68,12 +68,12 @@ const services = [
   {
     icon: <Layers size={22} />,
     title: "Multi-Modal AI Systems",
-    desc: "Unified models that reason across text, images, audio, video, and structured data — enabling richer understanding and decision-making.",
+    desc: "Unified models that reason across text, images, audio, video, and structured data - enabling richer understanding and decision-making.",
   },
   {
     icon: <Binary size={22} />,
     title: "Edge AI & TinyML",
-    desc: "Deploy sophisticated AI models on resource-constrained edge devices — from microcontrollers to smartphones — with optimised inference.",
+    desc: "Deploy sophisticated AI models on resource-constrained edge devices - from microcontrollers to smartphones - with optimised inference.",
   },
 ]
 
@@ -86,7 +86,7 @@ const benefits = [
   {
     icon: <Shield size={22} />,
     title: "Future-Proof Architecture",
-    desc: "Systems designed to evolve with AI research — modular, upgradeable, and ready for the next wave of breakthroughs.",
+    desc: "Systems designed to evolve with AI research - modular, upgradeable, and ready for the next wave of breakthroughs.",
   },
   {
     icon: <Zap size={22} />,
@@ -96,7 +96,7 @@ const benefits = [
   {
     icon: <BarChart3 size={22} />,
     title: "Explainable AI",
-    desc: "Neuro-symbolic and attention-based architectures that provide interpretable decisions — critical for regulated industries.",
+    desc: "Neuro-symbolic and attention-based architectures that provide interpretable decisions - critical for regulated industries.",
   },
   {
     icon: <Sparkles size={22} />,
@@ -121,7 +121,7 @@ const faqs = [
   {
     question: "What makes your AI technology 'advanced'?",
     answer:
-      "We implement techniques from the frontier of AI research — neuro-symbolic reasoning, federated learning, self-supervised methods, multi-modal fusion, and quantum-ready architectures — that go beyond standard deep learning approaches.",
+      "We implement techniques from the frontier of AI research - neuro-symbolic reasoning, federated learning, self-supervised methods, multi-modal fusion, and quantum-ready architectures - that go beyond standard deep learning approaches.",
   },
   {
     question: "Do we need a large dataset to use advanced AI?",
@@ -166,7 +166,7 @@ export default function AdvancedAITechPage() {
             <span className="text-green-400">Complex Problems</span>
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
-            From neuro-symbolic reasoning to federated learning and quantum-ready architectures — we bring frontier AI research to production for your business.
+            From neuro-symbolic reasoning to federated learning and quantum-ready architectures - we bring frontier AI research to production for your business.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button
@@ -201,7 +201,7 @@ export default function AdvancedAITechPage() {
             <h2 className="text-4xl font-extrabold">Advanced AI</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Capabilities</h3>
             <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">
-              Beyond standard machine learning — we implement frontier techniques that deliver step-change improvements in accuracy, efficiency, and capability.
+              Beyond standard machine learning - we implement frontier techniques that deliver step-change improvements in accuracy, efficiency, and capability.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -283,7 +283,7 @@ export default function AdvancedAITechPage() {
             {[
               { step: "01", title: "Research Sprint", desc: "We survey the latest AI research and identify techniques with the highest impact potential for your use case." },
               { step: "02", title: "Rapid Prototyping", desc: "We prototype 2-3 advanced approaches in parallel, benchmarking against your baseline within 2-4 weeks." },
-              { step: "03", title: "Production Engineering", desc: "The winning approach is hardened for production — optimised, tested, documented, and deployed with full MLOps." },
+              { step: "03", title: "Production Engineering", desc: "The winning approach is hardened for production - optimised, tested, documented, and deployed with full MLOps." },
               { step: "04", title: "Continuous Research", desc: "We continuously monitor new research and upgrade your system as better techniques emerge." },
             ].map((item) => (
               <div key={item.step} className="bg-page-bg border border-page-border rounded-2xl p-6">
@@ -340,7 +340,7 @@ export default function AdvancedAITechPage() {
           <div className="grid md:grid-cols-2 gap-4">
             {[
               "Team with publications at NeurIPS, ICML, ICLR, and CVPR",
-              "From paper to production in weeks — not months",
+              "From paper to production in weeks - not months",
               "Deep expertise in model compression, distillation, and edge deployment",
               "Quantum computing partnerships with IBM and Google",
               "Full MLOps and model governance for regulated industries",
@@ -371,12 +371,12 @@ export default function AdvancedAITechPage() {
               {
                 name: "James T.",
                 role: "CTO, Biotech Startup",
-                text: "Toadster's neuro-symbolic approach to drug interaction prediction was 10x more interpretable than our previous black-box model — and more accurate.",
+                text: "Toadster's neuro-symbolic approach to drug interaction prediction was 10x more interpretable than our previous black-box model - and more accurate.",
               },
               {
                 name: "Meera K.",
                 role: "VP Data Science, Manufacturing",
-                text: "Their self-supervised learning pipeline eliminated our need for expensive manual labelling. We went from 10K labelled samples to zero — with better accuracy.",
+                text: "Their self-supervised learning pipeline eliminated our need for expensive manual labelling. We went from 10K labelled samples to zero - with better accuracy.",
               },
               {
                 name: "Alex R.",

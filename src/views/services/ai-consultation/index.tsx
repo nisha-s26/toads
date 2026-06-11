@@ -53,7 +53,7 @@ const consultingServices = [
   {
     icon: <Map size={22} />,
     title: "AI Strategy & Roadmap",
-    desc: "A clear, prioritised 12–24 month roadmap that aligns AI initiatives with your business objectives and budget.",
+    desc: "A clear, prioritised 12-24 month roadmap that aligns AI initiatives with your business objectives and budget.",
   },
   {
     icon: <ClipboardList size={22} />,
@@ -81,7 +81,7 @@ const benefits = [
   {
     icon: <Target size={22} />,
     title: "Unbiased Expert Guidance",
-    desc: "We have no vendor affiliations — our recommendations are based purely on what's best for your business.",
+    desc: "We have no vendor affiliations - our recommendations are based purely on what's best for your business.",
   },
   {
     icon: <ShieldCheck size={22} />,
@@ -96,12 +96,12 @@ const benefits = [
   {
     icon: <BarChart3 size={22} />,
     title: "ROI-Focused Approach",
-    desc: "Every recommendation is tied to quantifiable business outcomes — not technology for technology's sake.",
+    desc: "Every recommendation is tied to quantifiable business outcomes - not technology for technology's sake.",
   },
   {
     icon: <TrendingUp size={22} />,
     title: "Long-Term Partnership",
-    desc: "We stay engaged beyond the strategy phase — coaching teams and iterating as your AI matures.",
+    desc: "We stay engaged beyond the strategy phase - coaching teams and iterating as your AI matures.",
   },
   {
     icon: <Users size={22} />,
@@ -131,7 +131,7 @@ const faqs = [
   {
     question: "How is this different from hiring an internal AI team?",
     answer:
-      "Consultation gives you immediate access to senior AI architects, strategists, and domain experts without the 6–12 month hiring cycle. It's the fastest way to get a credible, actionable AI strategy.",
+      "Consultation gives you immediate access to senior AI architects, strategists, and domain experts without the 6-12 month hiring cycle. It's the fastest way to get a credible, actionable AI strategy.",
   },
   {
     question: "Can you help us evaluate AI vendors and tools?",
@@ -166,7 +166,7 @@ export default function AIConsultationPage() {
             <span className="text-green-400">AI Adoption</span> That Works
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
-            Cut through the hype. Our AI consultants help you build a clear, actionable strategy — identifying the right use cases, architecture, and roadmap to deliver real business value.
+            Cut through the hype. Our AI consultants help you build a clear, actionable strategy - identifying the right use cases, architecture, and roadmap to deliver real business value.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact">Book a Free Strategy Call</CTALink>
@@ -193,7 +193,7 @@ export default function AIConsultationPage() {
             <h2 className="text-4xl font-extrabold">AI Consultation</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services We Provide</h3>
             <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">
-              From readiness assessments to full transformation programmes — expert AI guidance at every stage of your journey.
+              From readiness assessments to full transformation programmes - expert AI guidance at every stage of your journey.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -302,7 +302,7 @@ export default function AIConsultationPage() {
           <div className="grid md:grid-cols-2 gap-4">
             {[
               "Senior AI architects with 10+ years of production experience",
-              "Vendor-neutral — we recommend what's right, not what's profitable",
+              "Vendor-neutral - we recommend what's right, not what's profitable",
               "Deep industry knowledge across healthcare, fintech, retail & more",
               "Proven frameworks: AI readiness matrix, use case scoring, ROI modelling",
               "Seamless handoff to implementation if you choose to build with us",

@@ -71,7 +71,7 @@ const services: Service[] = [
     title: "Machine Learning Models",
     shortDesc: "Production-ready ML models for pattern recognition and prediction.",
     description:
-      "We develop and deploy machine learning models that solve real business problems — from classification and regression to deep learning and time-series forecasting, all optimized for production environments.",
+      "We develop and deploy machine learning models that solve real business problems - from classification and regression to deep learning and time-series forecasting, all optimized for production environments.",
     useCases: [
       "Customer churn prediction",
       "Demand forecasting",
@@ -224,7 +224,7 @@ export default function AiCap() {
   }, [selected])
 
   return (
-    <section className="w-full px-4 mt-5">
+    <section className="w-full px-4 pt-2">
       {/* Header */}
       <div className="text-center mb-12">
         <p className="text-lg tracking-[0.35em] section-eyebrow font-bold">

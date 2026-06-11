@@ -136,7 +136,7 @@ export default function NLPServicesPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { icon: <Zap size={22} />, title: "Faster Document Processing at Scale", desc: "Process thousands of documents, contracts, and reports in seconds — reducing manual review time by 90%." },
+              { icon: <Zap size={22} />, title: "Faster Document Processing at Scale", desc: "Process thousands of documents, contracts, and reports in seconds - reducing manual review time by 90%." },
               { icon: <Users size={22} />, title: "Enhanced Customer Understanding", desc: "Mine customer feedback, reviews, and chats to deeply understand needs, pain points, and intent." },
               { icon: <MessageSquare size={22} />, title: "Smarter Conversational Interfaces", desc: "Build chatbots and virtual assistants that truly understand language nuance and context." },
               { icon: <Target size={22} />, title: "Precision Targeting & Personalization", desc: "Use NLP-driven user profiling to deliver highly personalized experiences and recommendations." },
@@ -365,7 +365,7 @@ export default function NLPServicesPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Karan Mehta", role: "Head of Data, InsureRight", text: "Toadster's NLP team built us a document extraction pipeline that processes 50K insurance forms daily. Accuracy is at 96% — better than our manual team." },
+              { name: "Karan Mehta", role: "Head of Data, InsureRight", text: "Toadster's NLP team built us a document extraction pipeline that processes 50K insurance forms daily. Accuracy is at 96% - better than our manual team." },
               { name: "Sarah Lin", role: "CTO, FeedbackLoop", text: "We deployed their sentiment analysis API across our entire feedback system. Reduced our analyst workload by 80% in the first month alone." },
               { name: "Raj Patel", role: "VP Engineering, TalkSmart", text: "Their multilingual NLP solution handles 12 languages for our global support system. Customer satisfaction scores improved by 35% post-deployment." },
             ].map((t) => (
@@ -394,7 +394,7 @@ export default function NLPServicesPage() {
             <span className="text-green-400">AI for Your Business?</span>
           </h2>
           <p className="text-page-fg-muted mb-4">
-            Let our NLP experts build intelligent language systems that understand your customers — at scale.
+            Let our NLP experts build intelligent language systems that understand your customers - at scale.
           </p>
           <div className="flex flex-wrap gap-4 justify-center mb-10">
             {[
@@ -451,12 +451,12 @@ export default function NLPServicesPage() {
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[
-            { q: "What is NLP and how can it benefit my business?", a: "Natural Language Processing (NLP) enables computers to understand, interpret, and generate human language. It powers chatbots, sentiment analysis, document extraction, search, and translation — automating language-heavy workflows at scale." },
-            { q: "How long does it take to build an NLP solution?", a: "A typical PoC takes 2–3 weeks. Full production deployments range from 6–14 weeks depending on data availability, model complexity, and integration requirements." },
-            { q: "Can you build NLP models for industry-specific domains?", a: "Absolutely. We fine-tune models on your domain-specific text data — whether legal, medical, financial, or e-commerce — to achieve significantly higher accuracy than generic models." },
+            { q: "What is NLP and how can it benefit my business?", a: "Natural Language Processing (NLP) enables computers to understand, interpret, and generate human language. It powers chatbots, sentiment analysis, document extraction, search, and translation - automating language-heavy workflows at scale." },
+            { q: "How long does it take to build an NLP solution?", a: "A typical PoC takes 2-3 weeks. Full production deployments range from 6-14 weeks depending on data availability, model complexity, and integration requirements." },
+            { q: "Can you build NLP models for industry-specific domains?", a: "Absolutely. We fine-tune models on your domain-specific text data - whether legal, medical, financial, or e-commerce - to achieve significantly higher accuracy than generic models." },
             { q: "How do you ensure security and privacy of our text data?", a: "We support on-premise deployments, private VPCs, data anonymization, and encryption at rest and in transit. Your proprietary data never leaves your secure environment." },
             { q: "Can your NLP solutions handle multiple languages?", a: "Yes. We build multilingual NLP systems supporting 100+ languages using models like mBERT, XLM-R, and custom multilingual fine-tuned transformers." },
-            { q: "Do you provide ongoing support and model maintenance?", a: "Yes — we offer managed NLP service plans including 24/7 monitoring, model drift detection, retraining on new data, and continuous performance improvements." },
+            { q: "Do you provide ongoing support and model maintenance?", a: "Yes - we offer managed NLP service plans including 24/7 monitoring, model drift detection, retraining on new data, and continuous performance improvements." },
           ].map((item) => (
             <FAQItem key={item.q} question={item.q} answer={item.a} />
           ))}

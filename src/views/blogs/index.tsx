@@ -163,7 +163,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
 
-                  {/* Category badge — always visible */}
+                  {/* Category badge - always visible */}
                   {blog.category && (
                     <div className="absolute top-3 left-3 z-20 transition-opacity duration-300 group-hover:opacity-0">
                       <span className="inline-flex items-center bg-white/95 backdrop-blur-sm text-toadster-green text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full shadow-md shadow-black/30 ring-1 ring-black/5">
@@ -172,7 +172,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
                     </div>
                   )}
 
-                  {/* Minimal title strip — visible at rest, fades on hover */}
+                  {/* Minimal title strip - visible at rest, fades on hover */}
                   <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-0 pointer-events-none">
                     <div className="flex items-center gap-2 text-[11px] sm:text-xs text-white/80 mb-1.5">
                       <span>{blog.date?.split(',')[0]}</span>
@@ -184,7 +184,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
                     </h3>
                   </div>
 
-                  {/* Hover Overlay — full content */}
+                  {/* Hover Overlay - full content */}
                   <div className="absolute inset-0 z-20 flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/85 to-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 p-4 sm:p-5">
                     <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
                       <div className="flex items-center gap-2 text-[11px] sm:text-xs text-white/80 mb-2">

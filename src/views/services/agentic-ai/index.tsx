@@ -424,7 +424,7 @@ export default function AgenticAIPage() {
             <span className="text-green-400">AI for Your Business?</span>
           </h2>
           <p className="text-page-fg-muted mb-8">
-            Let's build intelligent agents that work for you — 24/7, at scale, without limits.
+            Let's build intelligent agents that work for you - 24/7, at scale, without limits.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact" className="text-lg" title="Talk to our Agentic AI team">
@@ -480,8 +480,8 @@ export default function AgenticAIPage() {
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[
-            { q: "What is Agentic AI and how is it different from traditional AI?", a: "Agentic AI systems can autonomously plan, execute multi-step tasks, and adapt without constant human input — unlike traditional AI which requires explicit instructions for each action." },
-            { q: "How long does it take to deploy an Agentic AI solution?", a: "Typical deployments range from 4–12 weeks depending on complexity. We follow a rapid prototyping approach to deliver a working PoC within the first 2 weeks." },
+            { q: "What is Agentic AI and how is it different from traditional AI?", a: "Agentic AI systems can autonomously plan, execute multi-step tasks, and adapt without constant human input - unlike traditional AI which requires explicit instructions for each action." },
+            { q: "How long does it take to deploy an Agentic AI solution?", a: "Typical deployments range from 4-12 weeks depending on complexity. We follow a rapid prototyping approach to deliver a working PoC within the first 2 weeks." },
             { q: "Can Agentic AI integrate with our existing systems?", a: "Yes. Our agents are built with integration-first architecture and can connect to any REST API, database, CRM, ERP, or cloud platform." },
             { q: "How do you ensure security in Agentic AI deployments?", a: "We implement role-based access control, encrypted agent communication, audit trails, and comply with SOC 2, GDPR, and HIPAA standards where required." },
             { q: "What industries do you serve with Agentic AI?", a: "We serve fintech, healthcare, legal, e-commerce, manufacturing, logistics, and more. Our agents are tailored to the specific workflows of each industry." },

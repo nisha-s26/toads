@@ -63,14 +63,14 @@ export default function AIDataAnalyticsPage() {
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Offerings</p>
             <h2 className="text-4xl font-extrabold">Our AI Data Analytics</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services</h3>
-            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">From raw data pipelines to executive dashboards and predictive models — we build end-to-end analytics platforms that turn your data into competitive advantage.</p>
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">From raw data pipelines to executive dashboards and predictive models - we build end-to-end analytics platforms that turn your data into competitive advantage.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: <BarChart3 size={22} />, title: "Predictive Analytics Solutions", desc: "Machine learning models that predict churn, demand, risk, and opportunity — giving your teams foresight, not just hindsight." },
-              { icon: <Database size={22} />, title: "Data Warehouse & Lake Architecture", desc: "Design and build scalable data warehouses and lakes on Snowflake, BigQuery, Databricks, or AWS Redshift — optimised for analytics workloads." },
+              { icon: <BarChart3 size={22} />, title: "Predictive Analytics Solutions", desc: "Machine learning models that predict churn, demand, risk, and opportunity - giving your teams foresight, not just hindsight." },
+              { icon: <Database size={22} />, title: "Data Warehouse & Lake Architecture", desc: "Design and build scalable data warehouses and lakes on Snowflake, BigQuery, Databricks, or AWS Redshift - optimised for analytics workloads." },
               { icon: <LineChart size={22} />, title: "Business Intelligence & Dashboards", desc: "Real-time Power BI, Tableau, Looker, and custom dashboards that surface the KPIs that matter to every stakeholder." },
-              { icon: <Activity size={22} />, title: "Real-Time Streaming Analytics", desc: "Process and analyse data streams in real time with Kafka, Spark Streaming, and Flink — for instant operational insights." },
+              { icon: <Activity size={22} />, title: "Real-Time Streaming Analytics", desc: "Process and analyse data streams in real time with Kafka, Spark Streaming, and Flink - for instant operational insights." },
               { icon: <Brain size={22} />, title: "AI-Powered Forecasting & Optimisation", desc: "Time-series forecasting, price optimisation, inventory planning, and resource allocation models tuned for your business." },
               { icon: <Settings size={22} />, title: "Analytics & Risk Management", desc: "Data quality frameworks, governance policies, and risk dashboards that ensure your analytics are accurate, compliant, and trusted." },
             ].map((s) => (
@@ -94,11 +94,11 @@ export default function AIDataAnalyticsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: <Brain size={28} />, title: "AI-Powered Insights", desc: "Our models go beyond BI — predicting what will happen next and prescribing actions, not just describing the past." },
-              { icon: <TrendingUp size={28} />, title: "Business-First Approach", desc: "Every analytics deliverable is tied to a business outcome — revenue, cost, risk, or customer KPI — not just a chart." },
+              { icon: <Brain size={28} />, title: "AI-Powered Insights", desc: "Our models go beyond BI - predicting what will happen next and prescribing actions, not just describing the past." },
+              { icon: <TrendingUp size={28} />, title: "Business-First Approach", desc: "Every analytics deliverable is tied to a business outcome - revenue, cost, risk, or customer KPI - not just a chart." },
               { icon: <Shield size={28} />, title: "Enterprise-Grade Security", desc: "Row-level security, data masking, RBAC, and compliance with GDPR, SOC2, and HIPAA built into every solution." },
-              { icon: <Zap size={28} />, title: "Fast-Driven Delivery", desc: "Agile sprints, rapid prototyping, and iterative delivery — so you see value in weeks, not quarters." },
-              { icon: <Database size={28} />, title: "Modern Data Stack Expertise", desc: "We work across Snowflake, Databricks, dbt, Airflow, BigQuery, and all major cloud platforms — no vendor lock-in." },
+              { icon: <Zap size={28} />, title: "Fast-Driven Delivery", desc: "Agile sprints, rapid prototyping, and iterative delivery - so you see value in weeks, not quarters." },
+              { icon: <Database size={28} />, title: "Modern Data Stack Expertise", desc: "We work across Snowflake, Databricks, dbt, Airflow, BigQuery, and all major cloud platforms - no vendor lock-in." },
               { icon: <Users size={28} />, title: "Trusted Data Partners", desc: "Long-term partnerships with 150+ clients who rely on our analytics platforms as the source of truth for their business." },
             ].map((b) => (
               <div key={b.title} className="bg-page-bg border border-page-border rounded-2xl p-6 hover:border-green-800/30 transition-colors text-center">
@@ -122,9 +122,9 @@ export default function AIDataAnalyticsPage() {
           <div className="grid md:grid-cols-2 gap-6">
             {[
               { icon: <Eye size={22} />, title: "Accurate Data Solutions", desc: "Rigorous data quality engineering and validation frameworks that ensure every metric your teams rely on is accurate and trusted." },
-              { icon: <Network size={22} />, title: "Best Decisions & Data Strategies", desc: "From data strategy consulting to architecture design — we align your data investments with your most important business decisions." },
+              { icon: <Network size={22} />, title: "Best Decisions & Data Strategies", desc: "From data strategy consulting to architecture design - we align your data investments with your most important business decisions." },
               { icon: <Server size={22} />, title: "Scalable Data Infrastructure", desc: "Cloud-native data platforms that scale cost-efficiently from gigabytes to petabytes without re-architecting." },
-              { icon: <Activity size={22} />, title: "Seamless Data Integration", desc: "Connect every source — CRM, ERP, IoT, SaaS, and databases — into a unified data layer that powers all your analytics." },
+              { icon: <Activity size={22} />, title: "Seamless Data Integration", desc: "Connect every source - CRM, ERP, IoT, SaaS, and databases - into a unified data layer that powers all your analytics." },
             ].map((b) => (
               <div key={b.title} className="bg-page-bg-alt border border-page-border rounded-2xl p-6 flex gap-5 hover:border-green-800/30 transition-colors">
                 <div className="w-11 h-11 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 shrink-0">{b.icon}</div>
@@ -164,7 +164,7 @@ export default function AIDataAnalyticsPage() {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-7">
               {[
-                { step: "01", title: "Data Collection & Ingestion", desc: "Connect every data source — databases, APIs, flat files, streaming events — into a centralised, governed data platform." },
+                { step: "01", title: "Data Collection & Ingestion", desc: "Connect every data source - databases, APIs, flat files, streaming events - into a centralised, governed data platform." },
                 { step: "02", title: "Data Cleaning & Preparation", desc: "Standardise, validate, and enrich your data with automated pipelines to ensure every downstream model and report is built on clean data." },
                 { step: "03", title: "Insight Generation & Modelling", desc: "Apply ML models, statistical analysis, and AI to surface hidden patterns, predictions, and actionable insights from your data." },
                 { step: "04", title: "Visualisation & Deployment", desc: "Deliver insights through interactive dashboards, scheduled reports, embedded analytics, and real-time alerting systems." },
@@ -216,8 +216,8 @@ export default function AIDataAnalyticsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Predictive Analytics", title: "ChurnGuard", desc: "ML churn prediction model for a telecom company — 82% precision, enabling proactive retention that saved $2.4M in annual revenue.", metric: "$2.4M revenue saved", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" },
-              { tag: "Data Platform", title: "DataFoundation", desc: "Built a unified Snowflake data warehouse consolidating 40+ data sources for a retail group — cutting reporting time from days to minutes.", metric: "40+ sources unified", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Predictive Analytics", title: "ChurnGuard", desc: "ML churn prediction model for a telecom company - 82% precision, enabling proactive retention that saved $2.4M in annual revenue.", metric: "$2.4M revenue saved", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Data Platform", title: "DataFoundation", desc: "Built a unified Snowflake data warehouse consolidating 40+ data sources for a retail group - cutting reporting time from days to minutes.", metric: "40+ sources unified", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" },
               { tag: "Real-Time Analytics", title: "TradeWatch", desc: "Real-time trading analytics platform processing 2M+ events/sec with sub-second latency dashboards for a fintech company.", metric: "2M+ events/sec", image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
@@ -273,7 +273,7 @@ export default function AIDataAnalyticsPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { name: "Todd Williams", role: "Chief Data Officer, RetailGroup", text: "Toadster consolidated 40 data sources into a single Snowflake platform. Our analysts now spend time on insights instead of data wrangling — a complete transformation." },
+              { name: "Todd Williams", role: "Chief Data Officer, RetailGroup", text: "Toadster consolidated 40 data sources into a single Snowflake platform. Our analysts now spend time on insights instead of data wrangling - a complete transformation." },
               { name: "Anish Mehta", role: "VP Analytics, FinTechFlow", text: "The real-time analytics platform they built handles 2M events per second with sub-second dashboards. We now have the data infrastructure to compete with the largest players." },
             ].map((t) => (
               <div key={t.name} className="bg-page-bg-alt rounded-2xl p-6 border border-page-border">
@@ -340,13 +340,13 @@ export default function AIDataAnalyticsPage() {
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[
-            { q: "What are AI Data Analytics Services?", a: "AI Data Analytics Services combine traditional data analytics with machine learning and AI — enabling businesses to not only understand historical data but predict future outcomes, automate analysis, and surface insights at scale." },
-            { q: "How can AI Data Analytics Services benefit a business?", a: "They replace slow, manual BI processes with automated, always-on analytics — cutting decision latency from days to seconds, reducing costs, improving forecast accuracy, and identifying revenue opportunities hidden in your data." },
+            { q: "What are AI Data Analytics Services?", a: "AI Data Analytics Services combine traditional data analytics with machine learning and AI - enabling businesses to not only understand historical data but predict future outcomes, automate analysis, and surface insights at scale." },
+            { q: "How can AI Data Analytics Services benefit a business?", a: "They replace slow, manual BI processes with automated, always-on analytics - cutting decision latency from days to seconds, reducing costs, improving forecast accuracy, and identifying revenue opportunities hidden in your data." },
             { q: "Are AI Data Analytics Services suitable for small businesses?", a: "Yes. Modern cloud-native analytics platforms are cost-accessible for businesses of all sizes. We tailor the architecture and scope to your data volume, budget, and business maturity." },
             { q: "How do you ensure data security in AI Data Analytics?", a: "We implement row-level security, data masking, role-based access control, end-to-end encryption, and compliance frameworks (GDPR, SOC2, HIPAA) into every analytics solution we build." },
-            { q: "Can AI Data Analytics be used for real-time analysis?", a: "Absolutely. We build real-time streaming analytics pipelines using Kafka, Kinesis, and Flink that process millions of events per second — delivering sub-second latency dashboards and alerts." },
-            { q: "What types of insights can AI Data Analytics provide?", a: "Descriptive (what happened), diagnostic (why it happened), predictive (what will happen), and prescriptive (what should we do) — across every business function from sales and marketing to operations and finance." },
-            { q: "What makes Mobcoder AI different from other analytics providers?", a: "We combine deep data engineering expertise with ML/AI capabilities — so we don't just build dashboards, we build predictive data products that drive measurable business decisions and outcomes." },
+            { q: "Can AI Data Analytics be used for real-time analysis?", a: "Absolutely. We build real-time streaming analytics pipelines using Kafka, Kinesis, and Flink that process millions of events per second - delivering sub-second latency dashboards and alerts." },
+            { q: "What types of insights can AI Data Analytics provide?", a: "Descriptive (what happened), diagnostic (why it happened), predictive (what will happen), and prescriptive (what should we do) - across every business function from sales and marketing to operations and finance." },
+            { q: "What makes Mobcoder AI different from other analytics providers?", a: "We combine deep data engineering expertise with ML/AI capabilities - so we don't just build dashboards, we build predictive data products that drive measurable business decisions and outcomes." },
             { q: "Do I need to migrate my data to use your services?", a: "Not necessarily. We can build analytics layers on top of your existing systems without migration. But where a migration to a modern data platform would deliver significant value, we'll recommend and execute it." },
           ].map((item) => (<FAQItem key={item.q} question={item.q} answer={item.a} />))}
         </div>

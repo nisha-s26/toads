@@ -1,4 +1,5 @@
 import { type BlogPost } from "../views/blogs/blogData"
+import { getHireResourceMetadata } from "./hire-resources"
 
 export interface PageMetadata {
   title: string
@@ -11,12 +12,12 @@ export const SITE_OG_IMAGE = `${SITE_URL}/og-image.jpg`
 export const SITE_OG_IMAGE_TYPE = "image/jpeg"
 export const SITE_OG_IMAGE_WIDTH = 1200
 export const SITE_OG_IMAGE_HEIGHT = 630
-export const SITE_OG_IMAGE_ALT = "Toadsters — AI-Powered Digital Transformation"
+export const SITE_OG_IMAGE_ALT = "Toadster - AI-Powered Digital Transformation"
 
 export const DEFAULT_METADATA: PageMetadata = {
-  title: "Toadsters | Scalable AI Solutions & Enterprise Web Development",
+  title: "Toadster | Scalable AI Solutions & Enterprise Web Development",
   description:
-    "Toadsters delivers AI software development, MLOps, data engineering & custom software solutions for global enterprises, startups, and SMBs.",
+    "Toadster delivers AI software development, MLOps, data engineering & custom software solutions for global enterprises, startups, and SMBs.",
 }
 
 const SERVICE_DESCRIPTIONS_BASE =
@@ -45,39 +46,39 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
       "Get in touch with Toadster's team. Let's architect your next scalable AI system, continuous training pipeline, or enterprise data platform together.",
   },
   "/ai-development-company-india": {
-    title: "AI Development Company India | Custom AI, LLM & Agentic Systems | Toadsters Noida",
+    title: "AI Development Company India | Custom AI, LLM & Agentic Systems | Toadster Noida",
     description:
-      "Toadsters is an AI development company headquartered in Noida, India. We build production-grade AI systems, LLM applications, and agentic workflows for enterprises across India and globally.",
+      "Toadster is an AI development company headquartered in Noida, India. We build production-grade AI systems, LLM applications, and agentic workflows for enterprises across India and globally.",
   },
   "/ai-development-company-uae": {
-    title: "AI Development Company in UAE | Custom AI & LLM Solutions | Toadsters",
+    title: "AI Development Company in UAE | Custom AI & LLM Solutions | Toadster",
     description:
-      "Toadsters delivers custom AI development, agentic AI, and LLM solutions for enterprises across the UAE. Office in DIFC, Dubai. Trusted by UAE enterprises.",
+      "Toadster delivers custom AI development, agentic AI, and LLM solutions for enterprises across the UAE. Office in DIFC, Dubai. Trusted by UAE enterprises.",
   },
   "/ai-development-company-noida": {
-    title: "AI Development Company Noida | Custom AI, LLM & Agentic Systems | Toadsters Sector 63",
+    title: "AI Development Company Noida | Custom AI, LLM & Agentic Systems | Toadster Sector 63",
     description:
-      "Toadsters is an AI development company based in Sector 63, Noida. We build production AI systems, LLM applications, and agentic workflows for enterprises across India and globally.",
+      "Toadster is an AI development company based in Sector 63, Noida. We build production AI systems, LLM applications, and agentic workflows for enterprises across India and globally.",
   },
   "/ai-development-company-delhi": {
-    title: "AI Development Company Delhi | Custom AI & Machine Learning | Toadsters NCR",
+    title: "AI Development Company Delhi | Custom AI & Machine Learning | Toadster NCR",
     description:
-      "Toadsters is a Delhi NCR AI development company (HQ: Sector 63, Noida). We build AI systems, LLM applications, and agentic workflows for Delhi enterprises.",
+      "Toadster is a Delhi NCR AI development company (HQ: Sector 63, Noida). We build AI systems, LLM applications, and agentic workflows for Delhi enterprises.",
   },
   "/ai-development-company-bangalore": {
-    title: "AI Development Company Bangalore | Custom AI, LLM & Agentic AI | Toadsters India",
+    title: "AI Development Company Bangalore | Custom AI, LLM & Agentic AI | Toadster India",
     description:
-      "Toadsters builds enterprise AI systems for Bangalore-based companies - startups, scale-ups, and large enterprises. Engineering HQ in Noida. Delivery standard: production-grade.",
+      "Toadster builds enterprise AI systems for Bangalore-based companies - startups, scale-ups, and large enterprises. Engineering HQ in Noida. Delivery standard: production-grade.",
   },
   "/ai-development-company-mumbai": {
-    title: "AI Development Company Mumbai | Custom AI for BFSI & Enterprise | Toadsters India",
+    title: "AI Development Company Mumbai | Custom AI for BFSI & Enterprise | Toadster India",
     description:
-      "Toadsters builds AI systems for Mumbai enterprises - BFSI, fintech, media, and manufacturing. Engineering from Noida. Delivery that meets Mumbai's SEBI and RBI compliance context.",
+      "Toadster builds AI systems for Mumbai enterprises - BFSI, fintech, media, and manufacturing. Engineering from Noida. Delivery that meets Mumbai's SEBI and RBI compliance context.",
   },
   "/ai-development-company-hyderabad": {
-    title: "AI Development Company Hyderabad | Custom AI & Machine Learning | Toadsters India",
+    title: "AI Development Company Hyderabad | Custom AI & Machine Learning | Toadster India",
     description:
-      "Toadsters provides AI development services to Hyderabad enterprises in pharma, enterprise tech, and manufacturing. Engineering from Noida, India.",
+      "Toadster provides AI development services to Hyderabad enterprises in pharma, enterprise tech, and manufacturing. Engineering from Noida, India.",
   },
   "/services/agentic-ai": {
     title: "Agentic AI Services | Toadster",
@@ -183,6 +184,11 @@ export function getMetadataForPath(pathname: string, allBlogs: BlogPost[] = []):
         description: blog.metaDescription ?? blog.description,
       }
     }
+  }
+
+  if (pathname.startsWith("/hire/")) {
+    const hireMeta = getHireResourceMetadata(pathname)
+    if (hireMeta) return hireMeta
   }
 
   return STATIC_PAGE_METADATA[pathname] ?? {

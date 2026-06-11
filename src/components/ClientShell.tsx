@@ -75,7 +75,7 @@ export function ClientShell({ children }: { children: ReactNode }) {
   return (
     <div>
       <Navbar activeSection={activeSection} />
-      {children}
+      <main>{children}</main>
       <RelatedLinks />
       <Footer />
     </div>

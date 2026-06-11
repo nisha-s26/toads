@@ -24,7 +24,7 @@ Message: ${message}
 
     const mailOptions: nodemailer.SendMailOptions = {
       to: "business@toadsters.com",
-      from: `"Toadsters Query" <${process.env.SMTP_USER}>`,
+      from: `"Toadster Query" <${process.env.SMTP_USER}>`,
       replyTo: `"${name}" <${fromEmail}>`,
       subject: `Regarding Query - ${name}`,
       text: emailContent,

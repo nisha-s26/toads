@@ -33,7 +33,7 @@ export default function AIIntegrationPage() {
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
             Seamlessly Integrate <span className="text-green-400">AI</span><br />into Your Existing Systems
           </h1>
-          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">We bridge the gap between powerful AI capabilities and your existing tech stack — CRMs, ERPs, databases, cloud platforms, and custom software — without disrupting what already works.</p>
+          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">We bridge the gap between powerful AI capabilities and your existing tech stack - CRMs, ERPs, databases, cloud platforms, and custom software - without disrupting what already works.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact">Book a Free Consultation</CTALink>
             <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">See How It Works</button>
@@ -52,7 +52,7 @@ export default function AIIntegrationPage() {
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">Top AI Integration</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Services to Transform Your Business</h3>
-            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">We connect AI capabilities to the systems you already use — fast, secure, and without disruption.</p>
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">We connect AI capabilities to the systems you already use - fast, secure, and without disruption.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
@@ -84,10 +84,10 @@ export default function AIIntegrationPage() {
             {[
               { icon: <Zap size={22} />, title: "Instant AI Capabilities Without Rebuilding", desc: "Add AI intelligence to existing products and workflows without a full redevelopment cycle." },
               { icon: <Shield size={22} />, title: "Secure & Compliant Connections", desc: "Enterprise-grade secure integrations with full audit trails, encryption, and access controls." },
-              { icon: <BarChart3 size={22} />, title: "Unified AI Across All Systems", desc: "Break data silos — connect AI insights across your CRM, ERP, analytics, and support tools." },
+              { icon: <BarChart3 size={22} />, title: "Unified AI Across All Systems", desc: "Break data silos - connect AI insights across your CRM, ERP, analytics, and support tools." },
               { icon: <TrendingUp size={22} />, title: "Faster Time to Value", desc: "Integration-first approach delivers working AI features in weeks, not months." },
               { icon: <Activity size={22} />, title: "Scalable AI Architecture", desc: "Designed to scale from initial integration to enterprise-wide AI deployment." },
-              { icon: <Users size={22} />, title: "Minimal Disruption to Existing Teams", desc: "AI works within your existing workflows — no retraining or rebuilding required from your team." },
+              { icon: <Users size={22} />, title: "Minimal Disruption to Existing Teams", desc: "AI works within your existing workflows - no retraining or rebuilding required from your team." },
             ].map((b) => (
               <div key={b.title} className="bg-page-bg-alt border border-page-border rounded-2xl p-6 flex gap-5 hover:border-green-800/40 transition-colors">
                 <div className="w-11 h-11 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 shrink-0">{b.icon}</div>
@@ -112,7 +112,7 @@ export default function AIIntegrationPage() {
                 { step: "02", title: "AI Service Selection & Architecture", desc: "Select the right AI services/models and design a secure, scalable integration architecture." },
                 { step: "03", title: "API Development & Middleware Build", desc: "Build the connectors, transformers, and middleware layers that power your AI integration." },
                 { step: "04", title: "Testing, Security & Compliance Review", desc: "End-to-end integration testing with security scanning and compliance validation." },
-                { step: "05", title: "Deployment & Ongoing Monitoring", desc: "Go live with full observability — latency tracking, error monitoring, and usage analytics." },
+                { step: "05", title: "Deployment & Ongoing Monitoring", desc: "Go live with full observability - latency tracking, error monitoring, and usage analytics." },
               ].map((p) => (
                 <div key={p.step} className="flex gap-5 items-start">
                   <span className="text-3xl font-extrabold text-green-900 shrink-0 w-12">{p.step}</span>
@@ -136,7 +136,7 @@ export default function AIIntegrationPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "CRM AI", title: "SalesBoostAI", desc: "Integrated GPT-4 into Salesforce for a B2B SaaS company — auto-generating meeting summaries and follow-up emails, saving reps 90 mins/day.", metric: "90 min/day saved", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "CRM AI", title: "SalesBoostAI", desc: "Integrated GPT-4 into Salesforce for a B2B SaaS company - auto-generating meeting summaries and follow-up emails, saving reps 90 mins/day.", metric: "90 min/day saved", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" },
               { tag: "Data AI", title: "InsightBridge", desc: "Connected 7 data sources to a central AI analytics layer, giving a fintech team unified AI insights across all platforms in real time.", metric: "7 systems unified", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" },
               { tag: "Cloud AI", title: "AutoSupport", desc: "Integrated AWS Bedrock into a customer support platform, automating 65% of tier-1 tickets without human intervention.", metric: "65% auto-resolved", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
@@ -201,7 +201,7 @@ export default function AIIntegrationPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Rahul Menon", role: "CTO, SalesStack", text: "Toadster integrated GPT-4 into our Salesforce in 3 weeks. The AI now writes all our follow-up emails and CRM notes — our reps love it." },
+              { name: "Rahul Menon", role: "CTO, SalesStack", text: "Toadster integrated GPT-4 into our Salesforce in 3 weeks. The AI now writes all our follow-up emails and CRM notes - our reps love it." },
               { name: "Lisa Park", role: "VP Engineering, DataBridge", text: "They built an AI integration layer that unified 7 of our data sources. Insights that used to take hours are now available instantly across the whole team." },
               { name: "Amit Singh", role: "Head of Support, TechCo", text: "The AWS Bedrock integration they built automated 65% of our tier-1 support tickets in the first month. Customer satisfaction actually went up." },
             ].map((t) => (
@@ -219,7 +219,7 @@ export default function AIIntegrationPage() {
       <section className="py-20 bg-page-bg-alt">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">Ready to Connect AI<br /><span className="text-green-400">to Your Business Systems?</span></h2>
-          <p className="text-page-fg-muted mb-8">Let our integration engineers wire AI into the tools you already use — fast, secure, and without disruption.</p>
+          <p className="text-page-fg-muted mb-8">Let our integration engineers wire AI into the tools you already use - fast, secure, and without disruption.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact" className="text-lg" title="Talk to our integration engineers">
               Chat With Us
@@ -269,12 +269,12 @@ export default function AIIntegrationPage() {
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[
-            { q: "What systems can you integrate AI into?", a: "We integrate AI into virtually any system — Salesforce, HubSpot, SAP, custom APIs, databases, cloud platforms (AWS/GCP/Azure), SaaS tools, mobile apps, and legacy systems via secure middleware." },
-            { q: "How long does an AI integration project take?", a: "Simple API integrations can be live in 1–2 weeks. Complex multi-system integrations with custom middleware typically take 4–10 weeks depending on scope and security requirements." },
+            { q: "What systems can you integrate AI into?", a: "We integrate AI into virtually any system - Salesforce, HubSpot, SAP, custom APIs, databases, cloud platforms (AWS/GCP/Azure), SaaS tools, mobile apps, and legacy systems via secure middleware." },
+            { q: "How long does an AI integration project take?", a: "Simple API integrations can be live in 1-2 weeks. Complex multi-system integrations with custom middleware typically take 4-10 weeks depending on scope and security requirements." },
             { q: "Will AI integration disrupt our existing workflows?", a: "We design integrations to be additive, not disruptive. AI enhances existing workflows without requiring your team to change the tools they use or how they work day-to-day." },
             { q: "How do you ensure security in AI integrations?", a: "We implement OAuth 2.0, API key management, end-to-end encryption, role-based access control, and full audit logging. All integrations undergo security review before deployment." },
-            { q: "Can you integrate multiple AI models across different vendors?", a: "Yes. We specialize in multi-vendor AI architectures — orchestrating OpenAI, Anthropic, Google, AWS, and open-source models through a unified middleware layer." },
-            { q: "Do you provide ongoing support for AI integrations?", a: "Yes — we offer managed integration services including uptime monitoring, API version management, performance optimization, and 24/7 incident response." },
+            { q: "Can you integrate multiple AI models across different vendors?", a: "Yes. We specialize in multi-vendor AI architectures - orchestrating OpenAI, Anthropic, Google, AWS, and open-source models through a unified middleware layer." },
+            { q: "Do you provide ongoing support for AI integrations?", a: "Yes - we offer managed integration services including uptime monitoring, API version management, performance optimization, and 24/7 incident response." },
           ].map((item) => (<FAQItem key={item.q} question={item.q} answer={item.a} />))}
         </div>
       </section>

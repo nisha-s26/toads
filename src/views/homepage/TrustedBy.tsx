@@ -18,14 +18,17 @@ const LOGOS: ClientLogo[] = [
     { label: "H&M", src: "/trusted-by/hm.webp" },
 ]
 
-const LOGO_HEIGHT_CLASS = "h-10 w-auto shrink-0 sm:h-11 md:h-12"
+const LOGO_HEIGHT_CLASS =
+  "h-7 w-auto shrink-0 sm:h-8 md:h-9 [@media(max-height:720px)]:h-6 [@media(max-height:720px)]:sm:h-7"
 
 const MarqueeRow = ({
-    direction = "left",
-    scrollDirection,
+  direction = "left",
+  scrollDirection,
+  compact = false,
 }: {
-    direction?: "left" | "right"
-    scrollDirection: 1 | -1
+  direction?: "left" | "right"
+  scrollDirection: 1 | -1
+  compact?: boolean
 }) => {
     const trackRef = useRef<HTMLDivElement | null>(null)
     const x = useMotionValue(0)
@@ -81,10 +84,9 @@ const MarqueeRow = ({
     })
 
     return (
-        <div className="relative overflow-hidden py-4">
-            {/* <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-linear-to-r from-page-bg to-transparent dark:from-black sm:w-16" /> */}
-            {/* <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-linear-to-l from-page-bg to-transparent dark:from-black sm:w-16" /> */}
-
+        <div
+            className={`relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] ${compact ? "py-1 sm:py-1.5" : "py-3"}`}
+        >
             <motion.div
                 ref={trackRef}
                 className="flex w-max items-center gap-16 md:gap-20"
@@ -106,7 +108,7 @@ const MarqueeRow = ({
     )
 }
 
-const TrustedBy = () => {
+const TrustedBy = ({ compact = false }: { compact?: boolean }) => {
     const { scrollY } = useScroll()
     const [scrollDirection, setScrollDirection] = useState<1 | -1>(1)
     const lastY = useRef(0)
@@ -119,14 +121,9 @@ const TrustedBy = () => {
     })
 
     return (
-        <section className="section-full-bleed">
-            <div className="w-full px-4 pb-2">
-                {/* <h2 className="text-4xl md:text-6xl font-extrabold mb-4 text-center">
-                   <span className="text-black dark:text-white">Trusted By Innovative </span>
-                    <span className="hero-accent">Teams Worldwide</span>
-                </h2> */}
-
-                <MarqueeRow direction="right" scrollDirection={scrollDirection} />
+        <section className={`section-full-bleed relative z-10 shrink-0 ${compact ? "pb-2 sm:pb-3" : "pb-4"}`}>
+            <div className="w-full px-4">
+                <MarqueeRow direction="right" scrollDirection={scrollDirection} compact={compact} />
             </div>
         </section>
     )

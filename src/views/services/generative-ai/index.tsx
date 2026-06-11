@@ -138,11 +138,11 @@ export default function GenerativeAIPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { icon: <Zap size={22} />, title: "Faster Content Generation at Scale", desc: "Automate creation of text, images, code, and media at 10x human speed — reduce time-to-market dramatically." },
+              { icon: <Zap size={22} />, title: "Faster Content Generation at Scale", desc: "Automate creation of text, images, code, and media at 10x human speed - reduce time-to-market dramatically." },
               { icon: <Users size={22} />, title: "Greater Question Matching with Custom Chatbots", desc: "Deploy AI assistants trained on your data for highly accurate, brand-aligned customer interactions." },
               { icon: <MessageSquare size={22} />, title: "Enhanced Customer Experience With AI Chatbots", desc: "Build intelligent conversational interfaces that understand context and provide human-like responses." },
               { icon: <Target size={22} />, title: "Personalized Real-Time Engagement", desc: "Deliver hyper-personalized content and recommendations powered by generative models." },
-              { icon: <Cpu size={22} />, title: "Efficient Business Automation", desc: "Automate repetitive knowledge-work tasks — documentation, reporting, code reviews — with AI." },
+              { icon: <Cpu size={22} />, title: "Efficient Business Automation", desc: "Automate repetitive knowledge-work tasks - documentation, reporting, code reviews - with AI." },
               { icon: <TrendingUp size={22} />, title: "Competitive Product & Service Offerings", desc: "Launch AI-native products that differentiate your brand in a rapidly evolving market." },
             ].map((b) => (
               <div
@@ -370,7 +370,7 @@ export default function GenerativeAIPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { name: "Arjun Sharma", role: "Head of Product, FinFlow", text: "Toadster's generative AI team helped us ship a smart document processing feature in 4 weeks. The accuracy blew us away — 97% on our test set." },
+              { name: "Arjun Sharma", role: "Head of Product, FinFlow", text: "Toadster's generative AI team helped us ship a smart document processing feature in 4 weeks. The accuracy blew us away - 97% on our test set." },
               { name: "Priya Dubey", role: "CTO, ContentScalr", text: "We needed to generate 100K product descriptions monthly. Toadster built a fine-tuned pipeline that saved us $300K/year in content costs." },
             ].map((t) => (
               <div key={t.name} className="bg-page-bg-alt rounded-2xl p-6 border border-page-border">
@@ -467,10 +467,10 @@ export default function GenerativeAIPage() {
           </div>
           {[
             { q: "What is Generative AI and how can it work?", a: "Generative AI refers to models like GPT-4, DALL-E, and Stable Diffusion that can generate text, images, code, audio, and more from input prompts. It powers chatbots, content engines, code assistants, and creative tools." },
-            { q: "How can Generative AI benefit my business?", a: "It can dramatically reduce costs in content creation, customer support, software development, and data analysis — while improving quality and speed of output at scale." },
+            { q: "How can Generative AI benefit my business?", a: "It can dramatically reduce costs in content creation, customer support, software development, and data analysis - while improving quality and speed of output at scale." },
             { q: "How do you ensure security and privacy of AI solutions?", a: "We use private model deployments, role-based access control, data anonymization, and encryption to ensure your proprietary data never leaves your secure environment." },
             { q: "Can you build custom Generative AI models for our needs?", a: "Yes. We fine-tune foundation models on your domain-specific data to create highly accurate, brand-aligned AI systems that outperform generic solutions." },
-            { q: "How long does it take to build a Generative AI solution?", a: "A typical PoC takes 2–3 weeks. Full production deployments range from 6–16 weeks depending on complexity, data availability, and integration requirements." },
+            { q: "How long does it take to build a Generative AI solution?", a: "A typical PoC takes 2-3 weeks. Full production deployments range from 6-16 weeks depending on complexity, data availability, and integration requirements." },
             { q: "Can you provide ongoing support and maintenance services?", a: "Absolutely. We offer 24/7 monitoring, model drift detection, performance optimization, and continuous fine-tuning as part of our managed AI service plans." },
           ].map((item) => (
             <FAQItem key={item.q} question={item.q} answer={item.a} />

@@ -62,7 +62,7 @@ const capabilities = [
   {
     icon: <RefreshCw size={22} />,
     title: "Task Delegation & Orchestration",
-    desc: "Intelligent task routing and delegation across multi-agent systems — agents break down complex work and distribute sub-tasks.",
+    desc: "Intelligent task routing and delegation across multi-agent systems - agents break down complex work and distribute sub-tasks.",
   },
   {
     icon: <Shield size={22} />,
@@ -72,7 +72,7 @@ const capabilities = [
   {
     icon: <Layers size={22} />,
     title: "Protocol-Agnostic Interoperability",
-    desc: "Support for Google A2A, MCP, OpenAI function calling, and custom protocols — bridging agents built on different frameworks.",
+    desc: "Support for Google A2A, MCP, OpenAI function calling, and custom protocols - bridging agents built on different frameworks.",
   },
 ]
 
@@ -120,7 +120,7 @@ const faqs = [
   {
     question: "What is Agent-to-Agent (A2A) communication?",
     answer:
-      "A2A is a protocol and architecture pattern where autonomous AI agents can discover, authenticate, and collaborate with each other to accomplish complex tasks — without requiring a central orchestrator.",
+      "A2A is a protocol and architecture pattern where autonomous AI agents can discover, authenticate, and collaborate with each other to accomplish complex tasks - without requiring a central orchestrator.",
   },
   {
     question: "How does A2A differ from traditional API integration?",
@@ -165,7 +165,7 @@ export default function Agent2AgentPage() {
             <span className="text-green-400">Multi-Agent Systems</span>
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
-            Enable AI agents to discover, communicate, and collaborate securely — unlocking swarm intelligence for complex enterprise workflows.
+            Enable AI agents to discover, communicate, and collaborate securely - unlocking swarm intelligence for complex enterprise workflows.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button onClick={() => document.getElementById('agent-services')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors">
@@ -335,7 +335,7 @@ export default function Agent2AgentPage() {
               "Early adopters and contributors to Google A2A and MCP protocols",
               "Production multi-agent systems serving Fortune 500 enterprises",
               "Deep expertise in distributed systems and message-passing architectures",
-              "Full observability stack — traces, logs, and metrics for every agent interaction",
+              "Full observability stack - traces, logs, and metrics for every agent interaction",
               "Human-in-the-loop and escalation policies built into every deployment",
               "Flexible engagement: proof-of-concept to full-scale agent mesh",
             ].map((point) => (

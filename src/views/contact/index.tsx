@@ -82,7 +82,7 @@ export default function Contact() {
     };
 
     return (
-        <div className="relative min-h-screen">
+        <div className="relative isolate min-h-screen">
             {/* Contact Hero + Form */}
             <section className="relative z-10 flex min-h-screen items-center overflow-hidden px-4 pb-16 pt-24 sm:pt-28 md:px-8 lg:px-12">
                 <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -91,27 +91,27 @@ export default function Contact() {
                         style={{ backgroundImage: "url('/contact-bg.png')" }}
                     />
                     <div className="absolute inset-0 bg-white/30 dark:bg-slate-950/55" />
-                    <div className="absolute inset-0 bg-linear-to-b from-white/45 via-white/10 to-page-bg dark:from-slate-950/45 dark:via-slate-950/25 dark:to-page-bg" />
+                    <div className="absolute inset-0 contact-hero-fade" />
                 </div>
 
                 <div className="relative mx-auto grid w-full max-w-6xl gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-8 md:items-stretch">
                     {/* Left panel */}
                     <div className="relative flex min-h-[640px] flex-col overflow-hidden rounded-[2rem] border border-slate-900/5 bg-white/[0.03] p-8 text-slate-900 shadow-none backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.02] dark:text-white md:p-10 lg:p-12">
                         <div className="relative flex flex-1 flex-col">
-                            <span className="text-xs font-semibold tracking-[0.28em] text-teal-700 uppercase dark:text-teal-300/80">
+                            <span className="text-sm font-bold uppercase tracking-[0.3em] section-eyebrow">
                                 Get in Touch
                             </span>
-                            <h1 className="mt-3 font-serif text-4xl leading-tight text-slate-900 md:text-5xl lg:text-[3.25rem] dark:text-white">
+                            <h1 className="mt-4 text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl lg:text-[3.25rem] dark:text-page-fg">
                                 Let&apos;s Talk
                             </h1>
-                            <p className="mt-4 max-w-md text-base leading-relaxed text-slate-600 italic dark:text-white/70">
+                            <p className="mt-4 max-w-md text-base leading-relaxed text-slate-600 dark:text-page-fg-subtle">
                                 Ready to build something amazing? We&apos;d love to hear about your project.
                             </p>
 
                             <div className="mt-10 flex flex-col gap-7">
                                 {CONTACT_FEATURES.map(({ icon: Icon, title, description }) => (
                                     <div key={title} className="flex items-start gap-4">
-                                        <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-900/5 bg-white/10 text-teal-700 backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-teal-200">
+                                        <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-900/5 bg-white/10 text-toadster-green backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
                                             <Icon size={18} strokeWidth={1.75} />
                                         </span>
                                         <div>
@@ -125,23 +125,23 @@ export default function Contact() {
                             <div className="mt-auto border-t border-slate-900/5 pt-8 dark:border-white/10">
                                 <div className="grid gap-6 sm:grid-cols-2">
                                     <div>
-                                        <p className="text-[11px] font-semibold tracking-[0.22em] text-teal-700 uppercase dark:text-teal-300/75">
+                                        <p className="text-[11px] font-bold tracking-[0.22em] section-eyebrow uppercase">
                                             Email Us
                                         </p>
                                         <a
                                             href="mailto:business@toadsters.com"
-                                            className="mt-2 block text-sm font-medium text-slate-900 transition-colors hover:text-teal-700 dark:text-white dark:hover:text-teal-300"
+                                            className="mt-2 block text-sm font-medium text-slate-900 transition-colors hover:text-toadster-green dark:text-page-fg dark:hover:text-toadster-green"
                                         >
                                             business@toadsters.com
                                         </a>
                                     </div>
                                     <div>
-                                        <p className="text-[11px] font-semibold tracking-[0.22em] text-teal-700 uppercase dark:text-teal-300/75">
+                                        <p className="text-[11px] font-bold tracking-[0.22em] section-eyebrow uppercase">
                                             Call Now
                                         </p>
                                         <a
                                             href="tel:+919220517988"
-                                            className="mt-2 block text-sm font-medium text-slate-900 transition-colors hover:text-teal-700 dark:text-white dark:hover:text-teal-300"
+                                            className="mt-2 block text-sm font-medium text-slate-900 transition-colors hover:text-toadster-green dark:text-page-fg dark:hover:text-toadster-green"
                                         >
                                             +91 92205 17988
                                         </a>
@@ -151,13 +151,13 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    {/* Right panel — form */}
+                    {/* Right panel - form */}
                     <div className="overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white px-8 py-10 text-slate-900 shadow-[0_32px_80px_-24px_rgba(15,23,42,0.18)] md:px-10 lg:px-12">
                         <div className="mb-8">
-                            <h2 className="font-serif text-3xl font-bold text-slate-900 md:text-4xl">
+                            <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
                                 Submit your Query
                             </h2>
-                            <p className="mt-2 text-sm italic text-slate-500">
+                            <p className="mt-2 text-sm text-slate-500">
                                 Tell us about your vision and let&apos;s bring it to life.
                             </p>
                         </div>
@@ -252,16 +252,21 @@ export default function Contact() {
             </section>
 
             {/* Explore More Section */}
-            <section className="relative z-10 bg-page-bg max-w-9xl mx-20 px-4 pb-20 pt-8">
-                <div className="text-center mb-10">
-                    <p className="text-sm font-semibold tracking-[0.25em] text-toadster-green uppercase mb-2">While You're Here</p>
-                    <h2 className="text-2xl md:text-3xl font-bold text-page-fg">Explore Our Work</h2>
-                    <p className="text-page-fg-muted mt-2 max-w-xl mx-auto text-sm">
+            <section className="section-full-bleed relative z-10 px-4 pb-20 pt-16 md:px-8 lg:px-12 xl:px-20">
+                <div className="mx-auto max-w-9xl">
+                <div className="mb-12 text-center">
+                    <p className="mb-3 text-sm font-bold uppercase tracking-[0.3em] section-eyebrow md:text-base">
+                        While You&apos;re Here
+                    </p>
+                    <h2 className="text-3xl font-extrabold text-page-fg md:text-4xl lg:text-[2.75rem]">
+                        Explore Our Work
+                    </h2>
+                    <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-page-fg-subtle">
                         Browse our top services, recent insights, and open roles while you wait.
                     </p>
                 </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
                     {[
                         {
                             icon: Brain,
@@ -320,6 +325,7 @@ export default function Contact() {
                             </div>
                         </Link>
                     ))}
+                </div>
                 </div>
             </section>
         </div>

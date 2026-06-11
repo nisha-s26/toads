@@ -229,7 +229,7 @@ export default function AIAutomationPage() {
               { icon: <Zap size={22} />, title: "Faster Time-to-Value", desc: "Deliver automation POCs in as little as 2 weeks with our agile delivery model." },
               { icon: <Shield size={22} />, title: "Enterprise Security", desc: "Compliance-ready architecture with end-to-end encrypted data pipelines." },
               { icon: <TrendingUp size={22} />, title: "Scalable by Design", desc: "Automation systems engineered to grow alongside your business effortlessly." },
-              { icon: <Target size={22} />, title: "Industry-Specific Solutions", desc: "Automation tailored to your vertical — fintech, healthcare, legal, e-commerce, and more." },
+              { icon: <Target size={22} />, title: "Industry-Specific Solutions", desc: "Automation tailored to your vertical - fintech, healthcare, legal, e-commerce, and more." },
               { icon: <Users size={22} />, title: "Dedicated Expert Team", desc: "A dedicated pod of automation engineers, AI architects, and delivery managers." },
               { icon: <CheckCircle size={22} />, title: "Proven Delivery Track Record", desc: "Battle-tested processes across 500+ successful automation engagements worldwide." },
             ].map((b) => (
@@ -425,7 +425,7 @@ export default function AIAutomationPage() {
             <span className="text-green-400">Your Business Operations?</span>
           </h2>
           <p className="text-page-fg-muted mb-8">
-            Let's build intelligent automation that works for you — 24/7, at scale, without limits.
+            Let's build intelligent automation that works for you - 24/7, at scale, without limits.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact" className="text-lg" title="Talk to our automation team">
@@ -481,12 +481,12 @@ export default function AIAutomationPage() {
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[
-            { q: "What is AI Automation and how is it different from traditional automation?", a: "AI Automation combines artificial intelligence with traditional automation — allowing systems to handle complex, unstructured tasks, make intelligent decisions, and continuously improve, unlike rule-based automation which requires strict predefined logic." },
-            { q: "How quickly can you deploy an AI automation solution?", a: "We typically deliver a working proof-of-concept within 2 weeks and full production deployment within 6–12 weeks, depending on scope and integrations required." },
+            { q: "What is AI Automation and how is it different from traditional automation?", a: "AI Automation combines artificial intelligence with traditional automation - allowing systems to handle complex, unstructured tasks, make intelligent decisions, and continuously improve, unlike rule-based automation which requires strict predefined logic." },
+            { q: "How quickly can you deploy an AI automation solution?", a: "We typically deliver a working proof-of-concept within 2 weeks and full production deployment within 6-12 weeks, depending on scope and integrations required." },
             { q: "Can AI automation integrate with our existing tools and systems?", a: "Yes. Our automation solutions are built with an integration-first approach and can connect to any REST API, legacy system, ERP, CRM, cloud platform, or database." },
             { q: "How do you ensure the security and compliance of automation pipelines?", a: "We implement role-based access control, encrypted data pipelines, full audit trails, and support compliance frameworks including GDPR, SOC 2, HIPAA, and ISO 27001." },
             { q: "What industries do you serve with AI automation?", a: "We serve fintech, insurance, healthcare, legal, e-commerce, manufacturing, logistics, and more. Our solutions are tailored to the specific workflows and regulatory requirements of each industry." },
-            { q: "What is the ROI of implementing AI automation?", a: "Most clients see positive ROI within 2–3 months. Common outcomes include 60–90% reduction in manual effort, significant error reduction, and cost savings of $500K–$2M+ annually depending on the scale of automation." },
+            { q: "What is the ROI of implementing AI automation?", a: "Most clients see positive ROI within 2-3 months. Common outcomes include 60-90% reduction in manual effort, significant error reduction, and cost savings of $500K-$2M+ annually depending on the scale of automation." },
           ].map((item) => (
             <FAQItem key={item.q} question={item.q} answer={item.a} />
           ))}

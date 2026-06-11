@@ -25,7 +25,7 @@ export function ThemeToggle({ className = "", size = "default" }: ThemeTogglePro
     >
       <span className="sr-only">Toggle theme</span>
 
-      {/* Sun — visible in light mode */}
+      {/* Sun - visible in light mode */}
       <Sun
         className={`absolute size-[18px] text-crimson transition-all duration-500 ease-out ${
           isDark
@@ -35,7 +35,7 @@ export function ThemeToggle({ className = "", size = "default" }: ThemeTogglePro
         strokeWidth={2.2}
       />
 
-      {/* Moon — visible in dark mode */}
+      {/* Moon - visible in dark mode */}
       <Moon
         className={`absolute size-[18px] text-sage transition-all duration-500 ease-out ${
           isDark

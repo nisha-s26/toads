@@ -81,7 +81,7 @@ const benefits = [
   {
     icon: <Target size={22} />,
     title: "Domain-Specific Models",
-    desc: "AI trained on industry data outperforms generic models by 40–60% on domain tasks.",
+    desc: "AI trained on industry data outperforms generic models by 40-60% on domain tasks.",
   },
   {
     icon: <ShieldCheck size={22} />,
@@ -126,17 +126,17 @@ const faqs = [
   {
     question: "How long does it take to deploy an industry AI solution?",
     answer:
-      "Timelines vary by complexity, but most pilot deployments land in 6–12 weeks. Our industry accelerators and pre-built data connectors significantly compress delivery cycles.",
+      "Timelines vary by complexity, but most pilot deployments land in 6-12 weeks. Our industry accelerators and pre-built data connectors significantly compress delivery cycles.",
   },
   {
     question: "Do you handle data privacy and compliance?",
     answer:
-      "Absolutely. We build with compliance-first architecture — HIPAA for healthcare, PCI-DSS for fintech, GDPR for EU-facing products. Security audits are included in every engagement.",
+      "Absolutely. We build with compliance-first architecture - HIPAA for healthcare, PCI-DSS for fintech, GDPR for EU-facing products. Security audits are included in every engagement.",
   },
   {
     question: "Can existing systems be integrated?",
     answer:
-      "Yes. We specialise in fitting AI into existing ERP, CRM, HRIS, and custom platforms via APIs, webhooks, and data pipelines — with zero disruption to live operations.",
+      "Yes. We specialise in fitting AI into existing ERP, CRM, HRIS, and custom platforms via APIs, webhooks, and data pipelines - with zero disruption to live operations.",
   },
   {
     question: "What does the engagement model look like?",
@@ -166,7 +166,7 @@ export default function IndustrySolutionsPage() {
             <span className="text-green-400">Your Industry</span>
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
-            Specialised AI systems designed around the workflows, data, and compliance requirements of your sector — not generic tools retrofitted to your business.
+            Specialised AI systems designed around the workflows, data, and compliance requirements of your sector - not generic tools retrofitted to your business.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact">Let's Talk</CTALink>
@@ -278,7 +278,7 @@ export default function IndustrySolutionsPage() {
             {[
               { step: "01", title: "Industry Audit", desc: "We assess your current tech stack, data maturity, and AI readiness across your vertical." },
               { step: "02", title: "Solution Design", desc: "We architect domain-specific AI models and integration blueprints tailored to your workflows." },
-              { step: "03", title: "Pilot Build", desc: "We deliver a working pilot in 6–12 weeks with clear KPIs and measurable outcomes." },
+              { step: "03", title: "Pilot Build", desc: "We deliver a working pilot in 6-12 weeks with clear KPIs and measurable outcomes." },
               { step: "04", title: "Scale & Optimise", desc: "We roll out enterprise-wide, monitor performance, and continuously improve the system." },
             ].map((item) => (
               <div key={item.step} className="bg-page-bg border border-page-border rounded-2xl p-6">
@@ -308,7 +308,7 @@ export default function IndustrySolutionsPage() {
               "Pre-built data connectors for major ERP, CRM & HIS systems",
               "Compliance-first architecture for regulated industries",
               "Proven pilots with measurable outcomes before full commitment",
-              "MLOps included — monitoring, drift detection, and retraining",
+              "MLOps included - monitoring, drift detection, and retraining",
               "Flexible engagement: project-based or ongoing retainer",
             ].map((point) => (
               <div key={point} className="flex items-start gap-3 bg-page-bg-alt border border-page-border rounded-xl p-4">

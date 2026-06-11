@@ -729,7 +729,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                     <p className="font-bold text-page-fg text-lg">{blog.author}</p>
                     {blog.authorRole && <p className="text-xs text-page-fg-subtle">{blog.authorRole}</p>}
                     <p className="text-page-fg-muted text-sm leading-relaxed">
-                      {blog.author} is a {blog.authorRole || 'expert contributor'} at Toadsters, specializing in {blog.category || 'AI and emerging technologies'}. Bringing practical insights and cutting-edge knowledge to help businesses navigate the {blog.category || 'AI'} landscape.
+                      {blog.author} is a {blog.authorRole || 'expert contributor'} at Toadster, specializing in {blog.category || 'AI and emerging technologies'}. Bringing practical insights and cutting-edge knowledge to help businesses navigate the {blog.category || 'AI'} landscape.
                     </p>
                   </div>
                 </div>
@@ -969,7 +969,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-bold mb-3">Ready to Transform Your Business with AI?</h3>
               <p className="text-white/80 mb-8 max-w-xl mx-auto text-sm leading-relaxed">
-                Explore how Toadsters can help you harness the power of artificial intelligence to drive growth, efficiency, and innovation.
+                Explore how Toadster can help you harness the power of artificial intelligence to drive growth, efficiency, and innovation.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link

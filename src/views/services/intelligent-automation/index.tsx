@@ -413,7 +413,7 @@ export default function IntelligentAutomationPage() {
             <span className="text-green-400">Your Business Operations?</span>
           </h2>
           <p className="text-page-fg-muted mb-8">
-            Let's build intelligent automation that works for you — 24/7, at scale, without limits.
+            Let's build intelligent automation that works for you - 24/7, at scale, without limits.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact" className="text-lg" title="Talk to our automation team">
@@ -470,11 +470,11 @@ export default function IntelligentAutomationPage() {
           </div>
           {[
             { q: "What is Intelligent Automation and how is it different from RPA?", a: "Intelligent Automation combines RPA with AI and analytics, enabling systems to handle unstructured data, make decisions, and continuously improve, unlike traditional RPA which is rule-based." },
-            { q: "How quickly can you deploy an intelligent automation solution?", a: "We typically deliver a working proof-of-concept within 2–3 weeks and full production deployment within 6–12 weeks, depending on scope and integrations required." },
+            { q: "How quickly can you deploy an intelligent automation solution?", a: "We typically deliver a working proof-of-concept within 2-3 weeks and full production deployment within 6-12 weeks, depending on scope and integrations required." },
             { q: "Can intelligent automation integrate with our existing tools and systems?", a: "Yes. Our solutions are built with an integration-first approach and can connect to any REST API, legacy system, ERP, CRM, cloud platform, or database." },
             { q: "How do you ensure the security and compliance of automation pipelines?", a: "We implement role-based access control, encrypted data pipelines, full audit trails, and support compliance frameworks including GDPR, SOC 2, HIPAA, and ISO 27001." },
             { q: "What industries do you serve with intelligent automation?", a: "We serve fintech, insurance, healthcare, legal, e-commerce, manufacturing, logistics, and more. Our solutions are tailored to the specific workflows and regulatory requirements of each industry." },
-            { q: "What is the ROI of implementing intelligent automation?", a: "Most clients see positive ROI within 2–3 months. Common outcomes include 60–90% reduction in manual effort, significant error reduction, and cost savings of $500K–$2M+ annually depending on the scale of automation." },
+            { q: "What is the ROI of implementing intelligent automation?", a: "Most clients see positive ROI within 2-3 months. Common outcomes include 60-90% reduction in manual effort, significant error reduction, and cost savings of $500K-$2M+ annually depending on the scale of automation." },
           ].map((item) => (
             <FAQItem key={item.q} question={item.q} answer={item.a} />
           ))}

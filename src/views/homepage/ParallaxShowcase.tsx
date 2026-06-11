@@ -84,7 +84,7 @@ const ParallaxShowcase = () => {
           viewport={{ once: true }}
           className="mt-6 max-w-2xl text-base md:text-lg font-bold leading-relaxed text-white/80"
         >
-          We architect intelligent systems on resilient data foundations—observable,
+          We architect intelligent systems on resilient data foundations-observable,
           secure, and built to perform under real-world load.
         </motion.p>
 

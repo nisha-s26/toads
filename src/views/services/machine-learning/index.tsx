@@ -33,7 +33,7 @@ export default function MachineLearningPage() {
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
             Transform Your Business with the Top<br /><span className="text-green-400">Machine Learning</span> Company in USA
           </h1>
-          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">Custom ML models that learn from your data, predict outcomes, and automate decisions — delivering measurable ROI at enterprise scale.</p>
+          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">Custom ML models that learn from your data, predict outcomes, and automate decisions - delivering measurable ROI at enterprise scale.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact">Book a Free Consultation</CTALink>
             <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">See How It Works</button>
@@ -87,7 +87,7 @@ export default function MachineLearningPage() {
               { icon: <Users size={22} />, title: "Reduced Customer Churn", desc: "Identify at-risk customers before they leave and trigger personalized retention actions automatically." },
               { icon: <Target size={22} />, title: "Hyper-Personalization at Scale", desc: "Deliver uniquely personalized experiences to millions of users simultaneously without manual effort." },
               { icon: <Shield size={22} />, title: "Fraud & Risk Detection", desc: "Catch fraud patterns, compliance risks, and anomalies in real time before they cause damage." },
-              { icon: <TrendingUp size={22} />, title: "Compounding ROI Over Time", desc: "ML models improve as they see more data — your competitive advantage grows the longer you deploy." },
+              { icon: <TrendingUp size={22} />, title: "Compounding ROI Over Time", desc: "ML models improve as they see more data - your competitive advantage grows the longer you deploy." },
             ].map((b) => (
               <div key={b.title} className="bg-page-bg-alt border border-page-border rounded-2xl p-6 flex gap-5 hover:border-green-800/40 transition-colors">
                 <div className="w-11 h-11 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 shrink-0">{b.icon}</div>
@@ -326,11 +326,11 @@ export default function MachineLearningPage() {
           </div>
           {[
             { q: "What is Machine Learning and how can it benefit my business?", a: "Machine Learning enables systems to learn from data and improve over time without being explicitly programmed. It drives better forecasting, automation, fraud detection, personalization, and decision-making at scale." },
-            { q: "How long does it take to build a custom ML model?", a: "A typical PoC takes 2–4 weeks. Production deployments range from 6–16 weeks depending on data maturity, model complexity, and integration requirements." },
+            { q: "How long does it take to build a custom ML model?", a: "A typical PoC takes 2-4 weeks. Production deployments range from 6-16 weeks depending on data maturity, model complexity, and integration requirements." },
             { q: "How much data do I need to build an effective ML model?", a: "It depends on the problem. Some models work with thousands of examples; others require millions. We assess your data during discovery and recommend augmentation strategies if needed." },
             { q: "Is my data secure during the machine learning development process?", a: "Absolutely. We operate under strict NDAs, support on-premise and private cloud deployments, and use end-to-end encryption for all data transfers and storage." },
             { q: "Can you improve our existing machine learning models?", a: "Yes. We audit existing models, identify performance bottlenecks, retrain with improved features or architectures, and implement proper MLOps for sustained accuracy." },
-            { q: "Do you provide ongoing model support and maintenance?", a: "Yes — our managed ML service plans include 24/7 monitoring, automated drift detection, scheduled retraining, and continuous performance improvements." },
+            { q: "Do you provide ongoing model support and maintenance?", a: "Yes - our managed ML service plans include 24/7 monitoring, automated drift detection, scheduled retraining, and continuous performance improvements." },
           ].map((item) => (<FAQItem key={item.q} question={item.q} answer={item.a} />))}
         </div>
       </section>

@@ -229,7 +229,7 @@ export default function AboutPage() {
                     <div className="text-center mb-12">
                         <p className="text-xl font-semibold tracking-widest text-toadster-green uppercase mb-3">Keep Exploring</p>
                         <h2 className="text-3xl md:text-4xl font-extrabold text-page-fg">Discover What We Build</h2>
-                        <p className="text-page-fg-subtle mt-3 max-w-xl mx-auto">From production-grade AI services to insights and open roles — explore everything Toadster.</p>
+                        <p className="text-page-fg-subtle mt-3 max-w-xl mx-auto">From production-grade AI services to insights and open roles - explore everything Toadster.</p>
                     </div>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">

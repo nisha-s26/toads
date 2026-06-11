@@ -3,7 +3,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { ChevronDown, Globe2, Menu, X } from "lucide-react"
+import { ChevronDown, Menu, X } from "lucide-react"
+import { GlobeIcon } from "@/components/GlobeIcon"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { ToadsterLogo } from "@/components/ToadsterLogo"
@@ -25,8 +26,15 @@ import {
   Zap,
   Settings2,
   Link2,
-  GitBranch
+  GitBranch,
+  Smartphone,
+  Monitor,
+  Layers,
+  Server,
+  FileCode,
+  Users,
 } from "lucide-react"
+import { HIRE_RESOURCES_NAV } from "@/config/hire-resources"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -36,32 +44,27 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 
+
 const services = [
-  { icon: "Brain", title: "Agentic AI", description: "Autonomous AI systems with reasoning capabilities" },
-  { icon: "Code2", title: "AI Development", description: "End-to-end AI development services" },
-  { icon: "Building", title: "Industry Solutions", description: "Specialized AI for key industry sectors" },
-  { icon: "MessageSquare", title: "Conversational AI", description: "Build natural, contextual conversational experiences" },
-  { icon: "Text", title: "NLP Services", description: "Advanced text analysis and language understanding" },
-  { icon: "Bot", title: "AI Chatbots", description: "Intelligent conversational interfaces" },
-  { icon: "Sparkles", title: "Generative AI", description: "AI systems that create content and solutions" },
-  { icon: "Flame", title: "Custom AI Solutions", description: "Tailor-made AI for unique business challenges" },
-  { icon: "Cpu", title: "Advanced AI Tech", description: "Cutting-edge AI capabilities for complex problems" },
-  { icon: "Activity", title: "AI Automation", description: "Automate complex decision-making processes" },
-  { icon: "Eye", title: "Computer Vision", description: "Sophisticated image and video analysis" },
-  { icon: "UserCog", title: "AI Consultation", description: "Strategic guidance for AI adoption" },
-  { icon: "BarChart", title: "AI Data Analytics", description: "Transform data into actionable insights" },
-  { icon: "Database", title: "LLM Development", description: "Leverage large language models for development" },
-  { icon: "Zap", title: "Machine Learning", description: "Custom ML models for specific business needs" },
-  { icon: "Settings2", title: "Intelligent Automation", description: "AI-powered automation for businesses" },
-  { icon: "Link2", title: "AI Integration", description: "Seamlessly integrate AI into your existing systems" },
-  { icon: "GitBranch", title: "Agent2Agent (A2A)", description: "Decentralized secure agent communication protocol" },
+  { icon: "Brain", title: "AI Agent Development", description: "Autonomous agents that plan, execute, and adapt at scale" },
+  { icon: "Flame", title: "Custom AI Solutions", description: "Tailor-made AI systems for unique business challenges" },
+  { icon: "Settings2", title: "AI Workflow Automation", description: "Intelligent workflows that automate complex decisions" },
+  { icon: "Bot", title: "AI Chatbot Development", description: "Enterprise chatbots and conversational assistants" },
+  { icon: "Sparkles", title: "Generative AI Development", description: "AI that creates content, code, and creative output" },
+  { icon: "Database", title: "LLM Development", description: "Production-grade large language model platforms" },
+  { icon: "GitBranch", title: "RAG Development Services", description: "Retrieval-augmented generation and knowledge systems" },
+  { icon: "Link2", title: "AI Integration Services", description: "Connect AI into your existing tools and workflows" },
+  { icon: "Building", title: "Enterprise AI Solutions", description: "Sector-specific AI platforms for large organizations" },
+  { icon: "MessageSquare", title: "AI Copilot Development", description: "Enterprise copilots for teams and knowledge work" },
+  { icon: "Eye", title: "Computer Vision Development", description: "Visual intelligence and image analytics at scale" },
+  { icon: "UserCog", title: "AI Consulting Services", description: "Strategy, architecture, and AI program guidance" },
 ]
 
 const navLinks = [
   { label: "Home", href: "#", section: "home" },
   { label: "About Us", href: "#about", section: "about" },
   { label: "Services", href: "#services", dropdown: true, section: "services" },
-  { label: "Dedicated Resources", href: "#dedicated-resources", dropdown: true, section: "dedicated-resources" },
+  { label: "Hire Resources", href: "#hire-resources", dropdown: true, section: "hire-resources" },
   { label: "Blogs", href: "#blogs", section: "blogs" },
   { label: "Careers", href: "#careers", section: "careers" },
   { label: "Contact Us", href: "#contact", section: "contact" },
@@ -83,44 +86,45 @@ const countries = [
 ]
 
 const SERVICE_ROUTES: Record<string, string> = {
-  "Agentic AI": "/services/agentic-ai",
-  "Generative AI": "/services/generative-ai",
-  "NLP Services": "/services/nlp-services",
-  "AI Development": "/services/ai-development",
-  "Machine Learning": "/services/machine-learning",
+  "AI Agent Development": "/services/agentic-ai",
   "Custom AI Solutions": "/services/custom-ai-solutions",
-  "AI Integration": "/services/ai-integration",
-  "AI Chatbots": "/services/ai-chatbots",
+  "AI Workflow Automation": "/services/intelligent-automation",
+  "AI Chatbot Development": "/services/ai-chatbots",
+  "Generative AI Development": "/services/generative-ai",
   "LLM Development": "/services/llm-development",
-  "Computer Vision": "/services/computer-vision",
-  "AI Data Analytics": "/services/ai-data-analytics",
-  "Industry Solutions": "/services/industry-solutions",
-  "AI Consultation": "/services/ai-consultation",
-  "Agent2Agent (A2A)": "/services/agent-2-agent",
-  "Advanced AI Tech": "/services/advanced-ai-tech",
-  "Conversational AI": "/services/conversational-ai",
-  "AI Automation": "/services/ai-automation",
-  "Intelligent Automation": "/services/intelligent-automation",
+  "RAG Development Services": "/services/llm-development",
+  "AI Integration Services": "/services/ai-integration",
+  "Enterprise AI Solutions": "/services/industry-solutions",
+  "AI Copilot Development": "/services/llm-development",
+  "Computer Vision Development": "/services/computer-vision",
+  "AI Consulting Services": "/services/ai-consultation",
 }
 
-const dedicatedResources = [
-  { icon: "Brain", title: "AI / ML Engineers", description: "Model training, fine-tuning, experiment tracking, production deployment" },
-  { icon: "MessageSquare", title: "LLM Application Developers", description: "RAG systems, enterprise copilots, LLM APIs, prompt engineering" },
-  { icon: "Bot", title: "Agentic AI Engineers", description: "Agent orchestration, tool integration, multi-agent system design" },
-  { icon: "Database", title: "Data Engineers", description: "Pipeline architecture, ETL, data quality, feature stores" },
-  { icon: "Activity", title: "MLOps Engineers", description: "CI/CD for models, monitoring, drift detection, inference infrastructure" },
-  { icon: "Code2", title: "Backend Developers (AI-adjacent)", description: "API development for AI services, microservice architecture" },
-  { icon: "Eye", title: "QA / AI Evaluation Engineers", description: "Testing AI systems, evaluation suite design, red-teaming" },
-]
-
-const DEDICATED_RESOURCES_ROUTES: Record<string, string> = {
-  "AI / ML Engineers": "/dedicated-resources/ai-ml-engineers",
-  "LLM Application Developers": "/dedicated-resources/llm-application-developers",
-  "Agentic AI Engineers": "/dedicated-resources/agentic-ai-engineers",
-  "Data Engineers": "/dedicated-resources/data-engineers",
-  "MLOps Engineers": "/dedicated-resources/mlops-engineers",
-  "Backend Developers (AI-adjacent)": "/dedicated-resources/backend-developers",
-  "QA / AI Evaluation Engineers": "/dedicated-resources/qa-evaluation-engineers",
+const NAV_ICON_MAP = {
+  Brain,
+  Code2,
+  Building,
+  MessageSquare,
+  Text,
+  Bot,
+  Sparkles,
+  Flame,
+  Cpu,
+  Activity,
+  Eye,
+  UserCog,
+  BarChart,
+  Database,
+  Zap,
+  Settings2,
+  Link2,
+  GitBranch,
+  Smartphone,
+  Monitor,
+  Layers,
+  Server,
+  FileCode,
+  Users,
 }
 
 export function Navbar({ activeSection }: { activeSection: string }) {
@@ -157,7 +161,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-page-border shrink-0">
           <Link href="/" onClick={closeMobile} title="Toadster Home" className="flex items-center">
-            <ToadsterLogo className="h-5 w-auto" />
+            <ToadsterLogo className="h-5 w-auto" forceGreen />
           </Link>
           <div className="flex items-center gap-2">
             <ThemeToggle size="sm" />
@@ -221,7 +225,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
               onClick={() => setMobileCountriesOpen((p) => !p)}
             >
               <span className="flex items-center gap-2">
-                <Globe2 size={16} />
+                <GlobeIcon size={16} />
                 Country
               </span>
               <ChevronDown
@@ -235,7 +239,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                   <a
                     key={country.label}
                     href={country.href}
-                    title={`Toadsters ${country.label}`}
+                    title={`Toadster ${country.label}`}
                     className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-page-fg-muted transition-colors hover:bg-page-accent-soft hover:text-page-fg"
                     onClick={(e) => {
                       e.preventDefault()
@@ -252,37 +256,37 @@ export function Navbar({ activeSection }: { activeSection: string }) {
           </div>
                   </div>
                 )
-              } else if (link.label === "Dedicated Resources") {
+              } else if (link.label === "Hire Resources") {
                 return (
                   <div key={link.label}>
                     <button
-                      className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${activeSection === "dedicated-resources"
+                      className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${activeSection === "hire-resources"
                         ? "text-brand-green font-semibold bg-page-accent-soft"
                         : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
                         }`}
                       onClick={() => setMobileDedicatedOpen((p) => !p)}
                     >
-                      Dedicated Resources
+                      Hire Resources
                       <ChevronDown
                         size={16}
                         className={`transition-transform duration-200 ${mobileDedicatedOpen ? "rotate-180" : ""}`}
                       />
                     </button>
                     {mobileDedicatedOpen && (
-                      <div className="mt-1 ml-3 pl-3 border-l-2 border-page-border flex flex-col gap-0.5">
-                        {dedicatedResources.map((s) => (
+                      <div className="mt-1 ml-3 pl-3 border-l-2 border-page-border flex flex-col gap-0.5 max-h-72 overflow-y-auto">
+                        {HIRE_RESOURCES_NAV.map((s) => (
                           <a
-                            key={s.title}
-                            href="#"
-                            title={s.title}
+                            key={s.href}
+                            href={s.href}
+                            title={s.navTitle}
                             className="px-3 py-2 rounded-lg text-sm text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft transition-colors"
                             onClick={(e) => {
                               e.preventDefault()
                               closeMobile()
-                              router.push(DEDICATED_RESOURCES_ROUTES[s.title] || "/dedicated-resources")
+                              router.push(s.href)
                             }}
                           >
-                            {s.title}
+                            {s.navTitle}
                           </a>
                         ))}
                       </div>
@@ -320,11 +324,14 @@ export function Navbar({ activeSection }: { activeSection: string }) {
 
         {/* Drawer Footer */}
         <div className="px-5 py-4 border-t border-page-border shrink-0">
-          <Button
-            onClick={() => { router.push("/contact"); closeMobile() }}
-            className="w-full rounded-xl text-sm font-semibold"
-          >
-            Schedule a Call
+          <Button asChild className="w-full rounded-xl text-sm font-semibold">
+            <a
+              href={"/contact"}
+              title="Email us to schedule a call"
+              onClick={closeMobile}
+            >
+              Schedule a Call
+            </a>
           </Button>
         </div>
       </div>
@@ -336,7 +343,12 @@ export function Navbar({ activeSection }: { activeSection: string }) {
         >
           {/* ── Logo ── */}
           <Link href="/" title="Toadster Home" className="flex shrink-0 items-center gap-2.5 min-w-0">
-            <ToadsterLogo width={132} height={34} className="h-7 w-auto sm:h-8 md:h-9" />
+            <ToadsterLogo
+              width={132}
+              height={34}
+              className="h-7 w-auto sm:h-8 md:h-9"
+              forceGreen
+            />
           </Link>
 
           {/* ── Desktop Nav ── */}
@@ -358,8 +370,8 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                       </NavigationMenuTrigger>
                       <NavigationMenuContent className="left-auto! top-auto! w-auto!">
                         {link.label === "Services" ? (
-                          <div className="bg-page-card rounded-2xl shadow-2xl p-5 w-195 border border-page-border">
-                            <ul className="grid grid-cols-3 gap-1">
+                          <div className="bg-page-card rounded-2xl shadow-2xl p-5 w-260 border border-page-border">
+                            <ul className="grid grid-cols-4 gap-1">
                               {services.map((s) => {
                                 const icons = {
                                   Brain,
@@ -403,43 +415,23 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                             </ul>
                           </div>
                         ) : (
-                          <div className="bg-page-card rounded-2xl shadow-2xl p-5 w-195 border border-page-border">
-                            <ul className="grid grid-cols-3 gap-1">
-                              {dedicatedResources.map((s) => {
-                                const icons = {
-                                  Brain,
-                                  Code2,
-                                  Building,
-                                  MessageSquare,
-                                  Text,
-                                  Bot,
-                                  Sparkles,
-                                  Flame,
-                                  Cpu,
-                                  Activity,
-                                  Eye,
-                                  UserCog,
-                                  BarChart,
-                                  Database,
-                                  Zap,
-                                  Settings2,
-                                  Link2,
-                                  GitBranch
-                                };
-                                const Icon = icons[s.icon as keyof typeof icons];
+                          <div className="bg-page-card rounded-2xl shadow-2xl p-5 w-260 max-h-[70vh] overflow-y-auto border border-page-border">
+                            <ul className="grid grid-cols-4 gap-1">
+                              {HIRE_RESOURCES_NAV.map((s) => {
+                                const Icon = NAV_ICON_MAP[s.icon as keyof typeof NAV_ICON_MAP]
                                 return (
-                                  <li key={s.title}>
+                                  <li key={s.href}>
                                     <NavigationMenuLink
-                                      href={DEDICATED_RESOURCES_ROUTES[s.title] || "/dedicated-resources"}
-                                      title={s.title}
+                                      href={s.href}
+                                      title={s.navTitle}
                                       className="flex items-start gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-page-accent-soft cursor-pointer"
                                     >
                                       <span className="w-9 h-9 shrink-0 flex items-center justify-center rounded-lg bg-page-accent-soft text-brand-green">
                                         {Icon && <Icon size={18} />}
                                       </span>
                                       <div>
-                                        <div className="text-sm font-semibold text-page-fg leading-tight mb-0.5">{s.title}</div>
-                                        <div className="text-xs text-page-fg-muted leading-snug">{s.description}</div>
+                                        <div className="text-sm font-semibold text-page-fg leading-tight mb-0.5">{s.navTitle}</div>
+                                        <div className="text-xs text-page-fg-muted leading-snug">{s.navDescription}</div>
                                       </div>
                                     </NavigationMenuLink>
                                   </li>
@@ -461,7 +453,6 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                           else if (link.label === "Contact Us") router.push("/contact");
                           else if (link.label === "About Us") router.push("/about");
                           else if (link.label === "Blogs") router.push("/blogs");
-                          else if (link.label === "Dedicated Resources") router.push("/dedicated-resources");
                           else if (link.label === "Careers") router.push("/careers");
                         }}
                         className={`
@@ -502,7 +493,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
               }`}
               onClick={() => setDesktopCountriesOpen((p) => !p)}
             >
-              <Globe2 size={17} />
+              <GlobeIcon size={18} />
               <ChevronDown
                 size={13}
                 className={`transition-transform duration-200 ${desktopCountriesOpen ? "rotate-180" : ""}`}
@@ -544,11 +535,10 @@ export function Navbar({ activeSection }: { activeSection: string }) {
             )}
           </div>
           <ThemeToggle />
-          <Button
-            onClick={() => router.push("/contact")}
-            className="rounded-xl px-5 py-5 text-sm font-semibold"
-          >
-            Schedule a Call
+          <Button asChild className="rounded-xl px-5 py-5 text-sm font-semibold">
+            <a href={"/contact"} title="Email us to schedule a call">
+              Schedule a Call
+            </a>
           </Button>
         </div>
 

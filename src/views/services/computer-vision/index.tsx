@@ -43,7 +43,7 @@ export default function ComputerVisionPage() {
             Transform Reality with Advanced<br /><span className="text-green-400">Computer Vision Solutions</span>
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
-            Our computer vision solutions can configure shape its deep learning and vision algorithms to help businesses automate processes, analyse images, and scale smarter — faster than ever before.
+            Our computer vision solutions can configure shape its deep learning and vision algorithms to help businesses automate processes, analyse images, and scale smarter - faster than ever before.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact">Let's Talk</CTALink>
@@ -68,7 +68,7 @@ export default function ComputerVisionPage() {
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Build</p>
             <h2 className="text-4xl font-extrabold">Our Computer Vision</h2>
             <h3 className="text-4xl font-bold text-green-400 mt-1 mb-4">Services</h3>
-            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto mb-10">End-to-end computer vision solutions — from image classification and object detection to real-time video analytics and 3D scene understanding.</p>
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto mb-10">End-to-end computer vision solutions - from image classification and object detection to real-time video analytics and 3D scene understanding.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-page-bg-alt border border-page-border rounded-2xl p-6">
@@ -79,7 +79,7 @@ export default function ComputerVisionPage() {
             <div className="bg-page-bg-alt border border-page-border rounded-2xl p-6">
               <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4"><ScanLine size={22} /></div>
               <h3 className="font-bold text-page-fg mb-2">Image Segmentation and Classification</h3>
-              <p className="text-page-fg-muted text-sm leading-relaxed">Pixel-level segmentation and scene classification with state-of-the-art deep learning — from medical imaging to satellite analysis.</p>
+              <p className="text-page-fg-muted text-sm leading-relaxed">Pixel-level segmentation and scene classification with state-of-the-art deep learning - from medical imaging to satellite analysis.</p>
             </div>
             <div className="bg-page-bg-alt border border-page-border rounded-2xl p-6">
               <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4"><Camera size={22} /></div>
@@ -89,7 +89,7 @@ export default function ComputerVisionPage() {
             <div className="bg-page-bg-alt border border-page-border rounded-2xl p-6">
               <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4"><Shield size={22} /></div>
               <h3 className="font-bold text-page-fg mb-2">Quality Inspection and Anomaly Detection</h3>
-              <p className="text-page-fg-muted text-sm leading-relaxed">Automated visual defect detection on production lines — faster and more accurate than manual inspection at any scale.</p>
+              <p className="text-page-fg-muted text-sm leading-relaxed">Automated visual defect detection on production lines - faster and more accurate than manual inspection at any scale.</p>
             </div>
             <div className="bg-page-bg-alt border border-page-border rounded-2xl p-6">
               <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4"><Layers size={22} /></div>
@@ -99,7 +99,7 @@ export default function ComputerVisionPage() {
             <div className="bg-page-bg-alt border border-page-border rounded-2xl p-6">
               <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4"><Activity size={22} /></div>
               <h3 className="font-bold text-page-fg mb-2">Real-Time Video Analytics</h3>
-              <p className="text-page-fg-muted text-sm leading-relaxed">Process live video streams at scale — counting, tracking, crowd analysis, behavioral analytics, and event detection in real time.</p>
+              <p className="text-page-fg-muted text-sm leading-relaxed">Process live video streams at scale - counting, tracking, crowd analysis, behavioral analytics, and event detection in real time.</p>
             </div>
           </div>
         </div>
@@ -160,12 +160,12 @@ export default function ComputerVisionPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: <TrendingUp size={28} />, title: "Operational Efficiency", desc: "Automate visual inspection, counting, and monitoring tasks that were previously manual — reducing labour costs by up to 40%." },
+              { icon: <TrendingUp size={28} />, title: "Operational Efficiency", desc: "Automate visual inspection, counting, and monitoring tasks that were previously manual - reducing labour costs by up to 40%." },
               { icon: <CheckCircle size={28} />, title: "Improved Decision Making", desc: "Real-time visual intelligence gives operators and managers the data they need to make faster, more accurate decisions." },
               { icon: <Star size={28} />, title: "Enhanced Product Quality", desc: "Catch defects and anomalies at the micro level with AI systems that never get tired, distracted, or miss a shift." },
               { icon: <Zap size={28} />, title: "Faster Time to Value", desc: "Rapid prototyping and iterative delivery gets your computer vision system from concept to production in weeks, not months." },
-              { icon: <Shield size={28} />, title: "Scalable & Reliable", desc: "Systems that scale with your business — from a single camera to tens of thousands of vision endpoints globally." },
-              { icon: <Users size={28} />, title: "End-to-End Partnership", desc: "From data collection and labelling to model training, deployment, and ongoing monitoring — we handle the full CV lifecycle." },
+              { icon: <Shield size={28} />, title: "Scalable & Reliable", desc: "Systems that scale with your business - from a single camera to tens of thousands of vision endpoints globally." },
+              { icon: <Users size={28} />, title: "End-to-End Partnership", desc: "From data collection and labelling to model training, deployment, and ongoing monitoring - we handle the full CV lifecycle." },
             ].map((b) => (
               <div key={b.title} className="bg-page-bg border border-page-border rounded-2xl p-6 hover:border-green-800/30 transition-colors text-center">
                 <div className="w-12 h-12 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4 mx-auto">{b.icon}</div>
@@ -187,7 +187,7 @@ export default function ComputerVisionPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { step: "01", title: "Model Design & Architecture", desc: "Select and architect the right CV model — YOLO, Vision Transformer, SegFormer, or custom — for your use case and constraints." },
+              { step: "01", title: "Model Design & Architecture", desc: "Select and architect the right CV model - YOLO, Vision Transformer, SegFormer, or custom - for your use case and constraints." },
               { step: "02", title: "System Integration", desc: "Integrate the CV model into your existing cameras, PLCs, ERP, WMS, or cloud infrastructure via well-documented APIs." },
               { step: "03", title: "Testing & Optimisation", desc: "Benchmark against domain-specific datasets, tune for accuracy/speed trade-offs, and validate in production environments." },
             ].map((p) => (
@@ -229,8 +229,8 @@ export default function ComputerVisionPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { tag: "Manufacturing", title: "DefectScan AI", desc: "Automated visual quality inspection for an auto-parts manufacturer — 99.7% defect detection rate, replacing 3 manual inspection shifts.", metric: "99.7% accuracy", image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=1200&q=80" },
-              { tag: "Retail", title: "ShelfSight", desc: "Real-time shelf monitoring system for a retail chain — detecting out-of-stock shelves and planogram violations across 200+ stores.", metric: "200+ stores deployed", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Manufacturing", title: "DefectScan AI", desc: "Automated visual quality inspection for an auto-parts manufacturer - 99.7% defect detection rate, replacing 3 manual inspection shifts.", metric: "99.7% accuracy", image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Retail", title: "ShelfSight", desc: "Real-time shelf monitoring system for a retail chain - detecting out-of-stock shelves and planogram violations across 200+ stores.", metric: "200+ stores deployed", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" },
               { tag: "Healthcare", title: "PathVision", desc: "Pathology slide analysis AI that assists radiologists in detecting anomalies with 94% sensitivity, reducing diagnosis time by 60%.", metric: "60% faster diagnosis", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div
@@ -353,14 +353,14 @@ export default function ComputerVisionPage() {
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[
-            { q: "What are computer vision solutions?", a: "Computer vision solutions use deep learning to enable machines to interpret and understand visual information from images, video, and other visual inputs — automating tasks like defect detection, object tracking, facial recognition, and more." },
+            { q: "What are computer vision solutions?", a: "Computer vision solutions use deep learning to enable machines to interpret and understand visual information from images, video, and other visual inputs - automating tasks like defect detection, object tracking, facial recognition, and more." },
             { q: "How do computer vision solutions benefit businesses?", a: "They automate manual visual inspection, enable real-time monitoring at scale, reduce human error, cut operational costs, and surface insights from visual data that humans couldn't practically analyze manually." },
-            { q: "Which industries can use computer vision technology?", a: "Virtually any industry with visual data — manufacturing, retail, healthcare, agriculture, security, automotive, logistics, construction, and more all have high-impact computer vision use cases." },
-            { q: "Can computer vision be integrated with existing business systems?", a: "Yes. Our CV systems integrate with existing cameras, PLCs, ERP, WMS, and cloud platforms via REST APIs, webhooks, and SDKs — minimizing disruption to your current operations." },
+            { q: "Which industries can use computer vision technology?", a: "Virtually any industry with visual data - manufacturing, retail, healthcare, agriculture, security, automotive, logistics, construction, and more all have high-impact computer vision use cases." },
+            { q: "Can computer vision be integrated with existing business systems?", a: "Yes. Our CV systems integrate with existing cameras, PLCs, ERP, WMS, and cloud platforms via REST APIs, webhooks, and SDKs - minimizing disruption to your current operations." },
             { q: "What are the most popular computer vision use cases?", a: "Quality control and defect detection, object detection and tracking, facial recognition, retail analytics, medical image analysis, autonomous vehicle perception, and document processing are among the most common." },
             { q: "Are computer vision solutions available for on-premise needs?", a: "Absolutely. We specialize in on-premise deployment for industries with strict data privacy requirements, running optimized models on your own GPU infrastructure or edge devices." },
-            { q: "How long does implementing computer vision solutions take?", a: "Simple use cases can go live in 4–6 weeks. Complex, multi-camera or multi-site systems typically take 8–16 weeks including data collection, training, integration, and validation." },
-            { q: "Why should we choose Toadsters for computer vision services?", a: "We combine deep expertise in computer vision research with real-world deployment experience across 20+ industries — delivering solutions that are accurate, fast, scalable, and built to last." },
+            { q: "How long does implementing computer vision solutions take?", a: "Simple use cases can go live in 4-6 weeks. Complex, multi-camera or multi-site systems typically take 8-16 weeks including data collection, training, integration, and validation." },
+            { q: "Why should we choose Toadster for computer vision services?", a: "We combine deep expertise in computer vision research with real-world deployment experience across 20+ industries - delivering solutions that are accurate, fast, scalable, and built to last." },
           ].map((item) => (<FAQItem key={item.q} question={item.q} answer={item.a} />))}
         </div>
       </section>

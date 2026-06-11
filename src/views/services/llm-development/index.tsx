@@ -33,7 +33,7 @@ export default function LLMDevelopmentPage() {
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
             Build Powerful Custom <span className="text-green-400">Large Language Models</span><br />for Your Business
           </h1>
-          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">From fine-tuning existing LLMs to training custom foundation models — we help enterprises unlock the full potential of large language models for their unique data, domain, and use cases.</p>
+          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">From fine-tuning existing LLMs to training custom foundation models - we help enterprises unlock the full potential of large language models for their unique data, domain, and use cases.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <CTALink to="/contact">Book a Free Consultation</CTALink>
             <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">See How It Works</button>
@@ -52,15 +52,15 @@ export default function LLMDevelopmentPage() {
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">Comprehensive LLM</h2>
             <h3 className="text-2xl font-bold text-green-400 mt-1 mb-4">Development Services for Every Enterprise Need</h3>
-            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">End-to-end large language model development — from data curation and pre-training to fine-tuning, RLHF, and production deployment.</p>
+            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">End-to-end large language model development - from data curation and pre-training to fine-tuning, RLHF, and production deployment.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: <Cpu size={22} />, title: "Foundation Model Pre-Training", desc: "Train custom LLMs from scratch on your proprietary data — ideal for domain-specific language understanding at scale." },
+              { icon: <Cpu size={22} />, title: "Foundation Model Pre-Training", desc: "Train custom LLMs from scratch on your proprietary data - ideal for domain-specific language understanding at scale." },
               { icon: <Settings size={22} />, title: "LLM Fine-Tuning & Instruction Tuning", desc: "Fine-tune GPT, LLaMA, Mistral, and other open-source LLMs on your domain data for superior task-specific performance." },
               { icon: <Brain size={22} />, title: "RLHF & Preference Alignment", desc: "Align LLM behavior with human preferences using reinforcement learning from human feedback (RLHF) and DPO techniques." },
               { icon: <Database size={22} />, title: "RAG System Development", desc: "Build retrieval-augmented generation systems that ground LLM outputs in your knowledge base for accurate, verifiable responses." },
-              { icon: <Network size={22} />, title: "LLM API & Platform Development", desc: "Build production-ready LLM APIs and platforms — rate limiting, streaming, caching, observability, and cost management built in." },
+              { icon: <Network size={22} />, title: "LLM API & Platform Development", desc: "Build production-ready LLM APIs and platforms - rate limiting, streaming, caching, observability, and cost management built in." },
               { icon: <Server size={22} />, title: "On-Premise LLM Deployment", desc: "Deploy large language models on your own infrastructure for full data privacy, compliance, and cost control." },
             ].map((s) => (
               <div key={s.title} className="bg-page-bg-alt border border-page-border rounded-2xl p-6 hover:border-green-700/40 transition-colors">
@@ -82,10 +82,10 @@ export default function LLMDevelopmentPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { icon: <Brain size={22} />, title: "Domain-Specific Intelligence", desc: "Custom LLMs trained on your data outperform general models in your industry — legal, medical, finance, manufacturing, and more." },
-              { icon: <Shield size={22} />, title: "Data Privacy & Security", desc: "On-premise deployment ensures your sensitive data never leaves your infrastructure — full compliance with GDPR, HIPAA, and more." },
-              { icon: <TrendingUp size={22} />, title: "Superior Performance on Your Tasks", desc: "Fine-tuned models achieve 40–70% better performance on domain-specific tasks compared to general-purpose LLMs." },
-              { icon: <Zap size={22} />, title: "Reduced Inference Costs", desc: "Smaller fine-tuned models can match large general LLM quality at 10–100× lower inference costs." },
+              { icon: <Brain size={22} />, title: "Domain-Specific Intelligence", desc: "Custom LLMs trained on your data outperform general models in your industry - legal, medical, finance, manufacturing, and more." },
+              { icon: <Shield size={22} />, title: "Data Privacy & Security", desc: "On-premise deployment ensures your sensitive data never leaves your infrastructure - full compliance with GDPR, HIPAA, and more." },
+              { icon: <TrendingUp size={22} />, title: "Superior Performance on Your Tasks", desc: "Fine-tuned models achieve 40-70% better performance on domain-specific tasks compared to general-purpose LLMs." },
+              { icon: <Zap size={22} />, title: "Reduced Inference Costs", desc: "Smaller fine-tuned models can match large general LLM quality at 10-100× lower inference costs." },
               { icon: <Eye size={22} />, title: "Full Observability & Control", desc: "Monitor every LLM request, track costs, detect hallucinations, and implement guardrails with full system observability." },
               { icon: <Activity size={22} />, title: "Competitive Moat via Proprietary AI", desc: "A custom LLM trained on your unique data is a defensible competitive advantage that competitors cannot replicate." },
             ].map((b) => (
@@ -137,7 +137,7 @@ export default function LLMDevelopmentPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { tag: "Legal AI", title: "LegalMind LLM", desc: "Fine-tuned LLaMA-3 on 50M+ legal documents. Outperformed GPT-4 on legal contract analysis tasks by 38% while reducing inference cost by 12×.", metric: "38% better vs GPT-4", img: "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80" },
-              { tag: "Medical AI", title: "ClinicalBot LLM", desc: "HIPAA-compliant medical LLM fine-tuned on clinical notes and medical literature — deployed on-premise for a hospital network.", metric: "100% on-premise", img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" },
+              { tag: "Medical AI", title: "ClinicalBot LLM", desc: "HIPAA-compliant medical LLM fine-tuned on clinical notes and medical literature - deployed on-premise for a hospital network.", metric: "100% on-premise", img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" },
               { tag: "FinTech AI", title: "FinLex Model", desc: "Custom financial LLM fine-tuned on earnings reports, analyst notes, and SEC filings. Powers real-time financial analysis for 500+ analysts.", metric: "500+ analysts served", img: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=80" },
             ].map((w) => (
               <div key={w.title} className="bg-page-bg rounded-2xl overflow-hidden border border-page-border hover:border-green-700/30 transition-colors group shadow-lg">
@@ -269,8 +269,8 @@ export default function LLMDevelopmentPage() {
             <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[
-            { q: "What is the difference between fine-tuning an LLM and using prompt engineering?", a: "Prompt engineering guides the model at inference time without changing weights — cost-effective but limited. Fine-tuning updates model weights on your data for significantly better domain-specific performance, but requires training compute." },
-            { q: "Do we need a huge amount of data to fine-tune an LLM?", a: "Not necessarily. With techniques like LoRA and QLoRA, high-quality fine-tuning can be achieved with as few as 1,000–10,000 examples. Data quality matters more than quantity." },
+            { q: "What is the difference between fine-tuning an LLM and using prompt engineering?", a: "Prompt engineering guides the model at inference time without changing weights - cost-effective but limited. Fine-tuning updates model weights on your data for significantly better domain-specific performance, but requires training compute." },
+            { q: "Do we need a huge amount of data to fine-tune an LLM?", a: "Not necessarily. With techniques like LoRA and QLoRA, high-quality fine-tuning can be achieved with as few as 1,000-10,000 examples. Data quality matters more than quantity." },
             { q: "Can you train a completely custom LLM from scratch?", a: "Yes, though it requires significant compute and data. We evaluate whether pre-training from scratch vs. fine-tuning an existing model is the right approach based on your budget, data, and performance goals." },
             { q: "How do you ensure the LLM doesn't hallucinate?", a: "We implement RAG to ground outputs in factual sources, apply confidence thresholds, add citation mechanisms, implement guardrails, and continuously monitor production outputs for hallucination patterns." },
             { q: "Can the LLM be deployed on our own servers?", a: "Absolutely. We specialize in on-premise LLM deployment using optimized serving frameworks (vLLM, TGI, Ollama) on your GPU infrastructure for full data privacy and compliance." },
