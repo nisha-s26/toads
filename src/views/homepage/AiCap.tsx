@@ -32,8 +32,8 @@ interface Service {
 
 const CARD_STYLES = {
   accent: "text-toadster-green",
-  iconGradient: "from-[#006600] to-[#1C3829] dark:from-[#2ECC71] dark:to-[#006600]",
-  iconText: "text-white dark:text-black",
+  iconGradient: "from-toadster-green to-toadster-green-deep",
+  iconText: "text-white",
   dot: "bg-toadster-green",
   badge: "bg-toadster-green/10 text-toadster-green border-toadster-green/25",
   capabilityCard:
@@ -41,7 +41,7 @@ const CARD_STYLES = {
   capabilityTitle: "relative z-10 text-lg font-bold leading-snug text-slate-900",
   capabilityBody: "relative z-10 mt-4 flex-1 text-sm leading-relaxed text-slate-600",
   capabilityCta:
-    "relative z-10 mt-8 inline-flex items-center gap-1 font-mono text-sm text-slate-800 transition-colors group-hover:text-toadster-green",
+    "relative z-10 mt-8 inline-flex items-center gap-1 text-sm font-bold text-black",
   focusRing:
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-toadster-green/35 dark:focus-visible:ring-slate-400/50",
 }
@@ -241,17 +241,17 @@ export default function AiCap() {
   // }, [selected])
 
   return (
-    <section className="homepage-snap-section flex w-full flex-col justify-center px-4 py-10">
+    <section className="homepage-snap-section flex w-full flex-col justify-center px-4 py-10 mt-10">
       {/* Header */}
       <ScrollReveal className="mb-12 text-center">
-        <p className="text-lg font-bold tracking-[0.35em] section-eyebrow">
-          OUR AI CAPABILITIES
+        <p className="section-eyebrow-heading text-2xl font-normal tracking-[0.35em]">
+          OUR <span className="font-extrabold">AI CAPABILITIES</span>
         </p>
-        <h2 className="mb-4 text-5xl font-extrabold md:text-6xl">
+        <h2 className="mb-4 text-5xl font-extrabold md:text-6xl mt-4">
           <span className="text-page-fg">End-to-End </span>
           <span className="text-toadster-green">AI Solutions</span>
         </h2>
-        <p className="mx-auto max-w-3xl text-xl text-page-fg-muted">
+        <p className="mx-auto max-w-7xl text-xl text-page-fg-muted">
           From AI strategy to deployment - comprehensive machine learning, generative AI, and data
           engineering capabilities that turn your business vision into production-grade intelligent software.
         </p>

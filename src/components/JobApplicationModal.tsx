@@ -266,7 +266,7 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
               />
               <label
                 htmlFor="resume-upload"
-                className="cursor-pointer inline-flex items-center px-4 py-2 rounded-lg text-white text-sm font-medium bg-[#1C3829] hover:bg-[#1C3829]/90 transition-opacity shrink-0"
+                className="cursor-pointer inline-flex shrink-0 items-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary-hover"
               >
                 Choose file
               </label>
@@ -320,7 +320,7 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 bg-[#1C3829] hover:bg-[#1C3829]/90 text-white"
+              className="flex-1 bg-primary text-primary-foreground hover:bg-primary-hover"
             >
               {isSubmitting ? (
                 "Processing..."

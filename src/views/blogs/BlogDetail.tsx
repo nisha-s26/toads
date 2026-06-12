@@ -316,7 +316,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-page-bg flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-toadster-green"></div>
       </div>
     )
@@ -324,13 +324,13 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
 
   if (!blog) {
     return (
-      <div className="min-h-screen bg-page-bg flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-page-fg mb-4">Blog Not Found</h1>
           <p className="text-page-fg-subtle mb-8">The blog post you're looking for doesn't exist.</p>
           <button
             onClick={() => router.push("/blogs")}
-            className="bg-[#1C3829] text-white px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300"
+            className="rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:bg-primary-hover hover:shadow-md"
           >
             Back to Blogs
           </button>
@@ -346,14 +346,10 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
   const contentBlocks: ContentBlock[] = blog.content ? parseBlogContent(blog.content) : []
 
   return (
-    <div className="min-h-screen bg-page-bg text-page-fg">
+    <div className="min-h-screen text-page-fg">
 
       {/* Hero Section */}
       <section className="relative pt-28 pb-16 px-3 sm:px-4 lg:px-5 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-toadster-green/10 via-transparent to-toadster-green/10"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-toadster-green/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-toadster-green/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-
         <div className="max-w-4xl mx-auto relative z-10">
           {/* Breadcrumb */}
           <nav className={`flex items-center gap-2 text-sm text-page-fg-subtle mb-8 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
@@ -743,8 +739,8 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                 <h3 className="font-bold text-page-fg mb-4 text-lg" >Article Info</h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-sm text-page-fg-muted">
-                    <div className="w-8 h-8 bg-[#015d19]/20 rounded-lg flex items-center justify-center">
-                      <Calendar size={14} className="text-[#015d19]" />
+                    <div className="w-8 h-8 bg-toadster-green/20 rounded-lg flex items-center justify-center">
+                      <Calendar size={14} className="text-toadster-green" />
                     </div>
                     <div>
                       <p className="text-xs text-page-fg-muted">Published</p>
@@ -752,8 +748,8 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                     </div>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-page-fg-muted">
-                    <div className="w-8 h-8 bg-[#015d19]/20 rounded-lg flex items-center justify-center">
-                      <Clock size={14} className="text-[#015d19]" />
+                    <div className="w-8 h-8 bg-toadster-green/20 rounded-lg flex items-center justify-center">
+                      <Clock size={14} className="text-toadster-green" />
                     </div>
                     <div>
                       <p className="text-xs text-page-fg-muted">Read Time</p>
@@ -761,8 +757,8 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                     </div>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-page-fg-muted">
-                    <div className="w-8 h-8 bg-[#015d19]/20 rounded-lg flex items-center justify-center">
-                      <User size={14} className="text-[#015d19]" />
+                    <div className="w-8 h-8 bg-toadster-green/20 rounded-lg flex items-center justify-center">
+                      <User size={14} className="text-toadster-green" />
                     </div>
                     <div>
                       <p className="text-xs text-page-fg-muted">Author</p>
@@ -771,8 +767,8 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                   </div>
                   {blog.category && (
                     <div className="flex items-center gap-3 text-sm text-page-fg-muted">
-                      <div className="w-8 h-8 bg-[#015d19]/20 rounded-lg flex items-center justify-center">
-                        <Tag size={14} className="text-[#015d19]" />
+                      <div className="w-8 h-8 bg-toadster-green/20 rounded-lg flex items-center justify-center">
+                        <Tag size={14} className="text-toadster-green" />
                       </div>
                       <div>
                         <p className="text-xs text-page-fg-muted">Category</p>
@@ -791,7 +787,6 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
       {/* FAQ Section */}
       {blog.faqs && blog.faqs.length > 0 && (
         <section className="py-12 sm:py-16 px-3 sm:px-4 lg:px-5 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-toadster-green/10 via-transparent to-toadster-green/5"></div>
           <div className="absolute top-0 right-0 w-72 h-72 bg-toadster-green/5 rounded-full -translate-y-1/3 translate-x-1/3 blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-toadster-green/5 rounded-full translate-y-1/3 -translate-x-1/3 blur-3xl"></div>
 
@@ -803,7 +798,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="flex items-center gap-3 mb-8 sm:mb-10"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-toadster-green to-[#0a7d2b] rounded-xl flex items-center justify-center shadow-lg shadow-toadster-green/20">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 brand-gradient-br rounded-xl flex items-center justify-center shadow-lg shadow-toadster-green/20">
                 <HelpCircle size={20} className="text-white" />
               </div>
               <div>
@@ -824,7 +819,6 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
       {/* Related Articles */}
       {suggestedBlogs.length > 0 && (
         <section className="py-16 px-3 sm:px-4 lg:px-5 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#015d19]/10 via-transparent to-[#0a7d2b]/10"></div>
           <div className="max-w-4xl mx-auto relative z-10">
             <div className="flex items-center justify-between mb-10">
               <div>
@@ -834,7 +828,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
               <Link
                 href="/blogs"
                 title="View All Blogs"
-                className="hidden md:flex items-center gap-2 text-[#015d19] font-medium text-sm hover:gap-3 transition-all duration-300 group"
+                className="hidden md:flex items-center gap-2 text-toadster-green font-medium text-sm hover:gap-3 transition-all duration-300 group"
               >
                 View All Blogs
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
@@ -847,7 +841,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                   key={relatedBlog.slug}
                   href={`/blogs/${relatedBlog.slug}`}
                   title={relatedBlog.title}
-                  className={`theme-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group border hover:border-[#015d19]/20 hover:-translate-y-1 block transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  className={`theme-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group border hover:border-toadster-green/20 hover:-translate-y-1 block transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                   style={{ transitionDelay: `${2800 + index * 100}ms` }}
                 >
                   <div className="h-44 relative overflow-hidden flex items-center justify-center bg-page-bg-deep">
@@ -863,7 +857,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                     {relatedBlog.category && (
                       <div className="absolute top-3 left-3">
-                        <span className="bg-white/90 text-[#015d19] text-xs font-bold px-2 py-0.5 rounded-full shadow-sm">
+                        <span className="bg-white/90 text-toadster-green text-xs font-bold px-2 py-0.5 rounded-full shadow-sm">
                           {relatedBlog.category}
                         </span>
                       </div>
@@ -877,13 +871,13 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                       <Clock size={11} />
                       <span>{relatedBlog.readTime}</span>
                     </div>
-                    <h3 className="text-sm font-semibold text-page-fg group-hover:text-[#015d19] transition-colors duration-200 line-clamp-2 mb-2">
+                    <h3 className="text-sm font-semibold text-page-fg group-hover:text-toadster-green transition-colors duration-200 line-clamp-2 mb-2">
                       {relatedBlog.title}
                     </h3>
                     <p className="text-xs text-page-fg-subtle line-clamp-2 leading-relaxed">
                       {relatedBlog.description}
                     </p>
-                    <div className="mt-4 flex items-center gap-1 text-[#015d19] text-xs font-semibold group-hover:gap-2 transition-all duration-200">
+                    <div className="mt-4 flex items-center gap-1 text-toadster-green text-xs font-semibold group-hover:gap-2 transition-all duration-200">
                       Read More
                       <ArrowRight size={12} />
                     </div>
@@ -896,7 +890,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
               <Link
                 href="/blogs"
                 title="View All Blogs"
-                className="inline-flex items-center gap-2 text-[#015d19] font-medium text-sm border border-[#015d19]/30 px-5 py-2.5 rounded-full hover:bg-[#015d19] hover:text-white transition-all duration-300"
+                className="inline-flex items-center gap-2 rounded-full border border-toadster-green/30 px-5 py-2.5 text-sm font-semibold text-toadster-green transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
               >
                 View All Blogs
                 <ArrowRight size={15} />
@@ -908,14 +902,13 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
 
       {/* Comments Section */}
       <section className="py-16 px-3 sm:px-4 lg:px-5 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#015d19]/5 via-transparent to-[#0a7d2b]/5"></div>
         <div className="max-w-4xl mx-auto relative z-10">
 
           {/* Section Header */}
           {slug && staticComments[slug] && staticComments[slug].length > 0 && (
             <>
               <div className={`flex items-center gap-3 mb-10 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                <div className="w-10 h-10 bg-gradient-to-br from-[#015d19] to-[#0a7d2b] rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 brand-gradient-br rounded-xl flex items-center justify-center">
                   <MessageCircle size={20} className="text-white" />
                 </div>
                 <div>
@@ -934,14 +927,14 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                   >
                     <div className="flex items-start gap-4">
                       {/* Avatar */}
-                      <div className="w-10 h-10 bg-gradient-to-br from-[#015d19] to-[#0a7d2b] rounded-2xl flex items-center justify-center shrink-0 text-white text-xs font-bold">
+                      <div className="w-10 h-10 brand-gradient-br rounded-2xl flex items-center justify-center shrink-0 text-white text-xs font-bold">
                         {getInitials(comment.name)}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-0.5">
                           <span className="font-semibold text-page-fg text-sm">{comment.name}</span>
                           {comment.role && (
-                            <span className="text-[#015d19] text-xs font-medium bg-[#015d19]/10 px-2 py-0.5 rounded-full">{comment.role}</span>
+                            <span className="text-toadster-green text-xs font-medium bg-toadster-green/10 px-2 py-0.5 rounded-full">{comment.role}</span>
                           )}
                         </div>
                         <p className="text-page-fg-muted text-xs mb-3">{comment.date}</p>
@@ -963,7 +956,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
       {/* CTA Section */}
       <section className="py-16 px-3 sm:px-4 lg:px-5">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-[#015d19] to-[#0a7d2b] rounded-2xl p-10 text-center text-white relative overflow-hidden">
+          <div className="brand-gradient-r rounded-2xl p-10 text-center text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
             <div className="relative z-10">
@@ -975,7 +968,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                 <Link
                   href="/contact"
                   title="Get Started Today"
-                  className="bg-white text-[#015d19] px-7 py-3 rounded-full font-semibold hover:shadow-xl hover:shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 text-sm"
+                  className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md"
                 >
                   Get Started Today
                 </Link>

@@ -154,7 +154,7 @@ export default function AdvancedAITechPage() {
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20"
-            style={{ background: "radial-gradient(ellipse at center, #1C3829 0%, transparent 70%)" }}
+            style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }}
           />
         </div>
         <div className="max-w-9xl mx-auto text-center relative">
@@ -170,7 +170,7 @@ export default function AdvancedAITechPage() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button
-              className="px-8 py-3 rounded-xl bg-[#1C3829] text-white font-semibold hover:bg-green-800 transition-colors"
+              className="rounded-xl bg-primary px-8 py-3 font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
               onClick={() => document.getElementById('what-we-build')?.scrollIntoView({ behavior: 'smooth' })}
             >
               What We Build

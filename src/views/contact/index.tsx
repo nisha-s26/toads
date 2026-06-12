@@ -96,9 +96,9 @@ export default function Contact() {
 
                 <div className="relative mx-auto grid w-[90%] max-w-[90%] gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-8 md:items-stretch">
                     {/* Left panel */}
-                    <div className="relative flex min-h-[640px] flex-col overflow-hidden rounded-[2rem] border border-slate-900/5 bg-white/[0.03] p-8 text-slate-900 shadow-none backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.02] dark:text-white md:p-10 lg:p-12">
+                    <div className="faq-glass-surface relative flex min-h-[640px] flex-col overflow-hidden rounded-[2rem] p-8 text-slate-900 dark:text-white md:p-10 lg:p-12">
                         <div className="relative flex flex-1 flex-col">
-                            <span className="text-sm font-bold uppercase tracking-[0.3em] section-eyebrow">
+                            <span className="text-sm font-bold uppercase tracking-[0.3em] text-slate-500 dark:text-sky-200/75">
                                 Get in Touch
                             </span>
                             <h1 className="mt-4 text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl lg:text-[3.25rem] dark:text-page-fg">
@@ -111,7 +111,7 @@ export default function Contact() {
                             <div className="mt-10 flex flex-col gap-7">
                                 {CONTACT_FEATURES.map(({ icon: Icon, title, description }) => (
                                     <div key={title} className="flex items-start gap-4">
-                                        <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-900/5 bg-white/10 text-toadster-green backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
+                                        <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/60 bg-white/25 text-slate-600 backdrop-blur-sm dark:border-white/30 dark:bg-white/10 dark:text-sky-100/90">
                                             <Icon size={18} strokeWidth={1.75} />
                                         </span>
                                         <div>
@@ -122,26 +122,26 @@ export default function Contact() {
                                 ))}
                             </div>
 
-                            <div className="mt-auto border-t border-slate-900/5 pt-8 dark:border-white/10">
+                            <div className="mt-auto border-t border-white/50 pt-8 dark:border-white/20">
                                 <div className="grid gap-6 sm:grid-cols-2">
                                     <div>
-                                        <p className="text-[11px] font-bold tracking-[0.22em] section-eyebrow uppercase">
+                                        <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-slate-500 dark:text-sky-200/75">
                                             Email Us
                                         </p>
                                         <a
                                             href="mailto:business@toadsters.com"
-                                            className="mt-2 block text-sm font-medium text-slate-900 transition-colors hover:text-toadster-green dark:text-page-fg dark:hover:text-toadster-green"
+                                            className="mt-2 block text-sm font-medium text-slate-900 transition-colors hover:text-slate-700 dark:text-page-fg dark:hover:text-white"
                                         >
                                             business@toadsters.com
                                         </a>
                                     </div>
                                     <div>
-                                        <p className="text-[11px] font-bold tracking-[0.22em] section-eyebrow uppercase">
+                                        <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-slate-500 dark:text-sky-200/75">
                                             Call Now
                                         </p>
                                         <a
                                             href="tel:+919220517988"
-                                            className="mt-2 block text-sm font-medium text-slate-900 transition-colors hover:text-toadster-green dark:text-page-fg dark:hover:text-toadster-green"
+                                            className="mt-2 block text-sm font-medium text-slate-900 transition-colors hover:text-slate-700 dark:text-page-fg dark:hover:text-white"
                                         >
                                             +91 92205 17988
                                         </a>
@@ -241,7 +241,7 @@ export default function Contact() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="mt-1 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-slate-900 px-6 text-sm font-semibold text-white shadow-[0_12px_30px_-12px_rgba(11,21,32,0.8)] transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
+                                className="mt-1 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50"
                             >
                                 {isSubmitting ? "Sending..." : "Send Message"}
                                 {!isSubmitting && <ArrowRight size={18} strokeWidth={2} />}

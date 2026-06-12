@@ -3,17 +3,12 @@
 import { useRouter } from "next/navigation"
 import { ChevronRight } from "lucide-react"
 import { motion } from "framer-motion"
-import { MergedSectionBg } from "@/components/MergedSectionBg"
-
 export default function GetStarted() {
   const router = useRouter()
 
   return (
-    <section className="homepage-snap-section relative isolate flex w-full flex-col justify-center overflow-hidden px-4 py-16 md:py-20 lg:px-20">
-      <MergedSectionBg />
-      <div className="get-started-left-glow" aria-hidden />
-      <div className="relative z-10 mx-auto w-full max-w-9xl">
-        <div className="homepage-cta-box w-full overflow-hidden rounded-[1.75rem] px-6 py-14 text-center sm:px-10 md:rounded-[2rem] md:px-16 md:py-16">
+    <section className="homepage-snap-section relative isolate flex w-full flex-col justify-center overflow-hidden py-16 md:py-20">
+      <div className="homepage-cta-box section-full-bleed relative z-10 w-full px-6 py-14 text-center sm:px-10 md:px-16 md:py-16 lg:px-20">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +40,7 @@ export default function GetStarted() {
             <button
               type="button"
               onClick={() => router.push("/contact")}
-              className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-slate-900 px-8 py-4 text-base font-semibold text-white shadow-lg transition hover:bg-slate-800 dark:bg-black dark:hover:bg-slate-900"
+              className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
             >
               Get Started Today
               <ChevronRight
@@ -63,19 +58,18 @@ export default function GetStarted() {
             className="mt-12 flex flex-wrap justify-center gap-6 text-sm text-slate-800 sm:gap-8 dark:text-black/80"
           >
             <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#15803d] dark:bg-black" />
+              <span className="h-2 w-2 rounded-full bg-toadster-green" />
               No Lock-in
             </div>
             <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#15803d] dark:bg-black" />
+              <span className="h-2 w-2 rounded-full bg-toadster-green" />
               Enterprise Ready
             </div>
             <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#15803d] dark:bg-black" />
+              <span className="h-2 w-2 rounded-full bg-toadster-green" />
               24/7 Support
             </div>
           </motion.div>
-        </div>
       </div>
     </section>
   )

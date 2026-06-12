@@ -101,7 +101,7 @@ const OurProcess = () => {
                                                     transition={{ duration: 0.4, ease: "easeOut" }}
                                                     style={{
                                                         background:
-                                                            "radial-gradient(circle at center, rgba(16,185,129,0.1), rgba(16,185,129,0.1) 45%, rgba(255,255,255,0) 75%)",
+                                                            "radial-gradient(circle at center, color-mix(in srgb, var(--toadster-green) 10%, transparent), color-mix(in srgb, var(--toadster-green) 10%, transparent) 45%, rgba(255,255,255,0) 75%)",
                                                     }}
                                                 />
 
@@ -170,7 +170,7 @@ const OurProcess = () => {
                                                         transition={{ duration: 0.4, ease: "easeOut" }}
                                                         style={{
                                                             background:
-                                                                "radial-gradient(circle at center, rgba(16,185,129,0.1), rgba(16,185,129,0.1) 45%, rgba(255,255,255,0) 75%)",
+                                                                "radial-gradient(circle at center, color-mix(in srgb, var(--toadster-green) 10%, transparent), color-mix(in srgb, var(--toadster-green) 10%, transparent) 45%, rgba(255,255,255,0) 75%)",
                                                         }}
                                                     />
 
@@ -199,7 +199,7 @@ const OurProcess = () => {
                     <Link
                         href="/services/ai-consultation"
                         title="Get a free AI consultation"
-                        className="inline-flex items-center gap-2 rounded-xl bg-[#1C3829] px-7 py-3 text-white font-semibold transition-colors hover:bg-green-800"
+                        className="inline-flex items-center gap-2 rounded-xl bg-primary px-7 py-3 font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
                     >
                         Start with AI Consultation
                         <ArrowRight size={16} />

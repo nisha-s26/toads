@@ -6,7 +6,6 @@ import {
   Phone,
   MapPin,
   Linkedin,
-  Twitter,
   Instagram,
   Youtube,
   ChevronDown,
@@ -14,6 +13,7 @@ import {
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ToadsterLogo } from "@/components/ToadsterLogo"
+import { ClutchBadge } from "@/components/ClutchBadge"
 import { cn } from "@/lib/utils"
 
 interface InternalLink {
@@ -104,6 +104,20 @@ interface SocialLink {
   label: string
 }
 
+function XIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  )
+}
+
 const SOCIAL_LINKS: SocialLink[] = [
   {
     href: "https://in.linkedin.com/company/toadster-technologies-private-limited",
@@ -112,7 +126,7 @@ const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     href: "https://x.com/technologi62401",
-    icon: Twitter,
+    icon: XIcon,
     label: "Toadster on X",
   },
   {
@@ -307,6 +321,7 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
+              <ClutchBadge className="mt-5" />
             </div>
           </motion.div>
 
@@ -368,15 +383,20 @@ const Footer = () => {
           <p className="text-xs text-page-fg-muted">
             © {new Date().getFullYear()} Toadster Technologies Pvt. Ltd. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs">
-            <Link href="/about" className="text-page-fg-muted transition-colors hover:text-page-fg">
-              About
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs sm:justify-end">
+            <Link
+              href="/privacy-policy"
+              title="Privacy Policy"
+              className="text-page-fg-muted transition-colors hover:text-page-fg"
+            >
+              Privacy Policy
             </Link>
-            <Link href="/contact" className="text-page-fg-muted transition-colors hover:text-page-fg">
-              Contact
-            </Link>
-            <Link href="/careers" className="text-page-fg-muted transition-colors hover:text-page-fg">
-              Careers
+            <Link
+              href="/terms-and-conditions"
+              title="Terms and Conditions"
+              className="text-page-fg-muted transition-colors hover:text-page-fg"
+            >
+              Terms and Conditions
             </Link>
           </div>
         </div>

@@ -154,7 +154,7 @@ export default function IndustrySolutionsPage() {
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20"
-            style={{ background: "radial-gradient(ellipse at center, #1C3829 0%, transparent 70%)" }}
+            style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }}
           />
         </div>
         <div className="max-w-5xl mx-auto text-center relative">

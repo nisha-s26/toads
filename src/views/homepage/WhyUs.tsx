@@ -30,40 +30,40 @@ const WhyUs = () => {
           initial={{ opacity: 0, y: 32 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
-          className="mx-auto flex max-w-7xl flex-col items-center text-center"
+          className="mx-auto flex max-w-9xl px-10 flex-col items-center text-center"
         >
-          <p className="text-sm font-bold uppercase tracking-[0.3em] section-eyebrow md:text-base">
-            Why Us
+          <p className="section-eyebrow-heading text-2xl font-normal uppercase tracking-[0.35em]">
+            Why <span className="font-extrabold">Us</span>
           </p>
 
-          <h2 className="mt-4 text-4xl font-extrabold leading-[1.08] text-white md:text-5xl lg:text-[3.25rem]">
-            Why Choose{" "}
+          <h2 className="mt-4 text-4xl font-extrabold leading-[1.08] md:text-5xl lg:text-[3.25rem]">
+            <span className="text-page-fg">Why Choose </span>
             <span className="text-toadster-green">Toadster</span>
           </h2>
 
-          <p className="mt-6 max-w-9xl text-base leading-relaxed text-white/80 md:text-lg">
+          <p className="mt-6 max-w-9xl text-base leading-relaxed text-page-fg-muted md:text-lg">
             Most software agencies build features. We build AI-integrated systems that hold up - under
             real load, with real data, in production environments where things actually break. Whether
             you need an{" "}
-            <strong className="font-semibold text-white">LLM integration agency</strong>, a team to
+            <strong className="font-semibold text-page-fg">LLM integration agency</strong>, a team to
             handle{" "}
-            <strong className="font-semibold text-white">
+            <strong className="font-semibold text-page-fg">
               AI pipeline development for startups
             </strong>
             , or experts in{" "}
-            <strong className="font-semibold text-white">
+            <strong className="font-semibold text-page-fg">
               retrieval-augmented generation consulting
             </strong>{" "}
             - that distinction matters more than ever.
           </p>
 
-          <p className="mt-5 max-w-9xl text-base leading-relaxed text-white/80 md:text-lg">
+          <p className="mt-5 max-w-9xl text-base leading-relaxed text-page-fg-muted md:text-lg">
             We have worked with early-stage startups that needed an MVP built to scale, and enterprise teams
             who inherited AI systems that were silently failing. What we bring is not just technical depth - it is the
             judgment to know which solution fits your constraints, your team, and your next 18 months.
           </p>
 
-          <div className="mt-10 grid w-full max-w-3xl grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-6">
+          <div className="mt-10 grid w-full max-w-9xl grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-6">
             {STATS.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -75,7 +75,7 @@ const WhyUs = () => {
                 <p className="text-2xl font-extrabold text-toadster-green md:text-3xl">
                   {stat.value}
                 </p>
-                <p className="mt-1 text-xs font-medium leading-snug text-white/70 md:text-sm">
+                <p className="mt-1 text-xs font-medium leading-snug text-page-fg-muted md:text-sm">
                   {stat.label}
                 </p>
               </motion.div>
@@ -99,7 +99,7 @@ const WhyUs = () => {
             <Link
               href="/services/ai-development"
               title="View our AI development services"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-white/10"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-page-border-strong px-7 py-3.5 font-semibold text-page-fg transition-colors hover:bg-page-fg/5"
             >
               View Our Services
             </Link>

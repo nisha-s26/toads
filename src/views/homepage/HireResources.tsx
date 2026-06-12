@@ -138,20 +138,20 @@ export default function HireResources() {
     <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center py-16 md:py-24">
       <div className="mx-auto max-w-9xl px-4 lg:px-20">
         <ScrollReveal className="mb-12 text-center md:mb-14">
-          <p className="text-lg font-bold tracking-[0.35em] section-eyebrow">
-            HIRE RESOURCES
+          <p className="section-eyebrow-heading text-2xl font-normal tracking-[0.35em]">
+            HIRE <span className="font-extrabold">RESOURCES</span>
           </p>
           <h2 className="mt-4 text-5xl font-extrabold md:text-6xl">
             <span className="text-page-fg">The Right Expert, </span>
             <span className="text-toadster-green">When You Need One</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-xl text-page-fg-muted">
+          <p className="mx-auto mt-4 max-w-9xl text-xl text-page-fg-muted">
             Need a vetted remote AI engineer, ML specialist, or growth expert - without the overhead
             of a full-time hire? Toadster places pre-screened specialists into your team, your
             tools, and your sprint cadence. Most engagements go from brief to kickoff in under a
             week.
           </p>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-page-fg-subtle">
+          <p className="mx-auto mt-4 max-w-9xl text-lg text-page-fg-subtle">
             Hover over any role below to see what that person actually brings to your team - and how
             quickly they can start.
           </p>
@@ -162,16 +162,17 @@ export default function HireResources() {
             <HireRoleCard key={role.title} role={role} index={index} />
           ))}
         </div>
+      </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="mt-14 md:mt-16"
-        >
-          <div className="hire-resources-cta overflow-hidden rounded-[1.75rem] md:rounded-[2rem]">
-            <div className="relative z-10 grid items-center gap-6 px-6 pt-8 sm:px-8 sm:pt-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-10 md:px-12 md:pt-12">
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="section-full-bleed mt-14 md:mt-16"
+      >
+        <div className="hire-resources-cta w-full">
+          <div className="relative z-10 mx-auto grid max-w-9xl items-center gap-6 px-4 py-10 sm:px-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-10 md:px-12 md:py-12 lg:px-20">
               <div className="mx-auto flex shrink-0 items-end justify-center md:mx-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -188,7 +189,7 @@ export default function HireResources() {
                   Not sure which role fits?
                   <span className="text-slate-700 dark:text-black/80">Let&apos;s figure it out.</span>
                 </h3>
-                <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 md:text-lg dark:text-black/80">
+                <p className="mt-4 max-w-5xl text-base leading-relaxed text-slate-700 md:text-lg dark:text-black/80">
                   We&apos;ve matched engineers, analysts, and AI specialists at companies ranging
                   from two-person startups to teams of 500 - across{" "}
                   <strong className="font-semibold text-slate-900 dark:text-black">
@@ -209,18 +210,17 @@ export default function HireResources() {
                   href="/hire/dedicated-resources"
                   title="Explore all hire resources"
                   className={cn(
-                    "mt-8 w-fit inline-flex items-center gap-2 rounded-xl bg-slate-900 px-7 py-3.5 font-semibold",
-                    "text-white shadow-lg transition-all hover:bg-slate-800 hover:-translate-y-0.5 dark:bg-black dark:hover:bg-slate-900",
+                    "mt-8 w-fit inline-flex items-center gap-2 rounded-xl bg-primary px-7 py-3.5 font-semibold",
+                    "text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md",
                   )}
                 >
                   Explore All Resources
                   <ArrowRight size={16} />
                 </Link>
               </div>
-            </div>
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   )
 }

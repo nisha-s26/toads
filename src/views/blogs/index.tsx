@@ -42,12 +42,10 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
 
 
   return (
-    <div className="min-h-screen bg-page-bg text-page-fg">
+    <div className="min-h-screen text-page-fg">
 
       {/* Resources and Insights Section */}
       <section className="py-12 px-3 sm:px-4 md:px-4 lg:px-5 pt-24 sm:pt-28 md:pt-32 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-toadster-green/10 via-transparent to-toadster-green/10"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-toadster-green/5 to-transparent"></div>
         <div className="max-w-7xl mx-auto relative z-10 mt-10">
           <div className="mb-8 sm:mb-12 md:mb-16">
             <div className={`text-center transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -110,7 +108,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <button
-                      className="flex items-center justify-center gap-2 bg-[#1C3829] text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full hover:shadow-lg hover:shadow-toadster-green/25 transition-all duration-300 group text-sm sm:text-base"
+                      className="group flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:bg-primary-hover hover:shadow-md hover:shadow-toadster-green/25 sm:px-6 sm:py-3 sm:text-base"
                       title="Read More"
                       onClick={(e) => { e.stopPropagation(); router.push(`/blogs/${featuredBlog?.slug}`) }}
                     >
@@ -137,8 +135,6 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
 
       {/* Featured Blogs Section */}
       <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-4 lg:px-5 relative">
-        <div className="absolute inset-0 bg-gradient-to-bl from-toadster-green/5 via-transparent to-toadster-green/5"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-toadster-green/3 to-transparent"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '400ms' }}>Featured Blogs</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
@@ -217,7 +213,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
                       {/* Buttons */}
                       <div className="flex flex-wrap gap-2">
                         <button
-                          className="inline-flex items-center gap-1.5 text-xs bg-toadster-green text-white px-3 py-1.5 rounded-full hover:shadow-lg hover:shadow-toadster-green/30 transition-all duration-300 font-medium"
+                          className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:bg-primary-hover hover:shadow-md hover:shadow-toadster-green/30"
                           title="Read More"
                           onClick={(e) => { e.stopPropagation(); router.push(`/blogs/${blog.slug}`) }}
                         >
@@ -245,8 +241,6 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
 
       {/* Latest Blogs Section */}
       <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-4 lg:px-5 relative">
-        <div className="absolute inset-0 bg-gradient-to-tl from-toadster-green/8 via-transparent to-toadster-green/8"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-toadster-green/5 to-transparent"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1000ms' }}>Latest Blogs</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
@@ -300,7 +294,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
 
                   <div className="flex gap-2">
                     <button
-                      className="text-xs bg-[#1C3829] text-white px-2 sm:px-3 py-1 rounded-full hover:shadow-lg transition-all duration-300"
+                      className="rounded-full bg-primary px-2 py-1 text-xs font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:bg-primary-hover hover:shadow-md sm:px-3"
                       title="Read More"
                       onClick={(e) => { e.stopPropagation(); router.push(`/blogs/${blog.slug}`) }}
                     >
@@ -323,7 +317,6 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
 
       {/* Explore Our Services & CTA */}
       <section className="py-16 sm:py-20 px-3 sm:px-4 md:px-4 lg:px-5 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-toadster-green/8 via-transparent to-toadster-green/8"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-10 sm:mb-12">
             <p className="text-sm sm:text-xl tracking-[0.25em] text-toadster-green font-bold uppercase mb-3">

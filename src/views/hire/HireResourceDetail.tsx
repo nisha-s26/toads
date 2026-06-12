@@ -2,10 +2,9 @@
 
 import { motion } from "framer-motion"
 import { ArrowRight, Check } from "lucide-react"
+import { ClutchBadge } from "@/components/ClutchBadge"
 import { HireResourceRfpForm } from "@/components/hire/HireResourceRfpForm"
 import { HIRE_RESOURCE_BY_SLUG, type HireResource } from "@/config/hire-resources"
-
-const CLUTCH_PROFILE_URL = "https://clutch.co/profile/toadster-technologies-private"
 
 function scrollToForm() {
   document.getElementById("hire-rfp-form")?.scrollIntoView({ behavior: "smooth", block: "center" })
@@ -27,7 +26,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
   return (
     <div className="hire-page-shell overflow-x-hidden">
       {/* Hero - vertically centered, 85% width */}
-      <section className="hire-page-hero">
+      <section className="hire-page-hero mt-10">
         <div className="hire-page-container">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-16">
             <div className="lg:col-span-7 flex flex-col gap-6">
@@ -61,27 +60,13 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                   <button
                     type="button"
                     onClick={scrollToForm}
-                    className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-semibold text-slate-900 shadow-[0_12px_40px_rgba(0,0,0,0.18)] transition hover:bg-slate-50 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
+                    className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
                   >
                     {resource.ctaText}
                     <ArrowRight size={18} />
                   </button>
 
-                  <a
-                    href={CLUTCH_PROFILE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 rounded-xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-sm transition hover:bg-white/15 dark:border-white/10 dark:bg-white/[0.06]"
-                    aria-label="Toadster - Clutch Global Top AI Development Company 2024"
-                  >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#17313B] text-[11px] font-black tracking-tight text-white">
-                      CL
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold leading-tight text-page-fg">Clutch Global Leader</p>
-                      <p className="text-xs text-page-fg-muted">Top AI Development Company 2024</p>
-                    </div>
-                  </a>
+                  <ClutchBadge />
                 </div>
               </motion.div>
             </div>

@@ -34,7 +34,7 @@ export function CountrySectionCard({
           className="object-cover transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, 38vw"
         />
-        <div className="absolute inset-0 bg-linear-to-br from-[#0a1f12]/50 via-transparent to-[#2ECC71]/10" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#0a1f12]/50 via-transparent to-toadster-green/10" />
         <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent sm:bg-linear-to-r sm:from-black/30 sm:to-transparent" />
       </div>
 
@@ -52,7 +52,7 @@ export function CountrySectionCard({
           ))}
         </div>
         <div className="mt-auto pt-4">
-          <div className="h-0.5 w-0 rounded-full bg-linear-to-r from-[#006600] to-[#2ECC71] transition-all duration-500 group-hover:w-full" />
+          <div className="h-0.5 w-0 rounded-full bg-linear-to-r from-toadster-green to-toadster-green-deep transition-all duration-500 group-hover:w-full" />
         </div>
       </div>
     </article>

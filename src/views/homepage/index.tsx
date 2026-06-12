@@ -10,6 +10,8 @@ import AiCap from "./AiCap"
 // import OurProcess from "./OurProcess"
 import GetStarted from "./GetStarted"
 import HomepageFaq from "./HomepageFaq"
+import HomepageBlogs from "./HomepageBlogs"
+import { HomepageMeshBg } from "@/components/HomepageMeshBg"
 // import Solutions from "./Solutions"
 // import ParallaxShowcase from "./ParallaxShowcase"
 
@@ -20,8 +22,9 @@ const HomePage = () => {
   }, [])
 
   return (
-    <div className="page-ambient-shell relative isolate">
-      <div className="homepage-content">
+    <div className="page-ambient-shell homepage-mesh-shell relative isolate">
+      <HomepageMeshBg />
+      <div className="homepage-content relative z-10">
         <section
           id="homepage-hero-viewport"
           className="homepage-snap-section homepage-hero-viewport relative flex min-h-[100dvh] max-h-[100dvh] flex-col overflow-hidden"
@@ -39,6 +42,7 @@ const HomePage = () => {
           {/* <ParallaxShowcase /> */}
           {/* <Solutions /> */}
           <HomepageFaq />
+          <HomepageBlogs />
           <GetStarted />
         </div>
       </div>

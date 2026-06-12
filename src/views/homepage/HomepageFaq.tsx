@@ -5,7 +5,6 @@ import Link from "next/link"
 import { ChevronDown, ArrowUpRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { MergedSectionBg } from "@/components/MergedSectionBg"
 
 type FaqCategory = "what" | "how" | "why" | "who"
 
@@ -127,23 +126,23 @@ function FaqCard({
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.07 }}
       className={cn(
-        "capability-card-surface faq-accordion-surface overflow-hidden rounded-xl border transition-colors duration-200",
-        isOpen ? "border-slate-300/90" : "border-slate-200/80 hover:border-slate-300/70",
+        "faq-glass-surface faq-accordion-surface overflow-hidden rounded-xl transition-all duration-300",
+        isOpen && "ring-1 ring-white/40",
       )}
     >
       <button
         type="button"
-        className="flex w-full items-center justify-between gap-3 bg-white px-4 py-4 text-left md:px-5"
+        className="flex w-full items-center justify-between gap-3 bg-transparent px-4 py-4 text-left md:px-5"
         onClick={onToggle}
         aria-expanded={isOpen}
       >
-        <span className="text-base font-bold leading-snug text-black md:text-lg">
+        <span className="text-base font-bold leading-snug text-slate-900 md:text-lg dark:text-white">
           {entry.question}
         </span>
         <ChevronDown
           size={20}
           className={cn(
-            "shrink-0 text-slate-400 transition-all duration-250",
+            "shrink-0 text-slate-400 transition-all duration-250 dark:text-white/50",
             isOpen && "rotate-180 text-toadster-green",
           )}
           aria-hidden
@@ -157,10 +156,10 @@ function FaqCard({
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden bg-white"
+            className="overflow-hidden bg-transparent"
           >
             <div className="px-4 pb-4 md:px-5 md:pb-5">
-              <p className="text-base leading-relaxed text-black/85">{entry.answer}</p>
+              <p className="text-base leading-relaxed text-slate-800 dark:text-white/85">{entry.answer}</p>
               {entry.cta && (
                 <Link
                   href={entry.cta.href}
@@ -208,7 +207,6 @@ export default function HomepageFaq() {
       id="faq"
       className="homepage-snap-section relative isolate flex flex-col justify-center overflow-hidden px-4 py-16 md:py-20 lg:px-20"
     >
-      <MergedSectionBg />
       <div className="relative z-10 mx-auto w-full max-w-5xl">
         <motion.div
           className="mb-10 text-center md:mb-12"
@@ -217,7 +215,7 @@ export default function HomepageFaq() {
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.65, ease: "easeOut" }}
         >
-          <p className="text-lg font-bold tracking-[0.35em] section-eyebrow">FAQ</p>
+          <p className="section-eyebrow-heading text-2xl font-bold tracking-[0.35em]">FAQ</p>
           <h2 className="mt-4 text-5xl font-extrabold md:text-6xl">
             <span className="text-page-fg">Frequently Asked </span>
             <span className="text-toadster-green">Questions</span>
@@ -254,7 +252,7 @@ export default function HomepageFaq() {
                 onClick={handleShowMore}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-fit rounded-xl border border-slate-200/80 bg-white px-5 py-3.5 text-base font-medium text-black transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-slate-300/60 dark:bg-white dark:hover:bg-slate-50"
+                className="w-fit rounded-xl bg-primary px-5 py-3.5 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
               >
                 See more
               </motion.button>
@@ -265,7 +263,7 @@ export default function HomepageFaq() {
                 onClick={handleShowLess}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-fit rounded-xl border border-slate-200/80 bg-white px-5 py-3.5 text-base font-medium text-black transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-slate-300/60 dark:bg-white dark:hover:bg-slate-50"
+                className="w-fit rounded-xl bg-primary px-5 py-3.5 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
               >
                 See less
               </motion.button>

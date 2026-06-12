@@ -11,18 +11,26 @@ function getApiBaseUrl(): string {
     process.env.VITE_API_BASE_URL ??
     ""
 
-  // Server: use API_BASE_URL directly. Client in dev: same-origin via Next.js rewrite.
+  const normalized = envUrl.replace(/\/$/, "")
+
+  // Server: use API_BASE_URL directly.
   if (typeof window === "undefined") {
-    return envUrl.replace(/\/$/, "")
+    return normalized
   }
+
+  // Client: use public URL when set (direct ngrok fetch with skip header).
+  const publicUrl = (process.env.NEXT_PUBLIC_API_BASE_URL ?? "").replace(/\/$/, "")
+  if (publicUrl) return publicUrl
+
   if (process.env.NODE_ENV === "development") return ""
-  return envUrl.replace(/\/$/, "")
+  return normalized
 }
 
 function getRequestHeaders(init?: RequestInit): HeadersInit {
   const headers: Record<string, string> = {}
+  const base = getApiBaseUrl()
 
-  if (typeof window !== "undefined" && process.env.NODE_ENV !== "development") {
+  if (base.includes("ngrok")) {
     headers["ngrok-skip-browser-warning"] = "true"
   }
 

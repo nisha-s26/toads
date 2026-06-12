@@ -102,20 +102,20 @@ function ServiceCard({ name, index }: { name: string; index: number }) {
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-[#2ECC71]/10 transition-colors duration-500 group-hover:bg-[#2ECC71]/18"
+        className="absolute inset-0 bg-toadster-green/10 transition-colors duration-500 group-hover:bg-toadster-green/18"
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-radial-[circle_at_80%_0%] from-[#2ECC71]/25 via-transparent to-transparent opacity-60"
+        className="absolute inset-0 bg-radial-[circle_at_80%_0%] from-toadster-green/25 via-transparent to-transparent opacity-60"
       />
 
       <div className="relative flex items-start justify-between gap-3">
-        <span className="text-[10px] font-bold tracking-[0.2em] text-[#2ECC71]">{tag}</span>
+        <span className="text-[10px] font-bold tracking-[0.2em] text-toadster-green">{tag}</span>
         <span
           className={cn(
             "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20",
             "bg-white/10 text-white backdrop-blur-sm transition-all duration-300",
-            "group-hover:border-[#2ECC71]/60 group-hover:bg-[#2ECC71] group-hover:text-black",
+            "group-hover:border-toadster-green/60 group-hover:bg-toadster-green group-hover:text-primary-foreground",
           )}
         >
           <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -125,21 +125,20 @@ function ServiceCard({ name, index }: { name: string; index: number }) {
       <div className="relative mt-4 flex items-end gap-3">
         <span
           className={cn(
-            "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#2ECC71]/30",
-            "bg-linear-to-br from-[#006600] to-[#1C3829] text-white shadow-lg",
-            "dark:from-[#2ECC71] dark:to-[#006600] dark:text-black",
+            "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-toadster-green/30",
+            "bg-linear-to-br from-toadster-green to-toadster-green-deep text-primary-foreground shadow-lg",
           )}
         >
           <Icon className="h-5 w-5" strokeWidth={1.75} />
         </span>
-        <p className="text-sm font-semibold leading-snug text-white transition-colors duration-300 group-hover:text-[#2ECC71] md:text-[15px]">
+        <p className="text-sm font-semibold leading-snug text-white transition-colors duration-300 group-hover:text-toadster-green md:text-[15px]">
           {name}
         </p>
       </div>
 
       <div
         aria-hidden
-        className="absolute bottom-0 left-0 h-0.5 w-0 rounded-full bg-linear-to-r from-[#006600] to-[#2ECC71] transition-all duration-500 group-hover:w-full"
+        className="absolute bottom-0 left-0 h-0.5 w-0 rounded-full bg-linear-to-r from-toadster-green to-toadster-green-deep transition-all duration-500 group-hover:w-full"
       />
     </div>
   )

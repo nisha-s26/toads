@@ -68,10 +68,10 @@ export function HireResourceRfpForm({ roleTitle }: HireResourceRfpFormProps) {
   }
 
   return (
-    <div className="relative overflow-hidden rounded-[1.35rem] bg-white shadow-[0_32px_80px_rgba(15,23,42,0.18)] ring-1 ring-zinc-200">
-      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-zinc-400 via-zinc-600 to-zinc-900" />
+    <div className="bright-card-hover relative overflow-hidden rounded-[1.35rem] bg-white shadow-[0_32px_80px_rgba(15,23,42,0.18)] ring-1 ring-zinc-200">
+      {/* <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-zinc-400 via-zinc-600 to-zinc-900" /> */}
 
-      <div className="border-b border-zinc-200 bg-gradient-to-br from-zinc-50 via-white to-zinc-100/50 px-6 py-5 sm:px-8 sm:py-6">
+      <div className="relative z-10 border-b border-zinc-200 bg-gradient-to-br from-zinc-50 via-white to-zinc-100/50 px-6 py-5 sm:px-8 sm:py-6">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-2xl font-bold tracking-tight text-zinc-900">Request a Free Consultation</p>
@@ -86,7 +86,7 @@ export function HireResourceRfpForm({ roleTitle }: HireResourceRfpFormProps) {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5 px-6 py-6 sm:px-8 sm:py-7 text-left">
+      <form onSubmit={handleSubmit} className="relative z-10 flex flex-col gap-5 px-6 py-6 sm:px-8 sm:py-7 text-left">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div className="sm:col-span-2">
             <label className={labelClass}>Your Full Name *</label>
@@ -176,7 +176,7 @@ export function HireResourceRfpForm({ roleTitle }: HireResourceRfpFormProps) {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="h-[3.25rem] w-full rounded-xl bg-zinc-900 text-base font-semibold text-white shadow-lg shadow-zinc-900/20 hover:bg-zinc-800 disabled:opacity-50"
+          className="h-[3.25rem] w-full rounded-xl bg-primary text-base font-semibold text-primary-foreground shadow-sm hover:bg-primary-hover hover:shadow-md disabled:opacity-50"
         >
           {isSubmitting ? "Submitting..." : "Get My Free Quote"}
           {!isSubmitting && <ArrowRight size={18} className="ml-1" />}

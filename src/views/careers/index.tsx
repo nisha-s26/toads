@@ -88,7 +88,7 @@ export default function Careers() {
     ]
 
     return (
-        <div className="min-h-screen bg-page-bg pt-20">
+        <div className="min-h-screen pt-20">
             {/* Hero Section */}
             <section className="pt-16 pb-8 flex flex-col items-center text-center">
                 <span className="text-xl font-semibold tracking-widest text-green-400 mb-2">JOIN OUR TEAM</span>
@@ -136,7 +136,7 @@ export default function Careers() {
             </section>
 
             {/* Job Openings Section */}
-            <section className="py-20 bg-page-bg-alt">
+            <section className="py-20">
                 <div className="max-w-9xl mx-20">
                     <div className="text-center mb-16">
                         <p className="text-xl tracking-widest text-green-400 font-medium mb-3">
@@ -196,7 +196,7 @@ export default function Careers() {
                                     <div className="lg:shrink-0">
                                         <Button 
                                             onClick={() => openModal(job.title)}
-                                            className="bg-[#1C3829] hover:bg-[#1C3829]/90 text-white px-8 py-3"
+                                            className="px-8 py-3"
                                         >
                                             Apply Now
                                         </Button>
@@ -222,7 +222,7 @@ export default function Careers() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Button 
                             onClick={() => openModal("General Application")}
-                            className="bg-[#1C3829] hover:bg-[#1C3829]/90 text-white px-8 py-5"
+                            className="px-8 py-5"
                         >
                             <Mail className="w-5 h-5 mr-2 " />
                             Send Resume

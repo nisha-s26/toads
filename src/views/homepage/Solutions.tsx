@@ -146,7 +146,7 @@ export default function Solutions() {
     <section className="relative pb-20 pt-10">
       <div className="mx-auto max-w-9xl px-4 lg:px-20">
         <div className="mb-14 text-center">
-          <p className="text-lg font-bold tracking-[0.35em] section-eyebrow">SOLUTIONS</p>
+          <p className="section-eyebrow-heading text-2xl font-bold tracking-[0.35em]">SOLUTIONS</p>
           <h2 className="mt-3 text-4xl font-bold text-page-fg md:text-6xl">
             What We <span className="text-toadster-green">Deliver</span>
           </h2>
