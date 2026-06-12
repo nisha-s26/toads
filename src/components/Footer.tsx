@@ -192,19 +192,19 @@ function FooterExternalLink({ href, label }: { href: string; label: string }) {
 function ContactDetails() {
   return (
     <ul className="flex flex-col gap-5">
-      <li className="flex items-start gap-3.5">
+      <li className="flex items-center gap-3.5">
         <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-page-fg-muted">
           <Mail size={16} />
         </span>
         <FooterExternalLink href="mailto:business@toadsters.com" label="business@toadsters.com" />
       </li>
-      <li className="flex items-start gap-3.5">
+      <li className="flex items-center gap-3.5">
         <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-page-fg-muted">
           <Phone size={16} />
         </span>
         <FooterExternalLink href="tel:+919220517988" label="+91 92205 17988" />
       </li>
-      <li className="flex items-start gap-3.5">
+      <li className="flex items-center gap-3.5">
         <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-page-fg-muted">
           <MapPin size={16} />
         </span>
@@ -212,7 +212,7 @@ function ContactDetails() {
           JAV Tower, H17, H Block, Sector 63, Noida, UP 201309
         </span>
       </li>
-      <li className="flex items-start gap-3.5">
+      <li className="flex items-center gap-3.5">
         <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-page-fg-muted">
           <MapPin size={16} />
         </span>

@@ -81,7 +81,7 @@ const OurProcess = () => {
                                     >
                                         <div className="relative z-10 mx-auto w-[104px] h-[104px]">
                                             <div
-                                                className={`relative w-full h-full rounded-full bg-page-card border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${isActive ? "border-toadster-green" : "border-page-border"
+                                                className={`relative w-full h-full rounded-full bg-page-card border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 dark:bg-white dark:shadow-[0_4px_20px_-8px_rgba(0,0,0,0.45)] ${isActive ? "border-toadster-green dark:border-toadster-green" : "border-page-border dark:border-slate-200/80"
                                                     }`}
                                             >
                                                 <motion.div
@@ -105,8 +105,8 @@ const OurProcess = () => {
                                                     }}
                                                 />
 
-                                                <Icon className={`transition-colors duration-300 ${isActive ? "text-page-fg" : "text-page-fg-muted"}`} size={28} />
-                                                <span className={`mt-1 text-[12px] font-bold transition-colors duration-300 ${isActive ? "text-page-fg" : "text-page-fg-muted"}`}>{step.id}</span>
+                                                <Icon className={`transition-colors duration-300 ${isActive ? "text-page-fg dark:text-slate-900" : "text-page-fg-muted dark:text-slate-600"}`} size={28} />
+                                                <span className={`mt-1 text-[12px] font-bold transition-colors duration-300 ${isActive ? "text-page-fg dark:text-slate-900" : "text-page-fg-muted dark:text-slate-600"}`}>{step.id}</span>
                                             </div>
                                         </div>
 
@@ -150,7 +150,7 @@ const OurProcess = () => {
                                         >
                                             <div className="relative z-10 w-[80px] h-[80px]">
                                                 <div
-                                                    className={`relative w-full h-full rounded-full bg-page-card border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${isActive ? "border-toadster-green" : "border-page-border"
+                                                    className={`relative w-full h-full rounded-full bg-page-card border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 dark:bg-white dark:shadow-[0_4px_20px_-8px_rgba(0,0,0,0.45)] ${isActive ? "border-toadster-green dark:border-toadster-green" : "border-page-border dark:border-slate-200/80"
                                                         }`}
                                                 >
                                                     <motion.div
@@ -174,8 +174,8 @@ const OurProcess = () => {
                                                         }}
                                                     />
 
-                                                    <Icon className={`transition-colors duration-300 ${isActive ? "text-page-fg" : "text-page-fg-muted"}`} size={24} />
-                                                    <span className={`mt-1 text-[10px] font-bold transition-colors duration-300 ${isActive ? "text-page-fg" : "text-page-fg-muted"}`}>{step.id}</span>
+                                                    <Icon className={`transition-colors duration-300 ${isActive ? "text-page-fg dark:text-slate-900" : "text-page-fg-muted dark:text-slate-600"}`} size={24} />
+                                                    <span className={`mt-1 text-[10px] font-bold transition-colors duration-300 ${isActive ? "text-page-fg dark:text-slate-900" : "text-page-fg-muted dark:text-slate-600"}`}>{step.id}</span>
                                                 </div>
                                             </div>
                                         </motion.div>

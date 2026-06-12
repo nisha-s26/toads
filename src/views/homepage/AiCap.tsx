@@ -1,7 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { ArrowRight, X } from "lucide-react"
+import { ArrowRight} from "lucide-react"
 import {
   Brain,
   Cpu,
@@ -16,11 +15,13 @@ import type { LucideIcon } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { ScrollReveal } from "@/components/ScrollReveal"
 
 interface Service {
   icon: LucideIcon
   title: string
   shortDesc: string
+  ctaAnchor: string
   description: string
   useCases: string[]
   technologies: string[]
@@ -49,7 +50,9 @@ const services: Service[] = [
   {
     icon: Brain,
     title: "Artificial Intelligence Solutions",
-    shortDesc: "Enterprise-grade AI systems tailored by an AI development company.",
+    shortDesc:
+      "Purpose-built AI systems for enterprises - from autonomous agents to intelligent automation. Delivered by a custom AI development company with hands-on engineering depth.",
+    ctaAnchor: "Explore AI Solutions",
     description:
       "We build custom AI solutions that automate decision-making, optimize operations, and unlock new revenue streams. From natural language processing to recommendation engines, our AI systems are designed for production scale.",
     useCases: [
@@ -69,7 +72,9 @@ const services: Service[] = [
   {
     icon: Cpu,
     title: "Machine Learning Models",
-    shortDesc: "Production-ready ML models for pattern recognition and prediction.",
+    shortDesc:
+      "We build and deploy production-grade machine learning models - covering supervised learning, anomaly detection, recommendation engines, and predictive analytics for real business outcomes.",
+    ctaAnchor: "View ML Services",
     description:
       "We develop and deploy machine learning models that solve real business problems - from classification and regression to deep learning and time-series forecasting, all optimized for production environments.",
     useCases: [
@@ -89,7 +94,9 @@ const services: Service[] = [
   {
     icon: Sparkles,
     title: "Generative AI Applications",
-    shortDesc: "Build creative AI systems that generate content and code.",
+    shortDesc:
+      "Design and launch generative AI applications powered by LLMs - from content generation tools and AI copilots to code automation platforms. We handle architecture, fine-tuning, and deployment.",
+    ctaAnchor: "Explore GenAI",
     description:
       "Harness the power of generative AI to create text, images, code, and more. We help you integrate large language models and diffusion models into products that delight users and drive efficiency.",
     useCases: [
@@ -109,7 +116,9 @@ const services: Service[] = [
   {
     icon: BarChart2,
     title: "Data Science & Analytics",
-    shortDesc: "Turn raw data into strategic business intelligence.",
+    shortDesc:
+      "Transform unstructured data into actionable intelligence. Our data science consulting team builds dashboards, predictive models, and analytics pipelines that inform faster, smarter business decisions.",
+    ctaAnchor: "See Data Services",
     description:
       "We turn complex datasets into clear, actionable insights. Our data science team designs dashboards, builds analytical pipelines, and uncovers patterns that drive smarter business decisions.",
     useCases: [
@@ -129,7 +138,9 @@ const services: Service[] = [
   {
     icon: Database,
     title: "Big Data Processing",
-    shortDesc: "Process and analyze massive datasets at scale.",
+    shortDesc:
+      "Ingest, process, and analyse datasets at petabyte scale. We build robust big data pipelines using cloud-native architectures - enabling real-time insights, data lakes, and high-throughput processing for data-heavy industries.",
+    ctaAnchor: "Learn More",
     description:
       "We architect and implement big data solutions that can handle billions of records with ease. From ingestion pipelines to distributed computing, we ensure your data infrastructure is robust and scalable.",
     useCases: [
@@ -149,7 +160,9 @@ const services: Service[] = [
   {
     icon: Bot,
     title: "Custom AI Bots",
-    shortDesc: "Intelligent conversational agents for any platform.",
+    shortDesc:
+      "Deploy intelligent AI chatbots built for your specific workflows - customer support, internal knowledge bases, sales qualification, or operations. We develop custom AI chatbots for web, mobile, WhatsApp, Slack, and more.",
+    ctaAnchor: "Build Your AI Bot",
     description:
       "We build intelligent bots that go beyond scripted responses. Our AI bots understand context, remember conversations, and integrate with your existing tools to automate workflows and support customers 24/7.",
     useCases: [
@@ -169,7 +182,9 @@ const services: Service[] = [
   {
     icon: MessageSquare,
     title: "Conversational AI",
-    shortDesc: "Natural language interfaces that understand intent.",
+    shortDesc:
+      "Build voice and text interfaces that actually understand what users mean. Our conversational AI development services cover NLU, dialogue management, and multi-turn reasoning - creating experiences that feel human, not robotic.",
+    ctaAnchor: "Explore Conversational AI",
     description:
       "We design and deploy conversational AI systems that engage users naturally. Whether it's voice assistants, chat interfaces, or multi-modal AI, we build experiences that feel human and work flawlessly.",
     useCases: [
@@ -189,7 +204,9 @@ const services: Service[] = [
   {
     icon: Eye,
     title: "Computer Vision",
-    shortDesc: "Visual intelligence for images and video analysis.",
+    shortDesc:
+      "Embed real-world visual intelligence into your products. From object detection and facial recognition to medical imaging and quality inspection - our computer vision development services deliver models trained for accuracy in production environments.",
+    ctaAnchor: "See Computer Vision",
     description:
       "We build computer vision systems that see and understand the world. From object detection and facial recognition to video surveillance and quality control, our solutions bring sight to your applications.",
     useCases: [
@@ -209,35 +226,36 @@ const services: Service[] = [
 ]
 
 export default function AiCap() {
-  const [selected, setSelected] = useState<Service | null>(null)
+  // const [selected, setSelected] = useState<Service | null>(null)
 
-  // Disable body scroll when modal is open
-  useEffect(() => {
-    if (selected) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = ""
-    }
-    return () => {
-      document.body.style.overflow = ""
-    }
-  }, [selected])
+  // // Disable body scroll when modal is open
+  // useEffect(() => {
+  //   if (selected) {
+  //     document.body.style.overflow = "hidden"
+  //   } else {
+  //     document.body.style.overflow = ""
+  //   }
+  //   return () => {
+  //     document.body.style.overflow = ""
+  //   }
+  // }, [selected])
 
   return (
-    <section className="w-full px-4 pt-2">
+    <section className="homepage-snap-section flex w-full flex-col justify-center px-4 py-10">
       {/* Header */}
-      <div className="text-center mb-12">
-        <p className="text-lg tracking-[0.35em] section-eyebrow font-bold">
-          AI CAPABILITIES
+      <ScrollReveal className="mb-12 text-center">
+        <p className="text-lg font-bold tracking-[0.35em] section-eyebrow">
+          OUR AI CAPABILITIES
         </p>
-        <h2 className="text-5xl md:text-6xl font-extrabold mb-4">
-          <span className="text-page-fg">Intelligent </span>
-          <span className="text-toadster-green">Solutions</span>
+        <h2 className="mb-4 text-5xl font-extrabold md:text-6xl">
+          <span className="text-page-fg">End-to-End </span>
+          <span className="text-toadster-green">AI Solutions</span>
         </h2>
-        <p className="text-page-fg-muted text-xl max-w-xl mx-auto">
-          Comprehensive AI and ML capabilities to transform every aspect of your business.
+        <p className="mx-auto max-w-3xl text-xl text-page-fg-muted">
+          From AI strategy to deployment - comprehensive machine learning, generative AI, and data
+          engineering capabilities that turn your business vision into production-grade intelligent software.
         </p>
-      </div>
+      </ScrollReveal>
 
       {/* Cards Grid */}
       <div className="mx-auto grid max-w-9xl grid-cols-1 gap-5 px-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
@@ -252,9 +270,9 @@ export default function AiCap() {
               delay: index * 0.07,
             }}
             viewport={{ once: true }}
-            onClick={() => setSelected(service)}
+            // onClick={() => setSelected(service)}
             className={cn(
-              "group flex h-full min-h-[260px] flex-col",
+              "group flex h-full min-h-[280px] flex-col",
               CARD_STYLES.capabilityCard,
               CARD_STYLES.focusRing,
             )}
@@ -262,14 +280,14 @@ export default function AiCap() {
             <h3 className={CARD_STYLES.capabilityTitle}>{service.title}</h3>
             <p className={CARD_STYLES.capabilityBody}>{service.shortDesc}</p>
             <span className={CARD_STYLES.capabilityCta}>
-              Learn More <span aria-hidden="true">→</span>
+              {service.ctaAnchor} <span aria-hidden="true">→</span>
             </span>
           </motion.button>
         ))}
       </div>
 
       {/* Bottom CTA Row */}
-      <div className="max-w-6xl mx-auto mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <ScrollReveal className="mx-auto mt-10 flex max-w-6xl flex-col items-center justify-center gap-4 sm:flex-row" delay={0.1}>
         <Link
           href="/services/agentic-ai"
           title="Explore agentic AI services"
@@ -285,10 +303,10 @@ export default function AiCap() {
         >
           Read AI Insights
         </Link> */}
-      </div>
+      </ScrollReveal>
 
       {/* Modal Overlay */}
-      {selected && (
+      {/* {selected && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           style={{ backdropFilter: "blur(6px)", backgroundColor: "rgba(0,0,0,0.35)" }}
@@ -298,7 +316,6 @@ export default function AiCap() {
             className="theme-card rounded-2xl shadow-2xl w-full max-w-xl p-8 relative max-h-[90vh] overflow-y-auto border"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
             <button
               onClick={() => setSelected(null)}
               className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-page-accent-soft hover:bg-page-bg-deep text-page-fg-muted hover:text-page-fg transition-colors"
@@ -307,7 +324,6 @@ export default function AiCap() {
               <X size={16} />
             </button>
 
-            {/* Icon + Title */}
             <div className="flex items-center gap-4 mb-5">
               <span
                 className={cn(
@@ -321,10 +337,8 @@ export default function AiCap() {
               <h3 className="text-xl font-bold text-page-fg leading-tight">{selected.title}</h3>
             </div>
 
-            {/* Description */}
             <p className="text-page-fg-muted text-sm leading-relaxed mb-6">{selected.description}</p>
 
-            {/* Use Cases */}
             <div className="mb-5">
               <h4 className="text-sm font-bold text-page-fg mb-2">Use Cases</h4>
               <ul className="grid grid-cols-2 gap-x-6 gap-y-1">
@@ -337,7 +351,6 @@ export default function AiCap() {
               </ul>
             </div>
 
-            {/* Technologies Used */}
             <div className="mb-5">
               <h4 className="text-sm font-bold text-page-fg mb-2">Technologies Used</h4>
               <div className="flex flex-wrap gap-2">
@@ -352,7 +365,6 @@ export default function AiCap() {
               </div>
             </div>
 
-            {/* Example Projects */}
             <div className="mb-7">
               <h4 className="text-sm font-bold text-page-fg mb-2">Example Projects</h4>
               <ul className="flex flex-col gap-1.5">
@@ -365,7 +377,6 @@ export default function AiCap() {
               </ul>
             </div>
 
-            {/* CTAs */}
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="/contact"
@@ -387,7 +398,7 @@ export default function AiCap() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </section>
   )
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, type ReactNode } from "react"
 import { usePathname } from "next/navigation"
+import { motion, useReducedMotion } from "framer-motion"
 import { Navbar } from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import { RelatedLinks } from "@/components/RelatedLinks"
@@ -65,6 +66,7 @@ function useContentProtection() {
 export function ClientShell({ children }: { children: ReactNode }) {
   const pathname = usePathname()
   const activeSection = resolveActiveSection(pathname)
+  const reduceMotion = useReducedMotion()
 
   useContentProtection()
 
@@ -75,7 +77,14 @@ export function ClientShell({ children }: { children: ReactNode }) {
   return (
     <div>
       <Navbar activeSection={activeSection} />
-      <main>{children}</main>
+      <motion.main
+        key={pathname}
+        initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+      >
+        {children}
+      </motion.main>
       <RelatedLinks />
       <Footer />
     </div>

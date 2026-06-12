@@ -1,0 +1,278 @@
+"use client"
+
+import { useState } from "react"
+import Link from "next/link"
+import { ChevronDown, ArrowUpRight } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { cn } from "@/lib/utils"
+import { MergedSectionBg } from "@/components/MergedSectionBg"
+
+type FaqCategory = "what" | "how" | "why" | "who"
+
+const PAGE_SIZE = 3
+
+type FaqEntry = {
+  question: string
+  answer: string
+  category: FaqCategory
+  tag: string
+  cta?: { label: string; href: string }
+}
+
+const FAQS: FaqEntry[] = [
+  {
+    category: "what",
+    tag: "What we do",
+    question: "What exactly does Toadster Technologies do?",
+    answer:
+      "Toadster Technologies is a full-spectrum AI company. We build custom AI software, advise businesses on AI strategy, and develop intelligent products that automate work, reduce costs, and unlock new revenue. Whether you need an AI-powered app, an automated workflow, or a roadmap for going AI-first - we handle it end to end.",
+  },
+  {
+    category: "what",
+    tag: "What we do",
+    question: "What kind of AI solutions does Toadster build?",
+    answer:
+      "We build AI chatbots, intelligent automation systems, custom large language model integrations, computer vision tools, AI-powered SaaS products, and data intelligence platforms. Every solution is built specifically for your business - not a generic off-the-shelf tool.",
+  },
+  {
+    category: "what",
+    tag: "What we do",
+    question: "Do you only do development, or also strategy and consulting?",
+    answer:
+      "Both. Many of our clients start with an AI strategy engagement - we map your processes, identify where AI creates the most value, and build a practical roadmap. Then we execute it. You get one partner for thinking and doing, which means faster results and no gaps between advice and delivery.",
+  },
+  {
+    category: "how",
+    tag: "How it works",
+    question: "How does the process work from idea to launch?",
+    answer:
+      "We start with a discovery call to understand your goals and challenges. From there, our team designs a solution architecture, builds an MVP, and iterates with your feedback - typically launching in 6–12 weeks. After go-live, we offer ongoing support, optimisation, and scaling as your needs grow.",
+  },
+  {
+    category: "how",
+    tag: "How it works",
+    question: "How long does it take to build a custom AI solution?",
+    answer:
+      "Simple automations and AI integrations can go live in 2–4 weeks. Complex custom AI platforms or products take 8–16 weeks depending on scope. We always give you a clear timeline upfront - no surprises midway through.",
+  },
+  {
+    category: "how",
+    tag: "How it works",
+    question: "Will my team need technical knowledge to use what you build?",
+    answer:
+      "No. We design every solution for real people, not engineers. We build intuitive interfaces, provide training, and make sure your team can use and manage the tools confidently from day one. If something ever feels confusing, that's on us to fix.",
+  },
+  {
+    category: "why",
+    tag: "Why Toadster",
+    question: "Why should I choose Toadster Technologies for my AI project?",
+    answer:
+      "Because we combine strategic thinking with hands-on engineering - under one roof. We don't just advise; we build. We don't just build; we ensure it delivers results. Our team has shipped AI products across industries, and we treat every client's problem like it's our own to solve.",
+  },
+  {
+    category: "why",
+    tag: "Why Toadster",
+    question: "Is AI development too expensive for a small business?",
+    answer:
+      "Not with the right partner. At Toadster, we scope every project to your budget and start with highest-impact work first. Many clients see a clear ROI within the first few months - from time saved, errors reduced, or new revenue enabled. AI is not just for big companies anymore.",
+  },
+  {
+    category: "why",
+    tag: "Why Toadster",
+    question: "What makes an AI development company different from a regular software agency?",
+    answer:
+      "A regular agency builds to spec. An AI company like Toadster builds to outcome. We understand how models work, where they fail, and how to make them reliable in production. That depth of knowledge is what separates a proof-of-concept that impresses in a demo from a solution that actually works in your business every day.",
+  },
+  {
+    category: "who",
+    tag: "Who we work with",
+    question: "Who does Toadster Technologies work with?",
+    answer:
+      "We work with startups building AI-first products, SMBs looking to automate and scale, and enterprise teams solving complex operational challenges. If you have a business problem and believe AI could help solve it, we want to talk - regardless of your size or industry.",
+  },
+  {
+    category: "who",
+    tag: "Who we work with",
+    question: "Which 3 jobs will AI not replace - and how can my team stay ahead?",
+    answer:
+      "Roles requiring deep human judgment, physical presence, and genuine creativity will thrive longest. But the real question isn't \"will AI replace my team?\" - it's \"how do I give my team AI superpowers?\" Toadster helps businesses use AI to amplify people, not replace them.",
+    cta: { label: "Ask us how your team can benefit", href: "/contact" },
+  },
+  {
+    category: "who",
+    tag: "Who we work with",
+    question: "What jobs will be created by AI - and how do businesses prepare?",
+    answer:
+      "AI is already creating demand for AI trainers, automation managers, prompt strategists, and AI product owners. Forward-thinking businesses are retooling their teams now. Toadster can help you identify which roles to evolve, which to automate, and how to build an AI-ready organisation.",
+    cta: { label: "Build your AI strategy with us", href: "/services/ai-consultation" },
+  },
+]
+
+function FaqCard({
+  entry,
+  isOpen,
+  onToggle,
+  index,
+}: {
+  entry: FaqEntry
+  isOpen: boolean
+  onToggle: () => void
+  index: number
+}) {
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -16 }}
+      transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.07 }}
+      className={cn(
+        "capability-card-surface faq-accordion-surface overflow-hidden rounded-xl border transition-colors duration-200",
+        isOpen ? "border-slate-300/90" : "border-slate-200/80 hover:border-slate-300/70",
+      )}
+    >
+      <button
+        type="button"
+        className="flex w-full items-center justify-between gap-3 bg-white px-4 py-4 text-left md:px-5"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+      >
+        <span className="text-base font-bold leading-snug text-black md:text-lg">
+          {entry.question}
+        </span>
+        <ChevronDown
+          size={20}
+          className={cn(
+            "shrink-0 text-slate-400 transition-all duration-250",
+            isOpen && "rotate-180 text-toadster-green",
+          )}
+          aria-hidden
+        />
+      </button>
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden bg-white"
+          >
+            <div className="px-4 pb-4 md:px-5 md:pb-5">
+              <p className="text-base leading-relaxed text-black/85">{entry.answer}</p>
+              {entry.cta && (
+                <Link
+                  href={entry.cta.href}
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-toadster-green transition-colors hover:underline md:text-base"
+                >
+                  {entry.cta.label}
+                  <ArrowUpRight size={16} aria-hidden />
+                </Link>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  )
+}
+
+export default function HomepageFaq() {
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
+  const [openQuestion, setOpenQuestion] = useState<string | null>(FAQS[0].question)
+
+  const visibleFaqs = FAQS.slice(0, visibleCount)
+  const canShowMore = visibleCount < FAQS.length
+  const canShowLess = visibleCount > PAGE_SIZE
+
+  const handleToggle = (question: string) => {
+    setOpenQuestion((current) => (current === question ? null : question))
+  }
+
+  const handleShowMore = () => {
+    setVisibleCount((count) => Math.min(count + PAGE_SIZE, FAQS.length))
+  }
+
+  const handleShowLess = () => {
+    const nextCount = Math.max(visibleCount - PAGE_SIZE, PAGE_SIZE)
+    const nextVisible = FAQS.slice(0, nextCount)
+    if (openQuestion && !nextVisible.some((faq) => faq.question === openQuestion)) {
+      setOpenQuestion(null)
+    }
+    setVisibleCount(nextCount)
+  }
+
+  return (
+    <section
+      id="faq"
+      className="homepage-snap-section relative isolate flex flex-col justify-center overflow-hidden px-4 py-16 md:py-20 lg:px-20"
+    >
+      <MergedSectionBg />
+      <div className="relative z-10 mx-auto w-full max-w-5xl">
+        <motion.div
+          className="mb-10 text-center md:mb-12"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.65, ease: "easeOut" }}
+        >
+          <p className="text-lg font-bold tracking-[0.35em] section-eyebrow">FAQ</p>
+          <h2 className="mt-4 text-5xl font-extrabold md:text-6xl">
+            <span className="text-page-fg">Frequently Asked </span>
+            <span className="text-toadster-green">Questions</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-xl text-page-fg-muted">
+            Everything you need to know about working with Toadster Technologies.
+          </p>
+        </motion.div>
+
+        <div className="flex flex-col gap-2.5">
+          <AnimatePresence initial={false} mode="popLayout">
+            {visibleFaqs.map((faq, index) => (
+              <FaqCard
+                key={faq.question}
+                index={index}
+                entry={faq}
+                isOpen={openQuestion === faq.question}
+                onToggle={() => handleToggle(faq.question)}
+              />
+            ))}
+          </AnimatePresence>
+        </div>
+
+        {(canShowMore || canShowLess) && (
+          <motion.div
+            className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: 0.15 }}
+          >
+            {canShowMore && (
+              <motion.button
+                type="button"
+                onClick={handleShowMore}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-fit rounded-xl border border-slate-200/80 bg-white px-5 py-3.5 text-base font-medium text-black transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-slate-300/60 dark:bg-white dark:hover:bg-slate-50"
+              >
+                See more
+              </motion.button>
+            )}
+            {canShowLess && (
+              <motion.button
+                type="button"
+                onClick={handleShowLess}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-fit rounded-xl border border-slate-200/80 bg-white px-5 py-3.5 text-base font-medium text-black transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-slate-300/60 dark:bg-white dark:hover:bg-slate-50"
+              >
+                See less
+              </motion.button>
+            )}
+          </motion.div>
+        )}
+      </div>
+    </section>
+  )
+}

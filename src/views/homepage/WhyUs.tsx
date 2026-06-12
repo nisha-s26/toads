@@ -20,11 +20,11 @@ const WhyUs = () => {
     <section
       ref={ref}
       id="why-us"
-      className="section-full-bleed relative isolate overflow-hidden py-16 md:py-24"
+      className="homepage-snap-section section-full-bleed relative isolate flex flex-col justify-center overflow-hidden py-16 md:py-24"
     >
-      <div className="absolute inset-0 -z-10 bg-[#0f1726]" aria-hidden />
-      <div className="absolute inset-0 -z-10 parallax-overlay" aria-hidden />
-      <div className="absolute inset-0 -z-10 parallax-grid opacity-30" aria-hidden />
+      {/* <div className="absolute inset-0 -z-10 bg-[#0f1726]" aria-hidden /> */}
+      {/* <div className="absolute inset-0 -z-10 parallax-overlay" aria-hidden /> */}
+      {/* <div className="absolute inset-0 -z-10 parallax-grid opacity-30" aria-hidden /> */}
       <div className="relative z-10 mx-auto max-w-9xl px-4 lg:px-20">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -58,35 +58,36 @@ const WhyUs = () => {
           </p>
 
           <p className="mt-5 max-w-9xl text-base leading-relaxed text-white/80 md:text-lg">
-            We&apos;ve helped startups get found through{" "}
-            <strong className="font-semibold text-white">
-              AI answer engine optimisation (AEO)
-            </strong>{" "}
-            and{" "}
-            <strong className="font-semibold text-white">
-              generative engine optimisation (GEO)
-            </strong>
-            , and helped enterprises restructure broken AI pipelines. We know what works in{" "}
-            <strong className="font-semibold text-white">E-E-A-T content strategy</strong>,{" "}
-            <strong className="font-semibold text-white">structured data</strong>, and{" "}
-            <strong className="font-semibold text-white">Perplexity-visible search</strong> - and
-            what quietly costs teams months of rework.
+            We have worked with early-stage startups that needed an MVP built to scale, and enterprise teams
+            who inherited AI systems that were silently failing. What we bring is not just technical depth - it is the
+            judgment to know which solution fits your constraints, your team, and your next 18 months.
           </p>
 
           <div className="mt-10 grid w-full max-w-3xl grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-6">
-            {STATS.map((stat) => (
-              <div key={stat.label} className="text-center">
+            {STATS.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+              >
                 <p className="text-2xl font-extrabold text-toadster-green md:text-3xl">
                   {stat.value}
                 </p>
                 <p className="mt-1 text-xs font-medium leading-snug text-white/70 md:text-sm">
                   {stat.label}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+          <motion.div
+            className="mt-10 flex flex-col justify-center gap-3 sm:flex-row"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.55, delay: 0.55 }}
+          >
             <Link
               href="/about"
               title="Learn more about Toadster"
@@ -102,7 +103,7 @@ const WhyUs = () => {
             >
               View Our Services
             </Link>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

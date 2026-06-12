@@ -13,6 +13,7 @@ import {
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { ScrollReveal } from "@/components/ScrollReveal"
 
 type HireRole = {
   icon: LucideIcon
@@ -134,26 +135,27 @@ function HireRoleCard({ role, index }: { role: HireRole; index: number }) {
 
 export default function HireResources() {
   return (
-    <section id="hire-resources" className="relative py-16 md:py-24">
+    <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center py-16 md:py-24">
       <div className="mx-auto max-w-9xl px-4 lg:px-20">
-        <div className="mb-12 text-center md:mb-14">
-          <p className="text-sm font-bold uppercase tracking-[0.3em] section-eyebrow md:text-base">
-            Hire Resources
+        <ScrollReveal className="mb-12 text-center md:mb-14">
+          <p className="text-lg font-bold tracking-[0.35em] section-eyebrow">
+            HIRE RESOURCES
           </p>
-          <h2 className="mt-4 text-3xl font-extrabold leading-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
-            The right expert, exactly when you need one
+          <h2 className="mt-4 text-5xl font-extrabold md:text-6xl">
+            <span className="text-page-fg">The Right Expert, </span>
+            <span className="text-toadster-green">When You Need One</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-page-fg-subtle md:text-lg">
+          <p className="mx-auto mt-4 max-w-3xl text-xl text-page-fg-muted">
             Need a vetted remote AI engineer, ML specialist, or growth expert - without the overhead
             of a full-time hire? Toadster places pre-screened specialists into your team, your
             tools, and your sprint cadence. Most engagements go from brief to kickoff in under a
             week.
           </p>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-page-fg-muted md:text-base">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-page-fg-subtle">
             Hover over any role below to see what that person actually brings to your team - and how
             quickly they can start.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {HIRE_ROLES.map((role, index) => (
@@ -169,7 +171,7 @@ export default function HireResources() {
           className="mt-14 md:mt-16"
         >
           <div className="hire-resources-cta overflow-hidden rounded-[1.75rem] md:rounded-[2rem]">
-            <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:gap-12 pt-4">
+            <div className="relative z-10 grid items-center gap-6 px-6 pt-8 sm:px-8 sm:pt-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-10 md:px-12 md:pt-12">
               <div className="mx-auto flex shrink-0 items-end justify-center md:mx-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -177,13 +179,13 @@ export default function HireResources() {
                   alt="Toadster specialist helping you choose the right hire resource"
                   width={408}
                   height={612}
-                  className="h-[200px] w-auto object-contain md:h-[380px]"
+                  className="h-[180px] w-auto object-contain md:h-[300px] lg:h-[340px]"
                 />
               </div>
 
-              <div>
+              <div className="flex flex-col justify-center">
                 <h3 className="text-2xl font-bold leading-tight text-slate-900 md:text-3xl lg:text-4xl dark:text-black">
-                  Not sure which role fits?{" "}
+                  Not sure which role fits?
                   <span className="text-slate-700 dark:text-black/80">Let&apos;s figure it out.</span>
                 </h3>
                 <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 md:text-lg dark:text-black/80">
@@ -207,7 +209,7 @@ export default function HireResources() {
                   href="/hire/dedicated-resources"
                   title="Explore all hire resources"
                   className={cn(
-                    "mt-8 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-7 py-3.5 font-semibold",
+                    "mt-8 w-fit inline-flex items-center gap-2 rounded-xl bg-slate-900 px-7 py-3.5 font-semibold",
                     "text-white shadow-lg transition-all hover:bg-slate-800 hover:-translate-y-0.5 dark:bg-black dark:hover:bg-slate-900",
                   )}
                 >

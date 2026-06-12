@@ -146,7 +146,7 @@ export default function HeroSection() {
           transition={{ delay: 0.15 }}
         >
           <span className="w-2.5 h-2.5 bg-toadster-green rounded-full" />
-          <span className="text-xs font-medium sm:text-sm">AI-Powered Digital Transformation</span>
+          <span className="text-xs font-medium sm:text-sm">Agentic AI and Data Transformation</span>
         </motion.div>
 
         <motion.h1
@@ -155,10 +155,10 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Build Intelligent Systems with
+          Build Smarter Enterprises With
           <div className="mt-1.5 italic sm:mt-2 [@media(max-height:720px)]:mt-1">
             <FadeText
-              words={["Data Science", "Machine Learning", "AI Automation", "Predictive Analytics"]}
+              words={["Custom AI Development", "Machine Learning", "AI Automation", "Predictive Analytics", ""]}
             />
           </div>
         </motion.h1>
@@ -169,7 +169,8 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          We design scalable AI systems, data pipelines, and machine learning platforms that power intelligent businesses.
+          We engineer production-ready AI agents, LLM-powered applications, and scalable data platforms -
+          purpose-built for startups, mid-market, and enterprise teams across globe.
         </motion.p>
 
         <motion.div
@@ -179,14 +180,14 @@ export default function HeroSection() {
           transition={{ delay: 0.4 }}
         >
           <Button asChild className="rounded-xl px-5 py-5 text-sm sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs">
-            <Link href="/contact" title="Get Started">Get Started</Link>
+            <Link href="/contact" title="Get Started">Get Free Consultation</Link>
           </Button>
           <Button
             asChild
             variant="outline"
             className="hero-outline-btn rounded-xl px-5 py-5 text-sm backdrop-blur-sm sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs"
           >
-            <Link href="/services/ai-automation" title="View AI Solutions">View AI Solutions</Link>
+            <Link href="/services/ai-automation" title="View AI Solutions">Explore AI Solutions</Link>
           </Button>
         </motion.div>
       </motion.div>

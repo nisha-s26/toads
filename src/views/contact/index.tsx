@@ -94,7 +94,7 @@ export default function Contact() {
                     <div className="absolute inset-0 contact-hero-fade" />
                 </div>
 
-                <div className="relative mx-auto grid w-full max-w-6xl gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-8 md:items-stretch">
+                <div className="relative mx-auto grid w-[90%] max-w-[90%] gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-8 md:items-stretch">
                     {/* Left panel */}
                     <div className="relative flex min-h-[640px] flex-col overflow-hidden rounded-[2rem] border border-slate-900/5 bg-white/[0.03] p-8 text-slate-900 shadow-none backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.02] dark:text-white md:p-10 lg:p-12">
                         <div className="relative flex flex-1 flex-col">

@@ -3,14 +3,17 @@
 import { useRouter } from "next/navigation"
 import { ChevronRight } from "lucide-react"
 import { motion } from "framer-motion"
+import { MergedSectionBg } from "@/components/MergedSectionBg"
 
 export default function GetStarted() {
   const router = useRouter()
 
   return (
-    <section className="relative px-4 py-16 md:py-20 lg:px-20">
-      <div className="mx-auto max-w-9xl">
-        <div className="homepage-cta-box overflow-hidden rounded-[1.75rem] px-6 py-14 text-center sm:px-10 md:rounded-[2rem] md:px-16 md:py-16">
+    <section className="homepage-snap-section relative isolate flex w-full flex-col justify-center overflow-hidden px-4 py-16 md:py-20 lg:px-20">
+      <MergedSectionBg />
+      <div className="get-started-left-glow" aria-hidden />
+      <div className="relative z-10 mx-auto w-full max-w-9xl">
+        <div className="homepage-cta-box w-full overflow-hidden rounded-[1.75rem] px-6 py-14 text-center sm:px-10 md:rounded-[2rem] md:px-16 md:py-16">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
