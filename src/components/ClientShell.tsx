@@ -99,7 +99,9 @@ export function ClientShell({ children }: { children: ReactNode }) {
         }
       >
         {usesMeshBg && <HomepageMeshBg variant={meshVariant} />}
-        <div className={usesMeshBg ? "relative z-10" : undefined}>{children}</div>
+        <div className={usesMeshBg ? "relative z-10" : undefined}>
+          {isServicesPage ? <div className="page-content-container">{children}</div> : children}
+        </div>
       </motion.main>
       <RelatedLinks />
       <Footer />

@@ -280,9 +280,7 @@
   width: max-content;
 }
 
-.toadster-logo-green {
-  filter: brightness(0) saturate(100%) invert(22%) sepia(38%) saturate(1029%) hue-rotate(106deg) brightness(96%) contrast(102%);
-}
+/* Logo uses theme-specific SVG assets (green in light, white with eye dot in dark). */
 
 .section-full-bleed {
   width: 100vw;
@@ -490,6 +488,44 @@ html.homepage-scroll-snap {
   isolation: isolate;
 }
 
+.homepage-hero-viewport--image .homepage-hero-bg-image {
+  background-image: url("/homepage-hero-light.png");
+}
+
+.homepage-hero-viewport--image .homepage-hero-bg-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.06) 42%,
+    rgba(255, 255, 255, 0.14) 100%
+  );
+}
+
+.dark .homepage-hero-viewport--image .homepage-hero-bg-image {
+  background-image: url("/homepage-hero.png");
+}
+
+.dark .homepage-hero-viewport--image .homepage-hero-bg-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.4) 45%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.dark .homepage-hero-viewport--image {
+  --page-hero-fg: #ffffff;
+  --page-hero-fg-muted: rgba(255, 255, 255, 0.88);
+  --page-hero-accent: #4ade80;
+  --page-hero-badge-bg: rgba(255, 255, 255, 0.12);
+  --page-hero-badge-border: rgba(255, 255, 255, 0.28);
+}
+
+.homepage-hero-viewport--image .hero-orbits {
+  opacity: 0.12;
+}
+
 .page-ambient-shell,
 .hire-page-shell {
   position: relative;
@@ -528,6 +564,7 @@ html.homepage-scroll-snap {
 
 /* Services & blogs — same mesh base; section fills stay transparent */
 .services-mesh-shell > div > .bg-page-bg,
+.services-mesh-shell .page-content-container > .bg-page-bg,
 .services-mesh-shell section.bg-page-bg,
 .services-mesh-shell section.bg-page-bg-alt,
 .blogs-mesh-shell > div > .bg-page-bg,
@@ -763,13 +800,21 @@ html.homepage-scroll-snap {
     linear-gradient(180deg, #020617 0%, #030712 30%, #000000 100%);
 }
 
-.hire-page-container {
+.hire-page-container,
+.page-content-container {
   position: relative;
   z-index: 1;
-  width: 85%;
-  max-width: 85%;
+  width: 90%;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.page-content-container .max-w-3xl,
+.page-content-container .max-w-4xl,
+.page-content-container .max-w-5xl,
+.page-content-container .max-w-6xl {
+  max-width: 100%;
 }
 
 .hire-page-hero {

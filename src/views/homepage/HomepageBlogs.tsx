@@ -40,14 +40,14 @@ export default function HomepageBlogs() {
   return (
     <section
       id="homepage-blogs"
-      className="homepage-snap-section relative isolate flex flex-col justify-center px-4 py-16 md:py-24 lg:px-20"
+      className="homepage-snap-section relative isolate flex flex-col justify-center px-4 lg:px-20"
     >
       <div className="relative z-10 mx-auto w-full max-w-9xl">
         <ScrollReveal className="mb-12 text-center md:mb-14">
-          <p className="text-lg font-bold tracking-[0.35em] section-eyebrow">BLOGS</p>
+          {/* <p className="text-lg font-bold tracking-[0.35em] section-eyebrow">BLOGS</p> */}
           <h2 className="mt-4 text-5xl font-extrabold md:text-6xl">
-            <span className="text-page-fg">Latest </span>
-            <span className="text-toadster-green">Insights</span>
+            <span className="text-page-fg">Our Latest </span>
+            <span className="text-toadster-green">Blogs</span>
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-xl text-page-fg-muted">
             Practical AI, engineering, and product thinking from the Toadster team.

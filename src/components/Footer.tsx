@@ -25,58 +25,29 @@ const AI_SERVICE_LINKS: InternalLink[] = [
   { to: "/services/agentic-ai", label: "Agentic AI" },
   { to: "/services/generative-ai", label: "Generative AI" },
   { to: "/services/llm-development", label: "LLM Development" },
-  { to: "/services/ai-development", label: "AI Development" },
   { to: "/services/machine-learning", label: "Machine Learning" },
-  { to: "/services/custom-ai-solutions", label: "Custom AI Solutions" },
-  { to: "/services/ai-chatbots", label: "AI Chatbots" },
-  { to: "/services/conversational-ai", label: "Conversational AI" },
-  { to: "/services/nlp-services", label: "NLP Services" },
-  { to: "/services/computer-vision", label: "Computer Vision" },
   { to: "/services/ai-data-analytics", label: "AI Data Analytics" },
   { to: "/services/intelligent-automation", label: "Intelligent Automation" },
   { to: "/services/ai-automation", label: "AI Automation" },
-  { to: "/services/ai-integration", label: "AI Integration" },
-  { to: "/services/industry-solutions", label: "Industry Solutions" },
-  { to: "/services/ai-consultation", label: "AI Consultation" },
+  { to: "/services/ai-development", label: "Software Development" },
 ]
 
 const DEVELOPMENT_SERVICE_LINKS: InternalLink[] = [
-  { to: "/services/custom-ai-solutions", label: "Mobile App Development" },
-  { to: "/services/ai-development", label: "Software Development" },
-  { to: "/services/custom-ai-solutions", label: "Web App Development" },
-  { to: "/services/custom-ai-solutions", label: "Cross-Platform App Development" },
-  { to: "/contact", label: "Product Design (UX/UI)" },
-  { to: "/services/ai-integration", label: "Application Support & Maintenance" },
-  { to: "/services/conversational-ai", label: "Voice (Alexa / Google Home)" },
-  { to: "/services/ai-consultation", label: "Business Analysis" },
-  { to: "/services/ai-consultation", label: "Consulting Services" },
-  { to: "/contact", label: "Crowd Twist Services" },
-  { to: "/services/industry-solutions", label: "Cybersecurity" },
+
 ]
 
 const SERVICE_LINKS: InternalLink[] = [...AI_SERVICE_LINKS, ...DEVELOPMENT_SERVICE_LINKS]
 
 const AI_TECHNOLOGY_LINKS: InternalLink[] = [
-  { to: "/services/advanced-ai-tech", label: "Advanced AI Tech" },
-  { to: "/services/agent-2-agent", label: "Agent2Agent (A2A)" },
   { to: "/services/machine-learning", label: "Machine Learning" },
   { to: "/services/generative-ai", label: "Generative AI" },
   { to: "/services/llm-development", label: "LLM & RAG Systems" },
-  { to: "/services/computer-vision", label: "Computer Vision" },
-  { to: "/services/nlp-services", label: "Natural Language Processing" },
-  { to: "/services/ai-data-analytics", label: "Data Engineering & Analytics" },
 ]
 
 const PLATFORM_TECHNOLOGY_LINKS: InternalLink[] = [
   { to: "/services/ai-data-analytics", label: "Data Analytics" },
-  { to: "/services/ai-data-analytics", label: "Microsoft Power BI Consulting" },
   { to: "/services/ai-development", label: "Artificial Intelligence (AI)" },
-  { to: "/services/advanced-ai-tech", label: "Internet of Things (IoT)" },
-  { to: "/services/ai-integration", label: "SAP Migration" },
-  { to: "/services/custom-ai-solutions", label: "SaaS App Development" },
   { to: "/services/ai-integration", label: "DevOps Services" },
-  { to: "/services/computer-vision", label: "Augmented Reality" },
-  { to: "/contact", label: "Penetration Testing" },
 ]
 
 const TECHNOLOGY_LINKS: InternalLink[] = [
@@ -142,43 +113,19 @@ const SOCIAL_LINKS: SocialLink[] = [
 ]
 
 const linkClassName =
-  "relative inline-block text-sm leading-snug text-page-fg-muted transition-colors hover:text-page-fg after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100 xl:whitespace-nowrap"
+  "relative inline-block min-w-0 text-sm leading-snug text-white/75 transition-colors hover:text-white after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100 break-words lg:text-[0.8125rem] lg:leading-snug xl:text-sm"
 
 function FooterLinkList({
   links,
   columns = 1,
-  splitColumns = false,
 }: {
   links: InternalLink[]
   columns?: 1 | 2 | 3
-  splitColumns?: boolean
 }) {
-  if (splitColumns && links.length > 1) {
-    const mid = Math.ceil(links.length / 2)
-    const left = links.slice(0, mid)
-    const right = links.slice(mid)
-
-    return (
-      <div className="grid min-w-0 grid-cols-1 gap-x-10 gap-y-3.5 sm:grid-cols-2 sm:gap-x-12 xl:gap-x-16">
-        {[left, right].map((group, index) => (
-          <ul key={index} className="min-w-0 flex flex-col gap-y-3.5">
-            {group.map((link) => (
-              <li key={`${link.to}-${link.label}`} className="min-w-0">
-                <Link href={link.to} title={link.label} className={linkClassName}>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        ))}
-      </div>
-    )
-  }
-
   return (
     <ul
       className={cn(
-        "grid gap-x-12 gap-y-3.5",
+        "grid gap-x-12 gap-y-3 lg:gap-y-3",
         columns === 1 && "grid-cols-1",
         columns === 2 && "grid-cols-1 sm:grid-cols-2",
         columns === 3 && "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3",
@@ -203,34 +150,64 @@ function FooterExternalLink({ href, label }: { href: string; label: string }) {
   )
 }
 
-function ContactDetails() {
+function ContactDetails({ compact = false }: { compact?: boolean }) {
+  const iconBox = compact
+    ? "h-8 w-8"
+    : "h-9 w-9"
+  const iconSize = compact ? 14 : 16
+  const rowGap = compact ? "gap-3" : "gap-3.5"
+  const listGap = compact ? "gap-3.5" : "gap-5"
+  const textClass = compact
+    ? "text-xs leading-relaxed text-white/75"
+    : "text-sm leading-relaxed text-white/75"
+
   return (
-    <ul className="flex flex-col gap-5">
-      <li className="flex items-center gap-3.5">
-        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-page-fg-muted">
-          <Mail size={16} />
+    <ul className={cn("flex flex-col", listGap)}>
+      <li className={cn("flex items-start", rowGap)}>
+        <span
+          className={cn(
+            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white/80",
+            iconBox,
+          )}
+        >
+          <Mail size={iconSize} />
         </span>
         <FooterExternalLink href="mailto:business@toadsters.com" label="business@toadsters.com" />
       </li>
-      <li className="flex items-center gap-3.5">
-        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-page-fg-muted">
-          <Phone size={16} />
+      <li className={cn("flex items-start", rowGap)}>
+        <span
+          className={cn(
+            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white/80",
+            iconBox,
+          )}
+        >
+          <Phone size={iconSize} />
         </span>
         <FooterExternalLink href="tel:+919220517988" label="+91 92205 17988" />
       </li>
-      <li className="flex items-center gap-3.5">
-        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-page-fg-muted">
-          <MapPin size={16} />
+      <li className={cn("flex items-start", rowGap)}>
+        <span
+          className={cn(
+            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white/80",
+            iconBox,
+          )}
+        >
+          <MapPin size={iconSize} />
         </span>
-        <span className="text-sm leading-relaxed text-page-fg-muted">
+        <span className={textClass}>
           JAV Tower, H17, H Block, Sector 63, Noida, UP 201309
         </span>
       </li>
-      <li className="flex items-center gap-3.5">
-        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-page-fg-muted">
-          <MapPin size={16} />
+      <li className={cn("flex items-start", rowGap)}>
+        <span
+          className={cn(
+            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white/80",
+            iconBox,
+          )}
+        >
+          <MapPin size={iconSize} />
         </span>
-        <span className="text-sm leading-relaxed text-page-fg-muted">
+        <span className={textClass}>
           Level 1, Avenue Gate, South Zone, DIFC, Dubai, UAE
         </span>
       </li>
@@ -238,14 +215,20 @@ function ContactDetails() {
   )
 }
 
-function FooterSectionTitle({ children }: { children: ReactNode }) {
+function FooterSectionTitle({
+  children,
+  compact = false,
+}: {
+  children: ReactNode
+  compact?: boolean
+}) {
   return (
-    <div className="mb-6">
-      <h3 className="text-sm font-bold uppercase tracking-[0.16em] text-page-fg section-eyebrow">
+    <div className={cn(compact ? "mb-4 lg:mb-5 xl:mb-6" : "mb-6")}>
+      <h3 className="text-sm tracking-[0.16em] text-white lg:text-xs lg:tracking-[0.14em] xl:text-lg xl:tracking-[0.16em]">
         {children}
       </h3>
       <span
-        className="mt-3 block h-0.5 w-10 rounded-full bg-toadster-green/80"
+        className="mt-3 block h-0.5 w-10 rounded-full bg-white"
         aria-hidden
       />
     </div>
@@ -264,14 +247,14 @@ function FooterAccordionSection({
   return (
     <div className="min-w-0">
       <details
-        className="group border-b border-page-border py-5 last:border-b-0 lg:hidden"
+        className="group border-b border-white/10 py-5 last:border-b-0 lg:hidden"
         open={defaultOpen}
       >
         <summary className="flex cursor-pointer list-none items-center justify-between gap-3 [&::-webkit-details-marker]:hidden">
           <FooterSectionTitle>{title}</FooterSectionTitle>
           <ChevronDown
             size={18}
-            className="shrink-0 text-page-fg-muted transition-transform duration-200 group-open:rotate-180"
+            className="shrink-0 text-white/60 transition-transform duration-200 group-open:rotate-180"
           />
         </summary>
         <div className="pb-2 pt-1">{children}</div>
@@ -285,28 +268,96 @@ function FooterAccordionSection({
   )
 }
 
+function FooterColumn({
+  children,
+  className,
+}: {
+  children: ReactNode
+  className?: string
+}) {
+  return (
+    <div
+      className={cn(
+        "min-w-0 lg:pr-3 xl:pr-5 2xl:pr-6 last:lg:border-r-0 last:lg:pr-0",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  )
+}
+
 const Footer = () => {
   return (
-    <footer className="section-full-bleed relative z-10 border-t border-page-border bg-page-card">
-      <div className="mx-auto max-w-9xl px-4 py-14 sm:px-6 md:py-16 lg:px-12 lg:py-20 xl:px-20">
-        <div className="grid grid-cols-1 gap-14 lg:gap-16 xl:grid-cols-12 xl:gap-x-20">
-          {/* Brand - full width on lg/xl tablets, sidebar from 2xl+ */}
+    <footer className="section-full-bleed relative z-10 border-t border-white/10 bg-[#0a101f] text-white">
+      <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-6 md:py-10 lg:px-10 lg:py-14 xl:px-12">
+        {/* Mobile & tablet */}
+        <div className="lg:hidden">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="xl:col-span-3"
+            className="mx-auto flex max-w-md flex-col items-center text-center"
           >
-            <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
+            <Link href="/" aria-label="Toadster home" title="Toadster Home">
+              <ToadsterLogo height={40} width={180} onDarkBackground />
+            </Link>
+            <div className="mt-6 flex flex-wrap justify-center gap-2.5">
+              {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
+                <a
+                  key={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={href}
+                  aria-label={label}
+                  title={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white/80 transition-colors hover:border-toadster-green/50 hover:text-toadster-green"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
+            </div>
+            <p className="mt-5 text-sm leading-relaxed text-white/70">
+              AI-powered digital engineering for enterprises and startups. Building the
+              intelligent future, one system at a time.
+            </p>
+            <ClutchBadge className="mt-5" onDarkBackground />
+          </motion.div>
+
+          <div className="mx-auto mt-10 max-w-lg divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5 px-5 sm:px-6">
+            <FooterAccordionSection title="Services" defaultOpen>
+              <FooterLinkList links={SERVICE_LINKS} />
+            </FooterAccordionSection>
+            <FooterAccordionSection title="Hire Resources">
+              <FooterLinkList links={HIRE_RESOURCE_LINKS} />
+            </FooterAccordionSection>
+            <FooterAccordionSection title="Technologies">
+              <FooterLinkList links={TECHNOLOGY_LINKS} />
+            </FooterAccordionSection>
+            <FooterAccordionSection title="Company">
+              <FooterLinkList links={COMPANY_LINKS} />
+            </FooterAccordionSection>
+            <FooterAccordionSection title="Get in Touch">
+              <ContactDetails />
+            </FooterAccordionSection>
+          </div>
+        </div>
+
+        {/* Desktop - centered 5-column row */}
+        <div className="mx-auto hidden w-full lg:grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-x-6 xl:gap-x-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="min-w-0"
+          >
+            <div className="flex flex-col items-start text-left">
               <Link href="/" aria-label="Toadster home" title="Toadster Home">
-                <ToadsterLogo height={40} width={180} />
+                <ToadsterLogo height={40} width={180} onDarkBackground />
               </Link>
-              <p className="mt-5 max-w-xs text-sm leading-relaxed text-page-fg-muted">
-                AI-powered digital engineering for enterprises and startups. Building the
-                intelligent future, one system at a time.
-              </p>
-              <div className="mt-7 flex flex-wrap justify-center gap-2.5 sm:justify-start">
+              <div className="mt-6 flex flex-wrap gap-2.5">
                 {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
                   <a
                     key={href}
@@ -315,92 +366,61 @@ const Footer = () => {
                     href={href}
                     aria-label={label}
                     title={label}
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-page-border bg-page-bg/40 text-page-fg-muted transition-colors hover:border-toadster-green/35 hover:text-toadster-green"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white/80 transition-colors hover:border-toadster-green/50 hover:text-toadster-green"
                   >
                     <Icon size={18} />
                   </a>
                 ))}
               </div>
-              <ClutchBadge className="mt-5" />
+              <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/70">
+                AI-powered digital engineering for enterprises and startups. Building the
+                intelligent future, one system at a time.
+              </p>
+              <ClutchBadge className="mt-5" onDarkBackground />
             </div>
           </motion.div>
 
-          {/* Link sections */}
-          <div className="flex min-w-0 flex-col gap-14 xl:col-span-9 xl:gap-16">
-            {/* Mobile accordions */}
-            <div className="divide-y divide-page-border rounded-2xl border border-page-border bg-page-bg/30 px-5 sm:px-6 lg:hidden">
-              <FooterAccordionSection title="Services" defaultOpen>
-                <FooterLinkList links={SERVICE_LINKS} columns={2} />
-              </FooterAccordionSection>
-              <FooterAccordionSection title="Technologies">
-                <FooterLinkList links={TECHNOLOGY_LINKS} columns={2} />
-              </FooterAccordionSection>
-              <FooterAccordionSection title="Hire Resources">
-                <FooterLinkList links={HIRE_RESOURCE_LINKS} />
-              </FooterAccordionSection>
-              <FooterAccordionSection title="Company">
-                <FooterLinkList links={COMPANY_LINKS} />
-              </FooterAccordionSection>
-              <FooterAccordionSection title="Get in Touch">
-                <ContactDetails />
-              </FooterAccordionSection>
-            </div>
-
-            {/* Desktop - row 1: stacked until 2xl, then Services | Technologies */}
-            <div className="hidden min-w-0 lg:grid lg:grid-cols-1 lg:gap-y-14 2xl:grid-cols-2 2xl:gap-x-20 2xl:gap-y-0">
-              <div className="min-w-0">
-                <FooterSectionTitle>Services</FooterSectionTitle>
-                <FooterLinkList links={SERVICE_LINKS} splitColumns />
-              </div>
-              <div className="min-w-0">
-                <FooterSectionTitle>Technologies</FooterSectionTitle>
-                <FooterLinkList links={TECHNOLOGY_LINKS} splitColumns />
-              </div>
-            </div>
-
-            {/* Desktop - row 2: stacked on lg/xl tablets, inline from 2xl */}
-            <div className="hidden min-w-0 lg:flex lg:flex-col lg:gap-12 lg:border-t lg:border-page-border/70 lg:pt-14 xl:gap-14 2xl:grid 2xl:grid-cols-12 2xl:gap-x-16">
-              <div className="grid min-w-0 grid-cols-1 gap-12 sm:grid-cols-2 2xl:contents">
-                <div className="min-w-0 2xl:col-span-3">
-                  <FooterSectionTitle>Hire Resources</FooterSectionTitle>
-                  <FooterLinkList links={HIRE_RESOURCE_LINKS} />
-                </div>
-                <div className="min-w-0 2xl:col-span-2">
-                  <FooterSectionTitle>Company</FooterSectionTitle>
-                  <FooterLinkList links={COMPANY_LINKS} />
-                </div>
-              </div>
-              <div className="min-w-0 2xl:col-span-7">
-                <FooterSectionTitle>Get in Touch</FooterSectionTitle>
-                <ContactDetails />
-              </div>
-            </div>
-          </div>
+          <FooterColumn>
+            <FooterSectionTitle compact>Services</FooterSectionTitle>
+            <FooterLinkList links={SERVICE_LINKS} />
+          </FooterColumn>
+          <FooterColumn>
+            <FooterSectionTitle compact>Hire Resources</FooterSectionTitle>
+            <FooterLinkList links={HIRE_RESOURCE_LINKS} />
+          </FooterColumn>
+          <FooterColumn>
+            <FooterSectionTitle compact>Technologies</FooterSectionTitle>
+            <FooterLinkList links={TECHNOLOGY_LINKS} />
+          </FooterColumn>
+          <FooterColumn>
+            <FooterSectionTitle compact>Get in Touch</FooterSectionTitle>
+            <ContactDetails compact />
+          </FooterColumn>
         </div>
 
+      </div>
         {/* Bottom bar */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-page-border pt-8 text-center sm:flex-row sm:text-left">
-          <p className="text-xs text-page-fg-muted">
+        <div className="bg-black mx-auto py-5 flex w-full items-center justify-center gap-4 border-t border-white/10 pt-8 text-center">
+          <p className="text-xs text-white/60">
             © {new Date().getFullYear()} Toadster Technologies Pvt. Ltd. All rights reserved.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs sm:justify-end">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs">
             <Link
               href="/privacy-policy"
               title="Privacy Policy"
-              className="text-page-fg-muted transition-colors hover:text-page-fg"
+              className="text-white/60 transition-colors hover:text-white"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms-and-conditions"
               title="Terms and Conditions"
-              className="text-page-fg-muted transition-colors hover:text-page-fg"
+              className="text-white/60 transition-colors hover:text-white"
             >
               Terms and Conditions
             </Link>
           </div>
         </div>
-      </div>
     </footer>
   )
 }

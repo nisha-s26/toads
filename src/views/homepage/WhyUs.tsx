@@ -20,7 +20,7 @@ const WhyUs = () => {
     <section
       ref={ref}
       id="why-us"
-      className="homepage-snap-section section-full-bleed relative isolate flex flex-col justify-center overflow-hidden py-16 md:py-24"
+      className="homepage-snap-section section-full-bleed relative isolate flex flex-col justify-center overflow-hidden"
     >
       {/* <div className="absolute inset-0 -z-10 bg-[#0f1726]" aria-hidden /> */}
       {/* <div className="absolute inset-0 -z-10 parallax-overlay" aria-hidden /> */}
@@ -32,13 +32,13 @@ const WhyUs = () => {
           transition={{ duration: 0.75, ease: "easeOut" }}
           className="mx-auto flex max-w-9xl px-10 flex-col items-center text-center"
         >
-          <p className="section-eyebrow-heading text-2xl font-normal uppercase tracking-[0.35em]">
+          {/* <p className="section-eyebrow-heading text-2xl font-normal uppercase tracking-[0.35em]">
             Why <span className="font-extrabold">Us</span>
-          </p>
+          </p> */}
 
           <h2 className="mt-4 text-4xl font-extrabold leading-[1.08] md:text-5xl lg:text-[3.25rem]">
             <span className="text-page-fg">Why Choose </span>
-            <span className="text-toadster-green">Toadster</span>
+            <span className="text-toadster-green">Us</span>
           </h2>
 
           <p className="mt-6 max-w-9xl text-base leading-relaxed text-page-fg-muted md:text-lg">

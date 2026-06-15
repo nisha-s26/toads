@@ -38,8 +38,8 @@ const CARD_STYLES = {
   badge: "bg-toadster-green/10 text-toadster-green border-toadster-green/25",
   capabilityCard:
     "capability-card-surface rounded-2xl p-8 text-left transition-all duration-300 hover:-translate-y-1",
-  capabilityTitle: "relative z-10 text-lg font-bold leading-snug text-slate-900",
-  capabilityBody: "relative z-10 mt-4 flex-1 text-sm leading-relaxed text-slate-600",
+  capabilityTitle: "relative z-10 text-xl font-bold leading-snug text-slate-900",
+  capabilityBody: "relative z-10 flex-1 text-sm leading-relaxed text-slate-600",
   capabilityCta:
     "relative z-10 mt-8 inline-flex items-center gap-1 text-sm font-bold text-black",
   focusRing:
@@ -241,15 +241,15 @@ export default function AiCap() {
   // }, [selected])
 
   return (
-    <section className="homepage-snap-section flex w-full flex-col justify-center px-4 py-10 mt-10">
+    <section className="homepage-snap-section flex w-full flex-col justify-center px-4 mt-10">
       {/* Header */}
       <ScrollReveal className="mb-12 text-center">
-        <p className="section-eyebrow-heading text-2xl font-normal tracking-[0.35em]">
+        {/* <p className="section-eyebrow-heading text-2xl font-normal tracking-[0.35em]">
           OUR <span className="font-extrabold">AI CAPABILITIES</span>
-        </p>
+        </p> */}
         <h2 className="mb-4 text-5xl font-extrabold md:text-6xl mt-4">
-          <span className="text-page-fg">End-to-End </span>
-          <span className="text-toadster-green">AI Solutions</span>
+          <span className="text-page-fg">AI  </span>
+          <span className="text-toadster-green">Capabilities</span>
         </h2>
         <p className="mx-auto max-w-7xl text-xl text-page-fg-muted">
           From AI strategy to deployment - comprehensive machine learning, generative AI, and data
@@ -258,7 +258,7 @@ export default function AiCap() {
       </ScrollReveal>
 
       {/* Cards Grid */}
-      <div className="mx-auto grid max-w-9xl grid-cols-1 gap-5 px-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid w-full max-w-9xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-5 lg:px-8 [grid-auto-rows:1fr]">
         {services.map((service, index) => (
           <motion.button
             key={service.title}
@@ -272,12 +272,24 @@ export default function AiCap() {
             viewport={{ once: true }}
             // onClick={() => setSelected(service)}
             className={cn(
-              "group flex h-full min-h-[280px] flex-col",
+              "group flex h-full min-h-[220px] w-full flex-col sm:min-h-[250px] lg:min-h-[280px] xl:min-h-[300px]",
               CARD_STYLES.capabilityCard,
               CARD_STYLES.focusRing,
             )}
           >
-            <h3 className={CARD_STYLES.capabilityTitle}>{service.title}</h3>
+            <div className="relative z-10 mb-4 flex min-h-11 items-center justify-between gap-3">
+              <h3 className={cn(CARD_STYLES.capabilityTitle, "min-w-0 flex-1 pr-1")}>
+                {service.title}
+              </h3>
+              <span
+                className={cn(
+                  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green shadow-md",
+                  CARD_STYLES.iconText,
+                )}
+              >
+                <service.icon size={22} strokeWidth={2} />
+              </span>
+            </div>
             <p className={CARD_STYLES.capabilityBody}>{service.shortDesc}</p>
             <span className={CARD_STYLES.capabilityCta}>
               {service.ctaAnchor} <span aria-hidden="true">→</span>

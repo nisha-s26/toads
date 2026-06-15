@@ -345,42 +345,6 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     { name: "Hire React Native Developers India", description: "Toadster provides React Native developers from India for cross-platform mobile applications.", serviceType: "Staff Augmentation" },
   ),
   hirePage(
-    "flutter-developers",
-    "Hire Flutter Developers",
-    "Cross-platform iOS & Android with Dart",
-    "Smartphone",
-    "Hire Flutter Developers India | Cross-Platform iOS & Android | Toadster",
-    "Hire pre-vetted Flutter developers from Toadster India. Beautiful, high-performance iOS and Android apps from a single Dart codebase. Staff augmentation in 5 days.",
-    "Flutter Developers",
-    "Flutter's pixel-perfect rendering and single codebase make it the fastest path to a polished cross-platform app. Hire Toadster Flutter developers - engineers who write clean Dart code and ship apps that users actually enjoy using.",
-    [
-      "Pre-vetted Flutter engineers with live App Store and Google Play deployments",
-      "Custom widgets, animations, and platform-specific integrations",
-      "Clean architecture - BLoC, Riverpod, or GetX based on your team preference",
-    ],
-    "Hire a Flutter Developer",
-    [
-      {
-        heading: "Flutter's Advantage for Startups and Enterprises Building in 2025",
-        body: "Flutter's hot reload, consistent rendering engine, and the ability to target mobile, web, and desktop from one codebase make it the most cost-efficient cross-platform choice for teams that want to move fast without sacrificing UI quality. The Dart language, once a barrier, has become a strength - its strong typing and ahead-of-time compilation deliver near-native performance.\n\nToadster Flutter developers have built and shipped apps across healthcare, fintech, e-commerce, and enterprise internal tools. They know the architecture patterns (BLoC, Riverpod, clean architecture) that keep large Flutter codebases maintainable, and the platform-specific integrations required for real-world app functionality.",
-      },
-      {
-        heading: "Flutter Developer Specialisations",
-        items: [
-          { title: "Core Flutter App Developers", body: "Build complete Flutter applications - navigation, state management, REST/GraphQL API integration, push notifications, offline support, and app store submission." },
-          { title: "Flutter UI/UX Engineers", body: "Build pixel-perfect custom Flutter UIs - custom widgets, complex animations, adaptive layouts for phone and tablet, and custom painters for data visualisations." },
-          { title: "Flutter AI App Developers", body: "Build Flutter applications that connect to AI backends - LLM chat interfaces, document scanning with AI processing, and on-device ML inference using TensorFlow Lite." },
-          { title: "Flutter Platform Integration Developers", body: "Write platform-specific code (Swift/Kotlin) and Flutter platform channels to access device capabilities - camera, Bluetooth, biometrics, local notifications, background processing." },
-        ],
-      },
-    ],
-    [
-      { question: "How much does it cost to hire a Flutter developer from India?", answer: "Flutter developer rates from India through staff augmentation range from $1,600-$3,500 per month depending on seniority. Mid-to-senior Flutter developers with production app deployments typically cost $2,200-$3,500 per month. Toadster Flutter developers are available for staff augmentation and dedicated resource engagements, with 5-business-day onboarding." },
-    ],
-    ["Toadster provides Flutter developer staff augmentation from Noida, India - specialists in cross-platform iOS and Android development, BLoC/Riverpod architecture, custom UI, and AI-connected mobile applications."],
-    { name: "Hire Flutter Developers India", description: "Toadster provides Flutter developers from India for cross-platform mobile applications.", serviceType: "Staff Augmentation" },
-  ),
-  hirePage(
     "nodejs-developers",
     "Hire Node.js Developers",
     "REST APIs, NestJS microservices & AI backend layers",
@@ -451,49 +415,5 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     ],
     ["Toadster provides full stack developer staff augmentation from Noida, India - specialists in MERN, Python/React, Next.js, and AI application full stack development."],
     { name: "Hire Full Stack Developers India", description: "Toadster provides full stack developers from India for MERN and AI application development.", serviceType: "Staff Augmentation" },
-  ),
-  hirePage(
-    "dedicated-resources",
-    "Hire Dedicated Resources",
-    "Full-time engineers exclusively on your project",
-    "Users",
-    "Hire Dedicated Resources India | Full-Time AI & Dev Teams | Toadster",
-    "Hire dedicated developers from Toadster India - full-time engineers working exclusively on your project at fixed monthly rates. AI, ML, full stack, mobile. 5-day onboarding.",
-    "Dedicated Resources",
-    "The dedicated resource model gives you the productivity of a full-time in-house engineer with the cost structure of offshore delivery. Your engineer. Your codebase. Your direction. Fixed monthly rate.",
-    [
-      "Full-time engineers working exclusively on your project - no shared attention",
-      "All seniorities: Junior, Mid-Level, Senior, and Lead engineers available",
-      "Fixed all-inclusive monthly rates - hardware, software, HR, account management covered",
-    ],
-    "Build My Dedicated Team",
-    [
-      {
-        heading: "What \"Dedicated Resources\" Actually Means at Toadster",
-        body: "'Dedicated resources' gets used loosely in the industry. Some companies say 'dedicated' but share engineers across three clients simultaneously. At Toadster, dedicated means exactly that: the engineer is allocated 100% to your project, is available during your business hours, attends your standups, works in your tools, and has no competing client obligations.\n\nThe difference matters for AI projects in particular. An AI engineer who has been working in your codebase for six months builds contextual knowledge - about your data, your architecture, your model behaviour - that cannot be replicated by a rotating roster of part-time contributors.",
-      },
-      {
-        heading: "Dedicated Resource Pricing",
-        items: [
-          { title: "Junior Engineers (1-3 years experience)", body: "$1,800-$2,800 per month all-inclusive" },
-          { title: "Mid-Level Engineers (3-6 years experience)", body: "$2,800-$4,500 per month all-inclusive" },
-          { title: "Senior Engineers (6+ years experience)", body: "$4,500-$6,500 per month all-inclusive" },
-          { title: "Lead / Principal Engineers (8+ years)", body: "$6,500-$9,000 per month all-inclusive" },
-        ],
-      },
-      {
-        heading: "How to Get Started - 5 Business Days to Your First Dedicated Engineer",
-        body: "Day 1 - Requirements Brief: You tell us the role, skills, seniority, and time zone requirements. 30-minute call.\n\nDay 2 - Candidate Shortlist: We present 2-3 pre-vetted candidates matching your brief. Profiles with technical assessment results.\n\nDay 3-4 - Your Interview: You interview your preferred candidate. We facilitate.\n\nDay 5 - Contract and Start: MSA signed, engineer onboarded into your tools. Work begins.\n\nOptional: 2-week paid trial sprint - assess the engineer's output before committing to a full engagement.",
-      },
-    ],
-    [
-      { question: "What is the dedicated resource model in software development?", answer: "In the dedicated resource model, a software company assigns one or more engineers to work full-time, exclusively on a client's project - under the client's direct management and in the client's tools. The client pays a fixed monthly rate per engineer, which includes HR, payroll, hardware, and software. Unlike staff augmentation (which implies time-shared specialists), dedicated resources are 100% allocated to one client." },
-      { question: "How much does it cost to hire a dedicated developer from India?", answer: "Dedicated developer rates from India at Toadster range from $1,800 per month for junior engineers to $9,000 per month for lead/principal AI engineers. All rates are all-inclusive - hardware, software licences, HR management, and a dedicated account manager are covered. Savings versus equivalent full-time employment in the US range from 50-70%." },
-    ],
-    [
-      "Toadster provides dedicated engineering resources from Noida, India at fixed all-inclusive monthly rates - engineers across AI/ML, LLM development, full stack, mobile, data engineering, and MLOps.",
-      "Dedicated resources from Toadster are onboarded within 5 business days of contract signing, with a 2-week paid trial sprint option available.",
-    ],
-    { name: "Hire Dedicated Resources India", description: "Toadster provides dedicated engineering resources from India - full-time developers working exclusively on client projects at fixed all-inclusive monthly rates.", serviceType: "Dedicated Development Team", areaServed: ["India", "United States", "United Arab Emirates", "United Kingdom", "Saudi Arabia"] },
   ),
 ]

@@ -25,10 +25,12 @@ const MarqueeRow = ({
   direction = "left",
   scrollDirection,
   compact = false,
+  onDarkBackground = false,
 }: {
   direction?: "left" | "right"
   scrollDirection: 1 | -1
   compact?: boolean
+  onDarkBackground?: boolean
 }) => {
     const trackRef = useRef<HTMLDivElement | null>(null)
     const x = useMotionValue(0)
@@ -100,7 +102,11 @@ const MarqueeRow = ({
                         width={120}
                         height={48}
                         draggable={false}
-                        className={`${LOGO_HEIGHT_CLASS} block object-contain brightness-0 opacity-70 transition-opacity duration-200 hover:opacity-100 dark:invert`}
+                        className={`${LOGO_HEIGHT_CLASS} block object-contain opacity-70 transition-opacity duration-200 hover:opacity-100 ${
+                          onDarkBackground
+                            ? "brightness-0 invert"
+                            : "brightness-0 dark:invert"
+                        }`}
                     />
                 ))}
             </motion.div>
@@ -108,7 +114,13 @@ const MarqueeRow = ({
     )
 }
 
-const TrustedBy = ({ compact = false }: { compact?: boolean }) => {
+const TrustedBy = ({
+  compact = false,
+  onDarkBackground = false,
+}: {
+  compact?: boolean
+  onDarkBackground?: boolean
+}) => {
     const { scrollY } = useScroll()
     const [scrollDirection, setScrollDirection] = useState<1 | -1>(1)
     const lastY = useRef(0)
@@ -123,7 +135,12 @@ const TrustedBy = ({ compact = false }: { compact?: boolean }) => {
     return (
         <section className={`section-full-bleed relative z-10 shrink-0 ${compact ? "pb-2 sm:pb-3" : "pb-4"}`}>
             <div className="w-full px-4">
-                <MarqueeRow direction="right" scrollDirection={scrollDirection} compact={compact} />
+                <MarqueeRow
+                  direction="right"
+                  scrollDirection={scrollDirection}
+                  compact={compact}
+                  onDarkBackground={onDarkBackground}
+                />
             </div>
         </section>
     )

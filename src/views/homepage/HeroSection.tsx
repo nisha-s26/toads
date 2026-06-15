@@ -150,7 +150,7 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.h1
-          className="hero-title w-full text-[clamp(1.65rem,4.2vw+0.75rem,4.5rem)] font-extrabold leading-[1.08] [@media(max-height:720px)]:text-[clamp(1.45rem,3.8vw+0.5rem,2.25rem)]"
+          className="text-black dark:text-white w-full text-[clamp(1.65rem,4.2vw+0.75rem,4.5rem)] font-extrabold leading-[1.08] [@media(max-height:720px)]:text-[clamp(1.45rem,3.8vw+0.5rem,2.25rem)]"
           initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -164,7 +164,7 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.p
-          className="hero-subtitle mx-auto mt-1.5 max-w-2xl text-sm font-semibold leading-snug sm:mt-2 sm:text-base md:text-lg [@media(max-height:720px)]:mt-1 [@media(max-height:720px)]:text-xs [@media(max-height:720px)]:sm:text-sm"
+          className="text-black dark:text-white mx-auto mt-1.5 max-w-2xl text-sm font-semibold leading-snug sm:mt-2 sm:text-base md:text-lg [@media(max-height:720px)]:mt-1 [@media(max-height:720px)]:text-xs [@media(max-height:720px)]:sm:text-sm"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -194,7 +194,7 @@ export default function HeroSection() {
 
       {showOrbits && !prefersReducedMotion && (
         <div
-          className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center opacity-40 [@media(max-height:720px)]:hidden"
+          className="hero-orbits pointer-events-none absolute inset-0 z-10 flex items-center justify-center opacity-40 [@media(max-height:720px)]:hidden"
           aria-hidden="true"
         >
           <div className="hidden md:block">

@@ -205,7 +205,7 @@ export default function HomepageFaq() {
   return (
     <section
       id="faq"
-      className="homepage-snap-section relative isolate flex flex-col justify-center overflow-hidden px-4 py-16 md:py-20 lg:px-20"
+      className="homepage-snap-section relative isolate flex flex-col justify-center overflow-hidden px-4 py-10 md:py-10 lg:px-20"
     >
       <div className="relative z-10 mx-auto w-full max-w-5xl">
         <motion.div
@@ -215,7 +215,7 @@ export default function HomepageFaq() {
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.65, ease: "easeOut" }}
         >
-          <p className="section-eyebrow-heading text-2xl font-bold tracking-[0.35em]">FAQ</p>
+          {/* <p className="section-eyebrow-heading text-2xl font-bold tracking-[0.35em]">FAQ</p> */}
           <h2 className="mt-4 text-5xl font-extrabold md:text-6xl">
             <span className="text-page-fg">Frequently Asked </span>
             <span className="text-toadster-green">Questions</span>

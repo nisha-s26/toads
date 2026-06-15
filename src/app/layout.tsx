@@ -95,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={plusJakartaSans.className}>
         <Script id="theme-init" strategy="beforeInteractive">
-          {`(function(){try{var stored=localStorage.getItem("toadster-theme");var isDark=stored!=="light";var root=document.documentElement;root.classList.toggle("dark",isDark);root.style.colorScheme=isDark?"dark":"light";var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute("content",isDark?"#000000":"#ECF0F1");}catch(e){document.documentElement.style.colorScheme="dark";document.documentElement.classList.add("dark");}})();`}
+          {`(function(){try{var stored=localStorage.getItem("toadster-theme");var isDark=stored==="dark";var root=document.documentElement;root.classList.toggle("dark",isDark);root.style.colorScheme=isDark?"dark":"light";var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute("content",isDark?"#000000":"#ECF0F1");}catch(e){document.documentElement.style.colorScheme="light";document.documentElement.classList.remove("dark");}})();`}
         </Script>
         <ThemeProvider>
           <ClientShell>{children}</ClientShell>

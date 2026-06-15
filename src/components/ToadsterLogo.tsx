@@ -8,7 +8,8 @@ interface ToadsterLogoProps {
   alt?: string
   height?: number
   width?: number
-  forceGreen?: boolean
+  /** Use on dark backgrounds (e.g. footer) — renders the white logo with toad eye dot */
+  onDarkBackground?: boolean
 }
 
 export function ToadsterLogo({
@@ -16,20 +17,19 @@ export function ToadsterLogo({
   alt = "Toadster",
   height,
   width,
-  forceGreen = false,
+  onDarkBackground = false,
 }: ToadsterLogoProps) {
   const { theme } = useTheme()
-  const src = theme === "dark" ? "/toadster-logo-dark.svg" : "/toadster-logo.svg"
-  const greenLogoClass = forceGreen && theme !== "dark" ? "toadster-logo-green" : ""
+  const useWhiteLogo = onDarkBackground || theme === "dark"
 
   return (
     <Image
-      src={src}
+      src={useWhiteLogo ? "/toadster-logo-white.svg" : "/toadster-logo-green.png"}
       alt={alt}
       title="Toadster Logo"
-      className={`toadster-logo select-none ${greenLogoClass} ${className}`}
+      className={`toadster-logo select-none ${className}`}
       height={height ?? 40}
-      width={width ?? 160}
+      width={width ?? 194}
       unoptimized
     />
   )

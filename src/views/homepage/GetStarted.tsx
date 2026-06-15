@@ -1,14 +1,33 @@
 "use client"
 
+import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { ChevronRight } from "lucide-react"
 import { motion } from "framer-motion"
+
+const GET_STARTED_QUESTION_IMAGE = "/get-started-question.png"
+
 export default function GetStarted() {
   const router = useRouter()
 
   return (
-    <section className="homepage-snap-section relative isolate flex w-full flex-col justify-center overflow-hidden py-16 md:py-20">
-      <div className="homepage-cta-box section-full-bleed relative z-10 w-full px-6 py-14 text-center sm:px-10 md:px-16 md:py-16 lg:px-20">
+    <section className="homepage-snap-section relative isolate flex w-full flex-col justify-center overflow-hidden pt-5">
+      <div className="homepage-cta-box section-full-bleed relative z-10 w-full overflow-hidden px-6 py-14 text-center sm:px-10 md:px-16 md:py-16 lg:px-20">
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-[42%] max-w-[480px] md:block"
+          aria-hidden
+        >
+          <Image
+            src={GET_STARTED_QUESTION_IMAGE}
+            alt=""
+            fill
+            unoptimized
+            className="object-contain object-right"
+            sizes="(max-width: 768px) 42vw, 480px"
+          />
+        </div>
+
+        <div className="relative z-10">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -70,6 +89,7 @@ export default function GetStarted() {
               24/7 Support
             </div>
           </motion.div>
+        </div>
       </div>
     </section>
   )

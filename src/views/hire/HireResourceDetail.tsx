@@ -25,7 +25,7 @@ function SectionBody({ text }: { text: string }) {
 export default function HireResourceDetail({ resource }: { resource: HireResource }) {
   return (
     <div className="hire-page-shell overflow-x-hidden">
-      {/* Hero - vertically centered, 85% width */}
+      {/* Hero - vertically centered, 90% width */}
       <section className="hire-page-hero mt-10">
         <div className="hire-page-container">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-16">

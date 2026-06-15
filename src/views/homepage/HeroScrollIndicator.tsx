@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion"
 
 interface HeroScrollIndicatorProps {
   targetId: string
+  onDarkBackground?: boolean
 }
 
 function ScrollMouseIcon({ className }: { className?: string }) {
@@ -33,7 +34,7 @@ function ScrollMouseIcon({ className }: { className?: string }) {
   )
 }
 
-export function HeroScrollIndicator({ targetId }: HeroScrollIndicatorProps) {
+export function HeroScrollIndicator({ targetId, onDarkBackground = false }: HeroScrollIndicatorProps) {
   const prefersReducedMotion = useReducedMotion()
 
   const scrollToContent = () => {
@@ -45,7 +46,9 @@ export function HeroScrollIndicator({ targetId }: HeroScrollIndicatorProps) {
       type="button"
       onClick={scrollToContent}
       aria-label="Scroll down to explore more"
-      className="absolute bottom-[4.75rem] left-1/2 z-30 -translate-x-1/2 text-page-fg/70 transition-colors hover:text-toadster-green sm:bottom-[5.25rem]"
+      className={`absolute bottom-[4.75rem] left-1/2 z-30 -translate-x-1/2 transition-colors hover:text-toadster-green sm:bottom-[5.25rem] ${
+        onDarkBackground ? "text-white/70" : "text-page-fg/70"
+      }`}
     >
       {prefersReducedMotion ? (
         <ScrollMouseIcon className="h-10 w-7 sm:h-11 sm:w-8" />

@@ -161,7 +161,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-page-border shrink-0">
           <Link href="/" onClick={closeMobile} title="Toadster Home" className="flex items-center">
-            <ToadsterLogo className="h-5 w-auto" forceGreen />
+            <ToadsterLogo className="h-5 w-auto" />
           </Link>
           <div className="flex items-center gap-2">
             <ThemeToggle size="sm" />
@@ -347,7 +347,6 @@ export function Navbar({ activeSection }: { activeSection: string }) {
               width={132}
               height={34}
               className="h-7 w-auto sm:h-8 md:h-9"
-              forceGreen
             />
           </Link>
 

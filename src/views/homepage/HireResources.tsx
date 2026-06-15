@@ -19,7 +19,6 @@ type HireRole = {
   icon: LucideIcon
   title: string
   description: string
-  hoverDetail: string
   tags: string[]
   href: string
 }
@@ -30,8 +29,6 @@ const HIRE_ROLES: HireRole[] = [
     title: "AI / ML Engineers",
     description:
       "LLM integration, RAG pipeline development, fine-tuning, and agentic AI systems - built for production, not just demos. Specialists in on-demand AI model integration and custom LLM deployment.",
-    hoverDetail:
-      "Ship RAG pipelines, fine-tuned models, and agentic workflows - integrated into your stack within days, not months.",
     tags: ["LLM", "RAG", "MLOps"],
     href: "/hire/ai-ml-engineers",
   },
@@ -40,8 +37,6 @@ const HIRE_ROLES: HireRole[] = [
     title: "Full Stack Developers",
     description:
       "From pixel-perfect React frontends to robust APIs - developers who ship AI-powered web applications and scalable SaaS backends that other developers don't dread inheriting.",
-    hoverDetail:
-      "React, Node, and Python engineers who own the full stack - from UI polish to API reliability and deployment.",
     tags: ["React", "Node", "Python"],
     href: "/hire/fullstack-developers",
   },
@@ -50,8 +45,6 @@ const HIRE_ROLES: HireRole[] = [
     title: "DevOps & Cloud Engineers",
     description:
       "CI/CD, Kubernetes, multi-cloud infrastructure - specialists in AI workload orchestration and cloud cost optimisation for ML teams who set things up right the first time.",
-    hoverDetail:
-      "MLOps-ready infrastructure: CI/CD for models, Kubernetes orchestration, and cloud cost control from day one.",
     tags: ["AWS", "GCP", "Kubernetes"],
     href: "/hire/mlops-engineers",
   },
@@ -60,8 +53,6 @@ const HIRE_ROLES: HireRole[] = [
     title: "Data Scientists",
     description:
       "Experts in business intelligence for AI startups and predictive analytics consulting - people who turn messy data into decisions, not just dashboards nobody opens after the first sprint.",
-    hoverDetail:
-      "Predictive models, BI pipelines, and analytics that drive decisions - not dashboards that gather dust after sprint one.",
     tags: ["Python", "SQL", "Analytics"],
     href: "/hire/data-engineers",
   },
@@ -70,8 +61,6 @@ const HIRE_ROLES: HireRole[] = [
     title: "AI Security Engineers",
     description:
       "Experts in LLM security and prompt injection defence, AI model red-teaming, and compliance-ready AI governance frameworks - built for teams where a breach or model failure isn't an option.",
-    hoverDetail:
-      "Red-team your models, harden against prompt injection, and build governance frameworks that satisfy SOC 2 and enterprise audit requirements.",
     tags: ["AI RedTeam", "SOC2", "LLM Safety"],
     href: "/hire/dedicated-resources",
   },
@@ -80,8 +69,6 @@ const HIRE_ROLES: HireRole[] = [
     title: "Python Developers",
     description:
       "Modern digital solutions require more than just code. Our Python specialists deliver scalable backend systems, API integrations, workflow automation, data-driven applications, and cloud-ready architectures built for growth.",
-    hoverDetail:
-      "From automation and APIs to enterprise-grade web applications, hire Python developers who can turn complex requirements into production-ready solutions.",
     tags: ["Python", "Django", "FastAPI"],
     href: "/hire/python-developers",
   },
@@ -103,18 +90,18 @@ function HireRoleCard({ role, index }: { role: HireRole; index: number }) {
         title={`Hire ${role.title}`}
         className="hire-role-card group relative flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 md:p-7"
       >
-        <span className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200/80 bg-white/60 text-slate-700 transition-colors group-hover:border-slate-300 group-hover:bg-white/80 dark:border-slate-300/50 dark:bg-white/50 dark:text-black">
-          <Icon size={20} strokeWidth={1.75} />
-        </span>
+        <div className="mb-4 flex min-h-11 items-center justify-between gap-3">
+          <h3 className="min-w-0 flex-1 pr-1 text-lg font-bold leading-snug text-slate-900 dark:text-black">
+            {role.title}
+          </h3>
+          <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+            <Icon size={22} strokeWidth={2} />
+          </span>
+        </div>
 
-        <h3 className="text-lg font-bold text-slate-900 dark:text-black">{role.title}</h3>
-
-        <div className="relative mt-3 min-h-[7.5rem] flex-1">
-          <p className="text-sm leading-relaxed text-slate-700 transition-opacity duration-300 group-hover:opacity-0 md:text-[0.9375rem] dark:text-black/80">
+        <div className="flex-1">
+          <p className="text-sm leading-relaxed text-slate-700 md:text-[0.9375rem] dark:text-black/80">
             {role.description}
-          </p>
-          <p className="absolute inset-0 text-sm leading-relaxed text-slate-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:text-[0.9375rem] dark:text-black/70">
-            {role.hoverDetail}
           </p>
         </div>
 
@@ -135,15 +122,15 @@ function HireRoleCard({ role, index }: { role: HireRole; index: number }) {
 
 export default function HireResources() {
   return (
-    <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center py-16 md:py-24">
+    <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center pt-4">
       <div className="mx-auto max-w-9xl px-4 lg:px-20">
         <ScrollReveal className="mb-12 text-center md:mb-14">
-          <p className="section-eyebrow-heading text-2xl font-normal tracking-[0.35em]">
+          {/* <p className="section-eyebrow-heading text-2xl font-normal tracking-[0.35em]">
             HIRE <span className="font-extrabold">RESOURCES</span>
-          </p>
+          </p> */}
           <h2 className="mt-4 text-5xl font-extrabold md:text-6xl">
-            <span className="text-page-fg">The Right Expert, </span>
-            <span className="text-toadster-green">When You Need One</span>
+            <span className="text-page-fg">Hire </span>
+            <span className="text-toadster-green">Resources</span>
           </h2>
           <p className="mx-auto mt-4 max-w-9xl text-xl text-page-fg-muted">
             Need a vetted remote AI engineer, ML specialist, or growth expert - without the overhead
@@ -152,8 +139,8 @@ export default function HireResources() {
             week.
           </p>
           <p className="mx-auto mt-4 max-w-9xl text-lg text-page-fg-subtle">
-            Hover over any role below to see what that person actually brings to your team - and how
-            quickly they can start.
+            Browse the roles below to find the right specialist for your team - most engagements go
+            from brief to kickoff in under a week.
           </p>
         </ScrollReveal>
 
@@ -172,7 +159,7 @@ export default function HireResources() {
         className="section-full-bleed mt-14 md:mt-16"
       >
         <div className="hire-resources-cta w-full">
-          <div className="relative z-10 mx-auto grid max-w-9xl items-center gap-6 px-4 py-10 sm:px-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-10 md:px-12 md:py-12 lg:px-20">
+          <div className="relative z-10 mx-auto grid max-w-9xl items-center gap-6 px-4 pt-10 sm:px-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-10 md:px-12 md:pt-12 lg:px-20">
               <div className="mx-auto flex shrink-0 items-end justify-center md:mx-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

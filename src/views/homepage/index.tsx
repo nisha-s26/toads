@@ -12,10 +12,14 @@ import GetStarted from "./GetStarted"
 import HomepageFaq from "./HomepageFaq"
 import HomepageBlogs from "./HomepageBlogs"
 import { HomepageMeshBg } from "@/components/HomepageMeshBg"
+import { useTheme } from "@/hooks/theme"
 // import Solutions from "./Solutions"
 // import ParallaxShowcase from "./ParallaxShowcase"
 
 const HomePage = () => {
+  const { theme } = useTheme()
+  const heroOnDarkBackground = theme === "dark"
+
   useEffect(() => {
     document.documentElement.classList.add("homepage-scroll-snap")
     return () => document.documentElement.classList.remove("homepage-scroll-snap")
@@ -27,11 +31,15 @@ const HomePage = () => {
       <div className="homepage-content relative z-10">
         <section
           id="homepage-hero-viewport"
-          className="homepage-snap-section homepage-hero-viewport relative flex min-h-[100dvh] max-h-[100dvh] flex-col overflow-hidden"
+          className="homepage-snap-section homepage-hero-viewport homepage-hero-viewport--image relative flex min-h-[100dvh] max-h-[100dvh] flex-col overflow-hidden"
         >
+          <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+            <div className="homepage-hero-bg-image absolute inset-0 scale-105 bg-cover bg-center bg-no-repeat blur-xs" />
+            <div className="homepage-hero-bg-overlay absolute inset-0" />
+          </div>
           <HeroSection />
-          <TrustedBy compact />
-          <HeroScrollIndicator targetId="#homepage-sections" />
+          <TrustedBy compact onDarkBackground={heroOnDarkBackground} />
+          <HeroScrollIndicator targetId="#homepage-sections" onDarkBackground={heroOnDarkBackground} />
         </section>
 
         <div id="homepage-sections" className="homepage-sections">

@@ -2,52 +2,33 @@
 
 import Image from "next/image"
 import { TRUSTED_BY_CLIENTS } from "@/constants/trustedByClients"
-import { cn } from "@/lib/utils"
+
+const LOGO_HEIGHT_CLASS =
+  "h-7 w-auto shrink-0 sm:h-8 md:h-9 [@media(max-height:720px)]:h-6 [@media(max-height:720px)]:sm:h-7"
 
 export function ServicesTrustedBy() {
   const items = [...TRUSTED_BY_CLIENTS, ...TRUSTED_BY_CLIENTS]
 
   return (
-    <section
-      className={cn(
-        "py-2 overflow-hidden",
-        // variant === "dark" ? "bg-[#070e1e]" : "bg-page-bg-alt dark:bg-[#070e1e]",
-      )}
-    >
-      {/* <p className="text-3xl tracking-wide text-white font-bold text-center mb-5">
-        Trusted by Innovative Teams Worldwide
-      </p> */}
-
-      <div className="relative overflow-hidden">
-        <div
-          className={cn(
-            "pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r to-transparent",
-            // variant === "dark" ? "from-[#070e1e]" : "from-page-bg-alt dark:from-[#070e1e]",
-          )}
-        />
-        <div
-          className={cn(
-            "pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l to-transparent",
-            // variant === "dark" ? "from-[#070e1e]" : "from-page-bg-alt dark:from-[#070e1e]",
-          )}
-        />
-
-        <div className="flex animate-marquee items-center gap-14 whitespace-nowrap px-4 bg-white py-3">
+    <section className="py-2 overflow-hidden">
+      <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] py-3">
+        <div className="flex animate-marquee items-center gap-16 whitespace-nowrap px-4 md:gap-20">
           {items.map((client, i) => (
             <div
               key={`${client.label}-${i}`}
-              className="flex h-10 shrink-0 min-w-[120px] items-center justify-center"
+              className="flex shrink-0 min-w-[120px] items-center justify-center"
             >
               {client.src ? (
                 <Image
                   src={client.src}
                   alt={client.label}
-                  width={140}
-                  height={40}
-                  className="h-8 w-auto max-w-[140px] object-contain"
+                  width={120}
+                  height={48}
+                  draggable={false}
+                  className={`${LOGO_HEIGHT_CLASS} block max-w-[140px] object-contain brightness-0 opacity-70 transition-opacity duration-200 hover:opacity-100 dark:invert`}
                 />
               ) : (
-                <span className="text-xl font-semibold text-black">
+                <span className="text-sm font-semibold text-page-fg opacity-70 transition-opacity duration-200 hover:opacity-100">
                   {client.label}
                 </span>
               )}

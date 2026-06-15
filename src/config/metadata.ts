@@ -234,7 +234,7 @@ export function buildBlogJsonLd(pathname: string, allBlogs: BlogPost[] = []): st
     publisher: {
       "@type": "Organization",
       name: "Toadster",
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/toadster-logo.svg` },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/green-logo.svg` },
     },
     ...(datePublishedIso ? { datePublished: datePublishedIso, dateModified: datePublishedIso } : {}),
     ...(blog.tags && blog.tags.length > 0 ? { keywords: blog.tags.join(", ") } : {}),
