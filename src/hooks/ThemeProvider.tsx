@@ -1,15 +1,20 @@
 "use client"
 
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react"
 import { applyTheme, ThemeContext, type Theme } from "./theme"
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "light"
-    return document.documentElement.classList.contains("dark") ? "dark" : "light"
-  })
+  const [theme, setThemeState] = useState<Theme>("light")
+  const isInitialMount = useRef(true)
 
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false
+      const isDark = document.documentElement.classList.contains("dark")
+      setThemeState(isDark ? "dark" : "light")
+      return
+    }
+
     applyTheme(theme)
   }, [theme])
 

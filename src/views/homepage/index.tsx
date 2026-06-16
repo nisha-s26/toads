@@ -34,7 +34,7 @@ const HomePage = () => {
           className="homepage-snap-section homepage-hero-viewport homepage-hero-viewport--image relative flex min-h-[100dvh] max-h-[100dvh] flex-col overflow-hidden"
         >
           <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
-            <div className="homepage-hero-bg-image absolute inset-0 scale-105 bg-cover bg-center bg-no-repeat blur-xs" />
+            <div className="homepage-hero-bg-image absolute bg-no-repeat" />
             <div className="homepage-hero-bg-overlay absolute inset-0" />
           </div>
           <HeroSection />

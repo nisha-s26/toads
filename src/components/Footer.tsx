@@ -29,7 +29,7 @@ const AI_SERVICE_LINKS: InternalLink[] = [
   { to: "/services/ai-data-analytics", label: "AI Data Analytics" },
   { to: "/services/intelligent-automation", label: "Intelligent Automation" },
   { to: "/services/ai-automation", label: "AI Automation" },
-  { to: "/services/ai-development", label: "Software Development" },
+  { to: "/services/software-development", label: "Software Development" },
 ]
 
 const DEVELOPMENT_SERVICE_LINKS: InternalLink[] = [

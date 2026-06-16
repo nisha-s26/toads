@@ -145,6 +145,11 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description:
       "Toadster's AI consultation services guide strategy, architecture, scalable AI systems, continuous training pipelines, and MLOps adoption.",
   },
+  "/services/software-development": {
+    title: "Software Development Services | Toadster",
+    description:
+      "Toadster builds scalable software products for startups, SMEs, and enterprises with transparent process, strategic thinking, and long-term partnership.",
+  },
   "/services/agent-2-agent": {
     title: "Agent2Agent AI Solutions | Toadster",
     description:

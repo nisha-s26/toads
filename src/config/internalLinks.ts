@@ -150,6 +150,15 @@ export const SERVICE_CATALOG: ServiceMeta[] = [
     relatedSlugs: ["ai-development", "industry-solutions", "custom-ai-solutions"],
   },
   {
+    slug: "software-development",
+    path: "/services/software-development",
+    title: "Software Development Services",
+    shortTitle: "Software Development",
+    description: "Custom web apps, mobile products, SaaS platforms, and scalable software engineering.",
+    icon: Code2,
+    relatedSlugs: ["ai-development", "custom-ai-solutions", "ai-integration"],
+  },
+  {
     slug: "agent-2-agent",
     path: "/services/agent-2-agent",
     title: "Agent2Agent AI Solutions",

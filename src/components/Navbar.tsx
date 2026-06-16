@@ -58,6 +58,7 @@ const services = [
   { icon: "MessageSquare", title: "AI Copilot Development", description: "Enterprise copilots for teams and knowledge work" },
   { icon: "Eye", title: "Computer Vision Development", description: "Visual intelligence and image analytics at scale" },
   { icon: "UserCog", title: "AI Consulting Services", description: "Strategy, architecture, and AI program guidance" },
+  { icon: "Code2", title: "Software Development", description: "Custom software, web apps, and scalable product engineering" },
 ]
 
 const navLinks = [
@@ -98,6 +99,7 @@ const SERVICE_ROUTES: Record<string, string> = {
   "AI Copilot Development": "/services/llm-development",
   "Computer Vision Development": "/services/computer-vision",
   "AI Consulting Services": "/services/ai-consultation",
+  "Software Development": "/services/software-development",
 }
 
 const NAV_ICON_MAP = {
