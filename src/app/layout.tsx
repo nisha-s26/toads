@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { Plus_Jakarta_Sans } from "next/font/google"
-import Script from "next/script"
 import "@/index.css"
 import { ThemeProvider } from "@/hooks/ThemeProvider"
 import { ClientShell } from "@/components/ClientShell"
@@ -9,9 +8,11 @@ import { SITE_URL } from "@/config/metadata"
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "600", "700"],
   variable: "--font-plus-jakarta-sans",
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 })
 
 export const metadata: Metadata = {
@@ -85,6 +86,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://dey5irgcg4c8.cloudfront.net" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem("toadster-theme");var d=s==="dark";var r=document.documentElement;r.classList.toggle("dark",d);r.style.colorScheme=d?"dark":"light";var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",d?"#000000":"#ECF0F1");}catch(e){document.documentElement.style.colorScheme="light";document.documentElement.classList.remove("dark");}})();`,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
@@ -94,9 +100,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={plusJakartaSans.className}>
-        <Script id="theme-init" strategy="beforeInteractive">
-          {`(function(){try{var stored=localStorage.getItem("toadster-theme");var isDark=stored==="dark";var root=document.documentElement;root.classList.toggle("dark",isDark);root.style.colorScheme=isDark?"dark":"light";var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute("content",isDark?"#000000":"#ECF0F1");}catch(e){document.documentElement.style.colorScheme="light";document.documentElement.classList.remove("dark");}})();`}
-        </Script>
         <ThemeProvider>
           <ClientShell>{children}</ClientShell>
         </ThemeProvider>

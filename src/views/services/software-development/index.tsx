@@ -2,12 +2,14 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ArrowRight, CheckCircle, ChevronDown } from "lucide-react"
+import { ArrowRight, CheckCircle } from "lucide-react"
 import { CTALink } from "@/components/CTALink"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
+import { FAQSection } from "@/components/service-page/FAQSection"
+import { SectionHead } from "@/components/service-page/SectionHead"
+import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
 import {
   benefits,
   capabilities,
@@ -19,53 +21,6 @@ import {
   trustStats,
   whyToadster,
 } from "./data"
-
-function SectionHead({
-  label,
-  title,
-  subtitle,
-  centered = false,
-  labelClassName = "text-green-400",
-}: {
-  label: string
-  title: string
-  subtitle?: string
-  centered?: boolean
-  labelClassName?: string
-}) {
-  return (
-    <div className={`mb-12 ${centered ? "text-center" : ""}`}>
-      <p className={`text-xs font-bold uppercase tracking-[0.08em] ${labelClassName} mb-4`}>{label}</p>
-      <h2 className="text-4xl md:text-5xl font-extrabold text-page-fg tracking-tight mb-4">{title}</h2>
-      {subtitle ? (
-        <p className={`text-page-fg-muted text-lg leading-relaxed ${centered ? "mx-auto max-w-2xl" : "max-w-full"}`}>
-          {subtitle}
-        </p>
-      ) : null}
-    </div>
-  )
-}
-
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <div className="rounded-2xl border border-page-border bg-page-card overflow-hidden">
-      <button
-        type="button"
-        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-        onClick={() => setOpen(!open)}
-      >
-        <span className="font-semibold text-page-fg">{question}</span>
-        <ChevronDown
-          className={`shrink-0 text-toadster-green transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          size={20}
-        />
-      </button>
-      {open ? <p className="px-6 pb-5 text-sm leading-relaxed text-page-fg-muted">{answer}</p> : null}
-    </div>
-  )
-}
 
 function HeroConsultationForm() {
   const [formData, setFormData] = useState({
@@ -107,20 +62,20 @@ function HeroConsultationForm() {
   return (
     <div
       id="contact-form"
-      className="rounded-2xl border border-page-border bg-page-card p-8 shadow-2xl lg:p-9"
+      className="capability-card-surface relative overflow-hidden rounded-2xl p-8 shadow-2xl lg:p-9"
     >
-      <span className="mb-3 inline-flex items-center gap-2 rounded-full bg-toadster-green/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-toadster-green">
+      <span className="relative z-10 mb-3 inline-flex items-center gap-2 rounded-full bg-toadster-green/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-toadster-green">
         <span className="h-2 w-2 rounded-full bg-toadster-green" />
         Free Consultation
       </span>
-      <h3 className="text-xl font-bold text-page-fg">Tell us about your project</h3>
-      <p className="mt-2 mb-6 text-sm text-page-fg-muted">
-        We typically respond within 4 hours on business days. No sales pitch — just an honest conversation.
+      <h3 className="relative z-10 text-xl font-bold text-slate-900 dark:text-black">Tell us about your project</h3>
+      <p className="capability-card-copy relative z-10 mt-2 mb-6 text-sm">
+        We typically respond within 4 hours on business days. No sales pitch - just an honest conversation.
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="relative z-10 space-y-4">
         <div>
-          <label htmlFor="sd-name" className="mb-1.5 block text-sm font-semibold text-page-fg">
+          <label htmlFor="sd-name" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Your Name
           </label>
           <Input
@@ -130,11 +85,11 @@ function HeroConsultationForm() {
             onChange={handleChange}
             placeholder="Alex Johnson"
             required
-            className="border-page-border bg-page-bg text-page-fg placeholder:text-page-fg-muted"
+            className="bright-panel-input"
           />
         </div>
         <div>
-          <label htmlFor="sd-email" className="mb-1.5 block text-sm font-semibold text-page-fg">
+          <label htmlFor="sd-email" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Work Email
           </label>
           <Input
@@ -145,11 +100,11 @@ function HeroConsultationForm() {
             onChange={handleChange}
             placeholder="alex@company.com"
             required
-            className="border-page-border bg-page-bg text-page-fg placeholder:text-page-fg-muted"
+            className="bright-panel-input"
           />
         </div>
         <div>
-          <label htmlFor="sd-company" className="mb-1.5 block text-sm font-semibold text-page-fg">
+          <label htmlFor="sd-company" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Company Name
           </label>
           <Input
@@ -158,11 +113,11 @@ function HeroConsultationForm() {
             value={formData.company}
             onChange={handleChange}
             placeholder="Acme Corp"
-            className="border-page-border bg-page-bg text-page-fg placeholder:text-page-fg-muted"
+            className="bright-panel-input"
           />
         </div>
         <div>
-          <label htmlFor="sd-requirements" className="mb-1.5 block text-sm font-semibold text-page-fg">
+          <label htmlFor="sd-requirements" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Project Requirements
           </label>
           <Textarea
@@ -171,12 +126,12 @@ function HeroConsultationForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="Briefly describe what you're building or the problem you're trying to solve..."
-            className="min-h-[90px] border-page-border bg-page-bg text-page-fg placeholder:text-page-fg-muted"
+            className="bright-panel-input min-h-[90px]"
           />
         </div>
         <Button type="submit" className="w-full rounded-xl py-6 text-base font-bold" disabled={isSubmitting}>
           {submitStatus === "success"
-            ? "Request Received — We'll be in touch soon!"
+            ? "Request Received - We'll be in touch soon!"
             : isSubmitting
               ? "Sending..."
               : "Get a Free Consultation"}
@@ -184,7 +139,7 @@ function HeroConsultationForm() {
         {submitStatus === "error" ? (
           <p className="text-center text-sm text-red-500">Something went wrong. Please try again.</p>
         ) : null}
-        <p className="text-center text-xs text-page-fg-muted">Your information is never shared with third parties.</p>
+        <p className="capability-card-copy text-center text-xs">Your information is never shared with third parties.</p>
       </form>
     </div>
   )
@@ -192,14 +147,13 @@ function HeroConsultationForm() {
 
 export default function SoftwareDevelopmentPage() {
   return (
-    <div className="software-development-page bg-page-bg text-page-fg">
-      {/* Hero — full bleed, no page container card behind */}
+    <div className="modern-service-page software-development-page bg-page-bg text-page-fg">
+      {/* Hero - full bleed, no page container card behind */}
       <section
         id="contact"
-        style={{ marginTop: "30px" }}
-        className="software-development-hero section-full-bleed relative overflow-hidden py-14 md:py-20 bg-page-bg"
+        className="software-development-hero section-full-bleed relative overflow-hidden pb-10 md:pb-14 lg:pb-20 bg-page-bg"
       >
-        <div className="relative mx-auto grid max-w-6xl items-start gap-10 px-8 lg:grid-cols-[1fr_520px] lg:gap-14" style={{ marginLeft: "60px" }}>
+        <div className="relative mx-auto grid w-full max-w-6xl items-start gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_520px] lg:gap-14 lg:px-8 xl:ml-[60px]">
           <div className="lg:sticky lg:top-24 self-start">
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-toadster-green/35 bg-toadster-green/15 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-toadster-green">
               <span className="h-2 w-2 rounded-full bg-toadster-green" />
@@ -209,7 +163,7 @@ export default function SoftwareDevelopmentPage() {
               Software That Solves <span className="text-toadster-green">Real</span> Business Problems
             </h1>
             <p className="mb-8 max-w-xl text-lg leading-relaxed text-page-fg-muted">
-              We help startups, SMEs, and growing enterprises build software that actually works — products that scale
+              We help startups, SMEs, and growing enterprises build software that actually works - products that scale
               with demand, integrate with your existing systems, and deliver measurable value from day one.
             </p>
             <div className="mb-8 flex flex-wrap gap-5">
@@ -250,7 +204,7 @@ export default function SoftwareDevelopmentPage() {
         </div>
       </section>
 
-      <ServicesTrustedBy />
+      <LazyTrustedBy compact />
 
       {/* Capabilities */}
       <section id="services" className="section-padding py-16 bg-page-bg-alt">
@@ -258,29 +212,36 @@ export default function SoftwareDevelopmentPage() {
           <SectionHead
             label=""
             title="Software development services built for business outcomes"
-            subtitle="We don't just write code — we build systems that solve specific business problems, at the right level of complexity for where your business is today."
+            subtitle="We don't just write code - we build systems that solve specific business problems, at the right level of complexity for where your business is today."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {capabilities.map((cap) => (
+            {capabilities.map((cap) => {
+              const Icon = cap.icon
+              return (
               <div
                 key={cap.title}
-                className="rounded-2xl border border-page-border bg-page-card p-7 transition-all hover:-translate-y-0.5 hover:border-toadster-green/40 hover:shadow-md"
+                className="capability-card-surface group relative rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-bold text-page-fg flex-1">{cap.title}</h3>
-                  <div className="text-4xl shrink-0 ml-4">{cap.icon}</div>
+                <div className="capability-card-header relative z-10">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-lg font-bold text-toadster-green flex-1">{cap.title}</h3>
+                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md ml-4">
+                      <Icon size={22} strokeWidth={2} />
+                    </span>
+                  </div>
+                  <span className="capability-card-heading-rule" aria-hidden="true" />
                 </div>
-                <p className="mb-4 text-sm leading-relaxed text-page-fg-muted">{cap.desc}</p>
-                <p className="mb-4 text-sm font-semibold text-toadster-green">→ {cap.value}</p>
-                <div className="border-t border-page-border pt-4">
-                  <p className="mb-2 text-[11px] font-bold uppercase tracking-wider text-page-fg-muted">
+                <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{cap.desc}</p>
+                <p className="relative z-10 mb-4 text-sm font-semibold text-toadster-green">→ {cap.value}</p>
+                <div className="relative z-10 border-t border-page-border pt-4">
+                  <p className="capability-card-copy mb-2 text-[11px] font-bold uppercase tracking-wider">
                     Common Use Cases
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {cap.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded border border-page-border bg-page-bg-alt px-2.5 py-1 text-xs text-page-fg-muted"
+                        className="capability-card-tag rounded border border-page-border bg-page-bg-alt px-2.5 py-1 text-xs"
                       >
                         {tag}
                       </span>
@@ -288,7 +249,7 @@ export default function SoftwareDevelopmentPage() {
                   </div>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
@@ -303,52 +264,29 @@ export default function SoftwareDevelopmentPage() {
             labelClassName="text-toadster-green"
           />
           <div className="grid gap-6 md:grid-cols-2">
-            {whyToadster.map((item) => (
+            {whyToadster.map((item) => {
+              const Icon = item.icon
+              return (
               <div
                 key={item.title}
-                className="flex gap-4 rounded-2xl border border-page-border bg-page-card p-7 transition-colors hover:border-toadster-green/40"
+                className="capability-card-surface group relative flex gap-4 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green/10 text-xl">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="mb-2 font-bold text-page-fg">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-page-fg-muted">{item.desc}</p>
+                <span className="relative z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                  <Icon size={22} strokeWidth={2} />
+                </span>
+                <div className="relative z-10 min-w-0">
+                  <div className="capability-card-header">
+                    <h3 className="font-bold text-toadster-green">{item.title}</h3>
+                    <span className="capability-card-heading-rule" aria-hidden="true" />
+                  </div>
+                  <p className="capability-card-copy text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
 
-      {/* Industries */}
-      {/* <section id="industries" style={{ marginTop: "-40px" }} className="py-20 bg-page-bg-alt">
-        <div className="mx-auto max-w-6xl px-4">
-          <SectionHead
-            label=""
-            title="Industry experience that shapes better software"
-            subtitle="Domain knowledge matters. We understand the compliance requirements, user expectations, and business models of the industries we serve."
-          />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {industries.map((item) => (
-              <div
-                key={item.name}
-                className="rounded-2xl border border-page-border bg-page-card p-6 transition-all hover:-translate-y-0.5 hover:border-toadster-green/40 hover:shadow-md"
-              >
-                <h3 className="mb-2 flex items-center gap-2 text-base font-bold text-page-fg">
-                  <span className="text-xl">{item.icon}</span>
-                  {item.name}
-                </h3>
-                <p className="mb-3 text-sm text-page-fg-muted">{item.challenge}</p>
-                <p className="flex items-start gap-2 text-sm font-semibold text-toadster-green">
-                  <CheckCircle size={16} className="mt-0.5 shrink-0" />
-                  {item.outcome}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       {/* Process */}
       <section id="process" className="py-16 bg-page-bg section-padding">
@@ -357,14 +295,14 @@ export default function SoftwareDevelopmentPage() {
             <SectionHead
               label=""
               title="How we turn requirements into working software"
-              subtitle="Every project is different. But the way we approach every project — the thinking, the communication, the quality standards — stays consistent. Here's what you can expect."
+              subtitle="Every project is different. But the way we approach every project - the thinking, the communication, the quality standards - stays consistent. Here's what you can expect."
             />
             <div className="mt-10 rounded-[2rem] border border-page-border bg-page-card p-6 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-toadster-green/80">
                 Average time to App Store
               </p>
               <div className="mt-6 text-5xl font-extrabold tracking-tight text-page-fg">
-                10–16 <span className="text-2xl font-semibold text-page-fg-muted">weeks</span>
+                10-16 <span className="text-2xl font-semibold text-page-fg-muted">weeks</span>
               </div>
               <p className="mt-4 text-sm leading-relaxed text-page-fg-muted">
                 for a well-scoped MVP
@@ -405,166 +343,43 @@ export default function SoftwareDevelopmentPage() {
             subtitle="We don't have a single default stack we push on every project. We choose technologies that fit your requirements, your team, and your future plans."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {techCategories.map((cat) => (
-              <div key={cat.title} className="rounded-2xl border border-page-border bg-page-card p-6">
-                <h3 className="mb-2 font-bold text-page-fg">{cat.title}</h3>
-                <p className="mb-4 text-sm leading-relaxed text-page-fg-muted">{cat.why}</p>
-                <div className="flex flex-wrap gap-2">
+            {techCategories.map((cat) => {
+              const Icon = cat.icon
+              return (
+              <div
+                key={cat.title}
+                className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="capability-card-header relative z-10">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-lg font-bold text-toadster-green">{cat.title}</h3>
+                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                      <Icon size={22} strokeWidth={2} />
+                    </span>
+                  </div>
+                  <span className="capability-card-heading-rule" aria-hidden="true" />
+                </div>
+                <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{cat.why}</p>
+                <div className="relative z-10 flex flex-wrap gap-2">
                   {cat.pills.map((pill) => (
                     <span
                       key={pill}
-                      className="rounded-full border border-page-border bg-page-bg-alt px-3 py-1 text-xs font-semibold text-page-fg-muted"
+                      className="capability-card-tag rounded-full border border-page-border bg-page-bg-alt px-3 py-1 text-xs font-semibold"
                     >
                       {pill}
                     </span>
                   ))}
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
 
-      {/* Hire Talent */}
-      <section className="py-16 section-padding">
-        <div className="mx-auto max-w-6xl px-4">
-          <SectionHead
-            label="Hire talent"
-            title="The people you need, ready when you need them"
-            subtitle="Building a team is expensive, slow, and risky at the wrong stage. We give you a faster path — pre-vetted engineers, AI specialists, and product professionals who slot into your workflows and start contributing from week one."
-          />
+    
+    
 
-          <div className="grid gap-4 md:grid-cols-4 mb-10">
-            <div className="rounded-2xl border border-page-border bg-page-card p-6">
-              <div className="text-3xl font-extrabold text-page-fg">48h</div>
-              <p className="mt-4 text-sm text-page-fg-muted">Average time to candidate shortlist</p>
-            </div>
-            <div className="rounded-2xl border border-page-border bg-page-card p-6">
-              <div className="text-3xl font-extrabold text-page-fg">40+</div>
-              <p className="mt-4 text-sm text-page-fg-muted">Specialist roles across AI, mobile, cloud & data</p>
-            </div>
-            <div className="rounded-2xl border border-page-border bg-page-card p-6">
-              <div className="text-3xl font-extrabold text-page-fg">3 tiers</div>
-              <p className="mt-4 text-sm text-page-fg-muted">Flexible hiring models — no forced lock-in</p>
-            </div>
-            <div className="rounded-2xl border border-page-border bg-page-card p-6">
-              <div className="text-3xl font-extrabold text-page-fg">IST · GST · EST</div>
-              <p className="mt-4 text-sm text-page-fg-muted">Active timezone coverage for your team</p>
-            </div>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "AI & Machine Learning Engineers",
-                desc: "From fine-tuning LLMs and building RAG pipelines to deploying models in production — engineers who understand the full ML lifecycle.",
-                tags: ["LangChain", "PyTorch", "Hugging Face"],
-              },
-              {
-                title: "Agentic AI Developers",
-                desc: "Specialists in building AI agents that take actions, execute code, and manage multi-step workflows without constant human input.",
-                tags: ["CrewAI", "AutoGen", "LangChain"],
-              },
-              {
-                title: "Mobile App Developers",
-                desc: "Native iOS and Android developers plus React Native and Flutter engineers who build polished customer-facing apps.",
-                tags: ["Swift", "Kotlin", "React Native"],
-              },
-              {
-                title: "Full-Stack Engineers",
-                desc: "Developers who own both sides of the stack — building APIs, managing databases, and delivering polished frontends.",
-                tags: ["Node.js", "React", "PostgreSQL"],
-              },
-              {
-                title: "DevOps & Cloud Engineers",
-                desc: "Infrastructure engineers who build CI/CD pipelines, manage Kubernetes, and keep your cloud environments reliable.",
-                tags: ["Terraform", "Docker", "Kubernetes"],
-              },
-              {
-                title: "Data Engineers & Architects",
-                desc: "People who build the pipelines, warehouses, and dashboards your business decisions run on.",
-                tags: ["Snowflake", "dbt", "Airflow"],
-              },
-              {
-                title: "UI/UX Designers",
-                desc: "Designers who think in systems — wireframes, prototypes, and design systems that make complex software feel obvious.",
-                tags: ["Figma", "Framer", "Design Systems"],
-              },
-              {
-                title: "QA & Security Engineers",
-                desc: "Test engineers and security specialists who find issues before users do — from automation to compliance testing.",
-                tags: ["Selenium", "Cypress", "OWASP"],
-              },
-              {
-                title: "Product Managers & BAs",
-                desc: "Experienced PMs and analysts who translate messy requirements into clear sprint-ready work.",
-                tags: ["Agile", "BPMN", "Jira"],
-              },
-            ].map((item) => (
-              <div key={item.title} className="flex flex-col h-full rounded-2xl border border-page-border bg-page-card p-6 transition-all hover:-translate-y-0.5 hover:border-toadster-green/40 hover:shadow-md">
-                <h3 className="mb-3 text-lg font-bold text-page-fg">{item.title}</h3>
-                <p className="mb-6 text-sm leading-relaxed text-page-fg-muted">{item.desc}</p>
-                <div className="mb-6 flex flex-wrap gap-2">
-                  {item.tags.map((tag) => (
-                    <span key={tag} className="rounded-full border border-page-border bg-page-bg-alt px-2.5 py-1 text-[11px] font-semibold text-page-fg-muted">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <Link
-                  href="/hire"
-                  className="apply-link mt-auto inline-flex items-center gap-2 text-sm text-page-fg transition-colors hover:text-toadster-green"
-                >
-                  Hire Now <ArrowRight size={18} />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case studies */}
-      {/* <section id="case-studies" style={{ marginTop: "-40px" }} className="py-20 bg-page-bg">
-        <div className="mx-auto max-w-6xl px-4">
-          <SectionHead
-            label=""
-            title="Projects we're proud of"
-            subtitle="Real projects, real results. Here's a look at how we've helped businesses solve specific problems through software."
-            labelClassName="text-toadster-green"
-          />
-          <div className="grid gap-6 lg:grid-cols-3">
-            {caseStudies.map((study) => (
-              <div
-                key={study.title}
-                className="overflow-hidden rounded-2xl border border-page-border bg-page-card transition-all hover:-translate-y-0.5 hover:shadow-md"
-              >
-                <div className="bg-[#0f1117] px-6 py-5 dark:bg-black">
-                  <p className="mb-2 text-[11px] font-bold uppercase tracking-wider text-green-400">{study.industry}</p>
-                  <h3 className="text-lg font-bold leading-snug text-white">{study.title}</h3>
-                </div>
-                <div className="space-y-4 p-6">
-                  <div>
-                    <p className="mb-1 text-[11px] font-bold uppercase tracking-wider text-page-fg-muted">The Challenge</p>
-                    <p className="text-sm leading-relaxed text-page-fg-muted">{study.challenge}</p>
-                  </div>
-                  <div>
-                    <p className="mb-1 text-[11px] font-bold uppercase tracking-wider text-page-fg-muted">Our Approach</p>
-                    <p className="text-sm leading-relaxed text-page-fg-muted">{study.approach}</p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2.5">
-                    {study.results.map((result) => (
-                      <div key={result.label} className="rounded-lg bg-toadster-green/10 p-3 text-center">
-                        <div className="text-2xl font-extrabold text-toadster-green">{result.num}</div>
-                        <div className="text-[11px] leading-snug text-page-fg-muted">{result.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
+  
 
       {/* Benefits */}
       <section className="py-16 bg-page-bg-alt section-padding">
@@ -575,16 +390,23 @@ export default function SoftwareDevelopmentPage() {
             subtitle="The real ROI of custom software isn't always a single number. It shows up in faster teams, fewer errors, and capabilities your competitors don't have."
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((item) => (
+            {benefits.map((item) => {
+              const Icon = item.icon
+              return (
               <div
                 key={item.title}
-                className="rounded-2xl border border-page-border bg-page-card p-6 transition-colors hover:border-toadster-green/40"
+                className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="mb-3 text-3xl">{item.icon}</div>
-                <h3 className="mb-2 font-bold text-page-fg">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-page-fg-muted">{item.desc}</p>
+                <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                  <Icon size={22} strokeWidth={2} />
+                </span>
+                <div className="capability-card-header relative z-10">
+                  <h3 className="font-bold text-toadster-green">{item.title}</h3>
+                  <span className="capability-card-heading-rule" aria-hidden="true" />
+                </div>
+                <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
@@ -599,30 +421,32 @@ export default function SoftwareDevelopmentPage() {
           />
           <div className="grid gap-6 md:grid-cols-2">
             {engagementModels.map((model) => (
-              <div
-                key={model.title}
-                className={`relative rounded-2xl border p-8 transition-all hover:shadow-md ${
-                  model.featured
-                    ? "border-toadster-green bg-toadster-green/5"
-                    : "border-page-border bg-page-card hover:border-toadster-green/40"
-                }`}
-              >
+              <div key={model.title} className={model.badge ? "relative pt-3" : "relative"}>
                 {model.badge ? (
-                  <span className="absolute -top-3 left-6 rounded-full bg-toadster-green px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white">
+                  <span className="absolute left-6 top-0 z-20 -translate-y-1/2 rounded-full bg-toadster-green px-3.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-[0_2px_10px_rgba(0,77,45,0.28)] ring-2 ring-white dark:ring-[#eef2f7]">
                     {model.badge}
                   </span>
                 ) : null}
-                <h3 className="text-xl font-extrabold text-page-fg">{model.title}</h3>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-page-fg-muted">{model.who}</p>
-                <p className="mt-4 text-sm leading-relaxed text-page-fg-muted">{model.desc}</p>
-                <ul className="mt-5 space-y-2">
-                  {model.benefits.map((benefit) => (
-                    <li key={benefit} className="flex items-start gap-2 border-b border-page-border py-2 text-sm text-page-fg-muted last:border-0">
-                      <CheckCircle size={16} className="mt-0.5 shrink-0 text-toadster-green" />
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
+                <div
+                  className={`capability-card-surface relative rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+                    model.featured ? "ring-2 ring-toadster-green/35" : ""
+                  }`}
+                >
+                  <div className="capability-card-header relative z-10">
+                    <h3 className="text-xl font-extrabold text-toadster-green">{model.title}</h3>
+                    <span className="capability-card-heading-rule" aria-hidden="true" />
+                  </div>
+                  <p className="capability-card-copy relative z-10 mt-2 text-xs font-semibold uppercase tracking-wide">{model.who}</p>
+                  <p className="capability-card-copy relative z-10 mt-4 text-sm leading-relaxed">{model.desc}</p>
+                  <ul className="relative z-10 mt-5 space-y-2">
+                    {model.benefits.map((benefit) => (
+                      <li key={benefit} className="capability-card-copy flex items-start gap-2 border-b border-slate-200/80 py-2 text-sm last:border-0 dark:border-slate-300/40">
+                        <CheckCircle size={16} className="mt-0.5 shrink-0 text-toadster-green" />
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -630,30 +454,13 @@ export default function SoftwareDevelopmentPage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-16 bg-page-bg-alt section-padding">
-        <div className="mx-auto max-w-6xl px-4">
-          <SectionHead
-            label=""
-            title="Questions we hear before every project"
-            subtitle="Straightforward answers to the things decision-makers actually want to know."
-          />
-          <div className="grid gap-4 md:grid-cols-2">
-            {faqs.map((item) => (
-              <FAQItem key={item.question} question={item.question} answer={item.answer} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQSection faqs={faqs} />
 
       {/* Final CTA */}
       <section className="relative overflow-hidden py-16 bg-page-bg section-padding">
         <div className="pointer-events-none absolute inset-0 dark:opacity-100 opacity-0">
           <div
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(135deg, #0f1117 0%, #1a2340 100%)",
-            }}
-          />
+            className="absolute inset-0"  />
           <div
             className="absolute inset-0"
             style={{
@@ -668,7 +475,7 @@ export default function SoftwareDevelopmentPage() {
           </h2>
           <p className="mb-10 text-lg leading-relaxed text-page-fg-muted">
             Whether you have a detailed spec or just a problem you&apos;re trying to solve, we&apos;d like to hear about
-            it. Our first conversation is about understanding your situation — not selling you a solution before we know
+            it. Our first conversation is about understanding your situation - not selling you a solution before we know
             if it&apos;s the right one.
           </p>
           <div className="flex flex-wrap justify-center gap-3">

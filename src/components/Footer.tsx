@@ -10,7 +10,6 @@ import {
   Youtube,
   ChevronDown,
 } from "lucide-react"
-import { motion } from "framer-motion"
 import Link from "next/link"
 import { ToadsterLogo } from "@/components/ToadsterLogo"
 import { ClutchBadge } from "@/components/ClutchBadge"
@@ -22,14 +21,14 @@ interface InternalLink {
 }
 
 const AI_SERVICE_LINKS: InternalLink[] = [
-  { to: "/services/agentic-ai", label: "Agentic AI" },
-  { to: "/services/generative-ai", label: "Generative AI" },
-  { to: "/services/llm-development", label: "LLM Development" },
-  { to: "/services/machine-learning", label: "Machine Learning" },
-  { to: "/services/ai-data-analytics", label: "AI Data Analytics" },
-  { to: "/services/intelligent-automation", label: "Intelligent Automation" },
-  { to: "/services/ai-automation", label: "AI Automation" },
   { to: "/services/software-development", label: "Software Development" },
+  { to: "/services/ai-development", label: "AI Development" },
+  { to: "/services/rag-development", label: "RAG Development" },
+  { to: "/services/mobile-app-development", label: "Mobile App Development" },
+  { to: "/services/devops", label: "DevOps Services" },
+  { to: "/services/iot-development", label: "IoT Development" },
+  { to: "/services/ar-vr-development", label: "AR/VR Development" },
+  { to: "/services/product-management", label: "Product Management" },
 ]
 
 const DEVELOPMENT_SERVICE_LINKS: InternalLink[] = [
@@ -293,11 +292,7 @@ const Footer = () => {
       <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-6 md:py-10 lg:px-10 lg:py-14 xl:px-12">
         {/* Mobile & tablet */}
         <div className="lg:hidden">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: true }}
+          <div
             className="mx-auto flex max-w-md flex-col items-center text-center"
           >
             <Link href="/" aria-label="Toadster home" title="Toadster Home">
@@ -323,7 +318,7 @@ const Footer = () => {
               intelligent future, one system at a time.
             </p>
             <ClutchBadge className="mt-5" onDarkBackground />
-          </motion.div>
+          </div>
 
           <div className="mx-auto mt-10 max-w-lg divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5 px-5 sm:px-6">
             <FooterAccordionSection title="Services" defaultOpen>
@@ -346,13 +341,7 @@ const Footer = () => {
 
         {/* Desktop - centered 5-column row */}
         <div className="mx-auto hidden w-full lg:grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-x-6 xl:gap-x-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="min-w-0"
-          >
+          <div className="min-w-0">
             <div className="flex flex-col items-start text-left">
               <Link href="/" aria-label="Toadster home" title="Toadster Home">
                 <ToadsterLogo height={40} width={180} onDarkBackground />
@@ -378,7 +367,7 @@ const Footer = () => {
               </p>
               <ClutchBadge className="mt-5" onDarkBackground />
             </div>
-          </motion.div>
+          </div>
 
           <FooterColumn>
             <FooterSectionTitle compact>Services</FooterSectionTitle>

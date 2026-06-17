@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { motion } from "framer-motion"
+import Image from "next/image"
 import {
   ArrowRight,
   Brain,
@@ -78,25 +78,22 @@ function HireRoleCard({ role, index }: { role: HireRole; index: number }) {
   const Icon = role.icon
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, ease: "easeOut", delay: index * 0.08 }}
-      viewport={{ once: true }}
-      className="h-full"
-    >
+    <div className="scroll-reveal-stagger h-full" style={{ ["--stagger-index" as string]: index }}>
       <Link
         href={role.href}
         title={`Hire ${role.title}`}
         className="hire-role-card group relative flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 md:p-7"
       >
-        <div className="mb-4 flex min-h-11 items-center justify-between gap-3">
-          <h3 className="min-w-0 flex-1 pr-1 text-lg font-bold leading-snug text-slate-900 dark:text-black">
-            {role.title}
-          </h3>
-          <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-            <Icon size={22} strokeWidth={2} />
-          </span>
+        <div className="capability-card-header">
+          <div className="flex min-h-11 items-center justify-between gap-3">
+            <h3 className="min-w-0 flex-1 pr-1 text-lg font-bold leading-snug text-slate-900 dark:text-black">
+              {role.title}
+            </h3>
+            <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+              <Icon size={22} strokeWidth={2} />
+            </span>
+          </div>
+          <span className="capability-card-heading-rule" aria-hidden="true" />
         </div>
 
         <div className="flex-1">
@@ -116,29 +113,29 @@ function HireRoleCard({ role, index }: { role: HireRole; index: number }) {
           ))}
         </div>
       </Link>
-    </motion.div>
+    </div>
   )
 }
 
 export default function HireResources() {
   return (
-    <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center pt-4">
+    <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center px-4 pb-8 pt-6 sm:pt-4">
       <div className="mx-auto max-w-9xl px-4 lg:px-20">
         <ScrollReveal className="mb-12 text-center md:mb-14">
           {/* <p className="section-eyebrow-heading text-2xl font-normal tracking-[0.35em]">
             HIRE <span className="font-extrabold">RESOURCES</span>
           </p> */}
-          <h2 className="mt-4 text-5xl font-extrabold md:text-6xl">
+          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
             <span className="text-page-fg">Hire </span>
             <span className="text-toadster-green">Resources</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-9xl text-xl text-page-fg-muted">
+          <p className="mx-auto mt-4 max-w-9xl text-base text-page-fg-muted sm:text-lg md:text-xl">
             Need a vetted remote AI engineer, ML specialist, or growth expert - without the overhead
             of a full-time hire? Toadster places pre-screened specialists into your team, your
             tools, and your sprint cadence. Most engagements go from brief to kickoff in under a
             week.
           </p>
-          <p className="mx-auto mt-4 max-w-9xl text-lg text-page-fg-subtle">
+          <p className="mx-auto mt-4 max-w-9xl text-sm text-page-fg-subtle sm:text-base md:text-lg">
             Browse the roles below to find the right specialist for your team - most engagements go
             from brief to kickoff in under a week.
           </p>
@@ -151,22 +148,16 @@ export default function HireResources() {
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="section-full-bleed mt-14 md:mt-16"
-      >
+      <ScrollReveal className="section-full-bleed mt-14 md:mt-16">
         <div className="hire-resources-cta w-full">
-          <div className="relative z-10 mx-auto grid max-w-9xl items-center gap-6 px-4 pt-10 sm:px-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-10 md:px-12 md:pt-12 lg:px-20">
+          <div className="relative z-10 mx-auto grid max-w-9xl items-center gap-6 px-4 pb-10 pt-10 sm:px-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-10 md:px-12 md:pb-12 md:pt-12 lg:px-20">
               <div className="mx-auto flex shrink-0 items-end justify-center md:mx-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/hire-resources-employee.png"
+                <Image
+                  src="/hire-resources-employee.webp"
                   alt="Toadster specialist helping you choose the right hire resource"
                   width={408}
                   height={612}
+                  loading="lazy"
                   className="h-[180px] w-auto object-contain md:h-[300px] lg:h-[340px]"
                 />
               </div>
@@ -207,7 +198,7 @@ export default function HireResources() {
               </div>
           </div>
         </div>
-      </motion.div>
+      </ScrollReveal>
     </section>
   )
 }

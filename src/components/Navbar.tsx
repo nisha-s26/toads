@@ -33,6 +33,7 @@ import {
   Server,
   FileCode,
   Users,
+  ClipboardList,
 } from "lucide-react"
 import { HIRE_RESOURCES_NAV } from "@/config/hire-resources"
 import {
@@ -46,6 +47,7 @@ import {
 
 
 const services = [
+  { icon: "Brain", title: "AI Development Services", description: "Practical AI solutions - ML, GenAI, NLP, vision, and MLOps for real business outcomes" },
   { icon: "Brain", title: "AI Agent Development", description: "Autonomous agents that plan, execute, and adapt at scale" },
   { icon: "Flame", title: "Custom AI Solutions", description: "Tailor-made AI systems for unique business challenges" },
   { icon: "Settings2", title: "AI Workflow Automation", description: "Intelligent workflows that automate complex decisions" },
@@ -59,6 +61,11 @@ const services = [
   { icon: "Eye", title: "Computer Vision Development", description: "Visual intelligence and image analytics at scale" },
   { icon: "UserCog", title: "AI Consulting Services", description: "Strategy, architecture, and AI program guidance" },
   { icon: "Code2", title: "Software Development", description: "Custom software, web apps, and scalable product engineering" },
+  { icon: "Smartphone", title: "Mobile App Development", description: "iOS, Android, and cross-platform apps from MVP to launch" },
+  { icon: "Server", title: "DevOps Services", description: "CI/CD pipelines, cloud infrastructure, Kubernetes, and SRE" },
+  { icon: "Cpu", title: "IoT Development Services", description: "End-to-end IoT - firmware, cloud, edge computing, and dashboards" },
+  { icon: "Eye", title: "AR/VR Development Services", description: "VR, AR, MR, and WebAR for training, visualization, and spatial experiences" },
+  { icon: "ClipboardList", title: "Product Management Services", description: "Embedded PMs, roadmaps, discovery, requirements, and fractional CPO leadership" },
 ]
 
 const navLinks = [
@@ -87,19 +94,25 @@ const countries = [
 ]
 
 const SERVICE_ROUTES: Record<string, string> = {
+  "AI Development Services": "/services/ai-development",
   "AI Agent Development": "/services/agentic-ai",
   "Custom AI Solutions": "/services/custom-ai-solutions",
   "AI Workflow Automation": "/services/intelligent-automation",
   "AI Chatbot Development": "/services/ai-chatbots",
   "Generative AI Development": "/services/generative-ai",
   "LLM Development": "/services/llm-development",
-  "RAG Development Services": "/services/llm-development",
+  "RAG Development Services": "/services/rag-development",
   "AI Integration Services": "/services/ai-integration",
   "Enterprise AI Solutions": "/services/industry-solutions",
   "AI Copilot Development": "/services/llm-development",
   "Computer Vision Development": "/services/computer-vision",
   "AI Consulting Services": "/services/ai-consultation",
   "Software Development": "/services/software-development",
+  "Mobile App Development": "/services/mobile-app-development",
+  "DevOps Services": "/services/devops",
+  "IoT Development Services": "/services/iot-development",
+  "AR/VR Development Services": "/services/ar-vr-development",
+  "Product Management Services": "/services/product-management",
 }
 
 const NAV_ICON_MAP = {
@@ -127,6 +140,7 @@ const NAV_ICON_MAP = {
   Server,
   FileCode,
   Users,
+  ClipboardList,
 }
 
 export function Navbar({ activeSection }: { activeSection: string }) {
@@ -374,27 +388,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                           <div className="bg-page-card rounded-2xl shadow-2xl p-5 w-260 border border-page-border">
                             <ul className="grid grid-cols-4 gap-1">
                               {services.map((s) => {
-                                const icons = {
-                                  Brain,
-                                  Code2,
-                                  Building,
-                                  MessageSquare,
-                                  Text,
-                                  Bot,
-                                  Sparkles,
-                                  Flame,
-                                  Cpu,
-                                  Activity,
-                                  Eye,
-                                  UserCog,
-                                  BarChart,
-                                  Database,
-                                  Zap,
-                                  Settings2,
-                                  Link2,
-                                  GitBranch
-                                };
-                                const Icon = icons[s.icon as keyof typeof icons];
+                                const Icon = NAV_ICON_MAP[s.icon as keyof typeof NAV_ICON_MAP]
                                 return (
                                   <li key={s.title}>
                                     <NavigationMenuLink

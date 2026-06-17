@@ -96,9 +96,9 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
       "Toadster's NLP services power language intelligence, document automation, semantic search, and scalable enterprise AI platforms.",
   },
   "/services/ai-development": {
-    title: "AI Development Services | Toadster",
+    title: "AI Development Services | Artificial Intelligence Solutions | Toadster",
     description:
-      "Toadster's AI development services engineer scalable AI systems, high-throughput ETL data pipelines, and intelligent enterprise ML platforms.",
+      "Practical AI development for startups, SMEs, and enterprises - custom ML, generative AI, chatbots, computer vision, MLOps, and AI consulting. Built for measurable ROI.",
   },
   "/services/machine-learning": {
     title: "Machine Learning Services | Toadster",
@@ -149,6 +149,36 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     title: "Software Development Services | Toadster",
     description:
       "Toadster builds scalable software products for startups, SMEs, and enterprises with transparent process, strategic thinking, and long-term partnership.",
+  },
+  "/services/mobile-app-development": {
+    title: "Mobile App Development Services | iOS & Android Apps | Toadster",
+    description:
+      "We build iOS, Android, and cross-platform mobile apps for startups, SMEs, and enterprises. From MVP to full product - design, development, QA, and launch.",
+  },
+  "/services/devops": {
+    title: "DevOps Services | CI/CD, Cloud Infrastructure & Automation | Toadster",
+    description:
+      "DevOps services for engineering teams - CI/CD pipelines, Kubernetes, cloud infrastructure, cost optimisation, and SRE. Ship faster, break less, and scale confidently.",
+  },
+  "/services/iot-development": {
+    title: "IoT Development Services | Connected Devices & Smart Systems | Toadster",
+    description:
+      "End-to-end IoT development services - firmware, cloud platforms, edge computing, data pipelines, and dashboards. From PoC to production deployment.",
+  },
+  "/services/ar-vr-development": {
+    title: "AR/VR Development Services | Immersive Experiences | Toadster",
+    description:
+      "AR/VR development for training, product visualization, WebAR, mixed reality, and spatial computing. Built for measurable business outcomes across enterprise and consumer platforms.",
+  },
+  "/services/product-management": {
+    title: "Product Management Services | Roadmaps, Discovery & Delivery | Toadster",
+    description:
+      "Embedded product management for startups and enterprises - product strategy, roadmaps, discovery, requirements, backlog prioritisation, agile delivery, and fractional CPO services.",
+  },
+  "/services/rag-development": {
+    title: "RAG Development Services | Retrieval-Augmented Generation | Toadster",
+    description:
+      "Production-grade RAG development - custom pipelines, enterprise knowledge bases, multi-source retrieval, hybrid SQL+vector systems, and agentic RAG. Connect LLMs to your proprietary data for accurate, grounded AI.",
   },
   "/services/agent-2-agent": {
     title: "Agent2Agent AI Solutions | Toadster",

@@ -26,7 +26,11 @@ const legacyHireRedirects: { source: string; destination: string }[] = [
 ]
 
 const nextConfig: NextConfig = {
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion", "react-icons"],
+  },
   images: {
+    qualities: [75, 80, 90],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "plus.unsplash.com" },

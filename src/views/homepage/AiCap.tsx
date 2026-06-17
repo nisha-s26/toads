@@ -12,7 +12,6 @@ import {
   Eye,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
-import { motion } from "framer-motion"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { ScrollReveal } from "@/components/ScrollReveal"
@@ -241,17 +240,17 @@ export default function AiCap() {
   // }, [selected])
 
   return (
-    <section className="homepage-snap-section flex w-full flex-col justify-center px-4 mt-10">
+    <section className="homepage-snap-section mt-6 flex w-full flex-col justify-center px-4 sm:mt-10">
       {/* Header */}
       <ScrollReveal className="mb-12 text-center">
         {/* <p className="section-eyebrow-heading text-2xl font-normal tracking-[0.35em]">
           OUR <span className="font-extrabold">AI CAPABILITIES</span>
         </p> */}
-        <h2 className="mb-4 text-5xl font-extrabold md:text-6xl mt-4">
+        <h2 className="mb-4 mt-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
           <span className="text-page-fg">AI  </span>
           <span className="text-toadster-green">Capabilities</span>
         </h2>
-        <p className="mx-auto max-w-7xl text-xl text-page-fg-muted">
+        <p className="mx-auto max-w-7xl px-2 text-base text-page-fg-muted sm:px-0 sm:text-lg md:text-xl">
           From AI strategy to deployment - comprehensive machine learning, generative AI, and data
           engineering capabilities that turn your business vision into production-grade intelligent software.
         </p>
@@ -260,41 +259,38 @@ export default function AiCap() {
       {/* Cards Grid */}
       <div className="mx-auto grid w-full max-w-9xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-5 lg:px-8 [grid-auto-rows:1fr]">
         {services.map((service, index) => (
-          <motion.button
+          <Link
             key={service.title}
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              ease: "easeOut",
-              delay: index * 0.07,
-            }}
-            viewport={{ once: true }}
-            // onClick={() => setSelected(service)}
+            href={service.to}
+            title={service.title}
             className={cn(
-              "group flex h-full min-h-[220px] w-full flex-col sm:min-h-[250px] lg:min-h-[280px] xl:min-h-[300px]",
+              "scroll-reveal-stagger group flex h-full min-h-[200px] w-full flex-col sm:min-h-[250px] lg:min-h-[280px] xl:min-h-[300px]",
               CARD_STYLES.capabilityCard,
               CARD_STYLES.focusRing,
             )}
+            style={{ ["--stagger-index" as string]: index }}
           >
-            <div className="relative z-10 mb-4 flex min-h-11 items-center justify-between gap-3">
-              <h3 className={cn(CARD_STYLES.capabilityTitle, "min-w-0 flex-1 pr-1")}>
-                {service.title}
-              </h3>
-              <span
-                className={cn(
-                  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green shadow-md",
-                  CARD_STYLES.iconText,
-                )}
-              >
-                <service.icon size={22} strokeWidth={2} />
-              </span>
+            <div className="capability-card-header relative z-10">
+              <div className="flex min-h-11 items-center justify-between gap-3">
+                <h3 className={cn(CARD_STYLES.capabilityTitle, "min-w-0 flex-1 pr-1")}>
+                  {service.title}
+                </h3>
+                <span
+                  className={cn(
+                    "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green shadow-md",
+                    CARD_STYLES.iconText,
+                  )}
+                >
+                  <service.icon size={22} strokeWidth={2} />
+                </span>
+              </div>
+              <span className="capability-card-heading-rule" aria-hidden="true" />
             </div>
             <p className={CARD_STYLES.capabilityBody}>{service.shortDesc}</p>
             <span className={CARD_STYLES.capabilityCta}>
               {service.ctaAnchor} <span aria-hidden="true">→</span>
             </span>
-          </motion.button>
+          </Link>
         ))}
       </div>
 

@@ -1,22 +1,31 @@
 "use client"
 
-import { useEffect } from "react"
-import HeroSection from "./HeroSection"
-import TrustedBy from "./TrustedBy"
 import { HeroScrollIndicator } from "./HeroScrollIndicator"
-import WhyUs from "./WhyUs"
-import HireResources from "./HireResources"
-import AiCap from "./AiCap"
-// import OurProcess from "./OurProcess"
-import GetStarted from "./GetStarted"
-import HomepageFaq from "./HomepageFaq"
-import HomepageBlogs from "./HomepageBlogs"
+import TrustedBy from "./TrustedBy"
 import { HomepageMeshBg } from "@/components/HomepageMeshBg"
 import { useTheme } from "@/hooks/theme"
-// import Solutions from "./Solutions"
-// import ParallaxShowcase from "./ParallaxShowcase"
+import dynamic from "next/dynamic"
+import Image from "next/image"
+import type { BlogPost } from "@/views/blogs/blogData"
+import { useEffect } from "react"
+import HeroSection from "./HeroSection"
 
-const HomePage = () => {
+const SectionPlaceholder = () => (
+  <div className="homepage-snap-section min-h-[50vh] shrink-0" aria-hidden />
+)
+
+const AiCap = dynamic(() => import("./AiCap"), { loading: SectionPlaceholder })
+const WhyUs = dynamic(() => import("./WhyUs"), { loading: SectionPlaceholder })
+const HireResources = dynamic(() => import("./HireResources"), { loading: SectionPlaceholder })
+const HomepageFaq = dynamic(() => import("./HomepageFaq"), { loading: SectionPlaceholder })
+const HomepageBlogs = dynamic(() => import("./HomepageBlogs"), { loading: SectionPlaceholder })
+const GetStarted = dynamic(() => import("./GetStarted"), { loading: SectionPlaceholder })
+
+type HomePageProps = {
+  initialBlogs?: BlogPost[]
+}
+
+const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
   const { theme } = useTheme()
   const heroOnDarkBackground = theme === "dark"
 
@@ -31,10 +40,31 @@ const HomePage = () => {
       <div className="homepage-content relative z-10">
         <section
           id="homepage-hero-viewport"
-          className="homepage-snap-section homepage-hero-viewport homepage-hero-viewport--image relative flex min-h-[100dvh] max-h-[100dvh] flex-col overflow-hidden"
+          className="homepage-snap-section homepage-hero-viewport homepage-hero-viewport--image relative flex flex-col overflow-hidden"
         >
-          <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
-            <div className="homepage-hero-bg-image absolute bg-no-repeat" />
+          <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+            <div className="homepage-hero-bg-image absolute inset-0 max-sm:blur-xs">
+              <Image
+                src="/homepage-hero-light.webp"
+                alt=""
+                fill
+                priority
+                fetchPriority="high"
+                quality={80}
+                sizes="100vw"
+                className="object-cover object-[center_20%] dark:hidden"
+              />
+              <Image
+                src="/homepage-hero.webp"
+                alt=""
+                fill
+                priority
+                fetchPriority="high"
+                quality={80}
+                sizes="100vw"
+                className="hidden object-cover object-[center_20%] dark:block"
+              />
+            </div>
             <div className="homepage-hero-bg-overlay absolute inset-0" />
           </div>
           <HeroSection />
@@ -44,13 +74,10 @@ const HomePage = () => {
 
         <div id="homepage-sections" className="homepage-sections">
           <AiCap />
-          {/* <OurProcess /> */}
           <WhyUs />
           <HireResources />
-          {/* <ParallaxShowcase /> */}
-          {/* <Solutions /> */}
           <HomepageFaq />
-          <HomepageBlogs />
+          <HomepageBlogs initialBlogs={initialBlogs} />
           <GetStarted />
         </div>
       </div>

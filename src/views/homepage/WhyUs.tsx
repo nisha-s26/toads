@@ -1,9 +1,8 @@
 "use client"
 
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { ScrollReveal } from "@/components/ScrollReveal"
 
 const STATS = [
   { value: "200+", label: "AI systems shipped" },
@@ -13,35 +12,19 @@ const STATS = [
 ]
 
 const WhyUs = () => {
-  const ref = useRef<HTMLElement | null>(null)
-  const inView = useInView(ref, { amount: 0.2, once: true })
-
   return (
     <section
-      ref={ref}
       id="why-us"
       className="homepage-snap-section section-full-bleed relative isolate flex flex-col justify-center overflow-hidden"
     >
-      {/* <div className="absolute inset-0 -z-10 bg-[#0f1726]" aria-hidden /> */}
-      {/* <div className="absolute inset-0 -z-10 parallax-overlay" aria-hidden /> */}
-      {/* <div className="absolute inset-0 -z-10 parallax-grid opacity-30" aria-hidden /> */}
       <div className="relative z-10 mx-auto max-w-9xl px-4 lg:px-20">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
-          transition={{ duration: 0.75, ease: "easeOut" }}
-          className="mx-auto flex max-w-9xl px-10 flex-col items-center text-center"
-        >
-          {/* <p className="section-eyebrow-heading text-2xl font-normal uppercase tracking-[0.35em]">
-            Why <span className="font-extrabold">Us</span>
-          </p> */}
-
-          <h2 className="mt-4 text-4xl font-extrabold leading-[1.08] md:text-5xl lg:text-[3.25rem]">
+        <ScrollReveal className="mx-auto flex max-w-9xl flex-col items-center px-4 text-center sm:px-10">
+          <h2 className="mt-4 text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
             <span className="text-page-fg">Why Choose </span>
             <span className="text-toadster-green">Us</span>
           </h2>
 
-          <p className="mt-6 max-w-9xl text-base leading-relaxed text-page-fg-muted md:text-lg">
+          <p className="mt-6 max-w-9xl text-sm leading-relaxed text-page-fg-muted sm:text-base md:text-lg">
             Most software agencies build features. We build AI-integrated systems that hold up - under
             real load, with real data, in production environments where things actually break. Whether
             you need an{" "}
@@ -65,29 +48,14 @@ const WhyUs = () => {
 
           <div className="mt-10 grid w-full max-w-9xl grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-6">
             {STATS.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              >
-                <p className="text-2xl font-extrabold text-toadster-green md:text-3xl">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-xs font-medium leading-snug text-page-fg-muted md:text-sm">
-                  {stat.label}
-                </p>
-              </motion.div>
+              <ScrollReveal key={stat.label} delay={0.2 + index * 0.1} className="text-center">
+                <p className="text-2xl font-extrabold text-toadster-green md:text-3xl">{stat.value}</p>
+                <p className="mt-1 text-xs font-medium leading-snug text-page-fg-muted md:text-sm">{stat.label}</p>
+              </ScrollReveal>
             ))}
           </div>
 
-          <motion.div
-            className="mt-10 flex flex-col justify-center gap-3 sm:flex-row"
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.55, delay: 0.55 }}
-          >
+          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/about"
               title="Learn more about Toadster"
@@ -103,8 +71,8 @@ const WhyUs = () => {
             >
               View Our Services
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )

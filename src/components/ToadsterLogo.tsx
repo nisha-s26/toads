@@ -8,7 +8,7 @@ interface ToadsterLogoProps {
   alt?: string
   height?: number
   width?: number
-  /** Use on dark backgrounds (e.g. footer) — renders the white logo with toad eye dot */
+  /** Use on dark backgrounds (e.g. footer) - renders the white logo with toad eye dot */
   onDarkBackground?: boolean
 }
 

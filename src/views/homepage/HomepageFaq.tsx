@@ -3,8 +3,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import { ChevronDown, ArrowUpRight } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { ScrollReveal } from "@/components/ScrollReveal"
 
 type FaqCategory = "what" | "how" | "why" | "who"
 
@@ -45,14 +45,14 @@ const FAQS: FaqEntry[] = [
     tag: "How it works",
     question: "How does the process work from idea to launch?",
     answer:
-      "We start with a discovery call to understand your goals and challenges. From there, our team designs a solution architecture, builds an MVP, and iterates with your feedback - typically launching in 6–12 weeks. After go-live, we offer ongoing support, optimisation, and scaling as your needs grow.",
+      "We start with a discovery call to understand your goals and challenges. From there, our team designs a solution architecture, builds an MVP, and iterates with your feedback - typically launching in 6-12 weeks. After go-live, we offer ongoing support, optimisation, and scaling as your needs grow.",
   },
   {
     category: "how",
     tag: "How it works",
     question: "How long does it take to build a custom AI solution?",
     answer:
-      "Simple automations and AI integrations can go live in 2–4 weeks. Complex custom AI platforms or products take 8–16 weeks depending on scope. We always give you a clear timeline upfront - no surprises midway through.",
+      "Simple automations and AI integrations can go live in 2-4 weeks. Complex custom AI platforms or products take 8-16 weeks depending on scope. We always give you a clear timeline upfront - no surprises midway through.",
   },
   {
     category: "how",
@@ -111,20 +111,13 @@ function FaqCard({
   entry,
   isOpen,
   onToggle,
-  index,
 }: {
   entry: FaqEntry
   isOpen: boolean
   onToggle: () => void
-  index: number
 }) {
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -16 }}
-      transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.07 }}
+    <div
       className={cn(
         "faq-glass-surface faq-accordion-surface overflow-hidden rounded-xl transition-all duration-300",
         isOpen && "ring-1 ring-white/40",
@@ -149,31 +142,23 @@ function FaqCard({
         />
       </button>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden bg-transparent"
-          >
-            <div className="px-4 pb-4 md:px-5 md:pb-5">
-              <p className="text-base leading-relaxed text-slate-800 dark:text-white/85">{entry.answer}</p>
-              {entry.cta && (
-                <Link
-                  href={entry.cta.href}
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-toadster-green transition-colors hover:underline md:text-base"
-                >
-                  {entry.cta.label}
-                  <ArrowUpRight size={16} aria-hidden />
-                </Link>
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+      {isOpen ? (
+        <div className="overflow-hidden bg-transparent">
+          <div className="px-4 pb-4 md:px-5 md:pb-5">
+            <p className="text-base leading-relaxed text-slate-800 dark:text-white/85">{entry.answer}</p>
+            {entry.cta ? (
+              <Link
+                href={entry.cta.href}
+                className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-toadster-green transition-colors hover:underline md:text-base"
+              >
+                {entry.cta.label}
+                <ArrowUpRight size={16} aria-hidden />
+              </Link>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+    </div>
   )
 }
 
@@ -205,70 +190,52 @@ export default function HomepageFaq() {
   return (
     <section
       id="faq"
-      className="homepage-snap-section relative isolate flex flex-col justify-center overflow-hidden px-4 py-10 md:py-10 lg:px-20"
+      className="homepage-snap-section relative isolate flex flex-col justify-center px-4 py-8 sm:py-10 md:py-10 lg:px-20"
     >
       <div className="relative z-10 mx-auto w-full max-w-5xl">
-        <motion.div
-          className="mb-10 text-center md:mb-12"
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
-        >
+        <ScrollReveal className="mb-10 text-center md:mb-12">
           {/* <p className="section-eyebrow-heading text-2xl font-bold tracking-[0.35em]">FAQ</p> */}
-          <h2 className="mt-4 text-5xl font-extrabold md:text-6xl">
+          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
             <span className="text-page-fg">Frequently Asked </span>
             <span className="text-toadster-green">Questions</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-xl text-page-fg-muted">
+          <p className="mx-auto mt-4 max-w-3xl text-base text-page-fg-muted sm:text-lg md:text-xl">
             Everything you need to know about working with Toadster Technologies.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
         <div className="flex flex-col gap-2.5">
-          <AnimatePresence initial={false} mode="popLayout">
-            {visibleFaqs.map((faq, index) => (
-              <FaqCard
-                key={faq.question}
-                index={index}
-                entry={faq}
-                isOpen={openQuestion === faq.question}
-                onToggle={() => handleToggle(faq.question)}
-              />
-            ))}
-          </AnimatePresence>
+          {visibleFaqs.map((faq) => (
+            <FaqCard
+              key={faq.question}
+              entry={faq}
+              isOpen={openQuestion === faq.question}
+              onToggle={() => handleToggle(faq.question)}
+            />
+          ))}
         </div>
 
         {(canShowMore || canShowLess) && (
-          <motion.div
-            className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: 0.15 }}
-          >
-            {canShowMore && (
-              <motion.button
+          <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            {canShowMore ? (
+              <button
                 type="button"
                 onClick={handleShowMore}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
                 className="w-fit rounded-xl bg-primary px-5 py-3.5 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
               >
                 See more
-              </motion.button>
-            )}
-            {canShowLess && (
-              <motion.button
+              </button>
+            ) : null}
+            {canShowLess ? (
+              <button
                 type="button"
                 onClick={handleShowLess}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
                 className="w-fit rounded-xl bg-primary px-5 py-3.5 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
               >
                 See less
-              </motion.button>
-            )}
-          </motion.div>
+              </button>
+            ) : null}
+          </div>
         )}
       </div>
     </section>
