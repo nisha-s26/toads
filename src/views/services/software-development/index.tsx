@@ -11,11 +11,9 @@ import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
 import {
   benefits,
   capabilities,
-  caseStudies,
   engagementModels,
   faqs,
   heroTrustItems,
-  industries,
   processSteps,
   techCategories,
   trustStats,
@@ -503,7 +501,7 @@ export default function SoftwareDevelopmentPage() {
                 tags: ["Agile", "BPMN", "Jira"],
               },
             ].map((item) => (
-              <div key={item.title} className="rounded-2xl border border-page-border bg-page-card p-6 transition-all hover:-translate-y-0.5 hover:border-toadster-green/40 hover:shadow-md">
+              <div key={item.title} className="flex flex-col h-full rounded-2xl border border-page-border bg-page-card p-6 transition-all hover:-translate-y-0.5 hover:border-toadster-green/40 hover:shadow-md">
                 <h3 className="mb-3 text-lg font-bold text-page-fg">{item.title}</h3>
                 <p className="mb-6 text-sm leading-relaxed text-page-fg-muted">{item.desc}</p>
                 <div className="mb-6 flex flex-wrap gap-2">
@@ -513,9 +511,12 @@ export default function SoftwareDevelopmentPage() {
                     </span>
                   ))}
                 </div>
-                {/* <CTALink to="/hire" className="inline-flex items-center gap-2 text-sm text-page-fg hover:text-toadster-green transition-colors">
+                <Link
+                  href="/hire"
+                  className="apply-link mt-auto inline-flex items-center gap-2 text-sm text-page-fg transition-colors hover:text-toadster-green"
+                >
                   Hire Now <ArrowRight size={18} />
-                </CTALink> */}
+                </Link>
               </div>
             ))}
           </div>

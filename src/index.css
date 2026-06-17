@@ -1573,3 +1573,13 @@ html.homepage-scroll-snap {
 .section-padding {
   margin-top: -40px;
 }
+
+.apply-link {
+  color: #004d2d;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.apply-link:hover {
+  text-decoration: underline;
+}

@@ -6,7 +6,6 @@ import { motion, useReducedMotion } from "framer-motion"
 import { Navbar } from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import { HomepageMeshBg } from "@/components/HomepageMeshBg"
-import { RelatedLinks } from "@/components/RelatedLinks"
 import { resolveActiveSection } from "@/config/routes"
 
 export function ClientShell({ children }: { children: ReactNode }) {

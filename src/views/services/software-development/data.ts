@@ -9,7 +9,7 @@ export const trustStats = [
   { number: "150+", label: "Software projects delivered" },
   // { number: "8+", label: "Years of experience" },
   { number: "40+", label: "Technology experts" },
-  { number: "18", label: "Industries served" },
+  // { number: "18", label: "Industries served" },
   { number: "92%", label: "Client retention rate" },
 ]
 
