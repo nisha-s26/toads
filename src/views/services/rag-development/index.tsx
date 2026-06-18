@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { FAQSection } from "@/components/service-page/FAQSection"
 import { SectionHead } from "@/components/service-page/SectionHead"
+import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
 import {
   benefits,
@@ -16,7 +17,6 @@ import {
   costTimelines,
   engagementModels,
   faqs,
-  heroTrustItems,
   industries,
   processSteps,
   techCategories,
@@ -155,8 +155,8 @@ export default function RAGDevelopmentPage() {
         id="contact"
         className="software-development-hero section-full-bleed relative overflow-hidden pb-10 md:pb-14 lg:pb-20 bg-page-bg"
       >
-        <div className="relative mx-auto grid w-full max-w-6xl items-start gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_520px] lg:gap-14 lg:px-8 xl:ml-[60px]">
-          <div className="lg:sticky lg:top-24 self-start">
+        <div className="service-hero-grid relative mx-auto grid w-full max-w-6xl items-start gap-8 lg:gap-14">
+          <div className="service-hero-content lg:sticky lg:top-24 self-start">
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-toadster-green/35 bg-toadster-green/15 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-toadster-green">
               <span className="h-2 w-2 rounded-full bg-toadster-green" />
               RAG Development Services
@@ -164,19 +164,11 @@ export default function RAGDevelopmentPage() {
             <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
               AI That Knows Your Business - Not Just the <span className="text-toadster-green">Internet</span>
             </h1>
-            <p className="mb-8 max-w-xl text-lg leading-relaxed text-page-fg-muted">
+            <p className="service-hero-subtitle mb-8 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
               We design and build Retrieval-Augmented Generation (RAG) systems that connect large language models to
               your proprietary data - so your teams get precise, contextually accurate answers instead of hallucinated
               generalities.
             </p>
-            <div className="mb-8 flex flex-wrap gap-5">
-              {heroTrustItems.map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm font-medium text-page-fg-muted">
-                  <span className="h-2 w-2 shrink-0 rounded-full bg-toadster-green" />
-                  {item}
-                </div>
-              ))}
-            </div>
 
             <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {trustStats.map((stat) => (
@@ -200,7 +192,7 @@ export default function RAGDevelopmentPage() {
             </div>
           </div>
 
-          <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="hide-scrollbar">
+          <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="service-hero-form hide-scrollbar">
             <HeroConsultationForm />
           </div>
         </div>
@@ -221,7 +213,7 @@ export default function RAGDevelopmentPage() {
             {whatIsRag.components.map((item) => (
               <div
                 key={item.title}
-                className="capability-card-surface relative rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                className="capability-card-surface relative rounded-2xl p-6 transition-all duration-300"
               >
                 <div className="capability-card-header relative z-10">
                   <h3 className="text-base font-bold text-toadster-green">{item.title}</h3>
@@ -247,7 +239,7 @@ export default function RAGDevelopmentPage() {
               return (
                 <div
                   key={cap.title}
-                  className="capability-card-surface group relative rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
+                  className="capability-card-surface group relative rounded-2xl p-7 transition-all duration-300"
                 >
                   <div className="capability-card-header relative z-10">
                     <div className="flex items-start justify-between gap-3">
@@ -296,7 +288,7 @@ export default function RAGDevelopmentPage() {
               return (
                 <div
                   key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
                 >
                   <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
                     <Icon size={22} strokeWidth={2} />
@@ -321,13 +313,13 @@ export default function RAGDevelopmentPage() {
             subtitle="There are plenty of teams that can wire together a RAG demo. We build systems that hold up under production conditions - and we stay accountable to business outcomes, not just deliverables."
             labelClassName="text-toadster-green"
           />
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-1 xl:grid-cols-2">
             {whyToadster.map((item) => {
               const Icon = item.icon
               return (
                 <div
                   key={item.title}
-                  className="capability-card-surface group relative flex gap-4 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
+                  className="capability-card-surface group relative flex gap-4 rounded-2xl p-7 transition-all duration-300"
                 >
                   <span className="relative z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
                     <Icon size={22} strokeWidth={2} />
@@ -346,51 +338,26 @@ export default function RAGDevelopmentPage() {
         </div>
       </section>
 
-      <section id="process" className="py-16 bg-page-bg section-padding">
-        <div className="mx-auto grid max-w-6xl items-start gap-12 px-4 lg:grid-cols-[380px_1fr] lg:gap-20">
-          <div className="lg:sticky lg:top-24 self-start">
+      <section id="process" className="service-process-section py-16 section-padding">
+                <div className="service-process-panel mx-auto grid max-w-6xl items-start gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[minmax(280px,380px)_1fr] lg:gap-14 lg:px-10 lg:py-14">
+          <div className="service-process-intro lg:sticky lg:top-24 self-start">
             <SectionHead
               label=""
               title="How we turn your data into a working RAG system"
               subtitle="A RAG system is only as good as the architecture decisions made during development. Our process produces accurate, scalable systems - not proof-of-concept demos that fall apart under real usage."
             />
-            <div className="mt-10 rounded-[2rem] border border-page-border bg-page-card p-6 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-toadster-green/80">
+            <div className="service-process-timeline-card">
+              <p className="service-process-timeline-label">
                 Typical project timeline
               </p>
-              <div className="mt-6 text-5xl font-extrabold tracking-tight text-page-fg">
-                10-16 <span className="text-2xl font-semibold text-page-fg-muted">weeks</span>
+              <div className="service-process-timeline-value">
+                10-16 <span className="service-process-timeline-unit">weeks</span>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-page-fg-muted">from discovery to production deployment, depending on data complexity</p>
+              <p className="service-process-timeline-desc">from discovery to production deployment, depending on data complexity</p>
             </div>
           </div>
 
-          <div
-            style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }}
-            className="divide-y divide-page-border hide-scrollbar"
-          >
-            {processSteps.map((step) => (
-              <div key={step.num} className="group grid gap-6 py-8 md:grid-cols-[72px_1fr] md:gap-8">
-                <div className="text-right text-5xl font-extrabold leading-none text-page-border transition-colors group-hover:text-toadster-green">
-                  {step.num}
-                </div>
-                <div>
-                  <h3 className="mb-2 text-xl font-bold text-page-fg">{step.title}</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-page-fg-muted">{step.desc}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {step.deliverables.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded bg-toadster-green/10 px-3 py-1 text-xs font-semibold text-toadster-green"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ServiceProcessSteps steps={processSteps} />
         </div>
       </section>
 
@@ -407,7 +374,7 @@ export default function RAGDevelopmentPage() {
               return (
                 <div
                   key={cat.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
                 >
                   <div className="capability-card-header relative z-10">
                     <div className="flex items-start justify-between gap-3">
@@ -449,7 +416,7 @@ export default function RAGDevelopmentPage() {
               return (
                 <div
                   key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
                 >
                   <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
                     <Icon size={22} strokeWidth={2} />
@@ -512,7 +479,7 @@ export default function RAGDevelopmentPage() {
                   </span>
                 ) : null}
                 <div
-                  className={`capability-card-surface relative rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+                  className={`capability-card-surface relative rounded-2xl p-8 transition-all duration-300 hover:shadow-md ${
                     model.featured ? "ring-2 ring-toadster-green/35" : ""
                   }`}
                 >
@@ -569,12 +536,6 @@ export default function RAGDevelopmentPage() {
             >
               Schedule a Free Consultation <ArrowRight size={18} className="ml-2" />
             </CTALink>
-            <Link
-              href="mailto:business@toadsters.com"
-              className="inline-flex items-center rounded-xl border border-page-border bg-page-bg-alt px-7 py-3 text-sm font-semibold text-page-fg transition-colors hover:bg-page-border"
-            >
-              Email us directly
-            </Link>
           </div>
           <p className="mt-6 text-sm text-page-fg-muted">
             Typically responds within one business day · No spam, no sales scripts

@@ -4,6 +4,7 @@ import { useEffect, type ReactNode } from "react"
 import { usePathname } from "next/navigation"
 import { Navbar } from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import { FloatingTechElements } from "@/components/FloatingTechElements"
 import { HomepageMeshBg } from "@/components/HomepageMeshBg"
 import { resolveActiveSection } from "@/config/routes"
 
@@ -13,7 +14,6 @@ export function ClientShell({ children }: { children: ReactNode }) {
   const isServicesPage = pathname?.startsWith("/services") ?? false
   const isBlogsPage = pathname?.startsWith("/blogs") ?? false
   const isCareersPage = pathname?.startsWith("/careers") ?? false
-  const usesMeshBg = isServicesPage || isBlogsPage || isCareersPage
   const meshVariant = isBlogsPage ? "blogs" : isCareersPage ? "careers" : "default"
 
   useEffect(() => {
@@ -25,18 +25,13 @@ export function ClientShell({ children }: { children: ReactNode }) {
       <Navbar activeSection={activeSection} />
       <main
         key={pathname}
-        className={
-          usesMeshBg
-            ? `page-route-enter page-ambient-shell homepage-mesh-shell relative isolate${
-                isServicesPage ? " services-mesh-shell" : ""
-              }${isBlogsPage ? " blogs-mesh-shell" : ""}${
-                isCareersPage ? " careers-mesh-shell" : ""
-              }`
-            : "page-route-enter"
-        }
+        className={`page-route-enter page-ambient-shell homepage-mesh-shell relative isolate${
+          isServicesPage ? " services-mesh-shell" : ""
+        }${isBlogsPage ? " blogs-mesh-shell" : ""}${isCareersPage ? " careers-mesh-shell" : ""}`}
       >
-        {usesMeshBg && <HomepageMeshBg variant={meshVariant} />}
-        <div className={usesMeshBg ? "relative z-10" : undefined}>
+        <FloatingTechElements />
+        <HomepageMeshBg variant={meshVariant} />
+        <div className="relative z-10">
           {isServicesPage ? <div className="page-content-container">{children}</div> : children}
         </div>
       </main>

@@ -18,7 +18,6 @@ import {
   Users,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
-import { HomepageMeshBg } from "@/components/HomepageMeshBg"
 import { cn } from "@/lib/utils"
 
 const MISSION_STATS = [
@@ -168,8 +167,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="page-ambient-shell homepage-mesh-shell relative isolate">
-        <HomepageMeshBg />
+      <div className="relative">
         <div className="homepage-content relative z-10">
           <section className="pt-6 sm:pt-8 md:pt-10">
             <div className="mx-auto grid max-w-9xl items-stretch gap-6 px-4 sm:gap-8 sm:px-6 md:mx-20 md:grid-cols-2 md:gap-12 md:px-0">
@@ -197,7 +195,7 @@ export default function AboutPage() {
                     return (
                       <div
                         key={stat.label}
-                        className="capability-card-surface group relative overflow-hidden rounded-2xl p-3 text-center transition-all duration-300 hover:-translate-y-1 sm:p-5"
+                        className="capability-card-surface group relative overflow-hidden rounded-2xl p-3 text-center transition-all duration-300 sm:p-5"
                       >
                         <div className="relative z-10">
                           <span className="mx-auto mb-2 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md sm:mb-3 sm:h-10 sm:w-10">
@@ -329,7 +327,7 @@ export default function AboutPage() {
                             title="Naveen Singh"
                             fill
                             loading="lazy"
-                            quality={82}
+                            quality={80}
                             className="scale-[1.12] object-cover object-[50%_20%] transition-transform duration-500 group-hover:scale-[1.18]"
                             sizes="(max-width: 640px) 144px, (max-width: 768px) 192px, 224px"
                           />
@@ -441,7 +439,7 @@ export default function AboutPage() {
                     href={to}
                     title={title}
                     className={cn(
-                      "capability-card-surface group relative flex h-full flex-col overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 sm:p-6 md:p-7",
+                      "capability-card-surface group relative flex h-full flex-col overflow-hidden rounded-2xl p-5 transition-all duration-300 sm:p-6 md:p-7",
                     )}
                   >
                     <div className="relative z-10 flex h-full flex-col">

@@ -36,7 +36,7 @@ const CARD_STYLES = {
   dot: "bg-toadster-green",
   badge: "bg-toadster-green/10 text-toadster-green border-toadster-green/25",
   capabilityCard:
-    "capability-card-surface rounded-2xl p-8 text-left transition-all duration-300 hover:-translate-y-1",
+    "capability-card-surface rounded-2xl p-8 text-left transition-all duration-300",
   capabilityTitle: "relative z-10 text-xl font-bold leading-snug text-slate-900",
   capabilityBody: "relative z-10 flex-1 text-sm leading-relaxed text-slate-600",
   capabilityCta:

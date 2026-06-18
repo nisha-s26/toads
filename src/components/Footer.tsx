@@ -27,8 +27,11 @@ const AI_SERVICE_LINKS: InternalLink[] = [
   { to: "/services/mobile-app-development", label: "Mobile App Development" },
   { to: "/services/devops", label: "DevOps Services" },
   { to: "/services/iot-development", label: "IoT Development" },
-  { to: "/services/ar-vr-development", label: "AR/VR Development" },
+  { to: "/services/vr-development", label: "VR Development" },
   { to: "/services/product-management", label: "Product Management" },
+  { to: "/services/penetration-testing", label: "Penetration Testing" },
+  { to: "/services/saas-app-development", label: "SaaS App Development" },
+  { to: "/services/web-development", label: "Web Development" },
 ]
 
 const DEVELOPMENT_SERVICE_LINKS: InternalLink[] = [

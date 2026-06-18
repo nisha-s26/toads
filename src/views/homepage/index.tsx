@@ -2,7 +2,6 @@
 
 import { HeroScrollIndicator } from "./HeroScrollIndicator"
 import TrustedBy from "./TrustedBy"
-import { HomepageMeshBg } from "@/components/HomepageMeshBg"
 import { useTheme } from "@/hooks/theme"
 import dynamic from "next/dynamic"
 import Image from "next/image"
@@ -35,9 +34,7 @@ const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
   }, [])
 
   return (
-    <div className="page-ambient-shell homepage-mesh-shell relative isolate">
-      <HomepageMeshBg />
-      <div className="homepage-content relative z-10">
+    <div className="homepage-content relative">
         <section
           id="homepage-hero-viewport"
           className="homepage-snap-section homepage-hero-viewport homepage-hero-viewport--image relative flex flex-col overflow-hidden"
@@ -80,7 +77,6 @@ const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
           <HomepageBlogs initialBlogs={initialBlogs} />
           <GetStarted />
         </div>
-      </div>
     </div>
   )
 }

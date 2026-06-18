@@ -9,15 +9,16 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { FAQSection } from "@/components/service-page/FAQSection"
 import { SectionHead } from "@/components/service-page/SectionHead"
+import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
 import {
   benefits,
   capabilities,
   engagementModels,
   faqs,
-  heroTrustItems,
-  industries,
+  hireRoles,
   processSteps,
+  teamStats,
   techCategories,
   trustStats,
   whyToadster,
@@ -71,16 +72,16 @@ function HeroConsultationForm() {
       </span>
       <h3 className="relative z-10 text-xl font-bold text-slate-900 dark:text-black">Tell us about your project</h3>
       <p className="capability-card-copy relative z-10 mt-2 mb-6 text-sm">
-        Tell us about your AR/VR project and we'll schedule a free strategy call - no sales pitch, just an honest conversation.
+        We typically respond within one business day. No sales pressure - just a real conversation about your SaaS project.
       </p>
 
       <form onSubmit={handleSubmit} className="relative z-10 space-y-4">
         <div>
-          <label htmlFor="mad-name" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+          <label htmlFor="saas-name" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Your Name
           </label>
           <Input
-            id="arvr-name"
+            id="saas-name"
             name="name"
             value={formData.name}
             onChange={handleChange}
@@ -90,11 +91,11 @@ function HeroConsultationForm() {
           />
         </div>
         <div>
-          <label htmlFor="mad-email" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+          <label htmlFor="saas-email" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Work Email
           </label>
           <Input
-            id="arvr-email"
+            id="saas-email"
             name="fromEmail"
             type="email"
             value={formData.fromEmail}
@@ -105,11 +106,11 @@ function HeroConsultationForm() {
           />
         </div>
         <div>
-          <label htmlFor="mad-company" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+          <label htmlFor="saas-company" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Company Name
           </label>
           <Input
-            id="arvr-company"
+            id="saas-company"
             name="company"
             value={formData.company}
             onChange={handleChange}
@@ -118,15 +119,15 @@ function HeroConsultationForm() {
           />
         </div>
         <div>
-          <label htmlFor="iot-requirements" className="capability-card-copy mb-1.5 block text-sm font-semibold">
-            Describe your AR/VR use case
+          <label htmlFor="saas-requirements" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+            Project Description
           </label>
           <Textarea
-            id="arvr-requirements"
+            id="saas-requirements"
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Tell us about the experience you want to build, your target users, platforms, and what business outcome you need..."
+            placeholder="Tell us about your SaaS idea, target users, timeline, and what success looks like..."
             className="bright-panel-input min-h-[90px]"
           />
         </div>
@@ -135,7 +136,7 @@ function HeroConsultationForm() {
             ? "Request Received - We'll be in touch soon!"
             : isSubmitting
               ? "Sending..."
-              : "Schedule a Free Consultation"}
+              : "Get Free Consultation"}
         </Button>
         {submitStatus === "error" ? (
           <p className="text-center text-sm text-red-500">Something went wrong. Please try again.</p>
@@ -146,37 +147,34 @@ function HeroConsultationForm() {
   )
 }
 
-export default function ARVRDevelopmentPage() {
+export default function SaaSAppDevelopmentPage() {
   return (
-    <div className="modern-service-page ar-vr-development-page bg-page-bg text-page-fg">
+    <div className="modern-service-page saas-app-development-page bg-page-bg text-page-fg">
       <section
         id="contact"
         className="software-development-hero section-full-bleed relative overflow-hidden pb-10 md:pb-14 lg:pb-20 bg-page-bg"
       >
-        <div className="relative mx-auto grid w-full max-w-6xl items-start gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_520px] lg:gap-14 lg:px-8 xl:ml-[60px]">
-          <div className="lg:sticky lg:top-24 self-start">
+        <div className="service-hero-grid relative mx-auto grid w-full max-w-6xl items-start gap-8 lg:gap-14">
+          <div className="service-hero-content lg:sticky lg:top-24 self-start">
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-toadster-green/35 bg-toadster-green/15 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-toadster-green">
               <span className="h-2 w-2 rounded-full bg-toadster-green" />
-              AR / VR Development Services
+              SaaS App Development
             </span>
             <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
-              Immersive Experiences That Drive <span className="text-toadster-green">Real Business Value</span>
+              SaaS Products That <span className="text-toadster-green">Scale</span> With Your Business
             </h1>
-            <p className="mb-8 max-w-xl text-lg leading-relaxed text-page-fg-muted">
-              AR and VR aren&apos;t just for gaming anymore. We build AR/VR solutions with a clear purpose: solve a
-              specific business problem, deliver measurable results, and integrate cleanly into how your teams and
-              customers already work.
+            <p className="service-hero-subtitle mb-8 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
+              Building a SaaS product is one of the most consequential investments a business can make. At Toadster
+              Technologies, we build SaaS applications end-to-end - from concept and architecture to launch, scaling,
+              and long-term iteration.
             </p>
-            <div className="mb-8 flex flex-wrap gap-5">
-              {heroTrustItems.map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm font-medium text-page-fg-muted">
-                  <span className="h-2 w-2 shrink-0 rounded-full bg-toadster-green" />
-                  {item}
-                </div>
-              ))}
-            </div>
+            <p className="service-hero-subtitle mb-8 w-full max-w-none text-base leading-relaxed text-page-fg-muted">
+              Whether you&apos;re a founder building your first product, an SME modernizing internal tools into a
+              licensable SaaS, or an enterprise spinning off a digital product line - we help you get to market faster
+              with fewer regrets.
+            </p>
 
-            <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mb-8 grid gap-6 sm:grid-cols-3">
               {trustStats.map((stat) => (
                 <div key={stat.label} className="text-left">
                   <div className="text-2xl font-extrabold text-page-fg md:text-3xl">{stat.number}</div>
@@ -187,7 +185,7 @@ export default function ARVRDevelopmentPage() {
 
             <div className="flex flex-wrap gap-3">
               <CTALink to="#contact-form" className="gap-2">
-                Schedule a Free Consultation <ArrowRight size={18} />
+                Get Free Consultation <ArrowRight size={18} />
               </CTALink>
               <Link
                 href="#services"
@@ -198,7 +196,7 @@ export default function ARVRDevelopmentPage() {
             </div>
           </div>
 
-          <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="hide-scrollbar">
+          <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="service-hero-form hide-scrollbar">
             <HeroConsultationForm />
           </div>
         </div>
@@ -210,8 +208,8 @@ export default function ARVRDevelopmentPage() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="AR/VR development services built around your objectives"
-            subtitle="Every immersive solution we build starts with a clear answer to one question: what business outcome does this need to produce?"
+            title="SaaS development services built for business outcomes"
+            subtitle="Every product we build is designed around one goal: making your business work better. Here's how we help."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {capabilities.map((cap) => {
@@ -219,7 +217,7 @@ export default function ARVRDevelopmentPage() {
               return (
                 <div
                   key={cap.title}
-                  className="capability-card-surface group relative rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
+                  className="capability-card-surface group relative rounded-2xl p-7 transition-all duration-300"
                 >
                   <div className="capability-card-header relative z-10">
                     <div className="flex items-start justify-between gap-3">
@@ -258,48 +256,17 @@ export default function ARVRDevelopmentPage() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="Industries we serve"
-            subtitle="The use cases are different across industries - but the discipline of building immersive experiences that actually get used is the same everywhere."
-            labelClassName="text-toadster-green"
-          />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {industries.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
-                >
-                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                    <Icon size={22} strokeWidth={2} />
-                  </span>
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="text-base font-bold text-toadster-green">{item.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-page-bg-alt section-padding">
-        <div className="mx-auto max-w-6xl px-4">
-          <SectionHead
-            label=""
             title="What makes working with us different"
-            subtitle="A lot of AR/VR agencies will impress you with demos. Few will stay accountable for whether the solution actually works in your environment, with your users, at your scale."
+            subtitle="We've helped a lot of companies build software. Here's what we've learned about what actually makes the difference."
             labelClassName="text-toadster-green"
           />
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-1 xl:grid-cols-2">
             {whyToadster.map((item) => {
               const Icon = item.icon
               return (
                 <div
                   key={item.title}
-                  className="capability-card-surface group relative flex gap-4 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
+                  className="capability-card-surface group relative flex gap-4 rounded-2xl p-7 transition-all duration-300"
                 >
                   <span className="relative z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
                     <Icon size={22} strokeWidth={2} />
@@ -318,51 +285,28 @@ export default function ARVRDevelopmentPage() {
         </div>
       </section>
 
-      <section id="process" className="py-16 bg-page-bg section-padding">
-        <div className="mx-auto grid max-w-6xl items-start gap-12 px-4 lg:grid-cols-[380px_1fr] lg:gap-20">
-          <div className="lg:sticky lg:top-24 self-start">
+      <section id="process" className="service-process-section py-16 section-padding">
+        <div className="service-process-panel mx-auto grid max-w-6xl items-start gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[minmax(280px,380px)_1fr] lg:gap-14 lg:px-10 lg:py-14">
+          <div className="service-process-intro lg:sticky lg:top-24 self-start">
             <SectionHead
               label=""
-              title="How we turn a brief into a deployable immersive experience"
-              subtitle="Building AR/VR well requires a different discipline from traditional app development. Interaction design, performance optimization, and user comfort are all first-order concerns."
+              title="How we turn requirements into working software"
+              subtitle="From kickoff to launch, most SaaS builds take 10-16 weeks depending on scope - a production-ready product with real users, real data, and real infrastructure."
             />
-            <div className="mt-10 rounded-[2rem] border border-page-border bg-page-card p-6 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-toadster-green/80">
-                Typical WebAR timeline
+            <div className="service-process-timeline-card">
+              <p className="service-process-timeline-label">
+                Typical SaaS MVP timeline
               </p>
-              <div className="mt-6 text-5xl font-extrabold tracking-tight text-page-fg">
-                4-6 <span className="text-2xl font-semibold text-page-fg-muted">weeks</span>
+              <div className="service-process-timeline-value">
+                10-16 <span className="service-process-timeline-unit">weeks</span>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-page-fg-muted">for a simple WebAR or focused immersive experience</p>
+              <p className="service-process-timeline-desc">
+                for a production-ready SaaS product with real infrastructure
+              </p>
             </div>
           </div>
 
-          <div
-            style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }}
-            className="divide-y divide-page-border hide-scrollbar"
-          >
-            {processSteps.map((step) => (
-              <div key={step.num} className="group grid gap-6 py-8 md:grid-cols-[72px_1fr] md:gap-8">
-                <div className="text-right text-5xl font-extrabold leading-none text-page-border transition-colors group-hover:text-toadster-green">
-                  {step.num}
-                </div>
-                <div>
-                  <h3 className="mb-2 text-xl font-bold text-page-fg">{step.title}</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-page-fg-muted">{step.desc}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {step.deliverables.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded bg-toadster-green/10 px-3 py-1 text-xs font-semibold text-toadster-green"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ServiceProcessSteps steps={processSteps} />
         </div>
       </section>
 
@@ -370,8 +314,8 @@ export default function ARVRDevelopmentPage() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="Platforms & technologies we work with"
-            subtitle="We work across all major AR/VR platforms, engines, and SDKs - so our recommendation is always based on what's right for your project."
+            title="The right tools for the right job"
+            subtitle="We don't chase trends. We pick the stack that fits your project's scale, your team's skills, and your long-term maintenance reality."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {techCategories.map((cat) => {
@@ -379,7 +323,7 @@ export default function ARVRDevelopmentPage() {
               return (
                 <div
                   key={cat.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
                 >
                   <div className="capability-card-header relative z-10">
                     <div className="flex items-start justify-between gap-3">
@@ -408,12 +352,66 @@ export default function ARVRDevelopmentPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg-alt section-padding">
+      <section className="py-16 bg-page-bg section-padding">
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="What AR/VR actually delivers for businesses"
-            subtitle="The business case for AR/VR is no longer theoretical. Here's what clients consistently see when spatial experiences are built with a clear purpose."
+            title="The people you need, ready when you need them"
+            subtitle="Building a SaaS product requires more than developers. It requires product thinkers, system architects, QA specialists, and designers working in sync."
+            labelClassName="text-toadster-green"
+          />
+          <div className="mb-10 grid gap-6 sm:grid-cols-3">
+            {teamStats.map((stat) => (
+              <div
+                key={stat.label}
+                className="capability-card-surface rounded-2xl p-6 text-center transition-all duration-300"
+              >
+                <div className="text-3xl font-extrabold text-toadster-green">{stat.number}</div>
+                <div className="mt-2 text-sm text-page-fg-muted">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {hireRoles.map((role) => {
+              const Icon = role.icon
+              return (
+                <div
+                  key={role.title}
+                  className="capability-card-surface group relative rounded-2xl p-7 transition-all duration-300"
+                >
+                  <div className="capability-card-header relative z-10">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="text-lg font-bold text-toadster-green flex-1">{role.title}</h3>
+                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                        <Icon size={22} strokeWidth={2} />
+                      </span>
+                    </div>
+                    <span className="capability-card-heading-rule" aria-hidden="true" />
+                  </div>
+                  <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{role.desc}</p>
+                  <div className="relative z-10 flex flex-wrap gap-2">
+                    {role.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="capability-card-tag rounded border border-page-border bg-page-bg-alt px-2.5 py-1 text-xs"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-page-bg section-padding">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionHead
+            label=""
+            title="What good SaaS software actually delivers"
+            subtitle="The real measure of a SaaS build isn't the code - it's what happens after launch. Here's what our clients experience."
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((item) => {
@@ -421,7 +419,7 @@ export default function ARVRDevelopmentPage() {
               return (
                 <div
                   key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
                 >
                   <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
                     <Icon size={22} strokeWidth={2} />
@@ -438,12 +436,12 @@ export default function ARVRDevelopmentPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg section-padding">
+      <section className="py-16 bg-page-bg-alt section-padding">
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="Work with us the way that makes sense for your project"
-            subtitle="We adapt to your situation - whether you need a full team, specialist augmentation, a defined deliverable, or ongoing support."
+            title="Work with us the way that makes sense for your situation"
+            subtitle="Different businesses have different needs. We offer four ways to work together."
           />
           <div className="grid gap-6 md:grid-cols-2">
             {engagementModels.map((model) => (
@@ -454,7 +452,7 @@ export default function ARVRDevelopmentPage() {
                   </span>
                 ) : null}
                 <div
-                  className={`capability-card-surface relative rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+                  className={`capability-card-surface relative rounded-2xl p-8 transition-all duration-300 hover:shadow-md ${
                     model.featured ? "ring-2 ring-toadster-green/35" : ""
                   }`}
                 >
@@ -501,7 +499,9 @@ export default function ARVRDevelopmentPage() {
             Let&apos;s talk about what you&apos;re building
           </h2>
           <p className="mb-10 text-lg leading-relaxed text-page-fg-muted">
-            Tell us about your AR/VR project. We&apos;ll schedule a free strategy call - no sales pitch, just an honest conversation about whether immersive technology is the right fit.
+            Whether you&apos;re starting from scratch, scaling what exists, or modernizing something that&apos;s started
+            to slow you down - we can help you figure out the right path forward. The first conversation is free, and
+            it&apos;s useful. No sales pressure. No long pitch decks.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <CTALink
@@ -510,12 +510,6 @@ export default function ARVRDevelopmentPage() {
             >
               Schedule a Free Consultation <ArrowRight size={18} className="ml-2" />
             </CTALink>
-            <Link
-              href="mailto:business@toadsters.com"
-              className="inline-flex items-center rounded-xl border border-page-border bg-page-bg-alt px-7 py-3 text-sm font-semibold text-page-fg transition-colors hover:bg-page-border"
-            >
-              Email us directly
-            </Link>
           </div>
           <p className="mt-6 text-sm text-page-fg-muted">
             Typically responds within one business day · No spam, no sales scripts

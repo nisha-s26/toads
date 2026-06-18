@@ -39,7 +39,7 @@ export default function HomepageBlogs({ initialBlogs = [] }: HomepageBlogsProps)
               <Link
                 href={`/blogs/${blog.slug}`}
                 title={blog.title}
-                className="capability-card-surface group flex h-full flex-col overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1"
+                className="capability-card-surface group flex h-full flex-col overflow-hidden rounded-xl transition-all duration-300"
               >
                 <div className="relative flex aspect-[5/3] w-full items-center justify-center overflow-hidden bg-slate-100">
                   <Image

@@ -93,7 +93,7 @@ function SolutionTile({
         href={item.to}
         title={item.title}
         className={cn(
-          "capability-card-surface group flex h-full flex-col overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 md:p-7",
+          "capability-card-surface group flex h-full flex-col overflow-hidden rounded-3xl p-6 transition-all duration-300 md:p-7",
         )}
       >
         <div className="relative z-10 flex h-full flex-col">

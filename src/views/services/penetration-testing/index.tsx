@@ -16,8 +16,10 @@ import {
   capabilities,
   engagementModels,
   faqs,
+  hireRoles,
   industries,
   processSteps,
+  teamStats,
   techCategories,
   trustStats,
   whyToadster,
@@ -71,16 +73,17 @@ function HeroConsultationForm() {
       </span>
       <h3 className="relative z-10 text-xl font-bold text-slate-900 dark:text-black">Tell us about your project</h3>
       <p className="capability-card-copy relative z-10 mt-2 mb-6 text-sm">
-        We typically respond within one business day. No sales pitch - just a real conversation about what's possible for your AI challenge.
+        We typically respond within one business day. No sales pitch - just an honest conversation about your security
+        requirements.
       </p>
 
       <form onSubmit={handleSubmit} className="relative z-10 space-y-4">
         <div>
-          <label htmlFor="mad-name" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+          <label htmlFor="pentest-name" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Your Name
           </label>
           <Input
-            id="ai-name"
+            id="pentest-name"
             name="name"
             value={formData.name}
             onChange={handleChange}
@@ -90,11 +93,11 @@ function HeroConsultationForm() {
           />
         </div>
         <div>
-          <label htmlFor="mad-email" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+          <label htmlFor="pentest-email" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Work Email
           </label>
           <Input
-            id="ai-email"
+            id="pentest-email"
             name="fromEmail"
             type="email"
             value={formData.fromEmail}
@@ -105,11 +108,11 @@ function HeroConsultationForm() {
           />
         </div>
         <div>
-          <label htmlFor="mad-company" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+          <label htmlFor="pentest-company" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Company Name
           </label>
           <Input
-            id="ai-company"
+            id="pentest-company"
             name="company"
             value={formData.company}
             onChange={handleChange}
@@ -118,15 +121,15 @@ function HeroConsultationForm() {
           />
         </div>
         <div>
-          <label htmlFor="iot-requirements" className="capability-card-copy mb-1.5 block text-sm font-semibold">
-            Tell us about your AI challenge
+          <label htmlFor="pentest-requirements" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+            Tell us about your security requirements
           </label>
           <Textarea
-            id="ai-requirements"
+            id="pentest-requirements"
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Describe the problem you're trying to solve, your data situation, and what success would look like..."
+            placeholder="Describe your environment, compliance needs, upcoming audit, or product launch timeline..."
             className="bright-panel-input min-h-[90px]"
           />
         </div>
@@ -135,7 +138,7 @@ function HeroConsultationForm() {
             ? "Request Received - We'll be in touch soon!"
             : isSubmitting
               ? "Sending..."
-              : "Schedule a Free Consultation"}
+              : "Schedule a Security Consultation"}
         </Button>
         {submitStatus === "error" ? (
           <p className="text-center text-sm text-red-500">Something went wrong. Please try again.</p>
@@ -146,9 +149,9 @@ function HeroConsultationForm() {
   )
 }
 
-export default function AIDevelopmentPage() {
+export default function PenetrationTestingPage() {
   return (
-    <div className="modern-service-page ai-development-page bg-page-bg text-page-fg">
+    <div className="modern-service-page penetration-testing-page bg-page-bg text-page-fg">
       <section
         id="contact"
         className="software-development-hero section-full-bleed relative overflow-hidden pb-10 md:pb-14 lg:pb-20 bg-page-bg"
@@ -157,18 +160,17 @@ export default function AIDevelopmentPage() {
           <div className="service-hero-content lg:sticky lg:top-24 self-start">
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-toadster-green/35 bg-toadster-green/15 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-toadster-green">
               <span className="h-2 w-2 rounded-full bg-toadster-green" />
-              Artificial Intelligence (AI) Services
+              Penetration Testing Services
             </span>
             <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
-              AI That Solves <span className="text-toadster-green">Real</span> Business Problems
+              Find the Gaps Before Someone Else <span className="text-toadster-green">Does</span>
             </h1>
             <p className="service-hero-subtitle mb-8 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
-              Most businesses don&apos;t need AI for the sake of AI. They need smarter workflows, faster decisions, and
-              systems that keep up with growth. We help startups, SMEs, and enterprises design, build, and deploy
-              practical AI solutions that generate measurable ROI.
+              Most businesses only discover security vulnerabilities after a breach. We find them first - through
+              structured, real-world attack simulations that expose exactly what your defences are missing.
             </p>
 
-            <div className="mb-8 grid gap-6 sm:grid-cols-3">
+            <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {trustStats.map((stat) => (
                 <div key={stat.label} className="text-left">
                   <div className="text-2xl font-extrabold text-page-fg md:text-3xl">{stat.number}</div>
@@ -179,7 +181,7 @@ export default function AIDevelopmentPage() {
 
             <div className="flex flex-wrap gap-3">
               <CTALink to="#contact-form" className="gap-2">
-                Schedule a Free Consultation <ArrowRight size={18} />
+                Schedule a Security Consultation <ArrowRight size={18} />
               </CTALink>
               <Link
                 href="#services"
@@ -202,8 +204,8 @@ export default function AIDevelopmentPage() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="AI development services built for business outcomes"
-            subtitle="We don't offer off-the-shelf AI packages. Every engagement starts with understanding your problem, your data, and your goals - then we build the solution that fits."
+            title="Penetration testing services built for real risk"
+            subtitle="Every engagement is scoped to your actual environment - not a generic checklist. Here is what we cover."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {capabilities.map((cap) => {
@@ -226,7 +228,7 @@ export default function AIDevelopmentPage() {
                   <p className="relative z-10 mb-4 text-sm font-semibold text-toadster-green">→ {cap.value}</p>
                   <div className="relative z-10 border-t border-page-border pt-4">
                     <p className="capability-card-copy mb-2 text-[11px] font-bold uppercase tracking-wider">
-                      Common Use Cases
+                      Focus Areas
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {cap.tags.map((tag) => (
@@ -250,39 +252,8 @@ export default function AIDevelopmentPage() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="Industries we serve"
-            subtitle="We've delivered AI solutions across a wide range of industries. The problems change - the discipline doesn't."
-            labelClassName="text-toadster-green"
-          />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {industries.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                    <Icon size={22} strokeWidth={2} />
-                  </span>
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="text-base font-bold text-toadster-green">{item.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-page-bg-alt section-padding">
-        <div className="mx-auto max-w-6xl px-4">
-          <SectionHead
-            label=""
             title="What makes working with us different"
-            subtitle="A lot of AI firms will sell you a model. Very few will stay accountable for whether it actually works in your business. Here's how we're different."
+            subtitle="A lot of security firms run automated tools and hand you a spreadsheet. That is not what we do."
             labelClassName="text-toadster-green"
           />
           <div className="grid gap-6 md:grid-cols-1 xl:grid-cols-2">
@@ -315,17 +286,19 @@ export default function AIDevelopmentPage() {
           <div className="service-process-intro lg:sticky lg:top-24 self-start">
             <SectionHead
               label=""
-              title="How we turn your requirements into working AI"
-              subtitle="Building AI that works in production is fundamentally different from building a proof of concept. Our process is designed to close that gap - fast."
+              title="How a penetration testing engagement works"
+              subtitle="From first conversation to final remediation confirmation, here is how we run an engagement."
             />
             <div className="service-process-timeline-card">
               <p className="service-process-timeline-label">
-                Typical PoC timeline
+                Typical web app test timeline
               </p>
               <div className="service-process-timeline-value">
-                4-8 <span className="service-process-timeline-unit">weeks</span>
+                5-10 <span className="service-process-timeline-unit">days</span>
               </div>
-              <p className="service-process-timeline-desc">for a well-scoped AI proof of concept</p>
+              <p className="service-process-timeline-desc">
+                for a targeted web application penetration test
+              </p>
             </div>
           </div>
 
@@ -337,8 +310,8 @@ export default function AIDevelopmentPage() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="The right tools for the right problem"
-            subtitle="We don't push a single stack. We choose technologies based on your requirements, your existing infrastructure, and what will serve you best long-term."
+            title="The tools behind the testing"
+            subtitle="We use industry-standard tooling, combined with custom scripts and manual techniques that go beyond what commercial platforms can do."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {techCategories.map((cat) => {
@@ -375,12 +348,96 @@ export default function AIDevelopmentPage() {
         </div>
       </section>
 
+      <section className="py-16 bg-page-bg section-padding">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionHead
+            label=""
+            title="The people you work with"
+            subtitle="Security testing is only as good as the testers doing it."
+            labelClassName="text-toadster-green"
+          />
+          <div className="mb-10 grid gap-6 sm:grid-cols-3">
+            {teamStats.map((stat) => (
+              <div
+                key={stat.label}
+                className="capability-card-surface rounded-2xl p-6 text-center transition-all duration-300"
+              >
+                <div className="text-3xl font-extrabold text-toadster-green">{stat.number}</div>
+                <div className="mt-2 text-sm text-page-fg-muted">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {hireRoles.map((role) => {
+              const Icon = role.icon
+              return (
+                <div
+                  key={role.title}
+                  className="capability-card-surface group relative rounded-2xl p-7 transition-all duration-300"
+                >
+                  <div className="capability-card-header relative z-10">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="text-lg font-bold text-toadster-green flex-1">{role.title}</h3>
+                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                        <Icon size={22} strokeWidth={2} />
+                      </span>
+                    </div>
+                    <span className="capability-card-heading-rule" aria-hidden="true" />
+                  </div>
+                  <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{role.desc}</p>
+                  <div className="relative z-10 flex flex-wrap gap-2">
+                    {role.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="capability-card-tag rounded border border-page-border bg-page-bg-alt px-2.5 py-1 text-xs"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 bg-page-bg-alt section-padding">
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="What good AI actually delivers"
-            subtitle="When AI is built right and connected to real workflows, here's what businesses typically see."
+            title="Industries we test for"
+            subtitle="Penetration testing requirements vary significantly by sector. We have worked across:"
+          />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {industries.map((item) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={item.title}
+                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
+                >
+                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                    <Icon size={22} strokeWidth={2} />
+                  </span>
+                  <div className="capability-card-header relative z-10">
+                    <h3 className="text-base font-bold text-toadster-green">{item.title}</h3>
+                    <span className="capability-card-heading-rule" aria-hidden="true" />
+                  </div>
+                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-page-bg section-padding">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionHead
+            label=""
+            title="What good penetration testing actually delivers"
+            subtitle="Beyond the report, here is what you actually get from a well-run engagement."
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((item) => {
@@ -405,12 +462,12 @@ export default function AIDevelopmentPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg section-padding">
+      <section className="py-16 bg-page-bg-alt section-padding">
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
             title="Work with us the way that makes sense for your situation"
-            subtitle="We don't force every client into the same engagement model. Here are the ways we typically work together."
+            subtitle="We offer engagement models that match where you are and what you actually need."
           />
           <div className="grid gap-6 md:grid-cols-2">
             {engagementModels.map((model) => (
@@ -465,18 +522,19 @@ export default function AIDevelopmentPage() {
         </div>
         <div className="relative mx-auto max-w-3xl px-4 text-center">
           <h2 className="mb-5 text-3xl font-extrabold tracking-tight text-page-fg md:text-4xl">
-            Let&apos;s talk about what you&apos;re building
+            Talk to us about your security requirements
           </h2>
           <p className="mb-10 text-lg leading-relaxed text-page-fg-muted">
-            Tell us about your AI challenge. We&apos;ll schedule a free strategy call with a senior AI consultant - no
-            sales pitch, no pressure, just a real conversation about what&apos;s possible.
+            Whether you have an upcoming compliance audit, a product launch, or a nagging feeling that your security
+            posture needs a proper look - we can help you work out what the right engagement looks like. No sales pitch.
+            Just an honest conversation.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <CTALink
               to="#contact-form"
               className="bg-toadster-green text-white hover:bg-toadster-green/90 hover:text-white"
             >
-              Schedule a Free Consultation <ArrowRight size={18} className="ml-2" />
+              Schedule a Security Consultation <ArrowRight size={18} className="ml-2" />
             </CTALink>
           </div>
           <p className="mt-6 text-sm text-page-fg-muted">

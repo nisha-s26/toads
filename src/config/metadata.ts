@@ -165,15 +165,30 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description:
       "End-to-end IoT development services - firmware, cloud platforms, edge computing, data pipelines, and dashboards. From PoC to production deployment.",
   },
-  "/services/ar-vr-development": {
-    title: "AR/VR Development Services | Immersive Experiences | Toadster",
+  "/services/vr-development": {
+    title: "VR Development Services | Virtual Reality Solutions | Toadster",
     description:
-      "AR/VR development for training, product visualization, WebAR, mixed reality, and spatial computing. Built for measurable business outcomes across enterprise and consumer platforms.",
+      "VR development for enterprise training, virtual showrooms, healthcare simulation, and multi-user environments. Meta Quest, PC VR, and Vision Pro - built for measurable business outcomes.",
   },
   "/services/product-management": {
     title: "Product Management Services | Roadmaps, Discovery & Delivery | Toadster",
     description:
       "Embedded product management for startups and enterprises - product strategy, roadmaps, discovery, requirements, backlog prioritisation, agile delivery, and fractional CPO services.",
+  },
+  "/services/penetration-testing": {
+    title: "Penetration Testing Services | Security Assessments & Red Team | Toadster",
+    description:
+      "Penetration testing services for web apps, networks, APIs, mobile, and cloud. Manual testing, red team operations, compliance-driven assessments, and retesting included.",
+  },
+  "/services/saas-app-development": {
+    title: "SaaS App Development Services | Toadster Technologies",
+    description:
+      "Toadster Technologies builds scalable SaaS products end-to-end. From MVP to enterprise-grade platform - custom SaaS development for startups, SMEs, and growing businesses.",
+  },
+  "/services/web-development": {
+    title: "Web Development Services | Custom Web Solutions | Toadster",
+    description:
+      "Toadster builds custom websites, web applications, and digital platforms that drive real business outcomes. From marketing sites to enterprise web platforms.",
   },
   "/services/rag-development": {
     title: "RAG Development Services | Retrieval-Augmented Generation | Toadster",

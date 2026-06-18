@@ -194,16 +194,16 @@ export const whyToadster: {
     title: "Honest about what AI can't do",
     desc: "If AI isn't the right fit for your problem, we'll say so. Our goal is long-term partnership, not oversold projects that underdeliver. We'd rather say no early than fail later.",
   },
-  {
-    icon: Users,
-    title: "Built for your team to own",
-    desc: "We don't build AI systems that only we can maintain. Knowledge transfer, documentation, and training are part of every engagement. Your team should be able to run it independently.",
-  },
-  {
-    icon: TrendingUp,
-    title: "ROI-first thinking",
-    desc: "Every AI solution we build is tied to a measurable business outcome. Reduced processing time. Lower error rates. Higher conversion. Faster cycle times. We track results, not just releases.",
-  },
+  // {
+  //   icon: Users,
+  //   title: "Built for your team to own",
+  //   desc: "We don't build AI systems that only we can maintain. Knowledge transfer, documentation, and training are part of every engagement. Your team should be able to run it independently.",
+  // },
+  // {
+  //   icon: TrendingUp,
+  //   title: "ROI-first thinking",
+  //   desc: "Every AI solution we build is tied to a measurable business outcome. Reduced processing time. Lower error rates. Higher conversion. Faster cycle times. We track results, not just releases.",
+  // },
 ]
 
 export const processSteps = [

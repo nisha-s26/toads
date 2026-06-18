@@ -301,6 +301,65 @@
 .software-development-hero {
   padding-top: calc(5.5rem + env(safe-area-inset-top, 0px));
   isolation: isolate;
+  padding-inline: clamp(1rem, 3vw, 3.75rem);
+}
+
+/* Keep hero consultation form inside the viewport on service pages */
+.service-hero-grid {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: min(72rem, 100%);
+}
+
+.service-hero-subtitle {
+  width: 100%;
+  max-width: none;
+}
+
+@media (min-width: 1024px) {
+  .service-hero-grid {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    column-gap: clamp(2rem, 4vw, 3.5rem);
+    row-gap: 1.5rem;
+  }
+
+  .service-hero-grid > * {
+    min-width: 0;
+  }
+
+  /* Left column (~60%): intro + body stack in one column */
+  .service-hero-intro,
+  .service-hero-body,
+  .service-hero-grid > .service-hero-content,
+  .service-hero-grid > .lg\:sticky:first-child {
+    grid-column: 1;
+  }
+
+  /* Right column (~40%): form spans full hero height */
+  .service-hero-grid > .service-hero-form,
+  .service-hero-grid > .hide-scrollbar:last-child {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: start;
+    width: 100%;
+  }
+
+  .service-hero-grid > .hide-scrollbar {
+    width: 100%;
+  }
+
+  .service-hero-grid #contact-form {
+    max-width: 100%;
+  }
+
+  .software-development-hero .service-hero-intro p,
+  .software-development-hero .service-hero-body p,
+  .software-development-hero .service-hero-content p,
+  .software-development-hero .lg\:sticky p.max-w-xl,
+  .modern-service-page .software-development-hero p.max-w-xl {
+    max-width: none;
+    width: 100%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -353,7 +412,7 @@
     margin-left: 0;
   }
 
-  .modern-service-page .capability-card-heading-rule {
+  .modern-service-page .capability-card-header h3::after {
     margin-left: auto;
     margin-right: auto;
   }
@@ -1136,43 +1195,234 @@ html.homepage-scroll-snap {
 
 .hire-resources-cta {
   position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.62) 0%,
-    rgba(224, 242, 254, 0.48) 42%,
-    rgba(255, 255, 255, 0.55) 100%
-  );
-  backdrop-filter: blur(22px) saturate(180%);
-  -webkit-backdrop-filter: blur(22px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  background: linear-gradient(145deg, #004d2d 0%, #003824 55%, #002818 100%);
   box-shadow:
-    0 24px 60px rgba(59, 130, 246, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(186, 211, 252, 0.35);
+    0 24px 48px -20px rgba(0, 77, 45, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .dark .hire-resources-cta {
-  background: var(--bright-surface-gradient);
-  border: 1px solid var(--bright-surface-border);
-  box-shadow: var(--bright-surface-shadow);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  background: linear-gradient(145deg, #005a35 0%, #004528 55%, #00301c 100%);
+  box-shadow:
+    0 24px 48px -20px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Service process section — light mint panel + dark green timeline card */
+.service-process-section {
+  --process-green-dark: #004d2d;
+  --process-green-light: #eef5f1;
+  --process-green-light-deep: #e3ede7;
+  --process-green-muted: #9eb8a8;
+  --process-green-tag-bg: #d4e8dc;
+  background: transparent;
+}
+
+.dark .service-process-section {
+  --process-green-dark: #0c9755;
+  --process-green-light: color-mix(in srgb, #004d2d 16%, var(--page-bg));
+  --process-green-light-deep: color-mix(in srgb, #004d2d 22%, var(--page-bg));
+  --process-green-muted: color-mix(in srgb, #004d2d 45%, var(--page-border));
+  --process-green-tag-bg: color-mix(in srgb, #004d2d 28%, var(--page-bg));
+}
+
+.service-process-panel {
+  border-radius: 2rem;
+  background: linear-gradient(
+    180deg,
+    var(--process-green-light) 0%,
+    var(--process-green-light-deep) 100%
+  );
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--process-green-dark) 8%, transparent),
+    0 20px 48px -32px color-mix(in srgb, var(--process-green-dark) 18%, transparent);
+}
+
+.service-process-intro > div {
+  margin-bottom: 2rem !important;
+}
+
+.service-process-intro h2 {
+  color: color-mix(in srgb, var(--process-green-dark) 92%, #0a0a0a);
+}
+
+.service-process-intro p {
+  color: color-mix(in srgb, var(--process-green-dark) 45%, var(--page-fg-muted));
+}
+
+.service-process-timeline-card {
+  margin-top: 0;
+  border-radius: 2rem;
+  overflow: hidden;
+  padding: 2rem 2.25rem 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, #004d2d 0%, #003824 55%, #002818 100%);
+  box-shadow:
+    0 24px 48px -20px rgba(0, 77, 45, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.dark .service-process-timeline-card {
+  background: linear-gradient(145deg, #005a35 0%, #004528 55%, #00301c 100%);
+  box-shadow:
+    0 24px 48px -20px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.service-process-timeline-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.service-process-timeline-value {
+  margin-top: 1.5rem;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.service-process-timeline-unit {
+  font-size: 1.5rem;
+  font-weight: 600;
+  opacity: 0.78;
+  color: #fff;
+}
+
+.service-process-timeline-desc {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  opacity: 0.82;
+  color: #fff;
+}
+
+.service-process-steps {
+  position: relative;
+}
+
+.service-process-step {
+  position: relative;
+  z-index: 1;
+}
+
+.service-process-step::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: color-mix(in srgb, var(--process-green-dark) 16%, transparent);
+}
+
+.service-process-step:first-child::before {
+  display: none;
+}
+
+.service-process-step-num {
+  position: relative;
+  z-index: 1;
+  color: var(--process-green-muted);
+  transition: color 0.25s ease;
+}
+
+.service-process-step-title {
+  color: color-mix(in srgb, var(--process-green-dark) 75%, var(--page-fg));
+  transition: color 0.25s ease;
+}
+
+.service-process-step-desc {
+  color: color-mix(in srgb, var(--process-green-dark) 38%, var(--page-fg-muted));
+}
+
+.service-process-step--active .service-process-step-num,
+.service-process-step--active .service-process-step-title {
+  color: var(--process-green-dark);
+}
+
+.service-process-tag {
+  border-radius: 0.375rem;
+  background: var(--process-green-tag-bg);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--process-green-dark);
+}
+
+.service-process-steps-outer {
+  position: relative;
+  min-height: 0;
+}
+
+.service-process-steps-outer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5.5rem;
+  border-radius: 0 0 1.5rem 1.5rem;
+  background: linear-gradient(
+    to top,
+    var(--process-green-light-deep) 20%,
+    color-mix(in srgb, var(--process-green-light-deep) 60%, transparent) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.service-process-steps-outer--can-scroll::after {
+  opacity: 1;
+}
+
+.service-process-scroll-hint {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125rem;
+  transform: translateX(-50%);
+  pointer-events: none;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--process-green-dark) 70%, var(--page-fg-muted));
+}
+
+.service-process-scroll-hint-icon {
+  animation: service-process-scroll-bounce 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-process-scroll-hint-icon {
+    animation: none;
+  }
+}
+
+@keyframes service-process-scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
 }
 
 .dark .hire-resources-cta::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 0;
-  background: linear-gradient(
-    125deg,
-    rgba(255, 255, 255, 0.7) 0%,
-    rgba(255, 255, 255, 0.22) 30%,
-    transparent 50%,
-    rgba(180, 198, 218, 0.14) 100%
-  );
+  display: none;
 }
 
 .page-hero-bg {
@@ -1401,12 +1651,188 @@ html.homepage-scroll-snap {
 }
 
 .capability-card-heading-rule {
+  display: none;
+}
+
+.capability-card-header h3 {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.capability-card-header .flex h3 {
+  flex: 0 1 auto;
+  max-width: calc(100% - 3.25rem);
+}
+
+.capability-card-header h3::after {
+  content: "";
   display: block;
   margin-top: 0.75rem;
   height: 2px;
   width: 2.5rem;
   border-radius: 9999px;
   background: linear-gradient(90deg, var(--toadster-green), var(--toadster-green-deep));
+  transition: width 0.3s ease;
+}
+
+/* Capability card hover — subtle scale and heading-width underline */
+.capability-card-surface:not(#contact-form):not(.faq-accordion-surface) {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-origin: center;
+}
+
+.capability-card-surface:not(#contact-form):not(.faq-accordion-surface):hover {
+  position: relative;
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.capability-card-surface:not(#contact-form):not(.faq-accordion-surface):hover .capability-card-header h3::after {
+  width: 100%;
+}
+
+/* ── Card icon glow with slow circular shine ── */
+.capability-card-surface span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green,
+.hire-role-card span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--toadster-green) 35%, transparent),
+    0 4px 14px -4px color-mix(in srgb, var(--toadster-green) 55%, rgba(0, 0, 0, 0.25)),
+    0 0 22px -6px color-mix(in srgb, var(--toadster-green) 45%, transparent);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.capability-card-surface span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green::before,
+.hire-role-card span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green::before {
+  content: "";
+  position: absolute;
+  inset: -70%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.08) 40deg,
+    rgba(255, 255, 255, 0.55) 95deg,
+    rgba(167, 243, 208, 0.35) 130deg,
+    transparent 200deg
+  );
+  animation: card-icon-orbit 10s linear infinite;
+  z-index: 0;
+}
+
+.capability-card-surface span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green::after,
+.hire-role-card span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: calc(0.75rem - 2px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.22) 0%, transparent 48%, rgba(0, 0, 0, 0.08) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.capability-card-surface span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green > svg,
+.hire-role-card span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green > svg {
+  position: relative;
+  z-index: 2;
+}
+
+.capability-card-surface.group:hover span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green,
+.hire-role-card.group:hover span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--toadster-green) 50%, transparent),
+    0 6px 20px -4px color-mix(in srgb, var(--toadster-green) 65%, rgba(0, 0, 0, 0.3)),
+    0 0 32px -4px color-mix(in srgb, var(--toadster-green) 60%, transparent);
+  transform: scale(1.06);
+}
+
+@keyframes card-icon-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Floating tech background elements ── */
+.floating-tech-elements {
+  contain: strict;
+}
+
+.floating-tech-item {
+  animation: floating-tech-drift var(--float-duration, 55s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+  opacity: var(--float-opacity, 0.1);
+  will-change: transform;
+}
+
+.floating-tech-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0.55rem;
+}
+
+@keyframes floating-tech-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(var(--float-drift-x, 12px), calc(var(--float-drift-y, 16px) * -0.5)) rotate(3deg);
+  }
+
+  50% {
+    transform: translate(calc(var(--float-drift-x, 12px) * -0.6), var(--float-drift-y, 16px)) rotate(-2deg);
+  }
+
+  75% {
+    transform: translate(calc(var(--float-drift-x, 12px) * 0.4), calc(var(--float-drift-y, 16px) * -0.8))
+      rotate(2deg);
+  }
+}
+
+/* ── Section side image beside card grids ── */
+.section-side-image-frame {
+  box-shadow:
+    0 24px 48px -28px rgba(0, 0, 0, 0.35),
+    0 0 0 1px color-mix(in srgb, var(--toadster-green) 12%, var(--page-border));
+}
+
+.split-image-card-grid {
+  grid-auto-rows: minmax(0, auto);
+}
+
+.split-image-card-grid .section-side-image {
+  align-self: stretch;
+}
+
+.split-image-card-grid .section-side-image-frame {
+  min-height: 0;
+}
+
+.section-side-image-overlay {
+  background: linear-gradient(
+    165deg,
+    transparent 35%,
+    color-mix(in srgb, var(--toadster-green) 18%, transparent) 100%
+  );
+}
+
+.section-side-image-glow {
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 50%,
+    color-mix(in srgb, var(--toadster-green) 22%, transparent),
+    transparent 70%
+  );
+}
+
+.section-with-side-image .capability-card-surface {
+  height: 100%;
 }
 
 .dark .theme-card {
@@ -1791,6 +2217,25 @@ html.homepage-scroll-snap {
   animation: homepage-mesh-glow-pulse 14s ease-in-out infinite;
 }
 
+@keyframes logo-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-marquee-track {
+  animation: logo-marquee-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+
 @keyframes trusted-by-scroll {
   from {
     transform: translateX(0);
@@ -1809,7 +2254,11 @@ html.homepage-scroll-snap {
 @media (prefers-reduced-motion: reduce) {
   .page-route-enter,
   .homepage-mesh-glow-animate,
+  .logo-marquee-track,
   .trusted-by-track,
+  .floating-tech-item,
+  .capability-card-surface span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green::before,
+  .hire-role-card span.inline-flex.h-11.w-11.rounded-xl.bg-toadster-green::before,
   .hero-enter,
   .hero-enter-delay-1,
   .hero-enter-delay-2,

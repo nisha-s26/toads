@@ -71,7 +71,7 @@ function HeroConsultationForm() {
       </span>
       <h3 className="relative z-10 text-xl font-bold text-slate-900 dark:text-black">Tell us about your project</h3>
       <p className="capability-card-copy relative z-10 mt-2 mb-6 text-sm">
-        We typically respond within one business day. No sales pitch - just a real conversation about what's possible for your AI challenge.
+        Tell us about your VR project and we'll schedule a free strategy call - no sales pitch, just an honest conversation.
       </p>
 
       <form onSubmit={handleSubmit} className="relative z-10 space-y-4">
@@ -80,7 +80,7 @@ function HeroConsultationForm() {
             Your Name
           </label>
           <Input
-            id="ai-name"
+            id="arvr-name"
             name="name"
             value={formData.name}
             onChange={handleChange}
@@ -94,7 +94,7 @@ function HeroConsultationForm() {
             Work Email
           </label>
           <Input
-            id="ai-email"
+            id="arvr-email"
             name="fromEmail"
             type="email"
             value={formData.fromEmail}
@@ -109,7 +109,7 @@ function HeroConsultationForm() {
             Company Name
           </label>
           <Input
-            id="ai-company"
+            id="arvr-company"
             name="company"
             value={formData.company}
             onChange={handleChange}
@@ -119,14 +119,14 @@ function HeroConsultationForm() {
         </div>
         <div>
           <label htmlFor="iot-requirements" className="capability-card-copy mb-1.5 block text-sm font-semibold">
-            Tell us about your AI challenge
+            Describe your VR use case
           </label>
           <Textarea
-            id="ai-requirements"
+            id="arvr-requirements"
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Describe the problem you're trying to solve, your data situation, and what success would look like..."
+            placeholder="Tell us about the experience you want to build, your target users, platforms, and what business outcome you need..."
             className="bright-panel-input min-h-[90px]"
           />
         </div>
@@ -146,9 +146,9 @@ function HeroConsultationForm() {
   )
 }
 
-export default function AIDevelopmentPage() {
+export default function VRDevelopmentPage() {
   return (
-    <div className="modern-service-page ai-development-page bg-page-bg text-page-fg">
+    <div className="modern-service-page vr-development-page bg-page-bg text-page-fg">
       <section
         id="contact"
         className="software-development-hero section-full-bleed relative overflow-hidden pb-10 md:pb-14 lg:pb-20 bg-page-bg"
@@ -157,18 +157,18 @@ export default function AIDevelopmentPage() {
           <div className="service-hero-content lg:sticky lg:top-24 self-start">
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-toadster-green/35 bg-toadster-green/15 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-toadster-green">
               <span className="h-2 w-2 rounded-full bg-toadster-green" />
-              Artificial Intelligence (AI) Services
+              VR Development Services
             </span>
             <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
-              AI That Solves <span className="text-toadster-green">Real</span> Business Problems
+              Virtual Reality That Drives <span className="text-toadster-green">Real Business Value</span>
             </h1>
             <p className="service-hero-subtitle mb-8 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
-              Most businesses don&apos;t need AI for the sake of AI. They need smarter workflows, faster decisions, and
-              systems that keep up with growth. We help startups, SMEs, and enterprises design, build, and deploy
-              practical AI solutions that generate measurable ROI.
+              VR isn&apos;t just for gaming anymore. We build virtual reality solutions with a clear purpose: solve a
+              specific business problem, deliver measurable results, and integrate cleanly into how your teams and
+              customers already work.
             </p>
 
-            <div className="mb-8 grid gap-6 sm:grid-cols-3">
+            <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {trustStats.map((stat) => (
                 <div key={stat.label} className="text-left">
                   <div className="text-2xl font-extrabold text-page-fg md:text-3xl">{stat.number}</div>
@@ -202,8 +202,8 @@ export default function AIDevelopmentPage() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="AI development services built for business outcomes"
-            subtitle="We don't offer off-the-shelf AI packages. Every engagement starts with understanding your problem, your data, and your goals - then we build the solution that fits."
+            title="VR development services built around your objectives"
+            subtitle="Every immersive solution we build starts with a clear answer to one question: what business outcome does this need to produce?"
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {capabilities.map((cap) => {
@@ -251,7 +251,7 @@ export default function AIDevelopmentPage() {
           <SectionHead
             label=""
             title="Industries we serve"
-            subtitle="We've delivered AI solutions across a wide range of industries. The problems change - the discipline doesn't."
+            subtitle="The use cases are different across industries - but the discipline of building immersive experiences that actually get used is the same everywhere."
             labelClassName="text-toadster-green"
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -282,7 +282,7 @@ export default function AIDevelopmentPage() {
           <SectionHead
             label=""
             title="What makes working with us different"
-            subtitle="A lot of AI firms will sell you a model. Very few will stay accountable for whether it actually works in your business. Here's how we're different."
+            subtitle="A lot of VR agencies will impress you with demos. Few will stay accountable for whether the solution actually works in your environment, with your users, at your scale."
             labelClassName="text-toadster-green"
           />
           <div className="grid gap-6 md:grid-cols-1 xl:grid-cols-2">
@@ -315,17 +315,17 @@ export default function AIDevelopmentPage() {
           <div className="service-process-intro lg:sticky lg:top-24 self-start">
             <SectionHead
               label=""
-              title="How we turn your requirements into working AI"
-              subtitle="Building AI that works in production is fundamentally different from building a proof of concept. Our process is designed to close that gap - fast."
+              title="How we turn a brief into a deployable VR experience"
+              subtitle="Building VR well requires a different discipline from traditional app development. Interaction design, performance optimization, and user comfort are all first-order concerns."
             />
             <div className="service-process-timeline-card">
               <p className="service-process-timeline-label">
-                Typical PoC timeline
+                Typical VR training module timeline
               </p>
               <div className="service-process-timeline-value">
-                4-8 <span className="service-process-timeline-unit">weeks</span>
+                6-10 <span className="service-process-timeline-unit">weeks</span>
               </div>
-              <p className="service-process-timeline-desc">for a well-scoped AI proof of concept</p>
+              <p className="service-process-timeline-desc">for a focused VR training scenario or virtual showroom</p>
             </div>
           </div>
 
@@ -337,8 +337,8 @@ export default function AIDevelopmentPage() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="The right tools for the right problem"
-            subtitle="We don't push a single stack. We choose technologies based on your requirements, your existing infrastructure, and what will serve you best long-term."
+            title="Platforms & technologies we work with"
+            subtitle="We work across all major VR platforms, engines, and headsets - so our recommendation is always based on what's right for your project."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {techCategories.map((cat) => {
@@ -379,8 +379,8 @@ export default function AIDevelopmentPage() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="What good AI actually delivers"
-            subtitle="When AI is built right and connected to real workflows, here's what businesses typically see."
+            title="What VR actually delivers for businesses"
+            subtitle="The business case for VR is no longer theoretical. Here's what clients consistently see when virtual experiences are built with a clear purpose."
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((item) => {
@@ -409,8 +409,8 @@ export default function AIDevelopmentPage() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionHead
             label=""
-            title="Work with us the way that makes sense for your situation"
-            subtitle="We don't force every client into the same engagement model. Here are the ways we typically work together."
+            title="Work with us the way that makes sense for your project"
+            subtitle="We adapt to your situation - whether you need a full team, specialist augmentation, a defined deliverable, or ongoing support."
           />
           <div className="grid gap-6 md:grid-cols-2">
             {engagementModels.map((model) => (
@@ -468,8 +468,7 @@ export default function AIDevelopmentPage() {
             Let&apos;s talk about what you&apos;re building
           </h2>
           <p className="mb-10 text-lg leading-relaxed text-page-fg-muted">
-            Tell us about your AI challenge. We&apos;ll schedule a free strategy call with a senior AI consultant - no
-            sales pitch, no pressure, just a real conversation about what&apos;s possible.
+            Tell us about your VR project. We&apos;ll schedule a free strategy call - no sales pitch, just an honest conversation about whether virtual reality is the right fit.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <CTALink

@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import {
   ArrowRight,
   Brain,
@@ -12,7 +11,6 @@ import {
   Code2,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
-import { cn } from "@/lib/utils"
 import { ScrollReveal } from "@/components/ScrollReveal"
 
 type HireRole = {
@@ -149,53 +147,30 @@ export default function HireResources() {
       </div>
 
       <ScrollReveal className="section-full-bleed mt-14 md:mt-16">
-        <div className="hire-resources-cta w-full">
-          <div className="relative z-10 mx-auto grid max-w-9xl items-center gap-6 px-4 pb-10 pt-10 sm:px-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-10 md:px-12 md:pb-12 md:pt-12 lg:px-20">
-              <div className="mx-auto flex shrink-0 items-end justify-center md:mx-0">
-                <Image
-                  src="/hire-resources-employee.webp"
-                  alt="Toadster specialist helping you choose the right hire resource"
-                  width={408}
-                  height={612}
-                  loading="lazy"
-                  className="h-[180px] w-auto object-contain md:h-[300px] lg:h-[340px]"
-                />
-              </div>
-
-              <div className="flex flex-col justify-center">
-                <h3 className="text-2xl font-bold leading-tight text-slate-900 md:text-3xl lg:text-4xl dark:text-black">
-                  Not sure which role fits?
-                  <span className="text-slate-700 dark:text-black/80">Let&apos;s figure it out.</span>
-                </h3>
-                <p className="mt-4 max-w-5xl text-base leading-relaxed text-slate-700 md:text-lg dark:text-black/80">
-                  We&apos;ve matched engineers, analysts, and AI specialists at companies ranging
-                  from two-person startups to teams of 500 - across{" "}
-                  <strong className="font-semibold text-slate-900 dark:text-black">
-                    AI product development
-                  </strong>
-                  ,{" "}
-                  <strong className="font-semibold text-slate-900 dark:text-black">
-                    search visibility strategy
-                  </strong>
-                  , and{" "}
-                  <strong className="font-semibold text-slate-900 dark:text-black">
-                    MLOps infrastructure
-                  </strong>
-                  . Tell us what you&apos;re trying to build or fix, and we&apos;ll match you with
-                  someone who&apos;s done exactly that. Most matches happen within 48 hours.
-                </p>
-                <Link
-                  href="/hire/dedicated-resources"
-                  title="Explore all hire resources"
-                  className={cn(
-                    "mt-8 w-fit inline-flex items-center gap-2 rounded-xl bg-primary px-7 py-3.5 font-semibold",
-                    "text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md",
-                  )}
-                >
-                  Explore All Resources
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
+        <div className="mx-auto max-w-9xl px-4 lg:px-20">
+          <div className="hire-resources-cta relative overflow-hidden rounded-[1.75rem] px-6 py-10 text-center sm:px-10 sm:py-12 md:px-14 md:py-14">
+            <h3 className="mx-auto max-w-3xl text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl">
+              Not sure which role fits? Let&apos;s figure it out.
+            </h3>
+            <p className="mx-auto mt-4 w-[85%] text-base leading-relaxed text-white/80 md:text-lg">
+              We&apos;ve matched engineers, analysts, and AI specialists at companies ranging from
+              two-person startups to teams of 500 - across{" "}
+              <strong className="font-semibold text-white">AI product development</strong>,{" "}
+              <strong className="font-semibold text-white">search visibility strategy</strong>, and{" "}
+              <strong className="font-semibold text-white">MLOps infrastructure</strong>. Tell us
+              what you&apos;re trying to build or fix, and we&apos;ll match you with someone
+              who&apos;s done exactly that. Most matches happen within 48 hours.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <Link
+                href="/hire/dedicated-resources"
+                title="Explore all hire resources"
+                className="inline-flex min-w-[160px] items-center justify-center gap-2 rounded-full border border-white/90 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              >
+                Explore All Resources
+                <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
         </div>
       </ScrollReveal>

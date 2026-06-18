@@ -34,6 +34,7 @@ import {
   FileCode,
   Users,
   ClipboardList,
+  ShieldCheck,
 } from "lucide-react"
 import { HIRE_RESOURCES_NAV } from "@/config/hire-resources"
 import {
@@ -47,25 +48,28 @@ import {
 
 
 const services = [
-  { icon: "Brain", title: "AI Development Services", description: "Practical AI solutions - ML, GenAI, NLP, vision, and MLOps for real business outcomes" },
-  { icon: "Brain", title: "AI Agent Development", description: "Autonomous agents that plan, execute, and adapt at scale" },
-  { icon: "Flame", title: "Custom AI Solutions", description: "Tailor-made AI systems for unique business challenges" },
-  { icon: "Settings2", title: "AI Workflow Automation", description: "Intelligent workflows that automate complex decisions" },
-  { icon: "Bot", title: "AI Chatbot Development", description: "Enterprise chatbots and conversational assistants" },
-  { icon: "Sparkles", title: "Generative AI Development", description: "AI that creates content, code, and creative output" },
-  { icon: "Database", title: "LLM Development", description: "Production-grade large language model platforms" },
-  { icon: "GitBranch", title: "RAG Development Services", description: "Retrieval-augmented generation and knowledge systems" },
-  { icon: "Link2", title: "AI Integration Services", description: "Connect AI into your existing tools and workflows" },
-  { icon: "Building", title: "Enterprise AI Solutions", description: "Sector-specific AI platforms for large organizations" },
-  { icon: "MessageSquare", title: "AI Copilot Development", description: "Enterprise copilots for teams and knowledge work" },
-  { icon: "Eye", title: "Computer Vision Development", description: "Visual intelligence and image analytics at scale" },
-  { icon: "UserCog", title: "AI Consulting Services", description: "Strategy, architecture, and AI program guidance" },
+  { icon: "Brain", title: "AI Development", description: "Practical AI solutions - ML, GenAI, NLP, vision, and MLOps for real business outcomes" },
+  // { icon: "Brain", title: "AI Agent Development", description: "Autonomous agents that plan, execute, and adapt at scale" },
+  // { icon: "Flame", title: "Custom AI Solutions", description: "Tailor-made AI systems for unique business challenges" },
+  // { icon: "Settings2", title: "AI Workflow Automation", description: "Intelligent workflows that automate complex decisions" },
+  // { icon: "Bot", title: "AI Chatbot Development", description: "Enterprise chatbots and conversational assistants" },
+  // { icon: "Sparkles", title: "Generative AI Development", description: "AI that creates content, code, and creative output" },
+  // { icon: "Database", title: "LLM Development", description: "Production-grade large language model platforms" },
+  { icon: "GitBranch", title: "RAG Development", description: "Retrieval-augmented generation and knowledge systems" },
+  // { icon: "Link2", title: "AI Integration", description: "Connect AI into your existing tools and workflows" },
+  // { icon: "Building", title: "Enterprise AI Solutions", description: "Sector-specific AI platforms for large organizations" },
+  // { icon: "MessageSquare", title: "AI Copilot Development", description: "Enterprise copilots for teams and knowledge work" },
+  // { icon: "Eye", title: "Computer Vision Development", description: "Visual intelligence and image analytics at scale" },
+  // { icon: "UserCog", title: "AI Consulting", description: "Strategy, architecture, and AI program guidance" },
   { icon: "Code2", title: "Software Development", description: "Custom software, web apps, and scalable product engineering" },
   { icon: "Smartphone", title: "Mobile App Development", description: "iOS, Android, and cross-platform apps from MVP to launch" },
-  { icon: "Server", title: "DevOps Services", description: "CI/CD pipelines, cloud infrastructure, Kubernetes, and SRE" },
-  { icon: "Cpu", title: "IoT Development Services", description: "End-to-end IoT - firmware, cloud, edge computing, and dashboards" },
-  { icon: "Eye", title: "AR/VR Development Services", description: "VR, AR, MR, and WebAR for training, visualization, and spatial experiences" },
-  { icon: "ClipboardList", title: "Product Management Services", description: "Embedded PMs, roadmaps, discovery, requirements, and fractional CPO leadership" },
+  { icon: "Server", title: "DevOps", description: "CI/CD pipelines, cloud infrastructure, Kubernetes, and SRE" },
+  { icon: "Cpu", title: "IoT Development", description: "End-to-end IoT - firmware, cloud, edge computing, and dashboards" },
+  { icon: "Eye", title: "VR Development", description: "Custom VR apps for training, simulation, virtual showrooms, and enterprise deployment" },
+  { icon: "ClipboardList", title: "Product Management", description: "Embedded PMs, roadmaps, discovery, requirements, and fractional CPO leadership" },
+  { icon: "ShieldCheck", title: "Penetration Testing", description: "Manual security testing, red team operations, and compliance-driven assessments" },
+  { icon: "Layers", title: "SaaS App Development", description: "End-to-end SaaS products from MVP to enterprise-grade multi-tenant platforms" },
+  { icon: "Monitor", title: "Web Development", description: "Custom websites, web applications, and digital platforms that drive business outcomes" },
 ]
 
 const navLinks = [
@@ -94,25 +98,28 @@ const countries = [
 ]
 
 const SERVICE_ROUTES: Record<string, string> = {
-  "AI Development Services": "/services/ai-development",
-  "AI Agent Development": "/services/agentic-ai",
-  "Custom AI Solutions": "/services/custom-ai-solutions",
-  "AI Workflow Automation": "/services/intelligent-automation",
-  "AI Chatbot Development": "/services/ai-chatbots",
-  "Generative AI Development": "/services/generative-ai",
-  "LLM Development": "/services/llm-development",
-  "RAG Development Services": "/services/rag-development",
-  "AI Integration Services": "/services/ai-integration",
-  "Enterprise AI Solutions": "/services/industry-solutions",
-  "AI Copilot Development": "/services/llm-development",
-  "Computer Vision Development": "/services/computer-vision",
-  "AI Consulting Services": "/services/ai-consultation",
+  "AI Development": "/services/ai-development",
+  // "AI Agent Development": "/services/agentic-ai",
+  // "Custom AI Solutions": "/services/custom-ai-solutions",
+  // "AI Workflow Automation": "/services/intelligent-automation",
+  // "AI Chatbot Development": "/services/ai-chatbots",
+  // "Generative AI Development": "/services/generative-ai",
+  // "LLM Development": "/services/llm-development",
+  "RAG Development": "/services/rag-development",
+  // "AI Integration": "/services/ai-integration",
+  // "Enterprise AI Solutions": "/services/industry-solutions",
+  // "AI Copilot Development": "/services/llm-development",
+  // "Computer Vision Development": "/services/computer-vision",
+  // "AI Consulting": "/services/ai-consultation",
   "Software Development": "/services/software-development",
   "Mobile App Development": "/services/mobile-app-development",
-  "DevOps Services": "/services/devops",
-  "IoT Development Services": "/services/iot-development",
-  "AR/VR Development Services": "/services/ar-vr-development",
-  "Product Management Services": "/services/product-management",
+  "DevOps": "/services/devops",
+  "IoT Development": "/services/iot-development",
+  "VR Development": "/services/vr-development",
+  "Product Management": "/services/product-management",
+  "Penetration Testing": "/services/penetration-testing",
+  "SaaS App Development": "/services/saas-app-development",
+  "Web Development": "/services/web-development",
 }
 
 const NAV_ICON_MAP = {
@@ -141,6 +148,7 @@ const NAV_ICON_MAP = {
   FileCode,
   Users,
   ClipboardList,
+  ShieldCheck,
 }
 
 export function Navbar({ activeSection }: { activeSection: string }) {
