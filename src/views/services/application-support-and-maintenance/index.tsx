@@ -5,8 +5,8 @@ import { CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { FAQSection } from "@/components/service-page/FAQSection"
 import { SectionHead } from "@/components/service-page/SectionHead"
+import { FAQSection } from "@/components/service-page/FAQSection"
 import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
 import {
@@ -14,8 +14,9 @@ import {
   capabilities,
   engagementModels,
   faqs,
-  industries,
   processSteps,
+  teamRoles,
+  teamStats,
   techCategories,
   trustStats,
   whyToadster,
@@ -66,18 +67,19 @@ function HeroConsultationForm() {
       <p className="service-form-label relative z-10 mb-3 text-xs font-bold uppercase tracking-wide text-toadster-green">
         Free Consultation
       </p>
-      <h3 className="relative z-10 text-xl font-bold text-slate-900 dark:text-black">Tell us about your project</h3>
+      <h3 className="relative z-10 text-xl font-bold text-slate-900 dark:text-black">Talk to our support team</h3>
       <p className="capability-card-copy relative z-10 mt-2 mb-6 text-sm">
-        We typically respond within one business day. No sales pitch - just a real conversation about what's possible for your AI challenge.
+        Tell us about your applications and support requirements — we&apos;ll respond within one business day with a
+        clear view of how we can help.
       </p>
 
       <form onSubmit={handleSubmit} className="relative z-10 space-y-4">
         <div>
-          <label htmlFor="mad-name" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+          <label htmlFor="asm-name" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Your Name
           </label>
           <Input
-            id="ai-name"
+            id="asm-name"
             name="name"
             value={formData.name}
             onChange={handleChange}
@@ -87,11 +89,11 @@ function HeroConsultationForm() {
           />
         </div>
         <div>
-          <label htmlFor="mad-email" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+          <label htmlFor="asm-email" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Work Email
           </label>
           <Input
-            id="ai-email"
+            id="asm-email"
             name="fromEmail"
             type="email"
             value={formData.fromEmail}
@@ -102,11 +104,11 @@ function HeroConsultationForm() {
           />
         </div>
         <div>
-          <label htmlFor="mad-company" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+          <label htmlFor="asm-company" className="capability-card-copy mb-1.5 block text-sm font-semibold">
             Company Name
           </label>
           <Input
-            id="ai-company"
+            id="asm-company"
             name="company"
             value={formData.company}
             onChange={handleChange}
@@ -115,24 +117,24 @@ function HeroConsultationForm() {
           />
         </div>
         <div>
-          <label htmlFor="iot-requirements" className="capability-card-copy mb-1.5 block text-sm font-semibold">
-            Tell us about your AI challenge
+          <label htmlFor="asm-requirements" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+            Describe your applications and support needs
           </label>
           <Textarea
-            id="ai-requirements"
+            id="asm-requirements"
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Describe the problem you're trying to solve, your data situation, and what success would look like..."
+            placeholder="Tell us about the applications you need supported, your current uptime challenges, tech stack, and SLA requirements..."
             className="bright-panel-input min-h-[90px]"
           />
         </div>
         <Button type="submit" className="w-full rounded-xl py-6 text-base font-bold" disabled={isSubmitting}>
           {submitStatus === "success"
-            ? "Request Received - We'll be in touch soon!"
+            ? "Request Received — We'll be in touch soon!"
             : isSubmitting
               ? "Sending..."
-              : "Schedule a Free Consultation"}
+              : "Talk to Our Support Team"}
         </Button>
         {submitStatus === "error" ? (
           <p className="text-center text-sm text-red-500">Something went wrong. Please try again.</p>
@@ -143,30 +145,44 @@ function HeroConsultationForm() {
   )
 }
 
-export default function AIDevelopmentPage() {
+export default function ApplicationSupportAndMaintenancePage() {
   return (
-    <div className="service-page modern-service-page ai-development-page bg-page-bg text-page-fg">
+    <div className="service-page modern-service-page asm-service-page bg-page-bg text-page-fg">
       <section
         id="contact"
         className="software-development-hero section-full-bleed relative overflow-hidden pb-10 md:pb-14 lg:pb-20 bg-page-bg"
       >
         <div className="service-hero-grid relative mx-auto grid w-full items-start gap-8 lg:gap-14">
           <div className="service-hero-content lg:sticky lg:top-24 self-start">
-            <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
+            <h1 className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
 
-              Artificial Intelligence (AI) Services
+              Application Support & Maintenance
 
             </h1>
-            <p className="service-hero-subtitle mb-8 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
-              Most businesses don&apos;t need AI for the sake of AI. They need smarter workflows, faster decisions, and
-              systems that keep up with growth. We help startups, SMEs, and enterprises design, build, and deploy
-              practical AI solutions that generate measurable ROI.
+            <p className="service-hero-subtitle mb-6 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
+              Production applications don&apos;t fail on a schedule — and when they do, the cost isn&apos;t just
+              downtime. It&apos;s lost revenue, eroded user trust, and your internal team pulled away from building what
+              matters next.
+            </p>
+            <p className="service-hero-subtitle mb-6 w-full max-w-none text-base leading-relaxed text-page-fg-muted">
+              At Toadster Technologies, we provide application support and maintenance that goes beyond ticket
+              closing. Proactive monitoring, structured incident response, preventive maintenance, security patching, and
+              the documentation that makes your applications supportable long-term — whether we built them or inherited
+              them from someone else.
+            </p>
+            <p className="service-hero-subtitle mb-8 w-full max-w-none text-base leading-relaxed text-page-fg-muted">
+              We support web applications, mobile apps, APIs, cloud infrastructure, and legacy systems across modern
+              and established tech stacks — with SLAs that match how critical your applications actually are to your
+              business.
             </p>
 
-            <div className="mb-8 grid gap-6 sm:grid-cols-3">
-              {trustStats.map((stat) => (
-                <div key={stat.label} className="text-left">
-                  <div className="text-2xl font-extrabold text-page-fg md:text-3xl">{stat.number}</div>
+            <div className="mb-8 grid gap-4 sm:grid-cols-3">
+              {trustStats.slice(0, 3).map((stat) => (
+                <div
+                  key={stat.number}
+                  className="capability-card-surface rounded-xl px-5 py-4 transition-all duration-300"
+                >
+                  <div className="text-base font-extrabold text-page-fg">{stat.number}</div>
                   <div className="text-sm text-page-fg-muted">{stat.label}</div>
                 </div>
               ))}
@@ -185,43 +201,27 @@ export default function AIDevelopmentPage() {
         <div className="service-page-container px-4">
           <SectionHead
             label=""
-            title="AI development services built for business outcomes"
-            subtitle="We don't offer off-the-shelf AI packages. Every engagement starts with understanding your problem, your data, and your goals - then we build the solution that fits."
+            title="Application Support & Maintenance Services"
+            subtitle="From 24/7 monitoring and incident response to security patching, performance optimisation, and legacy stabilisation — here's what we cover:"
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             {capabilities.map((cap) => {
               const Icon = cap.icon
               return (
                 <div
                   key={cap.title}
-                  className="capability-card-surface group relative rounded-2xl p-7 transition-all duration-300"
+                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
                 >
                   <div className="capability-card-header relative z-10">
                     <div className="flex items-start justify-between gap-3">
-                      <h3 className="text-lg font-bold text-toadster-green flex-1">{cap.title}</h3>
-                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md ml-4">
+                      <h3 className="flex-1 text-lg font-bold text-toadster-green">{cap.title}</h3>
+                      <span className="ml-4 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
                         <Icon size={22} strokeWidth={2} />
                       </span>
                     </div>
                     <span className="capability-card-heading-rule" aria-hidden="true" />
                   </div>
-                  <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{cap.desc}</p>
-                  <p className="relative z-10 mb-4 text-sm font-semibold text-toadster-green">→ {cap.value}</p>
-                  <div className="relative z-10 border-t border-page-border pt-4">
-                    <p className="capability-card-copy mb-2 text-[11px] font-bold uppercase tracking-wider">
-                      Common Use Cases
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {cap.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="capability-card-tag rounded border border-page-border bg-page-bg-alt px-2.5 py-1 text-xs"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{cap.desc}</p>
                 </div>
               )
             })}
@@ -233,40 +233,8 @@ export default function AIDevelopmentPage() {
         <div className="service-page-container px-4">
           <SectionHead
             label=""
-            title="Industries we serve"
-            subtitle="We've delivered AI solutions across a wide range of industries. The problems change - the discipline doesn't."
-            labelClassName="text-toadster-green"
-          />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {industries.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                    <Icon size={22} strokeWidth={2} />
-                  </span>
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="text-base font-bold text-toadster-green">{item.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-page-bg-alt section-padding">
-        <div className="service-page-container px-4">
-          <SectionHead
-            label=""
-            title="What makes working with us different"
-            subtitle="A lot of AI firms will sell you a model. Very few will stay accountable for whether it actually works in your business. Here's how we're different."
-            labelClassName="text-toadster-green"
+            title="What Makes Working With Us Different"
+            subtitle="Application support is an industry full of ticket-closers and vague SLAs. Here's how we approach it differently."
           />
           <div className="grid gap-6 md:grid-cols-1 xl:grid-cols-2">
             {whyToadster.map((item) => {
@@ -294,21 +262,19 @@ export default function AIDevelopmentPage() {
       </section>
 
       <section id="process" className="service-process-section py-16 section-padding">
-                <div className="service-process-panel mx-auto grid service-page-container items-start gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[minmax(280px,380px)_1fr] lg:gap-14 lg:px-10 lg:py-14">
+        <div className="service-process-panel mx-auto grid service-page-container items-start gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[minmax(280px,380px)_1fr] lg:gap-14 lg:px-10 lg:py-14">
           <div className="service-process-intro lg:sticky lg:top-24 self-start">
             <SectionHead
               label=""
-              title="How we turn your requirements into working AI"
-              subtitle="Building AI that works in production is fundamentally different from building a proof of concept. Our process is designed to close that gap - fast."
+              title="How We Onboard and Support Your Applications"
+              subtitle="Effective support starts with understanding your systems before an incident happens. Our process is designed to build knowledge, monitoring, and documentation from day one."
             />
             <div className="service-process-timeline-card">
-              <p className="service-process-timeline-label">
-                Typical PoC timeline
-              </p>
+              <p className="service-process-timeline-label">Typical onboarding time</p>
               <div className="service-process-timeline-value">
-                4-8 <span className="service-process-timeline-unit">weeks</span>
+                48 <span className="service-process-timeline-unit">hours</span>
               </div>
-              <p className="service-process-timeline-desc">for a well-scoped AI proof of concept</p>
+              <p className="service-process-timeline-desc">for straightforward applications with existing documentation</p>
             </div>
           </div>
 
@@ -316,12 +282,12 @@ export default function AIDevelopmentPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg-alt section-padding">
+      <section className="py-16 bg-page-bg section-padding">
         <div className="service-page-container px-4">
           <SectionHead
             label=""
-            title="The right tools for the right problem"
-            subtitle="We don't push a single stack. We choose technologies based on your requirements, your existing infrastructure, and what will serve you best long-term."
+            title="Technologies & Platforms We Support"
+            subtitle="We maintain applications across modern and legacy tech stacks — web, mobile, cloud, and data layers."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {techCategories.map((cat) => {
@@ -362,8 +328,37 @@ export default function AIDevelopmentPage() {
         <div className="service-page-container px-4">
           <SectionHead
             label=""
-            title="What good AI actually delivers"
-            subtitle="When AI is built right and connected to real workflows, here's what businesses typically see."
+            title="The Support Team Behind Your Applications"
+            subtitle="Application support requires engineers who can diagnose, fix, and maintain — not just route tickets. Here's who you'll be working with."
+          />
+          <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {teamStats.map((stat) => (
+              <div
+                key={stat.value}
+                className="capability-card-surface rounded-xl px-5 py-5 transition-all duration-300"
+              >
+                <div className="text-lg font-extrabold text-page-fg">{stat.value}</div>
+                <div className="text-sm text-page-fg-muted">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+          <div className="ar-content-list divide-y divide-page-border border-y border-page-border">
+            {teamRoles.map((role) => (
+              <article key={role.title} className="grid gap-2 py-6 md:grid-cols-[minmax(200px,34%)_1fr] md:gap-8">
+                <h3 className="font-bold text-page-fg">{role.title}</h3>
+                <p className="text-sm leading-relaxed text-page-fg-muted">{role.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-page-bg section-padding">
+        <div className="service-page-container px-4">
+          <SectionHead
+            label=""
+            title="What Reliable Application Support Actually Delivers"
+            subtitle="Support is justified by the business outcomes it produces — not by ticket volume. Here's what well-maintained applications deliver:"
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((item) => {
@@ -388,55 +383,63 @@ export default function AIDevelopmentPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg section-padding">
+      <section id="plans" className="py-16 bg-page-bg-alt section-padding">
         <div className="service-page-container px-4">
           <SectionHead
             label=""
-            title="Work with us the way that makes sense for your situation"
-            subtitle="We don't force every client into the same engagement model. Here are the ways we typically work together."
+            title="Support Plans That Match Your Requirements"
+            subtitle="From business-hours maintenance to 24/7 enterprise support — choose the coverage level that fits your applications and risk tolerance."
           />
           <div className="grid gap-6 md:grid-cols-2">
             {engagementModels.map((model) => (
-              <div key={model.title} className={model.badge ? "relative pt-3" : "relative"}>
-                {model.badge ? (
-                  <p className="mb-3 text-[11px] font-bold uppercase tracking-wide text-toadster-green">{model.badge}</p>
-                ) : null}
-                <div
-                  className={`capability-card-surface relative rounded-2xl p-8 transition-all duration-300 hover:shadow-md ${
-                    model.featured ? "ring-2 ring-toadster-green/35" : ""
-                  }`}
-                >
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="text-xl font-extrabold text-toadster-green">{model.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 mt-2 text-xs font-semibold uppercase tracking-wide">
-                    {model.who}
-                  </p>
-                  <p className="capability-card-copy relative z-10 mt-4 text-sm leading-relaxed">{model.desc}</p>
-                  <ul className="relative z-10 mt-5 space-y-2">
-                    {model.benefits.map((benefit) => (
-                      <li
-                        key={benefit}
-                        className="capability-card-copy flex items-start gap-2 border-b border-slate-200/80 py-2 text-sm last:border-0 dark:border-slate-300/40"
-                      >
-                        <CheckCircle size={16} className="mt-0.5 shrink-0 text-toadster-green" />
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
+              <div key={model.title} className="capability-card-surface relative rounded-2xl p-8 transition-all duration-300">
+                <div className="capability-card-header relative z-10">
+                  <h3 className="text-xl font-extrabold text-toadster-green">{model.title}</h3>
+                  <span className="capability-card-heading-rule" aria-hidden="true" />
                 </div>
+                <p className="capability-card-copy relative z-10 mt-4 text-sm leading-relaxed">{model.desc}</p>
+                <p className="relative z-10 mt-5 mb-3 text-xs font-bold uppercase tracking-wider text-toadster-green">
+                  What&apos;s included
+                </p>
+                <ul className="relative z-10 mb-5 space-y-2">
+                  {model.includes.map((item) => (
+                    <li
+                      key={item}
+                      className="capability-card-copy flex items-start gap-2 border-b border-page-border/60 py-2 text-sm last:border-0"
+                    >
+                      <CheckCircle size={16} className="mt-0.5 shrink-0 text-toadster-green" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="relative z-10 mb-3 text-xs font-bold uppercase tracking-wider text-toadster-green">
+                  Best for
+                </p>
+                <ul className="relative z-10 space-y-2">
+                  {model.bestFor.map((item) => (
+                    <li
+                      key={item}
+                      className="capability-card-copy flex items-start gap-2 text-sm text-page-fg-muted"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-toadster-green" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <FAQSection faqs={faqs} />
+      <FAQSection
+        faqs={faqs}
+        title="Questions We Hear Before Every Support Engagement"
+        subtitle="Straightforward answers to the things decision-makers actually want to know."
+      />
 
       <section className="relative overflow-hidden py-16 bg-page-bg section-padding">
         <div className="pointer-events-none absolute inset-0 opacity-0 dark:opacity-100">
-          <div className="absolute inset-0" />
           <div
             className="absolute inset-0"
             style={{
@@ -446,11 +449,16 @@ export default function AIDevelopmentPage() {
         </div>
         <div className="relative mx-auto max-w-3xl px-4 text-center">
           <h2 className="mb-5 text-3xl font-extrabold tracking-tight text-page-fg md:text-4xl">
-            Let&apos;s talk about what you&apos;re building
+            Schedule a Free Support Consultation
           </h2>
-          <p className="mb-10 text-lg leading-relaxed text-page-fg-muted">
-            Tell us about your AI challenge. We&apos;ll schedule a free strategy call with a senior AI consultant - no
-            sales pitch, no pressure, just a real conversation about what&apos;s possible.
+          <p className="mb-4 text-lg leading-relaxed text-page-fg-muted">
+            Tell us about the applications you need supported — their tech stack, current challenges, uptime requirements,
+            and what&apos;s not working with your current support setup — and we&apos;ll have a direct conversation about
+            what the right plan looks like.
+          </p>
+          <p className="mb-10 text-base leading-relaxed text-page-fg-muted">
+            We respond within one business day. No hard sell, no generic pitch deck — just an honest assessment of
+            whether we&apos;re the right fit for your applications.
           </p>
           <p className="mt-6 text-sm text-page-fg-muted">
             Typically responds within one business day · No spam, no sales scripts

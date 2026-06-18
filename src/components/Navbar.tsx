@@ -34,7 +34,10 @@ import {
   FileCode,
   Users,
   ClipboardList,
+  Scan,
   ShieldCheck,
+  Lock,
+  LifeBuoy,
 } from "lucide-react"
 import { HIRE_RESOURCES_NAV } from "@/config/hire-resources"
 import {
@@ -66,8 +69,11 @@ const services = [
   { icon: "Server", title: "DevOps", description: "CI/CD pipelines, cloud infrastructure, Kubernetes, and SRE" },
   { icon: "Cpu", title: "IoT Development", description: "End-to-end IoT - firmware, cloud, edge computing, and dashboards" },
   { icon: "Eye", title: "VR Development", description: "Custom VR apps for training, simulation, virtual showrooms, and enterprise deployment" },
+  { icon: "Scan", title: "AR Development", description: "Mobile AR, WebAR, HoloLens, product visualisation, and enterprise AR solutions" },
   { icon: "ClipboardList", title: "Product Management", description: "Embedded PMs, roadmaps, discovery, requirements, and fractional CPO leadership" },
   { icon: "ShieldCheck", title: "Penetration Testing", description: "Manual security testing, red team operations, and compliance-driven assessments" },
+  { icon: "Lock", title: "Cybersecurity Services", description: "Penetration testing, cloud security, compliance, AppSec, and managed SOC" },
+  { icon: "LifeBuoy", title: "Application Support", description: "Proactive monitoring, incident response, patching, and SLA-based maintenance" },
   { icon: "Layers", title: "SaaS App Development", description: "End-to-end SaaS products from MVP to enterprise-grade multi-tenant platforms" },
   { icon: "Monitor", title: "Web Development", description: "Custom websites, web applications, and digital platforms that drive business outcomes" },
 ]
@@ -116,8 +122,11 @@ const SERVICE_ROUTES: Record<string, string> = {
   "DevOps": "/services/devops",
   "IoT Development": "/services/iot-development",
   "VR Development": "/services/vr-development",
+  "AR Development": "/services/augmented-reality",
   "Product Management": "/services/product-management",
   "Penetration Testing": "/services/penetration-testing",
+  "Cybersecurity Services": "/services/cybersecurity",
+  "Application Support": "/services/application-support-and-maintenance",
   "SaaS App Development": "/services/saas-app-development",
   "Web Development": "/services/web-development",
 }
@@ -149,6 +158,9 @@ const NAV_ICON_MAP = {
   Users,
   ClipboardList,
   ShieldCheck,
+  Scan,
+  Lock,
+  LifeBuoy,
 }
 
 export function Navbar({ activeSection: incomingActiveSection }: { activeSection: string }) {

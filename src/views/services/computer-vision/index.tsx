@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { CTALink } from "@/components/CTALink"
 import { Eye, Cpu, ScanLine, Camera, Shield, TrendingUp, Clock, Users, Zap, ChevronDown, CheckCircle, Star, Activity, Brain, Network, Settings, Layers, Server } from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
 
@@ -31,29 +30,21 @@ const industries = [
 
 export default function ComputerVisionPage() {
   return (
-    <div className="bg-page-bg text-page-fg">
+    <div className="service-page bg-page-bg text-page-fg">
       {/* ── HERO ── */}
       <section className="relative overflow-hidden  py-28">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20" style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }} />
         </div>
-        <div className="max-w-5xl mx-auto text-center relative">
-          <span className="inline-block text-xs font-semibold tracking-widest text-green-400 border border-green-800 rounded-full px-3 py-1 mb-6 uppercase">Computer Vision</span>
+        <div className="service-page-container text-center relative">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Transform Reality with Advanced<br /><span className="text-green-400">Computer Vision Solutions</span>
+
+            Computer Vision
+
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             Our computer vision solutions can configure shape its deep learning and vision algorithms to help businesses automate processes, analyse images, and scale smarter - faster than ever before.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact">Let's Talk</CTALink>
-            <button
-              className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors"
-              onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              See How it Works
-            </button>
-          </div>
           <div className="mt-14 flex flex-wrap gap-6 justify-center items-center opacity-50">
             {["Nike", "Unicef", "Nikon", "HP", "Startplay"].map((b) => (<span key={b} className="text-page-fg-subtle font-bold text-sm tracking-wide">{b}</span>))}
           </div>
@@ -63,7 +54,7 @@ export default function ComputerVisionPage() {
 
       {/* ── SERVICES ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Build</p>
             <h2 className="text-4xl font-extrabold">Our Computer Vision</h2>
@@ -107,7 +98,7 @@ export default function ComputerVisionPage() {
 
       {/* ── STATS ── */}
       <section className="bg-page-bg-alt py-16">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="service-page-container text-center">
           <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">At a Glance</p>
           <h2 className="text-3xl font-extrabold mb-4">Highlights of <span className="text-green-400">Achievements</span></h2>
           <p className="text-page-fg-muted max-w-xl mx-auto mb-12 text-sm">We've worked across industries solving complex computer vision challenges with measurable business impact.</p>
@@ -125,7 +116,7 @@ export default function ComputerVisionPage() {
 
       {/* ── KEY FEATURES ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Core Capabilities</p>
             <h2 className="text-4xl font-extrabold">Key Features of Our Computer Vision Solutions</h2>
@@ -152,7 +143,7 @@ export default function ComputerVisionPage() {
 
       {/* ── BENEFITS ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why Us</p>
             <h2 className="text-4xl font-extrabold">Benefits of Working with Us</h2>
@@ -179,7 +170,7 @@ export default function ComputerVisionPage() {
 
       {/* ── PROCESS ── */}
       <section id="our-process" className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
             <h2 className="text-4xl font-extrabold">Our Process</h2>
@@ -203,7 +194,7 @@ export default function ComputerVisionPage() {
 
       {/* ── INDUSTRIES ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Verticals</p>
             <h2 className="text-4xl font-extrabold">Industries We Serve</h2>
@@ -222,7 +213,7 @@ export default function ComputerVisionPage() {
 
       {/* ── WORK ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
             <h2 className="text-4xl font-extrabold">Our Work Speaks for Itself</h2>
@@ -243,7 +234,7 @@ export default function ComputerVisionPage() {
                 </div>
                 <div className="p-6 relative -mt-6 flex flex-col grow">
                   <div className="mb-4">
-                    <span className="text-xs text-green-400 font-semibold bg-green-950 px-3 py-1 rounded-full border border-green-800/50 shadow-sm">{w.tag}</span>
+                    <p className="text-xs font-bold uppercase tracking-wide text-green-400">{w.tag}</p>
                   </div>
                   <h3 className="font-bold text-page-fg text-lg mb-2 group-hover:text-green-400 transition-colors pt-1">{w.title}</h3>
                   <p className="text-page-fg-muted text-sm leading-relaxed grow mb-4">{w.desc}</p>
@@ -260,7 +251,7 @@ export default function ComputerVisionPage() {
 
       {/* ── KEY TECHNOLOGIES ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Tech Stack</p>
             <h2 className="text-4xl font-extrabold">Key Technologies in AI Development</h2>
@@ -279,7 +270,7 @@ export default function ComputerVisionPage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
             <h2 className="text-4xl font-extrabold">What Our Clients Say</h2>
@@ -304,24 +295,12 @@ export default function ComputerVisionPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">Ready to Harness the Power of<br /><span className="text-green-400">AI for Your Business?</span></h2>
           <p className="text-page-fg-muted mb-8">Let's build a computer vision solution tailored to your operations, data, and goals.</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact" className="text-lg" title="Talk to our computer vision team">
-              Let's Talk
-            </CTALink>
-            <CTALink
-               to="/services/machine-learning"
-              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5 text-lg"
-              title="Explore Machine Learning"
-            >
-              Explore Machine Learning
-            </CTALink>
-          </div>
         </div>
       </section>
 
       {/* ── BLOGS ── */}
       {/* <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
             <h2 className="text-4xl font-extrabold">Our Blogs</h2>
@@ -335,7 +314,7 @@ export default function ComputerVisionPage() {
               <div key={b.title} className="bg-page-bg-alt rounded-2xl overflow-hidden border border-page-border hover:border-green-800/30 transition-colors cursor-pointer group">
                 <div className="h-36 bg-linear-to-br from-green-900/30 to-page-bg flex items-center justify-center"><Eye size={40} className="text-green-700" /></div>
                 <div className="p-5">
-                  <span className="text-xs text-green-400 font-semibold bg-green-900/20 px-2 py-0.5 rounded-full">{b.tag}</span>
+                  <p className="text-xs font-bold uppercase tracking-wide text-green-400">{b.tag}</p>
                   <h3 className="font-bold text-page-fg mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
                   <p className="text-gray-500 text-xs">{b.date}</p>
                 </div>

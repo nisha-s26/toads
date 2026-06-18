@@ -1,9 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
-import { ArrowRight, CheckCircle } from "lucide-react"
-import { CTALink } from "@/components/CTALink"
+import { CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -63,12 +61,11 @@ function HeroConsultationForm() {
   return (
     <div
       id="contact-form"
-      className="capability-card-surface relative overflow-hidden rounded-2xl p-8 shadow-2xl lg:p-9"
+      className="capability-card-surface relative rounded-2xl p-8 shadow-2xl lg:p-9"
     >
-      <span className="relative z-10 mb-3 inline-flex items-center gap-2 rounded-full bg-toadster-green/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-toadster-green">
-        <span className="h-2 w-2 rounded-full bg-toadster-green" />
+      <p className="service-form-label relative z-10 mb-3 text-xs font-bold uppercase tracking-wide text-toadster-green">
         Free Consultation
-      </span>
+      </p>
       <h3 className="relative z-10 text-xl font-bold text-slate-900 dark:text-black">Tell us about your project</h3>
       <p className="capability-card-copy relative z-10 mt-2 mb-6 text-sm">
         We typically respond within one business day. No generic pitch - just a direct conversation about what you're trying to connect.
@@ -148,19 +145,17 @@ function HeroConsultationForm() {
 
 export default function IoTDevelopmentPage() {
   return (
-    <div className="modern-service-page iot-development-page bg-page-bg text-page-fg">
+    <div className="service-page modern-service-page iot-development-page bg-page-bg text-page-fg">
       <section
         id="contact"
         className="software-development-hero section-full-bleed relative overflow-hidden pb-10 md:pb-14 lg:pb-20 bg-page-bg"
       >
-        <div className="service-hero-grid relative mx-auto grid w-full max-w-6xl items-start gap-8 lg:gap-14">
+        <div className="service-hero-grid relative mx-auto grid w-full items-start gap-8 lg:gap-14">
           <div className="service-hero-content lg:sticky lg:top-24 self-start">
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-toadster-green/35 bg-toadster-green/15 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-toadster-green">
-              <span className="h-2 w-2 rounded-full bg-toadster-green" />
-              IoT Development Services
-            </span>
             <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
-              Connect Your Devices. Control Your Operations. <span className="text-toadster-green">Act on Real Data.</span>
+
+              IoT Development Services
+
             </h1>
             <p className="service-hero-subtitle mb-8 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
               Most businesses are sitting on untapped operational data in factories, fleets, facilities, and field
@@ -176,18 +171,6 @@ export default function IoTDevelopmentPage() {
                 </div>
               ))}
             </div>
-
-            <div className="flex flex-wrap gap-3">
-              <CTALink to="#contact-form" className="gap-2">
-                Discuss Your IoT Project <ArrowRight size={18} />
-              </CTALink>
-              <Link
-                href="#services"
-                className="inline-flex items-center rounded-xl border border-page-border bg-page-card px-7 py-3 text-sm font-semibold text-page-fg transition-colors hover:bg-page-bg-alt"
-              >
-                See Our Capabilities
-              </Link>
-            </div>
           </div>
 
           <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="service-hero-form hide-scrollbar">
@@ -199,7 +182,7 @@ export default function IoTDevelopmentPage() {
       <LazyTrustedBy compact />
 
       <section id="services" className="section-padding py-16 bg-page-bg-alt">
-        <div className="mx-auto max-w-6xl px-4">
+        <div className="service-page-container px-4">
           <SectionHead
             label=""
             title="IoT development services across the full stack"
@@ -247,7 +230,7 @@ export default function IoTDevelopmentPage() {
       </section>
 
       <section className="py-16 bg-page-bg section-padding">
-        <div className="mx-auto max-w-6xl px-4">
+        <div className="service-page-container px-4">
           <SectionHead
             label=""
             title="Industries we build IoT solutions for"
@@ -278,7 +261,7 @@ export default function IoTDevelopmentPage() {
       </section>
 
       <section className="py-16 bg-page-bg-alt section-padding">
-        <div className="mx-auto max-w-6xl px-4">
+        <div className="service-page-container px-4">
           <SectionHead
             label=""
             title="What makes working with us different"
@@ -311,7 +294,7 @@ export default function IoTDevelopmentPage() {
       </section>
 
       <section id="process" className="service-process-section py-16 section-padding">
-                <div className="service-process-panel mx-auto grid max-w-6xl items-start gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[minmax(280px,380px)_1fr] lg:gap-14 lg:px-10 lg:py-14">
+                <div className="service-process-panel mx-auto grid service-page-container items-start gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[minmax(280px,380px)_1fr] lg:gap-14 lg:px-10 lg:py-14">
           <div className="service-process-intro lg:sticky lg:top-24 self-start">
             <SectionHead
               label=""
@@ -334,7 +317,7 @@ export default function IoTDevelopmentPage() {
       </section>
 
       <section className="py-16 bg-page-bg-alt section-padding">
-        <div className="mx-auto max-w-6xl px-4">
+        <div className="service-page-container px-4">
           <SectionHead
             label=""
             title="The tools and platforms we work with"
@@ -376,7 +359,7 @@ export default function IoTDevelopmentPage() {
       </section>
 
       <section className="py-16 bg-page-bg-alt section-padding">
-        <div className="mx-auto max-w-6xl px-4">
+        <div className="service-page-container px-4">
           <SectionHead
             label=""
             title="What a well-built IoT system actually delivers"
@@ -406,7 +389,7 @@ export default function IoTDevelopmentPage() {
       </section>
 
       <section className="py-16 bg-page-bg section-padding">
-        <div className="mx-auto max-w-6xl px-4">
+        <div className="service-page-container px-4">
           <SectionHead
             label=""
             title="Work with us the way that fits your project"
@@ -416,9 +399,7 @@ export default function IoTDevelopmentPage() {
             {engagementModels.map((model) => (
               <div key={model.title} className={model.badge ? "relative pt-3" : "relative"}>
                 {model.badge ? (
-                  <span className="absolute left-6 top-0 z-20 -translate-y-1/2 rounded-full bg-toadster-green px-3.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-[0_2px_10px_rgba(0,77,45,0.28)] ring-2 ring-white dark:ring-[#eef2f7]">
-                    {model.badge}
-                  </span>
+                  <p className="mb-3 text-[11px] font-bold uppercase tracking-wide text-toadster-green">{model.badge}</p>
                 ) : null}
                 <div
                   className={`capability-card-surface relative rounded-2xl p-8 transition-all duration-300 hover:shadow-md ${
@@ -471,14 +452,6 @@ export default function IoTDevelopmentPage() {
             Whether you have a well-defined IoT project, a rough concept, or an existing system you need to fix or
             scale - we&apos;re happy to have a direct conversation about what it would take to get there.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <CTALink
-              to="#contact-form"
-              className="bg-toadster-green text-white hover:bg-toadster-green/90 hover:text-white"
-            >
-              Discuss Your IoT Project <ArrowRight size={18} className="ml-2" />
-            </CTALink>
-          </div>
           <p className="mt-6 text-sm text-page-fg-muted">
             Typically responds within one business day · No spam, no sales scripts
           </p>

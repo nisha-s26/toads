@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { CTALink } from "@/components/CTALink"
 import {
   Brain,
   Zap,
@@ -24,8 +23,7 @@ import {
   GitBranch,
   Layers,
   Bot,
-  Workflow,
-} from "lucide-react"
+  Workflow} from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -52,7 +50,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function IntelligentAutomationPage() {
   return (
-    <div className="bg-page-bg text-page-fg">
+    <div className="service-page bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden  py-28">
@@ -62,30 +60,22 @@ export default function IntelligentAutomationPage() {
             style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }}
           />
         </div>
-        <div className="max-w-5xl mx-auto text-center relative">
-          <span className="inline-block text-xs font-semibold tracking-widest text-green-400 border border-green-800 rounded-full px-3 py-1 mb-6 uppercase">
-            Intelligent Automation
-          </span>
+        <div className="service-page-container text-center relative">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Transform Operations with<br />
-            <span className="text-green-400">Intelligent Automation</span> Services
+
+            Intelligent Automation
+
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             Combine AI, RPA, and analytics to automate complex business processes, drive efficiency, and enable smarter decision-making at scale.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact">Get Free Automation Audit</CTALink>
-            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">
-              See How It Works
-            </button>
-          </div>
         </div>
       </section>
       <ServicesTrustedBy />
 
       {/* ── SERVICES GRID ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">Intelligent Automation Services</h2>
@@ -121,7 +111,7 @@ export default function IntelligentAutomationPage() {
 
       {/* ── STATS ── */}
       <section className="bg-page-bg-alt py-16">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="service-page-container text-center">
           <h2 className="text-3xl font-extrabold mb-2">
             Proven Performance, <span className="text-green-400">Trusted Results</span>
           </h2>
@@ -146,7 +136,7 @@ export default function IntelligentAutomationPage() {
 
       {/* ── KEY FEATURES ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Capabilities</p>
             <h2 className="text-4xl font-extrabold">Key Features of Intelligent Automation</h2>
@@ -180,7 +170,7 @@ export default function IntelligentAutomationPage() {
 
       {/* ── OUR PROCESS ── */}
       <section id="our-process" className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
             <h2 className="text-4xl font-extrabold">Our Process</h2>
@@ -212,7 +202,7 @@ export default function IntelligentAutomationPage() {
 
       {/* ── BENEFITS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why Choose Us</p>
             <h2 className="text-4xl font-extrabold">Benefits of Working With Us</h2>
@@ -243,7 +233,7 @@ export default function IntelligentAutomationPage() {
 
       {/* ── EXPERTISE ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Expertise</p>
             <h2 className="text-4xl font-extrabold">Intelligent Automation Expertise</h2>
@@ -252,20 +242,16 @@ export default function IntelligentAutomationPage() {
             {[
               {
                 title: "Automation Platforms & Tools",
-                points: ["UiPath, Automation Anywhere, Power Automate", "LangChain & agentic workflows", "Custom Python/Node pipelines", "n8n, Zapier, Make"],
-              },
+                points: ["UiPath, Automation Anywhere, Power Automate", "LangChain & agentic workflows", "Custom Python/Node pipelines", "n8n, Zapier, Make"]},
               {
                 title: "AI & ML Integration",
-                points: ["LLM-powered document processing", "Predictive analytics in automation", "Computer vision for visual tasks", "Cognitive bots with NLP"],
-              },
+                points: ["LLM-powered document processing", "Predictive analytics in automation", "Computer vision for visual tasks", "Cognitive bots with NLP"]},
               {
                 title: "Cloud & Infrastructure",
-                points: ["Cloud-native deployment (AWS, Azure, GCP)", "Kubernetes & Docker orchestration", "Serverless automation", "Event-driven architectures"],
-              },
+                points: ["Cloud-native deployment (AWS, Azure, GCP)", "Kubernetes & Docker orchestration", "Serverless automation", "Event-driven architectures"]},
               {
                 title: "Monitoring & Analytics",
-                points: ["Real-time dashboards & KPIs", "Exception handling & self-healing bots", "Audit trails & compliance logging", "ROI tracking"],
-              },
+                points: ["Real-time dashboards & KPIs", "Exception handling & self-healing bots", "Audit trails & compliance logging", "ROI tracking"]},
             ].map((e) => (
               <div key={e.title} className="bg-page-card rounded-2xl p-6 border border-page-border">
                 <h3 className="font-bold text-green-400 mb-4">{e.title}</h3>
@@ -285,7 +271,7 @@ export default function IntelligentAutomationPage() {
 
       {/* ── WHY OUR INTELLIGENT AUTOMATION ENGINEERS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Engineers</p>
             <h2 className="text-4xl font-extrabold max-w-3xl mx-auto">
@@ -313,7 +299,7 @@ export default function IntelligentAutomationPage() {
 
       {/* ── OUR WORK ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
             <h2 className="text-4xl font-extrabold">Our Work Speaks for Itself</h2>
@@ -334,7 +320,7 @@ export default function IntelligentAutomationPage() {
                   <div className="absolute inset-0 bg-page-card/10 group-hover:bg-transparent transition-colors duration-500"></div>
                 </div>
                 <div className="p-5 border-t border-page-border">
-                  <span className="text-xs text-green-400 font-semibold bg-green-900/20 px-2 py-0.5 rounded-full">{w.tag}</span>
+                  <p className="text-xs font-bold uppercase tracking-wide text-green-400">{w.tag}</p>
                   <h3 className="font-bold text-page-fg mt-3 mb-2">{w.title}</h3>
                   <p className="text-page-fg-muted text-sm mb-3 leading-relaxed">{w.desc}</p>
                   <p className="text-green-400 font-semibold text-sm">{w.metric}</p>
@@ -347,7 +333,7 @@ export default function IntelligentAutomationPage() {
 
       {/* ── KEY INNOVATIONS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
             <h2 className="text-4xl font-extrabold">Key Innovations in Intelligent Automation</h2>
@@ -377,7 +363,7 @@ export default function IntelligentAutomationPage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
             <h2 className="text-4xl font-extrabold">What Our Clients Say</h2>
@@ -415,24 +401,12 @@ export default function IntelligentAutomationPage() {
           <p className="text-page-fg-muted mb-8">
             Let's build intelligent automation that works for you - 24/7, at scale, without limits.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact" className="text-lg" title="Talk to our automation team">
-              Chat With Us
-            </CTALink>
-            <CTALink
-               to="/services/ai-automation"
-              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5 text-lg"
-              title="Explore AI Automation"
-            >
-              Explore AI Automation
-            </CTALink>
-          </div>
         </div>
       </section>
 
       {/* ── BLOGS ── */}
       {/* <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
             <h2 className="text-4xl font-extrabold">Our Blogs</h2>
@@ -451,7 +425,7 @@ export default function IntelligentAutomationPage() {
                   <Zap size={40} className="text-green-700" />
                 </div>
                 <div className="p-5">
-                  <span className="text-xs text-green-400 font-semibold bg-green-900/20 px-2 py-0.5 rounded-full">{b.tag}</span>
+                  <p className="text-xs font-bold uppercase tracking-wide text-green-400">{b.tag}</p>
                   <h3 className="font-bold text-page-fg mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
                   <p className="text-gray-500 text-xs">{b.date}</p>
                 </div>

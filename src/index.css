@@ -306,14 +306,22 @@
 .software-development-hero {
   padding-top: calc(5.5rem + env(safe-area-inset-top, 0px));
   isolation: isolate;
-  padding-inline: clamp(1rem, 3vw, 3.75rem);
+}
+
+/* Service pages — constrain section content to 90% viewport width */
+.service-page-container {
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 90%;
+  margin-inline: auto;
 }
 
 /* Keep hero consultation form inside the viewport on service pages */
 .service-hero-grid {
   box-sizing: border-box;
-  width: 100%;
-  max-width: min(72rem, 100%);
+  width: 90%;
+  max-width: 90%;
+  margin-inline: auto;
 }
 
 .service-hero-subtitle {

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { CTALink } from "@/components/CTALink"
 import {
   GitBranch,
   ChevronDown,
@@ -17,8 +16,7 @@ import {
   Layers,
   BarChart3,
   Target,
-  ArrowLeftRight,
-} from "lucide-react"
+  ArrowLeftRight} from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -47,66 +45,54 @@ const capabilities = [
   {
     icon: <ArrowLeftRight size={22} />,
     title: "Agent-to-Agent Communication",
-    desc: "Enable autonomous AI agents to discover, negotiate, and collaborate with each other using standardised messaging protocols.",
-  },
+    desc: "Enable autonomous AI agents to discover, negotiate, and collaborate with each other using standardised messaging protocols."},
   {
     icon: <Lock size={22} />,
     title: "Secure Agent Authentication",
-    desc: "Cryptographic identity verification and mutual TLS authentication between agents, ensuring only trusted agents can communicate.",
-  },
+    desc: "Cryptographic identity verification and mutual TLS authentication between agents, ensuring only trusted agents can communicate."},
   {
     icon: <Network size={22} />,
     title: "Agent Discovery & Registry",
-    desc: "Decentralised service registry where agents publish capabilities and discover other agents dynamically at runtime.",
-  },
+    desc: "Decentralised service registry where agents publish capabilities and discover other agents dynamically at runtime."},
   {
     icon: <RefreshCw size={22} />,
     title: "Task Delegation & Orchestration",
-    desc: "Intelligent task routing and delegation across multi-agent systems - agents break down complex work and distribute sub-tasks.",
-  },
+    desc: "Intelligent task routing and delegation across multi-agent systems - agents break down complex work and distribute sub-tasks."},
   {
     icon: <Shield size={22} />,
     title: "Trust & Reputation Framework",
-    desc: "Built-in trust scoring and reputation tracking so agents can evaluate reliability before delegating sensitive tasks.",
-  },
+    desc: "Built-in trust scoring and reputation tracking so agents can evaluate reliability before delegating sensitive tasks."},
   {
     icon: <Layers size={22} />,
     title: "Protocol-Agnostic Interoperability",
-    desc: "Support for Google A2A, MCP, OpenAI function calling, and custom protocols - bridging agents built on different frameworks.",
-  },
+    desc: "Support for Google A2A, MCP, OpenAI function calling, and custom protocols - bridging agents built on different frameworks."},
 ]
 
 const benefits = [
   {
     icon: <Target size={22} />,
     title: "Autonomous Multi-Agent Systems",
-    desc: "Deploy swarms of specialised agents that self-organise, negotiate, and solve complex problems without human intervention.",
-  },
+    desc: "Deploy swarms of specialised agents that self-organise, negotiate, and solve complex problems without human intervention."},
   {
     icon: <Shield size={22} />,
     title: "Enterprise-Grade Security",
-    desc: "End-to-end encrypted inter-agent communication with audit trails, access control, and compliance logging built in.",
-  },
+    desc: "End-to-end encrypted inter-agent communication with audit trails, access control, and compliance logging built in."},
   {
     icon: <Zap size={22} />,
     title: "Sub-Second Agent Handoffs",
-    desc: "Optimised message passing and task delegation protocols that keep latency under 100ms for real-time agent collaboration.",
-  },
+    desc: "Optimised message passing and task delegation protocols that keep latency under 100ms for real-time agent collaboration."},
   {
     icon: <BarChart3 size={22} />,
     title: "Observable Agent Networks",
-    desc: "Full visibility into agent communication, task flows, and decision chains with integrated monitoring dashboards.",
-  },
+    desc: "Full visibility into agent communication, task flows, and decision chains with integrated monitoring dashboards."},
   {
     icon: <Globe size={22} />,
     title: "Cross-Platform Agent Mesh",
-    desc: "Connect agents running on different clouds, frameworks, and infrastructure into a unified collaborative mesh network.",
-  },
+    desc: "Connect agents running on different clouds, frameworks, and infrastructure into a unified collaborative mesh network."},
   {
     icon: <Users size={22} />,
     title: "Human-in-the-Loop Controls",
-    desc: "Configurable escalation policies and approval gates so humans can intervene in critical agent-to-agent workflows.",
-  },
+    desc: "Configurable escalation policies and approval gates so humans can intervene in critical agent-to-agent workflows."},
 ]
 
 const stats = [
@@ -120,33 +106,28 @@ const faqs = [
   {
     question: "What is Agent-to-Agent (A2A) communication?",
     answer:
-      "A2A is a protocol and architecture pattern where autonomous AI agents can discover, authenticate, and collaborate with each other to accomplish complex tasks - without requiring a central orchestrator.",
-  },
+      "A2A is a protocol and architecture pattern where autonomous AI agents can discover, authenticate, and collaborate with each other to accomplish complex tasks - without requiring a central orchestrator."},
   {
     question: "How does A2A differ from traditional API integration?",
     answer:
-      "Unlike static APIs, A2A enables dynamic agent discovery, negotiation, and task delegation. Agents can find and collaborate with other agents at runtime based on capabilities, rather than relying on pre-configured endpoints.",
-  },
+      "Unlike static APIs, A2A enables dynamic agent discovery, negotiation, and task delegation. Agents can find and collaborate with other agents at runtime based on capabilities, rather than relying on pre-configured endpoints."},
   {
     question: "Is A2A compatible with Google's A2A protocol?",
     answer:
-      "Yes. We support Google's A2A protocol natively and can also bridge it with other protocols like MCP, LangGraph, and custom inter-agent messaging formats for maximum interoperability.",
-  },
+      "Yes. We support Google's A2A protocol natively and can also bridge it with other protocols like MCP, LangGraph, and custom inter-agent messaging formats for maximum interoperability."},
   {
     question: "How do you ensure security in multi-agent systems?",
     answer:
-      "Every agent gets a cryptographic identity. We use mutual TLS, signed messages, trust scoring, and configurable access control policies to ensure only authorised agents can interact.",
-  },
+      "Every agent gets a cryptographic identity. We use mutual TLS, signed messages, trust scoring, and configurable access control policies to ensure only authorised agents can interact."},
   {
     question: "Can A2A work with our existing AI systems?",
     answer:
-      "Absolutely. We build agent adapters and protocol bridges that let your existing AI models, chatbots, and automation tools participate in A2A networks without re-engineering them.",
-  },
+      "Absolutely. We build agent adapters and protocol bridges that let your existing AI models, chatbots, and automation tools participate in A2A networks without re-engineering them."},
 ]
 
 export default function Agent2AgentPage() {
   return (
-    <div className="bg-page-bg text-page-fg">
+    <div className="service-page bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden  py-28">
@@ -156,13 +137,11 @@ export default function Agent2AgentPage() {
             style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }}
           />
         </div>
-        <div className="max-w-5xl mx-auto text-center relative">
-          <span className="inline-block text-xs font-semibold tracking-widest text-green-400 border border-green-800 rounded-full px-3 py-1 mb-6 uppercase">
-            Agent 2 Agent
-          </span>
+        <div className="service-page-container text-center relative">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Build Autonomous <br />
-            <span className="text-green-400">Multi-Agent Systems</span>
+
+            Agent 2 Agent
+
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             Enable AI agents to discover, communicate, and collaborate securely - unlocking swarm intelligence for complex enterprise workflows.
@@ -186,7 +165,7 @@ export default function Agent2AgentPage() {
 
       {/* ── CAPABILITIES ── */}
       <section id="agent-services" className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Core Capabilities
@@ -216,7 +195,7 @@ export default function Agent2AgentPage() {
 
       {/* ── BENEFITS ── */}
       <section id="our-process" className="py-20 bg-page-bg-alt">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why A2A
@@ -246,7 +225,7 @@ export default function Agent2AgentPage() {
 
       {/* ── STATS ── */}
       <section className="py-16 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s) => (
               <div
@@ -263,7 +242,7 @@ export default function Agent2AgentPage() {
 
       {/* ── HOW IT WORKS ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Our Process
@@ -291,7 +270,7 @@ export default function Agent2AgentPage() {
 
       {/* ── KEY TECHNOLOGIES ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Tech Stack
@@ -321,7 +300,7 @@ export default function Agent2AgentPage() {
 
       {/* ── WHY TOADSTER ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why Toadster
@@ -350,7 +329,7 @@ export default function Agent2AgentPage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Client Stories
@@ -364,18 +343,15 @@ export default function Agent2AgentPage() {
               {
                 name: "Vikram P.",
                 role: "VP Engineering, Fintech Platform",
-                text: "Toadster built us a multi-agent fraud detection system where agents collaborate in real-time. False positive rate dropped 72% in the first quarter.",
-              },
+                text: "Toadster built us a multi-agent fraud detection system where agents collaborate in real-time. False positive rate dropped 72% in the first quarter."},
               {
                 name: "Sarah L.",
                 role: "CTO, Logistics Startup",
-                text: "Their A2A architecture lets our routing, pricing, and dispatch agents negotiate autonomously. We process 5x more shipments with the same team.",
-              },
+                text: "Their A2A architecture lets our routing, pricing, and dispatch agents negotiate autonomously. We process 5x more shipments with the same team."},
               {
                 name: "Dr. Rajan M.",
                 role: "Head of AI, Insurance Group",
-                text: "The agent mesh Toadster deployed handles claims processing end-to-end. Agents triage, verify, and approve claims without human bottlenecks.",
-              },
+                text: "The agent mesh Toadster deployed handles claims processing end-to-end. Agents triage, verify, and approve claims without human bottlenecks."},
             ].map((t) => (
               <div
                 key={t.name}
@@ -426,18 +402,6 @@ export default function Agent2AgentPage() {
           <p className="text-page-fg-subtle text-lg mb-8 max-w-xl mx-auto">
             Book a free A2A architecture review and discover how multi-agent systems can transform your operations.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact" title="Book a free A2A architecture review">
-              Book Free Review
-            </CTALink>
-            <CTALink
-               to="/services/agentic-ai"
-              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5"
-              title="Explore Agentic AI"
-            >
-              Explore Agentic AI
-            </CTALink>
-          </div>
         </div>
       </section>
 

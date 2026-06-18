@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { CTALink } from "@/components/CTALink"
 import {
   MessageSquare,
   ChevronDown,
@@ -18,8 +17,7 @@ import {
   Languages,
   Mic,
   Bot,
-  Workflow,
-} from "lucide-react"
+  Workflow} from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -48,66 +46,54 @@ const services = [
   {
     icon: <Bot size={22} />,
     title: "AI-Powered Chatbots",
-    desc: "Context-aware chatbots that understand intent, maintain conversation history, and resolve queries with human-like fluency across channels.",
-  },
+    desc: "Context-aware chatbots that understand intent, maintain conversation history, and resolve queries with human-like fluency across channels."},
   {
     icon: <Mic size={22} />,
     title: "Voice AI Assistants",
-    desc: "Speech-to-text, NLU, and text-to-speech pipelines that power natural voice experiences for IVR, smart speakers, and in-app voice commands.",
-  },
+    desc: "Speech-to-text, NLU, and text-to-speech pipelines that power natural voice experiences for IVR, smart speakers, and in-app voice commands."},
   {
     icon: <Languages size={22} />,
     title: "Multilingual Conversations",
-    desc: "Conversational AI that works across 50+ languages with real-time translation, code-switching support, and cultural context awareness.",
-  },
+    desc: "Conversational AI that works across 50+ languages with real-time translation, code-switching support, and cultural context awareness."},
   {
     icon: <Workflow size={22} />,
     title: "Dialogue Management Systems",
-    desc: "Sophisticated dialogue state tracking and flow management that guides users through complex multi-turn interactions without losing context.",
-  },
+    desc: "Sophisticated dialogue state tracking and flow management that guides users through complex multi-turn interactions without losing context."},
   {
     icon: <Headphones size={22} />,
     title: "Contact Centre AI",
-    desc: "Agent assist, call summarisation, sentiment analysis, and automated routing that transforms contact centres into intelligent operations.",
-  },
+    desc: "Agent assist, call summarisation, sentiment analysis, and automated routing that transforms contact centres into intelligent operations."},
   {
     icon: <Brain size={22} />,
     title: "RAG-Powered Knowledge Bots",
-    desc: "Retrieval-augmented generation systems that ground conversations in your enterprise data - accurate, cited, and hallucination-resistant.",
-  },
+    desc: "Retrieval-augmented generation systems that ground conversations in your enterprise data - accurate, cited, and hallucination-resistant."},
 ]
 
 const benefits = [
   {
     icon: <Target size={22} />,
     title: "90%+ Intent Accuracy",
-    desc: "Fine-tuned NLU models that achieve enterprise-grade accuracy, reducing misroutes and improving first-contact resolution.",
-  },
+    desc: "Fine-tuned NLU models that achieve enterprise-grade accuracy, reducing misroutes and improving first-contact resolution."},
   {
     icon: <Shield size={22} />,
     title: "Enterprise Compliance",
-    desc: "PII redaction, data retention policies, audit logging, and SOC 2 / HIPAA / GDPR compliance built into every deployment.",
-  },
+    desc: "PII redaction, data retention policies, audit logging, and SOC 2 / HIPAA / GDPR compliance built into every deployment."},
   {
     icon: <Zap size={22} />,
     title: "Sub-Second Response Times",
-    desc: "Optimised inference pipelines and streaming responses that deliver natural, lag-free conversational experiences.",
-  },
+    desc: "Optimised inference pipelines and streaming responses that deliver natural, lag-free conversational experiences."},
   {
     icon: <BarChart3 size={22} />,
     title: "Actionable Analytics",
-    desc: "Real-time dashboards tracking CSAT, containment rates, topic clusters, sentiment trends, and conversation quality metrics.",
-  },
+    desc: "Real-time dashboards tracking CSAT, containment rates, topic clusters, sentiment trends, and conversation quality metrics."},
   {
     icon: <Globe size={22} />,
     title: "Omnichannel Deployment",
-    desc: "Deploy once, serve everywhere - web, mobile, WhatsApp, Slack, Teams, voice, and custom channels from a single platform.",
-  },
+    desc: "Deploy once, serve everywhere - web, mobile, WhatsApp, Slack, Teams, voice, and custom channels from a single platform."},
   {
     icon: <Users size={22} />,
     title: "Seamless Human Handoff",
-    desc: "Intelligent escalation that transfers context-rich conversations to human agents without making customers repeat themselves.",
-  },
+    desc: "Intelligent escalation that transfers context-rich conversations to human agents without making customers repeat themselves."},
 ]
 
 const stats = [
@@ -121,33 +107,28 @@ const faqs = [
   {
     question: "What is conversational AI?",
     answer:
-      "Conversational AI encompasses technologies that enable machines to understand, process, and respond to human language naturally - including chatbots, voice assistants, and dialogue systems powered by NLP, NLU, and generative AI.",
-  },
+      "Conversational AI encompasses technologies that enable machines to understand, process, and respond to human language naturally - including chatbots, voice assistants, and dialogue systems powered by NLP, NLU, and generative AI."},
   {
     question: "How is conversational AI different from a simple chatbot?",
     answer:
-      "Simple chatbots follow scripted decision trees. Conversational AI uses advanced NLU, context management, and LLMs to understand nuance, maintain multi-turn context, handle unexpected inputs, and generate natural responses.",
-  },
+      "Simple chatbots follow scripted decision trees. Conversational AI uses advanced NLU, context management, and LLMs to understand nuance, maintain multi-turn context, handle unexpected inputs, and generate natural responses."},
   {
     question: "Can conversational AI integrate with our existing tools?",
     answer:
-      "Yes. We integrate with CRMs (Salesforce, HubSpot), ticketing systems (Zendesk, ServiceNow), knowledge bases, ERPs, and custom backends via APIs and webhooks.",
-  },
+      "Yes. We integrate with CRMs (Salesforce, HubSpot), ticketing systems (Zendesk, ServiceNow), knowledge bases, ERPs, and custom backends via APIs and webhooks."},
   {
     question: "How do you handle multilingual support?",
     answer:
-      "We use multilingual LLMs, translation APIs, and language-specific fine-tuning to support 50+ languages. Our systems also handle code-switching (mixed-language conversations) natively.",
-  },
+      "We use multilingual LLMs, translation APIs, and language-specific fine-tuning to support 50+ languages. Our systems also handle code-switching (mixed-language conversations) natively."},
   {
     question: "What's the typical deployment timeline?",
     answer:
-      "A production-ready conversational AI system typically takes 4-8 weeks - including NLU training, dialogue design, integration, testing, and deployment. Simpler FAQ bots can go live in 1-2 weeks.",
-  },
+      "A production-ready conversational AI system typically takes 4-8 weeks - including NLU training, dialogue design, integration, testing, and deployment. Simpler FAQ bots can go live in 1-2 weeks."},
 ]
 
 export default function ConversationalAIPage() {
   return (
-    <div className="bg-page-bg text-page-fg">
+    <div className="service-page bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden  py-28">
@@ -157,13 +138,11 @@ export default function ConversationalAIPage() {
             style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }}
           />
         </div>
-        <div className="max-w-5xl mx-auto text-center relative">
-          <span className="inline-block text-xs font-semibold tracking-widest text-green-400 border border-green-800 rounded-full px-3 py-1 mb-6 uppercase">
-            Conversational AI
-          </span>
+        <div className="service-page-container text-center relative">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Build Natural, Contextual <br />
-            <span className="text-green-400">Conversational Experiences</span>
+
+            Conversational AI
+
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             AI-powered chatbots, voice assistants, and dialogue systems that understand context, speak naturally, and resolve queries - across every channel and language.
@@ -187,7 +166,7 @@ export default function ConversationalAIPage() {
 
       {/* ── SERVICES ── */}
       <section id="what-we-build" className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               What We Build
@@ -217,7 +196,7 @@ export default function ConversationalAIPage() {
 
       {/* ── BENEFITS ── */}
       <section id="our-process" className="py-20 bg-page-bg-alt">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why It Matters
@@ -247,7 +226,7 @@ export default function ConversationalAIPage() {
 
       {/* ── STATS ── */}
       <section className="py-16 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s) => (
               <div
@@ -264,7 +243,7 @@ export default function ConversationalAIPage() {
 
       {/* ── HOW IT WORKS ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Our Process
@@ -292,7 +271,7 @@ export default function ConversationalAIPage() {
 
       {/* ── KEY TECHNOLOGIES ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Tech Stack
@@ -322,7 +301,7 @@ export default function ConversationalAIPage() {
 
       {/* ── WHY TOADSTER ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why Toadster
@@ -351,7 +330,7 @@ export default function ConversationalAIPage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Client Stories
@@ -365,18 +344,15 @@ export default function ConversationalAIPage() {
               {
                 name: "Priya N.",
                 role: "Head of CX, E-Commerce Platform",
-                text: "Toadster's conversational AI handles 85% of our support queries autonomously. Customer satisfaction went up 22% while costs dropped 40%.",
-              },
+                text: "Toadster's conversational AI handles 85% of our support queries autonomously. Customer satisfaction went up 22% while costs dropped 40%."},
               {
                 name: "David C.",
                 role: "VP Operations, Insurance Company",
-                text: "The multilingual voice assistant they built handles claims intake in 12 languages. Call centre wait times dropped from 8 minutes to under 30 seconds.",
-              },
+                text: "The multilingual voice assistant they built handles claims intake in 12 languages. Call centre wait times dropped from 8 minutes to under 30 seconds."},
               {
                 name: "Aisha M.",
                 role: "CTO, Healthcare Startup",
-                text: "Their RAG-powered knowledge bot answers patient queries with cited sources from our medical database. Accuracy is incredible - and fully HIPAA compliant.",
-              },
+                text: "Their RAG-powered knowledge bot answers patient queries with cited sources from our medical database. Accuracy is incredible - and fully HIPAA compliant."},
             ].map((t) => (
               <div
                 key={t.name}
@@ -427,18 +403,6 @@ export default function ConversationalAIPage() {
           <p className="text-page-fg-subtle text-lg mb-8 max-w-xl mx-auto">
             Book a free consultation and see how conversational AI can transform your customer experience and operations.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact" title="Book a free conversational AI consultation">
-              Book Free Consultation
-            </CTALink>
-            <CTALink
-               to="/services/ai-chatbots"
-              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5"
-              title="Explore AI Chatbots"
-            >
-              Explore AI Chatbots
-            </CTALink>
-          </div>
         </div>
       </section>
 

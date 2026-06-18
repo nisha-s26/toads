@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { CTALink } from "@/components/CTALink"
 import {
   Brain,
   Zap,
@@ -24,8 +23,7 @@ import {
   GitBranch,
   Layers,
   Bot,
-  Workflow,
-} from "lucide-react"
+  Workflow} from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -52,7 +50,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function AIAutomationPage() {
   return (
-    <div className="bg-page-bg text-page-fg">
+    <div className="service-page bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden  py-28">
@@ -62,30 +60,22 @@ export default function AIAutomationPage() {
             style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }}
           />
         </div>
-        <div className="max-w-5xl mx-auto text-center relative">
-          <span className="inline-block text-xs font-semibold tracking-widest text-green-400 border border-green-800 rounded-full px-3 py-1 mb-6 uppercase">
-            AI Automation
-          </span>
+        <div className="service-page-container text-center relative">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Supercharge Your Business with<br />
-            <span className="text-green-400">AI Automation</span> Services
+
+            AI Automation
+
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             Eliminate repetitive tasks, accelerate workflows, and unlock operational excellence with intelligent AI automation solutions engineered for enterprise scale and reliability.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact">Get Free AI Audit</CTALink>
-            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">
-              See How It Works
-            </button>
-          </div>
         </div>
       </section>
       <ServicesTrustedBy />
 
       {/* ── SERVICES GRID ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">AI Automation Services</h2>
@@ -121,7 +111,7 @@ export default function AIAutomationPage() {
 
       {/* ── STATS ── */}
       <section className="bg-page-bg-alt py-16">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="service-page-container text-center">
           <h2 className="text-3xl font-extrabold mb-2">
             Proven Performance, <span className="text-green-400">Trusted Results</span>
           </h2>
@@ -146,7 +136,7 @@ export default function AIAutomationPage() {
 
       {/* ── KEY FEATURES ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Capabilities</p>
             <h2 className="text-4xl font-extrabold">Key Features of AI Automation</h2>
@@ -180,7 +170,7 @@ export default function AIAutomationPage() {
 
       {/* ── OUR PROCESS ── */}
       <section id="our-process" className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
             <h2 className="text-4xl font-extrabold">Our Process</h2>
@@ -208,8 +198,7 @@ export default function AIAutomationPage() {
               style={{
                 backgroundImage: "url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
+                backgroundPosition: 'center'}}
             >
 
             </div>
@@ -219,7 +208,7 @@ export default function AIAutomationPage() {
 
       {/* ── BENEFITS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why Choose Us</p>
             <h2 className="text-4xl font-extrabold">Benefits of Working With Us</h2>
@@ -250,7 +239,7 @@ export default function AIAutomationPage() {
 
       {/* ── EXPERTISE ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Expertise</p>
             <h2 className="text-4xl font-extrabold">AI Automation Expertise Tailored to You</h2>
@@ -259,20 +248,16 @@ export default function AIAutomationPage() {
             {[
               {
                 title: "Automation Frameworks & Tools",
-                points: ["UiPath, Automation Anywhere, Power Automate", "LangChain & LangGraph agent workflows", "Zapier, Make (Integromat), n8n", "Custom Python / Node automation pipelines"],
-              },
+                points: ["UiPath, Automation Anywhere, Power Automate", "LangChain & LangGraph agent workflows", "Zapier, Make (Integromat), n8n", "Custom Python / Node automation pipelines"]},
               {
                 title: "AI & ML Integration",
-                points: ["LLM-powered document understanding", "OCR and intelligent data extraction", "Predictive models in automation loops", "Computer vision for visual automation"],
-              },
+                points: ["LLM-powered document understanding", "OCR and intelligent data extraction", "Predictive models in automation loops", "Computer vision for visual automation"]},
               {
                 title: "Cloud & Infrastructure",
-                points: ["Cloud-native deployment (AWS, GCP, Azure)", "Docker & Kubernetes for automation pods", "Event-driven architectures with Kafka", "Serverless automation with Lambda / Cloud Functions"],
-              },
+                points: ["Cloud-native deployment (AWS, GCP, Azure)", "Docker & Kubernetes for automation pods", "Event-driven architectures with Kafka", "Serverless automation with Lambda / Cloud Functions"]},
               {
                 title: "Monitoring & Analytics",
-                points: ["Real-time automation dashboards", "Exception handling & self-healing bots", "ROI tracking and performance KPIs", "Full audit trails and compliance logging"],
-              },
+                points: ["Real-time automation dashboards", "Exception handling & self-healing bots", "ROI tracking and performance KPIs", "Full audit trails and compliance logging"]},
             ].map((e) => (
               <div key={e.title} className="bg-page-card rounded-2xl p-6 border border-page-border">
                 <h3 className="font-bold text-green-400 mb-4">{e.title}</h3>
@@ -292,7 +277,7 @@ export default function AIAutomationPage() {
 
       {/* ── WHY OUR AI AUTOMATION ENGINEERS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Engineers</p>
             <h2 className="text-4xl font-extrabold max-w-3xl mx-auto">
@@ -320,7 +305,7 @@ export default function AIAutomationPage() {
 
       {/* ── OUR WORK ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
             <h2 className="text-4xl font-extrabold">Our Work Speaks for Itself</h2>
@@ -342,7 +327,7 @@ export default function AIAutomationPage() {
                 </div>
                 <div className="p-6 relative -mt-6 flex flex-col grow">
                   <div className="mb-4">
-                    <span className="text-xs text-green-400 font-semibold bg-green-950 px-3 py-1 rounded-full border border-green-800/50 shadow-sm">{w.tag}</span>
+                    <p className="text-xs font-bold uppercase tracking-wide text-green-400">{w.tag}</p>
                   </div>
                   <h3 className="font-bold text-page-fg text-lg mb-2 group-hover:text-green-400 transition-colors pt-1">{w.title}</h3>
                   <p className="text-page-fg-muted text-sm leading-relaxed grow mb-4">{w.desc}</p>
@@ -359,7 +344,7 @@ export default function AIAutomationPage() {
 
       {/* ── KEY INNOVATIONS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
             <h2 className="text-4xl font-extrabold">Key Innovations in AI Automation</h2>
@@ -389,7 +374,7 @@ export default function AIAutomationPage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
             <h2 className="text-4xl font-extrabold">What Our Clients Say</h2>
@@ -427,24 +412,12 @@ export default function AIAutomationPage() {
           <p className="text-page-fg-muted mb-8">
             Let's build intelligent automation that works for you - 24/7, at scale, without limits.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact" className="text-lg" title="Talk to our automation team">
-              Chat With Us
-            </CTALink>
-            <CTALink
-               to="/services/intelligent-automation"
-              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5 text-lg"
-              title="Explore Intelligent Automation"
-            >
-              Explore Intelligent Automation
-            </CTALink>
-          </div>
         </div>
       </section>
 
       {/* ── BLOGS ── */}
       {/* <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
             <h2 className="text-4xl font-extrabold">Our Blogs</h2>
@@ -463,7 +436,7 @@ export default function AIAutomationPage() {
                   <Zap size={40} className="text-green-700" />
                 </div>
                 <div className="p-5">
-                  <span className="text-xs text-green-400 font-semibold bg-green-900/20 px-2 py-0.5 rounded-full">{b.tag}</span>
+                  <p className="text-xs font-bold uppercase tracking-wide text-green-400">{b.tag}</p>
                   <h3 className="font-bold text-page-fg mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
                   <p className="text-gray-500 text-xs">{b.date}</p>
                 </div>

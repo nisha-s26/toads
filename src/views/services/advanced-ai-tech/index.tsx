@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { CTALink } from "@/components/CTALink"
 import {
   Cpu,
   ChevronDown,
@@ -18,8 +17,7 @@ import {
   Network,
   Atom,
   Scan,
-  Binary,
-} from "lucide-react"
+  Binary} from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -48,66 +46,54 @@ const services = [
   {
     icon: <Brain size={22} />,
     title: "Neuro-Symbolic AI",
-    desc: "Hybrid systems combining neural networks with symbolic reasoning for explainable, reliable AI that can handle logical tasks and learn from data simultaneously.",
-  },
+    desc: "Hybrid systems combining neural networks with symbolic reasoning for explainable, reliable AI that can handle logical tasks and learn from data simultaneously."},
   {
     icon: <Network size={22} />,
     title: "Federated Learning",
-    desc: "Train powerful AI models across decentralised data sources without moving sensitive data - privacy-preserving machine learning at enterprise scale.",
-  },
+    desc: "Train powerful AI models across decentralised data sources without moving sensitive data - privacy-preserving machine learning at enterprise scale."},
   {
     icon: <Atom size={22} />,
     title: "Quantum-Ready AI",
-    desc: "AI architectures designed to leverage quantum computing advantages - from optimisation problems to molecular simulation and cryptography.",
-  },
+    desc: "AI architectures designed to leverage quantum computing advantages - from optimisation problems to molecular simulation and cryptography."},
   {
     icon: <Scan size={22} />,
     title: "Self-Supervised Learning",
-    desc: "Models that learn from unlabelled data, dramatically reducing annotation costs and enabling AI deployment in data-scarce domains.",
-  },
+    desc: "Models that learn from unlabelled data, dramatically reducing annotation costs and enabling AI deployment in data-scarce domains."},
   {
     icon: <Layers size={22} />,
     title: "Multi-Modal AI Systems",
-    desc: "Unified models that reason across text, images, audio, video, and structured data - enabling richer understanding and decision-making.",
-  },
+    desc: "Unified models that reason across text, images, audio, video, and structured data - enabling richer understanding and decision-making."},
   {
     icon: <Binary size={22} />,
     title: "Edge AI & TinyML",
-    desc: "Deploy sophisticated AI models on resource-constrained edge devices - from microcontrollers to smartphones - with optimised inference.",
-  },
+    desc: "Deploy sophisticated AI models on resource-constrained edge devices - from microcontrollers to smartphones - with optimised inference."},
 ]
 
 const benefits = [
   {
     icon: <Target size={22} />,
     title: "Frontier Performance",
-    desc: "Access state-of-the-art AI capabilities that outperform conventional approaches by 30-60% on complex, real-world tasks.",
-  },
+    desc: "Access state-of-the-art AI capabilities that outperform conventional approaches by 30-60% on complex, real-world tasks."},
   {
     icon: <Shield size={22} />,
     title: "Future-Proof Architecture",
-    desc: "Systems designed to evolve with AI research - modular, upgradeable, and ready for the next wave of breakthroughs.",
-  },
+    desc: "Systems designed to evolve with AI research - modular, upgradeable, and ready for the next wave of breakthroughs."},
   {
     icon: <Zap size={22} />,
     title: "Efficiency at Scale",
-    desc: "Advanced techniques like model distillation, quantisation, and sparse inference reduce compute costs by up to 80%.",
-  },
+    desc: "Advanced techniques like model distillation, quantisation, and sparse inference reduce compute costs by up to 80%."},
   {
     icon: <BarChart3 size={22} />,
     title: "Explainable AI",
-    desc: "Neuro-symbolic and attention-based architectures that provide interpretable decisions - critical for regulated industries.",
-  },
+    desc: "Neuro-symbolic and attention-based architectures that provide interpretable decisions - critical for regulated industries."},
   {
     icon: <Sparkles size={22} />,
     title: "Few-Shot & Zero-Shot Learning",
-    desc: "Models that generalise from minimal examples, enabling rapid deployment in new domains without extensive training data.",
-  },
+    desc: "Models that generalise from minimal examples, enabling rapid deployment in new domains without extensive training data."},
   {
     icon: <Users size={22} />,
     title: "Research-to-Production Pipeline",
-    desc: "Dedicated teams that translate cutting-edge research papers into production-grade systems within weeks, not months.",
-  },
+    desc: "Dedicated teams that translate cutting-edge research papers into production-grade systems within weeks, not months."},
 ]
 
 const stats = [
@@ -121,33 +107,28 @@ const faqs = [
   {
     question: "What makes your AI technology 'advanced'?",
     answer:
-      "We implement techniques from the frontier of AI research - neuro-symbolic reasoning, federated learning, self-supervised methods, multi-modal fusion, and quantum-ready architectures - that go beyond standard deep learning approaches.",
-  },
+      "We implement techniques from the frontier of AI research - neuro-symbolic reasoning, federated learning, self-supervised methods, multi-modal fusion, and quantum-ready architectures - that go beyond standard deep learning approaches."},
   {
     question: "Do we need a large dataset to use advanced AI?",
     answer:
-      "Not necessarily. Techniques like self-supervised learning, few-shot learning, and transfer learning allow us to build high-performance models even with limited labelled data.",
-  },
+      "Not necessarily. Techniques like self-supervised learning, few-shot learning, and transfer learning allow us to build high-performance models even with limited labelled data."},
   {
     question: "How do you handle model interpretability?",
     answer:
-      "We use neuro-symbolic hybrids, attention visualisation, SHAP/LIME explanations, and custom interpretability layers to ensure models produce explainable, auditable decisions.",
-  },
+      "We use neuro-symbolic hybrids, attention visualisation, SHAP/LIME explanations, and custom interpretability layers to ensure models produce explainable, auditable decisions."},
   {
     question: "Can advanced AI run on edge devices?",
     answer:
-      "Yes. We specialise in model compression, quantisation, and TinyML techniques that deploy sophisticated AI on microcontrollers, mobile devices, and edge hardware with minimal latency.",
-  },
+      "Yes. We specialise in model compression, quantisation, and TinyML techniques that deploy sophisticated AI on microcontrollers, mobile devices, and edge hardware with minimal latency."},
   {
     question: "What is your research-to-production process?",
     answer:
-      "We monitor top AI conferences (NeurIPS, ICML, ICLR), prototype promising techniques within 2-4 weeks, benchmark against your use case, and productionise the best-performing approach with full MLOps.",
-  },
+      "We monitor top AI conferences (NeurIPS, ICML, ICLR), prototype promising techniques within 2-4 weeks, benchmark against your use case, and productionise the best-performing approach with full MLOps."},
 ]
 
 export default function AdvancedAITechPage() {
   return (
-    <div className="bg-page-bg text-page-fg">
+    <div className="service-page bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden py-28">
@@ -158,12 +139,10 @@ export default function AdvancedAITechPage() {
           />
         </div>
         <div className="max-w-9xl mx-auto text-center relative">
-          <span className="inline-block text-xs font-semibold tracking-widest text-green-400 border border-green-800 rounded-full px-3 py-1 mb-6 uppercase">
-            Advanced AI Tech
-          </span>
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Cutting-Edge AI for <br />
-            <span className="text-green-400">Complex Problems</span>
+
+            Advanced AI Tech
+
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             From neuro-symbolic reasoning to federated learning and quantum-ready architectures - we bring frontier AI research to production for your business.
@@ -193,7 +172,7 @@ export default function AdvancedAITechPage() {
 
       {/* ── SERVICES ── */}
       <section id="what-we-build" className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               What We Build
@@ -223,7 +202,7 @@ export default function AdvancedAITechPage() {
 
       {/* ── BENEFITS ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why It Matters
@@ -253,7 +232,7 @@ export default function AdvancedAITechPage() {
 
       {/* ── STATS ── */}
       <section className="py-16 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s) => (
               <div
@@ -270,7 +249,7 @@ export default function AdvancedAITechPage() {
 
       {/* ── HOW IT WORKS ── */}
       <section id="how-we-work" className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Our Process
@@ -298,7 +277,7 @@ export default function AdvancedAITechPage() {
 
       {/* ── KEY TECHNOLOGIES ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Tech Stack
@@ -328,7 +307,7 @@ export default function AdvancedAITechPage() {
 
       {/* ── WHY TOADSTER ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why Toadster
@@ -357,7 +336,7 @@ export default function AdvancedAITechPage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Client Stories
@@ -371,18 +350,15 @@ export default function AdvancedAITechPage() {
               {
                 name: "James T.",
                 role: "CTO, Biotech Startup",
-                text: "Toadster's neuro-symbolic approach to drug interaction prediction was 10x more interpretable than our previous black-box model - and more accurate.",
-              },
+                text: "Toadster's neuro-symbolic approach to drug interaction prediction was 10x more interpretable than our previous black-box model - and more accurate."},
               {
                 name: "Meera K.",
                 role: "VP Data Science, Manufacturing",
-                text: "Their self-supervised learning pipeline eliminated our need for expensive manual labelling. We went from 10K labelled samples to zero - with better accuracy.",
-              },
+                text: "Their self-supervised learning pipeline eliminated our need for expensive manual labelling. We went from 10K labelled samples to zero - with better accuracy."},
               {
                 name: "Alex R.",
                 role: "Head of Innovation, Telecom",
-                text: "The federated learning system Toadster built lets us train across regional data centres without moving customer data. Regulators love it.",
-              },
+                text: "The federated learning system Toadster built lets us train across regional data centres without moving customer data. Regulators love it."},
             ].map((t) => (
               <div
                 key={t.name}
@@ -433,18 +409,6 @@ export default function AdvancedAITechPage() {
           <p className="text-page-fg-subtle text-lg mb-8 max-w-xl mx-auto">
             Book a free research consultation and discover which advanced AI techniques can give your business a decisive edge.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact" title="Book a free Advanced AI consultation">
-              Book Free Consultation
-            </CTALink>
-            <CTALink
-               to="/blogs"
-              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5"
-              title="Read our research and insights"
-            >
-              Read Research Insights
-            </CTALink>
-          </div>
         </div>
       </section>
 

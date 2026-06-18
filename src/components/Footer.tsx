@@ -13,7 +13,6 @@ import {
 import Link from "next/link"
 import { ToadsterLogo } from "@/components/ToadsterLogo"
 import { ClutchBadge } from "@/components/ClutchBadge"
-import { ThemeToggle } from "@/components/ThemeToggle"
 import { cn } from "@/lib/utils"
 
 interface InternalLink {
@@ -29,8 +28,11 @@ const AI_SERVICE_LINKS: InternalLink[] = [
   { to: "/services/devops", label: "DevOps Services" },
   { to: "/services/iot-development", label: "IoT Development" },
   { to: "/services/vr-development", label: "VR Development" },
+  { to: "/services/augmented-reality", label: "AR Development" },
   { to: "/services/product-management", label: "Product Management" },
   { to: "/services/penetration-testing", label: "Penetration Testing" },
+  { to: "/services/cybersecurity", label: "Cybersecurity Services" },
+  { to: "/services/application-support-and-maintenance", label: "Application Support" },
   { to: "/services/saas-app-development", label: "SaaS App Development" },
   { to: "/services/web-development", label: "Web Development" },
 ]
@@ -464,8 +466,6 @@ const Footer = () => {
               <ClutchBadge className="mt-5" onDarkBackground />
             </div>
           </div>
-
-          <ThemeToggle />
 
           <FooterColumn>
             <FooterSectionTitle compact>Services</FooterSectionTitle>

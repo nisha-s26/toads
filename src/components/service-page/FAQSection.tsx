@@ -36,7 +36,15 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   )
 }
 
-export function FAQSection({ faqs }: { faqs: ServiceFaq[] }) {
+export function FAQSection({
+  faqs,
+  title = "Questions we hear before every project",
+  subtitle = "Straightforward answers to the things decision-makers actually want to know.",
+}: {
+  faqs: ServiceFaq[]
+  title?: string
+  subtitle?: string
+}) {
   const FAQ_INITIAL_COUNT = 5
   const [visibleCount, setVisibleCount] = useState(FAQ_INITIAL_COUNT)
 
@@ -46,11 +54,11 @@ export function FAQSection({ faqs }: { faqs: ServiceFaq[] }) {
 
   return (
     <section id="faq" className="section-padding bg-page-bg-alt py-16">
-      <div className="mx-auto max-w-3xl px-4">
+      <div className="service-page-container px-4">
         <SectionHead
           label=""
-          title="Questions we hear before every project"
-          subtitle="Straightforward answers to the things decision-makers actually want to know."
+          title={title}
+          subtitle={subtitle}
           centered
         />
         <div className="flex flex-col gap-4">

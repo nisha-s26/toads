@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { CTALink } from "@/components/CTALink"
 import {
   ChevronDown,
   Lightbulb,
@@ -18,8 +17,7 @@ import {
   Star,
   ClipboardList,
   Network,
-  Brain,
-} from "lucide-react"
+  Brain} from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -48,66 +46,54 @@ const consultingServices = [
   {
     icon: <Lightbulb size={22} />,
     title: "AI Readiness Assessment",
-    desc: "A comprehensive audit of your data maturity, infrastructure, talent, and strategic readiness for AI adoption.",
-  },
+    desc: "A comprehensive audit of your data maturity, infrastructure, talent, and strategic readiness for AI adoption."},
   {
     icon: <Map size={22} />,
     title: "AI Strategy & Roadmap",
-    desc: "A clear, prioritised 12-24 month roadmap that aligns AI initiatives with your business objectives and budget.",
-  },
+    desc: "A clear, prioritised 12-24 month roadmap that aligns AI initiatives with your business objectives and budget."},
   {
     icon: <ClipboardList size={22} />,
     title: "Use Case Identification",
-    desc: "We identify, score, and prioritise AI use cases by ROI potential, feasibility, and strategic value.",
-  },
+    desc: "We identify, score, and prioritise AI use cases by ROI potential, feasibility, and strategic value."},
   {
     icon: <Network size={22} />,
     title: "AI Architecture Design",
-    desc: "Vendor-neutral architecture recommendations for your data platform, model stack, and MLOps infrastructure.",
-  },
+    desc: "Vendor-neutral architecture recommendations for your data platform, model stack, and MLOps infrastructure."},
   {
     icon: <FlaskConical size={22} />,
     title: "Proof of Concept Design",
-    desc: "Structured PoC frameworks that de-risk AI investments before full-scale commitment.",
-  },
+    desc: "Structured PoC frameworks that de-risk AI investments before full-scale commitment."},
   {
     icon: <Rocket size={22} />,
     title: "AI Transformation Programme",
-    desc: "End-to-end change management, training, and governance frameworks for enterprise-wide AI adoption.",
-  },
+    desc: "End-to-end change management, training, and governance frameworks for enterprise-wide AI adoption."},
 ]
 
 const benefits = [
   {
     icon: <Target size={22} />,
     title: "Unbiased Expert Guidance",
-    desc: "We have no vendor affiliations - our recommendations are based purely on what's best for your business.",
-  },
+    desc: "We have no vendor affiliations - our recommendations are based purely on what's best for your business."},
   {
     icon: <ShieldCheck size={22} />,
     title: "Risk Mitigation",
-    desc: "Our structured frameworks prevent costly mistakes and failed AI experiments before they happen.",
-  },
+    desc: "Our structured frameworks prevent costly mistakes and failed AI experiments before they happen."},
   {
     icon: <Zap size={22} />,
     title: "Accelerated Adoption",
-    desc: "Skip years of trial and error with proven methodologies and battle-tested AI playbooks.",
-  },
+    desc: "Skip years of trial and error with proven methodologies and battle-tested AI playbooks."},
   {
     icon: <BarChart3 size={22} />,
     title: "ROI-Focused Approach",
-    desc: "Every recommendation is tied to quantifiable business outcomes - not technology for technology's sake.",
-  },
+    desc: "Every recommendation is tied to quantifiable business outcomes - not technology for technology's sake."},
   {
     icon: <TrendingUp size={22} />,
     title: "Long-Term Partnership",
-    desc: "We stay engaged beyond the strategy phase - coaching teams and iterating as your AI matures.",
-  },
+    desc: "We stay engaged beyond the strategy phase - coaching teams and iterating as your AI matures."},
   {
     icon: <Users size={22} />,
     title: "Cross-Functional Alignment",
-    desc: "We bridge the gap between technical teams and business leadership to ensure AI initiatives succeed.",
-  },
+    desc: "We bridge the gap between technical teams and business leadership to ensure AI initiatives succeed."},
 ]
 
 const stats = [
@@ -121,33 +107,28 @@ const faqs = [
   {
     question: "What does an AI consultation engagement look like?",
     answer:
-      "A typical engagement starts with a 2-week discovery sprint (stakeholder interviews, data audit, process mapping), followed by a strategy workshop and delivery of a detailed roadmap with prioritised use cases, architecture recommendations, and an implementation plan.",
-  },
+      "A typical engagement starts with a 2-week discovery sprint (stakeholder interviews, data audit, process mapping), followed by a strategy workshop and delivery of a detailed roadmap with prioritised use cases, architecture recommendations, and an implementation plan."},
   {
     question: "Do we need to have data ready before consulting?",
     answer:
-      "Not at all. One of the key outputs of our assessment is a data readiness gap analysis with a clear plan to get you there. Many clients start consulting before their data infrastructure is mature.",
-  },
+      "Not at all. One of the key outputs of our assessment is a data readiness gap analysis with a clear plan to get you there. Many clients start consulting before their data infrastructure is mature."},
   {
     question: "How is this different from hiring an internal AI team?",
     answer:
-      "Consultation gives you immediate access to senior AI architects, strategists, and domain experts without the 6-12 month hiring cycle. It's the fastest way to get a credible, actionable AI strategy.",
-  },
+      "Consultation gives you immediate access to senior AI architects, strategists, and domain experts without the 6-12 month hiring cycle. It's the fastest way to get a credible, actionable AI strategy."},
   {
     question: "Can you help us evaluate AI vendors and tools?",
     answer:
-      "Yes. We provide independent vendor evaluation frameworks, RFP support, and technical due diligence for AI platform, tooling, and model provider selection.",
-  },
+      "Yes. We provide independent vendor evaluation frameworks, RFP support, and technical due diligence for AI platform, tooling, and model provider selection."},
   {
     question: "Do you help with AI governance and ethics?",
     answer:
-      "Absolutely. We build responsible AI frameworks covering bias auditing, explainability requirements, data privacy, and governance policies that satisfy board-level and regulatory scrutiny.",
-  },
+      "Absolutely. We build responsible AI frameworks covering bias auditing, explainability requirements, data privacy, and governance policies that satisfy board-level and regulatory scrutiny."},
 ]
 
 export default function AIConsultationPage() {
   return (
-    <div className="bg-page-bg text-page-fg">
+    <div className="service-page bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden  py-28">
@@ -157,23 +138,15 @@ export default function AIConsultationPage() {
             style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }}
           />
         </div>
-        <div className="max-w-5xl mx-auto text-center relative">
-          <span className="inline-block text-xs font-semibold tracking-widest text-green-400 border border-green-800 rounded-full px-3 py-1 mb-6 uppercase">
-            AI Consultation
-          </span>
+        <div className="service-page-container text-center relative">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Strategic Guidance for <br />
-            <span className="text-green-400">AI Adoption</span> That Works
+
+            AI Consultation
+
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             Cut through the hype. Our AI consultants help you build a clear, actionable strategy - identifying the right use cases, architecture, and roadmap to deliver real business value.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact">Book a Free Strategy Call</CTALink>
-            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">
-              See How It Works
-            </button>
-          </div>
           <div className="mt-14 flex flex-wrap gap-6 justify-center items-center opacity-50">
             {["Nike", "Unicef", "Nikon", "HP", "Startplay"].map((b) => (
               <span key={b} className="text-page-fg-subtle font-bold text-sm tracking-wide">{b}</span>
@@ -185,7 +158,7 @@ export default function AIConsultationPage() {
 
       {/* ── SERVICES ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               What We Offer
@@ -215,7 +188,7 @@ export default function AIConsultationPage() {
 
       {/* ── BENEFITS ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why It Matters
@@ -245,7 +218,7 @@ export default function AIConsultationPage() {
 
       {/* ── STATS ── */}
       <section className="py-16 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s) => (
               <div
@@ -262,7 +235,7 @@ export default function AIConsultationPage() {
 
       {/* ── HOW IT WORKS ── */}
       <section id="our-process" className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Our Process
@@ -290,7 +263,7 @@ export default function AIConsultationPage() {
 
       {/* ── WHY TOADSTER ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Why Toadster
@@ -319,7 +292,7 @@ export default function AIConsultationPage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
               Client Stories
@@ -333,18 +306,15 @@ export default function AIConsultationPage() {
               {
                 name: "Sanjay T.",
                 role: "CEO, Series B SaaS",
-                text: "We spent 18 months spinning wheels on AI. Two weeks with Toadster gave us a roadmap we're still executing two years later. Total game-changer.",
-              },
+                text: "We spent 18 months spinning wheels on AI. Two weeks with Toadster gave us a roadmap we're still executing two years later. Total game-changer."},
               {
                 name: "Meera L.",
                 role: "CDO, Insurance Company",
-                text: "Their use case scoring model helped us deprioritise three 'shiny object' projects and focus on two that delivered €2M in savings within 9 months.",
-              },
+                text: "Their use case scoring model helped us deprioritise three 'shiny object' projects and focus on two that delivered €2M in savings within 9 months."},
               {
                 name: "James O.",
                 role: "VP Product, E-Commerce",
-                text: "The vendor evaluation alone saved us from a €500K mistake. Unbiased, thorough, and refreshingly honest about trade-offs.",
-              },
+                text: "The vendor evaluation alone saved us from a €500K mistake. Unbiased, thorough, and refreshingly honest about trade-offs."},
             ].map((t) => (
               <div
                 key={t.name}
@@ -395,18 +365,6 @@ export default function AIConsultationPage() {
           <p className="text-page-fg-subtle text-lg mb-8 max-w-xl mx-auto">
             Book a free 45-minute strategy call and walk away with clarity on where AI can have the biggest impact for your business.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact" title="Book a free AI strategy call">
-              Book Free Strategy Call
-            </CTALink>
-            <CTALink
-               to="/blogs"
-              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5"
-              title="Read AI strategy insights"
-            >
-              Read AI Insights
-            </CTALink>
-          </div>
         </div>
       </section>
 

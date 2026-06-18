@@ -25,9 +25,7 @@ import {
   BarChart3,
   Layers,
   Wand2,
-  Cpu,
-} from "lucide-react"
-import { CTALink } from "@/components/CTALink";
+  Cpu} from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -55,7 +53,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 export default function GenerativeAIPage() {
 
   return (
-    <div className="bg-page-bg text-page-fg">
+    <div className="service-page bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden  py-28">
@@ -65,23 +63,15 @@ export default function GenerativeAIPage() {
             style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }}
           />
         </div>
-        <div className="max-w-5xl mx-auto text-center relative">
-          <span className="inline-block text-xs font-semibold tracking-widest text-green-400 border border-green-800 rounded-full px-3 py-1 mb-6 uppercase">
-            Generative AI
-          </span>
+        <div className="service-page-container text-center relative">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Transform Your Business with the Top<br />
-            <span className="text-green-400">Generative AI</span> Company in USA
+
+            Generative AI
+
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             Leverage the power of next-gen AI/ML to be a leading AI provider of AI solutions for businesses. We help you build AI-driven products, content engines, and automation workflows.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact">Book a Free Consultation</CTALink>
-            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">
-              See How It Works
-            </button>
-          </div>
           {/* Trusted logos strip */}
           <div className="mt-14 flex flex-wrap gap-6 justify-center items-center opacity-50">
             {["Nike", "Unicef", "Nikon", "HP", "Startplay"].map((b) => (
@@ -94,7 +84,7 @@ export default function GenerativeAIPage() {
 
       {/* ── GENERATIVE AI DEVELOPMENT SERVICES ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">Top Generative AI Development</h2>
@@ -129,7 +119,7 @@ export default function GenerativeAIPage() {
 
       {/* ── KEY BENEFITS ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why It Matters</p>
             <h2 className="text-4xl font-extrabold">
@@ -164,7 +154,7 @@ export default function GenerativeAIPage() {
 
       {/* ── OUR PROCESS ── */}
       <section id="our-process" className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
             <h2 className="text-4xl font-extrabold">
@@ -194,8 +184,7 @@ export default function GenerativeAIPage() {
               style={{
                 backgroundImage: "url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
+                backgroundPosition: 'center'}}
             >
 
             </div>
@@ -205,7 +194,7 @@ export default function GenerativeAIPage() {
 
       {/* ── EXPLORE OFFERINGS ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Full Suite</p>
             <h2 className="text-4xl font-extrabold">Explore Our Core Offerings</h2>
@@ -241,7 +230,7 @@ export default function GenerativeAIPage() {
 
       {/* ── OUR WORK ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
             <h2 className="text-4xl font-extrabold">Our Work Speaks for Itself</h2>
@@ -262,7 +251,7 @@ export default function GenerativeAIPage() {
                 </div>
                 <div className="p-6 relative -mt-6 flex flex-col grow">
                   <div className="mb-4">
-                    <span className="text-xs text-green-400 font-semibold bg-green-950 px-3 py-1 rounded-full border border-green-800/50 shadow-sm">{w.tag}</span>
+                    <p className="text-xs font-bold uppercase tracking-wide text-green-400">{w.tag}</p>
                   </div>
                   <h3 className="font-bold text-page-fg text-lg mb-2 group-hover:text-green-400 transition-colors pt-1">{w.title}</h3>
                   <p className="text-page-fg-muted text-sm leading-relaxed grow">{w.desc}</p>
@@ -275,7 +264,7 @@ export default function GenerativeAIPage() {
 
       {/* ── HIGHLIGHTS ── */}
       <section className="bg-page-bg-alt py-16">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="service-page-container text-center">
           <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">At a Glance</p>
           <h2 className="text-3xl font-extrabold mb-12">
             Highlights of <span className="text-green-400">Achievements</span>
@@ -299,7 +288,7 @@ export default function GenerativeAIPage() {
 
       {/* ── WHY OUR AI DEVELOPERS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Developers</p>
             <h2 className="text-4xl font-extrabold max-w-3xl mx-auto">
@@ -327,7 +316,7 @@ export default function GenerativeAIPage() {
 
       {/* ── KEY INNOVATIONS ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
             <h2 className="text-4xl font-extrabold">Key Innovations in AI Development</h2>
@@ -363,7 +352,7 @@ export default function GenerativeAIPage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
             <h2 className="text-4xl font-extrabold">What Our Clients Say</h2>
@@ -412,24 +401,12 @@ export default function GenerativeAIPage() {
               </div>
             ))}
           </div>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact" className="text-lg" title="Talk to our generative AI team">
-              Chat With Us
-            </CTALink>
-            <CTALink
-               to="/services/llm-development"
-              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5 text-lg"
-              title="Explore LLM Development"
-            >
-              Explore LLM Development
-            </CTALink>
-          </div>
         </div>
       </section>
 
       {/* ── BLOGS ── */}
       {/* <section className="py-20 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
             <h2 className="text-4xl font-extrabold">Our Blogs</h2>
@@ -448,7 +425,7 @@ export default function GenerativeAIPage() {
                   <Sparkles size={40} className="text-green-700" />
                 </div>
                 <div className="p-5">
-                  <span className="text-xs text-green-400 font-semibold bg-green-900/20 px-2 py-0.5 rounded-full">{b.tag}</span>
+                  <p className="text-xs font-bold uppercase tracking-wide text-green-400">{b.tag}</p>
                   <h3 className="font-bold text-page-fg mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
                   <p className="text-gray-500 text-xs">{b.date}</p>
                 </div>

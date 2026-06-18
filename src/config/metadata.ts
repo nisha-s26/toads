@@ -170,6 +170,16 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description:
       "VR development for enterprise training, virtual showrooms, healthcare simulation, and multi-user environments. Meta Quest, PC VR, and Vision Pro - built for measurable business outcomes.",
   },
+  "/services/augmented-reality": {
+    title: "Augmented Reality Development Services | AR Apps & Enterprise Solutions | Toadster Technologies",
+    description:
+      "Custom AR development services — mobile AR, WebAR, HoloLens, AR training, product visualisation, and remote assistance. Built for real users in real environments. Talk to Toadster Technologies.",
+  },
+  "/services/application-support-and-maintenance": {
+    title: "Application Support & Maintenance Services | Toadster Technologies",
+    description:
+      "Proactive application support and maintenance — 24/7 monitoring, incident response, security patching, performance optimisation, and SLA-based helpdesk. Keep your applications running and your business moving.",
+  },
   "/services/product-management": {
     title: "Product Management Services | Roadmaps, Discovery & Delivery | Toadster",
     description:
@@ -179,6 +189,11 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     title: "Penetration Testing Services | Security Assessments & Red Team | Toadster",
     description:
       "Penetration testing services for web apps, networks, APIs, mobile, and cloud. Manual testing, red team operations, compliance-driven assessments, and retesting included.",
+  },
+  "/services/cybersecurity": {
+    title: "Cybersecurity Services | Penetration Testing & Security Consulting | Toadster Technologies",
+    description:
+      "Toadster Technologies delivers enterprise cybersecurity services — penetration testing, vulnerability assessments, cloud security audits, compliance consulting (ISO 27001, SOC 2, GDPR), and managed security. Protect your business before attackers find you.",
   },
   "/services/saas-app-development": {
     title: "SaaS App Development Services | Toadster Technologies",

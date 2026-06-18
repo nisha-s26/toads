@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { CTALink } from "@/components/CTALink"
 import {
   Brain,
   Zap,
@@ -23,8 +22,7 @@ import {
   Lock,
   Link2,
   BarChart3,
-  MessageSquare,
-} from "lucide-react"
+  MessageSquare} from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -51,7 +49,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function AgenticAIPage() {
   return (
-    <div className="bg-page-bg text-page-fg">
+    <div className="service-page bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden  py-28 px-4">
@@ -61,30 +59,22 @@ export default function AgenticAIPage() {
             style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }}
           />
         </div>
-        <div className="max-w-5xl mx-auto text-center relative">
-          <span className="inline-block text-xs font-semibold tracking-widest text-green-400 border border-green-800 rounded-full px-3 py-1 mb-6 uppercase">
-            Agentic AI
-          </span>
+        <div className="service-page-container text-center relative">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Transformation with<br />
-            <span className="text-green-400">Agentic AI</span> Services
+
+            Agentic AI
+
           </h1>
           <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
             Agency AI provides enterprise-grade autonomous agents that plan, execute, and adapt to achieve your business goals with unprecedented intelligence and efficiency.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact">Get Free AI Audit</CTALink>
-            <button onClick={() => document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-3 rounded-xl border border-page-border-strong text-page-fg font-semibold hover:bg-page-fg/5 transition-colors">
-              See How It Works
-            </button>
-          </div>
         </div>
       </section>
       <ServicesTrustedBy />
 
       {/* ── SERVICES GRID ── */}
       <section className="py-20 px-4 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
             <h2 className="text-4xl font-extrabold">Agentic AI Services</h2>
@@ -120,7 +110,7 @@ export default function AgenticAIPage() {
 
       {/* ── STATS ── */}
       <section className="bg-page-bg-alt py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="service-page-container text-center">
           <h2 className="text-3xl font-extrabold mb-2">
             Proven Performance, <span className="text-green-400">Trusted Results</span>
           </h2>
@@ -145,7 +135,7 @@ export default function AgenticAIPage() {
 
       {/* ── KEY FEATURES ── */}
       <section className="py-20 px-4 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Capabilities</p>
             <h2 className="text-4xl font-extrabold">Key Features of Agentic AI</h2>
@@ -179,7 +169,7 @@ export default function AgenticAIPage() {
 
       {/* ── OUR PROCESS ── */}
       <section id="our-process" className="py-20 px-4 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
             <h2 className="text-4xl font-extrabold">Our Process</h2>
@@ -207,8 +197,7 @@ export default function AgenticAIPage() {
               style={{
                 backgroundImage: "url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80')",
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
+                backgroundPosition: 'center'}}
             >
 
             </div>
@@ -218,7 +207,7 @@ export default function AgenticAIPage() {
 
       {/* ── BENEFITS ── */}
       <section className="py-20 px-4 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why Choose Us</p>
             <h2 className="text-4xl font-extrabold">Benefits of Working With Us</h2>
@@ -249,7 +238,7 @@ export default function AgenticAIPage() {
 
       {/* ── EXPERTISE ── */}
       <section className="py-20 px-4 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Expertise</p>
             <h2 className="text-4xl font-extrabold">AI Development Expertise Tailored to You</h2>
@@ -258,20 +247,16 @@ export default function AgenticAIPage() {
             {[
               {
                 title: "AI & LLM Integration",
-                points: ["GPT-4 / Claude / Gemini integration", "Fine-tuning on proprietary data", "RAG pipelines and vector databases", "Multi-modal AI systems"],
-              },
+                points: ["GPT-4 / Claude / Gemini integration", "Fine-tuning on proprietary data", "RAG pipelines and vector databases", "Multi-modal AI systems"]},
               {
                 title: "Infrastructure & Deployment",
-                points: ["Cloud-native deployment (AWS, GCP, Azure)", "Docker & Kubernetes orchestration", "MLOps & CI/CD for AI", "Edge AI deployment"],
-              },
+                points: ["Cloud-native deployment (AWS, GCP, Azure)", "Docker & Kubernetes orchestration", "MLOps & CI/CD for AI", "Edge AI deployment"]},
               {
                 title: "Agent Frameworks",
-                points: ["LangChain & LangGraph", "AutoGen & CrewAI", "Custom agent protocols (A2A)", "Tool use & function calling"],
-              },
+                points: ["LangChain & LangGraph", "AutoGen & CrewAI", "Custom agent protocols (A2A)", "Tool use & function calling"]},
               {
                 title: "Data & Analytics",
-                points: ["Data pipeline engineering", "Real-time stream processing", "BI dashboards & reporting", "Predictive modeling"],
-              },
+                points: ["Data pipeline engineering", "Real-time stream processing", "BI dashboards & reporting", "Predictive modeling"]},
             ].map((e) => (
               <div key={e.title} className="bg-page-card rounded-2xl p-6 border border-page-border">
                 <h3 className="font-bold text-green-400 mb-4">{e.title}</h3>
@@ -291,7 +276,7 @@ export default function AgenticAIPage() {
 
       {/* ── WHY OUR AI DEVELOPERS ── */}
       <section className="py-20 px-4 bg-page-bg">
-        <div className="max-w-6xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Developers</p>
             <h2 className="text-4xl font-extrabold max-w-3xl mx-auto">
@@ -319,7 +304,7 @@ export default function AgenticAIPage() {
 
       {/* ── OUR WORK ── */}
       <section className="py-20 px-4 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
             <h2 className="text-4xl font-extrabold">Our Work Speaks for Itself</h2>
@@ -341,7 +326,7 @@ export default function AgenticAIPage() {
                 </div>
                 <div className="p-6 relative -mt-6 flex flex-col grow">
                   <div className="mb-4">
-                    <span className="text-xs text-green-400 font-semibold bg-green-950 px-3 py-1 rounded-full border border-green-800/50 shadow-sm">{w.tag}</span>
+                    <p className="text-xs font-bold uppercase tracking-wide text-green-400">{w.tag}</p>
                   </div>
                   <h3 className="font-bold text-page-fg text-lg mb-2 group-hover:text-green-400 transition-colors pt-1">{w.title}</h3>
                   <p className="text-page-fg-muted text-sm mb-4 leading-relaxed grow">{w.desc}</p>
@@ -358,7 +343,7 @@ export default function AgenticAIPage() {
 
       {/* ── KEY INNOVATIONS ── */}
       <section className="py-20 px-4 bg-page-bg">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
             <h2 className="text-4xl font-extrabold">Key Innovations in AI Development</h2>
@@ -388,7 +373,7 @@ export default function AgenticAIPage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-20 px-4 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
             <h2 className="text-4xl font-extrabold">What Our Clients Say</h2>
@@ -426,24 +411,12 @@ export default function AgenticAIPage() {
           <p className="text-page-fg-muted mb-8">
             Let's build intelligent agents that work for you - 24/7, at scale, without limits.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <CTALink to="/contact" className="text-lg" title="Talk to our Agentic AI team">
-              Chat With Us
-            </CTALink>
-            <CTALink
-               to="/services/ai-development"
-              className="bg-transparent border border-page-border-strong hover:bg-page-fg/5 text-lg"
-              title="Explore AI Development Services"
-            >
-              Explore AI Development
-            </CTALink>
-          </div>
         </div>
       </section>
 
       {/* ── BLOGS ── */}
       {/* <section className="py-20 px-4 bg-page-bg-alt">
-        <div className="max-w-5xl mx-auto">
+        <div className="service-page-container">
           <div className="text-center mb-12">
             <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
             <h2 className="text-4xl font-extrabold">Our Blogs</h2>
@@ -462,7 +435,7 @@ export default function AgenticAIPage() {
                   <Brain size={40} className="text-green-700" />
                 </div>
                 <div className="p-5">
-                  <span className="text-xs text-green-400 font-semibold bg-green-900/20 px-2 py-0.5 rounded-full">{b.tag}</span>
+                  <p className="text-xs font-bold uppercase tracking-wide text-green-400">{b.tag}</p>
                   <h3 className="font-bold text-page-fg mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
                   <p className="text-gray-500 text-xs">{b.date}</p>
                 </div>
