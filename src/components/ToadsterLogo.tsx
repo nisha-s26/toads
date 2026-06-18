@@ -10,6 +10,8 @@ interface ToadsterLogoProps {
   width?: number
   /** Use on dark backgrounds (e.g. footer) - renders the white logo with toad eye dot */
   onDarkBackground?: boolean
+  /** Force rendering of the green logo on light-themed navbar context */
+  forceLight?: boolean
 }
 
 export function ToadsterLogo({
@@ -18,9 +20,10 @@ export function ToadsterLogo({
   height,
   width,
   onDarkBackground = false,
+  forceLight = false,
 }: ToadsterLogoProps) {
   const { theme } = useTheme()
-  const useWhiteLogo = onDarkBackground || theme === "dark"
+  const useWhiteLogo = !forceLight && (onDarkBackground || theme === "dark")
 
   return (
     <Image

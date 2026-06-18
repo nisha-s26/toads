@@ -2,32 +2,40 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { ArrowRight, Clock, ShieldCheck } from "lucide-react"
+import { ArrowRight, ShieldCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 
 interface HireResourceRfpFormProps {
   roleTitle: string
+  formSubtext?: string
+  submitFooterText?: string
+  engagementOptions?: { value: string; label: string }[]
 }
 
-const labelClass = "mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-zinc-800"
-
-const fieldClass =
-  "h-12 text-base text-zinc-900 bg-white border-zinc-300 placeholder:text-zinc-500 shadow-sm focus-visible:border-zinc-600 focus-visible:ring-zinc-400/30 rounded-xl"
-
-export function HireResourceRfpForm({ roleTitle }: HireResourceRfpFormProps) {
+export function HireResourceRfpForm({
+  roleTitle,
+  formSubtext = "Tell us about your project and we'll connect you with the right developer within 24 hours.",
+  submitFooterText = "Response within 24 hr",
+  engagementOptions = [
+    { value: "Full-Time Dedicated", label: "Full-Time Dedicated" },
+    { value: "Part-Time Dedicated", label: "Part-Time Dedicated" },
+    { value: "Dedicated Team", label: "Dedicated Team" },
+  ],
+}: HireResourceRfpFormProps) {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
+    company: "",
+    engagementModel: engagementOptions[0]?.value ?? "Full-Time Dedicated",
     details: "",
   })
   const [captchaChecked, setCaptchaChecked] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
@@ -46,9 +54,9 @@ export function HireResourceRfpForm({ roleTitle }: HireResourceRfpFormProps) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: formData.name,
+          name: `${formData.firstName} ${formData.lastName}`.trim(),
           fromEmail: formData.email,
-          company: `Hire Resource Request (${roleTitle})` + (formData.phone ? ` - Phone: ${formData.phone}` : ""),
+          company: `${formData.company || "None"} (Hire Resource Request: ${roleTitle}, Model: ${formData.engagementModel})` + (formData.phone ? ` - Phone: ${formData.phone}` : ""),
           message: formData.details,
         }),
       })
@@ -56,7 +64,15 @@ export function HireResourceRfpForm({ roleTitle }: HireResourceRfpFormProps) {
       if (!res.ok) throw new Error("Failed")
 
       setSubmitStatus("success")
-      setFormData({ name: "", email: "", phone: "", details: "" })
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        company: "",
+        engagementModel: engagementOptions[0]?.value ?? "Full-Time Dedicated",
+        details: "",
+      })
       setCaptchaChecked(false)
       setTimeout(() => setSubmitStatus("idle"), 4000)
     } catch {
@@ -67,126 +83,160 @@ export function HireResourceRfpForm({ roleTitle }: HireResourceRfpFormProps) {
     }
   }
 
+  const labelClass = "mb-1.5 block text-xs font-semibold capability-card-copy uppercase tracking-wider"
+  const fieldClass =
+    "w-full px-4 h-11 text-sm bright-panel-input border border-slate-200/80 placeholder:text-slate-400/80 focus:outline-none focus:ring-1 focus:ring-toadster-green/20 rounded-lg transition-all"
+
   return (
-    <div className="bright-card-hover relative overflow-hidden rounded-[1.35rem] bg-white shadow-[0_32px_80px_rgba(15,23,42,0.18)] ring-1 ring-zinc-200">
-      {/* <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-zinc-400 via-zinc-600 to-zinc-900" /> */}
-
-      <div className="relative z-10 border-b border-zinc-200 bg-gradient-to-br from-zinc-50 via-white to-zinc-100/50 px-6 py-5 sm:px-8 sm:py-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="text-2xl font-bold tracking-tight text-zinc-900">Request a Free Consultation</p>
-            <p className="mt-2 text-base leading-relaxed text-zinc-700">
-              Tell us what you need - we respond within 4 business hours.
-            </p>
-          </div>
-          <span className="hidden sm:inline-flex shrink-0 items-center gap-1.5 rounded-full border border-zinc-300 bg-white px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-zinc-800">
-            <Clock size={13} />
-            4 hr reply
-          </span>
+    <div className="relative">
+      <div className="capability-card-surface relative overflow-hidden rounded-2xl p-6 sm:p-7">
+        <div className="mb-5 text-left">
+          <p className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-black">Request a Free Consultation</p>
+          <p className="mt-1 text-sm leading-relaxed capability-card-copy">
+            {formSubtext}
+          </p>
         </div>
+
+        <form onSubmit={handleSubmit} className="relative z-10 flex flex-col gap-4 text-left">
+          <div className="flex flex-col gap-3.5">
+            {/* First & Last Name */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className={labelClass}>First Name</label>
+                <input
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                  type="text"
+                  placeholder="First Name"
+                  className={fieldClass}
+                />
+              </div>
+              <div>
+                <label className={labelClass}>Last Name</label>
+                <input
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                  type="text"
+                  placeholder="Last Name"
+                  className={fieldClass}
+                />
+              </div>
+            </div>
+
+            {/* Work Email */}
+            <div>
+              <label className={labelClass}>Work Email</label>
+              <input
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                type="email"
+                placeholder="yourname@company.com"
+                className={fieldClass}
+              />
+            </div>
+
+            {/* Phone Number */}
+            <div>
+              <label className={labelClass}>Phone Number (Optional)</label>
+              <input
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                type="text"
+                placeholder="your phone number"
+                className={fieldClass}
+              />
+            </div>
+
+            {/* Company Name */}
+
+            {/* Engagement Model select */}
+            <div>
+              <label className={labelClass}>Preferred Engagement Model</label>
+              <select
+                name="engagementModel"
+                value={formData.engagementModel}
+                onChange={handleChange}
+                className={fieldClass}
+              >
+                {engagementOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Project Brief */}
+            <div>
+              <label className={labelClass}>Project Brief / Requirements</label>
+              <textarea
+                name="details"
+                value={formData.details}
+                onChange={handleChange}
+                required
+                placeholder="Tell us about your project requirements..."
+                rows={3}
+                className={`${fieldClass} min-h-[5.5rem] py-3 resize-none`}
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between rounded-xl border border-slate-200/80 bg-slate-50/80 px-4 py-2 select-none my-0.5">
+            <label className="flex cursor-pointer items-center gap-3">
+              <input
+                type="checkbox"
+                checked={captchaChecked}
+                onChange={(e) => setCaptchaChecked(e.target.checked)}
+                className="h-4 w-4 cursor-pointer rounded border-page-border accent-toadster-green"
+              />
+              <span className="text-xs font-medium text-slate-700 dark:text-black/80">I&apos;m not a robot</span>
+            </label>
+            <div className="flex flex-col items-center gap-0.5">
+              <Image
+                src="https://www.gstatic.com/recaptcha/api2/logo_48.png"
+                alt="reCAPTCHA logo"
+                width={16}
+                height={16}
+                className="h-4 w-4 opacity-80"
+              />
+              <span className="text-[8px] font-medium capability-card-copy">reCAPTCHA</span>
+            </div>
+          </div>
+
+          {submitStatus === "success" && (
+            <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-center">
+              <p className="text-xs font-medium text-emerald-800">Thank you! We&apos;ll respond within 24 hours.</p>
+            </div>
+          )}
+          {submitStatus === "error" && (
+            <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-center">
+              <p className="text-xs font-medium text-red-800">Failed to submit. Please try again.</p>
+            </div>
+          )}
+
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="h-11 w-full rounded-lg bg-[#004d2d] text-sm font-bold text-white shadow-sm hover:bg-[#003820] transition-colors disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer"
+          >
+            {isSubmitting ? "Submitting..." : "Submit Request"}
+            {!isSubmitting && <ArrowRight size={16} />}
+          </Button>
+
+          <div className="flex items-center justify-center gap-2 text-xs capability-card-copy">
+            <ShieldCheck size={14} className="capability-card-copy" />
+            <span>{submitFooterText}</span>
+          </div>
+        </form>
       </div>
-
-      <form onSubmit={handleSubmit} className="relative z-10 flex flex-col gap-5 px-6 py-6 sm:px-8 sm:py-7 text-left">
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          <div className="sm:col-span-2">
-            <label className={labelClass}>Your Full Name *</label>
-            <Input
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              type="text"
-              placeholder="e.g. Rahul Mehta"
-              className={fieldClass}
-            />
-          </div>
-
-          <div>
-            <label className={labelClass}>Work Email Address *</label>
-            <Input
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              type="email"
-              placeholder="e.g. rahul@yourcompany.com"
-              className={fieldClass}
-            />
-          </div>
-
-          <div>
-            <label className={labelClass}>Phone Number (Optional)</label>
-            <Input
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              type="text"
-              placeholder="+91 9XXXXXXXXX"
-              className={fieldClass}
-            />
-          </div>
-
-          <div className="sm:col-span-2">
-            <label className={labelClass}>Tell Us About Your Requirement *</label>
-            <Textarea
-              name="details"
-              value={formData.details}
-              onChange={handleChange}
-              required
-              placeholder="What role do you need? How many engineers? Timeline? Required skills or frameworks?"
-              rows={4}
-              className={`${fieldClass} min-h-[8rem] resize-none py-3`}
-            />
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between rounded-xl border border-zinc-300 bg-zinc-50 px-4 py-3.5 select-none">
-          <label className="flex cursor-pointer items-center gap-3">
-            <input
-              type="checkbox"
-              checked={captchaChecked}
-              onChange={(e) => setCaptchaChecked(e.target.checked)}
-              className="h-4 w-4 cursor-pointer rounded border-zinc-400 accent-zinc-900"
-            />
-            <span className="text-sm font-medium text-zinc-800">I&apos;m not a robot</span>
-          </label>
-          <div className="flex flex-col items-center gap-0.5">
-            <Image
-              src="https://www.gstatic.com/recaptcha/api2/logo_48.png"
-              alt="reCAPTCHA logo"
-              width={20}
-              height={20}
-              className="h-5 w-5 opacity-80"
-            />
-            <span className="text-[9px] font-medium text-zinc-600">reCAPTCHA</span>
-          </div>
-        </div>
-
-        {submitStatus === "success" && (
-          <div className="rounded-xl border border-emerald-300 bg-emerald-50 px-4 py-3 text-center">
-            <p className="text-sm font-medium text-emerald-800">Thank you! We&apos;ll respond within 4 business hours.</p>
-          </div>
-        )}
-        {submitStatus === "error" && (
-          <div className="rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-center">
-            <p className="text-sm font-medium text-red-800">Failed to submit. Please try again.</p>
-          </div>
-        )}
-
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="h-[3.25rem] w-full rounded-xl bg-primary text-base font-semibold text-primary-foreground shadow-sm hover:bg-primary-hover hover:shadow-md disabled:opacity-50"
-        >
-          {isSubmitting ? "Submitting..." : "Get My Free Quote"}
-          {!isSubmitting && <ArrowRight size={18} className="ml-1" />}
-        </Button>
-
-        <div className="flex items-center justify-center gap-2 text-sm text-zinc-700">
-          <ShieldCheck size={15} className="text-zinc-600" />
-          <span>No commitment required. Response within 4 business hours.</span>
-        </div>
-      </form>
     </div>
   )
 }
+

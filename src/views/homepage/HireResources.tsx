@@ -12,6 +12,7 @@ import {
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { ScrollReveal } from "@/components/ScrollReveal"
+import { HireRoleCard } from "@/components/homepage/HireRoleCard"
 
 type HireRole = {
   icon: LucideIcon
@@ -72,49 +73,6 @@ const HIRE_ROLES: HireRole[] = [
   },
 ]
 
-function HireRoleCard({ role, index }: { role: HireRole; index: number }) {
-  const Icon = role.icon
-
-  return (
-    <div className="scroll-reveal-stagger h-full" style={{ ["--stagger-index" as string]: index }}>
-      <Link
-        href={role.href}
-        title={`Hire ${role.title}`}
-        className="hire-role-card group relative flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 md:p-7"
-      >
-        <div className="capability-card-header">
-          <div className="flex min-h-11 items-center justify-between gap-3">
-            <h3 className="min-w-0 flex-1 pr-1 text-lg font-bold leading-snug text-slate-900 dark:text-black">
-              {role.title}
-            </h3>
-            <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-              <Icon size={22} strokeWidth={2} />
-            </span>
-          </div>
-          <span className="capability-card-heading-rule" aria-hidden="true" />
-        </div>
-
-        <div className="flex-1">
-          <p className="text-sm leading-relaxed text-slate-700 md:text-[0.9375rem] dark:text-black/80">
-            {role.description}
-          </p>
-        </div>
-
-        <div className="mt-5 flex flex-wrap gap-2">
-          {role.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-slate-200/80 bg-slate-100/90 px-2.5 py-0.5 text-xs font-semibold text-slate-800 dark:border-slate-300/60 dark:bg-white/55 dark:text-black"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </Link>
-    </div>
-  )
-}
-
 export default function HireResources() {
   return (
     <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center px-4 pb-8 pt-6 sm:pt-4">
@@ -141,7 +99,15 @@ export default function HireResources() {
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {HIRE_ROLES.map((role, index) => (
-            <HireRoleCard key={role.title} role={role} index={index} />
+            <HireRoleCard
+              key={role.title}
+              title={role.title}
+              icon={role.icon}
+              description={role.description}
+              tags={role.tags}
+              href={role.href}
+              index={index}
+            />
           ))}
         </div>
       </div>

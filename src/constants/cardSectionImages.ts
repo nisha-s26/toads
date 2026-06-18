@@ -139,5 +139,5 @@ export function getCardSectionImages(pathname: string | null | undefined): CardS
   return DEFAULT_CARD_SECTION_IMAGES
 }
 
-/** @deprecated Use getCardSectionImages() — kept for backwards compatibility */
+/** @deprecated Use getCardSectionImages() - kept for backwards compatibility */
 export const CARD_SECTION_IMAGES = DEFAULT_CARD_SECTION_IMAGES

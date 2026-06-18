@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { GlobeIcon } from "@/components/GlobeIcon"
 import { Button } from "@/components/ui/button"
@@ -72,7 +72,7 @@ const services = [
   { icon: "Monitor", title: "Web Development", description: "Custom websites, web applications, and digital platforms that drive business outcomes" },
 ]
 
-const navLinks = [
+const globalNavLinks = [
   { label: "Home", href: "#", section: "home" },
   { label: "About Us", href: "#about", section: "about" },
   { label: "Services", href: "#services", dropdown: true, section: "services" },
@@ -151,13 +151,26 @@ const NAV_ICON_MAP = {
   ShieldCheck,
 }
 
-export function Navbar({ activeSection }: { activeSection: string }) {
+export function Navbar({ activeSection: incomingActiveSection }: { activeSection: string }) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
   const [mobileDedicatedOpen, setMobileDedicatedOpen] = useState(false)
   const [mobileCountriesOpen, setMobileCountriesOpen] = useState(false)
   const [desktopCountriesOpen, setDesktopCountriesOpen] = useState(false)
   const router = useRouter();
+  const pathname = usePathname();
+  const isHirePage = pathname?.startsWith("/hire") ?? false;
+
+  const activeSection = isHirePage ? "hire-resources" : incomingActiveSection;
+  const navLinks = isHirePage ? [
+    { label: "Home", href: "/", section: "home" },
+    { label: "About Us", href: "/about", section: "about" },
+    { label: "Services", href: "/services", dropdown: true, section: "services" },
+    { label: "Hire Resources", href: "/hire-resources", dropdown: true, section: "hire-resources" },
+    { label: "Blogs", href: "/blogs", section: "blogs" },
+  ] : globalNavLinks;
+
+
 
   const closeMobile = () => {
     setMobileOpen(false)
@@ -238,46 +251,45 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                         ))}
                       </div>
                     )}
-                        {/* Country Switcher Accordion */}
-          <div>
-            <button
-              className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                activeSection === "country"
-                  ? "text-brand-green font-semibold bg-page-accent-soft"
-                  : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
-              }`}
-              onClick={() => setMobileCountriesOpen((p) => !p)}
-            >
-              <span className="flex items-center gap-2">
-                <GlobeIcon size={16} />
-                Country
-              </span>
-              <ChevronDown
-                size={16}
-                className={`transition-transform duration-200 ${mobileCountriesOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-            {mobileCountriesOpen && (
-              <div className="mt-1 ml-3 pl-3 border-l-2 border-page-border flex flex-col gap-0.5">
-                {countries.map((country) => (
-                  <a
-                    key={country.label}
-                    href={country.href}
-                    title={`Toadster ${country.label}`}
-                    className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-page-fg-muted transition-colors hover:bg-page-accent-soft hover:text-page-fg"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      closeMobile()
-                      router.push(country.href)
-                    }}
-                  >
-                    <span aria-hidden className="text-base leading-none">{country.flag}</span>
-                    {country.label}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
+                    {/* Country Switcher Accordion */}
+                    <div>
+                      <button
+                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${activeSection === "country"
+                            ? "text-brand-green font-semibold bg-page-accent-soft"
+                            : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
+                          }`}
+                        onClick={() => setMobileCountriesOpen((p) => !p)}
+                      >
+                        <span className="flex items-center gap-2">
+                          <GlobeIcon size={16} />
+                          Country
+                        </span>
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-200 ${mobileCountriesOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                      {mobileCountriesOpen && (
+                        <div className="mt-1 ml-3 pl-3 border-l-2 border-page-border flex flex-col gap-0.5">
+                          {countries.map((country) => (
+                            <a
+                              key={country.label}
+                              href={country.href}
+                              title={`Toadster ${country.label}`}
+                              className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-page-fg-muted transition-colors hover:bg-page-accent-soft hover:text-page-fg"
+                              onClick={(e) => {
+                                e.preventDefault()
+                                closeMobile()
+                                router.push(country.href)
+                              }}
+                            >
+                              <span aria-hidden className="text-base leading-none">{country.flag}</span>
+                              {country.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )
               } else if (link.label === "Hire Resources") {
@@ -360,10 +372,20 @@ export function Navbar({ activeSection }: { activeSection: string }) {
         </div>
       </div>
 
-      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center bg-transparent px-3 pt-3 sm:px-4 sm:pt-4 md:px-6">
+      <header
+        className={
+          isHirePage
+            ? "pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center bg-page-nav border-b border-page-border"
+            : "pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center bg-transparent px-3 pt-3 sm:px-4 sm:pt-4 md:px-6"
+        }
+      >
         <nav
-          className="pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-3 rounded-2xl border border-page-border/70 bg-page-nav/85 px-4 py-2.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-3 lg:max-w-[88rem] lg:px-8"
-          style={{ boxShadow: "var(--page-nav-shadow)" }}
+          className={
+            isHirePage
+              ? "pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-3 sm:gap-4 px-4 py-3 sm:px-5 sm:py-4 lg:max-w-[88rem] lg:px-8 bg-transparent"
+              : "pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-3 rounded-2xl border border-page-border/70 bg-page-nav/85 px-4 py-2.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-3 lg:max-w-[88rem] lg:px-8"
+          }
+          style={isHirePage ? undefined : { boxShadow: "var(--page-nav-shadow)" }}
         >
           {/* ── Logo ── */}
           <Link href="/" title="Toadster Home" className="flex shrink-0 items-center gap-2.5 min-w-0">
@@ -484,66 +506,65 @@ export function Navbar({ activeSection }: { activeSection: string }) {
             </NavigationMenu>
           </div>
 
-        {/* ── CTA + Theme ── */}
-        <div className="hidden shrink-0 items-center gap-1.5 lg:flex lg:gap-2">
-          <div className="relative">
-            <button
-              type="button"
-              aria-label="Select country"
-              title="Select country"
-              className={`relative flex h-9 items-center gap-1 rounded-full px-2.5 transition-colors hover:bg-page-accent-soft ${
-                activeSection === "country" ? "text-brand-green" : "text-page-fg-muted hover:text-page-fg"
-              }`}
-              onClick={() => setDesktopCountriesOpen((p) => !p)}
-            >
-              <GlobeIcon size={18} />
-              <ChevronDown
-                size={13}
-                className={`transition-transform duration-200 ${desktopCountriesOpen ? "rotate-180" : ""}`}
-              />
-              {activeSection === "country" && (
-                <span className="absolute bottom-0 left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full bg-primary" />
-              )}
-            </button>
+          {/* ── CTA + Theme ── */}
+          <div className="hidden shrink-0 items-center gap-1.5 lg:flex lg:gap-2">
+            <div className="relative">
+              <button
+                type="button"
+                aria-label="Select country"
+                title="Select country"
+                className={`relative flex h-9 items-center gap-1 rounded-full px-2.5 transition-colors hover:bg-page-accent-soft ${activeSection === "country" ? "text-brand-green" : "text-page-fg-muted hover:text-page-fg"
+                  }`}
+                onClick={() => setDesktopCountriesOpen((p) => !p)}
+              >
+                <GlobeIcon size={18} />
+                <ChevronDown
+                  size={13}
+                  className={`transition-transform duration-200 ${desktopCountriesOpen ? "rotate-180" : ""}`}
+                />
+                {activeSection === "country" && (
+                  <span className="absolute bottom-0 left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full bg-primary" />
+                )}
+              </button>
 
-            {desktopCountriesOpen && (
-              <div className="absolute right-0 top-full z-50 mt-2 w-86 rounded-2xl border border-page-border bg-page-card p-3 shadow-2xl">
-                <div className="grid gap-1">
-                  {countries.map((country) => (
-                    <div key={country.label} className="rounded-xl">
-                      <button
-                        type="button"
-                        className="flex w-full items-start gap-3 rounded-xl px-4 py-3 text-left transition-colors hover:bg-page-accent-soft"
-                        onClick={() => {
-                          setDesktopCountriesOpen(false)
-                          router.push(country.href)
-                        }}
-                      >
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-lg leading-none">
-                          {country.flag}
-                        </span>
-                        <span>
-                          <span className="block text-sm font-semibold leading-tight text-page-fg">
-                            {country.label}
+              {desktopCountriesOpen && (
+                <div className="absolute right-0 top-full z-50 mt-2 w-86 rounded-2xl border border-page-border bg-page-card p-3 shadow-2xl">
+                  <div className="grid gap-1">
+                    {countries.map((country) => (
+                      <div key={country.label} className="rounded-xl">
+                        <button
+                          type="button"
+                          className="flex w-full items-start gap-3 rounded-xl px-4 py-3 text-left transition-colors hover:bg-page-accent-soft"
+                          onClick={() => {
+                            setDesktopCountriesOpen(false)
+                            router.push(country.href)
+                          }}
+                        >
+                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-lg leading-none">
+                            {country.flag}
                           </span>
-                          <span className="mt-0.5 block text-xs leading-snug text-page-fg-muted">
-                            {country.description}
+                          <span>
+                            <span className="block text-sm font-semibold leading-tight text-page-fg">
+                              {country.label}
+                            </span>
+                            <span className="mt-0.5 block text-xs leading-snug text-page-fg-muted">
+                              {country.description}
+                            </span>
                           </span>
-                        </span>
-                      </button>
-                    </div>
-                  ))}
+                        </button>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
+            <ThemeToggle />
+            <Button asChild className="rounded-xl px-5 py-5 text-sm font-semibold">
+              <a href={"/contact"} title="Email us to schedule a call">
+                Schedule a Call
+              </a>
+            </Button>
           </div>
-          <ThemeToggle />
-          <Button asChild className="rounded-xl px-5 py-5 text-sm font-semibold">
-            <a href={"/contact"} title="Email us to schedule a call">
-              Schedule a Call
-            </a>
-          </Button>
-        </div>
 
           {/* ── Mobile Controls ── */}
           <div className="flex shrink-0 items-center gap-1 lg:hidden">
