@@ -174,13 +174,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
   const isHirePage = pathname?.startsWith("/hire") ?? false;
 
   const activeSection = isHirePage ? "hire-resources" : incomingActiveSection;
-  const navLinks = isHirePage ? [
-    { label: "Home", href: "/", section: "home" },
-    { label: "About Us", href: "/about", section: "about" },
-    { label: "Services", href: "/services", dropdown: true, section: "services" },
-    { label: "Hire Resources", href: "/hire-resources", dropdown: true, section: "hire-resources" },
-    { label: "Blogs", href: "/blogs", section: "blogs" },
-  ] : globalNavLinks;
+  const navLinks = globalNavLinks;
 
 
 
@@ -384,20 +378,10 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
         </div>
       </div>
 
-      <header
-        className={
-          isHirePage
-            ? "pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center bg-page-nav border-b border-page-border"
-            : "pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center bg-transparent px-3 pt-3 sm:px-4 sm:pt-4 md:px-6"
-        }
-      >
+      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center bg-transparent px-3 pt-3 sm:px-4 sm:pt-4 md:px-6">
         <nav
-          className={
-            isHirePage
-              ? "pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-3 sm:gap-4 px-4 py-3 sm:px-5 sm:py-4 lg:max-w-[88rem] lg:px-8 bg-transparent"
-              : "pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-3 rounded-2xl border border-page-border/70 bg-page-nav/85 px-4 py-2.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-3 lg:max-w-[88rem] lg:px-8"
-          }
-          style={isHirePage ? undefined : { boxShadow: "var(--page-nav-shadow)" }}
+          className="pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-3 rounded-2xl border border-page-border/70 bg-page-nav/85 px-4 py-2.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-3 lg:max-w-[88rem] lg:px-8"
+          style={{ boxShadow: "var(--page-nav-shadow)" }}
         >
           {/* ── Logo ── */}
           <Link href="/" title="Toadster Home" className="flex shrink-0 items-center gap-2.5 min-w-0">
