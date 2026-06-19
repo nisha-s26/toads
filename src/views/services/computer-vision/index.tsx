@@ -19,15 +19,6 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 
-const industries = [
-  { name: "Manufacturing", desc: "Automated defect detection and quality inspection on production lines at superhuman accuracy." },
-  { name: "Retail", desc: "Smart shelving, customer flow analytics, cashierless checkout, and loss prevention." },
-  { name: "Healthcare", desc: "Medical imaging analysis, pathology slide reading, and surgical assistance." },
-  { name: "Automotive", desc: "ADAS systems, lane detection, object recognition, and autonomous vehicle perception." },
-  { name: "Security & Surveillance", desc: "Real-time threat detection, facial recognition, and anomaly detection in video feeds." },
-  { name: "Agriculture", desc: "Crop health monitoring, pest detection, and yield estimation via drone imagery." },
-]
-
 export default function ComputerVisionPage() {
   return (
     <div className="service-page bg-page-bg text-page-fg">
@@ -186,25 +177,6 @@ export default function ComputerVisionPage() {
                 <span className="text-4xl font-extrabold text-green-900 block mb-4">{p.step}</span>
                 <h4 className="font-bold text-page-fg mb-2">{p.title}</h4>
                 <p className="text-page-fg-muted text-sm leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── INDUSTRIES ── */}
-      <section className="py-20 bg-page-bg-alt">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Verticals</p>
-            <h2 className="text-4xl font-extrabold">Industries We Serve</h2>
-            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">Computer vision is transforming every industry. We bring domain expertise and proven models to each vertical.</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {industries.map((ind) => (
-              <div key={ind.name} className="bg-page-bg rounded-2xl p-6 border border-page-border hover:border-green-800/30 transition-colors">
-                <h3 className="font-bold text-green-400 mb-2">{ind.name}</h3>
-                <p className="text-page-fg-muted text-sm leading-relaxed">{ind.desc}</p>
               </div>
             ))}
           </div>

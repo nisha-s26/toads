@@ -365,7 +365,6 @@ export const benefits: {
 export const engagementModels = [
   {
     featured: true,
-    badge: "Most Popular",
     title: "Dedicated VR Development Team",
     who: "Best for: sustained VR programs",
     desc: "A fully managed team - Unity/Unreal engineers, 3D artists, VR interaction designers, and QA - working exclusively on your product.",

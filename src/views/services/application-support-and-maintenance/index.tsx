@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,10 +8,11 @@ import { SectionHead } from "@/components/service-page/SectionHead"
 import { FAQSection } from "@/components/service-page/FAQSection"
 import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
+import { ServiceStatRow } from "@/components/service-page/ServiceStatRow"
+import { ServicePageCta } from "@/components/service-page/ServicePageCta"
 import {
   benefits,
   capabilities,
-  engagementModels,
   faqs,
   processSteps,
   teamRoles,
@@ -176,17 +176,7 @@ export default function ApplicationSupportAndMaintenancePage() {
               business.
             </p>
 
-            <div className="mb-8 grid gap-4 sm:grid-cols-3">
-              {trustStats.slice(0, 3).map((stat) => (
-                <div
-                  key={stat.number}
-                  className="capability-card-surface rounded-xl px-5 py-4 transition-all duration-300"
-                >
-                  <div className="text-base font-extrabold text-page-fg">{stat.number}</div>
-                  <div className="text-sm text-page-fg-muted">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+            <ServiceStatRow stats={trustStats.slice(0, 3)} />
           </div>
 
           <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="service-hero-form hide-scrollbar">
@@ -331,17 +321,7 @@ export default function ApplicationSupportAndMaintenancePage() {
             title="The Support Team Behind Your Applications"
             subtitle="Application support requires engineers who can diagnose, fix, and maintain — not just route tickets. Here's who you'll be working with."
           />
-          <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {teamStats.map((stat) => (
-              <div
-                key={stat.value}
-                className="capability-card-surface rounded-xl px-5 py-5 transition-all duration-300"
-              >
-                <div className="text-lg font-extrabold text-page-fg">{stat.value}</div>
-                <div className="text-sm text-page-fg-muted">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          <ServiceStatRow stats={teamStats} />
           <div className="ar-content-list divide-y divide-page-border border-y border-page-border">
             {teamRoles.map((role) => (
               <article key={role.title} className="grid gap-2 py-6 md:grid-cols-[minmax(200px,34%)_1fr] md:gap-8">
@@ -383,88 +363,24 @@ export default function ApplicationSupportAndMaintenancePage() {
         </div>
       </section>
 
-      <section id="plans" className="py-16 bg-page-bg-alt section-padding">
-        <div className="service-page-container px-4">
-          <SectionHead
-            label=""
-            title="Support Plans That Match Your Requirements"
-            subtitle="From business-hours maintenance to 24/7 enterprise support — choose the coverage level that fits your applications and risk tolerance."
-          />
-          <div className="grid gap-6 md:grid-cols-2">
-            {engagementModels.map((model) => (
-              <div key={model.title} className="capability-card-surface relative rounded-2xl p-8 transition-all duration-300">
-                <div className="capability-card-header relative z-10">
-                  <h3 className="text-xl font-extrabold text-toadster-green">{model.title}</h3>
-                  <span className="capability-card-heading-rule" aria-hidden="true" />
-                </div>
-                <p className="capability-card-copy relative z-10 mt-4 text-sm leading-relaxed">{model.desc}</p>
-                <p className="relative z-10 mt-5 mb-3 text-xs font-bold uppercase tracking-wider text-toadster-green">
-                  What&apos;s included
-                </p>
-                <ul className="relative z-10 mb-5 space-y-2">
-                  {model.includes.map((item) => (
-                    <li
-                      key={item}
-                      className="capability-card-copy flex items-start gap-2 border-b border-page-border/60 py-2 text-sm last:border-0"
-                    >
-                      <CheckCircle size={16} className="mt-0.5 shrink-0 text-toadster-green" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="relative z-10 mb-3 text-xs font-bold uppercase tracking-wider text-toadster-green">
-                  Best for
-                </p>
-                <ul className="relative z-10 space-y-2">
-                  {model.bestFor.map((item) => (
-                    <li
-                      key={item}
-                      className="capability-card-copy flex items-start gap-2 text-sm text-page-fg-muted"
-                    >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-toadster-green" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       <FAQSection
         faqs={faqs}
         title="Questions We Hear Before Every Support Engagement"
         subtitle="Straightforward answers to the things decision-makers actually want to know."
       />
+      <ServicePageCta
+        title="Schedule a Free Support Consultation"
 
-      <section className="relative overflow-hidden py-16 bg-page-bg section-padding">
-        <div className="pointer-events-none absolute inset-0 opacity-0 dark:opacity-100">
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "radial-gradient(ellipse 50% 60% at 50% 100%, rgba(0, 77, 45, 0.22) 0%, transparent 70%)",
-            }}
-          />
-        </div>
-        <div className="relative mx-auto max-w-3xl px-4 text-center">
-          <h2 className="mb-5 text-3xl font-extrabold tracking-tight text-page-fg md:text-4xl">
-            Schedule a Free Support Consultation
-          </h2>
-          <p className="mb-4 text-lg leading-relaxed text-page-fg-muted">
-            Tell us about the applications you need supported — their tech stack, current challenges, uptime requirements,
+        footnote="Typically responds within one business day"
+      >
+        <p>Tell us about the applications you need supported — their tech stack, current challenges, uptime requirements,
             and what&apos;s not working with your current support setup — and we&apos;ll have a direct conversation about
-            what the right plan looks like.
-          </p>
-          <p className="mb-10 text-base leading-relaxed text-page-fg-muted">
-            We respond within one business day. No hard sell, no generic pitch deck — just an honest assessment of
-            whether we&apos;re the right fit for your applications.
-          </p>
-          <p className="mt-6 text-sm text-page-fg-muted">
-            Typically responds within one business day · No spam, no sales scripts
-          </p>
-        </div>
-      </section>
+            what the right plan looks like.</p>
+        <p>We respond within one business day. No hard sell, no generic pitch deck — just an honest assessment of
+            whether we&apos;re the right fit for your applications.</p>
+      </ServicePageCta>
     </div>
   )
 }

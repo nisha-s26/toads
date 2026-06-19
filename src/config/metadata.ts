@@ -135,6 +135,11 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description:
       "Toadster's AI data analytics services design scalable analytics platforms, high-throughput data pipelines, and intelligent ML systems.",
   },
+  "/technologies/data-analytics": {
+    title: "Data Analytics Services | Toadster Technologies",
+    description:
+      "Enterprise data analytics consulting from Toadster — data engineering, warehouse architecture, BI dashboards, predictive analytics, and governance built for measurable ROI.",
+  },
   "/services/industry-solutions": {
     title: "AI Industry Solutions | Toadster",
     description:

@@ -373,7 +373,6 @@ export const benefits: {
 export const engagementModels = [
   {
     featured: true,
-    badge: "Most Popular",
     title: "Embedded Product Management",
     who: "Best for: ongoing product ownership",
     desc: "A dedicated PM or PM team embedded directly in your organisation - owning roadmap, running delivery, and managing stakeholders. Full-time hire experience with external flexibility.",

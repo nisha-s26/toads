@@ -348,7 +348,6 @@ export const engagementModels = [
   },
   {
     featured: true,
-    badge: "Most Popular",
     title: "Continuous Security Testing",
     who: "Best for: teams that ship code regularly",
     desc: "Periodic assessments aligned to your release cycles, tracking security posture over time as your product and infrastructure evolve.",

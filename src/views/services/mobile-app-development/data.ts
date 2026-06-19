@@ -346,7 +346,6 @@ export const benefits: {
 export const engagementModels = [
   {
     featured: true,
-    badge: "Most Popular",
     title: "Dedicated Product Team",
     who: "Best for: startups and product companies",
     desc: "A fully dedicated cross-functional team - engineers, designer, QA, and PM - working exclusively on your product. Best for sustained, focused delivery over months.",

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,12 +8,12 @@ import { SectionHead } from "@/components/service-page/SectionHead"
 import { FAQSection } from "@/components/service-page/FAQSection"
 import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
+import { ServiceStatRow } from "@/components/service-page/ServiceStatRow"
+import { ServicePageCta } from "@/components/service-page/ServicePageCta"
 import {
   benefits,
   capabilities,
-  engagementModels,
   faqs,
-  industries,
   processSteps,
   teamRoles,
   teamStats,
@@ -179,17 +178,7 @@ export default function AugmentedRealityPage() {
               rather than defaulting to the most complex or the most experimental option available.
             </p>
 
-            <div className="mb-8 grid gap-4 sm:grid-cols-2">
-              {trustStats.map((stat) => (
-                <div
-                  key={stat.number}
-                  className="capability-card-surface rounded-xl px-5 py-4 transition-all duration-300"
-                >
-                  <div className="text-base font-extrabold text-page-fg">{stat.number}</div>
-                  <div className="text-sm text-page-fg-muted">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+            <ServiceStatRow stats={trustStats} />
           </div>
 
           <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="service-hero-form hide-scrollbar">
@@ -232,35 +221,6 @@ export default function AugmentedRealityPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg section-padding">
-        <div className="service-page-container px-4">
-          <SectionHead
-            label=""
-            title="Industries We Build AR Solutions For"
-            subtitle="AR solves different problems in different industries. Here's where we have direct delivery experience and understand the specific requirements, constraints, and outcomes that matter:"
-          />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {industries.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                    <Icon size={22} strokeWidth={2} />
-                  </span>
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="text-base font-bold text-toadster-green">{item.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
 
       <section className="py-16 bg-page-bg-alt section-padding">
         <div className="service-page-container px-4">
@@ -364,17 +324,7 @@ export default function AugmentedRealityPage() {
             title="The People You Need, Ready When You Need Them"
             subtitle="AR development requires a blend of skills that you won't find in a standard mobile development team — spatial UX design, 3D art, real-time rendering optimisation, and AR SDK expertise all need to work together."
           />
-          <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {teamStats.map((stat) => (
-              <div
-                key={stat.value}
-                className="capability-card-surface rounded-xl px-5 py-5 transition-all duration-300"
-              >
-                <div className="text-lg font-extrabold text-page-fg">{stat.value}</div>
-                <div className="text-sm text-page-fg-muted">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          <ServiceStatRow stats={teamStats} />
           <div className="ar-content-list divide-y divide-page-border border-y border-page-border">
             {teamRoles.map((role) => (
               <article key={role.title} className="grid gap-2 py-6 md:grid-cols-[minmax(200px,34%)_1fr] md:gap-8">
@@ -416,74 +366,24 @@ export default function AugmentedRealityPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg-alt section-padding">
-        <div className="service-page-container px-4">
-          <SectionHead
-            label=""
-            title="Work With Us the Way That Fits Your Project"
-            subtitle="AR projects range from a contained proof of concept to an enterprise-wide platform deployment. We structure engagements to match your stage, your goals, and how you prefer to work:"
-          />
-          <div className="grid gap-6 md:grid-cols-2">
-            {engagementModels.map((model) => (
-              <div key={model.title} className="capability-card-surface relative rounded-2xl p-8 transition-all duration-300">
-                <div className="capability-card-header relative z-10">
-                  <h3 className="text-xl font-extrabold text-toadster-green">{model.title}</h3>
-                  <span className="capability-card-heading-rule" aria-hidden="true" />
-                </div>
-                <p className="capability-card-copy relative z-10 mt-4 text-sm leading-relaxed">{model.desc}</p>
-                <p className="relative z-10 mt-5 mb-3 text-xs font-bold uppercase tracking-wider text-toadster-green">
-                  What&apos;s included
-                </p>
-                <ul className="relative z-10 space-y-2">
-                  {model.includes.map((item) => (
-                    <li
-                      key={item}
-                      className="capability-card-copy flex items-start gap-2 border-b border-page-border/60 py-2 text-sm last:border-0"
-                    >
-                      <CheckCircle size={16} className="mt-0.5 shrink-0 text-toadster-green" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       <FAQSection
         faqs={faqs}
         title="Questions We Hear Before Every AR Project"
         subtitle="Straightforward answers to the things decision-makers actually want to know."
       />
+      <ServicePageCta
+        title="Let's Talk About What You Want People to See"
 
-      <section className="relative overflow-hidden py-16 bg-page-bg section-padding">
-        <div className="pointer-events-none absolute inset-0 opacity-0 dark:opacity-100">
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "radial-gradient(ellipse 50% 60% at 50% 100%, rgba(0, 77, 45, 0.22) 0%, transparent 70%)",
-            }}
-          />
-        </div>
-        <div className="relative mx-auto max-w-3xl px-4 text-center">
-          <h2 className="mb-5 text-3xl font-extrabold tracking-tight text-page-fg md:text-4xl">
-            Let&apos;s Talk About What You Want People to See
-          </h2>
-          <p className="mb-4 text-lg leading-relaxed text-page-fg-muted">
-            Tell us the experience you&apos;re trying to create — the product you want customers to visualise, the
+        footnote="Typically responds within one business day"
+      >
+        <p>Tell us the experience you&apos;re trying to create — the product you want customers to visualise, the
             procedure you want engineers to follow, the data you want teams to see in context — and we&apos;ll have a
-            direct conversation about what it would take to build it well.
-          </p>
-          <p className="mb-10 text-base leading-relaxed text-page-fg-muted">
-            We respond within one business day and can schedule a discovery call within the week. No hard sell, no
-            generic demo reel. Just a focused conversation about your use case.
-          </p>
-          <p className="mt-6 text-sm text-page-fg-muted">
-            Typically responds within one business day · No spam, no sales scripts
-          </p>
-        </div>
-      </section>
+            direct conversation about what it would take to build it well.</p>
+        <p>We respond within one business day and can schedule a discovery call within the week. No hard sell, no
+            generic demo reel. Just a focused conversation about your use case.</p>
+      </ServicePageCta>
     </div>
   )
 }

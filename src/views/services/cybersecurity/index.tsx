@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,13 +8,13 @@ import { SectionHead } from "@/components/service-page/SectionHead"
 import { FAQSection } from "@/components/service-page/FAQSection"
 import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
+import { ServiceStatRow } from "@/components/service-page/ServiceStatRow"
+import { ServicePageCta } from "@/components/service-page/ServicePageCta"
 import {
   benefits,
   capabilities,
   complianceFrameworks,
-  engagementModels,
   faqs,
-  industries,
   processSteps,
   teamRoles,
   teamStats,
@@ -176,17 +175,7 @@ export default function CybersecurityPage() {
               reporting, and retesting included.
             </p>
 
-            <div className="mb-8 grid gap-4 sm:grid-cols-2">
-              {trustStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="capability-card-surface rounded-xl px-5 py-4 transition-all duration-300"
-                >
-                  <div className="text-base font-extrabold text-page-fg md:text-lg">{stat.number}</div>
-                  <div className="text-sm text-page-fg-muted">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+            <ServiceStatRow stats={trustStats} />
           </div>
 
           <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="service-hero-form hide-scrollbar">
@@ -360,17 +349,7 @@ export default function CybersecurityPage() {
             title="The People You Work With"
             subtitle="Security is only as good as the people doing the work. Here's the team behind every engagement."
           />
-          <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {teamStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="capability-card-surface rounded-xl px-5 py-5 transition-all duration-300"
-              >
-                <div className="text-lg font-extrabold text-page-fg">{stat.value}</div>
-                <div className="text-sm text-page-fg-muted">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          <ServiceStatRow stats={teamStats} />
           <div className="ar-content-list divide-y divide-page-border border-y border-page-border">
             {teamRoles.map((role) => (
               <article key={role.title} className="grid gap-2 py-6 md:grid-cols-[minmax(200px,34%)_1fr] md:gap-8">
@@ -382,35 +361,6 @@ export default function CybersecurityPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg-alt section-padding">
-        <div className="service-page-container px-4">
-          <SectionHead
-            label=""
-            title="Industries We Secure"
-            subtitle="Security requirements vary significantly by sector. We have direct delivery experience across regulated and high-risk industries:"
-          />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {industries.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                    <Icon size={22} strokeWidth={2} />
-                  </span>
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="text-base font-bold text-toadster-green">{item.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
 
       <section className="py-16 bg-page-bg section-padding">
         <div className="service-page-container px-4">
@@ -442,73 +392,23 @@ export default function CybersecurityPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg-alt section-padding">
-        <div className="service-page-container px-4">
-          <SectionHead
-            label=""
-            title="Work With Us the Way That Fits Your Situation"
-            subtitle="We offer engagement models that match where you are and what you actually need — from a one-time assessment to a fully managed security programme."
-          />
-          <div className="grid gap-6 md:grid-cols-2">
-            {engagementModels.map((model) => (
-              <div key={model.title} className="capability-card-surface relative rounded-2xl p-8 transition-all duration-300">
-                <div className="capability-card-header relative z-10">
-                  <h3 className="text-xl font-extrabold text-toadster-green">{model.title}</h3>
-                  <span className="capability-card-heading-rule" aria-hidden="true" />
-                </div>
-                <p className="capability-card-copy relative z-10 mt-4 text-sm leading-relaxed">{model.desc}</p>
-                <p className="relative z-10 mt-5 mb-3 text-xs font-bold uppercase tracking-wider text-toadster-green">
-                  What&apos;s included
-                </p>
-                <ul className="relative z-10 space-y-2">
-                  {model.includes.map((item) => (
-                    <li
-                      key={item}
-                      className="capability-card-copy flex items-start gap-2 border-b border-page-border/60 py-2 text-sm last:border-0"
-                    >
-                      <CheckCircle size={16} className="mt-0.5 shrink-0 text-toadster-green" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       <FAQSection
         faqs={faqs}
         title="Questions We Hear Before Every Security Engagement"
         subtitle="Straightforward answers to the things decision-makers actually want to know."
       />
+      <ServicePageCta
+        title="Let's Talk About Your Security Requirements"
 
-      <section className="relative overflow-hidden py-16 bg-page-bg section-padding">
-        <div className="pointer-events-none absolute inset-0 opacity-0 dark:opacity-100">
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "radial-gradient(ellipse 50% 60% at 50% 100%, rgba(0, 77, 45, 0.22) 0%, transparent 70%)",
-            }}
-          />
-        </div>
-        <div className="relative mx-auto max-w-3xl px-4 text-center">
-          <h2 className="mb-5 text-3xl font-extrabold tracking-tight text-page-fg md:text-4xl">
-            Let&apos;s Talk About Your Security Requirements
-          </h2>
-          <p className="mb-4 text-lg leading-relaxed text-page-fg-muted">
-            Whether you have an upcoming compliance audit, a product launch, or a nagging feeling that your security
-            posture needs a proper look — we can help you work out what the right engagement looks like.
-          </p>
-          <p className="mb-10 text-base leading-relaxed text-page-fg-muted">
-            We respond within one business day and can schedule a discovery call within the week. No hard sell, no
-            generic checklist. Just a focused conversation about your environment and what you need to protect.
-          </p>
-          <p className="mt-6 text-sm text-page-fg-muted">
-            Typically responds within one business day · No spam, no sales scripts
-          </p>
-        </div>
-      </section>
+        footnote="Typically responds within one business day"
+      >
+        <p>Whether you have an upcoming compliance audit, a product launch, or a nagging feeling that your security
+            posture needs a proper look — we can help you work out what the right engagement looks like.</p>
+        <p>We respond within one business day and can schedule a discovery call within the week. No hard sell, no
+            generic checklist. Just a focused conversation about your environment and what you need to protect.</p>
+      </ServicePageCta>
     </div>
   )
 }

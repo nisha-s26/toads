@@ -12,6 +12,7 @@ export function ClientShell({ children }: { children: ReactNode }) {
   const pathname = usePathname()
   const activeSection = resolveActiveSection(pathname)
   const isServicesPage = pathname?.startsWith("/services") ?? false
+  const isContentPage = isServicesPage
   const isBlogsPage = pathname?.startsWith("/blogs") ?? false
   const isCareersPage = pathname?.startsWith("/careers") ?? false
   const meshVariant = isBlogsPage ? "blogs" : isCareersPage ? "careers" : "default"
@@ -26,13 +27,13 @@ export function ClientShell({ children }: { children: ReactNode }) {
       <main
         key={pathname}
         className={`page-route-enter page-ambient-shell homepage-mesh-shell relative isolate${
-          isServicesPage ? " services-mesh-shell" : ""
+          isContentPage ? " services-mesh-shell" : ""
         }${isBlogsPage ? " blogs-mesh-shell" : ""}${isCareersPage ? " careers-mesh-shell" : ""}`}
       >
         <FloatingTechElements />
         <HomepageMeshBg variant={meshVariant} />
         <div className="relative z-10">
-          {isServicesPage ? <div className="page-content-container">{children}</div> : children}
+          {isContentPage ? <div className="page-content-container">{children}</div> : children}
         </div>
       </main>
       <Footer />

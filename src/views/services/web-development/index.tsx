@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,10 +8,11 @@ import { FAQSection } from "@/components/service-page/FAQSection"
 import { SectionHead } from "@/components/service-page/SectionHead"
 import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
+import { ServiceStatRow } from "@/components/service-page/ServiceStatRow"
+import { ServicePageCta } from "@/components/service-page/ServicePageCta"
 import {
   benefits,
   capabilities,
-  engagementModels,
   faqs,
   hireRoles,
   processSteps,
@@ -167,14 +167,7 @@ export default function WebDevelopmentPage() {
               From customer-facing websites to complex web platforms, we build for performance, conversion, and long-term maintainability.
             </p>
 
-            <div className="mb-8 grid gap-6 sm:grid-cols-3">
-              {trustStats.map((stat) => (
-                <div key={stat.label} className="text-left">
-                  <div className="text-2xl font-extrabold text-page-fg md:text-3xl">{stat.number}</div>
-                  <div className="text-sm text-page-fg-muted">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+            <ServiceStatRow stats={trustStats} />
           </div>
 
           <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="service-hero-form hide-scrollbar">
@@ -341,17 +334,7 @@ export default function WebDevelopmentPage() {
             subtitle="Depending on your project, you'll work with specialists from our web development team."
             labelClassName="text-toadster-green"
           />
-          <div className="mb-10 grid gap-6 sm:grid-cols-3">
-            {teamStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="capability-card-surface rounded-2xl p-6 text-center transition-all duration-300"
-              >
-                <div className="text-3xl font-extrabold text-toadster-green">{stat.number}</div>
-                <div className="mt-2 text-sm text-page-fg-muted">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          <ServiceStatRow stats={teamStats} />
           <div className="grid gap-6 md:grid-cols-2">
             {hireRoles.map((role) => {
               const Icon = role.icon
@@ -417,74 +400,16 @@ export default function WebDevelopmentPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg-alt section-padding">
-        <div className="service-page-container px-4">
-          <SectionHead
-            label=""
-            title="Work with us the way that makes sense for your situation"
-            subtitle="Different businesses have different needs. We offer four ways to work together."
-          />
-          <div className="grid gap-6 md:grid-cols-2">
-            {engagementModels.map((model) => (
-              <div key={model.title} className={model.badge ? "relative pt-3" : "relative"}>
-                {model.badge ? (
-                  <p className="mb-3 text-[11px] font-bold uppercase tracking-wide text-toadster-green">{model.badge}</p>
-                ) : null}
-                <div
-                  className={`capability-card-surface relative rounded-2xl p-8 transition-all duration-300 hover:shadow-md ${
-                    model.featured ? "ring-2 ring-toadster-green/35" : ""
-                  }`}
-                >
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="text-xl font-extrabold text-toadster-green">{model.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 mt-2 text-xs font-semibold uppercase tracking-wide">
-                    {model.who}
-                  </p>
-                  <p className="capability-card-copy relative z-10 mt-4 text-sm leading-relaxed">{model.desc}</p>
-                  <ul className="relative z-10 mt-5 space-y-2">
-                    {model.benefits.map((benefit) => (
-                      <li
-                        key={benefit}
-                        className="capability-card-copy flex items-start gap-2 border-b border-slate-200/80 py-2 text-sm last:border-0 dark:border-slate-300/40"
-                      >
-                        <CheckCircle size={16} className="mt-0.5 shrink-0 text-toadster-green" />
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       <FAQSection faqs={faqs} />
+      <ServicePageCta
+        title="Let's talk about what you're building"
 
-      <section className="relative overflow-hidden py-16 bg-page-bg section-padding">
-        <div className="pointer-events-none absolute inset-0 opacity-0 dark:opacity-100">
-          <div className="absolute inset-0" />
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "radial-gradient(ellipse 50% 60% at 50% 100%, rgba(0, 77, 45, 0.22) 0%, transparent 70%)",
-            }}
-          />
-        </div>
-        <div className="relative mx-auto max-w-3xl px-4 text-center">
-          <h2 className="mb-5 text-3xl font-extrabold tracking-tight text-page-fg md:text-4xl">
-            Let&apos;s talk about what you&apos;re building
-          </h2>
-          <p className="mb-10 text-lg leading-relaxed text-page-fg-muted">
-            Whether you have a clear brief or just an idea you're trying to figure out - we're happy to start with a conversation. No pitch, no pressure. Just a practical discussion about what you're trying to achieve.
-          </p>
-          <p className="mt-6 text-sm text-page-fg-muted">
-            Typically responds within one business day · No spam, no sales scripts
-          </p>
-        </div>
-      </section>
+        footnote="Typically responds within one business day"
+      >
+        <p>Whether you have a clear brief or just an idea you're trying to figure out - we're happy to start with a conversation. No pitch, no pressure. Just a practical discussion about what you're trying to achieve.</p>
+      </ServicePageCta>
     </div>
   )
 }

@@ -411,7 +411,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                       </NavigationMenuTrigger>
                       <NavigationMenuContent className="left-auto! top-auto! w-auto!">
                         {link.label === "Services" ? (
-                          <div className="bg-page-card rounded-2xl shadow-2xl p-5 w-260 border border-page-border">
+                          <div className="bg-page-card rounded-2xl p-2 w-260">
                             <ul className="grid grid-cols-4 gap-1">
                               {services.map((s) => {
                                 const Icon = NAV_ICON_MAP[s.icon as keyof typeof NAV_ICON_MAP]
@@ -422,8 +422,8 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                                       title={s.title}
                                       className="flex items-start gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-page-accent-soft cursor-pointer"
                                     >
-                                      <span className="w-9 h-9 shrink-0 flex items-center justify-center rounded-lg bg-page-accent-soft text-brand-green">
-                                        {Icon && <Icon size={18} />}
+                                      <span className="w-10 h-10 shrink-0 flex items-center justify-center rounded-lg bg-page-accent-soft text-brand-green">
+                                        {Icon && <Icon size={22} />}
                                       </span>
                                       <div>
                                         <div className="text-sm font-semibold text-page-fg leading-tight mb-0.5">{s.title}</div>
@@ -436,7 +436,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                             </ul>
                           </div>
                         ) : (
-                          <div className="bg-page-card rounded-2xl shadow-2xl p-5 w-260 max-h-[70vh] overflow-y-auto border border-page-border">
+                          <div className="bg-page-card rounded-2xl p-2 w-260 max-h-[70vh] overflow-y-auto">
                             <ul className="grid grid-cols-4 gap-1">
                               {HIRE_RESOURCES_NAV.map((s) => {
                                 const Icon = NAV_ICON_MAP[s.icon as keyof typeof NAV_ICON_MAP]
@@ -447,8 +447,8 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                                       title={s.navTitle}
                                       className="flex items-start gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-page-accent-soft cursor-pointer"
                                     >
-                                      <span className="w-9 h-9 shrink-0 flex items-center justify-center rounded-lg bg-page-accent-soft text-brand-green">
-                                        {Icon && <Icon size={18} />}
+                                      <span className="w-10 h-10 shrink-0 flex items-center justify-center rounded-lg bg-page-accent-soft text-brand-green">
+                                        {Icon && <Icon size={22} />}
                                       </span>
                                       <div>
                                         <div className="text-sm font-semibold text-page-fg leading-tight mb-0.5">{s.navTitle}</div>

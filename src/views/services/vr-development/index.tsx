@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,12 +8,12 @@ import { FAQSection } from "@/components/service-page/FAQSection"
 import { SectionHead } from "@/components/service-page/SectionHead"
 import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
+import { ServiceStatRow } from "@/components/service-page/ServiceStatRow"
+import { ServicePageCta } from "@/components/service-page/ServicePageCta"
 import {
   benefits,
   capabilities,
-  engagementModels,
   faqs,
-  industries,
   processSteps,
   techCategories,
   trustStats,
@@ -163,14 +162,7 @@ export default function VRDevelopmentPage() {
               customers already work.
             </p>
 
-            <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {trustStats.map((stat) => (
-                <div key={stat.label} className="text-left">
-                  <div className="text-2xl font-extrabold text-page-fg md:text-3xl">{stat.number}</div>
-                  <div className="text-sm text-page-fg-muted">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+            <ServiceStatRow stats={trustStats} />
           </div>
 
           <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="service-hero-form hide-scrollbar">
@@ -229,36 +221,6 @@ export default function VRDevelopmentPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg section-padding">
-        <div className="service-page-container px-4">
-          <SectionHead
-            label=""
-            title="Industries we serve"
-            subtitle="The use cases are different across industries - but the discipline of building immersive experiences that actually get used is the same everywhere."
-            labelClassName="text-toadster-green"
-          />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {industries.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                    <Icon size={22} strokeWidth={2} />
-                  </span>
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="text-base font-bold text-toadster-green">{item.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
 
       <section className="py-16 bg-page-bg-alt section-padding">
         <div className="service-page-container px-4">
@@ -388,74 +350,16 @@ export default function VRDevelopmentPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-page-bg section-padding">
-        <div className="service-page-container px-4">
-          <SectionHead
-            label=""
-            title="Work with us the way that makes sense for your project"
-            subtitle="We adapt to your situation - whether you need a full team, specialist augmentation, a defined deliverable, or ongoing support."
-          />
-          <div className="grid gap-6 md:grid-cols-2">
-            {engagementModels.map((model) => (
-              <div key={model.title} className={model.badge ? "relative pt-3" : "relative"}>
-                {model.badge ? (
-                  <p className="mb-3 text-[11px] font-bold uppercase tracking-wide text-toadster-green">{model.badge}</p>
-                ) : null}
-                <div
-                  className={`capability-card-surface relative rounded-2xl p-8 transition-all duration-300 hover:shadow-md ${
-                    model.featured ? "ring-2 ring-toadster-green/35" : ""
-                  }`}
-                >
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="text-xl font-extrabold text-toadster-green">{model.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 mt-2 text-xs font-semibold uppercase tracking-wide">
-                    {model.who}
-                  </p>
-                  <p className="capability-card-copy relative z-10 mt-4 text-sm leading-relaxed">{model.desc}</p>
-                  <ul className="relative z-10 mt-5 space-y-2">
-                    {model.benefits.map((benefit) => (
-                      <li
-                        key={benefit}
-                        className="capability-card-copy flex items-start gap-2 border-b border-slate-200/80 py-2 text-sm last:border-0 dark:border-slate-300/40"
-                      >
-                        <CheckCircle size={16} className="mt-0.5 shrink-0 text-toadster-green" />
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       <FAQSection faqs={faqs} />
+      <ServicePageCta
+        title="Let's talk about what you're building"
 
-      <section className="relative overflow-hidden py-16 bg-page-bg section-padding">
-        <div className="pointer-events-none absolute inset-0 opacity-0 dark:opacity-100">
-          <div className="absolute inset-0" />
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "radial-gradient(ellipse 50% 60% at 50% 100%, rgba(0, 77, 45, 0.22) 0%, transparent 70%)",
-            }}
-          />
-        </div>
-        <div className="relative mx-auto max-w-3xl px-4 text-center">
-          <h2 className="mb-5 text-3xl font-extrabold tracking-tight text-page-fg md:text-4xl">
-            Let&apos;s talk about what you&apos;re building
-          </h2>
-          <p className="mb-10 text-lg leading-relaxed text-page-fg-muted">
-            Tell us about your VR project. We&apos;ll schedule a free strategy call - no sales pitch, just an honest conversation about whether virtual reality is the right fit.
-          </p>
-          <p className="mt-6 text-sm text-page-fg-muted">
-            Typically responds within one business day · No spam, no sales scripts
-          </p>
-        </div>
-      </section>
+        footnote="Typically responds within one business day"
+      >
+        <p>Tell us about your VR project. We&apos;ll schedule a free strategy call - no sales pitch, just an honest conversation about whether virtual reality is the right fit.</p>
+      </ServicePageCta>
     </div>
   )
 }

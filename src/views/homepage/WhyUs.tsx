@@ -17,7 +17,7 @@ const WhyUs = () => {
       id="why-us"
       className="homepage-snap-section section-full-bleed relative isolate flex flex-col justify-center overflow-hidden"
     >
-      <div className="relative z-10 mx-auto max-w-9xl px-4 lg:px-20">
+      <div className="relative z-10 mx-auto max-w-9xl px-4 lg:px-20 py-12">
         <ScrollReveal className="mx-auto flex max-w-9xl flex-col items-center px-4 text-center sm:px-10">
           <h2 className="mt-4 text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
             <span className="text-page-fg">Why Choose </span>
@@ -46,9 +46,13 @@ const WhyUs = () => {
             judgment to know which solution fits your constraints, your team, and your next 18 months.
           </p>
 
-          <div className="mt-10 grid w-full max-w-9xl grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-6">
+          <div className="mt-10 flex w-full flex-wrap items-start justify-center gap-x-6 gap-y-5 sm:gap-x-8 md:gap-x-10">
             {STATS.map((stat, index) => (
-              <ScrollReveal key={stat.label} delay={0.2 + index * 0.1} className="text-center">
+              <ScrollReveal
+                key={stat.label}
+                delay={0.2 + index * 0.1}
+                className="min-w-[7.5rem] text-center sm:min-w-[8.5rem]"
+              >
                 <p className="text-2xl font-extrabold text-toadster-green md:text-3xl">{stat.value}</p>
                 <p className="mt-1 text-xs font-medium leading-snug text-page-fg-muted md:text-sm">{stat.label}</p>
               </ScrollReveal>

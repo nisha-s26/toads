@@ -43,21 +43,8 @@ const DEVELOPMENT_SERVICE_LINKS: InternalLink[] = [
 
 const SERVICE_LINKS: InternalLink[] = [...AI_SERVICE_LINKS, ...DEVELOPMENT_SERVICE_LINKS]
 
-const AI_TECHNOLOGY_LINKS: InternalLink[] = [
-  { to: "/services/machine-learning", label: "Machine Learning" },
-  { to: "/services/generative-ai", label: "Generative AI" },
-  { to: "/services/llm-development", label: "LLM & RAG Systems" },
-]
-
-const PLATFORM_TECHNOLOGY_LINKS: InternalLink[] = [
-  { to: "/services/ai-data-analytics", label: "Data Analytics" },
-  { to: "/services/ai-development", label: "Artificial Intelligence (AI)" },
-  { to: "/services/ai-integration", label: "DevOps Services" },
-]
-
 const TECHNOLOGY_LINKS: InternalLink[] = [
-  ...AI_TECHNOLOGY_LINKS,
-  ...PLATFORM_TECHNOLOGY_LINKS,
+  { to: "/technologies/data-analytics", label: "Data Analytics" },
 ]
 
 import { HIRE_RESOURCES, getHireResourcePath } from "@/config/hire-resources"
@@ -66,6 +53,14 @@ const HIRE_RESOURCE_LINKS: InternalLink[] = HIRE_RESOURCES.map((resource) => ({
   to: getHireResourcePath(resource.slug),
   label: resource.navTitle,
 }))
+
+const FOOTER_LINK_LIMIT = 6
+
+const FOOTER_SERVICE_LINKS = SERVICE_LINKS.slice(0, FOOTER_LINK_LIMIT)
+const FOOTER_HIRE_RESOURCE_LINKS = HIRE_RESOURCE_LINKS.slice(0, FOOTER_LINK_LIMIT)
+
+const SERVICES_VIEW_MORE: InternalLink = { to: "/#services", label: "View More" }
+const HIRE_RESOURCES_VIEW_MORE: InternalLink = { to: "/#hire-resources", label: "View More" }
 
 const COMPANY_LINKS: InternalLink[] = [
   { to: "/about", label: "About Us" },
@@ -123,9 +118,11 @@ const linkClassName =
 function FooterLinkList({
   links,
   columns = 1,
+  viewMore,
 }: {
   links: InternalLink[]
   columns?: 1 | 2 | 3
+  viewMore?: InternalLink
 }) {
   return (
     <ul
@@ -143,6 +140,17 @@ function FooterLinkList({
           </Link>
         </li>
       ))}
+      {viewMore ? (
+        <li key={`${viewMore.to}-${viewMore.label}`} className="min-w-0">
+          <Link
+            href={viewMore.to}
+            title={viewMore.label}
+            className={cn(linkClassName, "font-semibold text-white hover:text-white")}
+          >
+            {viewMore.label}
+          </Link>
+        </li>
+      ) : null}
     </ul>
   )
 }
@@ -420,10 +428,10 @@ const Footer = () => {
 
           <div className="mx-auto mt-10 max-w-lg divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5 px-5 sm:px-6">
             <FooterAccordionSection title="Services" defaultOpen>
-              <FooterLinkList links={SERVICE_LINKS} />
+              <FooterLinkList links={FOOTER_SERVICE_LINKS} viewMore={SERVICES_VIEW_MORE} />
             </FooterAccordionSection>
             <FooterAccordionSection title="Hire Resources">
-              <FooterLinkList links={HIRE_RESOURCE_LINKS} />
+              <FooterLinkList links={FOOTER_HIRE_RESOURCE_LINKS} viewMore={HIRE_RESOURCES_VIEW_MORE} />
             </FooterAccordionSection>
             <FooterAccordionSection title="Technologies">
               <FooterLinkList links={TECHNOLOGY_LINKS} />
@@ -469,11 +477,11 @@ const Footer = () => {
 
           <FooterColumn>
             <FooterSectionTitle compact>Services</FooterSectionTitle>
-            <FooterLinkList links={SERVICE_LINKS} />
+            <FooterLinkList links={FOOTER_SERVICE_LINKS} viewMore={SERVICES_VIEW_MORE} />
           </FooterColumn>
           <FooterColumn>
             <FooterSectionTitle compact>Hire Resources</FooterSectionTitle>
-            <FooterLinkList links={HIRE_RESOURCE_LINKS} />
+            <FooterLinkList links={FOOTER_HIRE_RESOURCE_LINKS} viewMore={HIRE_RESOURCES_VIEW_MORE} />
           </FooterColumn>
           <FooterColumn>
             <FooterSectionTitle compact>Technologies</FooterSectionTitle>

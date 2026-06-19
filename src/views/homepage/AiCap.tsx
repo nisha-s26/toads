@@ -240,7 +240,7 @@ export default function AiCap() {
   // }, [selected])
 
   return (
-    <section className="homepage-snap-section mt-6 flex w-full flex-col justify-center px-4 sm:mt-10">
+    <section id="services" className="homepage-snap-section mt-6 flex w-full flex-col justify-center px-4 sm:mt-10">
       {/* Header */}
       <ScrollReveal className="mb-12 text-center">
         {/* <p className="section-eyebrow-heading text-2xl font-normal tracking-[0.35em]">
@@ -257,14 +257,15 @@ export default function AiCap() {
       </ScrollReveal>
 
       {/* Cards Grid */}
-      <div className="mx-auto grid w-full max-w-9xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-5 lg:px-8 [grid-auto-rows:1fr]">
+      <div className="mx-auto flex w-full max-w-9xl flex-wrap justify-center gap-4 px-4 sm:gap-5 lg:px-8">
         {services.map((service, index) => (
           <Link
             key={service.title}
             href={service.to}
             title={service.title}
             className={cn(
-              "scroll-reveal-stagger group flex h-full min-h-[200px] w-full flex-col sm:min-h-[250px] lg:min-h-[280px] xl:min-h-[300px]",
+              "scroll-reveal-stagger group flex w-full flex-col sm:w-[calc(50%-0.625rem)] xl:w-[calc(33.333%-0.834rem)] min-[1501px]:w-[calc(25%-0.938rem)]",
+              "h-full min-h-[200px] sm:min-h-[250px] lg:min-h-[280px] xl:min-h-[300px]",
               CARD_STYLES.capabilityCard,
               CARD_STYLES.focusRing,
             )}

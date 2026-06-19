@@ -373,7 +373,6 @@ export const benefits: {
 export const engagementModels = [
   {
     featured: true,
-    badge: "Most Popular",
     title: "Dedicated AI Development Team",
     who: "Best for: AI-native products and sustained AI programs",
     desc: "A fully managed, dedicated team - ML engineers, data scientists, and an MLOps specialist - working exclusively on your product. You maintain strategic direction; we handle execution.",

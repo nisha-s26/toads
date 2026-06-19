@@ -430,7 +430,6 @@ export const benefits: {
 export const engagementModels = [
   {
     featured: true,
-    badge: "Most Popular",
     title: "Dedicated Product Team",
     who: "Best for: scaling startups and product companies",
     desc: "A dedicated team of developers, a designer, and a product lead who work exclusively on your product. You get the output of a full-time engineering team without the cost and complexity of hiring one.",

@@ -342,7 +342,6 @@ export const engagementModels = [
   },
   {
     featured: true,
-    badge: "Most Popular",
     title: "Project-Based Implementation",
     who: "Best for: defined DevOps work",
     desc: "Fixed-scope engagements for defined work - building a CI/CD pipeline, migrating to Kubernetes, implementing IaC, or standing up an observability stack. Clear deliverables, timeline, and cost.",

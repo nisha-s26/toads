@@ -391,7 +391,6 @@ export const costTimelines = [
 export const engagementModels = [
   {
     featured: true,
-    badge: "Most Popular",
     title: "Embedded Product / Team",
     who: "Best for: co-development with your engineers",
     desc: "We embed with your team to co-develop the RAG system alongside your engineers. Best for organizations that want internal ownership with expert guidance throughout the build.",

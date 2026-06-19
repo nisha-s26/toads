@@ -411,7 +411,6 @@ export const engagementModels = [
   },
   {
     featured: true,
-    badge: "Most Popular",
     title: "Full Product Development",
     who: "Best for: new IoT products and connected operations",
     desc: "End-to-end IoT system development - firmware, cloud platform, data pipeline, and application layer - delivered as a complete, production-ready system.",

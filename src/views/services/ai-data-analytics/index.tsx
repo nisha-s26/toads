@@ -19,15 +19,6 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 
-const industries = [
-  { name: "Financial Services", desc: "Real-time fraud detection, credit risk modelling, and regulatory reporting powered by AI-driven data analytics." },
-  { name: "Retail & E-Commerce", desc: "Customer behaviour analytics, demand forecasting, basket analysis, and personalised recommendation engines." },
-  { name: "Healthcare", desc: "Patient outcome prediction, operational efficiency analytics, clinical trial analysis, and population health insights." },
-  { name: "Manufacturing", desc: "Predictive maintenance, OEE analytics, supply chain optimisation, and production yield improvement." },
-  { name: "Telecom", desc: "Churn prediction, network analytics, revenue assurance, and customer segmentation at petabyte scale." },
-  { name: "Logistics & Supply Chain", desc: "Route optimisation, inventory analytics, delivery prediction, and demand sensing across global supply networks." },
-]
-
 export default function AIDataAnalyticsPage() {
   return (
     <div className="service-page bg-page-bg text-page-fg">
@@ -179,25 +170,6 @@ export default function AIDataAnalyticsPage() {
                 backgroundPosition: 'center'}}
             >
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── INDUSTRIES ── */}
-      <section className="py-20 bg-page-bg-alt">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Verticals</p>
-            <h2 className="text-4xl font-extrabold">Industries We Serve</h2>
-            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">Every industry is drowning in data. We help you surface the insights that matter most for your specific context and challenges.</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {industries.map((ind) => (
-              <div key={ind.name} className="bg-page-bg rounded-2xl p-6 border border-page-border hover:border-green-800/30 transition-colors">
-                <h3 className="font-bold text-green-400 mb-2">{ind.name}</h3>
-                <p className="text-page-fg-muted text-sm leading-relaxed">{ind.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

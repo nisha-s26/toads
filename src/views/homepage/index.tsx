@@ -49,7 +49,7 @@ const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
                 fetchPriority="high"
                 quality={80}
                 sizes="100vw"
-                className="object-cover object-[center_20%] dark:hidden"
+                className="object-cover object-center dark:hidden"
               />
               <Image
                 src="/homepage-hero.webp"
@@ -59,7 +59,7 @@ const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
                 fetchPriority="high"
                 quality={80}
                 sizes="100vw"
-                className="hidden object-cover object-[center_20%] dark:block"
+                className="hidden object-cover object-center dark:block"
               />
             </div>
             <div className="homepage-hero-bg-overlay absolute inset-0" />
