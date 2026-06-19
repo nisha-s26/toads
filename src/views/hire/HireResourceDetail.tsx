@@ -561,6 +561,88 @@ const DELIVERABLES: Record<string, DeliverableCard[]> = {
   ]
 }
 
+const BOTTOM_BANNERS: Record<string, {
+  headline: string
+  description: string
+  primaryCta: string
+  secondaryCta: string
+  footer?: string
+}> = {
+  "ios-developers": {
+    headline: "Ready to Ship on the App Store?",
+    description: "Stop wrestling with App Store rejections and HIG compliance issues. Get a dedicated iOS developer who builds apps that feel native and pass review the first time.",
+    primaryCta: "Get a Quote for iOS Experts",
+    secondaryCta: "Talk to an iOS Strategist",
+  },
+  "android-developers": {
+    headline: "Ready to Ship on the Play Store?",
+    description: "Stop debugging device-specific crashes after launch. Get a dedicated Android developer who builds for fragmentation from day one and ships apps that hold up across real-world devices.",
+    primaryCta: "Get a Quote for Android Experts",
+    secondaryCta: "Talk to an Android Strategist",
+  },
+  "reactjs-developers": {
+    headline: "Ready to Build an Interface That Scales?",
+    description: "Stop accumulating UI debt with every new feature. Get a dedicated React developer who architects components your team can build on for years, not just for the next sprint.",
+    primaryCta: "Get a Quote for React.js Experts",
+    secondaryCta: "Talk to a Frontend Strategist",
+  },
+  "react-native-developers": {
+    headline: "Ready to Ship to Both App Stores?",
+    description: "Stop wrestling with platform-specific bugs and slow releases. Get a dedicated React Native developer who builds apps that feel native on both iOS and Android.",
+    primaryCta: "Get a Quote for React Native Experts",
+    secondaryCta: "Talk to a Mobile Strategist",
+  },
+  "devops-engineers": {
+    headline: "Ready to Scale Your Infrastructure?",
+    description: "Stop wrestling with deployment failures and downtime. Get a dedicated DevOps engineer who builds systems that work so you can focus on building your product.",
+    primaryCta: "Get a Quote for DevOps Engineers",
+    secondaryCta: "Talk to an Infrastructure Strategist",
+  },
+  "flutter-developers": {
+    headline: "Ready to Launch a Beautiful Mobile App?",
+    description: "Stop maintaining two native codebases. Get a dedicated Flutter developer who builds responsive, pixel-perfect iOS and Android apps from a single codebase.",
+    primaryCta: "Get a Quote for Flutter Experts",
+    secondaryCta: "Talk to a Flutter Strategist",
+  },
+  "nodejs-developers": {
+    headline: "Ready to Scale Your API Infrastructure?",
+    description: "Stop debugging API latency and server bottlenecks under load. Get a dedicated Node.js developer who builds fast, reliable backend systems that scale.",
+    primaryCta: "Get a Quote for Node.js Experts",
+    secondaryCta: "Talk to a Backend Strategist",
+  },
+  "fullstack-developers": {
+    headline: "Ready to Accelerate Feature Delivery?",
+    description: "Stop waiting on frontend-backend handoffs. Get a dedicated full stack developer who owns the entire feature layer from database migrations to responsive UIs.",
+    primaryCta: "Get a Quote for Full Stack Experts",
+    secondaryCta: "Talk to a Full Stack Strategist",
+    footer: "+91-XXXXXXXXXX | info@toadsters.com | Sector 63, Noida, India",
+  },
+  "full-stack-developers": {
+    headline: "Ready to Accelerate Feature Delivery?",
+    description: "Stop waiting on frontend-backend handoffs. Get a dedicated full stack developer who owns the entire feature layer from database migrations to responsive UIs.",
+    primaryCta: "Get a Quote for Full Stack Experts",
+    secondaryCta: "Talk to a Full Stack Strategist",
+  },
+  "mern-developers": {
+    headline: "Ready to Build with Battle-Tested MERN Talent?",
+    description: "Stop losing months in slow recruitment cycles. Get a dedicated MERN stack developer embedded in your team within days to build scalable JavaScript web apps.",
+    primaryCta: "Get a Quote for MERN Experts",
+    secondaryCta: "Talk to a MERN Strategist",
+  },
+  "ai-ml-developers": {
+    headline: "Ready to Put Production-Grade Models to Work?",
+    description: "Stop stalling your AI features in staging notebooks. Get a dedicated AI/ML engineer who integrates intelligent models, RAG pipelines, and low-latency inference.",
+    primaryCta: "Get a Quote for AI/ML Experts",
+    secondaryCta: "Talk to an AI Strategist",
+  },
+  "software-developers": {
+    headline: "Ready to Scale Your Engineering Team?",
+    description: "Stop compromising on code quality. Get a dedicated software developer who hits the ground running, writes clean code, and embeds seamlessly into your sprints.",
+    primaryCta: "Get a Quote for Software Experts",
+    secondaryCta: "Talk to an Engineering Strategist",
+  }
+}
+
 export default function HireResourceDetail({ resource }: { resource: HireResource }) {
   const { theme } = useTheme()
   const isDark = theme === "dark"
@@ -579,16 +661,16 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
   const comparisonRows = isFlutter
     ? FLUTTER_COMPARISON_ROWS
     : isReactNative
-    ? REACT_NATIVE_COMPARISON_ROWS
-    : isDevOps
-    ? DEVOPS_COMPARISON_ROWS
-    : isIos
-    ? IOS_COMPARISON_ROWS
-    : isAndroid
-    ? ANDROID_COMPARISON_ROWS
-    : isReact
-    ? REACT_COMPARISON_ROWS
-    : DEFAULT_COMPARISON_ROWS
+      ? REACT_NATIVE_COMPARISON_ROWS
+      : isDevOps
+        ? DEVOPS_COMPARISON_ROWS
+        : isIos
+          ? IOS_COMPARISON_ROWS
+          : isAndroid
+            ? ANDROID_COMPARISON_ROWS
+            : isReact
+              ? REACT_COMPARISON_ROWS
+              : DEFAULT_COMPARISON_ROWS
 
   const whyHireSection = isFlutter ? getSection(resource, "Why Hire Dedicated Flutter Developers?") : null
   const deliverablesSection = isFlutter ? getSection(resource, "What Your Dedicated Flutter Developers Will Deliver") : ((isReactNative || isDevOps || isIos || isAndroid || isReact) ? getSection(resource, "Production Deliverables") : null)
@@ -598,99 +680,59 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
   const comparisonSection = isFlutter
     ? getSection(resource, "How Dedicated Flutter Developers Compare")
     : isReactNative
-    ? getSection(resource, "Why Dedicated Beats Every Other Option for React Native Talent")
-    : isDevOps
-    ? getSection(resource, "Why Dedicated Beats Every Other Option for DevOps Talent")
-    : isIos
-    ? getSection(resource, "Why Dedicated Beats Every Other Option for iOS Talent")
-    : isAndroid
-    ? getSection(resource, "Why Dedicated Beats Every Other Option for Android Talent")
-    : isReact
-    ? getSection(resource, "Why Dedicated Beats Every Other Option for React Talent")
-    : null
+      ? getSection(resource, "Why Dedicated Beats Every Other Option for React Native Talent")
+      : isDevOps
+        ? getSection(resource, "Why Dedicated Beats Every Other Option for DevOps Talent")
+        : isIos
+          ? getSection(resource, "Why Dedicated Beats Every Other Option for iOS Talent")
+          : isAndroid
+            ? getSection(resource, "Why Dedicated Beats Every Other Option for Android Talent")
+            : isReact
+              ? getSection(resource, "Why Dedicated Beats Every Other Option for React Talent")
+              : null
   const whyToadsterSection = isFlutter ? getSection(resource, "Why Toadster Technologies?") : null
   const pricingSection = isFlutter ? getSection(resource, "How Much Does It Cost to Hire Dedicated Flutter Developers?") : null
   const skillMatrixSection = isFlutter
     ? getSection(resource, "Tech Stack & Skill Matrix")
     : isReactNative
-    ? getSection(resource, "Tech Stack & Capabilities")
-    : (isDevOps || isIos || isAndroid || isReact)
-    ? getSection(resource, "Tech Stack & Skill Matrix")
-    : null
+      ? getSection(resource, "Tech Stack & Capabilities")
+      : (isDevOps || isIos || isAndroid || isReact)
+        ? getSection(resource, "Tech Stack & Skill Matrix")
+        : null
 
   const heroCtaData = isIos
     ? {
-        primary: "Hire iOS Experts →",
-        secondary: "View Portfolio",
-        badges: ["⭐ 4.9/5 on Clutch", "50+ iOS apps shipped", "8 countries served"]
-      }
+      primary: "Hire iOS Experts →",
+      secondary: "View Portfolio",
+      badges: ["⭐ 4.9/5 on Clutch", "50+ iOS apps shipped", "8 countries served"]
+    }
     : isDevOps
-    ? {
+      ? {
         primary: "Hire DevOps Engineers →",
         secondary: "View Portfolio",
         badges: ["⭐ 4.9/5 on Clutch", "70+ infrastructure projects delivered", "8 countries served"]
       }
-    : isReactNative
-    ? {
-        primary: "Hire React Native Experts →",
-        secondary: "View Portfolio",
-        badges: ["⭐ 4.9/5 on Clutch", "60+ apps shipped", "8 countries served"]
-      }
-    : isAndroid
-    ? {
-        primary: "Hire Android Experts →",
-        secondary: "View Portfolio",
-        badges: ["⭐ 4.9/5 on Clutch", "55+ Android apps shipped", "8 countries served"]
-      }
-    : isReact
-    ? {
-        primary: "Hire React.js Experts →",
-        secondary: "View Portfolio",
-        badges: ["⭐ 4.9/5 on Clutch", "100+ React projects delivered", "8 countries served"]
-      }
-    : null
+      : isReactNative
+        ? {
+          primary: "Hire React Native Experts →",
+          secondary: "View Portfolio",
+          badges: ["⭐ 4.9/5 on Clutch", "60+ apps shipped", "8 countries served"]
+        }
+        : isAndroid
+          ? {
+            primary: "Hire Android Experts →",
+            secondary: "View Portfolio",
+            badges: ["⭐ 4.9/5 on Clutch", "55+ Android apps shipped", "8 countries served"]
+          }
+          : isReact
+            ? {
+              primary: "Hire React.js Experts →",
+              secondary: "View Portfolio",
+              badges: ["⭐ 4.9/5 on Clutch", "100+ React projects delivered", "8 countries served"]
+            }
+            : null
 
-  const bottomBanner = isIos
-    ? {
-        headline: "Ready to Ship on the App Store?",
-        description: "Stop wrestling with App Store rejections and HIG compliance issues. Get a dedicated iOS developer who builds apps that feel native and pass review the first time.",
-        primaryCta: "Get a Quote for iOS Experts",
-        secondaryCta: "Talk to an iOS Strategist",
-        footer: "+91-XXXXXXXXXX | info@toadsters.com | Sector 63, Noida, India",
-      }
-    : isDevOps
-    ? {
-        headline: "Ready to Scale Your Infrastructure?",
-        description: "Stop wrestling with deployment failures and downtime. Get a dedicated DevOps engineer who builds systems that work so you can focus on building your product.",
-        primaryCta: "Get a Quote for DevOps Engineers",
-        secondaryCta: "Talk to an Infrastructure Strategist",
-        footer: "+91-XXXXXXXXXX | info@toadsters.com | Sector 63, Noida, India",
-      }
-    : isReactNative
-    ? {
-        headline: "Ready to Ship to Both App Stores?",
-        description: "Stop wrestling with platform-specific bugs and slow releases. Get a dedicated React Native developer who builds apps that feel native on both iOS and Android.",
-        primaryCta: "Get a Quote for React Native Experts",
-        secondaryCta: "Talk to a Mobile Strategist",
-        footer: "+91-XXXXXXXXXX | info@toadsters.com | Sector 63, Noida, India",
-      }
-    : isAndroid
-    ? {
-        headline: "Ready to Ship on the Play Store?",
-        description: "Stop debugging device-specific crashes after launch. Get a dedicated Android developer who builds for fragmentation from day one and ships apps that hold up across real-world devices.",
-        primaryCta: "Get a Quote for Android Experts",
-        secondaryCta: "Talk to an Android Strategist",
-        footer: "+91-XXXXXXXXXX | info@toadsters.com | Sector 63, Noida, India",
-      }
-    : isReact
-    ? {
-        headline: "Ready to Build an Interface That Scales?",
-        description: "Stop accumulating UI debt with every new feature. Get a dedicated React developer who architects components your team can build on for years, not just for the next sprint.",
-        primaryCta: "Get a Quote for React.js Experts",
-        secondaryCta: "Talk to a Frontend Strategist",
-        footer: "+91-XXXXXXXXXX | info@toadsters.com | Sector 63, Noida, India",
-      }
-    : null
+  const bottomBanner = BOTTOM_BANNERS[slug] || BOTTOM_BANNERS["software-developers"]
 
   const categoryEyebrow = isFlutter
     ? "Hire Resources / Flutter Developers"
@@ -841,10 +883,10 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                 isAndroid
                   ? "Tell us your project requirements and we'll match you with the right Android developer within 24 hours."
                   : isReact
-                  ? "Tell us your project requirements and we'll match you with the right React developer within 24 hours."
-                  : isFlutter
-                  ? "Tell us about your Flutter project and we'll connect you with the right developer within 24 hours."
-                  : undefined
+                    ? "Tell us your project requirements and we'll match you with the right React developer within 24 hours."
+                    : isFlutter
+                      ? "Tell us about your Flutter project and we'll connect you with the right developer within 24 hours."
+                      : undefined
               }
               submitFooterText={
                 (isAndroid || isReact) ? (
@@ -1275,96 +1317,38 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
       {/* ── SECTION 13: BOTTOM CONVERSION BANNER ── */}
       <section className="py-20 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
-        <div className="bg-[#FFFFFF] text-black rounded-3xl p-8 sm:p-14 shadow-2xl flex flex-col gap-8 items-center text-center relative overflow-hidden">
+        <div className={isDark
+          ? "bg-white text-black rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center relative overflow-hidden border border-slate-200 shadow-2xl"
+          : "hire-resources-cta relative overflow-hidden rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center"
+        }>
 
           <div className="flex flex-col gap-3 max-w-2xl">
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-black">
-              {bottomBanner ? bottomBanner.headline : `Ready to Hire Expert ${isFlutter ? "Flutter" : titleInfo.highlight}${titleInfo.suffix}?`}
+            <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${isDark ? 'text-slate-900' : 'text-white'}`}>
+              {bottomBanner.headline}
             </h2>
-            {bottomBanner ? (
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                {bottomBanner.description}
-              </p>
-            ) : isFlutter ? (
-              <div className="flex flex-col gap-2">
-                <p className="text-[#a0c5b3] text-sm sm:text-base leading-relaxed">
-                  Stop waiting months to hire. Your dedicated Flutter developer can be onboarding within the week.
-                </p>
-                <p className="text-[#a0c5b3] text-sm sm:text-base leading-relaxed">
-                  No recruitment overhead. No hidden fees. Just world-class Flutter talent, ready to build.
-                </p>
-              </div>
-            ) : (
-              <p className="text-[#003820] text-sm sm:text-base leading-relaxed">
-                We&apos;ve professionally balanced this Toadster team. Start your {titleInfo.highlight} journey with Toadster today.
-              </p>
-            )}
+            <p className={`text-sm sm:text-base leading-relaxed ${isDark ? 'text-slate-600' : 'text-white/80'}`}>
+              {bottomBanner.description}
+            </p>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 z-10 w-full sm:w-auto mt-2">
-            {bottomBanner ? (
-              <>
-                <button
-                  type="button"
-                  onClick={scrollToForm}
-                  className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-[#004d2d] hover:bg-[#003820] px-8 py-4 text-sm font-bold text-white shadow-sm transition-all"
-                >
-                  {bottomBanner.primaryCta}
-                </button>
-
-                <button
-                  type="button"
-                  onClick={scrollToForm}
-                  className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-slate-300 bg-transparent hover:bg-slate-50 px-8 py-4 text-sm font-bold text-[#003820] transition-all"
-                >
-                  {bottomBanner.secondaryCta}
-                </button>
-              </>
-            ) : isFlutter ? (
-              <button
-                type="button"
-                onClick={scrollToForm}
-                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-white hover:bg-slate-50 px-10 py-5 text-base font-bold text-[#003820] shadow-sm transition-all"
-              >
-                Talk to an Expert
-              </button>
-            ) : (
-              <>
-                <button
-                  type="button"
-                  onClick={scrollToForm}
-                  className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-white hover:bg-slate-50 px-8 py-4 text-sm font-bold text-[#003820] shadow-sm transition-all"
-                >
-                  Get a Quote
-                </button>
-
-                <button
-                  type="button"
-                  onClick={scrollToForm}
-                  className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-white/20 bg-transparent hover:bg-white/5 px-8 py-4 text-sm font-bold text-white transition-all"
-                >
-                  Speak to an Expert
-                </button>
-              </>
-            )}
+            <button
+              type="button"
+              onClick={scrollToForm}
+              className={`inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold shadow-sm transition-all ${isDark
+                ? 'bg-[#004d2d] hover:bg-[#003820] text-white'
+                : 'bg-white hover:bg-slate-50 text-[#003820]'
+                }`}
+            >
+              {bottomBanner.secondaryCta}
+            </button>
           </div>
 
-          {bottomBanner ? (
-            <p className="text-slate-500 text-xs sm:text-sm mt-2">
+          {bottomBanner.footer && (
+            <p className={`text-xs sm:text-sm mt-2 ${isDark ? 'text-slate-500' : 'text-white/60'}`}>
               {bottomBanner.footer}
             </p>
-          ) : isFlutter ? (
-            <p className="text-[#a0c5b3]/80 text-sm">
-              Or reach us directly:{" "}
-              <a href="mailto:hire@toadster.tech" className="text-white hover:underline">
-                hire@toadster.tech
-              </a>{" "}
-              |{" "}
-              <a href="https://www.toadster.tech" className="text-white hover:underline">
-                www.toadster.tech
-              </a>
-            </p>
-          ) : null}
+          )}
         </div>
       </section>
 
