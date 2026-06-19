@@ -240,13 +240,13 @@ export default function AiCap() {
   // }, [selected])
 
   return (
-    <section id="services" className="homepage-snap-section mt-6 flex w-full flex-col justify-center px-4 sm:mt-10">
+    <section id="services" className="homepage-snap-section flex w-full flex-col justify-center px-4">
       {/* Header */}
-      <ScrollReveal className="mb-12 text-center">
+        <ScrollReveal className="mb-8 text-center">
         {/* <p className="section-eyebrow-heading text-2xl font-normal tracking-[0.35em]">
           OUR <span className="font-extrabold">AI CAPABILITIES</span>
         </p> */}
-        <h2 className="mb-4 mt-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
+        <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
           <span className="text-page-fg">AI  </span>
           <span className="text-toadster-green">Capabilities</span>
         </h2>
@@ -296,7 +296,7 @@ export default function AiCap() {
       </div>
 
       {/* Bottom CTA Row */}
-      <ScrollReveal className="mx-auto mt-10 flex max-w-6xl flex-col items-center justify-center gap-4 sm:flex-row" delay={0.1}>
+      <ScrollReveal className="mx-auto mt-6 flex max-w-6xl flex-col items-center justify-center gap-4 sm:flex-row" delay={0.1}>
         <Link
           href="/services/agentic-ai"
           title="Explore agentic AI services"

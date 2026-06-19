@@ -190,10 +190,10 @@ export default function HomepageFaq() {
   return (
     <section
       id="faq"
-      className="homepage-snap-section relative isolate flex flex-col justify-center px-4 py-8 sm:py-10 md:py-10 lg:px-20"
+      className="homepage-snap-section relative isolate flex flex-col justify-center px-4 pb-6 pt-0 sm:pb-8 md:pb-8 lg:px-20"
     >
       <div className="relative z-10 mx-auto w-full max-w-5xl">
-        <ScrollReveal className="mb-10 text-center md:mb-12">
+        <ScrollReveal className="mb-8 text-center md:mb-10">
           {/* <p className="section-eyebrow-heading text-2xl font-bold tracking-[0.35em]">FAQ</p> */}
           <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
             <span className="text-page-fg">Frequently Asked </span>

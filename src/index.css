@@ -16,6 +16,10 @@
   --flat-asbestos: #7F8C8D;
 
   --page-gutter: 1rem;
+  --section-heading-gap: clamp(2rem, 2.5vw, 2.75rem);
+  --section-stack-gap: var(--section-heading-gap);
+  --section-bottom-gap: clamp(2.5rem, 3vw, 3rem);
+  --homepage-section-gap: var(--section-heading-gap);
   --brand-heading: #006600;
   --brand-button: #006600;
   --brand-green-bright: #006600;
@@ -503,8 +507,25 @@
 
 .homepage-sections {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--homepage-section-gap);
   background: transparent;
   margin-top: -1px;
+}
+
+#homepage-sections > .homepage-snap-section:first-child {
+  margin-top: 0;
+  padding-top: var(--homepage-section-gap);
+}
+
+/* Same gap between stacked homepage sections — no extra top padding */
+#homepage-sections > .homepage-snap-section + .homepage-snap-section {
+  padding-top: 0;
+}
+
+#homepage-sections > .homepage-snap-section + .homepage-snap-section > div {
+  padding-top: 0;
 }
 
 html.homepage-scroll-snap {
@@ -2124,7 +2145,111 @@ html.homepage-scroll-snap {
 }
 
 .section-padding {
-  margin-top: -40px;
+  margin-top: 0;
+}
+
+/* ============================================================
+   Site-wide section rhythm (same gap as homepage reference)
+   ============================================================ */
+
+/* --- Modern service pages (.section-padding) --- */
+section.section-padding {
+  padding-top: 0;
+  padding-bottom: var(--section-bottom-gap);
+}
+
+section.section-padding.py-16,
+section.section-padding.py-14,
+section.section-padding.py-20 {
+  padding-top: 0;
+  padding-bottom: var(--section-bottom-gap);
+}
+
+section.section-padding + section.section-padding {
+  padding-top: 0;
+  margin-top: var(--section-stack-gap);
+}
+
+/* --- Legacy service pages (.service-page / .modern-service-page) --- */
+.service-page > section:not(.section-full-bleed):not(.trusted-by-marquee),
+.modern-service-page > section:not(.section-full-bleed):not(.trusted-by-marquee) {
+  padding-top: 0;
+  padding-bottom: var(--section-bottom-gap);
+}
+
+.service-page > section.section-full-bleed,
+.modern-service-page > section.section-full-bleed,
+.service-page > section.trusted-by-marquee,
+.modern-service-page > section.trusted-by-marquee {
+  padding-top: unset;
+  padding-bottom: unset;
+}
+
+.service-page > section:not(.section-full-bleed):not(.trusted-by-marquee) + section:not(.section-full-bleed):not(.trusted-by-marquee),
+.modern-service-page > section:not(.section-full-bleed):not(.trusted-by-marquee) + section:not(.section-full-bleed):not(.trusted-by-marquee) {
+  padding-top: 0;
+  margin-top: var(--section-stack-gap);
+}
+
+/* --- After logo / trusted-by strip --- */
+section:has(.logo-marquee) + section,
+section.trusted-by-marquee + section,
+.service-page > section.trusted-by-marquee + section,
+.modern-service-page > section.trusted-by-marquee + section {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+section:has(.logo-marquee) + section.section-padding + section.section-padding,
+section.trusted-by-marquee + section.section-padding + section.section-padding {
+  padding-top: 0;
+  margin-top: var(--section-stack-gap);
+}
+
+/* --- About page (stacked sections in homepage-content) --- */
+.homepage-content > section:first-child {
+  padding-top: var(--section-heading-gap);
+}
+
+.homepage-content > section {
+  padding-bottom: var(--section-bottom-gap);
+}
+
+.homepage-content > section + section {
+  padding-top: 0;
+  margin-top: var(--section-stack-gap);
+}
+
+/* --- Careers, blogs, and similar full-page stacks --- */
+.min-h-screen > section + section {
+  padding-top: 0;
+  margin-top: var(--section-stack-gap);
+  padding-bottom: var(--section-bottom-gap);
+}
+
+.min-h-screen > section:not(:first-of-type) {
+  padding-bottom: var(--section-bottom-gap);
+}
+
+/* --- Hire resource pages --- */
+.hire-page-shell > section + section {
+  padding-top: 0;
+  margin-top: var(--section-stack-gap);
+  padding-bottom: var(--section-bottom-gap);
+}
+
+.hire-page-shell > section:not(:first-of-type) {
+  padding-bottom: var(--section-bottom-gap);
+}
+
+/* --- Large section headings (SectionHead + homepage-style h2 blocks) --- */
+.section-head {
+  margin-bottom: 2rem;
+  padding-top: var(--section-heading-gap);
+}
+
+.section-head h2 {
+  margin-top: 0;
 }
 
 .apply-link {
@@ -2337,6 +2462,21 @@ html.homepage-scroll-snap {
   }
 }
 
+/* Technology landing pages — self-contained layout without site mesh */
+.technologies-landing-shell {
+  background: #ffffff;
+}
+
+.dark .technologies-landing-shell {
+  background: #0a0a0a;
+}
+
+.toadster-logo {
+  height: 40px;
+  width: auto;
+  max-width: 194px;
+}
+
 /* Data Analytics landing page — dark hero + bento layout */
 .data-analytics-landing {
   --da-green: #00c853;
@@ -2347,6 +2487,9 @@ html.homepage-scroll-snap {
   --da-text: #111827;
   --da-text-muted: #6b7280;
   --da-border: #e5e7eb;
+  --section-heading-gap: clamp(3.5rem, 4vw, 5rem);
+  --section-stack-gap: clamp(3.5rem, 4vw, 5rem);
+  --section-bottom-gap: clamp(3rem, 3.5vw, 4rem);
   color: var(--da-text);
   background: #ffffff;
 }
@@ -2514,8 +2657,29 @@ html.homepage-scroll-snap {
   }
 }
 
-.data-analytics-landing .da-section {
-  padding: clamp(4rem, 7vw, 5.5rem) 0;
+.data-analytics-landing .da-section:not(.da-cta-section) {
+  padding-top: 0;
+  padding-bottom: var(--section-bottom-gap);
+}
+
+.data-analytics-landing .da-section:not(.da-cta-section) + .da-section:not(.da-cta-section) {
+  margin-top: var(--section-stack-gap);
+  padding-top: 0;
+}
+
+.data-analytics-landing .da-stats + .da-section:not(.da-cta-section) {
+  margin-top: var(--section-stack-gap);
+  padding-top: 0;
+}
+
+.data-analytics-landing
+  .da-section:not(.da-cta-section):not(.da-faq-section)
+  > :is(.da-section-head, .da-container.da-section-head, .da-container.da-capabilities-head):first-child {
+  padding-top: var(--section-heading-gap);
+}
+
+.data-analytics-landing .da-faq-section > .da-container:first-child {
+  padding-top: var(--section-heading-gap);
 }
 
 .data-analytics-landing .da-section-light {
@@ -2540,6 +2704,7 @@ html.homepage-scroll-snap {
 }
 
 .data-analytics-landing .da-section-title {
+  margin: 0;
   font-size: clamp(1.75rem, 3vw, 2.35rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -2867,6 +3032,7 @@ html.homepage-scroll-snap {
 }
 
 .data-analytics-landing .da-faq-heading h2 {
+  margin: 0;
   font-size: clamp(1.85rem, 3vw, 2.5rem);
   font-weight: 800;
   line-height: 1.15;
@@ -3149,6 +3315,42 @@ html.homepage-scroll-snap {
   display: grid;
   gap: 1rem;
   margin-top: 2rem;
+}
+
+.data-analytics-landing .da-capability-cards-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+  align-items: stretch;
+}
+
+.data-analytics-landing .da-capability-cards-grid > * {
+  height: 100%;
+  min-height: 200px;
+}
+
+@media (min-width: 640px) {
+  .data-analytics-landing .da-capability-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .data-analytics-landing .da-capability-cards-grid > * {
+    min-height: 250px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .data-analytics-landing .da-capability-cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1501px) {
+  .data-analytics-landing .da-capability-cards-grid > * {
+    min-height: 300px;
+  }
 }
 
 @media (min-width: 768px) {

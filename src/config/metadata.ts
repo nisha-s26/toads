@@ -140,6 +140,21 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description:
       "Enterprise data analytics consulting from Toadster — data engineering, warehouse architecture, BI dashboards, predictive analytics, and governance built for measurable ROI.",
   },
+  "/technologies/artificial-intelligence": {
+    title: "Artificial Intelligence Services | Toadster Technologies",
+    description:
+      "Enterprise AI services from Toadster — custom LLM and RAG integration, autonomous agents, predictive ML models, MLOps, and governance built for production-grade outcomes.",
+  },
+  "/technologies/iot": {
+    title: "IoT Services | Toadster Technologies",
+    description:
+      "Enterprise IoT services from Toadster — device architecture, connectivity design, edge computing, platform integration, predictive maintenance, and analytics for connected operations.",
+  },
+  "/technologies/augmented-reality": {
+    title: "Augmented Reality Services | Toadster Technologies",
+    description:
+      "Enterprise AR services from Toadster — AR application development, head-mounted display integration, 3D content, remote assistance, and analytics for spatial computing deployments.",
+  },
   "/services/industry-solutions": {
     title: "AI Industry Solutions | Toadster",
     description:

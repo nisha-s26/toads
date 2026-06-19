@@ -16,10 +16,10 @@ export default function HomepageBlogs({ initialBlogs = [] }: HomepageBlogsProps)
   return (
     <section
       id="homepage-blogs"
-      className="homepage-snap-section relative isolate flex flex-col justify-center px-4 py-8 lg:px-20"
+      className="homepage-snap-section relative isolate flex flex-col justify-center px-4 pb-6 pt-0 lg:px-20 lg:pb-8"
     >
       <div className="relative z-10 mx-auto w-full max-w-9xl">
-        <ScrollReveal className="mb-12 text-center md:mb-14">
+        <ScrollReveal className="mb-8 text-center md:mb-10">
           <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
             <span className="text-page-fg">Our Latest </span>
             <span className="text-toadster-green">Blogs</span>
