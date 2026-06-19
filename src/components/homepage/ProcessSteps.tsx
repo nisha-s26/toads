@@ -1,8 +1,8 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef, useState, useEffect } from "react"
+import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion"
 import type { LucideIcon } from "lucide-react"
-import { useRef, useState } from "react"
 
 export type ProcessStepItem = {
   id: string
@@ -25,6 +25,25 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
   })
   const lineScaleX = useTransform(scrollYProgress, [0, 1], [0, 1])
 
+  const [lineProgressOverride, setLineProgressOverride] = useState<number | null>(null)
+
+  const animatedScaleX = useSpring(0, { stiffness: 120, damping: 20 })
+  const animatedY = useSpring(-120, { stiffness: 120, damping: 20 })
+
+  useMotionValueEvent(lineScaleX, "change", (latest) => {
+    if (lineProgressOverride === null) {
+      animatedScaleX.set(latest)
+      animatedY.set(-120 + 240 * latest)
+    }
+  })
+
+  useEffect(() => {
+    if (lineProgressOverride !== null) {
+      animatedScaleX.set(lineProgressOverride)
+      animatedY.set(-120 + 240 * lineProgressOverride)
+    }
+  }, [lineProgressOverride, animatedScaleX, animatedY])
+
   const lineInsetPercent = steps.length === 4 ? null : 100 / (steps.length * 2)
   const lineInsetClass = steps.length === 4 ? "inset-x-[104px]" : undefined
   const lineInsetStyle =
@@ -41,7 +60,7 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
         />
         <motion.div
           className={`absolute top-[52px] z-0 h-[2px] bg-toadster-green rounded-full origin-left ${lineInsetClass ?? ""}`}
-          style={{ ...lineInsetStyle, scaleX: lineScaleX }}
+          style={{ ...lineInsetStyle, scaleX: animatedScaleX }}
         />
         <div
           className="relative z-10 grid gap-8"
@@ -54,8 +73,16 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
             return (
               <motion.div
                 key={step.id}
-                onMouseEnter={() => setActiveIndex(i)}
-                onMouseLeave={() => setActiveIndex(null)}
+                onMouseEnter={() => {
+                  setActiveIndex(i)
+                  if (i === 0) setLineProgressOverride(0.5)
+                }}
+                onMouseLeave={() => {
+                  setActiveIndex(null)
+                }}
+                onClick={() => {
+                  if (i === 1 || i === 2) setLineProgressOverride(1)
+                }}
                 whileHover={{ scale: 1.08 }}
                 transition={{ type: "spring", stiffness: 260, damping: 18 }}
                 className="text-center"
@@ -120,8 +147,7 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
         <motion.div className="absolute left-[40px] top-[40px] bottom-[40px] z-0 w-[2px] rounded-full overflow-hidden">
           <motion.div
             className="absolute inset-0 bg-gradient-to-b from-transparent via-toadster-green to-transparent"
-            style={{ y: useTransform(lineScaleX, [0, 1], ["-120%", "120%"]) }}
-            transition={{ duration: 0.9, ease: "linear" }}
+            style={{ y: useTransform(animatedY, (val) => `${val}%`) }}
           />
         </motion.div>
 
@@ -133,8 +159,16 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
             return (
               <div key={step.id} className="flex items-start gap-6">
                 <motion.div
-                  onMouseEnter={() => setActiveIndex(i)}
-                  onMouseLeave={() => setActiveIndex(null)}
+                  onMouseEnter={() => {
+                    setActiveIndex(i)
+                    if (i === 0) setLineProgressOverride(0.5)
+                  }}
+                  onMouseLeave={() => {
+                    setActiveIndex(null)
+                  }}
+                  onClick={() => {
+                    if (i === 1 || i === 2) setLineProgressOverride(1)
+                  }}
                   whileHover={{ scale: 1.08 }}
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}
                   className="flex-shrink-0"

@@ -8,8 +8,9 @@ import { Button } from "@/components/ui/button"
 interface HireResourceRfpFormProps {
   roleTitle: string
   formSubtext?: string
-  submitFooterText?: string
+  submitFooterText?: React.ReactNode
   engagementOptions?: { value: string; label: string }[]
+  projectBriefLabel?: string
 }
 
 export function HireResourceRfpForm({
@@ -21,6 +22,7 @@ export function HireResourceRfpForm({
     { value: "Part-Time Dedicated", label: "Part-Time Dedicated" },
     { value: "Dedicated Team", label: "Dedicated Team" },
   ],
+  projectBriefLabel = "Project Brief / Requirements",
 }: HireResourceRfpFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -175,7 +177,7 @@ export function HireResourceRfpForm({
 
             {/* Project Brief */}
             <div>
-              <label className={labelClass}>Project Brief / Requirements</label>
+              <label className={labelClass}>{projectBriefLabel}</label>
               <textarea
                 name="details"
                 value={formData.details}
