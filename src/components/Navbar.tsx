@@ -38,8 +38,20 @@ import {
   ShieldCheck,
   Lock,
   LifeBuoy,
+  Cloud,
 } from "lucide-react"
 import { HIRE_RESOURCES_NAV } from "@/config/hire-resources"
+import {
+  FaReact,
+  FaNodeJs,
+  FaLayerGroup,
+  FaBrain,
+  FaCode,
+  FaCloud,
+  FaApple,
+  FaAndroid,
+} from "react-icons/fa"
+import { SiFlutter, SiMongodb } from "react-icons/si"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -161,6 +173,18 @@ const NAV_ICON_MAP = {
   Scan,
   Lock,
   LifeBuoy,
+  Cloud,
+  ReactNative: FaReact,
+  Nodejs: FaNodeJs,
+  FullStack: FaLayerGroup,
+  Mern: SiMongodb,
+  Flutter: SiFlutter,
+  AiMl: FaBrain,
+  Software: FaCode,
+  DevOps: FaCloud,
+  Ios: FaApple,
+  Android: FaAndroid,
+  Reactjs: FaReact,
 }
 
 export function Navbar({ activeSection: incomingActiveSection }: { activeSection: string }) {

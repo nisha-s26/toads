@@ -38,7 +38,9 @@ export interface HireResource {
 
 export const HIRE_RESOURCES: HireResource[] = HIRE_RESOURCES_DATA
 
-export const HIRE_RESOURCE_SLUGS = HIRE_RESOURCES.map((resource) => resource.slug)
+export const HIRE_RESOURCE_SLUGS = HIRE_RESOURCES
+  .map((resource) => resource.slug)
+  .filter((slug) => slug !== "android-developers" && slug !== "reactjs-developers")
 
 export type HireResourceSlug = (typeof HIRE_RESOURCE_SLUGS)[number]
 

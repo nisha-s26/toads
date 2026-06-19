@@ -60,6 +60,57 @@ const FLUTTER_COMPARISON_ROWS = [
   { feature: "Ideal For", dedicated: "Long-term builds", staffAug: "Skill gaps", outsourcing: "Fixed-scope projects" },
 ]
 
+
+const REACT_NATIVE_COMPARISON_ROWS = [
+  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "30–90 Days" },
+  { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
+  { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Varies" },
+  { feature: "Cross-Platform Coverage", dedicated: "Single Codebase", staffAug: "Variable", outsourcing: "Single Codebase" },
+  { feature: "Scalability", dedicated: "Instant", staffAug: "Limited", outsourcing: "Slow" },
+  { feature: "Management Overhead", dedicated: "Low", staffAug: "High", outsourcing: "High" },
+  { feature: "Contractual Flexibility", dedicated: "Flexible", staffAug: "Per-Project", outsourcing: "Long-Term Only" },
+]
+
+const DEVOPS_COMPARISON_ROWS = [
+  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "45–90 Days" },
+  { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
+  { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Hard to Retain" },
+  { feature: "Infrastructure Ownership", dedicated: "Full Client Control", staffAug: "Shared Risk", outsourcing: "Full Client Control" },
+  { feature: "Scalability", dedicated: "Instant", staffAug: "Limited", outsourcing: "Slow" },
+  { feature: "On-Call & Incident Cover", dedicated: "Structured SLA", staffAug: "Unreliable", outsourcing: "Expensive" },
+  { feature: "Contractual Flexibility", dedicated: "Flexible", staffAug: "Per-Project", outsourcing: "Long-Term Only" },
+]
+
+const IOS_COMPARISON_ROWS = [
+  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "30–90 Days" },
+  { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
+  { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Varies" },
+  { feature: "App Store Compliance Knowledge", dedicated: "High", staffAug: "Variable", outsourcing: "Varies" },
+  { feature: "Scalability", dedicated: "Instant", staffAug: "Limited", outsourcing: "Slow" },
+  { feature: "Management Overhead", dedicated: "Low", staffAug: "High", outsourcing: "High" },
+  { feature: "Contractual Flexibility", dedicated: "Flexible", staffAug: "Per-Project", outsourcing: "Long-Term Only" },
+]
+
+const ANDROID_COMPARISON_ROWS = [
+  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "30–90 Days" },
+  { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
+  { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Varies" },
+  { feature: "Device Fragmentation Handling", dedicated: "High", staffAug: "Variable", outsourcing: "Varies" },
+  { feature: "Scalability", dedicated: "Instant", staffAug: "Limited", outsourcing: "Slow" },
+  { feature: "Management Overhead", dedicated: "Low", staffAug: "High", outsourcing: "High" },
+  { feature: "Contractual Flexibility", dedicated: "Flexible", staffAug: "Per-Project", outsourcing: "Long-Term Only" },
+]
+
+const REACT_COMPARISON_ROWS = [
+  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "30–90 Days" },
+  { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
+  { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Varies" },
+  { feature: "UI/UX Consistency", dedicated: "High", staffAug: "Variable", outsourcing: "High" },
+  { feature: "Scalability", dedicated: "Instant", staffAug: "Limited", outsourcing: "Slow" },
+  { feature: "Management Overhead", dedicated: "Low", staffAug: "High", outsourcing: "High" },
+  { feature: "Contractual Flexibility", dedicated: "Flexible", staffAug: "Per-Project", outsourcing: "Long-Term Only" },
+]
+
 const DEFAULT_COMPARISON_ROWS = [
   { feature: "Team Control", dedicated: "Direct Control", staffAug: "Staff Control", outsourcing: "Less Control" },
   { feature: "Communication", dedicated: "Direct Communication", staffAug: "Direct and Constant", outsourcing: "Project Manager Only" },
@@ -244,19 +295,37 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
   ],
   "reactjs-developers": [
     {
-      title: "Core & Frameworks",
+      title: "Core React & Architecture",
       icon: Code2,
-      items: ["React.js Core", "Next.js (App Router)", "TypeScript / Tailwind CSS"]
+      items: [
+        "React 18+ (Hooks, Suspense, Server Components)",
+        "Next.js for SSR, SSG, and ISR",
+        "Component-driven architecture & design systems",
+        "TypeScript across components, hooks, and utilities"
+      ],
+      description: "Architecture decisions made upfront — not patched in later — so your codebase stays maintainable as your team and feature set grow."
     },
     {
-      title: "State Management",
+      title: "State Management & Data Layer",
       icon: Brain,
-      items: ["Redux Toolkit", "Zustand Core Store", "React Context API"]
+      items: [
+        "Redux Toolkit / Zustand / Jotai / Recoil",
+        "React Query / TanStack Query / SWR",
+        "GraphQL clients — Apollo, Relay, urql",
+        "Context API for scoped state needs"
+      ],
+      description: "The right state management tool for the actual problem — not Redux by default for every app, regardless of complexity."
     },
     {
-      title: "UI & Animation",
-      icon: Database,
-      items: ["Framer Motion", "Radix UI Primitives", "CSS Modules"]
+      title: "Styling, Testing & Build Tooling",
+      icon: Settings2,
+      items: [
+        "Tailwind CSS / Styled Components / CSS Modules",
+        "Jest, React Testing Library, Cypress for E2E",
+        "Vite / Webpack configuration & bundle optimisation",
+        "Storybook for component documentation"
+      ],
+      description: "Fast build pipelines, meaningful test coverage, and styling systems that scale across design tokens and themes."
     }
   ],
   "react-native-developers": [
@@ -293,6 +362,26 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
       items: ["WebSockets / Socket.io", "gRPC Communication", "Redis Cache / RabbitMQ"]
     }
   ],
+  "devops-engineers": [
+    {
+      title: "Orchestration & Automation",
+      icon: Layers,
+      items: ["Kubernetes (EKS / GKE / AKS) & Helm", "Docker & container lifecycle management", "Terraform / Pulumi / Ansible / Chef", "Infrastructure as Code (IaC)"],
+      description: "We automate everything that can be automated — provisioning, scaling, patching, and recovery — so your engineers spend time building products, not babysitting servers."
+    },
+    {
+      title: "CI/CD & Developer Pipelines",
+      icon: Terminal,
+      items: ["GitHub Actions / GitLab CI / Jenkins", "ArgoCD / Flux for GitOps", "Testing gates & rollback strategies", "Secrets management (Vault, SOPS)"],
+      description: "Deployment pipelines built for speed and safety — so every release is a non-event, not a fire drill."
+    },
+    {
+      title: "Cloud, Security & Observability",
+      icon: ShieldCheck,
+      items: ["AWS / GCP / Azure", "Prometheus / Grafana / Datadog", "CIS benchmarks, SOC 2, RBAC", "Cost optimisation & FinOps"],
+      description: "Cloud environments designed for resilience, observability, and compliance — with cost kept firmly in check."
+    }
+  ],
   "fullstack-developers": [
     {
       title: "Frontend Stack",
@@ -308,6 +397,76 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
       title: "Database & Ops",
       icon: Database,
       items: ["PostgreSQL / MongoDB", "Redis Cache System", "Docker / AWS / GCP"]
+    }
+  ],
+  "ios-developers": [
+    {
+      title: "Core Language & UI Frameworks",
+      icon: Code2,
+      items: [
+        "Swift 5+ / SwiftUI / UIKit",
+        "Combine & async/await for concurrency",
+        "MVVM / Clean Architecture / Coordinator pattern",
+        "Human Interface Guidelines (HIG) compliance"
+      ],
+      description: "Our developers build interfaces that feel native to iOS — not web views wrapped in a native shell, and not Android patterns ported over without adaptation."
+    },
+    {
+      title: "Data, Networking & Native Integrations",
+      icon: Cpu,
+      items: [
+        "Core Data / SwiftData / Realm",
+        "URLSession / Alamofire for networking",
+        "Push Notifications (APNs), HealthKit, ARKit, CoreML",
+        "Sign in with Apple, Apple Pay, Face ID / Touch ID"
+      ],
+      description: "Deep integration with Apple's native frameworks — the features that make an app feel like it belongs on iOS, not just compiled for it."
+    },
+    {
+      title: "Testing, CI/CD & App Store Deployment",
+      icon: Settings2,
+      items: [
+        "XCTest / XCUITest for unit and UI testing",
+        "Fastlane for automated builds and releases",
+        "TestFlight beta distribution management",
+        "App Store Connect submission & compliance review"
+      ],
+      description: "Production pipelines that minimise App Store rejection risk and get your releases into users' hands on schedule."
+    }
+  ],
+  "android-developers": [
+    {
+      title: "Core Language & UI Frameworks",
+      icon: Code2,
+      items: [
+        "Kotlin / Jetpack Compose / XML Views",
+        "Coroutines & Flow for asynchronous programming",
+        "MVVM / MVI / Clean Architecture",
+        "Material Design 3 compliance"
+      ],
+      description: "Our developers build with Compose-first thinking while maintaining legacy View-based code where migration isn't yet justified."
+    },
+    {
+      title: "Data, Networking & Native Integrations",
+      icon: Cpu,
+      items: [
+        "Room / DataStore for local persistence",
+        "Retrofit / OkHttp / Ktor for networking",
+        "Firebase (FCM, Crashlytics, Remote Config, Analytics)",
+        "CameraX, Biometric API, Google Pay, Maps SDK"
+      ],
+      description: "Deep integration with Google's native frameworks and Play Services — the features that make an app feel purpose-built for Android, not ported."
+    },
+    {
+      title: "Testing, CI/CD & Play Store Deployment",
+      icon: Settings2,
+      items: [
+        "JUnit / Espresso / Compose Testing for UI tests",
+        "Gradle build optimisation & flavors",
+        "GitHub Actions / Bitrise for CI/CD",
+        "Play Console release tracks & staged rollouts"
+      ],
+      description: "Production pipelines built for device fragmentation testing and controlled rollouts that catch issues before they reach your full user base."
     }
   ]
 }
@@ -359,10 +518,10 @@ const DELIVERABLES: Record<string, DeliverableCard[]> = {
     { title: "Production Tooling", description: "Strict static typing with mypy, test coverage with pytest, and Docker settings.", graphicType: "shield" }
   ],
   "reactjs-developers": [
-    { title: "Interactive Dashboards", description: "Complex UI rendering, real-time widgets, and streaming conversation panels.", graphicType: "radar" },
-    { title: "Next.js Architecture", description: "React Server Components, dynamic page generation, and edge middleware.", graphicType: "loss-curve" },
-    { title: "Performance tuning", description: "Bundle splitting, virtualization of long lists, and rendering optimization.", graphicType: "node-graph" },
-    { title: "Access & Security", description: "Protected routing, OAuth client logic, and WCAG accessibility conformance.", graphicType: "shield" }
+    { title: "Custom Web Application Frontends", description: "SaaS dashboards, admin panels, customer portals, and marketing sites built with React and Next.js — optimised for Core Web Vitals and SEO from the first commit, not retrofitted before launch.", graphicType: "radar" },
+    { title: "Design System & Component Library Development", description: "Scalable, themeable component libraries with documented props, accessibility built in (WCAG-compliant), and Storybook coverage — so design and engineering stop reinventing the same button.", graphicType: "loss-curve" },
+    { title: "AI-Integrated Frontend Experiences", description: "React interfaces wired to AI backends — chat UIs, streaming responses, RAG-powered search bars, and agent status dashboards — built for the latency and UX patterns AI features actually need.", graphicType: "node-graph" },
+    { title: "Performance Optimisation & Testing", description: "Bundle size audits, code-splitting strategy, lazy loading, and comprehensive test suites — so your React app stays fast and stable as it scales past its first thousand users.", graphicType: "shield" }
   ],
   "react-native-developers": [
     { title: "Cross-Platform Apps", description: "Sleek iOS and Android applications utilizing a shared codebase.", graphicType: "radar" },
@@ -376,12 +535,112 @@ const DELIVERABLES: Record<string, DeliverableCard[]> = {
     { title: "Microservices", description: "Decoupled backend service layers sharing event buses and caching.", graphicType: "node-graph" },
     { title: "API Gateways", description: "Rate-limiting, JWT authentication, and centralized request logging.", graphicType: "shield" }
   ],
+  "devops-engineers": [
+    { title: "Cloud Infrastructure Setup", description: "Greenfield cloud environments built from scratch, or legacy cloud setups migrated with zero-downtime.", graphicType: "radar" },
+    { title: "CI/CD Pipeline Engineering", description: "End-to-end deployment pipelines that take code from commit to production safely with automated testing.", graphicType: "node-graph" },
+    { title: "Kubernetes & Containers", description: "Production-grade Kubernetes clusters with multi-tenant namespace design and autoscaling policies.", graphicType: "shield" },
+    { title: "Observability & SRE", description: "Logging pipelines, metric dashboards, alerting rules, and post-incident review frameworks.", graphicType: "loss-curve" }
+  ],
   "fullstack-developers": [
     { title: "End-to-End Features", description: "Owning a feature from database migrations to frontend state components.", graphicType: "radar" },
     { title: "Serverless & Edge", description: "Optimizing Next.js edge functions and serverless backend handlers.", graphicType: "loss-curve" },
     { title: "AI Integration", description: "Orchestrating backend model endpoints and rendering streaming frontend interfaces.", graphicType: "node-graph" },
     { title: "Security & Testing", description: "JWT session management, encryption, and comprehensive Cypress/Playwright E2E tests.", graphicType: "shield" }
+  ],
+  "ios-developers": [
+    { title: "Native iOS App Development", description: "SwiftUI and UIKit applications built from the ground up — consumer apps, enterprise tools, and SaaS companion apps — architected for maintainability as your feature set grows.", graphicType: "radar" },
+    { title: "Apple Ecosystem & SDK Integrations", description: "HealthKit, ARKit, CoreML, Apple Pay, Sign in with Apple, and Watch app companion development — the integrations that differentiate a good iOS app from a merely functional one.", graphicType: "loss-curve" },
+    { title: "On-Device AI & ML Features", description: "CoreML model integration for on-device inference, AI-powered camera features, and intelligent text/image processing — built for the privacy and performance expectations iOS users have.", graphicType: "node-graph" },
+    { title: "Performance Optimisation & App Store Readiness", description: "Instruments profiling for memory and battery usage, crash-free session targets, accessibility (VoiceOver) compliance, and App Store guideline review before every submission.", graphicType: "shield" }
+  ],
+  "android-developers": [
+    { title: "Native Android App Development", description: "Kotlin and Jetpack Compose applications built from the ground up — consumer apps, enterprise tools, and SaaS companion apps — architected to handle the device and OS-version fragmentation unique to Android.", graphicType: "radar" },
+    { title: "Google Ecosystem & Play Services Integration", description: "Firebase, Google Pay, Maps SDK, CameraX, and Wear OS companion development — the integrations that connect your app meaningfully into the broader Android and Google ecosystem.", graphicType: "loss-curve" },
+    { title: "On-Device AI & ML Features", description: "ML Kit and TensorFlow Lite model integration for on-device inference, AI-powered camera features, and intelligent text processing — optimised for the wide range of hardware capabilities across Android devices.", graphicType: "node-graph" },
+    { title: "Performance Optimisation & Device Compatibility", description: "Android Profiler analysis for memory and battery usage, ANR (App Not Responding) prevention, accessibility (TalkBack) compliance, and compatibility testing across manufacturer-specific Android skins.", graphicType: "shield" }
   ]
+}
+
+const BOTTOM_BANNERS: Record<string, {
+  headline: string
+  description: string
+  primaryCta: string
+  secondaryCta: string
+  footer?: string
+}> = {
+  "ios-developers": {
+    headline: "Ready to Ship on the App Store?",
+    description: "Stop wrestling with App Store rejections and HIG compliance issues. Get a dedicated iOS developer who builds apps that feel native and pass review the first time.",
+    primaryCta: "Get a Quote for iOS Experts",
+    secondaryCta: "Talk to an iOS Strategist",
+  },
+  "android-developers": {
+    headline: "Ready to Ship on the Play Store?",
+    description: "Stop debugging device-specific crashes after launch. Get a dedicated Android developer who builds for fragmentation from day one and ships apps that hold up across real-world devices.",
+    primaryCta: "Get a Quote for Android Experts",
+    secondaryCta: "Talk to an Android Strategist",
+  },
+  "reactjs-developers": {
+    headline: "Ready to Build an Interface That Scales?",
+    description: "Stop accumulating UI debt with every new feature. Get a dedicated React developer who architects components your team can build on for years, not just for the next sprint.",
+    primaryCta: "Get a Quote for React.js Experts",
+    secondaryCta: "Talk to a Frontend Strategist",
+  },
+  "react-native-developers": {
+    headline: "Ready to Ship to Both App Stores?",
+    description: "Stop wrestling with platform-specific bugs and slow releases. Get a dedicated React Native developer who builds apps that feel native on both iOS and Android.",
+    primaryCta: "Get a Quote for React Native Experts",
+    secondaryCta: "Talk to a Mobile Strategist",
+  },
+  "devops-engineers": {
+    headline: "Ready to Scale Your Infrastructure?",
+    description: "Stop wrestling with deployment failures and downtime. Get a dedicated DevOps engineer who builds systems that work so you can focus on building your product.",
+    primaryCta: "Get a Quote for DevOps Engineers",
+    secondaryCta: "Talk to an Infrastructure Strategist",
+  },
+  "flutter-developers": {
+    headline: "Ready to Launch a Beautiful Mobile App?",
+    description: "Stop maintaining two native codebases. Get a dedicated Flutter developer who builds responsive, pixel-perfect iOS and Android apps from a single codebase.",
+    primaryCta: "Get a Quote for Flutter Experts",
+    secondaryCta: "Talk to a Flutter Strategist",
+  },
+  "nodejs-developers": {
+    headline: "Ready to Scale Your API Infrastructure?",
+    description: "Stop debugging API latency and server bottlenecks under load. Get a dedicated Node.js developer who builds fast, reliable backend systems that scale.",
+    primaryCta: "Get a Quote for Node.js Experts",
+    secondaryCta: "Talk to a Backend Strategist",
+  },
+  "fullstack-developers": {
+    headline: "Ready to Accelerate Feature Delivery?",
+    description: "Stop waiting on frontend-backend handoffs. Get a dedicated full stack developer who owns the entire feature layer from database migrations to responsive UIs.",
+    primaryCta: "Get a Quote for Full Stack Experts",
+    secondaryCta: "Talk to a Full Stack Strategist",
+    footer: "+91-XXXXXXXXXX | info@toadsters.com | Sector 63, Noida, India",
+  },
+  "full-stack-developers": {
+    headline: "Ready to Accelerate Feature Delivery?",
+    description: "Stop waiting on frontend-backend handoffs. Get a dedicated full stack developer who owns the entire feature layer from database migrations to responsive UIs.",
+    primaryCta: "Get a Quote for Full Stack Experts",
+    secondaryCta: "Talk to a Full Stack Strategist",
+  },
+  "mern-developers": {
+    headline: "Ready to Build with Battle-Tested MERN Talent?",
+    description: "Stop losing months in slow recruitment cycles. Get a dedicated MERN stack developer embedded in your team within days to build scalable JavaScript web apps.",
+    primaryCta: "Get a Quote for MERN Experts",
+    secondaryCta: "Talk to a MERN Strategist",
+  },
+  "ai-ml-developers": {
+    headline: "Ready to Put Production-Grade Models to Work?",
+    description: "Stop stalling your AI features in staging notebooks. Get a dedicated AI/ML engineer who integrates intelligent models, RAG pipelines, and low-latency inference.",
+    primaryCta: "Get a Quote for AI/ML Experts",
+    secondaryCta: "Talk to an AI Strategist",
+  },
+  "software-developers": {
+    headline: "Ready to Scale Your Engineering Team?",
+    description: "Stop compromising on code quality. Get a dedicated software developer who hits the ground running, writes clean code, and embeds seamlessly into your sprints.",
+    primaryCta: "Get a Quote for Software Experts",
+    secondaryCta: "Talk to an Engineering Strategist",
+  }
 }
 
 export default function HireResourceDetail({ resource }: { resource: HireResource }) {
@@ -390,21 +649,90 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
   const slug = resource.slug
   const isFlutter = slug === "flutter-developers"
+  const isReactNative = slug === "react-native-developers"
+  const isDevOps = slug === "devops-engineers"
+  const isIos = slug === "ios-developers"
+  const isAndroid = slug === "android-developers"
+  const isReact = slug === "reactjs-developers"
   const titleInfo = parseTitleInfo(resource.heroTitle)
   const customSubheading = SUBHEADINGS[slug] || resource.subheading
   const skillColumns = SKILL_MATRICES[slug] || SKILL_MATRICES["flutter-developers"]
   const deliverables = DELIVERABLES[slug] || DELIVERABLES["flutter-developers"]
-  const comparisonRows = isFlutter ? FLUTTER_COMPARISON_ROWS : DEFAULT_COMPARISON_ROWS
+  const comparisonRows = isFlutter
+    ? FLUTTER_COMPARISON_ROWS
+    : isReactNative
+      ? REACT_NATIVE_COMPARISON_ROWS
+      : isDevOps
+        ? DEVOPS_COMPARISON_ROWS
+        : isIos
+          ? IOS_COMPARISON_ROWS
+          : isAndroid
+            ? ANDROID_COMPARISON_ROWS
+            : isReact
+              ? REACT_COMPARISON_ROWS
+              : DEFAULT_COMPARISON_ROWS
 
   const whyHireSection = isFlutter ? getSection(resource, "Why Hire Dedicated Flutter Developers?") : null
-  const deliverablesSection = isFlutter ? getSection(resource, "What Your Dedicated Flutter Developers Will Deliver") : null
-  const integrationSection = isFlutter ? getSection(resource, "Seamless 3-Step Integration") : null
+  const deliverablesSection = isFlutter ? getSection(resource, "What Your Dedicated Flutter Developers Will Deliver") : ((isReactNative || isDevOps || isIos || isAndroid || isReact) ? getSection(resource, "Production Deliverables") : null)
+  const integrationSection = isFlutter ? getSection(resource, "Seamless 3-Step Integration") : ((isReactNative || isDevOps || isIos || isAndroid || isReact) ? getSection(resource, "Seamless 3-Step Integration") : null)
   const rolesSection = isFlutter ? getSection(resource, "Flutter Roles You Can Hire") : null
   const engagementSection = isFlutter ? getSection(resource, "Flexible Engagement Models") : null
-  const comparisonSection = isFlutter ? getSection(resource, "How Dedicated Flutter Developers Compare") : null
+  const comparisonSection = isFlutter
+    ? getSection(resource, "How Dedicated Flutter Developers Compare")
+    : isReactNative
+      ? getSection(resource, "Why Dedicated Beats Every Other Option for React Native Talent")
+      : isDevOps
+        ? getSection(resource, "Why Dedicated Beats Every Other Option for DevOps Talent")
+        : isIos
+          ? getSection(resource, "Why Dedicated Beats Every Other Option for iOS Talent")
+          : isAndroid
+            ? getSection(resource, "Why Dedicated Beats Every Other Option for Android Talent")
+            : isReact
+              ? getSection(resource, "Why Dedicated Beats Every Other Option for React Talent")
+              : null
   const whyToadsterSection = isFlutter ? getSection(resource, "Why Toadster Technologies?") : null
   const pricingSection = isFlutter ? getSection(resource, "How Much Does It Cost to Hire Dedicated Flutter Developers?") : null
-  const skillMatrixSection = isFlutter ? getSection(resource, "Tech Stack & Skill Matrix") : null
+  const skillMatrixSection = isFlutter
+    ? getSection(resource, "Tech Stack & Skill Matrix")
+    : isReactNative
+      ? getSection(resource, "Tech Stack & Capabilities")
+      : (isDevOps || isIos || isAndroid || isReact)
+        ? getSection(resource, "Tech Stack & Skill Matrix")
+        : null
+
+  const heroCtaData = isIos
+    ? {
+      primary: "Hire iOS Experts →",
+      secondary: "View Portfolio",
+      badges: ["⭐ 4.9/5 on Clutch", "50+ iOS apps shipped", "8 countries served"]
+    }
+    : isDevOps
+      ? {
+        primary: "Hire DevOps Engineers →",
+        secondary: "View Portfolio",
+        badges: ["⭐ 4.9/5 on Clutch", "70+ infrastructure projects delivered", "8 countries served"]
+      }
+      : isReactNative
+        ? {
+          primary: "Hire React Native Experts →",
+          secondary: "View Portfolio",
+          badges: ["⭐ 4.9/5 on Clutch", "60+ apps shipped", "8 countries served"]
+        }
+        : isAndroid
+          ? {
+            primary: "Hire Android Experts →",
+            secondary: "View Portfolio",
+            badges: ["⭐ 4.9/5 on Clutch", "55+ Android apps shipped", "8 countries served"]
+          }
+          : isReact
+            ? {
+              primary: "Hire React.js Experts →",
+              secondary: "View Portfolio",
+              badges: ["⭐ 4.9/5 on Clutch", "100+ React projects delivered", "8 countries served"]
+            }
+            : null
+
+  const bottomBanner = BOTTOM_BANNERS[slug] || BOTTOM_BANNERS["software-developers"]
 
   const categoryEyebrow = isFlutter
     ? "Hire Resources / Flutter Developers"
@@ -427,7 +755,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
       { title: "Hidden Overhead", body: "Eliminate benefits, infrastructure, and training costs. Pay only for the productive engineering hours." },
     ]
 
-  const integrationSteps = isFlutter && integrationSection?.items
+  const integrationSteps = integrationSection?.items
     ? integrationSection.items
     : [
       { title: "Technical Scoping", body: `Share your project requirements, tech stack, timelines, and skill expectations. We map the right ${titleInfo.highlight} talent to your needs.` },
@@ -437,7 +765,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
   const processSteps: ProcessStepItem[] = integrationSteps.map((step, index) => ({
     id: String(index + 1).padStart(2, "0"),
-    title: step.title,
+    title: step.title.replace(/^\d+\s*(?:—|-)\s*/, ""),
     description: step.body,
     Icon: INTEGRATION_STEP_ICONS[index] ?? Search,
   }))
@@ -493,17 +821,46 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-4 mt-2">
-              <button
-                type="button"
-                onClick={scrollToForm}
-                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-white shadow-sm transition-all"
-              >
-                {isFlutter ? "Hire Flutter Experts" : `Hire ${titleInfo.highlight} Experts`}
-                <ArrowUpRight size={16} />
-              </button>
-
-
+              {heroCtaData ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={scrollToForm}
+                    className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-white shadow-sm transition-all"
+                  >
+                    {heroCtaData.primary}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={scrollToForm}
+                    className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-page-border hover:bg-page-accent-soft px-7 py-3.5 text-sm font-bold text-page-fg transition-all"
+                  >
+                    {heroCtaData.secondary}
+                  </button>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  onClick={scrollToForm}
+                  className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-white shadow-sm transition-all"
+                >
+                  {isFlutter ? "Hire Flutter Experts" : `Hire ${titleInfo.highlight} Experts`}
+                  <ArrowUpRight size={16} />
+                </button>
+              )}
             </div>
+
+            {/* Trust Badges */}
+            {heroCtaData && (
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-semibold text-page-fg-muted mt-2">
+                {heroCtaData.badges.map((badge, idx) => (
+                  <span key={badge} className="flex items-center gap-3">
+                    {idx > 0 && <span className="text-page-border" aria-hidden="true">|</span>}
+                    <span>{badge}</span>
+                  </span>
+                ))}
+              </div>
+            )}
 
             {/* Stat Row */}
             <div className={`grid gap-6 pt-10 border-t border-page-border mt-4 ${isFlutter ? "grid-cols-2 sm:grid-cols-4 max-w-3xl" : "grid-cols-3 max-w-xl"}`}>
@@ -523,12 +880,25 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
             <HireResourceRfpForm
               roleTitle={resource.heroTitle}
               formSubtext={
-                isFlutter
-                  ? "Tell us about your Flutter project and we'll connect you with the right developer within 24 hours."
-                  : undefined
+                isAndroid
+                  ? "Tell us your project requirements and we'll match you with the right Android developer within 24 hours."
+                  : isReact
+                    ? "Tell us your project requirements and we'll match you with the right React developer within 24 hours."
+                    : isFlutter
+                      ? "Tell us about your Flutter project and we'll connect you with the right developer within 24 hours."
+                      : undefined
               }
               submitFooterText={
-                isFlutter ? "No commitment required. We'll reach out within 24 hours." : undefined
+                (isAndroid || isReact) ? (
+                  <span>
+                    We&apos;ll review your CV details.{" "}
+                    <a href="/contact" className="text-toadster-green hover:underline">
+                      Schedule a call instead
+                    </a>
+                  </span>
+                ) : isFlutter ? (
+                  "No commitment required. We'll reach out within 24 hours."
+                ) : undefined
               }
               engagementOptions={
                 isFlutter
@@ -539,6 +909,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                   ]
                   : undefined
               }
+              projectBriefLabel={(isAndroid || isReact) ? "Tell us about your project" : undefined}
             />
           </div>
 
@@ -552,7 +923,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-            {isFlutter ? "Tech Stack & Skill Matrix" : `Advanced ${titleInfo.highlight} Skill Matrix`}
+            {(isFlutter || isAndroid || isReact) ? "Tech Stack & Skill Matrix" : `Advanced ${titleInfo.highlight} Skill Matrix`}
           </h2>
           <p className="text-page-fg-muted max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
             {skillMatrixSection?.body ??
@@ -569,6 +940,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                 title={col.title}
                 icon={IconComponent}
                 tags={col.items}
+                description={col.description}
                 index={index}
               />
             )
@@ -630,7 +1002,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
           {/* Header */}
           <div className="text-center flex flex-col gap-3 max-w-2xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white dark:text-black">
-              {isFlutter ? "What Your Dedicated Flutter Developers Will Deliver" : "Enterprise Grade Deliverables"}
+              {isFlutter ? "What Your Dedicated Flutter Developers Will Deliver" : ((isReactNative || isDevOps || isIos || isAndroid || isReact) ? "Production Deliverables" : "Enterprise Grade Deliverables")}
             </h2>
             <p className="text-[#a0c5b3] dark:text-gray-600 text-sm sm:text-base leading-relaxed">
               {deliverablesSection?.body ??
@@ -676,24 +1048,26 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                 </div>
 
                 {/* Badges */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {["BLOC/CUBIT", "RIVERPOD", "GETX"].map((badge) => (
-                    <span key={badge} className="px-3 py-1 rounded bg-[#003820] dark:bg-green-100 text-xs font-bold text-emerald-400 dark:text-green-800">
-                      {badge}
-                    </span>
-                  ))}
-                </div>
+                {isFlutter && (
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {["BLOC/CUBIT", "RIVERPOD", "GETX"].map((badge) => (
+                      <span key={badge} className="px-3 py-1 rounded bg-[#003820] dark:bg-green-100 text-xs font-bold text-emerald-400 dark:text-green-800">
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Bottom Row (2 Equal Columns) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
 
                 {/* Bottom Left Card */}
-                <div className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-6 border border-emerald-900/40 flex flex-col justify-between items-start text-left min-h-[180px]">
+                <div className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-6 border border-emerald-900/40 flex flex-col justify-start gap-4 items-start text-left min-h-[180px]">
                   <span className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#003820] dark:bg-green-100 text-emerald-400 dark:text-green-700">
                     <Cloud size={18} />
                   </span>
-                  <div className="mt-4">
+                  <div>
                     <h4 className="font-bold text-base text-white dark:text-black">{deliverables[2].title}</h4>
                     <p className="text-[#a0c5b3] dark:text-gray-600 text-xs leading-relaxed mt-1.5">
                       {deliverables[2].description}
@@ -702,11 +1076,11 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                 </div>
 
                 {/* Bottom Right Card */}
-                <div className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-6 border border-emerald-900/40 flex flex-col justify-between items-start text-left min-h-[180px]">
+                <div className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-6 border border-emerald-900/40 flex flex-col justify-start gap-4 items-start text-left min-h-[180px]">
                   <span className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#003820] dark:bg-green-100 text-emerald-400 dark:text-green-700">
                     <Shield size={18} />
                   </span>
-                  <div className="mt-4">
+                  <div>
                     <h4 className="font-bold text-base text-white dark:text-black">{deliverables[3].title}</h4>
                     <p className="text-[#a0c5b3] dark:text-gray-600 text-xs leading-relaxed mt-1.5">
                       {deliverables[3].description}
@@ -828,7 +1202,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
       <section className="py-20 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
         <div className="text-center flex flex-col gap-3 mb-12">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-            {isFlutter ? "How Dedicated Flutter Developers Compare" : "The Toadster Advantage"}
+            {isFlutter ? "How Dedicated Flutter Developers Compare" : (isReactNative ? "Why Dedicated Beats Every Other Option for React Native Talent" : (isDevOps ? "Why Dedicated Beats Every Other Option for DevOps Talent" : (isIos ? "Why Dedicated Beats Every Other Option for iOS Talent" : (isAndroid ? "Why Dedicated Beats Every Other Option for Android Talent" : (isReact ? "Why Dedicated Beats Every Other Option for React Talent" : "The Toadster Advantage")))))}
           </h2>
           <p className="text-page-fg-muted max-w-xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
             {comparisonSection?.body ??
@@ -840,10 +1214,10 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
           <table className="w-full text-left border-collapse min-w-[600px]">
             <thead>
               <tr className="bg-toadster-green text-white">
-                <th className="px-6 py-4.5 font-bold text-sm">Feature</th>
-                <th className="px-6 py-4.5 font-bold text-sm">Dedicated Developer</th>
-                <th className="px-6 py-4.5 font-bold text-sm">{isFlutter ? "Staff Augmentation" : "Staffing / Agency"}</th>
-                <th className="px-6 py-4.5 font-bold text-sm">Project Outsourcing</th>
+                <th className="px-6 py-4.5 font-bold text-sm">{(isAndroid || isReact) ? "Criteria" : "Feature"}</th>
+                <th className="px-6 py-4.5 font-bold text-sm">{isIos ? "Dedicated iOS Team" : (isAndroid ? "Dedicated Android Team" : (isReact ? "Dedicated React Team" : "Dedicated Developer"))}</th>
+                <th className="px-6 py-4.5 font-bold text-sm">{isFlutter ? "Staff Augmentation" : ((isReactNative || isDevOps || isIos || isAndroid || isReact) ? "Freelancers" : "Staffing / Agency")}</th>
+                <th className="px-6 py-4.5 font-bold text-sm">{(isReactNative || isDevOps || isIos || isAndroid || isReact) ? "In-House Hiring" : "Project Outsourcing"}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-page-border text-page-fg-muted text-sm">
@@ -922,14 +1296,14 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
       )}
 
       {/* ── SECTION 12: FAQ ── */}
-      {isFlutter && resource.faqs.length > 0 && (
+      {(isFlutter || isReactNative || isDevOps || isIos || isAndroid || isReact) && resource.faqs.length > 0 && (
         <section className="py-20 px-6 lg:px-16 relative z-10 max-w-4xl mx-auto">
           <div className="text-center flex flex-col gap-3 mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
               Frequently Asked Questions
             </h2>
             <p className="text-page-fg-muted text-sm sm:text-base leading-relaxed font-medium">
-              Everything you need to know about hiring dedicated Flutter developers through Toadster Technologies.
+              Everything you need to know about hiring dedicated {isFlutter ? "Flutter" : (isReactNative ? "React Native" : (isDevOps ? "DevOps" : (isIos ? "iOS" : (isAndroid ? "Android" : (isReact ? "React.js" : "")))))} developers through Toadster Technologies.
             </p>
           </div>
 
@@ -943,68 +1317,36 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
       {/* ── SECTION 13: BOTTOM CONVERSION BANNER ── */}
       <section className="py-20 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
-        <div className="bg-[#003820] text-white rounded-3xl p-8 sm:p-14 shadow-2xl flex flex-col gap-8 items-center text-center relative overflow-hidden">
+        <div className={isDark
+          ? "bg-white text-black rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center relative overflow-hidden border border-slate-200 shadow-2xl"
+          : "hire-resources-cta relative overflow-hidden rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center"
+        }>
 
           <div className="flex flex-col gap-3 max-w-2xl">
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              Ready to Hire Expert {isFlutter ? "Flutter" : titleInfo.highlight}{titleInfo.suffix}?
+            <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${isDark ? 'text-slate-900' : 'text-white'}`}>
+              {bottomBanner.headline}
             </h2>
-            {isFlutter ? (
-              <div className="flex flex-col gap-2">
-                <p className="text-[#a0c5b3] text-sm sm:text-base leading-relaxed">
-                  Stop waiting months to hire. Your dedicated Flutter developer can be onboarding within the week.
-                </p>
-                <p className="text-[#a0c5b3] text-sm sm:text-base leading-relaxed">
-                  No recruitment overhead. No hidden fees. Just world-class Flutter talent, ready to build.
-                </p>
-              </div>
-            ) : (
-              <p className="text-[#a0c5b3] text-sm sm:text-base leading-relaxed">
-                We&apos;ve professionally balanced this Toadster team. Start your {titleInfo.highlight} journey with Toadster today.
-              </p>
-            )}
+            <p className={`text-sm sm:text-base leading-relaxed ${isDark ? 'text-slate-600' : 'text-white/80'}`}>
+              {bottomBanner.description}
+            </p>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 z-10 w-full sm:w-auto mt-2">
-            {isFlutter ? (
-              <button
-                type="button"
-                onClick={scrollToForm}
-                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-white hover:bg-slate-50 px-10 py-5 text-base font-bold text-[#003820] shadow-sm transition-all"
-              >
-                Talk to an Expert
-              </button>
-            ) : (
-              <>
-                <button
-                  type="button"
-                  onClick={scrollToForm}
-                  className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-white hover:bg-slate-50 px-8 py-4 text-sm font-bold text-[#003820] shadow-sm transition-all"
-                >
-                  Get a Quote
-                </button>
-
-                <button
-                  type="button"
-                  onClick={scrollToForm}
-                  className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-white/20 bg-transparent hover:bg-white/5 px-8 py-4 text-sm font-bold text-white transition-all"
-                >
-                  Speak to an Expert
-                </button>
-              </>
-            )}
+            <button
+              type="button"
+              onClick={scrollToForm}
+              className={`inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold shadow-sm transition-all ${isDark
+                ? 'bg-[#004d2d] hover:bg-[#003820] text-white'
+                : 'bg-white hover:bg-slate-50 text-[#003820]'
+                }`}
+            >
+              {bottomBanner.secondaryCta}
+            </button>
           </div>
 
-          {isFlutter && (
-            <p className="text-[#a0c5b3]/80 text-sm">
-              Or reach us directly:{" "}
-              <a href="mailto:hire@toadster.tech" className="text-white hover:underline">
-                hire@toadster.tech
-              </a>{" "}
-              |{" "}
-              <a href="https://www.toadster.tech" className="text-white hover:underline">
-                www.toadster.tech
-              </a>
+          {bottomBanner.footer && (
+            <p className={`text-xs sm:text-sm mt-2 ${isDark ? 'text-slate-500' : 'text-white/60'}`}>
+              {bottomBanner.footer}
             </p>
           )}
         </div>

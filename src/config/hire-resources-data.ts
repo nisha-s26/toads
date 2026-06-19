@@ -38,342 +38,79 @@ function hirePage(
 
 export const HIRE_RESOURCES_DATA: HireResource[] = [
   hirePage(
-    "ai-ml-engineers",
-    "Hire AI / ML Engineers",
-    "Production ML, LLMs, computer vision & predictive analytics",
-    "Brain",
-    "Hire AI/ML Engineers India | Vetted AI Developers | Toadster",
-    "Hire pre-vetted AI and machine learning engineers from Toadster. India-based, globally experienced. Integrated into your team in 5 business days. No long-term overhead.",
-    "AI / ML Engineers",
-    "Bring production-ready AI and machine learning engineers onto your team. Toadster places vetted AI/ML developers who have shipped real systems - not just run Jupyter notebooks.",
+    "react-native-developers",
+    "React Native Developers",
+    "Cross-platform iOS & Android with shared codebase",
+    "ReactNative",
+    "Hire React Native Developers | Dedicated Cross-Platform App Experts — Toadster Technologies",
+    "Hire expert React Native developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days — iOS, Android, Expo, and native modules. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire Expert React Native Developers",
+    "Scale your mobile engineering team with pre-vetted, senior React Native developers who embed directly into your workflow. Build cross-platform apps that feel genuinely native — without maintaining two codebases.",
     [
-      "Pre-vetted AI and ML engineers with live production experience",
-      "Specialists in LLMs, RAG pipelines, predictive analytics, and computer vision",
-      "Integrated into your team, tools, and standups within 5 business days",
+      "React Native & Expo Specialists",
+      "Vetted Senior Developers",
+      "4.9/5 Client Satisfaction",
+      "5–7 Days Average Onboarding",
     ],
-    "Let's Talk About Your AI Requirement",
+    "Hire React Native Experts",
     [
       {
-        heading: "What Kind of AI/ML Engineers Can You Hire Through Toadster?",
-        body: "Not all 'AI engineers' are built the same. Some are strong on research - weak on production systems. Some know Python but have never shipped a model to a live inference endpoint. We've already done the filtering.\n\nWhen you hire AI/ML engineers through Toadster, you're choosing from engineers who have built real things: LLM-powered applications, custom ML pipelines, RAG architectures, computer vision systems, recommendation engines, and fraud detection models - in production, at scale, for actual enterprise clients.",
-      },
-      {
-        heading: "Roles Available - AI and ML Engineering",
+        heading: "Tech Stack & Capabilities",
+        body: "Our dedicated React Native developers are proficient across the complete mobile ecosystem — from UI performance to native Swift/Kotlin bridging.",
         items: [
-          { title: "LLM Application Engineers", body: "Build and deploy large language model applications - RAG pipelines, enterprise copilots, fine-tuned models. Proficient in LangChain, LangGraph, OpenAI APIs, Anthropic Claude, HuggingFace, and Pinecone." },
-          { title: "Machine Learning Engineers", body: "Train, evaluate, and deploy custom ML models across tabular data, time-series, NLP, and computer vision. PyTorch, TensorFlow, Scikit-learn, MLflow, Weights & Biases." },
-          { title: "Agentic AI Engineers", body: "Design and build multi-agent AI systems using AutoGen, CrewAI, and LangGraph. Specialised in agent orchestration, tool integration, and production safety guardrails." },
-          { title: "MLOps Engineers", body: "Build the infrastructure that keeps ML models accurate after deployment. CI/CD for models, drift monitoring, feature stores, model registries, inference optimisation." },
-          { title: "Data Scientists", body: "Statistical modelling, feature engineering, A/B testing, and translating business problems into ML problem statements. Bridge between business and engineering." },
+          { title: "UI & Architecture", body: "Building fluid, responsive interfaces that never feel like web wrappers — complete with complex gesture handling and smooth transitions." },
+          { title: "State Management & Native Integrations", body: "Deep native integration expertise for the features that pure JavaScript can't reach — camera, biometrics, background tasks, and device-specific APIs." },
+          { title: "Performance, Testing & Deployment", body: "Production-grade pipelines that get your app through app store review and into users' hands without last-minute surprises." },
         ],
-      },
-      {
-        heading: "Our 3-Stage AI Engineer Vetting Process",
-        body: "Every engineer in our pool has been through three rounds before you ever see their profile:\n\nStage 1 - Domain Technical Screen: A written technical assessment specific to their specialisation (LLM, MLOps, computer vision, etc.) - not a generic coding test.\n\nStage 2 - System Design Interview: A live architecture session with one of our senior engineers. We ask them to design a system they'd realistically be asked to build for your type of project.\n\nStage 3 - Past Work Reference Check: We speak to at least one person who has directly worked with them on a previous project.",
-      },
-      {
-        heading: "India's AI Engineering Edge - Why It Works for You",
-        body: "India produces over 1.5 million engineering graduates annually - a significant proportion in computer science, data science, and AI/ML. Engineers from Toadster's Noida pool have trained on Indian engineering university rigour (IIT, DTU, IIIT, NSUT, Amity) and honed their skills in production environments serving US, European, and Middle Eastern enterprise clients.\n\nTypical cost savings: 40-65% versus equivalent full-time hires in the US or UK, with no benefits overhead, office costs, or equipment costs - all of which are included in Toadster's fixed monthly rate.",
-      },
-    ],
-    [
-      { question: "How do I hire AI engineers in India?", answer: "The fastest way to hire AI engineers in India is through a specialist AI staff augmentation company. Toadster provides pre-vetted AI/ML engineers from Noida, India, who can be integrated into your team within 5 business days. Engineers are sourced from a standing bench of vetted candidates - not recruited from scratch on each request. Monthly rates range from $2,000-$6,500 per engineer depending on seniority." },
-      { question: "What is the cost of hiring an AI engineer from India?", answer: "AI engineers from India cost $2,000-$6,500 per month depending on seniority and specialisation through a staff augmentation model. This compares to $120,000-$200,000 per year for an equivalent full-time hire in the US, representing 40-65% savings. Toadster rates are all-inclusive: hardware, software licences, HR, and account management are covered." },
-    ],
-    [
-      "Toadster (toadsters.com) provides AI/ML engineer staff augmentation from Noida, India, placing vetted machine learning engineers, LLM application developers, MLOps engineers, and data scientists into enterprise teams globally.",
-      "AI engineer monthly rates from Toadster range from $2,000-$6,500 per month all-inclusive, with onboarding in 5 business days.",
-    ],
-    { name: "Hire AI/ML Engineers India", description: "Toadster provides pre-vetted AI and machine learning engineers from India for enterprise teams globally. Onboarding in 5 business days.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "United Kingdom"] },
-  ),
-  hirePage(
-    "llm-developers",
-    "Hire LLM Developers",
-    "RAG pipelines, fine-tuning, LangChain & enterprise copilots",
-    "MessageSquare",
-    "Hire LLM Developers India | RAG, Fine-Tuning & LangChain Experts | Toadster",
-    "Hire specialist LLM developers from Toadster - India-based engineers who build RAG pipelines, fine-tune domain-specific models, and deploy enterprise copilots.",
-    "LLM Developers",
-    "Large language models are only as good as the engineers who build around them. Hire Toadster LLM developers - specialists who've built RAG pipelines, fine-tuned models, and shipped enterprise copilots into production.",
-    [
-      "Specialists in RAG architecture, LangChain, LangGraph, and vector databases",
-      "Experience with GPT-4o, Claude, Gemini, LLaMA, and Mistral APIs",
-      "Production deployments - not just demo notebooks",
-    ],
-    "Hire Your LLM Engineer Today",
-    [
-      {
-        heading: "Why Generic AI Developers Fail at LLM Projects",
-        body: "Most AI developers can run an OpenAI API call. Far fewer can design a RAG architecture that reduces hallucination rates below 5%, optimise context window management for a 100-page document corpus, or fine-tune a base model without catastrophic forgetting. LLM engineering is its own sub-discipline - and the skill gap is real.\n\nToadster LLM developers have shipped real systems. Not demo applications with toy datasets, but production systems running on enterprise data with real latency constraints, real compliance requirements, and real users whose jobs depend on the system being accurate.",
-      },
-      {
-        heading: "LLM Developer Specialisations Available",
-        items: [
-          { title: "RAG Pipeline Architects", body: "Design and build Retrieval-Augmented Generation systems - from document ingestion and chunking strategy through embedding, vector storage, retrieval, and generation. Experienced with Pinecone, Weaviate, Qdrant, pgvector, and Chroma." },
-          { title: "Fine-Tuning Engineers", body: "Fine-tune domain-specific LLMs using supervised fine-tuning (SFT), RLHF, and parameter-efficient methods (LoRA, QLoRA). Build custom instruction-tuned models for legal, medical, financial, and technical domains." },
-          { title: "LangChain / LangGraph Engineers", body: "Build complex LLM application flows using LangChain chains, LangGraph agent graphs, memory systems, and tool integrations. Architecture for both stateless and stateful AI workflows." },
-          { title: "Prompt Engineering Specialists", body: "Systematic prompt design, evaluation, and optimisation. Build prompt testing frameworks, manage prompt versioning, and design few-shot examples that consistently improve model output quality." },
-          { title: "LLM API Integration Engineers", body: "Integrate OpenAI, Anthropic, Google Gemini, Cohere, and HuggingFace Inference APIs into enterprise applications. Handle rate limits, fallback logic, cost management, and streaming responses." },
-        ],
-      },
-      {
-        heading: "Engagement Models for LLM Developers",
-        body: "Staff Augmentation - Monthly retainer. LLM developer integrates into your team directly. Best for teams with ongoing LLM work.\n\nProject Delivery - Toadster owns the full LLM application build. Best for companies that want a finished system without managing an engineering team.\n\nDedicated Resources - Full-time LLM engineer working exclusively on your product. Best for long-running products or in-house AI capability building.",
-      },
-    ],
-    [
-      { question: "What does an LLM developer do?", answer: "An LLM developer specialises in building applications using large language models. This includes designing RAG (Retrieval-Augmented Generation) pipelines, fine-tuning base models on domain-specific data, building LangChain and LangGraph application flows, integrating LLM APIs into enterprise systems, and optimising LLM output quality through prompt engineering and evaluation frameworks." },
-      { question: "How do I hire an LLM developer from India?", answer: "Hire an LLM developer from India through a specialist AI staff augmentation provider like Toadster. LLM developers from Toadster cost $2,500-$5,500 per month and can be integrated into your team within 5 business days. All engineers are pre-vetted with domain-specific technical assessments and live architecture interviews." },
-    ],
-    ["Toadster provides LLM developer staff augmentation from Noida, India - specialists in RAG pipelines, fine-tuning, LangChain, LangGraph, and enterprise copilot development."],
-    { name: "Hire LLM Developers India", description: "Toadster provides specialist LLM developers from India - RAG pipeline architects, fine-tuning engineers, and LangChain specialists for enterprise AI teams.", serviceType: "Staff Augmentation" },
-  ),
-  hirePage(
-    "agentic-ai-engineers",
-    "Hire Agentic AI Engineers",
-    "Multi-agent orchestration, LangGraph, AutoGen & CrewAI",
-    "Bot",
-    "Hire Agentic AI Engineers India | AI Agent Developers | LangGraph & AutoGen | Toadster",
-    "Hire specialist agentic AI engineers from Toadster. Build autonomous multi-agent systems, LangGraph workflows, and enterprise AI agents. India-based. Production-focused.",
-    "Agentic AI Engineers",
-    "Agentic AI is the fastest-moving area in enterprise AI right now. The engineers who actually know how to build multi-agent systems that work reliably in production are rare. Hire them through Toadster.",
-    [
-      "Specialists in LangGraph, AutoGen, CrewAI, and multi-agent orchestration",
-      "Production experience building agents with tool use, memory, and escalation logic",
-      "Available for staff augmentation or project delivery engagements",
-    ],
-    "Hire an Agentic AI Engineer",
-    [
-      {
-        heading: "What Makes Agentic AI Engineering Different",
-        body: "An agentic AI engineer is not just an LLM developer who knows LangChain. Building production-grade agentic systems requires a fundamentally different skill set: designing for non-determinism, handling agent failures gracefully, building human-in-the-loop escalation paths, managing tool use safely, and ensuring that an agent that works in testing doesn't go rogue in production.\n\nToadster's agentic AI engineers have built these systems in real enterprise environments - procurement automation, document intelligence pipelines, customer onboarding agents, compliance monitoring systems. They know where autonomous AI breaks and how to engineer around it.",
-      },
-      {
-        heading: "Agentic AI Engineer Specialisations",
-        items: [
-          { title: "Multi-Agent Orchestration Engineers", body: "Design and build systems where multiple AI agents collaborate, hand off tasks, and resolve conflicts. Experience with LangGraph, AutoGen, and CrewAI multi-agent frameworks." },
-          { title: "Agent Tool Integration Specialists", body: "Build the tool layer that agents use to interact with the real world - APIs, databases, web browsers, code interpreters, file systems. Ensure tools are reliable, safe, and well-observed." },
-          { title: "Agent Safety and Guardrails Engineers", body: "Build the safety layer: output validation, constitutional AI constraints, human-in-the-loop triggers, rate limiting, and logging for audit trails. Critical for enterprise compliance." },
-          { title: "Workflow Automation Architects", body: "Design complex multi-step AI workflows that replace manual business processes. Map business process → agent architecture → deployment infrastructure." },
-        ],
-      },
-    ],
-    [
-      { question: "What is an agentic AI engineer?", answer: "An agentic AI engineer specialises in building autonomous AI systems that go beyond single-prompt responses - systems that plan multi-step tasks, use external tools, maintain memory across interactions, and execute actions without constant human supervision. They use frameworks like LangGraph, AutoGen, CrewAI, and custom orchestration layers to build reliable, safe, production-grade AI agents for enterprise workflows." },
-    ],
-    ["Toadster provides agentic AI engineer staff augmentation from Noida, India - specialists in LangGraph, AutoGen, CrewAI, multi-agent orchestration, and enterprise AI agent deployment."],
-    { name: "Hire Agentic AI Engineers India", description: "Toadster provides agentic AI engineers from India specialising in multi-agent systems, LangGraph, AutoGen, and enterprise AI agent development.", serviceType: "Staff Augmentation" },
-  ),
-  hirePage(
-    "mlops-engineers",
-    "Hire MLOps Engineers",
-    "CI/CD for ML, drift detection, feature stores & inference",
-    "Activity",
-    "Hire MLOps Engineers India | ML Infrastructure & Deployment Experts | Toadster",
-    "Hire vetted MLOps engineers from Toadster India. Specialists in CI/CD for ML models, model monitoring, drift detection, and production ML infrastructure. 5-day onboarding.",
-    "MLOps Engineers",
-    "Your ML model is only as good as the infrastructure keeping it accurate in production. Hire Toadster MLOps engineers - specialists who build the pipelines, monitoring, and CI/CD systems that keep AI systems working after launch day.",
-    [
-      "Production ML infrastructure: CI/CD pipelines, model registries, feature stores",
-      "Model monitoring, drift detection, and automated retraining pipelines",
-      "AWS SageMaker, GCP Vertex AI, Azure ML, MLflow, Weights & Biases expertise",
-    ],
-    "Hire an MLOps Engineer",
-    [
-      {
-        heading: "Why MLOps Is the Most Underinvested Role in AI Teams",
-        body: "Every AI team budgets for model development. Almost none budget adequately for the infrastructure that keeps models accurate after deployment. The result? Models trained in January that are silently drifting by April, giving subtly wrong outputs that nobody is monitoring. MLOps engineers are the people who prevent this.\n\nA good MLOps engineer sets up the monitoring pipelines that alert when model performance degrades, the automated retraining systems that respond when drift is detected, and the CI/CD infrastructure that lets the team push model updates without manual deployment ceremonies. This is the engineering that makes AI systems trustworthy over time - not just impressive on demo day.",
-      },
-      {
-        heading: "MLOps Specialisations Available",
-        items: [
-          { title: "ML Pipeline Engineers", body: "Build end-to-end ML pipelines - from data ingestion and feature engineering through model training, evaluation, and deployment. Tools: Apache Airflow, Prefect, Kubeflow, ZenML." },
-          { title: "Model Monitoring Specialists", body: "Set up production monitoring for ML models: data drift detection, concept drift, performance degradation, and fairness metrics. Tools: Evidently AI, Whylogs, Great Expectations, Grafana." },
-          { title: "Feature Store Engineers", body: "Design and implement feature stores that give models consistent, reliable features in both training and serving. Tools: Feast, Hopsworks, Tecton." },
-          { title: "ML Infrastructure Architects", body: "Design the full ML platform: compute orchestration, model serving infrastructure, experiment tracking, and model registry. AWS SageMaker, GCP Vertex AI, Azure ML." },
-        ],
-      },
-    ],
-    [
-      { question: "What does an MLOps engineer do?", answer: "An MLOps engineer builds and maintains the infrastructure that keeps machine learning models running reliably in production. This includes building CI/CD pipelines for model training and deployment, setting up model monitoring and drift detection systems, managing feature stores and model registries, and ensuring ML systems can be updated quickly when model performance degrades or data distributions shift." },
-    ],
-    ["Toadster provides MLOps engineer staff augmentation from Noida, India - specialists in ML pipelines, model monitoring, drift detection, and production ML infrastructure on AWS, GCP, and Azure."],
-    { name: "Hire MLOps Engineers India", description: "Toadster provides MLOps engineers from India for ML infrastructure, model monitoring, and production deployment.", serviceType: "Staff Augmentation" },
-  ),
-  hirePage(
-    "data-engineers",
-    "Hire Data Engineers",
-    "Spark, Kafka, Airflow, dbt, Snowflake & feature pipelines",
-    "Database",
-    "Hire Data Engineers India | Data Pipeline & ETL Specialists | Toadster",
-    "Hire pre-vetted data engineers from Toadster India. Spark, Kafka, Airflow, dbt, Snowflake, BigQuery. Clean data infrastructure that AI and ML models can actually trust.",
-    "Data Engineers",
-    "Bad data infrastructure kills AI projects before the ML team even starts. Hire Toadster data engineers - specialists who build the clean, reliable data pipelines that give your AI systems something worth learning from.",
-    [
-      "Expert in Apache Spark, Kafka, Airflow, dbt, Snowflake, and BigQuery",
-      "Real-time and batch pipeline architecture for AI/ML data needs",
-      "Data quality, governance, and observability built in from day one",
-    ],
-    "Hire a Data Engineer",
-    [
-      {
-        heading: "The Data Layer Is Where AI Projects Win or Lose",
-        body: "Most AI project failures trace back to the same root cause: the data was bad, incomplete, inconsistently formatted, or simply not available when the model needed it. A world-class ML engineer cannot save a project with a broken data foundation.\n\nToadster data engineers build the infrastructure that makes AI possible: clean ingestion pipelines, robust transformation layers, reliable feature pipelines, and monitoring systems that catch data quality issues before they reach a model. They work as part of your AI team - not as a separate 'data team' that throws CSVs over a fence.",
-      },
-      {
-        heading: "Data Engineer Specialisations",
-        items: [
-          { title: "ETL / ELT Pipeline Engineers", body: "Build and maintain batch and streaming data pipelines. Apache Spark, Apache Kafka, Apache Flink, dbt, Fivetran, Airbyte. From source systems to data warehouse or lakehouse." },
-          { title: "Data Warehouse & Lakehouse Architects", body: "Design and implement cloud data warehouses and lakehouses. Snowflake, BigQuery, Databricks, AWS Redshift, Azure Synapse. Schema design, partitioning, query optimisation." },
-          { title: "Real-Time Data Engineers", body: "Build event-driven architectures for real-time data processing. Kafka Streams, Apache Flink, AWS Kinesis, Google Pub/Sub. Sub-second latency pipelines for fraud detection, recommendation engines, and operational AI." },
-          { title: "Feature Engineering Specialists", body: "Build ML feature pipelines that produce consistent, reliable features for model training and serving. Feature stores, point-in-time correct feature computation, and training-serving skew elimination." },
-        ],
-      },
-    ],
-    [
-      { question: "Why do AI projects need data engineers?", answer: "AI projects need data engineers because machine learning models require clean, consistent, and correctly structured data to produce reliable outputs. Data engineers build the pipelines that collect, transform, validate, and serve data to ML systems - handling schema changes, data quality issues, and pipeline failures that would otherwise corrupt model training or cause serving errors. Without strong data engineering, even excellent ML models produce unreliable results." },
-    ],
-    ["Toadster provides data engineer staff augmentation from Noida, India - specialists in Apache Spark, Kafka, dbt, Snowflake, BigQuery, Databricks, and ML feature pipeline development."],
-    { name: "Hire Data Engineers India", description: "Toadster provides data engineers from India for pipelines, ETL, and ML feature infrastructure.", serviceType: "Staff Augmentation" },
-  ),
-  hirePage(
-    "python-developers",
-    "Hire Python Developers",
-    "AI/ML backends, FastAPI, Django & data engineering",
-    "FileCode",
-    "Hire Python Developers India | AI, Backend & Data Engineering | Toadster",
-    "Hire vetted Python developers from Toadster India. AI/ML backends, FastAPI, Django, data pipelines. Senior developers integrated into your team in 5 business days.",
-    "Python Developers",
-    "Python is the backbone of modern AI engineering. Hire Toadster Python developers - specialists who write production-grade Python for AI backends, data pipelines, ML systems, and API infrastructure.",
-    [
-      "Python specialists for AI/ML backends, FastAPI, Django, and data engineering",
-      "Production code standards - typed, tested, documented, and peer-reviewed",
-      "Available for staff augmentation, dedicated resource, or project delivery",
-    ],
-    "Hire a Python Developer",
-    [
-      {
-        heading: "Tech Stack & Skill Matrix",
-        body: "Our dedicated Python engineers are proficient across the tools that matter. Here's what they work with.",
-        items: [
-          { title: "Languages & Frameworks", body: "Python 3.x, FastAPI, Django, Flask, Pytest, Celery, Redis" },
-          { title: "Data Engineering", body: "PySpark, Pandas, Polars, SQLAlchemy, dbt, Great Expectations, Soda" },
-          { title: "AI/ML Integration", body: "LangChain, LlamaIndex, OpenAI API, Hugging Face Transformers, Vector DBs" },
-          { title: "Infrastructure & Ops", body: "Docker, AWS/GCP/Azure, Airflow, Prefect, GitHub Actions, CI/CD" }
-        ]
       },
       {
         heading: "Production Deliverables",
-        body: "When you hire Python developers from Toadster Technologies, every engagement delivers robust backend architecture - not just isolated scripts that break under load.",
+        body: "When you hire React Native developers from Toadster Technologies, every engagement ships apps that pass app store review on the first submission and feel genuinely native to the platform.\nCore deliverables include:\n• Pixel-perfect UI matched to your design system, tested on real iOS and Android devices\n• TestFlight and Play Console builds at every milestone, with crash-free session tracking",
         items: [
-          { title: "AI/ML Backend Architecture", body: "Build Python backends for AI applications - LLM API wrappers, inference endpoints, async request handling, result caching, and prompt management systems." },
-          { title: "Scalable API & Web Backends", body: "Robust, scalable web backends in Django or FastAPI. REST API design, authentication, database ORM, background tasks, and deployment on AWS/GCP/Azure." },
-          { title: "Data Pipeline Engineering", body: "Write production Python for data pipelines - PySpark, Pandas, Polars workflows, and data quality validation with Great Expectations." },
-          { title: "Intelligent Automation", body: "Build intelligent automation in Python - web scraping, RPA scripting, document processing, ETL scripts, and workflow orchestration with Airflow." }
-        ]
+          { title: "Cross-Platform App Development", body: "A single React Native codebase deployed to iOS and Android with platform-specific polish where it matters — navigation gestures, haptics, and native look-and-feel — not a generic wrapper that feels foreign on either platform." },
+          { title: "Native Module & Third-Party SDK Integration", body: "Custom native modules for camera, Bluetooth, AR, payments (Stripe, Apple Pay, Google Pay), and any SDK that doesn't have a clean React Native wrapper out of the box." },
+          { title: "AI-Powered Mobile Experiences", body: "React Native frontends wired to AI backends — on-device ML inference, AI chat interfaces, and real-time AI feature delivery built for mobile network and battery constraints." },
+          { title: "Performance Optimisation & QA", body: "Bundle size audits, Hermes engine tuning, memory leak detection, and Detox end-to-end test suites — so your app stays fast and stable across the full range of devices your users actually own." },
+        ],
       },
       {
         heading: "Seamless 3-Step Integration",
-        body: "From first conversation to a dedicated Python developer embedded in your team - in under a week.",
+        body: "From first conversation to a dedicated React Native developer embedded in your team — in under a week.",
         items: [
-          { title: "01 - Technical Scoping", body: "We map your product requirements, current architecture, and team structure to identify exactly which Python engineering profile will move your roadmap forward." },
-          { title: "02 - Vetting & Matching", body: "You interview handpicked developers from our pre-vetted talent pool. No recruitment agency markup, no opaque selection process - just the right engineer for your stack." },
-          { title: "03 - Dedicated Onboarding", body: "Your developer joins your Slack, Jira, GitHub, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." }
-        ]
-      }
-    ],
-    [
-      { question: "What is a dedicated Python developer?", answer: "A dedicated Python developer is a full-time engineer who works exclusively on your product, managed through a technology partner like Toadster Technologies. They integrate into your team, follow your processes, and build long-term product knowledge - without the overhead of traditional recruitment." },
-      { question: "When should a company hire dedicated Python developers?", answer: "Hire dedicated developers when your in-house team lacks the bandwidth or specialised skills (like AI integrations or complex data pipelines) to meet your roadmap, or when you need to scale engineering capacity quickly without committing to permanent headcount." },
-      { question: "How quickly can a dedicated Python developer join my project?", answer: "Most engagements at Toadster go from initial brief to an onboarded developer in 5 to 7 business days. This covers technical scoping, candidate shortlisting, your interview round, and tool access setup." },
-      { question: "How much does it cost to hire a Python developer from India?", answer: "Python developer rates from India through staff augmentation range from $1,500-$4,500 per month depending on seniority and specialisation. Senior Python developers with AI/ML backend experience sit at $3,000-$4,500 per month. These rates represent 50-65% savings versus equivalent US or UK full-time developers." },
-      { question: "Can dedicated developers work with my internal engineering team?", answer: "Yes - that is precisely the model. Dedicated developers from Toadster join your Slack, attend your standups, commit to your repositories, and operate as a seamless extension of your in-house team. They do not sit in a separate project silo." },
-      { question: "What engagement models does Toadster offer for hiring Python developers?", answer: "We offer three models: full-time dedicated (one developer, 100% focused on your product), team augmentation (multiple developers added to scale a specific workstream), and managed pods (a small cross-functional team with a tech lead). All models are month-to-month flexible unless you prefer a fixed-term arrangement." },
-      { question: "Can I scale my dedicated Python development team up or down?", answer: "Yes. You can add or reduce developers with 30 days' notice. There are no rigid annual commitments unless you opt for one. Growth phases, product launches, or quieter periods - your team size adjusts with your business." }
-    ],
-    [
-      "Toadster provides Python developer staff augmentation from Noida, India - specialists in AI/ML backends, FastAPI, Django, data engineering, and automation scripting.",
-      "Hire dedicated Python engineers onboarded in 5-7 days."
-    ],
-    { name: "Hire Python Developers India", description: "Toadster provides Python developers from India for AI backends, data engineering, and automation.", serviceType: "Staff Augmentation" },
-  ),
-  hirePage(
-    "reactjs-developers",
-    "Hire React.js Developers",
-    "AI dashboards, enterprise SPAs & TypeScript frontends",
-    "Monitor",
-    "Hire React.js Developers India | Senior Frontend Engineers | Toadster",
-    "Hire pre-vetted React.js developers from Toadster India. AI dashboard interfaces, enterprise SPAs, and production-grade React frontends. 5-day integration.",
-    "React.js Developers",
-    "The interface is where AI meets the user. Hire Toadster React.js developers - engineers who build the dashboards, copilot interfaces, and enterprise SPAs that make your AI systems actually usable.",
-    [
-      "Senior React.js engineers with AI application interface experience",
-      "TypeScript-first, performance-optimised, accessible frontend development",
-      "State management, API integration, and real-time UI for AI workflows",
-    ],
-    "Hire a React.js Developer",
-    [
-      {
-        heading: "React.js Development in the Context of AI Applications",
-        body: "Most React.js developer hire pages talk about e-commerce storefronts and marketing websites. That's not what Toadster does. Our React.js developers build the frontend layer for AI applications - streaming chat interfaces for LLM copilots, real-time monitoring dashboards for ML systems, document upload and annotation interfaces for AI document processing, and workflow management UIs for agentic AI systems.\n\nThis requires React developers who understand async data patterns, streaming API responses, WebSocket connections for real-time updates, and the performance constraints of rendering large AI-generated outputs efficiently.",
-      },
-      {
-        heading: "React.js Developer Specialisations",
-        items: [
-          { title: "AI Interface Developers", body: "Build React frontends specifically for AI applications - streaming chat UIs, document viewers, annotation tools, confidence score displays, and human-in-the-loop review interfaces." },
-          { title: "Enterprise SPA Engineers", body: "Build complex single-page applications for enterprise internal tools - data tables, form systems, permission-based UIs, and multi-tenant architectures." },
-          { title: "React Native Mobile Developers", body: "Extend React skills to mobile - cross-platform iOS and Android applications sharing logic with web React codebases." },
-          { title: "Performance Optimisation Specialists", body: "Diagnose and fix React performance issues - bundle splitting, lazy loading, memoisation, virtual list rendering, and Core Web Vitals optimisation." },
+          { title: "01 — Technical Scoping", body: "We review your app requirements, target platforms, and any native functionality needed to identify exactly which React Native expertise — Expo, bare workflow, or native bridging — fills your gap." },
+          { title: "02 — Vetting & Matching", body: "You interview shortlisted React Native developers from our pre-vetted talent pool, assessed on real shipped apps in both app stores — not just tutorial projects." },
+          { title: "03 — Dedicated Onboarding", body: "Your developer joins your GitHub, design tools, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." },
         ],
       },
     ],
     [
-      { question: "How much does it cost to hire a React.js developer from India?", answer: "React.js developer rates from India through staff augmentation range from $1,800-$4,000 per month depending on seniority. Senior React developers with TypeScript and enterprise application experience sit at $2,800-$4,000 per month. This is approximately 50-60% less than equivalent US frontend developer rates." },
-    ],
-    ["Toadster provides React.js developer staff augmentation from Noida, India - specialists in AI application interfaces, enterprise SPAs, TypeScript, and real-time frontend development."],
-    { name: "Hire React.js Developers India", description: "Toadster provides React.js developers from India for AI interfaces and enterprise SPAs.", serviceType: "Staff Augmentation" },
-  ),
-  hirePage(
-    "react-native-developers",
-    "Hire React Native Developers",
-    "Cross-platform iOS & Android with shared codebase",
-    "Smartphone",
-    "Hire React Native Developers India | Cross-Platform Mobile App Experts | Toadster",
-    "Hire pre-vetted React Native developers from Toadster India. Build cross-platform iOS and Android applications with shared codebase. Integrated into your team in 5 business days.",
-    "React Native Developers",
-    "One codebase. Two platforms. Zero compromises on performance. Hire Toadster React Native developers - engineers who build cross-platform iOS and Android applications that feel truly native, not like ported web apps.",
-    [
-      "Pre-vetted React Native engineers with production iOS and Android deployments",
-      "AI-augmented mobile apps - on-device ML, LLM chat interfaces, intelligent features",
-      "Expo and bare workflow, native module development, App Store / Play Store releases",
-    ],
-    "Hire a React Native Developer",
-    [
-      {
-        heading: "Why React Native Still Wins for Enterprise Mobile in 2025",
-        body: "Flutter gets the press, but React Native gets the enterprise deployments. The shared JavaScript ecosystem with React web, the massive community, the mature native module ecosystem, and the faster onboarding for web teams - these factors continue to make React Native the practical choice for enterprise mobile applications where teams already know JavaScript.\n\nToadster React Native developers have shipped apps to both App Store and Google Play. They know the performance patterns that separate a native-feeling application from a sluggish one, the native module bridging required for device-specific features, and the CI/CD setup required for reliable mobile releases in enterprise environments.",
-      },
-      {
-        heading: "React Native Developer Specialisations",
-        items: [
-          { title: "Core App Developers", body: "Build full React Native applications from scratch - navigation, state management, API integration, native features, animations, and App Store/Play Store submission." },
-          { title: "Native Module Developers", body: "Write native code bridges (Swift/Kotlin) to expose device capabilities not available in standard React Native APIs - custom camera, Bluetooth, biometric auth, NFC." },
-          { title: "AI-Augmented Mobile Developers", body: "Build mobile apps that connect to AI backends - streaming LLM chat interfaces, document scanning with ML processing, on-device model inference with TensorFlow Lite or CoreML." },
-          { title: "Performance Optimisation Engineers", body: "Diagnose and fix React Native performance issues - bridge congestion, JS thread blocking, FlatList optimisation, and startup time reduction." },
-        ],
-      },
+      { question: "What does a dedicated React Native developer do?", answer: "A dedicated React Native developer builds and maintains mobile applications for iOS and Android from a single JavaScript/TypeScript codebase. This includes UI implementation, native module integration, performance optimisation, and app store deployment — working exclusively on your product as part of your team." },
+      { question: "Is React Native a good choice for my app, or should I build native iOS and Android apps separately?", answer: "React Native is well suited for most consumer and business apps, offering significant cost and time savings through code sharing — typically 70 to 90 percent of code reused across platforms. Fully native development makes sense for apps with extremely heavy graphics processing, complex AR/VR, or platform-exclusive features. Our developers can assess your specific requirements during scoping." },
+      { question: "How quickly can a dedicated React Native developer join my project?", answer: "Most engagements at Toadster go from initial brief to an onboarded React Native developer in 5 to 7 business days, covering technical scoping, candidate shortlisting, your interview round, and tool access setup." },
+      { question: "How much does it cost to hire a dedicated React Native developer?", answer: "Pricing depends on seniority level, native integration complexity, and engagement duration. Toadster offers transparent monthly retainer pricing with no hidden recruitment fees. Contact us for a quote tailored to your specific app requirements." },
+      { question: "Can React Native apps access native device features like camera, biometrics, or Bluetooth?", answer: "Yes. React Native supports native device features either through existing community libraries or custom native modules written in Swift and Kotlin. Our developers handle both — using proven libraries where available and writing custom bridges when a feature requires it." },
+      { question: "Should I use Expo or the bare React Native workflow?", answer: "Expo's managed workflow is faster to start with and suits most apps without unusual native requirements. The bare workflow gives full control for apps needing custom native modules or specific build configurations. Our developers evaluate your feature list during scoping and recommend the right starting point." },
+      { question: "Do your React Native developers handle app store submission and approval?", answer: "Yes. Our developers manage the full release process — App Store and Play Store listing setup, build signing, compliance with platform guidelines, and submission — to minimise rejection risk and delays." },
+      { question: "Can I scale my React Native team up or down during the engagement?", answer: "Yes. You can add developers — for a major feature push, a native module specialist, or a QA engineer — or scale down with 30 days' notice, depending on your app's development phase." },
     ],
     [
-      { question: "What is the cost of hiring a React Native developer from India?", answer: "React Native developer rates from India through staff augmentation range from $1,800-$3,800 per month. Senior React Native developers with both iOS and Android production deployments sit at $2,800-$3,800 per month. Toadster React Native developers are available for staff augmentation (join your team) or dedicated resource (work exclusively on your product) engagements." },
+      "Dedicated React Native Developers",
+      "React Native Development Company",
+      "Hire Cross-Platform App Developers",
+      "Remote React Native Developers",
+      "Hire Expo Developers",
+      "React Native Staff Augmentation",
+      "Hire Mobile App Developers",
+      "React Native App Development Services",
+      "Native Module Integration Developers",
     ],
-    ["Toadster provides React Native developer staff augmentation from Noida, India - specialists in cross-platform iOS and Android development, native module bridging, Expo workflow, and AI-augmented mobile applications."],
-    { name: "Hire React Native Developers India", description: "Toadster provides React Native developers from India for cross-platform mobile applications.", serviceType: "Staff Augmentation" },
+    { name: "Hire React Native Developers", description: "Hire expert React Native developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days — iOS, Android, Expo, and native modules.", serviceType: "Staff Augmentation" },
   ),
   hirePage(
     "nodejs-developers",
-    "Hire Node.js Developers",
+    "Node.js Developers",
     "REST APIs, NestJS microservices & AI backend layers",
-    "Server",
+    "Nodejs",
     "Hire Node.js Developers India | Backend API & AI Microservices | Toadster",
     "Hire vetted Node.js developers from Toadster India. REST APIs, NestJS microservices, AI backend integrations, and real-time systems. Integrated into your team in 5 days.",
     "Node.js Developers",
@@ -407,9 +144,9 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
   ),
   hirePage(
     "fullstack-developers",
-    "Hire Full Stack Developers",
+    "Full Stack Developers",
     "MERN, Python/React & AI application full stacks",
-    "Layers",
+    "FullStack",
     "Hire Full Stack Developers India | MERN, AI-Focused & Senior Engineers | Toadster",
     "Hire pre-vetted full stack developers from Toadster India. MERN, MEAN, Python/React, AI application full stacks. Senior engineers. 5-day team integration.",
     "Full Stack Developers",
@@ -445,7 +182,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "mern-developers",
     "MERN Developers",
     "Build scalable, full-stack JavaScript web applications",
-    "Layers",
+    "Mern",
     "Hire Dedicated MERN Stack Developers | Vetted Web App Developers | Toadster",
     "Hire pre-vetted senior MERN stack developers from Toadster. Build scalable full-stack web applications. Onboard in 5-7 days. No hidden costs.",
     "MERN Stack Developers",
@@ -577,7 +314,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "flutter-developers",
     "Flutter Developers",
     "Build beautiful, high-performance cross-platform apps",
-    "Smartphone",
+    "Flutter",
     "Hire Dedicated Flutter Developers | Vetted Mobile App Developers | Toadster",
     "Hire pre-vetted senior Flutter developers from Toadster. Build cross-platform iOS & Android mobile apps. Onboard in 5-7 days. No hidden costs.",
     "Hire Expert Flutter Developers",
@@ -724,7 +461,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "ai-ml-developers",
     "AI/ML Developers",
     "Production ML, LLMs, computer vision & predictive analytics",
-    "Bot",
+    "AiMl",
     "Hire AI/ML Developers | Dedicated Machine Learning Engineers - Toadster Technologies",
     "Hire expert AI/ML developers from Toadster Technologies. Get dedicated machine learning engineers onboarded in 5–7 days - RAG pipelines, LLMs, computer vision, and MLOps. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert AI/ML Developers",
@@ -785,7 +522,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "full-stack-developers",
     "Full Stack Developers",
     "React, Node.js, Next.js, Python full stack engineers",
-    "Layers",
+    "FullStack",
     "Hire Full Stack Developers | Dedicated Full Stack Engineers | Toadster Technologies",
     "Hire pre-vetted dedicated full stack developers from Toadster Technologies. React, Node.js, Next.js, Python - senior engineers available within 48 hours. Flexible hiring models for startups, SMEs, and enterprises.",
     "Hire Expert Full Stack Developers",
@@ -856,7 +593,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "software-developers",
     "Software Developers",
     "Web, backend, cloud & AI software engineering",
-    "Code2",
+    "Software",
     "Hire Software Developers | Dedicated Development Team - Toadster Technologies",
     "Hire expert software developers from Toadster Technologies. Get dedicated engineers onboarded in 5–7 days across web, backend, cloud, and AI. Flexible models. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert Software Developers",
@@ -919,11 +656,11 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "devops-engineers",
     "DevOps Engineers",
     "Kubernetes, CI/CD, AWS/GCP infrastructure",
-    "Cloud",
+    "DevOps",
     "Hire DevOps Engineers | Dedicated Cloud & Infrastructure Experts - Toadster Technologies",
     "Hire expert DevOps engineers from Toadster Technologies. Get dedicated infrastructure and CI/CD specialists onboarded in 5–7 days - Kubernetes, Terraform, AWS, GCP, Azure, and more. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert DevOps Engineers",
-    "Put a proven infrastructure specialist on your team - an engineer who has built resilient pipelines, managed production clusters, and handled high-stakes incidents. Stop treating deployments like events.",
+    "Ship faster, break less, and recover instantly — with dedicated DevOps engineers who build the infrastructure, pipelines, and reliability systems your product needs to run at scale.",
     [
       "Fully documented infrastructure code committed to your repository with runbooks",
       "Incident response playbooks, alerting configurations, and SLA-aligned monitoring dashboards"
@@ -975,6 +712,210 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "Hire dedicated cloud and infrastructure specialists onboarded in 5-7 days."
     ],
     { name: "Hire DevOps Engineers", description: "Hire expert DevOps engineers from Toadster Technologies. Get dedicated infrastructure and CI/CD specialists onboarded in 5-7 days.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+  ),
+  hirePage(
+    "ios-developers",
+    "iOS Developers",
+    "Swift & SwiftUI native iOS app experts",
+    "Ios",
+    "Hire iOS Developers | Dedicated Swift & SwiftUI Experts — Toadster Technologies",
+    "Hire expert iOS developers from Toadster Technologies. Get dedicated Swift and SwiftUI engineers onboarded in 5–7 days — App Store ready, Apple ecosystem integrations included. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire Expert iOS Developers",
+    "Build polished, high-performance iOS apps with dedicated Swift developers who know Apple's platform deeply — from Human Interface Guidelines to App Store review, so your app gets approved and feels right at home on iPhone.",
+    [
+      "⭐ 4.9/5 on Clutch",
+      "50+ iOS apps shipped",
+      "8 countries served"
+    ],
+    "Hire iOS Experts",
+    [
+      {
+        heading: "Tech Stack & Skill Matrix",
+        body: "Our dedicated iOS developers are fluent across Apple's full development ecosystem — modern declarative UI, native performance tuning, and the deployment pipeline that gets your app through App Store review smoothly.",
+        items: [
+          { title: "Core Language & UI Frameworks", body: "Swift 5+ / SwiftUI / UIKit\nCombine & async/await for concurrency\nMVVM / Clean Architecture / Coordinator pattern\nHuman Interface Guidelines (HIG) compliance\n\nOur developers build interfaces that feel native to iOS — not web views wrapped in a native shell, and not Android patterns ported over without adaptation." },
+          { title: "Data, Networking & Native Integrations", body: "Core Data / SwiftData / Realm\nURLSession / Alamofire for networking\nPush Notifications (APNs), HealthKit, ARKit, CoreML\nSign in with Apple, Apple Pay, Face ID / Touch ID\n\nDeep integration with Apple's native frameworks — the features that make an app feel like it belongs on iOS, not just compiled for it." },
+          { title: "Testing, CI/CD & App Store Deployment", body: "XCTest / XCUITest for unit and UI testing\nFastlane for automated builds and releases\nTestFlight beta distribution management\nApp Store Connect submission & compliance review\n\nProduction pipelines that minimise App Store rejection risk and get your releases into users' hands on schedule." }
+        ]
+      },
+      {
+        heading: "Production Deliverables",
+        body: "When you hire iOS developers from Toadster Technologies, every engagement ships an app built to Apple's standards — not just functional code that happens to run on an iPhone.\nCore deliverables include:\n• Pixel-perfect UI built to HIG standards, tested across iPhone and iPad screen sizes\n• TestFlight builds at every milestone with crash reporting and performance benchmarks",
+        items: [
+          { title: "Native iOS App Development", body: "SwiftUI and UIKit applications built from the ground up — consumer apps, enterprise tools, and SaaS companion apps — architected for maintainability as your feature set grows." },
+          { title: "Apple Ecosystem & SDK Integrations", body: "HealthKit, ARKit, CoreML, Apple Pay, Sign in with Apple, and Watch app companion development — the integrations that differentiate a good iOS app from a merely functional one." },
+          { title: "On-Device AI & ML Features", body: "CoreML model integration for on-device inference, AI-powered camera features, and intelligent text/image processing — built for the privacy and performance expectations iOS users have." },
+          { title: "Performance Optimisation & App Store Readiness", body: "Instruments profiling for memory and battery usage, crash-free session targets, accessibility (VoiceOver) compliance, and App Store guideline review before every submission." }
+        ]
+      },
+      {
+        heading: "Seamless 3-Step Integration",
+        body: "From first conversation to a dedicated iOS developer embedded in your team — in under a week.",
+        items: [
+          { title: "01 — Technical Scoping", body: "We review your app requirements, target iOS versions, and any Apple ecosystem integrations needed to identify exactly which iOS expertise — SwiftUI, UIKit, or native frameworks depth — fills your gap." },
+          { title: "02 — Vetting & Matching", body: "You interview shortlisted iOS developers from our pre-vetted talent pool, assessed on real apps shipped to the App Store — not just sample projects." },
+          { title: "03 — Dedicated Onboarding", body: "Your developer joins your Xcode project, design tools, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." }
+        ]
+      }
+    ],
+    [
+      { question: "What does a dedicated iOS developer do?", answer: "A dedicated iOS developer designs, builds, and maintains native applications for iPhone and iPad using Swift, SwiftUI, and UIKit. This includes UI implementation, Apple ecosystem integrations, performance optimisation, and App Store submission — working exclusively on your product as part of your team." },
+      { question: "Should I build a native iOS app or use a cross-platform framework like React Native?", answer: "Native iOS development is the right choice when your app needs deep Apple ecosystem integration — ARKit, HealthKit, complex animations, or maximum performance — or when iOS is your primary platform with no near-term Android plans. Cross-platform frameworks make more sense when you need both iOS and Android with shared logic and a faster timeline. Our developers can assess your specific requirements." },
+      { question: "SwiftUI or UIKit — which should my app use?", answer: "SwiftUI is Apple's modern declarative framework and is well suited for new apps, especially those targeting recent iOS versions. UIKit remains relevant for apps needing fine-grained control, supporting older iOS versions, or maintaining a large existing UIKit codebase. Many production apps use both side by side. Our developers make this call based on your app's specific needs during scoping." },
+      { question: "How quickly can a dedicated iOS developer join my project?", answer: "Most engagements at Toadster go from initial brief to an onboarded iOS developer in 5 to 7 business days, covering technical scoping, candidate shortlisting, your interview round, and tool access setup." },
+      { question: "How much does it cost to hire a dedicated iOS developer?", answer: "Pricing depends on seniority level, the complexity of Apple ecosystem integrations required, and engagement duration. Toadster offers transparent monthly retainer pricing with no hidden recruitment fees. Contact us for a quote tailored to your specific app requirements." },
+      { question: "Can your iOS developers help reduce App Store rejection risk?", answer: "Yes. Our developers review submissions against Apple's App Store Review Guidelines before each release, covering common rejection triggers — privacy disclosures, metadata accuracy, and Human Interface Guidelines compliance — to reduce back-and-forth with Apple's review team." },
+      { question: "Do your iOS developers handle Apple Watch and other companion apps?", answer: "Yes. Our developers build watchOS companion apps, widgets, and App Clips alongside the main iOS application when your product calls for an extended Apple ecosystem presence." },
+      { question: "Can I scale my iOS development team up or down during the engagement?", answer: "Yes. You can add developers — for a major feature push, a Watch app build, or an ARKit specialist — or scale down with 30 days' notice, depending on your app's development phase." }
+    ],
+    [
+      "Dedicated iOS Developers",
+      "iOS App Development Company",
+      "Hire Swift Developers",
+      "Remote iOS Developers",
+      "Hire SwiftUI Developers",
+      "iOS Staff Augmentation",
+      "Hire iPhone App Developers",
+      "iOS App Development Services",
+      "Apple Ecosystem Integration Developers"
+    ],
+    { name: "Hire iOS Developers", description: "Hire expert iOS developers from Toadster Technologies. Get dedicated Swift and SwiftUI engineers onboarded in 5–7 days — App Store ready, Apple ecosystem integrations included.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+  ),
+  hirePage(
+    "android-developers",
+    "Android Developers",
+    "Kotlin & Jetpack Compose Android app experts",
+    "Android",
+    "Hire Android Developers | Dedicated Kotlin & Compose Experts — Toadster Technologies",
+    "Hire expert Android developers from Toadster Technologies. Get dedicated Kotlin and Jetpack Compose engineers onboarded in 5–7 days — Play Store ready, Google ecosystem integrations included. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire Expert Android Developers",
+    "Build Android apps that perform reliably across thousands of device configurations — with dedicated Kotlin developers who understand fragmentation, battery constraints, and what it actually takes to pass Play Store review.",
+    [
+      "⭐ 4.9/5 on Clutch",
+      "55+ Android apps shipped",
+      "8 countries served"
+    ],
+    "Hire Android Experts",
+    [
+      {
+        heading: "Tech Stack & Skill Matrix",
+        body: "Our dedicated Android developers are fluent across the modern Android ecosystem — declarative UI, architecture patterns built for testability, and the device-level optimisation that fragmentation demands.",
+        items: [
+          { title: "Core Language & UI Frameworks", body: "Kotlin / Jetpack Compose / XML Views\nCoroutines & Flow for asynchronous programming\nMVVM / MVI / Clean Architecture\nMaterial Design 3 compliance\n\nOur developers build with Compose-first thinking while maintaining legacy View-based code where migration isn't yet justified." },
+          { title: "Data, Networking & Native Integrations", body: "Room / DataStore for local persistence\nRetrofit / OkHttp / Ktor for networking\nFirebase (FCM, Crashlytics, Remote Config, Analytics)\nCameraX, Biometric API, Google Pay, Maps SDK\n\nDeep integration with Google's native frameworks and Play Services — the features that make an app feel purpose-built for Android, not ported." },
+          { title: "Testing, CI/CD & Play Store Deployment", body: "JUnit / Espresso / Compose Testing for UI tests\nGradle build optimisation & flavors\nGitHub Actions / Bitrise for CI/CD\nPlay Console release tracks & staged rollouts\n\nProduction pipelines built for device fragmentation testing and controlled rollouts that catch issues before they reach your full user base." }
+        ]
+      },
+      {
+        heading: "Production Deliverables",
+        body: "When you hire Android developers from Toadster Technologies, every engagement ships an app tested across real device diversity — not just validated on a single flagship emulator.\nCore deliverables include:\n• Material Design-compliant UI tested across phone, tablet, and foldable form factors\n• Staged Play Console rollout builds at every milestone with Crashlytics monitoring",
+        items: [
+          { title: "Native Android App Development", body: "Kotlin and Jetpack Compose applications built from the ground up — consumer apps, enterprise tools, and SaaS companion apps — architected to handle the device and OS-version fragmentation unique to Android." },
+          { title: "Google Ecosystem & Play Services Integration", body: "Firebase, Google Pay, Maps SDK, CameraX, and Wear OS companion development — the integrations that connect your app meaningfully into the broader Android and Google ecosystem." },
+          { title: "On-Device AI & ML Features", body: "ML Kit and TensorFlow Lite model integration for on-device inference, AI-powered camera features, and intelligent text processing — optimised for the wide range of hardware capabilities across Android devices." },
+          { title: "Performance Optimisation & Device Compatibility", body: "Android Profiler analysis for memory and battery usage, ANR (App Not Responding) prevention, accessibility (TalkBack) compliance, and compatibility testing across manufacturer-specific Android skins." }
+        ]
+      },
+      {
+        heading: "Seamless 3-Step Integration",
+        body: "From first conversation to a dedicated Android developer embedded in your team — in under a week.",
+        items: [
+          { title: "01 — Technical Scoping", body: "We review your app requirements, target device range, and minimum supported Android version to identify exactly which Android expertise — Compose, legacy Views, or device optimisation depth — fills your gap." },
+          { title: "02 — Vetting & Matching", body: "You interview shortlisted Android developers from our pre-vetted talent pool, assessed on real apps shipped to the Play Store across diverse device fleets — not just emulator-tested projects." },
+          { title: "03 — Dedicated Onboarding", body: "Your developer joins your Android Studio project, design tools, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." }
+        ]
+      }
+    ],
+    [
+      { question: "What does a dedicated Android developer do?", answer: "A dedicated Android developer designs, builds, and maintains native applications using Kotlin, Jetpack Compose, and Android SDK frameworks. This includes UI implementation, Google ecosystem integrations, device compatibility testing, and Play Store deployment — working exclusively on your product as part of your team." },
+      { question: "Should I build a native Android app or use a cross-platform framework like React Native?", answer: "Native Android development is the right choice when your app needs deep hardware integration, maximum performance across diverse devices, or close coupling with Android-specific features like widgets and background services. Cross-platform frameworks suit teams targeting both iOS and Android with shared logic and tighter timelines. Our developers can assess your specific requirements during scoping." },
+      { question: "How does Toadster handle Android device fragmentation?", answer: "Our developers test across a representative range of screen sizes, OS versions, and manufacturer skins (Samsung One UI, Xiaomi MIUI, etc.), use Android's compatibility libraries appropriately, and follow staged Play Console rollouts to catch device-specific issues before they reach your full user base." },
+      { question: "Jetpack Compose or traditional XML Views — which should my app use?", answer: "Jetpack Compose is Google's modern declarative UI toolkit and is the recommended approach for new apps. XML-based Views remain relevant for large existing codebases or apps requiring specific legacy library support. Many production apps run both side by side during a Compose migration. Our developers assess your codebase and recommend the right path." },
+      { question: "How quickly can a dedicated Android developer join my project?", answer: "Most engagements at Toadster go from initial brief to an onboarded Android developer in 5 to 7 business days, covering technical scoping, candidate shortlisting, your interview round, and tool access setup." },
+      { question: "How much does it cost to hire a dedicated Android developer?", answer: "Pricing depends on seniority level, the complexity of Google ecosystem integrations required, and engagement duration. Toadster offers transparent monthly retainer pricing with no hidden recruitment fees. Contact us for a quote tailored to your specific app requirements." },
+      { question: "Can your Android developers help reduce Play Store rejection risk?", answer: "Yes. Our developers review submissions against Google Play's policy guidelines before each release, covering common rejection triggers — permissions misuse, data safety disclosures, and target API level requirements — to reduce delays in getting your app live." },
+      { question: "Can I scale my Android development team up or down during the engagement?", answer: "Yes. You can add developers — for a major feature push, a Wear OS builder, or an ML specialist — or scale down with 30 days' notice, depending on your app's development phase." }
+    ],
+    [
+      "Dedicated Android Developers",
+      "Android App Development Company",
+      "Hire Kotlin Developers",
+      "Remote Android Developers",
+      "Hire Jetpack Compose Developers",
+      "Android Staff Augmentation",
+      "Hire Android App Developers",
+      "Android App Development Services",
+      "Google Ecosystem Integration Developers"
+    ],
+    { name: "Hire Android Developers", description: "Hire expert Android developers from Toadster Technologies. Get dedicated Kotlin and Jetpack Compose engineers onboarded in 5–7 days — Play Store ready, Google ecosystem integrations included.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+  ),
+  hirePage(
+    "reactjs-developers",
+    "React.js Developers",
+    "React, Next.js, and modern UI architecture",
+    "Reactjs",
+    "Hire React.js Developers | Dedicated Frontend Engineers — Toadster Technologies",
+    "Hire expert React.js developers from Toadster Technologies. Get dedicated frontend engineers onboarded in 5–7 days — React, Next.js, TypeScript, and modern UI architecture. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire Expert React.js Developers",
+    "Build fast, responsive, and scalable web interfaces with dedicated React developers who write component architecture that survives your product's next five feature releases — not just the demo.",
+    [
+      "⭐ 4.9/5 on Clutch",
+      "100+ React projects delivered",
+      "8 countries served"
+    ],
+    "Hire React.js Experts",
+    [
+      {
+        heading: "Tech Stack & Skill Matrix",
+        body: "Our dedicated React developers are fluent across the modern frontend ecosystem — component architecture, state management, performance optimisation, and the build tooling that keeps large applications maintainable.",
+        items: [
+          { title: "Core React & Architecture", body: "React 18+ (Hooks, Suspense, Server Components)\nNext.js for SSR, SSG, and ISR\nComponent-driven architecture & design systems\nTypeScript across components, hooks, and utilities\n\nArchitecture decisions made upfront — not patched in later — so your codebase stays maintainable as your team and feature set grow." },
+          { title: "State Management & Data Layer", body: "Redux Toolkit / Zustand / Jotai / Recoil\nReact Query / TanStack Query / SWR\nGraphQL clients — Apollo, Relay, urql\nContext API for scoped state needs\n\nThe right state management tool for the actual problem — not Redux by default for every app, regardless of complexity." },
+          { title: "Styling, Testing & Build Tooling", body: "Tailwind CSS / Styled Components / CSS Modules\nJest, React Testing Library, Cypress for E2E\nVite / Webpack configuration & bundle optimisation\nStorybook for component documentation\n\nFast build pipelines, meaningful test coverage, and styling systems that scale across design tokens and themes." }
+        ]
+      },
+      {
+        heading: "Production Deliverables",
+        body: "When you hire React developers from Toadster Technologies, every engagement ships interfaces that are pixel-accurate, performant, and built on architecture your team can extend without a rewrite.\nCore deliverables include:\n• Pixel-perfect, responsive UI matched precisely to your Figma designs\n• Reusable component libraries with Storybook documentation and sprint demos",
+        items: [
+          { title: "Custom Web Application Frontends", body: "SaaS dashboards, admin panels, customer portals, and marketing sites built with React and Next.js — optimised for Core Web Vitals and SEO from the first commit, not retrofitted before launch." },
+          { title: "Design System & Component Library Development", body: "Scalable, themeable component libraries with documented props, accessibility built in (WCAG-compliant), and Storybook coverage — so design and engineering stop reinventing the same button." },
+          { title: "AI-Integrated Frontend Experiences", body: "React interfaces wired to AI backends — chat UIs, streaming responses, RAG-powered search bars, and agent status dashboards — built for the latency and UX patterns AI features actually need." },
+          { title: "Performance Optimisation & Testing", body: "Bundle size audits, code-splitting strategy, lazy loading, and comprehensive test suites — so your React app stays fast and stable as it scales past its first thousand users." }
+        ]
+      },
+      {
+        heading: "Seamless 3-Step Integration",
+        body: "From first conversation to a dedicated React developer embedded in your team — in under a week.",
+        items: [
+          { title: "01 — Technical Scoping", body: "We review your design system, existing codebase, and product roadmap to identify exactly which React expertise — component architecture, performance, or design-system depth — fills your gap." },
+          { title: "02 — Vetting & Matching", body: "You interview shortlisted React developers from our pre-vetted talent pool, assessed on real component architecture decisions — not just framework trivia." },
+          { title: "03 — Dedicated Onboarding", body: "Your developer joins your Figma, GitHub, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." }
+        ]
+      }
+    ],
+    [
+      { question: "What does a dedicated React.js developer do?", answer: "A dedicated React.js developer builds and maintains the user-facing interface of your web application — component architecture, state management, performance optimisation, and integration with backend APIs — working exclusively on your product as part of your team." },
+      { question: "When should a company hire a dedicated React developer?", answer: "Hire a dedicated React developer when your product needs a fast, responsive, and maintainable frontend, when your existing UI has accumulated technical debt, when you're rebuilding a legacy interface, or when internal teams need additional frontend capacity to hit a launch deadline." },
+      { question: "What is the difference between React and Next.js, and which do I need?", answer: "React is a UI library for building components. Next.js is a framework built on React that adds server-side rendering, routing, and performance optimisations out of the box. Most production applications benefit from Next.js, especially when SEO or initial load speed matters. Our developers assess your requirements and recommend accordingly." },
+      { question: "How quickly can a dedicated React developer join my project?", answer: "Most engagements at Toadster go from initial brief to an onboarded React developer in 5 to 7 business days — covering technical scoping, candidate shortlisting, your interview round, and tool access setup." },
+      { question: "How much does it cost to hire a dedicated React developer?", answer: "Pricing depends on seniority level, project complexity, and engagement duration. Toadster offers transparent monthly retainer pricing with no hidden recruitment fees. Contact us for a quote tailored to your specific frontend requirements." },
+      { question: "Can your React developers work with our existing design system?", answer: "Yes. Our developers regularly build on top of existing design systems, Figma libraries, and component conventions. They adapt to your established patterns rather than introducing inconsistent new ones." },
+      { question: "Do your React developers also handle backend integration?", answer: "Yes. Our React developers are comfortable consuming REST APIs and GraphQL endpoints, handling authentication flows, and managing real-time data via WebSockets. For dedicated backend development, we can pair a React developer with a backend engineer under the same engagement." },
+      { question: "Can I scale my React development team up or down?", answer: "Yes. You can add developers — for a major feature push or design system overhaul — or scale down with 30 days' notice. The model is built for the uneven resourcing demands that come with frontend-heavy product phases." }
+    ],
+    [
+      "Dedicated React Developers",
+      "React Development Company",
+      "Hire Frontend Developers",
+      "Remote React.js Developers",
+      "Hire Next.js Developers",
+      "React Staff Augmentation",
+      "Dedicated Frontend Development Team",
+      "Hire React TypeScript Developers",
+      "React UI Development Services"
+    ],
+    { name: "Hire React.js Developers", description: "Hire expert React.js developers from Toadster Technologies. Get dedicated frontend engineers onboarded in 5–7 days — React, Next.js, TypeScript, and modern UI architecture.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
   )
 ]
 
