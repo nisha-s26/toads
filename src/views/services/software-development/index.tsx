@@ -277,7 +277,7 @@ export default function SoftwareDevelopmentPage() {
             </div>
           </div>
 
-          <ServiceProcessSteps steps={processSteps} />
+          <ServiceProcessSteps steps={processSteps} highlightMode="hover" />
         </div>
       </section>
 

@@ -12,13 +12,17 @@ export type ProcessStep = {
 
 interface ServiceProcessStepsProps {
   steps: ProcessStep[]
+  /** "scroll" highlights the step in view; "hover" highlights on mouse over */
+  highlightMode?: "scroll" | "hover"
 }
 
-export function ServiceProcessSteps({ steps }: ServiceProcessStepsProps) {
+export function ServiceProcessSteps({ steps, highlightMode = "scroll" }: ServiceProcessStepsProps) {
   const stepRefs = useRef<(HTMLElement | null)[]>([])
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState<number | null>(highlightMode === "hover" ? null : 0)
 
   useEffect(() => {
+    if (highlightMode !== "scroll") return
+
     const observers: IntersectionObserver[] = []
 
     stepRefs.current.forEach((stepEl, index) => {
@@ -41,17 +45,21 @@ export function ServiceProcessSteps({ steps }: ServiceProcessStepsProps) {
     })
 
     return () => observers.forEach((observer) => observer.disconnect())
-  }, [steps])
+  }, [steps, highlightMode])
 
   return (
     <div className="service-process-steps-outer">
-      <div className="service-process-steps">
+      <div
+        className="service-process-steps"
+        onMouseLeave={highlightMode === "hover" ? () => setActiveIndex(null) : undefined}
+      >
         {steps.map((step, index) => (
           <article
             key={step.num}
             ref={(el) => {
               stepRefs.current[index] = el
             }}
+            onMouseEnter={highlightMode === "hover" ? () => setActiveIndex(index) : undefined}
             className={cn(
               "service-process-step grid gap-4 py-7 md:grid-cols-[4.5rem_1fr] md:gap-8",
               activeIndex === index && "service-process-step--active",

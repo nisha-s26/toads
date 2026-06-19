@@ -12,7 +12,7 @@ export function SectionHead({
   labelClassName?: string
 }) {
   return (
-    <div className={`mb-12 ${centered ? "text-center" : ""}`}>
+    <div className={`section-head mb-8 ${centered ? "text-center" : ""}`}>
       {label ? (
         <p className={`text-xs font-bold uppercase tracking-[0.08em] ${labelClassName} mb-4`}>{label}</p>
       ) : null}

@@ -17,9 +17,9 @@ const WhyUs = () => {
       id="why-us"
       className="homepage-snap-section section-full-bleed relative isolate flex flex-col justify-center overflow-hidden"
     >
-      <div className="relative z-10 mx-auto max-w-9xl px-4 lg:px-20 py-12">
+      <div className="relative z-10 mx-auto max-w-9xl px-4 lg:px-20 pb-0 pt-0">
         <ScrollReveal className="mx-auto flex max-w-9xl flex-col items-center px-4 text-center sm:px-10">
-          <h2 className="mt-4 text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+          <h2 className="text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
             <span className="text-page-fg">Why Choose </span>
             <span className="text-toadster-green">Us</span>
           </h2>

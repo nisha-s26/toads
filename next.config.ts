@@ -1,5 +1,8 @@
 import type { NextConfig } from "next"
+import path from "node:path"
+import { fileURLToPath } from "node:url"
 
+const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 const apiBaseUrl = process.env.API_BASE_URL ?? process.env.NEXT_PUBLIC_API_BASE_URL ?? ""
 
 const legacyHireRedirects: { source: string; destination: string }[] = [
@@ -18,8 +21,20 @@ const legacyHireRedirects: { source: string; destination: string }[] = [
 ]
 
 const nextConfig: NextConfig = {
+  // Parent folder also has a package-lock.json; pin tracing/bundling to this app.
+  outputFileTracingRoot: projectRoot,
+  turbopack: {
+    root: projectRoot,
+  },
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion", "react-icons"],
+  },
+  webpack: (config, { dev }) => {
+    // Windows dev cache under .next frequently corrupts and breaks CSS/JS chunks.
+    if (dev) {
+      config.cache = false
+    }
+    return config
   },
   images: {
     qualities: [75, 80, 90],

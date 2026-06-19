@@ -45,6 +45,9 @@ const SERVICE_LINKS: InternalLink[] = [...AI_SERVICE_LINKS, ...DEVELOPMENT_SERVI
 
 const TECHNOLOGY_LINKS: InternalLink[] = [
   { to: "/technologies/data-analytics", label: "Data Analytics" },
+  { to: "/technologies/artificial-intelligence", label: "Artificial Intelligence" },
+  { to: "/technologies/iot", label: "IoT" },
+  { to: "/technologies/augmented-reality", label: "Augmented Reality" },
 ]
 
 import { HIRE_RESOURCES, getHireResourcePath } from "@/config/hire-resources"

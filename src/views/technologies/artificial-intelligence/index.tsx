@@ -1,34 +1,33 @@
 import Link from "next/link"
-import { ArrowRight, Sparkles, Users } from "lucide-react"
+import { Sparkles } from "lucide-react"
 import { FaqItem } from "../shared/FaqItem"
 import { ComparisonTable, DirectAnswer, HeroVisual } from "../shared/TechnologyPrimitives"
+import { TechnologyCapabilityCard, TechnologyCapabilityGrid } from "../shared/TechnologyCapabilityCard"
 import {
-  advantages,
-  analyticsMaturity,
-  analyticsMaturityIntro,
+  agentCapabilities,
+  agentCapabilitiesIntro,
+  aiSpectrum,
+  aiTypeComparison,
+  approachComparison,
   architectureIntro,
-  architecturePatterns,
-  architecturePatternsIntro,
   architectureSteps,
-  batchVsStream,
   capabilities,
-  coreCapabilitiesBento,
   faqs,
   governanceComponents,
   governanceIntro,
   heroStats,
-  olapVsOltp,
+  industryUseCases,
   platformComparison,
   platformIntro,
   platformQuote,
   processIntro,
   processStepsLanding,
   servicesIntro,
-  whatIsAnalytics,
+  whatIsAi,
   whyToadster,
 } from "./data"
 
-export default function DataAnalyticsPage() {
+export default function ArtificialIntelligencePage() {
   return (
     <div className="data-analytics-landing">
       {/* Hero */}
@@ -37,22 +36,22 @@ export default function DataAnalyticsPage() {
           <div className="da-hero-copy">
             <span className="da-badge">
               <Sparkles size={14} />
-              The Analytics Advantage
+              The Intelligence Revolution
             </span>
             <h1 className="da-hero-title">
-              Enterprise Data Analytics: From Raw Data to{" "}
-              <span className="da-text-accent">Revenue Outcomes</span>
+              Enterprise Artificial Intelligence: From Model to{" "}
+              <span className="da-text-accent">Measurable Outcome</span>
             </h1>
             <p className="da-hero-subtitle">
-              We design and build data analytics systems that turn fragmented enterprise data into governed, real-time
-              decision intelligence — engineered for scale, accuracy, and measurable ROI.
+              We design, build, and deploy production-grade AI systems - from custom LLM integration to autonomous
+              agents and predictive models - engineered to operate reliably inside real enterprise workflows.
             </p>
             <div className="da-hero-actions">
-              <Link href="/contact" className="da-btn da-btn-primary" title="Request a Data Strategy Session">
-                Request a Data Strategy Session
+              <Link href="/contact" className="da-btn da-btn-primary" title="Request an AI Strategy Session">
+                Request an AI Strategy Session
               </Link>
-              <Link href="#services" className="da-btn da-btn-outline" title="Explore Our Services">
-                Explore Our Services
+              <Link href="#services" className="da-btn da-btn-outline" title="Explore AI Use Cases">
+                Explore AI Use Cases
               </Link>
             </div>
           </div>
@@ -60,22 +59,22 @@ export default function DataAnalyticsPage() {
         </div>
       </section>
 
-      {/* What Is Data Analytics */}
+      {/* What Is Artificial Intelligence */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">What Is Data Analytics?</h2>
+          <h2 className="da-section-title">What Is Artificial Intelligence (in an Enterprise Context)?</h2>
         </div>
         <div className="da-container da-content-stack">
-          <DirectAnswer>{whatIsAnalytics.directAnswer}</DirectAnswer>
-          <p className="da-body-text">{whatIsAnalytics.enterpriseDiff}</p>
+          <DirectAnswer>{whatIsAi.directAnswer}</DirectAnswer>
+          <p className="da-body-text">{whatIsAi.enterpriseDiff}</p>
           <div className="da-chain-card">
             <p className="da-chain-label">The decision chain that matters to your business</p>
-            <p className="da-chain-title">{whatIsAnalytics.decisionChain}</p>
-            <p className="da-body-text">{whatIsAnalytics.decisionChainDesc}</p>
+            <p className="da-chain-title">{whatIsAi.decisionChain}</p>
+            <p className="da-body-text">{whatIsAi.decisionChainDesc}</p>
           </div>
         </div>
         <div className="da-container da-advantage-grid da-advantage-grid-spaced">
-          {advantages.map((item) => {
+          {aiSpectrum.map((item) => {
             const Icon = item.icon
             return (
               <article key={item.title} className="da-advantage-card">
@@ -90,85 +89,29 @@ export default function DataAnalyticsPage() {
         </div>
       </section>
 
-      {/* Core Capabilities Bento */}
+      {/* Enterprise AI Services */}
       <section id="services" className="da-section da-section-muted">
-        <div className="da-container da-capabilities-head">
-          <div>
-            <h2 className="da-section-title">Our Enterprise Data Analytics Services</h2>
-            <p className="da-section-subtitle da-section-subtitle-left">{servicesIntro}</p>
-          </div>
-          <Link href="#all-services" className="da-link-arrow" title="View all services">
-            View All Capabilities
-            <ArrowRight size={16} />
-          </Link>
+        <div className="da-container da-section-head">
+          <h2 className="da-section-title">Our Enterprise AI Services</h2>
+          <p className="da-section-subtitle">{servicesIntro}</p>
         </div>
-        <div className="da-container da-bento-grid">
-          {coreCapabilitiesBento.map((item) => {
-            if (item.variant === "dark") {
-              return (
-                <article key={item.title} className="da-bento-card da-bento-card--dark da-bento-card--featured">
-                  <span className="da-bento-badge">{item.badge}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                  <Link href={item.href} className="da-bento-link">
-                    Learn More
-                    <ArrowRight size={16} />
-                  </Link>
-                  <div className="da-bento-dark-visual" aria-hidden />
-                </article>
-              )
-            }
-
-            if (item.variant === "green") {
-              return (
-                <article key={item.title} className="da-bento-card da-bento-card--green">
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                  <span className="da-bento-green-icon">
-                    <Users size={28} strokeWidth={1.75} />
-                  </span>
-                </article>
-              )
-            }
-
-            const Icon = item.icon
-            return (
-              <article
-                key={item.title}
-                className={`da-bento-card da-bento-card--white${item.variant === "outline" ? " da-bento-card--outline" : ""}`}
-              >
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-                {Icon ? (
-                  <span className="da-bento-white-icon">
-                    <Icon size={24} strokeWidth={2} />
-                  </span>
-                ) : null}
-              </article>
-            )
-          })}
-        </div>
-
-        <div id="all-services" className="da-container da-services-grid">
-          {capabilities.map((cap) => {
-            const Icon = cap.icon
-            return (
-              <article key={cap.title} className="da-service-card">
-                <span className="da-advantage-icon">
-                  <Icon size={20} strokeWidth={2} />
-                </span>
-                <h3>{cap.title}</h3>
-                <p>{cap.desc}</p>
-              </article>
-            )
-          })}
-        </div>
+        <TechnologyCapabilityGrid>
+          {capabilities.map((cap) => (
+            <TechnologyCapabilityCard
+              key={cap.title}
+              icon={cap.icon}
+              title={cap.title}
+              desc={cap.desc}
+              ctaAnchor={cap.ctaAnchor}
+            />
+          ))}
+        </TechnologyCapabilityGrid>
       </section>
 
       {/* Architecture */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Data Analytics Architecture: How We Build It</h2>
+          <h2 className="da-section-title">Enterprise AI Architecture: How We Build It</h2>
         </div>
         <div className="da-container da-content-stack da-content-stack-narrow">
           <DirectAnswer>{architectureIntro}</DirectAnswer>
@@ -184,12 +127,12 @@ export default function DataAnalyticsPage() {
         </div>
         <div className="da-container da-table-grid">
           <div>
-            <h3 className="da-subsection-title">Batch Processing vs. Stream Processing</h3>
-            <ComparisonTable headers={batchVsStream.headers} rows={batchVsStream.rows} />
+            <h3 className="da-subsection-title">Predictive AI vs. Generative AI vs. Agentic AI</h3>
+            <ComparisonTable headers={aiTypeComparison.headers} rows={aiTypeComparison.rows} />
           </div>
           <div>
-            <h3 className="da-subsection-title">OLAP vs. OLTP</h3>
-            <ComparisonTable headers={olapVsOltp.headers} rows={olapVsOltp.rows} />
+            <h3 className="da-subsection-title">Fine-Tuning vs. RAG vs. Prompt Engineering</h3>
+            <ComparisonTable headers={approachComparison.headers} rows={approachComparison.rows} />
           </div>
         </div>
       </section>
@@ -197,7 +140,7 @@ export default function DataAnalyticsPage() {
       {/* Platform Comparison */}
       <section className="da-section da-section-muted">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Platform Comparison: Choosing Your Data Stack</h2>
+          <h2 className="da-section-title">Platform & Tooling Comparison</h2>
         </div>
         <div className="da-container da-content-stack da-content-stack-narrow">
           <DirectAnswer>{platformIntro}</DirectAnswer>
@@ -205,35 +148,40 @@ export default function DataAnalyticsPage() {
         <div className="da-container">
           <ComparisonTable headers={platformComparison.headers} rows={platformComparison.rows} />
           <blockquote className="da-quote">
-            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{platformQuote}&rdquo; —
-            Toadster Data Engineering Team
+            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{platformQuote}&rdquo; -
+            Toadster AI Engineering Team
           </blockquote>
         </div>
       </section>
 
-      {/* Analytics Maturity */}
+      {/* Agent Capabilities */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Descriptive vs. Predictive vs. Prescriptive Analytics</h2>
+          <h2 className="da-section-title">Reasoning & Planning, Tool Integration, Memory & Context</h2>
         </div>
         <div className="da-container da-content-stack da-content-stack-narrow">
-          <DirectAnswer>{analyticsMaturityIntro}</DirectAnswer>
+          <DirectAnswer>{agentCapabilitiesIntro}</DirectAnswer>
         </div>
-        <div className="da-container da-maturity-grid">
-          {analyticsMaturity.map((item, index) => (
-            <article key={item.title} className="da-maturity-card">
-              <p className="da-maturity-level">Level {index + 1}</p>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </article>
-          ))}
+        <div className="da-container da-advantage-grid da-advantage-grid-spaced">
+          {agentCapabilities.map((item) => {
+            const Icon = item.icon
+            return (
+              <article key={item.title} className="da-advantage-card">
+                <span className="da-advantage-icon">
+                  <Icon size={22} strokeWidth={2} />
+                </span>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </article>
+            )
+          })}
         </div>
       </section>
 
       {/* Governance */}
       <section className="da-section da-section-muted">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Data Governance & Quality Framework</h2>
+          <h2 className="da-section-title">AI Governance, Risk, and Compliance</h2>
         </div>
         <div className="da-container da-content-stack da-content-stack-narrow">
           <DirectAnswer>{governanceIntro}</DirectAnswer>
@@ -247,16 +195,22 @@ export default function DataAnalyticsPage() {
         </div>
       </section>
 
-      {/* Architecture Patterns */}
+      {/* Industry Use Cases */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Architecture Patterns: Data Mesh vs. Centralized Lakehouse</h2>
+          <h2 className="da-section-title">Industry Use Cases & Outcomes</h2>
+          <p className="da-section-subtitle">
+            Enterprise AI delivers measurable outcomes when tied to a specific, high-frequency decision: diagnostic
+            triage, fraud scoring, or supply-chain routing.
+          </p>
         </div>
-        <div className="da-container da-content-stack">
-          <DirectAnswer>{architecturePatternsIntro}</DirectAnswer>
-        </div>
-        <div className="da-container">
-          <ComparisonTable headers={architecturePatterns.headers} rows={architecturePatterns.rows} />
+        <div className="da-container da-services-grid">
+          {industryUseCases.map((useCase) => (
+            <article key={useCase.title} className="da-service-card">
+              <h3>{useCase.title}</h3>
+              <p>{useCase.desc}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -275,7 +229,7 @@ export default function DataAnalyticsPage() {
       {/* Process */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Our Data Analytics Engineering Process</h2>
+          <h2 className="da-section-title">Our AI Engineering Process</h2>
           <p className="da-section-subtitle">{processIntro}</p>
         </div>
         <div className="da-container da-process-grid">
@@ -292,7 +246,7 @@ export default function DataAnalyticsPage() {
       {/* Why Toadster */}
       <section className="da-section da-section-muted">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Why Enterprises Choose Toadster for Data Analytics Consulting</h2>
+          <h2 className="da-section-title">Why Enterprises Choose Toadster for AI Implementation</h2>
         </div>
         <div className="da-container da-why-grid">
           {whyToadster.map((item) => {
@@ -328,26 +282,24 @@ export default function DataAnalyticsPage() {
       <section className="da-section da-cta-section">
         <div className="da-container">
           <div className="hire-resources-cta da-cta-card text-center">
-            <h2 className="da-cta-title">
-              Ready to Build a Data Analytics Platform That Drives Decisions?
-            </h2>
+            <h2 className="da-cta-title">Ready to Architect the Future of AI?</h2>
             <p className="da-cta-subtitle">
-              Partner with Toadster Technologies to design a data analytics architecture built for accuracy,
-              governance, and measurable business outcomes.
+              Partner with Toadster Technologies to build autonomous systems that drive measurable enterprise value and
+              operational excellence.
             </p>
             <div className="da-cta-actions">
-              <Link href="/contact" className="da-cta-btn da-cta-btn-primary" title="Schedule a Data Strategy Session">
-                Schedule a Data Strategy Session
+              <Link href="/contact" className="da-cta-btn da-cta-btn-primary" title="Schedule Consultation">
+                Schedule Consultation
               </Link>
               <Link
                 href="/contact"
                 className="da-cta-btn da-cta-btn-outline"
-                title="Download Analytics Architecture Guide"
+                title="Download AI Architecture Brochure"
               >
-                Download Analytics Architecture Guide
+                Download AI Architecture Brochure
               </Link>
             </div>
-            <p className="da-cta-footnote">Toadster Technologies — Precision Engineering for Data.</p>
+            <p className="da-cta-footnote">Toadster Technologies - Precision Engineering for AI.</p>
           </div>
         </div>
       </section>

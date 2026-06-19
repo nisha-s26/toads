@@ -1,10 +1,6 @@
 "use client"
 
-import dynamic from "next/dynamic"
-
-const TrustedBy = dynamic(() => import("@/views/homepage/TrustedBy"), {
-  loading: () => <div className="section-full-bleed h-14 shrink-0" aria-hidden />,
-})
+import TrustedBy from "@/views/homepage/TrustedBy"
 
 type LazyTrustedByProps = {
   compact?: boolean

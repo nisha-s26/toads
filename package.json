@@ -3,8 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "next dev",
-    "dev:clean": "rm -rf .next && next dev",
+    "dev": "node scripts/dev.mjs",
+    "dev:webpack": "next dev",
+    "dev:clean": "node scripts/dev.mjs --clean",
     "build": "next build",
     "start": "next start",
     "lint": "eslint ."
