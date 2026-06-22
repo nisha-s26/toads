@@ -3791,13 +3791,13 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
 /* Tablet and general mobile (max 767px) */
 @media (max-width: 767px) {
   /* Hero: stack form below content with appropriate gap */
-  .hire-page-shell .lg\\:col-span-7,
-  .hire-page-shell .lg\\:col-span-5 {
+  .hire-page-shell [class*="lg:col-span-7"],
+  .hire-page-shell [class*="lg:col-span-5"] {
     grid-column: span 12;
   }
 
   /* Bottleneck section: stack on mobile */
-  .hire-page-shell .lg\\:col-span-5.flex.flex-col {
+  .hire-page-shell [class*="lg:col-span-5"].flex.flex-col {
     order: -1;
   }
 
@@ -3808,13 +3808,13 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   }
 
   /* Skill matrix – 1 col on mobile */
-  .hire-page-shell .md\\:grid-cols-3 {
+  .hire-page-shell [class*="md:grid-cols-3"] {
     grid-template-columns: 1fr;
   }
 
   /* Deliverables grid on mobile */
-  .hire-page-shell .lg\\:grid-cols-12 > .lg\\:col-span-5,
-  .hire-page-shell .lg\\:grid-cols-12 > .lg\\:col-span-7 {
+  .hire-page-shell [class*="lg:grid-cols-12"] > [class*="lg:col-span-5"],
+  .hire-page-shell [class*="lg:grid-cols-12"] > [class*="lg:col-span-7"] {
     grid-column: span 12;
   }
 
@@ -3831,13 +3831,13 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
 
   /* CTA banner padding */
   .hire-resources-cta,
-  .hire-page-shell [class*="rounded-\\[1.75rem\\]"] {
+  .hire-page-shell [class*="rounded-[1.75rem]"] {
     padding: 2rem 1.25rem;
     border-radius: 1.25rem;
   }
 
   /* CTA headline */
-  .hire-page-shell .text-3xl.sm\\:text-4xl {
+  .hire-page-shell .text-3xl[class*="sm:text-4xl"] {
     font-size: clamp(1.5rem, 6vw, 2rem);
   }
 
@@ -3848,7 +3848,7 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   }
 
   /* hire-role-card grid: 1 col on very small, 2 col from sm */
-  .hire-page-shell .sm\\:grid-cols-2 {
+  .hire-page-shell [class*="sm:grid-cols-2"] {
     grid-template-columns: 1fr;
   }
 
@@ -3884,12 +3884,12 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
 /* Tablet (640px – 1023px) adjustments */
 @media (min-width: 640px) and (max-width: 1023px) {
   /* Two column hire role cards on tablet */
-  .hire-page-shell .sm\\:grid-cols-2 {
+  .hire-page-shell [class*="sm:grid-cols-2"] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   /* Skill matrix 2 cols */
-  .hire-page-shell .md\\:grid-cols-3:not(.grid-cols-1) {
+  .hire-page-shell [class*="md:grid-cols-3"]:not(.grid-cols-1) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -3912,11 +3912,11 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   }
 
   /* Process steps – show horizontal on tablet */
-  .hire-page-shell .hidden.md\\:block {
+  .hire-page-shell .hidden[class*="md:block"] {
     display: block;
   }
 
-  .hire-page-shell .md\\:hidden {
+  .hire-page-shell [class*="md:hidden"] {
     display: none;
   }
 }
@@ -3933,19 +3933,19 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   }
 
   /* Deliverables bottom row – 1 col on mobile */
-  .hire-page-shell .grid-cols-1.sm\:grid-cols-2.gap-6 {
+  .hire-page-shell [class*="sm:grid-cols-2"].grid-cols-1.gap-6 {
     grid-template-columns: 1fr;
   }
 }
 
 /* Global section padding responsive fix for hire pages */
 @media (max-width: 639px) {
-  .hire-page-shell section.py-20 {
+  .hire-page-shell section[class*="py-20"] {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
   }
 
-  .hire-page-shell section.px-6 {
+  .hire-page-shell section[class*="px-6"] {
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -3959,17 +3959,17 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   }
 
   /* Make deliverables section inner sections stack cleanly */
-  .hire-page-shell .p-8.sm\:p-12 {
+  .hire-page-shell [class*="p-8"][class*="sm:p-12"] {
     padding: 1.25rem;
     border-radius: 1.25rem;
   }
 
-  .hire-page-shell .min-h-\[380px\] {
+  .hire-page-shell [class*="min-h-[380px]"] {
     min-height: 280px;
   }
 
   /* CTA banner responsive */
-  .hire-page-shell .p-8.sm\:p-14 {
+  .hire-page-shell [class*="p-8"][class*="sm:p-14"] {
     padding: 1.5rem 1rem;
   }
 
