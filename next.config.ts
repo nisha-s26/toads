@@ -37,7 +37,7 @@ const nextConfig: NextConfig = {
     return config
   },
   images: {
-    qualities: [75, 80, 90],
+    qualities: [75, 80, 90, 95],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "plus.unsplash.com" },

@@ -75,8 +75,8 @@ const HIRE_ROLES: HireRole[] = [
 
 export default function HireResources() {
   return (
-    <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center px-4 pb-8 pt-0">
-      <div className="mx-auto max-w-9xl px-4 lg:px-20">
+    <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center pb-8 pt-0">
+      <div className="hire-page-container">
         <ScrollReveal className="mb-8 text-center md:mb-10">
           {/* <p className="section-eyebrow-heading text-2xl font-normal tracking-[0.35em]">
             HIRE <span className="font-extrabold">RESOURCES</span>
@@ -113,7 +113,7 @@ export default function HireResources() {
       </div>
 
       <ScrollReveal className="section-full-bleed mt-14 md:mt-16">
-        <div className="mx-auto max-w-9xl px-4 lg:px-20">
+        <div className="hire-page-container">
           <div className="hire-resources-cta relative overflow-hidden rounded-[1.75rem] px-6 py-10 text-center sm:px-10 sm:py-12 md:px-14 md:py-14">
             <h3 className="mx-auto max-w-3xl text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl">
               Not sure which role fits? Let&apos;s figure it out.

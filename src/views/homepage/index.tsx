@@ -34,14 +34,14 @@ const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
         className="homepage-snap-section homepage-hero-viewport homepage-hero-viewport--image relative flex flex-col overflow-hidden"
       >
         <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
-          <div className="homepage-hero-bg-image absolute inset-0 max-sm:blur-xs">
+          <div className="homepage-hero-bg-image absolute inset-0">
             <Image
               src="/homepage-hero-light.webp"
               alt=""
               fill
               priority
               fetchPriority="high"
-              quality={80}
+              quality={95}
               sizes="100vw"
               className="object-cover object-center dark:hidden"
             />
@@ -51,7 +51,7 @@ const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
               fill
               priority
               fetchPriority="high"
-              quality={80}
+              quality={95}
               sizes="100vw"
               className="hidden object-cover object-center dark:block"
             />

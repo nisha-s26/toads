@@ -48,6 +48,9 @@ const TECHNOLOGY_LINKS: InternalLink[] = [
   { to: "/technologies/artificial-intelligence", label: "Artificial Intelligence" },
   { to: "/technologies/iot", label: "IoT" },
   { to: "/technologies/augmented-reality", label: "Augmented Reality" },
+  { to: "/technologies/penetration-testing", label: "Penetration Testing" },
+  { to: "/technologies/devops", label: "DevOps" },
+  { to: "/technologies/saas-app-development", label: "SaaS App Development" },
 ]
 
 import { HIRE_RESOURCES, getHireResourcePath } from "@/config/hire-resources"

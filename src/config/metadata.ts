@@ -155,6 +155,21 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description:
       "Enterprise AR services from Toadster — AR application development, head-mounted display integration, 3D content, remote assistance, and analytics for spatial computing deployments.",
   },
+  "/technologies/penetration-testing": {
+    title: "Penetration Testing Services | Toadster Technologies",
+    description:
+      "Enterprise penetration testing from Toadster — network, web application, API, and cloud security assessments aligned to OWASP, PTES, and NIST SP 800-115 with risk-prioritized reporting.",
+  },
+  "/technologies/devops": {
+    title: "DevOps Services | Toadster Technologies",
+    description:
+      "Enterprise DevOps from Toadster — CI/CD pipeline design, infrastructure as code, Kubernetes, observability, and SRE built for faster, more reliable software delivery.",
+  },
+  "/technologies/saas-app-development": {
+    title: "SaaS App Development Services | Toadster Technologies",
+    description:
+      "Enterprise SaaS app development from Toadster — multi-tenant architecture, subscription billing, authentication, scaling infrastructure, and compliance built for growth from first customer to millions.",
+  },
   "/services/industry-solutions": {
     title: "AI Industry Solutions | Toadster",
     description:

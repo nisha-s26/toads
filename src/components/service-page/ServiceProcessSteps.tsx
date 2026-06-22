@@ -16,7 +16,7 @@ interface ServiceProcessStepsProps {
   highlightMode?: "scroll" | "hover"
 }
 
-export function ServiceProcessSteps({ steps, highlightMode = "scroll" }: ServiceProcessStepsProps) {
+export function ServiceProcessSteps({ steps, highlightMode = "hover" }: ServiceProcessStepsProps) {
   const stepRefs = useRef<(HTMLElement | null)[]>([])
   const [activeIndex, setActiveIndex] = useState<number | null>(highlightMode === "hover" ? null : 0)
 

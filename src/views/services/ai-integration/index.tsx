@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { Settings, Network, Shield, TrendingUp, Clock, Users, Zap, ChevronDown, CheckCircle, Star, Database, Cloud, Code2, Activity, GitBranch, BarChart3 } from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
+import { ServiceHeroViewport } from "@/components/service-page/ServiceHeroViewport"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false)
@@ -23,7 +24,9 @@ export default function AIIntegrationPage() {
   return (
     <div className="service-page bg-page-bg text-page-fg">
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden  py-28">
+      <ServiceHeroViewport>
+
+      <section className="service-page-hero relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20" style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }} />
         </div>
@@ -41,6 +44,8 @@ export default function AIIntegrationPage() {
       </section>
       <ServicesTrustedBy />
 
+
+      </ServiceHeroViewport>
       {/* ── SERVICES ── */}
       <section className="py-20 bg-page-bg">
         <div className="service-page-container">
@@ -247,10 +252,9 @@ export default function AIIntegrationPage() {
 
       {/* ── FAQ ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-3xl mx-auto">
+        <div className="faq-section-layout">
           <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
-            <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
+<h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[
             { q: "What systems can you integrate AI into?", a: "We integrate AI into virtually any system - Salesforce, HubSpot, SAP, custom APIs, databases, cloud platforms (AWS/GCP/Azure), SaaS tools, mobile apps, and legacy systems via secure middleware." },

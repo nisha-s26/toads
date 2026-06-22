@@ -8,6 +8,7 @@ import { SectionHead } from "@/components/service-page/SectionHead"
 import { FAQSection } from "@/components/service-page/FAQSection"
 import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
+import { ServiceHeroViewport } from "@/components/service-page/ServiceHeroViewport"
 import { ServiceStatRow } from "@/components/service-page/ServiceStatRow"
 import { ServicePageCta } from "@/components/service-page/ServicePageCta"
 import {
@@ -149,9 +150,11 @@ function HeroConsultationForm() {
 export default function CybersecurityPage() {
   return (
     <div className="service-page modern-service-page cybersecurity-service-page bg-page-bg text-page-fg">
+      <ServiceHeroViewport>
+
       <section
         id="contact"
-        className="software-development-hero section-full-bleed relative overflow-hidden pb-10 md:pb-14 lg:pb-20 bg-page-bg"
+        className="software-development-hero section-full-bleed relative overflow-hidden bg-page-bg"
       >
         <div className="service-hero-grid relative mx-auto grid w-full items-start gap-8 lg:gap-14">
           <div className="service-hero-content lg:sticky lg:top-24 self-start">
@@ -186,6 +189,8 @@ export default function CybersecurityPage() {
 
       <LazyTrustedBy compact />
 
+
+      </ServiceHeroViewport>
       <section id="services" className="section-padding py-16 bg-page-bg-alt">
         <div className="service-page-container px-4">
           <SectionHead
@@ -394,11 +399,7 @@ export default function CybersecurityPage() {
 
       
 
-      <FAQSection
-        faqs={faqs}
-        title="Questions We Hear Before Every Security Engagement"
-        subtitle="Straightforward answers to the things decision-makers actually want to know."
-      />
+      <FAQSection faqs={faqs} />
       <ServicePageCta
         title="Let's Talk About Your Security Requirements"
 

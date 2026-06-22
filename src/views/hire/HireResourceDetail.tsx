@@ -774,8 +774,9 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
     <div className={`hire-page-shell relative isolate text-page-fg font-sans min-h-screen pt-28 pb-16 ${isDark ? 'homepage-mesh-shell' : ''}`}>
       {isDark && <HomepageMeshBg />}
 
+      <div className="hire-page-container">
       {/* ── SECTION 1: HERO SECTION ── */}
-      <section className="relative px-6 lg:px-16 max-w-7xl mx-auto mb-20 z-10">
+      <section className="relative mb-20 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
           {/* Left Column (Hero Content) */}
@@ -788,7 +789,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
               {isFlutter ? (
                 <>
                   Hire Expert{" "}
-                  <span className="text-[#004d2d]">Flutter Developers</span>
+                  <span className="text-toadster-green">Flutter Developers</span>
                 </>
               ) : (
                 <>
@@ -876,7 +877,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
           </div>
 
           {/* Right Column (Form Panel) */}
-          <div id="hire-rfp-form" className="lg:col-span-5 w-full">
+          <div id="hire-rfp-form" className="lg:col-span-5">
             <HireResourceRfpForm
               roleTitle={resource.heroTitle}
               formSubtext={
@@ -917,8 +918,8 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
       </section>
 
       {/* ── SECTION 2: TECH STACK & SKILL MATRIX ── */}
-      <section className="py-20 px-6 lg:px-16 relative z-10">
-        <div className="max-w-7xl mx-auto text-center flex flex-col gap-3 mb-16">
+      <section className="py-20 relative z-10">
+        <div className="w-full text-center flex flex-col gap-3 mb-16">
           <span className="text-xs font-bold uppercase tracking-wider text-page-fg-muted">
 
           </span>
@@ -931,7 +932,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-7xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full items-stretch">
           {skillColumns.map((col, index) => {
             const IconComponent = col.icon
             return (
@@ -949,8 +950,8 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
       </section>
 
       {/* ── SECTION 3: SOLVE CRITICAL DELIVERY BOTTLENECKS ── */}
-      <section className="py-20 px-6 lg:px-16 relative z-10">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 relative z-10">
+        <div className="w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
             {/* Left Info & Graphic Column */}
@@ -996,7 +997,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
       </section>
 
       {/* ── SECTION 4: ENTERPRISE GRADE DELIVERABLES ── */}
-      <section className="py-20 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+      <section className="py-20 relative z-10 w-full">
         <div className="bg-[#003820] dark:bg-white rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col gap-12">
 
           {/* Header */}
@@ -1112,7 +1113,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
       </section>
 
       {/* ── SECTION 5: SEAMLESS 3-STEP INTEGRATION ── */}
-      <section className="py-20 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+      <section className="py-20 relative z-10 w-full">
         <div className="text-center flex flex-col gap-3 mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
             Seamless 3-Step Integration
@@ -1129,7 +1130,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
       {/* ── SECTION 6: FLUTTER ROLES YOU CAN HIRE ── */}
       {isFlutter && rolesSection?.items && (
-        <section className="py-20 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+        <section className="py-20 relative z-10 w-full">
           <div className="text-center flex flex-col gap-3 mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
               {rolesSection.heading}
@@ -1162,7 +1163,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
       {/* ── SECTION 7: FLEXIBLE ENGAGEMENT MODELS ── */}
       {isFlutter && engagementSection?.items && (
-        <section className="py-20 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+        <section className="py-20 relative z-10 w-full">
           <div className="text-center flex flex-col gap-3 mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
               {engagementSection.heading}
@@ -1199,7 +1200,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
       )}
 
       {/* ── SECTION 6: THE TOADSTER ADVANTAGE TABLE ── */}
-      <section className="py-20 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+      <section className="py-20 relative z-10 w-full">
         <div className="text-center flex flex-col gap-3 mb-12">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
             {isFlutter ? "How Dedicated Flutter Developers Compare" : (isReactNative ? "Why Dedicated Beats Every Other Option for React Native Talent" : (isDevOps ? "Why Dedicated Beats Every Other Option for DevOps Talent" : (isIos ? "Why Dedicated Beats Every Other Option for iOS Talent" : (isAndroid ? "Why Dedicated Beats Every Other Option for Android Talent" : (isReact ? "Why Dedicated Beats Every Other Option for React Talent" : "The Toadster Advantage")))))}
@@ -1236,7 +1237,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
       {/* ── SECTION 10: WHY TOADSTER ── */}
       {isFlutter && whyToadsterSection?.items && (
-        <section className="py-20 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+        <section className="py-20 relative z-10 w-full">
           <div className="text-center flex flex-col gap-3 mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
               {whyToadsterSection.heading}
@@ -1262,7 +1263,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
       {/* ── SECTION 11: PRICING ── */}
       {isFlutter && pricingSection?.items && (
-        <section className="py-20 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+        <section className="py-20 relative z-10 w-full">
           <div className="text-center flex flex-col gap-3 mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
               {pricingSection.heading}
@@ -1297,7 +1298,8 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
       {/* ── SECTION 12: FAQ ── */}
       {(isFlutter || isReactNative || isDevOps || isIos || isAndroid || isReact) && resource.faqs.length > 0 && (
-        <section className="py-20 px-6 lg:px-16 relative z-10 max-w-4xl mx-auto">
+        <section className="py-20 relative z-10">
+          <div className="faq-section-layout">
           <div className="text-center flex flex-col gap-3 mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
               Frequently Asked Questions
@@ -1312,11 +1314,12 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
               <HomepageFaqItem key={faq.question} question={faq.question} answer={faq.answer} />
             ))}
           </div>
+          </div>
         </section>
       )}
 
       {/* ── SECTION 13: BOTTOM CONVERSION BANNER ── */}
-      <section className="py-20 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+      <section className="py-20 relative z-10 w-full">
         <div className={isDark
           ? "bg-white text-black rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center relative overflow-hidden border border-slate-200 shadow-2xl"
           : "hire-resources-cta relative overflow-hidden rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center"
@@ -1336,8 +1339,8 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
               type="button"
               onClick={scrollToForm}
               className={`inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold shadow-sm transition-all ${isDark
-                ? 'bg-[#004d2d] hover:bg-[#003820] text-white'
-                : 'bg-white hover:bg-slate-50 text-[#003820]'
+                ? 'bg-primary hover:bg-primary-hover text-white'
+                : 'bg-white hover:bg-slate-50 text-primary'
                 }`}
             >
               {bottomBanner.secondaryCta}
@@ -1352,6 +1355,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
         </div>
       </section>
 
+      </div>
     </div>
   )
 }

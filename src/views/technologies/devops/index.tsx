@@ -1,57 +1,56 @@
 import Link from "next/link"
-import { Sparkles } from "lucide-react"
+import { Server } from "lucide-react"
 import { FaqItem } from "../shared/FaqItem"
 import { ComparisonTable, DirectAnswer, HeroVisual } from "../shared/TechnologyPrimitives"
 import { TechnologyCapabilityCard, TechnologyCapabilityGrid } from "../shared/TechnologyCapabilityCard"
 import {
-  agentCapabilities,
-  agentCapabilitiesIntro,
-  aiSpectrum,
-  aiTypeComparison,
-  approachComparison,
   architectureIntro,
   architectureSteps,
   capabilities,
+  ciCdMaturityIntro,
+  ciCdMaturityLevels,
+  cicdVsTraditionalComparison,
+  devSecOpsComponents,
+  devSecOpsIntro,
+  devopsMaturityStages,
   faqs,
-  governanceComponents,
-  governanceIntro,
-  heroStats,
+  iacVsManualComparison,
   industryUseCases,
+  industryUseCasesIntro,
   platformComparison,
   platformIntro,
   platformQuote,
   processIntro,
   processStepsLanding,
   servicesIntro,
-  whatIsAi,
+  whatIsDevOps,
   whyToadster,
 } from "./data"
 
-export default function ArtificialIntelligencePage() {
+export default function DevOpsPage() {
   return (
     <div className="data-analytics-landing">
-      {/* Hero */}
       <section className="da-hero">
         <div className="da-container da-hero-grid">
           <div className="da-hero-copy">
             <span className="da-badge">
-              <Sparkles size={14} />
-              The Intelligence Revolution
+              <Server size={14} />
+              The Delivery Advantage
             </span>
             <h1 className="da-hero-title">
-              Enterprise Artificial Intelligence: From Model to{" "}
-              <span className="da-text-accent">Measurable Outcome</span>
+              Enterprise DevOps: Engineering Speed Without Sacrificing{" "}
+              <span className="da-text-accent">Stability</span>
             </h1>
             <p className="da-hero-subtitle">
-              We design, build, and deploy production-grade AI systems - from custom LLM integration to autonomous
-              agents and predictive models - engineered to operate reliably inside real enterprise workflows.
+              We design and implement CI/CD pipelines, infrastructure automation, and observability systems that let
+              enterprise teams ship faster, recover quicker, and scale infrastructure without manual bottlenecks.
             </p>
             <div className="da-hero-actions">
-              <Link href="/contact" className="da-btn da-btn-primary" title="Request an AI Strategy Session">
-                Request an AI Strategy Session
+              <Link href="/contact" className="da-btn da-btn-primary" title="Request a DevOps Assessment">
+                Request a DevOps Assessment
               </Link>
-              <Link href="#services" className="da-btn da-btn-outline" title="Explore AI Use Cases">
-                Explore AI Use Cases
+              <Link href="#services" className="da-btn da-btn-outline" title="Explore Case Studies">
+                Explore Case Studies
               </Link>
             </div>
           </div>
@@ -59,22 +58,21 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* What Is Artificial Intelligence */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">What Is Artificial Intelligence (in an Enterprise Context)?</h2>
+          <h2 className="da-section-title">What Is DevOps?</h2>
         </div>
         <div className="da-container da-content-stack">
-          <DirectAnswer>{whatIsAi.directAnswer}</DirectAnswer>
-          <p className="da-body-text">{whatIsAi.enterpriseDiff}</p>
+          <DirectAnswer>{whatIsDevOps.directAnswer}</DirectAnswer>
+          <p className="da-body-text">{whatIsDevOps.enterpriseDiff}</p>
           <div className="da-chain-card">
             <p className="da-chain-label">The decision chain that matters to your business</p>
-            <p className="da-chain-title">{whatIsAi.decisionChain}</p>
-            <p className="da-body-text">{whatIsAi.decisionChainDesc}</p>
+            <p className="da-chain-title">{whatIsDevOps.decisionChain}</p>
+            <p className="da-body-text">{whatIsDevOps.decisionChainDesc}</p>
           </div>
         </div>
         <div className="da-container da-advantage-grid da-advantage-grid-spaced">
-          {aiSpectrum.map((item) => {
+          {devopsMaturityStages.map((item) => {
             const Icon = item.icon
             return (
               <article key={item.title} className="da-advantage-card">
@@ -89,10 +87,9 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* Enterprise AI Services */}
       <section id="services" className="da-section da-section-muted">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Our Enterprise AI Services</h2>
+          <h2 className="da-section-title">Our Enterprise DevOps Services</h2>
           <p className="da-section-subtitle">{servicesIntro}</p>
         </div>
         <TechnologyCapabilityGrid>
@@ -108,10 +105,9 @@ export default function ArtificialIntelligencePage() {
         </TechnologyCapabilityGrid>
       </section>
 
-      {/* Architecture */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Enterprise AI Architecture: How We Build It</h2>
+          <h2 className="da-section-title">DevOps Architecture: How We Build It</h2>
         </div>
         <div className="da-container da-content-stack da-content-stack-narrow">
           <DirectAnswer>{architectureIntro}</DirectAnswer>
@@ -127,17 +123,16 @@ export default function ArtificialIntelligencePage() {
         </div>
         <div className="da-container da-table-grid">
           <div>
-            <h3 className="da-subsection-title">Predictive AI vs. Generative AI vs. Agentic AI</h3>
-            <ComparisonTable headers={aiTypeComparison.headers} rows={aiTypeComparison.rows} />
+            <h3 className="da-subsection-title">CI/CD vs. Traditional Release Management</h3>
+            <ComparisonTable headers={cicdVsTraditionalComparison.headers} rows={cicdVsTraditionalComparison.rows} />
           </div>
           <div>
-            <h3 className="da-subsection-title">Fine-Tuning vs. RAG vs. Prompt Engineering</h3>
-            <ComparisonTable headers={approachComparison.headers} rows={approachComparison.rows} />
+            <h3 className="da-subsection-title">Infrastructure as Code vs. Manual Provisioning</h3>
+            <ComparisonTable headers={iacVsManualComparison.headers} rows={iacVsManualComparison.rows} />
           </div>
         </div>
       </section>
 
-      {/* Platform Comparison */}
       <section className="da-section da-section-muted">
         <div className="da-container da-section-head">
           <h2 className="da-section-title">Platform & Tooling Comparison</h2>
@@ -148,28 +143,30 @@ export default function ArtificialIntelligencePage() {
         <div className="da-container">
           <ComparisonTable headers={platformComparison.headers} rows={platformComparison.rows} />
           <blockquote className="da-quote">
-            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{platformQuote}&rdquo; -
-            Toadster AI Engineering Team
+            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{platformQuote}&rdquo; —
+            Toadster Platform Engineering Team
           </blockquote>
         </div>
       </section>
 
-      {/* Agent Capabilities */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Reasoning & Planning, Tool Integration, Memory & Context</h2>
+          <h2 className="da-section-title">
+            Continuous Integration vs. Continuous Delivery vs. Continuous Deployment
+          </h2>
         </div>
         <div className="da-container da-content-stack da-content-stack-narrow">
-          <DirectAnswer>{agentCapabilitiesIntro}</DirectAnswer>
+          <DirectAnswer>{ciCdMaturityIntro}</DirectAnswer>
         </div>
-        <div className="da-container da-advantage-grid da-advantage-grid-spaced">
-          {agentCapabilities.map((item) => {
+        <div className="da-container da-maturity-grid">
+          {ciCdMaturityLevels.map((item, index) => {
             const Icon = item.icon
             return (
-              <article key={item.title} className="da-advantage-card">
+              <article key={item.title} className="da-maturity-card">
                 <span className="da-advantage-icon">
-                  <Icon size={22} strokeWidth={2} />
+                  <Icon size={20} strokeWidth={2} />
                 </span>
+                <p className="da-maturity-level">Level {index + 1}</p>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
               </article>
@@ -178,16 +175,15 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* Governance */}
       <section className="da-section da-section-muted">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">AI Governance, Risk, and Compliance</h2>
+          <h2 className="da-section-title">DevSecOps & Compliance Integration</h2>
         </div>
         <div className="da-container da-content-stack da-content-stack-narrow">
-          <DirectAnswer>{governanceIntro}</DirectAnswer>
+          <DirectAnswer>{devSecOpsIntro}</DirectAnswer>
         </div>
         <div className="da-container da-governance-grid">
-          {governanceComponents.map((item) => (
+          {devSecOpsComponents.map((item) => (
             <div key={item} className="da-governance-item">
               {item}
             </div>
@@ -195,14 +191,10 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* Industry Use Cases */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
           <h2 className="da-section-title">Industry Use Cases & Outcomes</h2>
-          <p className="da-section-subtitle">
-            Enterprise AI delivers measurable outcomes when tied to a specific, high-frequency decision: diagnostic
-            triage, fraud scoring, or supply-chain routing.
-          </p>
+          <p className="da-section-subtitle">{industryUseCasesIntro}</p>
         </div>
         <div className="da-container da-services-grid">
           {industryUseCases.map((useCase) => (
@@ -214,22 +206,9 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="da-stats">
-        <div className="da-container da-stats-grid">
-          {heroStats.map((stat) => (
-            <div key={stat.label} className="da-stat">
-              <p className="da-stat-value">{stat.value}</p>
-              <p className="da-stat-label">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="da-section da-section-light">
+      <section className="da-section da-section-muted">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Our AI Engineering Process</h2>
+          <h2 className="da-section-title">Our DevOps Engineering Process</h2>
           <p className="da-section-subtitle">{processIntro}</p>
         </div>
         <div className="da-container da-process-grid">
@@ -243,10 +222,9 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* Why Toadster */}
-      <section className="da-section da-section-muted">
+      <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Why Enterprises Choose Toadster for AI Implementation</h2>
+          <h2 className="da-section-title">Why Enterprises Choose Toadster for DevOps Implementation</h2>
         </div>
         <div className="da-container da-why-grid">
           {whyToadster.map((item) => {
@@ -264,7 +242,6 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="da-section da-faq-section">
         <div className="faq-section-layout da-faq-wrap">
           <div className="da-faq-heading">
@@ -278,28 +255,23 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="da-section da-cta-section">
         <div className="da-container">
           <div className="hire-resources-cta da-cta-card text-center">
-            <h2 className="da-cta-title">Ready to Architect the Future of AI?</h2>
+            <h2 className="da-cta-title">Ready to Engineer Faster, More Reliable Delivery?</h2>
             <p className="da-cta-subtitle">
-              Partner with Toadster Technologies to build autonomous systems that drive measurable enterprise value and
-              operational excellence.
+              Partner with Toadster Technologies to build CI/CD pipelines and infrastructure that turn deployment speed
+              into a competitive advantage.
             </p>
             <div className="da-cta-actions">
               <Link href="/contact" className="da-cta-btn da-cta-btn-primary" title="Schedule Consultation">
                 Schedule Consultation
               </Link>
-              <Link
-                href="/contact"
-                className="da-cta-btn da-cta-btn-outline"
-                title="Download AI Architecture Brochure"
-              >
-                Download AI Architecture Brochure
+              <Link href="/contact" className="da-cta-btn da-cta-btn-outline" title="Download DevOps Architecture Guide">
+                Download DevOps Architecture Guide
               </Link>
             </div>
-            <p className="da-cta-footnote">Toadster Technologies - Precision Engineering for AI.</p>
+            <p className="da-cta-footnote">Toadster Technologies — Precision Engineering for Delivery.</p>
           </div>
         </div>
       </section>

@@ -38,8 +38,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export function FAQSection({
   faqs,
-  title = "Questions we hear before every project",
-  subtitle = "Straightforward answers to the things decision-makers actually want to know.",
+  title = "Frequently Asked Questions",
+  subtitle,
 }: {
   faqs: ServiceFaq[]
   title?: string
@@ -54,13 +54,8 @@ export function FAQSection({
 
   return (
     <section id="faq" className="section-padding bg-page-bg-alt py-16">
-      <div className="service-page-container px-4">
-        <SectionHead
-          label=""
-          title={title}
-          subtitle={subtitle}
-          centered
-        />
+      <div className="faq-section-layout px-4">
+        <SectionHead label="" title={title} subtitle={subtitle} centered />
         <div className="flex flex-col gap-4">
           {visibleFaqs.map((item) => (
             <FAQItem key={item.question} question={item.question} answer={item.answer} />

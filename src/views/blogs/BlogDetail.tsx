@@ -790,7 +790,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
           <div className="absolute top-0 right-0 w-72 h-72 bg-toadster-green/5 rounded-full -translate-y-1/3 translate-x-1/3 blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-toadster-green/5 rounded-full translate-y-1/3 -translate-x-1/3 blur-3xl"></div>
 
-          <div className="max-w-4xl mx-auto relative z-10">
+          <div className="faq-section-layout relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}

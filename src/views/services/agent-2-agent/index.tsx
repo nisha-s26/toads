@@ -18,6 +18,7 @@ import {
   Target,
   ArrowLeftRight} from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
+import { ServiceHeroViewport } from "@/components/service-page/ServiceHeroViewport"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false)
@@ -130,7 +131,9 @@ export default function Agent2AgentPage() {
     <div className="service-page bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden  py-28">
+      <ServiceHeroViewport>
+
+      <section className="service-page-hero relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20"
@@ -163,6 +166,8 @@ export default function Agent2AgentPage() {
       </section>
       <ServicesTrustedBy />
 
+
+      </ServiceHeroViewport>
       {/* ── CAPABILITIES ── */}
       <section id="agent-services" className="py-20 bg-page-bg">
         <div className="service-page-container">
@@ -375,14 +380,9 @@ export default function Agent2AgentPage() {
 
       {/* ── FAQ ── */}
       <section className="py-20 bg-page-bg-alt">
-        <div className="max-w-3xl mx-auto">
+        <div className="faq-section-layout">
           <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">
-              FAQ
-            </p>
-            <h2 className="text-4xl font-extrabold">
-              Common <span className="text-green-400">Questions</span>
-            </h2>
+            <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           <div>
             {faqs.map((f) => (

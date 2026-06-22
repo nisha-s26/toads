@@ -192,12 +192,10 @@ export default function HomepageFaq() {
       id="faq"
       className="homepage-snap-section relative isolate flex flex-col justify-center px-4 pb-6 pt-0 sm:pb-8 md:pb-8 lg:px-20"
     >
-      <div className="relative z-10 mx-auto w-full max-w-5xl">
+      <div className="relative z-10 mx-auto faq-section-layout">
         <ScrollReveal className="mb-8 text-center md:mb-10">
-          {/* <p className="section-eyebrow-heading text-2xl font-bold tracking-[0.35em]">FAQ</p> */}
-          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
-            <span className="text-page-fg">Frequently Asked </span>
-            <span className="text-toadster-green">Questions</span>
+          <h2 className="text-3xl font-extrabold text-page-fg sm:text-4xl md:text-5xl lg:text-6xl">
+            Frequently Asked Questions
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base text-page-fg-muted sm:text-lg md:text-xl">
             Everything you need to know about working with Toadster Technologies.

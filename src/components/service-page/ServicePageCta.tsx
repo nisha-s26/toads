@@ -23,7 +23,7 @@ export function ServicePageCta({ title, children, footnote }: ServicePageCtaProp
             <Link
               href="/contact"
               title="Talk to an expert"
-              className="inline-flex min-w-[160px] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#003820] shadow-sm transition-colors hover:bg-slate-50"
+              className="inline-flex min-w-[160px] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-primary shadow-sm transition-colors hover:bg-slate-50"
             >
               Talk to an Expert
               <ArrowRight size={16} />

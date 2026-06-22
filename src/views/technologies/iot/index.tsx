@@ -267,7 +267,7 @@ export default function IotPage() {
 
       {/* FAQ */}
       <section className="da-section da-faq-section">
-        <div className="da-container da-faq-wrap">
+        <div className="faq-section-layout da-faq-wrap">
           <div className="da-faq-heading">
             <h2>Frequently Asked Questions</h2>
           </div>

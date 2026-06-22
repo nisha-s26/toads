@@ -1,57 +1,61 @@
 import Link from "next/link"
-import { Sparkles } from "lucide-react"
+import { ShieldCheck } from "lucide-react"
 import { FaqItem } from "../shared/FaqItem"
 import { ComparisonTable, DirectAnswer, HeroVisual } from "../shared/TechnologyPrimitives"
 import { TechnologyCapabilityCard, TechnologyCapabilityGrid } from "../shared/TechnologyCapabilityCard"
 import {
-  agentCapabilities,
-  agentCapabilitiesIntro,
-  aiSpectrum,
-  aiTypeComparison,
-  approachComparison,
-  architectureIntro,
-  architectureSteps,
   capabilities,
+  complianceFrameworks,
+  complianceIntro,
   faqs,
-  governanceComponents,
-  governanceIntro,
-  heroStats,
   industryUseCases,
-  platformComparison,
-  platformIntro,
-  platformQuote,
+  industryUseCasesIntro,
+  methodologyIntro,
+  methodologySteps,
   processIntro,
   processStepsLanding,
+  riskPrioritizationFactors,
+  riskPrioritizationIntro,
+  scanVsPentestComparison,
   servicesIntro,
-  whatIsAi,
+  standardsComparison,
+  standardsIntro,
+  standardsQuote,
+  testingApproachComparison,
+  testingCategories,
+  whatIsPenetrationTesting,
   whyToadster,
 } from "./data"
 
-export default function ArtificialIntelligencePage() {
+export default function PenetrationTestingPage() {
   return (
     <div className="data-analytics-landing">
-      {/* Hero */}
       <section className="da-hero">
         <div className="da-container da-hero-grid">
           <div className="da-hero-copy">
             <span className="da-badge">
-              <Sparkles size={14} />
-              The Intelligence Revolution
+              <ShieldCheck size={14} />
+              The Security Assurance Advantage
             </span>
             <h1 className="da-hero-title">
-              Enterprise Artificial Intelligence: From Model to{" "}
-              <span className="da-text-accent">Measurable Outcome</span>
+              Enterprise Penetration Testing: Find the Breach Before an{" "}
+              <span className="da-text-accent">Attacker Does</span>
             </h1>
             <p className="da-hero-subtitle">
-              We design, build, and deploy production-grade AI systems - from custom LLM integration to autonomous
-              agents and predictive models - engineered to operate reliably inside real enterprise workflows.
+              We simulate real-world attacks against your applications, networks, and cloud infrastructure to find
+              exploitable vulnerabilities before adversaries do — with findings prioritized by actual business risk, not
+              just severity scores.
             </p>
             <div className="da-hero-actions">
-              <Link href="/contact" className="da-btn da-btn-primary" title="Request an AI Strategy Session">
-                Request an AI Strategy Session
+              <Link
+                href="/contact"
+                className="da-btn da-btn-primary"
+                title="Request a Penetration Test Scoping Call"
+              >
+                Request a Penetration Test Scoping Call
               </Link>
-              <Link href="#services" className="da-btn da-btn-outline" title="Explore AI Use Cases">
-                Explore AI Use Cases
+              <Link href="/contact" className="da-btn da-btn-outline" title="Explore Sample Findings Report">
+                Explore Sample Findings Report
               </Link>
             </div>
           </div>
@@ -59,22 +63,21 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* What Is Artificial Intelligence */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">What Is Artificial Intelligence (in an Enterprise Context)?</h2>
+          <h2 className="da-section-title">What Is Penetration Testing?</h2>
         </div>
         <div className="da-container da-content-stack">
-          <DirectAnswer>{whatIsAi.directAnswer}</DirectAnswer>
-          <p className="da-body-text">{whatIsAi.enterpriseDiff}</p>
+          <DirectAnswer>{whatIsPenetrationTesting.directAnswer}</DirectAnswer>
+          <p className="da-body-text">{whatIsPenetrationTesting.enterpriseDiff}</p>
           <div className="da-chain-card">
             <p className="da-chain-label">The decision chain that matters to your business</p>
-            <p className="da-chain-title">{whatIsAi.decisionChain}</p>
-            <p className="da-body-text">{whatIsAi.decisionChainDesc}</p>
+            <p className="da-chain-title">{whatIsPenetrationTesting.decisionChain}</p>
+            <p className="da-body-text">{whatIsPenetrationTesting.decisionChainDesc}</p>
           </div>
         </div>
         <div className="da-container da-advantage-grid da-advantage-grid-spaced">
-          {aiSpectrum.map((item) => {
+          {testingCategories.map((item) => {
             const Icon = item.icon
             return (
               <article key={item.title} className="da-advantage-card">
@@ -89,10 +92,9 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* Enterprise AI Services */}
       <section id="services" className="da-section da-section-muted">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Our Enterprise AI Services</h2>
+          <h2 className="da-section-title">Our Enterprise Penetration Testing Services</h2>
           <p className="da-section-subtitle">{servicesIntro}</p>
         </div>
         <TechnologyCapabilityGrid>
@@ -108,16 +110,15 @@ export default function ArtificialIntelligencePage() {
         </TechnologyCapabilityGrid>
       </section>
 
-      {/* Architecture */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Enterprise AI Architecture: How We Build It</h2>
+          <h2 className="da-section-title">Penetration Testing Methodology: How We Run It</h2>
         </div>
         <div className="da-container da-content-stack da-content-stack-narrow">
-          <DirectAnswer>{architectureIntro}</DirectAnswer>
+          <DirectAnswer>{methodologyIntro}</DirectAnswer>
         </div>
         <div className="da-container da-arch-grid">
-          {architectureSteps.map((step) => (
+          {methodologySteps.map((step) => (
             <article key={step.title} className="da-arch-step">
               <p className="da-arch-num">{step.step}</p>
               <h3>{step.title}</h3>
@@ -127,67 +128,41 @@ export default function ArtificialIntelligencePage() {
         </div>
         <div className="da-container da-table-grid">
           <div>
-            <h3 className="da-subsection-title">Predictive AI vs. Generative AI vs. Agentic AI</h3>
-            <ComparisonTable headers={aiTypeComparison.headers} rows={aiTypeComparison.rows} />
+            <h3 className="da-subsection-title">Black Box vs. Gray Box vs. White Box Testing</h3>
+            <ComparisonTable headers={testingApproachComparison.headers} rows={testingApproachComparison.rows} />
           </div>
           <div>
-            <h3 className="da-subsection-title">Fine-Tuning vs. RAG vs. Prompt Engineering</h3>
-            <ComparisonTable headers={approachComparison.headers} rows={approachComparison.rows} />
+            <h3 className="da-subsection-title">Vulnerability Scanning vs. Penetration Testing</h3>
+            <ComparisonTable headers={scanVsPentestComparison.headers} rows={scanVsPentestComparison.rows} />
           </div>
         </div>
       </section>
 
-      {/* Platform Comparison */}
       <section className="da-section da-section-muted">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Platform & Tooling Comparison</h2>
+          <h2 className="da-section-title">Standards & Frameworks We Test Against</h2>
         </div>
         <div className="da-container da-content-stack da-content-stack-narrow">
-          <DirectAnswer>{platformIntro}</DirectAnswer>
+          <DirectAnswer>{standardsIntro}</DirectAnswer>
         </div>
         <div className="da-container">
-          <ComparisonTable headers={platformComparison.headers} rows={platformComparison.rows} />
+          <ComparisonTable headers={standardsComparison.headers} rows={standardsComparison.rows} />
           <blockquote className="da-quote">
-            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{platformQuote}&rdquo; -
-            Toadster AI Engineering Team
+            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{standardsQuote}&rdquo; —
+            Toadster Security Testing Team
           </blockquote>
         </div>
       </section>
 
-      {/* Agent Capabilities */}
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Reasoning & Planning, Tool Integration, Memory & Context</h2>
+          <h2 className="da-section-title">Compliance-Driven Penetration Testing</h2>
         </div>
         <div className="da-container da-content-stack da-content-stack-narrow">
-          <DirectAnswer>{agentCapabilitiesIntro}</DirectAnswer>
-        </div>
-        <div className="da-container da-advantage-grid da-advantage-grid-spaced">
-          {agentCapabilities.map((item) => {
-            const Icon = item.icon
-            return (
-              <article key={item.title} className="da-advantage-card">
-                <span className="da-advantage-icon">
-                  <Icon size={22} strokeWidth={2} />
-                </span>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </article>
-            )
-          })}
-        </div>
-      </section>
-
-      {/* Governance */}
-      <section className="da-section da-section-muted">
-        <div className="da-container da-section-head">
-          <h2 className="da-section-title">AI Governance, Risk, and Compliance</h2>
-        </div>
-        <div className="da-container da-content-stack da-content-stack-narrow">
-          <DirectAnswer>{governanceIntro}</DirectAnswer>
+          <DirectAnswer>{complianceIntro}</DirectAnswer>
         </div>
         <div className="da-container da-governance-grid">
-          {governanceComponents.map((item) => (
+          {complianceFrameworks.map((item) => (
             <div key={item} className="da-governance-item">
               {item}
             </div>
@@ -195,14 +170,26 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* Industry Use Cases */}
+      <section className="da-section da-section-muted">
+        <div className="da-container da-section-head">
+          <h2 className="da-section-title">Risk Prioritization: Beyond CVSS Scores</h2>
+        </div>
+        <div className="da-container da-content-stack da-content-stack-narrow">
+          <DirectAnswer>{riskPrioritizationIntro}</DirectAnswer>
+        </div>
+        <div className="da-container da-governance-grid">
+          {riskPrioritizationFactors.map((item) => (
+            <div key={item} className="da-governance-item">
+              {item}
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">
           <h2 className="da-section-title">Industry Use Cases & Outcomes</h2>
-          <p className="da-section-subtitle">
-            Enterprise AI delivers measurable outcomes when tied to a specific, high-frequency decision: diagnostic
-            triage, fraud scoring, or supply-chain routing.
-          </p>
+          <p className="da-section-subtitle">{industryUseCasesIntro}</p>
         </div>
         <div className="da-container da-services-grid">
           {industryUseCases.map((useCase) => (
@@ -214,22 +201,9 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="da-stats">
-        <div className="da-container da-stats-grid">
-          {heroStats.map((stat) => (
-            <div key={stat.label} className="da-stat">
-              <p className="da-stat-value">{stat.value}</p>
-              <p className="da-stat-label">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="da-section da-section-light">
+      <section className="da-section da-section-muted">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Our AI Engineering Process</h2>
+          <h2 className="da-section-title">Our Penetration Testing Process</h2>
           <p className="da-section-subtitle">{processIntro}</p>
         </div>
         <div className="da-container da-process-grid">
@@ -243,10 +217,9 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* Why Toadster */}
-      <section className="da-section da-section-muted">
+      <section className="da-section da-section-light">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">Why Enterprises Choose Toadster for AI Implementation</h2>
+          <h2 className="da-section-title">Why Enterprises Choose Toadster for Penetration Testing</h2>
         </div>
         <div className="da-container da-why-grid">
           {whyToadster.map((item) => {
@@ -264,7 +237,6 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="da-section da-faq-section">
         <div className="faq-section-layout da-faq-wrap">
           <div className="da-faq-heading">
@@ -278,28 +250,23 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="da-section da-cta-section">
         <div className="da-container">
           <div className="hire-resources-cta da-cta-card text-center">
-            <h2 className="da-cta-title">Ready to Architect the Future of AI?</h2>
+            <h2 className="da-cta-title">Ready to Find Your Vulnerabilities Before an Attacker Does?</h2>
             <p className="da-cta-subtitle">
-              Partner with Toadster Technologies to build autonomous systems that drive measurable enterprise value and
-              operational excellence.
+              Partner with Toadster Technologies to run a penetration testing program that delivers audit-defensible,
+              risk-prioritized security assurance.
             </p>
             <div className="da-cta-actions">
-              <Link href="/contact" className="da-cta-btn da-cta-btn-primary" title="Schedule Consultation">
-                Schedule Consultation
+              <Link href="/contact" className="da-cta-btn da-cta-btn-primary" title="Schedule a Scoping Call">
+                Schedule a Scoping Call
               </Link>
-              <Link
-                href="/contact"
-                className="da-cta-btn da-cta-btn-outline"
-                title="Download AI Architecture Brochure"
-              >
-                Download AI Architecture Brochure
+              <Link href="/contact" className="da-cta-btn da-cta-btn-outline" title="Download Sample Findings Report">
+                Download Sample Findings Report
               </Link>
             </div>
-            <p className="da-cta-footnote">Toadster Technologies - Precision Engineering for AI.</p>
+            <p className="da-cta-footnote">Toadster Technologies — Precision Engineering for Security Assurance.</p>
           </div>
         </div>
       </section>

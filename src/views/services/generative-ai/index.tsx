@@ -27,6 +27,7 @@ import {
   Wand2,
   Cpu} from "lucide-react"
 import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
+import { ServiceHeroViewport } from "@/components/service-page/ServiceHeroViewport"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false)
@@ -56,7 +57,9 @@ export default function GenerativeAIPage() {
     <div className="service-page bg-page-bg text-page-fg">
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden  py-28">
+      <ServiceHeroViewport>
+
+      <section className="service-page-hero relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20"
@@ -82,6 +85,8 @@ export default function GenerativeAIPage() {
       </section>
       <ServicesTrustedBy />
 
+
+      </ServiceHeroViewport>
       {/* ── GENERATIVE AI DEVELOPMENT SERVICES ── */}
       <section className="py-20 bg-page-bg">
         <div className="service-page-container">
@@ -437,10 +442,9 @@ export default function GenerativeAIPage() {
 
       {/* ── FAQ ── */}
       <section className="py-20 bg-page-bg">
-        <div className="max-w-3xl mx-auto">
+        <div className="faq-section-layout">
           <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Got Questions?</p>
-            <h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
+<h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
           </div>
           {[
             { q: "What is Generative AI and how can it work?", a: "Generative AI refers to models like GPT-4, DALL-E, and Stable Diffusion that can generate text, images, code, audio, and more from input prompts. It powers chatbots, content engines, code assistants, and creative tools." },
