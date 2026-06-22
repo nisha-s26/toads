@@ -14,8 +14,6 @@ import {
   Terminal,
   Settings2,
   AlertCircle,
-  Cloud,
-  Shield,
   Search,
   UserCheck,
   Rocket,
