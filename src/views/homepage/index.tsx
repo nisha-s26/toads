@@ -36,7 +36,7 @@ const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
         <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
           <div className="homepage-hero-bg-image absolute inset-0">
             <Image
-              src="/homepage-hero-light.webp"
+              src="/lightmodepart3.png"
               alt=""
               fill
               priority
@@ -46,7 +46,7 @@ const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
               className="object-cover object-center dark:hidden"
             />
             <Image
-              src="/homepage-hero.webp"
+              src="/bgblack2.png"
               alt=""
               fill
               priority

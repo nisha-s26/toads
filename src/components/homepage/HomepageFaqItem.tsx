@@ -16,9 +16,10 @@ export function HomepageFaqItem({ question, answer }: { question: string; answer
     >
       <button
         type="button"
-        className="flex w-full items-center justify-between gap-3 bg-transparent px-4 py-4 text-left md:px-5"
+        className="flex w-full items-start justify-between gap-3 bg-transparent px-4 text-left md:px-5 min-h-[64px] py-0"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
+        style={{ alignItems: "center", minHeight: "60px" }}
       >
         <span className="text-base font-bold leading-snug text-slate-900 md:text-lg dark:text-white">
           {question}

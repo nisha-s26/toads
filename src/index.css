@@ -330,6 +330,7 @@
 }
 
 @media (min-width: 768px) {
+
   .software-development-hero,
   .service-page-hero {
     padding-top: calc(6.25rem + env(safe-area-inset-top, 0px));
@@ -338,6 +339,7 @@
 }
 
 @media (min-width: 1024px) {
+
   .software-development-hero,
   .service-page-hero {
     padding-bottom: clamp(3.5rem, 4vw, 5rem);
@@ -358,15 +360,15 @@
     padding-bottom: clamp(1.5rem, 3vh, 2.5rem);
   }
 
-  .service-hero-viewport > .software-development-hero,
-  .service-hero-viewport > .service-page-hero {
+  .service-hero-viewport>.software-development-hero,
+  .service-hero-viewport>.service-page-hero {
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
     padding-bottom: clamp(1rem, 2vw, 1.75rem);
   }
 
-  .service-hero-viewport > .trusted-by-marquee {
+  .service-hero-viewport>.trusted-by-marquee {
     flex: 0 0 auto;
     margin-top: auto;
   }
@@ -566,17 +568,17 @@
   margin-top: -1px;
 }
 
-#homepage-sections > .homepage-snap-section:first-child {
+#homepage-sections>.homepage-snap-section:first-child {
   margin-top: 0;
   padding-top: var(--homepage-section-gap);
 }
 
 /* Same gap between stacked homepage sections — no extra top padding */
-#homepage-sections > .homepage-snap-section + .homepage-snap-section {
+#homepage-sections>.homepage-snap-section+.homepage-snap-section {
   padding-top: 0;
 }
 
-#homepage-sections > .homepage-snap-section + .homepage-snap-section > div {
+#homepage-sections>.homepage-snap-section+.homepage-snap-section>div {
   padding-top: 0;
 }
 
@@ -1329,12 +1331,12 @@ html.homepage-scroll-snap {
   pointer-events: none;
 }
 
-.service-process-panel > * {
+.service-process-panel>* {
   position: relative;
   z-index: 1;
 }
 
-.service-process-intro > div {
+.service-process-intro>div {
   margin-bottom: 2rem !important;
 }
 
@@ -1463,6 +1465,7 @@ html.homepage-scroll-snap {
 }
 
 @media (max-width: 767px) {
+
   .modern-service-page .service-process-intro,
   .modern-service-page .service-process-intro h2,
   .modern-service-page .service-process-intro p {
@@ -2253,83 +2256,87 @@ section.section-padding.py-20 {
   padding-bottom: var(--section-bottom-gap);
 }
 
-section.section-padding + section.section-padding {
+section.section-padding+section.section-padding {
   padding-top: 0;
   margin-top: var(--section-stack-gap);
 }
 
 /* --- Legacy service pages (.service-page / .modern-service-page) --- */
-.service-page > section:not(.section-full-bleed):not(.trusted-by-marquee):not(.service-page-hero),
-.modern-service-page > section:not(.section-full-bleed):not(.trusted-by-marquee):not(.service-page-hero) {
+.service-page>section:not(.section-full-bleed):not(.trusted-by-marquee):not(.service-page-hero),
+.modern-service-page>section:not(.section-full-bleed):not(.trusted-by-marquee):not(.service-page-hero) {
   padding-top: 0;
   padding-bottom: var(--section-bottom-gap);
 }
 
-.service-page > section.section-full-bleed:not(.software-development-hero):not(.service-page-hero),
-.modern-service-page > section.section-full-bleed:not(.software-development-hero):not(.service-page-hero),
-.service-page > section.trusted-by-marquee,
-.modern-service-page > section.trusted-by-marquee {
+.service-page>section.section-full-bleed:not(.software-development-hero):not(.service-page-hero),
+.modern-service-page>section.section-full-bleed:not(.software-development-hero):not(.service-page-hero),
+.service-page>section.trusted-by-marquee,
+.modern-service-page>section.trusted-by-marquee {
   padding-top: unset;
   padding-bottom: unset;
 }
 
-.service-page > section:not(.section-full-bleed):not(.trusted-by-marquee) + section:not(.section-full-bleed):not(.trusted-by-marquee),
-.modern-service-page > section:not(.section-full-bleed):not(.trusted-by-marquee) + section:not(.section-full-bleed):not(.trusted-by-marquee) {
+.service-page>section:not(.section-full-bleed):not(.trusted-by-marquee)+section:not(.section-full-bleed):not(.trusted-by-marquee),
+.modern-service-page>section:not(.section-full-bleed):not(.trusted-by-marquee)+section:not(.section-full-bleed):not(.trusted-by-marquee) {
   padding-top: 0;
   margin-top: var(--section-stack-gap);
 }
 
 /* --- After logo / trusted-by strip --- */
-section:has(.logo-marquee) + section,
-section.trusted-by-marquee + section,
-.service-page > section.trusted-by-marquee + section,
-.modern-service-page > section.trusted-by-marquee + section,
-.service-page > .service-hero-viewport + section,
-.modern-service-page > .service-hero-viewport + section {
+section:has(.logo-marquee)+section,
+section.trusted-by-marquee+section,
+.service-page>section.trusted-by-marquee+section,
+.modern-service-page>section.trusted-by-marquee+section,
+.service-page>.service-hero-viewport+section,
+.modern-service-page>.service-hero-viewport+section {
   margin-top: 0;
   padding-top: 0;
 }
 
-section:has(.logo-marquee) + section.section-padding + section.section-padding,
-section.trusted-by-marquee + section.section-padding + section.section-padding {
+section:has(.logo-marquee)+section.section-padding+section.section-padding,
+section.trusted-by-marquee+section.section-padding+section.section-padding {
   padding-top: 0;
   margin-top: var(--section-stack-gap);
 }
 
 /* --- About page (stacked sections in homepage-content) --- */
-.homepage-content > section:first-child {
+.homepage-content>section:first-child {
   padding-top: var(--section-heading-gap);
 }
 
-.homepage-content > section {
+.homepage-content>section {
   padding-bottom: var(--section-bottom-gap);
 }
 
-.homepage-content > section + section {
+.homepage-content>section+section {
   padding-top: 0;
   margin-top: var(--section-stack-gap);
 }
 
 /* --- Careers, blogs, and similar full-page stacks --- */
-.min-h-screen > section + section {
+.min-h-screen>section+section {
   padding-top: 0;
   margin-top: var(--section-stack-gap);
   padding-bottom: var(--section-bottom-gap);
 }
 
-.min-h-screen > section:not(:first-of-type) {
+.min-h-screen>section:not(:first-of-type) {
   padding-bottom: var(--section-bottom-gap);
 }
 
 /* --- Hire resource pages --- */
-.hire-page-shell > section + section {
+.hire-page-shell>section+section {
   padding-top: 0;
   margin-top: var(--section-stack-gap);
   padding-bottom: var(--section-bottom-gap);
 }
 
-.hire-page-shell > section:not(:first-of-type) {
+.hire-page-shell>section:not(:first-of-type) {
   padding-bottom: var(--section-bottom-gap);
+}
+
+.hire-page-shell>section:first-of-type {
+  padding-top: 0;
 }
 
 /* --- Large section headings (SectionHead + homepage-style h2 blocks) --- */
@@ -2740,6 +2747,7 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
 }
 
 @keyframes da-sphere-pulse {
+
   0%,
   100% {
     transform: scale(0.96);
@@ -2757,23 +2765,21 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   padding-bottom: var(--section-bottom-gap);
 }
 
-.data-analytics-landing .da-section:not(.da-cta-section) + .da-section:not(.da-cta-section) {
+.data-analytics-landing .da-section:not(.da-cta-section)+.da-section:not(.da-cta-section) {
   margin-top: var(--section-stack-gap);
   padding-top: 0;
 }
 
-.data-analytics-landing .da-stats + .da-section:not(.da-cta-section) {
+.data-analytics-landing .da-stats+.da-section:not(.da-cta-section) {
   margin-top: var(--section-stack-gap);
   padding-top: 0;
 }
 
-.data-analytics-landing
-  .da-section:not(.da-cta-section):not(.da-faq-section)
-  > :is(.da-section-head, .da-container.da-section-head, .da-container.da-capabilities-head):first-child {
+.data-analytics-landing .da-section:not(.da-cta-section):not(.da-faq-section)> :is(.da-section-head, .da-container.da-section-head, .da-container.da-capabilities-head):first-child {
   padding-top: var(--section-heading-gap);
 }
 
-.data-analytics-landing .da-faq-section > .faq-section-layout:first-child {
+.data-analytics-landing .da-faq-section>.faq-section-layout:first-child {
   padding-top: var(--section-heading-gap);
 }
 
@@ -3152,12 +3158,10 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   border-radius: 1rem;
   overflow: hidden;
   border: 1px solid rgba(17, 24, 39, 0.12);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.92) 0%,
-    rgba(248, 250, 252, 0.78) 52%,
-    rgba(255, 255, 255, 0.88) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(248, 250, 252, 0.78) 52%,
+      rgba(255, 255, 255, 0.88) 100%);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   box-shadow:
@@ -3185,12 +3189,10 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
 
 .dark .data-analytics-landing .da-faq-item {
   border-color: rgba(255, 255, 255, 0.16);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.14) 0%,
-    rgba(255, 255, 255, 0.07) 52%,
-    rgba(255, 255, 255, 0.11) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.07) 52%,
+      rgba(255, 255, 255, 0.11) 100%);
   box-shadow:
     0 10px 28px rgba(0, 0, 0, 0.38),
     inset 0 1px 0 rgba(255, 255, 255, 0.14);
@@ -3420,7 +3422,7 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   align-items: stretch;
 }
 
-.data-analytics-landing .da-capability-cards-grid > * {
+.data-analytics-landing .da-capability-cards-grid>* {
   height: 100%;
   min-height: 200px;
 }
@@ -3431,7 +3433,7 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
     gap: 1.25rem;
   }
 
-  .data-analytics-landing .da-capability-cards-grid > * {
+  .data-analytics-landing .da-capability-cards-grid>* {
     min-height: 250px;
   }
 }
@@ -3443,7 +3445,7 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
 }
 
 @media (min-width: 1501px) {
-  .data-analytics-landing .da-capability-cards-grid > * {
+  .data-analytics-landing .da-capability-cards-grid>* {
     min-height: 300px;
   }
 }
@@ -3764,6 +3766,7 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   /* Hero section tighter on mobile */
   .hire-page-shell section:first-of-type {
     margin-bottom: 3rem;
+    padding-top: 0;
   }
 
   /* Consultation form – compact padding on tiny screens */
@@ -3775,6 +3778,10 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   .hire-page-shell section {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .hire-page-shell section:first-of-type {
+    padding-top: 0;
   }
 
   /* Hero h1 font sizing */
@@ -3790,6 +3797,7 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
 
 /* Tablet and general mobile (max 767px) */
 @media (max-width: 767px) {
+
   /* Hero: stack form below content with appropriate gap */
   .hire-page-shell [class*="lg:col-span-7"],
   .hire-page-shell [class*="lg:col-span-5"] {
@@ -3813,8 +3821,8 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   }
 
   /* Deliverables grid on mobile */
-  .hire-page-shell [class*="lg:grid-cols-12"] > [class*="lg:col-span-5"],
-  .hire-page-shell [class*="lg:grid-cols-12"] > [class*="lg:col-span-7"] {
+  .hire-page-shell [class*="lg:grid-cols-12"]>[class*="lg:col-span-5"],
+  .hire-page-shell [class*="lg:grid-cols-12"]>[class*="lg:col-span-7"] {
     grid-column: span 12;
   }
 
@@ -3842,7 +3850,7 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   }
 
   /* Bottom banner button full-width on mobile */
-  .hire-page-shell .flex-wrap.items-center.justify-center > button {
+  .hire-page-shell .flex-wrap.items-center.justify-center>button {
     width: 100%;
     max-width: 22rem;
   }
@@ -3875,7 +3883,7 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
   }
 
   /* Ensure hero CTA buttons are full width stacked on tiny screens */
-  .hire-page-shell .flex-wrap.items-center.gap-4 > button {
+  .hire-page-shell .flex-wrap.items-center.gap-4>button {
     flex: 1 1 auto;
     min-width: 0;
   }
@@ -3883,6 +3891,7 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
 
 /* Tablet (640px – 1023px) adjustments */
 @media (min-width: 640px) and (max-width: 1023px) {
+
   /* Two column hire role cards on tablet */
   .hire-page-shell [class*="sm:grid-cols-2"] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3899,6 +3908,10 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
     padding-bottom: 4rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .hire-page-shell section:first-of-type {
+    padding-top: 0;
   }
 
   /* Hero h1 */

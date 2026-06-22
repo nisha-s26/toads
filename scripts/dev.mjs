@@ -82,7 +82,14 @@ function clearNextCache() {
 
 const shouldClean = process.argv.includes("--clean")
 
+// Always free the target dev port so `npm run dev` never fails with EADDRINUSE.
+freeDevPort(Number(devPort))
+if (process.platform === "win32") {
+  sleep(400)
+}
+
 if (shouldClean) {
+  // Also free the full range of fallback ports and wipe .next cache.
   freeDevPorts(devPorts)
   if (process.platform === "win32") {
     sleep(800)

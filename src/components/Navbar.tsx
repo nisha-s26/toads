@@ -285,8 +285,8 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                     <div>
                       <button
                         className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${activeSection === "country"
-                            ? "text-brand-green font-semibold bg-page-accent-soft"
-                            : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
+                          ? "text-brand-green font-semibold bg-page-accent-soft"
+                          : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
                           }`}
                         onClick={() => setMobileCountriesOpen((p) => !p)}
                       >
