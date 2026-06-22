@@ -17,7 +17,7 @@ export function ClientShell({ children }: { children: ReactNode }) {
   const isBlogsPage = pathname?.startsWith("/blogs") ?? false
   const isCareersPage = pathname?.startsWith("/careers") ?? false
   const meshVariant = isBlogsPage ? "blogs" : isCareersPage ? "careers" : "default"
-  const showAmbientDecor = !isTechnologiesPage
+  const showFloatingDecor = !isTechnologiesPage
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -28,16 +28,14 @@ export function ClientShell({ children }: { children: ReactNode }) {
       <Navbar activeSection={activeSection} />
       <main
         key={pathname}
-        className={`page-route-enter relative isolate${
-          isTechnologiesPage
-            ? " technologies-landing-shell"
-            : `page-ambient-shell homepage-mesh-shell${isContentPage ? " services-mesh-shell" : ""}${
-                isBlogsPage ? " blogs-mesh-shell" : ""
-              }${isCareersPage ? " careers-mesh-shell" : ""}`
-        }`}
+        className={`page-route-enter relative isolate page-ambient-shell homepage-mesh-shell${
+          isContentPage ? " services-mesh-shell" : ""
+        }${isBlogsPage ? " blogs-mesh-shell" : ""}${
+          isCareersPage ? " careers-mesh-shell" : ""
+        }${isTechnologiesPage ? " technologies-mesh-shell" : ""}`}
       >
-        {showAmbientDecor ? <FloatingTechElements /> : null}
-        {showAmbientDecor ? <HomepageMeshBg variant={meshVariant} /> : null}
+        {showFloatingDecor ? <FloatingTechElements /> : null}
+        <HomepageMeshBg variant={meshVariant} />
         <div className="relative z-10">
           {isContentPage ? <div className="page-content-container">{children}</div> : children}
         </div>

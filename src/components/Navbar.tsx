@@ -94,7 +94,7 @@ const globalNavLinks = [
   { label: "Home", href: "#", section: "home" },
   { label: "About Us", href: "#about", section: "about" },
   { label: "Services", href: "#services", dropdown: true, section: "services" },
-  { label: "Hire Resources", href: "#hire-resources", dropdown: true, section: "hire-resources" },
+  { label: "Hire Resources", href: "/hire-resources", dropdown: true, section: "hire-resources" },
   { label: "Blogs", href: "#blogs", section: "blogs" },
   { label: "Careers", href: "#careers", section: "careers" },
   { label: "Contact Us", href: "#contact", section: "contact" },
@@ -195,7 +195,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
   const [desktopCountriesOpen, setDesktopCountriesOpen] = useState(false)
   const router = useRouter();
   const pathname = usePathname();
-  const isHirePage = pathname?.startsWith("/hire") ?? false;
+  const isHirePage = pathname?.startsWith("/hire") || pathname === "/hire-resources";
 
   const activeSection = isHirePage ? "hire-resources" : incomingActiveSection;
   const navLinks = globalNavLinks;
@@ -330,12 +330,19 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                         ? "text-brand-green font-semibold bg-page-accent-soft"
                         : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
                         }`}
-                      onClick={() => setMobileDedicatedOpen((p) => !p)}
+                      onClick={() => {
+                        closeMobile()
+                        router.push("/hire-resources")
+                      }}
                     >
                       Hire Resources
                       <ChevronDown
                         size={16}
                         className={`transition-transform duration-200 ${mobileDedicatedOpen ? "rotate-180" : ""}`}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          setMobileDedicatedOpen((p) => !p)
+                        }}
                       />
                     </button>
                     {mobileDedicatedOpen && (
@@ -425,6 +432,9 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                     <NavigationMenuItem className="relative" key={link.label}>
                       <NavigationMenuTrigger
                         className={`px-4 py-2 text-sm font-medium bg-transparent rounded-full transition-colors hover:bg-page-accent-soft data-[state=open]:bg-page-accent-soft data-[state=open]:text-page-fg ${activeSection === link.section ? 'text-brand-green font-semibold' : 'text-page-fg-muted hover:text-page-fg'}`}
+                        onClick={() => {
+                          if (link.label === "Hire Resources") router.push("/hire-resources")
+                        }}
                       >
                         <span className="relative">
                           {link.label}

@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { Sparkles } from "lucide-react"
 import { FaqItem } from "../shared/FaqItem"
-import { ComparisonTable, DirectAnswer, HeroVisual } from "../shared/TechnologyPrimitives"
+import { ComparisonTable, DirectAnswer } from "../shared/TechnologyPrimitives"
+import { TechnologyHeroSection } from "../shared/TechnologyHeroSection"
 import { TechnologyCapabilityCard, TechnologyCapabilityGrid } from "../shared/TechnologyCapabilityCard"
 import {
   agentCapabilities,
@@ -30,10 +31,7 @@ import {
 export default function ArtificialIntelligencePage() {
   return (
     <div className="data-analytics-landing">
-      {/* Hero */}
-      <section className="da-hero">
-        <div className="da-container da-hero-grid">
-          <div className="da-hero-copy">
+      <TechnologyHeroSection>
             <span className="da-badge">
               <Sparkles size={14} />
               The Intelligence Revolution
@@ -54,10 +52,7 @@ export default function ArtificialIntelligencePage() {
                 Explore AI Use Cases
               </Link>
             </div>
-          </div>
-          <HeroVisual />
-        </div>
-      </section>
+      </TechnologyHeroSection>
 
       {/* What Is Artificial Intelligence */}
       <section className="da-section da-section-light">

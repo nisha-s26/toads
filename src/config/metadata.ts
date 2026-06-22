@@ -45,6 +45,21 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description:
       "Get in touch with Toadster's team. Let's architect your next scalable AI system, continuous training pipeline, or enterprise data platform together.",
   },
+  "/privacy-policy": {
+    title: "Privacy Policy | Toadster Technologies",
+    description:
+      "Toadster Technologies Privacy Policy — how we collect, use, protect, and retain personal data, your privacy rights, cookies, and contact information.",
+  },
+  "/terms-and-conditions": {
+    title: "Terms and Conditions | Toadster Technologies",
+    description:
+      "Toadster Technologies Terms and Conditions — website use, services, intellectual property, disclaimers, liability, privacy, governing law, and contact information.",
+  },
+  "/hire-resources": {
+    title: "Hire Dedicated Developers | IT Staff Augmentation Services — Toadster Technologies",
+    description:
+      "Hire dedicated developers and technology resources from Toadster Technologies. Flexible staff augmentation across software, mobile, AI/ML, DevOps, and more — onboarded in 5–7 days. Serving India, UAE, Saudi Arabia & the US.",
+  },
   "/ai-development-company-india": {
     title: "AI Development Company India | Custom AI, LLM & Agentic Systems | Toadster Noida",
     description:

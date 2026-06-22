@@ -66,7 +66,7 @@ const FOOTER_SERVICE_LINKS = SERVICE_LINKS.slice(0, FOOTER_LINK_LIMIT)
 const FOOTER_HIRE_RESOURCE_LINKS = HIRE_RESOURCE_LINKS.slice(0, FOOTER_LINK_LIMIT)
 
 const SERVICES_VIEW_MORE: InternalLink = { to: "/#services", label: "View More" }
-const HIRE_RESOURCES_VIEW_MORE: InternalLink = { to: "/#hire-resources", label: "View More" }
+const HIRE_RESOURCES_VIEW_MORE: InternalLink = { to: "/hire-resources", label: "View More" }
 
 const COMPANY_LINKS: InternalLink[] = [
   { to: "/about", label: "About Us" },

@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { ArrowRight, Sparkles, Users } from "lucide-react"
 import { FaqItem } from "../shared/FaqItem"
-import { ComparisonTable, DirectAnswer, HeroVisual } from "../shared/TechnologyPrimitives"
+import { ComparisonTable, DirectAnswer } from "../shared/TechnologyPrimitives"
+import { TechnologyHeroSection } from "../shared/TechnologyHeroSection"
 import {
   advantages,
   analyticsMaturity,
@@ -31,10 +32,7 @@ import {
 export default function DataAnalyticsPage() {
   return (
     <div className="data-analytics-landing">
-      {/* Hero */}
-      <section className="da-hero">
-        <div className="da-container da-hero-grid">
-          <div className="da-hero-copy">
+      <TechnologyHeroSection>
             <span className="da-badge">
               <Sparkles size={14} />
               The Analytics Advantage
@@ -55,10 +53,7 @@ export default function DataAnalyticsPage() {
                 Explore Our Services
               </Link>
             </div>
-          </div>
-          <HeroVisual />
-        </div>
-      </section>
+      </TechnologyHeroSection>
 
       {/* What Is Data Analytics */}
       <section className="da-section da-section-light">

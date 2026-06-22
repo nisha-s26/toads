@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { Server } from "lucide-react"
 import { FaqItem } from "../shared/FaqItem"
-import { ComparisonTable, DirectAnswer, HeroVisual } from "../shared/TechnologyPrimitives"
+import { ComparisonTable, DirectAnswer } from "../shared/TechnologyPrimitives"
+import { TechnologyHeroSection } from "../shared/TechnologyHeroSection"
 import { TechnologyCapabilityCard, TechnologyCapabilityGrid } from "../shared/TechnologyCapabilityCard"
 import {
   architectureIntro,
@@ -30,9 +31,7 @@ import {
 export default function DevOpsPage() {
   return (
     <div className="data-analytics-landing">
-      <section className="da-hero">
-        <div className="da-container da-hero-grid">
-          <div className="da-hero-copy">
+      <TechnologyHeroSection>
             <span className="da-badge">
               <Server size={14} />
               The Delivery Advantage
@@ -53,10 +52,7 @@ export default function DevOpsPage() {
                 Explore Case Studies
               </Link>
             </div>
-          </div>
-          <HeroVisual />
-        </div>
-      </section>
+      </TechnologyHeroSection>
 
       <section className="da-section da-section-light">
         <div className="da-container da-section-head">

@@ -129,7 +129,7 @@ export default function HireResources() {
             </p>
             <div className="mt-8 flex justify-center">
               <Link
-                href="/hire/dedicated-resources"
+                href="/hire-resources"
                 title="Explore all hire resources"
                 className="inline-flex min-w-[160px] items-center justify-center gap-2 rounded-full border border-white/90 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
               >

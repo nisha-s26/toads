@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { Scan } from "lucide-react"
 import { FaqItem } from "../shared/FaqItem"
-import { ComparisonTable, DirectAnswer, HeroVisual } from "../shared/TechnologyPrimitives"
+import { ComparisonTable, DirectAnswer } from "../shared/TechnologyPrimitives"
+import { TechnologyHeroSection } from "../shared/TechnologyHeroSection"
 import { TechnologyCapabilityCard, TechnologyCapabilityGrid } from "../shared/TechnologyCapabilityCard"
 import {
   architectureIntro,
@@ -30,10 +31,7 @@ import {
 export default function AugmentedRealityPage() {
   return (
     <div className="data-analytics-landing">
-      {/* Hero */}
-      <section className="da-hero">
-        <div className="da-container da-hero-grid">
-          <div className="da-hero-copy">
+      <TechnologyHeroSection>
             <span className="da-badge">
               <Scan size={14} />
               The Spatial Advantage
@@ -55,10 +53,7 @@ export default function AugmentedRealityPage() {
                 Explore Deployment Case Studies
               </Link>
             </div>
-          </div>
-          <HeroVisual />
-        </div>
-      </section>
+      </TechnologyHeroSection>
 
       {/* What Is AR */}
       <section className="da-section da-section-light">
