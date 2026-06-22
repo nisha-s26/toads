@@ -1699,6 +1699,7 @@ html.homepage-scroll-snap {
 /* Green accent rule beneath capability card titles */
 .capability-card-header {
   margin-bottom: 1rem;
+  overflow: visible;
 }
 
 .capability-card-heading-rule {
@@ -1706,14 +1707,22 @@ html.homepage-scroll-snap {
 }
 
 .capability-card-header h3 {
-  display: inline-block;
-  width: fit-content;
+  display: block;
+  width: 100%;
   max-width: 100%;
+  overflow: visible;
+}
+
+.capability-card-header .flex {
+  overflow: visible;
 }
 
 .capability-card-header .flex h3 {
-  flex: 0 1 auto;
-  max-width: calc(100% - 3.25rem);
+  flex: 1 1 0%;
+  min-width: 0;
+  overflow: visible;
+  /* Use padding-right to avoid overlapping icon rather than max-width */
+  padding-right: 0.25rem;
 }
 
 .capability-card-header h3::after {
@@ -1724,7 +1733,7 @@ html.homepage-scroll-snap {
   width: 2.5rem;
   border-radius: 9999px;
   background: linear-gradient(90deg, var(--toadster-green), var(--toadster-green-deep));
-  transition: width 0.3s ease;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Capability card hover - subtle scale and heading-width underline */
@@ -1739,8 +1748,11 @@ html.homepage-scroll-snap {
   z-index: 10;
 }
 
-.capability-card-surface:not(#contact-form):not(.faq-accordion-surface):hover .capability-card-header h3::after {
-  width: 100%;
+/* On hover – expand the green rule to full card width using vw trick */
+.capability-card-surface:not(#contact-form):not(.faq-accordion-surface):hover .capability-card-header h3::after,
+.hire-role-card:hover .capability-card-header h3::after {
+  /* Extend to fill the card row including the icon column */
+  width: calc(100% + 3.5rem);
 }
 
 /* ── Card icon glow with slow circular shine ── */
@@ -3737,4 +3749,233 @@ section.trusted-by-marquee + section.section-padding + section.section-padding {
 .dark .data-analytics-landing .da-process-num--alt {
   background: #ffffff;
   color: #04140a;
+}
+
+/* ─────────────────────────────────────────────
+   HIRE RESOURCES – RESPONSIVE (Mobile & Tablet)
+   ───────────────────────────────────────────── */
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .hire-page-shell {
+    padding-top: 5rem;
+  }
+
+  /* Hero section tighter on mobile */
+  .hire-page-shell section:first-of-type {
+    margin-bottom: 3rem;
+  }
+
+  /* Consultation form – compact padding on tiny screens */
+  .hire-page-shell .capability-card-surface {
+    padding: 1rem;
+  }
+
+  /* Reduce section vertical padding */
+  .hire-page-shell section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Hero h1 font sizing */
+  .hire-page-shell h1 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+
+  /* Stat row compact */
+  .hire-page-shell .grid-cols-3 {
+    gap: 1rem;
+  }
+}
+
+/* Tablet and general mobile (max 767px) */
+@media (max-width: 767px) {
+  /* Hero: stack form below content with appropriate gap */
+  .hire-page-shell .lg\\:col-span-7,
+  .hire-page-shell .lg\\:col-span-5 {
+    grid-column: span 12;
+  }
+
+  /* Bottleneck section: stack on mobile */
+  .hire-page-shell .lg\\:col-span-5.flex.flex-col {
+    order: -1;
+  }
+
+  /* Reduce section spacing */
+  .hire-page-shell section {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Skill matrix – 1 col on mobile */
+  .hire-page-shell .md\\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Deliverables grid on mobile */
+  .hire-page-shell .lg\\:grid-cols-12 > .lg\\:col-span-5,
+  .hire-page-shell .lg\\:grid-cols-12 > .lg\\:col-span-7 {
+    grid-column: span 12;
+  }
+
+  /* Comparison table scroll */
+  .hire-page-shell .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    border-radius: 1rem;
+  }
+
+  /* Process steps mobile label text */
+  .hire-page-shell p.text-base.font-extrabold {
+    font-size: 0.9rem;
+  }
+
+  /* CTA banner padding */
+  .hire-resources-cta,
+  .hire-page-shell [class*="rounded-\\[1.75rem\\]"] {
+    padding: 2rem 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  /* CTA headline */
+  .hire-page-shell .text-3xl.sm\\:text-4xl {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  /* Bottom banner button full-width on mobile */
+  .hire-page-shell .flex-wrap.items-center.justify-center > button {
+    width: 100%;
+    max-width: 22rem;
+  }
+
+  /* hire-role-card grid: 1 col on very small, 2 col from sm */
+  .hire-page-shell .sm\\:grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* FAQ items */
+  .hire-page-shell .faq-accordion-surface {
+    padding: 1rem 1.25rem;
+  }
+
+  /* Stats row – wrap 2 per row on mobile */
+  .hire-page-shell .grid-cols-3.max-w-xl {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  /* The monitor graphic – center and don't overflow */
+  .hire-page-shell img[alt="Monitor code visual"] {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Hero trust badges wrap nicely */
+  .hire-page-shell .flex-wrap.items-center.gap-x-3 {
+    gap: 0.5rem 0.75rem;
+  }
+
+  /* Ensure hero CTA buttons are full width stacked on tiny screens */
+  .hire-page-shell .flex-wrap.items-center.gap-4 > button {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+/* Tablet (640px – 1023px) adjustments */
+@media (min-width: 640px) and (max-width: 1023px) {
+  /* Two column hire role cards on tablet */
+  .hire-page-shell .sm\\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Skill matrix 2 cols */
+  .hire-page-shell .md\\:grid-cols-3:not(.grid-cols-1) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Slightly reduce section padding */
+  .hire-page-shell section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  /* Hero h1 */
+  .hire-page-shell h1 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+  }
+
+  /* Form panel – ensure proper sizing on tablet */
+  #hire-rfp-form {
+    max-width: 100%;
+  }
+
+  /* Process steps – show horizontal on tablet */
+  .hire-page-shell .hidden.md\\:block {
+    display: block;
+  }
+
+  .hire-page-shell .md\\:hidden {
+    display: none;
+  }
+}
+
+/* Ensure horizontal scroll in tables doesn't break layout */
+@media (max-width: 1023px) {
+  .hire-page-shell table {
+    font-size: 0.82rem;
+  }
+
+  .hire-page-shell table th,
+  .hire-page-shell table td {
+    padding: 0.75rem 0.875rem;
+  }
+
+  /* Deliverables bottom row – 1 col on mobile */
+  .hire-page-shell .grid-cols-1.sm\:grid-cols-2.gap-6 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Global section padding responsive fix for hire pages */
+@media (max-width: 639px) {
+  .hire-page-shell section.py-20 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hire-page-shell section.px-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hire-page-shell .mb-16 {
+    margin-bottom: 2rem;
+  }
+
+  .hire-page-shell .mb-12 {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Make deliverables section inner sections stack cleanly */
+  .hire-page-shell .p-8.sm\:p-12 {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  .hire-page-shell .min-h-\[380px\] {
+    min-height: 280px;
+  }
+
+  /* CTA banner responsive */
+  .hire-page-shell .p-8.sm\:p-14 {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Form card: ensure it doesn't overflow on tiny screens */
+  .hire-page-shell #hire-rfp-form {
+    width: 100%;
+    max-width: 100%;
+  }
 }

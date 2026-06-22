@@ -37,8 +37,8 @@ export function HireRoleCard({
       ) : null}
 
       <div className="capability-card-header">
-        <div className="flex min-h-11 items-center justify-between gap-3">
-          <h3 className="min-w-0 flex-1 pr-1 text-lg font-bold leading-snug text-slate-900 dark:text-black">
+        <div className="flex min-h-11 items-center justify-between gap-3 overflow-visible">
+          <h3 className="min-w-0 flex-1 text-lg font-bold leading-snug text-slate-900 dark:text-black">
             {title}
           </h3>
           <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">

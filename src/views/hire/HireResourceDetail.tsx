@@ -2,6 +2,7 @@
 
 import {
   ArrowUpRight,
+  ArrowRight,
   Layers,
   Cpu,
   Database,
@@ -735,8 +736,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
   const bottomBanner = BOTTOM_BANNERS[slug] || BOTTOM_BANNERS["software-developers"]
 
   const categoryEyebrow = isFlutter
-    ? "Hire Resources / Flutter Developers"
-    : `HOME / HIRE RESOURCES / ${resource.heroTitle.toUpperCase()}`
+
 
   const heroStats = isFlutter
     ? FLUTTER_HERO_STATS
@@ -771,590 +771,579 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
   }))
 
   return (
-    <div className={`hire-page-shell relative isolate text-page-fg font-sans min-h-screen pt-28 pb-16 ${isDark ? 'homepage-mesh-shell' : ''}`}>
+    <div className={`hire-page-shell relative isolate text-page-fg font-sans min-h-screen pt-28 ${isDark ? 'homepage-mesh-shell' : ''}`}>
       {isDark && <HomepageMeshBg />}
 
       <div className="hire-page-container">
-      {/* ── SECTION 1: HERO SECTION ── */}
-      <section className="relative mb-20 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* ── SECTION 1: HERO SECTION ── */}
+        <section className="relative px-4 sm:px-6 lg:px-16 max-w-9xl mx-auto mb-12 sm:mb-16 lg:mb-20 z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-start">
 
-          {/* Left Column (Hero Content) */}
-          <div className="lg:col-span-7 flex flex-col gap-6 text-left pt-4">
-            <span className="text-xs sm:text-sm font-bold tracking-[0.15em] text-toadster-green uppercase">
-              {categoryEyebrow}
-            </span>
+            {/* Left Column (Hero Content) */}
+            <div className="lg:col-span-7 flex flex-col gap-6 text-left pt-4">
+              <span className="text-xs sm:text-sm font-bold tracking-[0.15em] text-toadster-green uppercase">
+                {categoryEyebrow}
+              </span>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-page-fg leading-[1.15]">
-              {isFlutter ? (
-                <>
-                  Hire Expert{" "}
-                  <span className="text-toadster-green">Flutter Developers</span>
-                </>
-              ) : (
-                <>
-                  {titleInfo.prefix}
-                  <span className="text-toadster-green block">{titleInfo.highlight}{titleInfo.suffix}</span>
-                </>
+              <h1 className="text-[1.875rem] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-page-fg leading-[1.15]">
+                {isFlutter ? (
+                  <>
+                    Hire Expert{" "}
+                    <span className="text-toadster-green">Flutter Developers</span>
+                  </>
+                ) : (
+                  <>
+                    {titleInfo.prefix}
+                    <span className="text-toadster-green block">{titleInfo.highlight}{titleInfo.suffix}</span>
+                  </>
+                )}
+              </h1>
+
+              {isFlutter && (
+                <p className="text-xl sm:text-2xl font-bold text-page-fg leading-snug max-w-2xl">
+                  Build Beautiful, High-Performance Cross-Platform Apps
+                </p>
               )}
-            </h1>
 
-            {isFlutter && (
-              <p className="text-xl sm:text-2xl font-bold text-page-fg leading-snug max-w-2xl">
-                Build Beautiful, High-Performance Cross-Platform Apps
-              </p>
-            )}
-
-            {isFlutter ? (
-              <div className="flex flex-col gap-4 max-w-2xl">
-                <p className="text-lg text-page-fg-muted leading-relaxed">
-                  Deploy state-of-the-art Flutter talent. Scale your mobile engineering team with pre-vetted, senior Flutter developers who integrate directly into your workflow - from day one.
+              {isFlutter ? (
+                <div className="flex flex-col gap-4 max-w-2xl">
+                  <p className="text-lg text-page-fg-muted leading-relaxed">
+                    Deploy state-of-the-art Flutter talent. Scale your mobile engineering team with pre-vetted, senior Flutter developers who integrate directly into your workflow - from day one.
+                  </p>
+                  <p className="text-lg text-page-fg-muted leading-relaxed">
+                    Toadster Technologies provides dedicated Flutter developers who work exclusively on your product, aligned to your sprints, your stack, and your business goals.
+                  </p>
+                </div>
+              ) : (
+                <p className="text-base sm:text-lg text-page-fg-muted leading-relaxed max-w-2xl">
+                  {customSubheading}
                 </p>
-                <p className="text-lg text-page-fg-muted leading-relaxed">
-                  Toadster Technologies provides dedicated Flutter developers who work exclusively on your product, aligned to your sprints, your stack, and your business goals.
-                </p>
-              </div>
-            ) : (
-              <p className="text-lg text-page-fg-muted leading-relaxed max-w-2xl">
-                {customSubheading}
-              </p>
-            )}
+              )}
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 mt-2">
-              {heroCtaData ? (
-                <>
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap items-center gap-4 mt-2">
+                {heroCtaData ? (
+                  <>
+                    <button
+                      type="button"
+                      onClick={scrollToForm}
+                      className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-white shadow-sm transition-all"
+                    >
+                      {heroCtaData.primary}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={scrollToForm}
+                      className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-page-border hover:bg-page-accent-soft px-7 py-3.5 text-sm font-bold text-page-fg transition-all"
+                    >
+                      {heroCtaData.secondary}
+                    </button>
+                  </>
+                ) : (
                   <button
                     type="button"
                     onClick={scrollToForm}
                     className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-white shadow-sm transition-all"
                   >
-                    {heroCtaData.primary}
+                    {isFlutter ? "Hire Flutter Experts" : `Hire ${titleInfo.highlight} Experts`}
+                    <ArrowUpRight size={16} />
                   </button>
-                  <button
-                    type="button"
-                    onClick={scrollToForm}
-                    className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-page-border hover:bg-page-accent-soft px-7 py-3.5 text-sm font-bold text-page-fg transition-all"
-                  >
-                    {heroCtaData.secondary}
-                  </button>
-                </>
-              ) : (
-                <button
-                  type="button"
-                  onClick={scrollToForm}
-                  className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-white shadow-sm transition-all"
-                >
-                  {isFlutter ? "Hire Flutter Experts" : `Hire ${titleInfo.highlight} Experts`}
-                  <ArrowUpRight size={16} />
-                </button>
+                )}
+              </div>
+
+              {/* Trust Badges */}
+              {heroCtaData && (
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-semibold text-page-fg-muted mt-2">
+                  {heroCtaData.badges.map((badge, idx) => (
+                    <span key={badge} className="flex items-center gap-3">
+                      {idx > 0 && <span className="text-page-border" aria-hidden="true">|</span>}
+                      <span>{badge}</span>
+                    </span>
+                  ))}
+                </div>
               )}
+
+              {/* Stat Row */}
+              <div className={`grid gap-4 sm:gap-6 pt-8 sm:pt-10 border-t border-page-border mt-4 ${isFlutter ? "grid-cols-2 sm:grid-cols-4 max-w-3xl" : "grid-cols-3 max-w-xl"}`}>
+                {heroStats.map((stat) => (
+                  <div key={stat.label}>
+                    <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-page-fg">{stat.value}</p>
+                    <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-page-fg-muted mt-1">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Trust Badges */}
-            {heroCtaData && (
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-semibold text-page-fg-muted mt-2">
-                {heroCtaData.badges.map((badge, idx) => (
-                  <span key={badge} className="flex items-center gap-3">
-                    {idx > 0 && <span className="text-page-border" aria-hidden="true">|</span>}
-                    <span>{badge}</span>
-                  </span>
+            {/* Right Column (Form Panel) */}
+            <div id="hire-rfp-form" className="lg:col-span-5">
+              <HireResourceRfpForm
+                roleTitle={resource.heroTitle}
+                formSubtext={
+                  isAndroid
+                    ? "Tell us your project requirements and we'll match you with the right Android developer within 24 hours."
+                    : isReact
+                      ? "Tell us your project requirements and we'll match you with the right React developer within 24 hours."
+                      : isFlutter
+                        ? "Tell us about your Flutter project and we'll connect you with the right developer within 24 hours."
+                        : undefined
+                }
+                submitFooterText={
+                  (isAndroid || isReact) ? (
+                    <span>
+                      We&apos;ll review your CV details.{" "}
+                      <a href="/contact" className="text-toadster-green hover:underline">
+                        Schedule a call instead
+                      </a>
+                    </span>
+                  ) : isFlutter ? (
+                    "No commitment required. We'll reach out within 24 hours."
+                  ) : undefined
+                }
+                engagementOptions={
+                  isFlutter
+                    ? [
+                      { value: "Full-Time", label: "Full-Time" },
+                      { value: "Part-Time", label: "Part-Time" },
+                      { value: "Team", label: "Team" },
+                    ]
+                    : undefined
+                }
+                projectBriefLabel={(isAndroid || isReact) ? "Tell us about your project" : undefined}
+              />
+            </div>
+
+          </div>
+        </section>
+
+        {/* ── SECTION 2: TECH STACK & SKILL MATRIX ── */}
+        <section className="py-2 px-6 lg:px-16 relative z-10">
+          <div className="max-w-7xl mx-auto text-center flex flex-col gap-3 mb-16">
+            <span className="text-xs font-bold uppercase tracking-wider text-page-fg-muted">
+
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
+              {(isFlutter || isAndroid || isReact) ? "Tech Stack & Skill Matrix" : `Advanced ${titleInfo.highlight} Skill Matrix`}
+            </h2>
+            <p className="text-page-fg-muted max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
+              {skillMatrixSection?.body ??
+                `Our ${titleInfo.highlight} developers are proficient across the complete cross-platform mobile ecosystem - from UI to backend integrations.`}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full items-stretch">
+            {skillColumns.map((col, index) => {
+              const IconComponent = col.icon
+              return (
+                <HireRoleCard
+                  key={col.title}
+                  title={col.title}
+                  icon={IconComponent}
+                  tags={col.items}
+                  description={col.description}
+                  index={index}
+                />
+              )
+            })}
+          </div>
+        </section>
+
+        <section className="py-10 px-6 lg:px-16 relative z-10">
+          <div className="max-w-7xl mx-auto">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight leading-tight text-center">
+                {isFlutter ? "Why Hire Dedicated Flutter Developers?" : "Solve Critical Delivery Bottlenecks"}
+              </h2>
+              <p className="text-page-fg-muted leading-relaxed text-sm sm:text-base text-center">
+                {whyHireSection?.body ??
+                  `Businesses building software products face a common set of challenges. Dedicated ${titleInfo.highlight} developers solve them.`}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+              {/* Left Info & Graphic Column */}
+              <div className="lg:col-span-5 flex flex-col gap-5 text-left">
+                {/* Desktop graphic – no border/background, just the green computer */}
+                <div className="mt-4 flex justify-center lg:justify-start">
+                  <Image
+                    src="/monitor_code_graphic.png"
+                    alt="Monitor code visual"
+                    width={520}
+                    height={360}
+                    className="w-full max-w-[420px] lg:max-w-full h-auto drop-shadow-xl"
+                    unoptimized
+                  />
+                </div>
+              </div>
+
+              {/* Right Bottlenecks Grid */}
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {bottleneckCards.map((card, index) => (
+                  <HireRoleCard
+                    key={card.title}
+                    title={card.title}
+                    icon={AlertCircle}
+                    description={card.body}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 4: ENTERPRISE GRADE DELIVERABLES ── */}
+        <section className="py-10 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+          <div className="bg-[#003820] dark:bg-white rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col gap-12">
+
+            {/* Header */}
+            <div className="text-center flex flex-col gap-3 max-w-2xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white dark:text-black">
+                {isFlutter ? "What Your Dedicated Flutter Developers Will Deliver" : ((isReactNative || isDevOps || isIos || isAndroid || isReact) ? "Production Deliverables" : "Enterprise Grade Deliverables")}
+              </h2>
+              <p className="text-[#a0c5b3] dark:text-gray-600 text-sm sm:text-base leading-relaxed">
+                {deliverablesSection?.body ??
+                  `Vetted ${titleInfo.highlight} developers deliver rigorous engineering standards for robust, scalable mobile applications.`}
+              </p>
+            </div>
+
+            {/* Asymmetric Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+              {/* Left Column: Cross-Platform (Tall Card) */}
+              <div className="lg:col-span-5 flex flex-col justify-between bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-7 border border-emerald-900/40 dark:border-gray-200 relative overflow-hidden min-h-[380px] lg:min-h-0">
+                <div className="flex flex-col gap-4 z-10 text-left">
+                  <h3 className="font-extrabold text-2xl leading-snug text-white dark:text-black">{deliverables[0].title}</h3>
+                  <p className="text-[#a0c5b3] dark:text-gray-600 text-sm leading-relaxed">
+                    {deliverables[0].description}
+                  </p>
+                </div>
+
+                {/* Dual phone image graphic absolute placed */}
+                <div className="mt-8 flex justify-center -mb-7">
+                  <Image
+                    src="/phones_app_graphic.png"
+                    alt="Phones visualization"
+                    width={340}
+                    height={260}
+                    className="object-contain"
+                    unoptimized
+                  />
+                </div>
+              </div>
+
+              {/* Right Column (Stacked Cards) */}
+              <div className="lg:col-span-7 flex flex-col gap-6">
+
+                {/* Top Card: Advanced State Management */}
+                <div className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-7 border border-emerald-900/40 flex flex-col gap-5 text-left">
+                  <div className="flex flex-col gap-2">
+                    <h3 className="font-extrabold text-xl leading-snug text-white dark:text-black">{deliverables[1].title}</h3>
+                    <p className="text-[#a0c5b3] dark:text-gray-600 text-sm leading-relaxed">
+                      {deliverables[1].description}
+                    </p>
+                  </div>
+
+                  {/* Badges */}
+                  {isFlutter && (
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {["BLOC/CUBIT", "RIVERPOD", "GETX"].map((badge) => (
+                        <span key={badge} className="px-3 py-1 rounded bg-[#003820] dark:bg-green-100 text-xs font-bold text-emerald-400 dark:text-green-800">
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Bottom Row (2 Equal Columns) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
+
+                  {/* Bottom Left Card */}
+                  <div className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-7 border border-emerald-900/40 flex flex-col gap-5 text-left">
+                    <div className="flex flex-col gap-2">
+                      <h3 className="font-extrabold text-xl leading-snug text-white dark:text-black">{deliverables[2].title}</h3>
+                      <p className="text-[#a0c5b3] dark:text-gray-600 text-sm leading-relaxed">
+                        {deliverables[2].description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Bottom Right Card */}
+                  <div className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-7 border border-emerald-900/40 flex flex-col gap-5 text-left">
+                    <div className="flex flex-col gap-2">
+                      <h3 className="font-extrabold text-xl leading-snug text-white dark:text-black">{deliverables[3].title}</h3>
+                      <p className="text-[#a0c5b3] dark:text-gray-600 text-sm leading-relaxed">
+                        {deliverables[3].description}
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {isFlutter && deliverables.length > 4 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {deliverables.slice(4).map((item) => (
+                  <div
+                    key={item.title}
+                    className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-6 border border-emerald-900/40 flex flex-col gap-3 text-left"
+                  >
+                    <h4 className="font-extrabold text-lg text-white dark:text-black">{item.title}</h4>
+                    <p className="text-[#a0c5b3] dark:text-gray-600 text-sm leading-relaxed">{item.description}</p>
+                  </div>
                 ))}
               </div>
             )}
 
-            {/* Stat Row */}
-            <div className={`grid gap-6 pt-10 border-t border-page-border mt-4 ${isFlutter ? "grid-cols-2 sm:grid-cols-4 max-w-3xl" : "grid-cols-3 max-w-xl"}`}>
-              {heroStats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-page-fg">{stat.value}</p>
-                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-page-fg-muted mt-1">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
+        </section>
 
-          {/* Right Column (Form Panel) */}
-          <div id="hire-rfp-form" className="lg:col-span-5">
-            <HireResourceRfpForm
-              roleTitle={resource.heroTitle}
-              formSubtext={
-                isAndroid
-                  ? "Tell us your project requirements and we'll match you with the right Android developer within 24 hours."
-                  : isReact
-                    ? "Tell us your project requirements and we'll match you with the right React developer within 24 hours."
-                    : isFlutter
-                      ? "Tell us about your Flutter project and we'll connect you with the right developer within 24 hours."
-                      : undefined
-              }
-              submitFooterText={
-                (isAndroid || isReact) ? (
-                  <span>
-                    We&apos;ll review your CV details.{" "}
-                    <a href="/contact" className="text-toadster-green hover:underline">
-                      Schedule a call instead
-                    </a>
-                  </span>
-                ) : isFlutter ? (
-                  "No commitment required. We'll reach out within 24 hours."
-                ) : undefined
-              }
-              engagementOptions={
-                isFlutter
-                  ? [
-                    { value: "Full-Time", label: "Full-Time" },
-                    { value: "Part-Time", label: "Part-Time" },
-                    { value: "Team", label: "Team" },
-                  ]
-                  : undefined
-              }
-              projectBriefLabel={(isAndroid || isReact) ? "Tell us about your project" : undefined}
-            />
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── SECTION 2: TECH STACK & SKILL MATRIX ── */}
-      <section className="py-20 relative z-10">
-        <div className="w-full text-center flex flex-col gap-3 mb-16">
-          <span className="text-xs font-bold uppercase tracking-wider text-page-fg-muted">
-
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-            {(isFlutter || isAndroid || isReact) ? "Tech Stack & Skill Matrix" : `Advanced ${titleInfo.highlight} Skill Matrix`}
-          </h2>
-          <p className="text-page-fg-muted max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
-            {skillMatrixSection?.body ??
-              `Our ${titleInfo.highlight} developers are proficient across the complete cross-platform mobile ecosystem - from UI to backend integrations.`}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full items-stretch">
-          {skillColumns.map((col, index) => {
-            const IconComponent = col.icon
-            return (
-              <HireRoleCard
-                key={col.title}
-                title={col.title}
-                icon={IconComponent}
-                tags={col.items}
-                description={col.description}
-                index={index}
-              />
-            )
-          })}
-        </div>
-      </section>
-
-      {/* ── SECTION 3: SOLVE CRITICAL DELIVERY BOTTLENECKS ── */}
-      <section className="py-20 relative z-10">
-        <div className="w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
-            {/* Left Info & Graphic Column */}
-            <div className="lg:col-span-5 flex flex-col gap-5 text-left">
-              <span className="text-xs font-bold uppercase tracking-wider text-page-fg-muted">
-                WHY HIRE DEDICATED
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight leading-tight">
-                {isFlutter ? "Why Hire Dedicated Flutter Developers?" : "Solve Critical Delivery Bottlenecks"}
-              </h2>
-              <p className="text-page-fg-muted leading-relaxed text-sm sm:text-base">
-                {whyHireSection?.body ??
-                  `Businesses building software products face a common set of challenges. Dedicated ${titleInfo.highlight} developers solve them.`}
-              </p>
-
-              {/* Desktop graphic framed */}
-              <div className="mt-4 border border-page-border bg-page-bg-alt rounded-2xl overflow-hidden p-2 shadow-sm">
-                <Image
-                  src="/monitor_code_graphic.png"
-                  alt="Monitor code visual"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-lg"
-                  unoptimized
-                />
-              </div>
-            </div>
-
-            {/* Right Bottlenecks Grid */}
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {bottleneckCards.map((card, index) => (
-                <HireRoleCard
-                  key={card.title}
-                  title={card.title}
-                  icon={AlertCircle}
-                  description={card.body}
-                  index={index}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 4: ENTERPRISE GRADE DELIVERABLES ── */}
-      <section className="py-20 relative z-10 w-full">
-        <div className="bg-[#003820] dark:bg-white rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col gap-12">
-
-          {/* Header */}
-          <div className="text-center flex flex-col gap-3 max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white dark:text-black">
-              {isFlutter ? "What Your Dedicated Flutter Developers Will Deliver" : ((isReactNative || isDevOps || isIos || isAndroid || isReact) ? "Production Deliverables" : "Enterprise Grade Deliverables")}
+        {/* ── SECTION 5: SEAMLESS 3-STEP INTEGRATION ── */}
+        <section className="py-10 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+          <div className="text-center flex flex-col gap-3 mb-16">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
+              Seamless 3-Step Integration
             </h2>
-            <p className="text-[#a0c5b3] dark:text-gray-600 text-sm sm:text-base leading-relaxed">
-              {deliverablesSection?.body ??
-                `Vetted ${titleInfo.highlight} developers deliver rigorous engineering standards for robust, scalable mobile applications.`}
+            <p className="text-page-fg-muted max-w-xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
+              From brief to building - your dedicated {titleInfo.highlight} developer is live in under a week.
             </p>
           </div>
 
-          {/* Asymmetric Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-
-            {/* Left Column: Cross-Platform (Tall Card) */}
-            <div className="lg:col-span-5 flex flex-col justify-between bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-7 border border-emerald-900/40 dark:border-gray-200 relative overflow-hidden min-h-[380px] lg:min-h-0">
-              <div className="flex flex-col gap-4 z-10 text-left">
-                <h3 className="font-extrabold text-2xl leading-snug text-white dark:text-black">{deliverables[0].title}</h3>
-                <p className="text-[#a0c5b3] dark:text-gray-600 text-sm leading-relaxed">
-                  {deliverables[0].description}
-                </p>
-              </div>
-
-              {/* Dual phone image graphic absolute placed */}
-              <div className="mt-8 flex justify-center -mb-7">
-                <Image
-                  src="/phones_app_graphic.png"
-                  alt="Phones visualization"
-                  width={340}
-                  height={260}
-                  className="object-contain"
-                  unoptimized
-                />
-              </div>
-            </div>
-
-            {/* Right Column (Stacked Cards) */}
-            <div className="lg:col-span-7 flex flex-col gap-6">
-
-              {/* Top Card: Advanced State Management */}
-              <div className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-7 border border-emerald-900/40 flex flex-col gap-5 text-left">
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-extrabold text-xl leading-snug text-white dark:text-black">{deliverables[1].title}</h3>
-                  <p className="text-[#a0c5b3] dark:text-gray-600 text-sm leading-relaxed">
-                    {deliverables[1].description}
-                  </p>
-                </div>
-
-                {/* Badges */}
-                {isFlutter && (
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {["BLOC/CUBIT", "RIVERPOD", "GETX"].map((badge) => (
-                      <span key={badge} className="px-3 py-1 rounded bg-[#003820] dark:bg-green-100 text-xs font-bold text-emerald-400 dark:text-green-800">
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Bottom Row (2 Equal Columns) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
-
-                {/* Bottom Left Card */}
-                <div className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-6 border border-emerald-900/40 flex flex-col justify-start gap-4 items-start text-left min-h-[180px]">
-                  <span className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#003820] dark:bg-green-100 text-emerald-400 dark:text-green-700">
-                    <Cloud size={18} />
-                  </span>
-                  <div>
-                    <h4 className="font-bold text-base text-white dark:text-black">{deliverables[2].title}</h4>
-                    <p className="text-[#a0c5b3] dark:text-gray-600 text-xs leading-relaxed mt-1.5">
-                      {deliverables[2].description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Bottom Right Card */}
-                <div className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-6 border border-emerald-900/40 flex flex-col justify-start gap-4 items-start text-left min-h-[180px]">
-                  <span className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#003820] dark:bg-green-100 text-emerald-400 dark:text-green-700">
-                    <Shield size={18} />
-                  </span>
-                  <div>
-                    <h4 className="font-bold text-base text-white dark:text-black">{deliverables[3].title}</h4>
-                    <p className="text-[#a0c5b3] dark:text-gray-600 text-xs leading-relaxed mt-1.5">
-                      {deliverables[3].description}
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
+          <div className="mt-12 md:mt-14">
+            <ProcessSteps steps={processSteps} />
           </div>
+        </section>
 
-          {isFlutter && deliverables.length > 4 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {deliverables.slice(4).map((item) => (
-                <div
-                  key={item.title}
-                  className="bg-[#004d2d] dark:bg-gray-50 dark:border dark:border-gray-200 rounded-2xl p-6 border border-emerald-900/40 flex flex-col gap-3 text-left"
-                >
-                  <h4 className="font-extrabold text-lg text-white dark:text-black">{item.title}</h4>
-                  <p className="text-[#a0c5b3] dark:text-gray-600 text-sm leading-relaxed">{item.description}</p>
-                </div>
-              ))}
+        {/* ── SECTION 6: FLUTTER ROLES YOU CAN HIRE ── */}
+        {isFlutter && rolesSection?.items && (
+          <section className="py-10 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+            <div className="text-center flex flex-col gap-3 mb-12">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
+                {rolesSection.heading}
+              </h2>
+              <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
+                {rolesSection.body}
+              </p>
             </div>
-          )}
 
-        </div>
-      </section>
+            <div className="overflow-x-auto rounded-2xl border border-page-border shadow-[0_10px_35px_rgba(0,0,0,0.03)] bg-page-card">
+              <table className="w-full text-left border-collapse min-w-[600px]">
+                <thead>
+                  <tr className="bg-toadster-green text-white">
+                    <th className="px-6 py-4.5 font-bold text-sm">Resource Type</th>
+                    <th className="px-6 py-4.5 font-bold text-sm">What They Do For You</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-page-border text-page-fg-muted text-sm">
+                  {rolesSection.items.map((item) => (
+                    <tr key={item.title} className="hover:bg-page-bg-alt">
+                      <td className="px-6 py-4 font-semibold text-page-fg bg-page-bg-alt/50">{item.title}</td>
+                      <td className="px-6 py-4">{item.body}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
 
-      {/* ── SECTION 5: SEAMLESS 3-STEP INTEGRATION ── */}
-      <section className="py-20 relative z-10 w-full">
-        <div className="text-center flex flex-col gap-3 mb-16">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-            Seamless 3-Step Integration
-          </h2>
-          <p className="text-page-fg-muted max-w-xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
-            From brief to building - your dedicated {titleInfo.highlight} developer is live in under a week.
-          </p>
-        </div>
+        {/* ── SECTION 7: FLEXIBLE ENGAGEMENT MODELS ── */}
+        {isFlutter && engagementSection?.items && (
+          <section className="py-10 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+            <div className="text-center flex flex-col gap-3 mb-12">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
+                {engagementSection.heading}
+              </h2>
+              <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
+                {engagementSection.body}
+              </p>
+            </div>
 
-        <div className="mt-12 md:mt-14">
-          <ProcessSteps steps={processSteps} />
-        </div>
-      </section>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {engagementSection.items.map((item, index) => {
+                const badgeMatch = item.title.match(/\(([^)]+)\)/)
+                const badge = badgeMatch?.[1]
+                const cleanTitle = item.title.replace(/\s*\([^)]+\)/, "")
+                const bodyParts = item.body.split(". ")
+                const hoursLine = bodyParts[0] ?? ""
+                const description = bodyParts[1] ?? ""
+                const bullets = bodyParts[2] ? bodyParts[2].split(", ") : []
 
-      {/* ── SECTION 6: FLUTTER ROLES YOU CAN HIRE ── */}
-      {isFlutter && rolesSection?.items && (
-        <section className="py-20 relative z-10 w-full">
+                return (
+                  <HireRoleCard
+                    key={item.title}
+                    title={cleanTitle}
+                    icon={Briefcase}
+                    badge={badge}
+                    description={[hoursLine, description].filter(Boolean).join(". ")}
+                    tags={bullets}
+                    index={index}
+                  />
+                )
+              })}
+            </div>
+          </section>
+        )}
+
+        {/* ── SECTION 6: THE TOADSTER ADVANTAGE TABLE ── */}
+        <section className="py-10 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
           <div className="text-center flex flex-col gap-3 mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-              {rolesSection.heading}
+              {isFlutter ? "How Dedicated Flutter Developers Compare" : (isReactNative ? "Why Dedicated Beats Every Other Option for React Native Talent" : (isDevOps ? "Why Dedicated Beats Every Other Option for DevOps Talent" : (isIos ? "Why Dedicated Beats Every Other Option for iOS Talent" : (isAndroid ? "Why Dedicated Beats Every Other Option for Android Talent" : (isReact ? "Why Dedicated Beats Every Other Option for React Talent" : "The Toadster Advantage")))))}
             </h2>
-            <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
-              {rolesSection.body}
+            <p className="text-page-fg-muted max-w-xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
+              {comparisonSection?.body ??
+                "Understand exactly how dedicated resourcing differs from other common hiring approaches."}
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-page-border shadow-[0_10px_35px_rgba(0,0,0,0.03)] bg-page-card">
+          <div className="overflow-x-auto rounded-2xl border border-page-border shadow-[0_10px_35px_rgba(0,0,0,0.03)] bg-page-card max-w-5xl mx-auto">
             <table className="w-full text-left border-collapse min-w-[600px]">
               <thead>
                 <tr className="bg-toadster-green text-white">
-                  <th className="px-6 py-4.5 font-bold text-sm">Resource Type</th>
-                  <th className="px-6 py-4.5 font-bold text-sm">What They Do For You</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{(isAndroid || isReact) ? "Criteria" : "Feature"}</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{isIos ? "Dedicated iOS Team" : (isAndroid ? "Dedicated Android Team" : (isReact ? "Dedicated React Team" : "Dedicated Developer"))}</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{isFlutter ? "Staff Augmentation" : ((isReactNative || isDevOps || isIos || isAndroid || isReact) ? "Freelancers" : "Staffing / Agency")}</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{(isReactNative || isDevOps || isIos || isAndroid || isReact) ? "In-House Hiring" : "Project Outsourcing"}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-page-border text-page-fg-muted text-sm">
-                {rolesSection.items.map((item) => (
-                  <tr key={item.title} className="hover:bg-page-bg-alt">
-                    <td className="px-6 py-4 font-semibold text-page-fg bg-page-bg-alt/50">{item.title}</td>
-                    <td className="px-6 py-4">{item.body}</td>
+                {comparisonRows.map((row) => (
+                  <tr key={row.feature} className="hover:bg-page-bg-alt">
+                    <td className="px-6 py-4 font-semibold text-page-fg bg-page-bg-alt/50">{row.feature}</td>
+                    <td className="px-6 py-4 font-medium text-page-fg">{row.dedicated}</td>
+                    <td className="px-6 py-4">{row.staffAug}</td>
+                    <td className="px-6 py-4">{row.outsourcing}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         </section>
-      )}
 
-      {/* ── SECTION 7: FLEXIBLE ENGAGEMENT MODELS ── */}
-      {isFlutter && engagementSection?.items && (
-        <section className="py-20 relative z-10 w-full">
-          <div className="text-center flex flex-col gap-3 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-              {engagementSection.heading}
-            </h2>
-            <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
-              {engagementSection.body}
-            </p>
-          </div>
+        {/* ── SECTION 10: WHY TOADSTER ── */}
+        {isFlutter && whyToadsterSection?.items && (
+          <section className="py-10 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+            <div className="text-center flex flex-col gap-3 mb-12">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
+                {whyToadsterSection.heading}
+              </h2>
+              <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
+                {whyToadsterSection.body}
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {engagementSection.items.map((item, index) => {
-              const badgeMatch = item.title.match(/\(([^)]+)\)/)
-              const badge = badgeMatch?.[1]
-              const cleanTitle = item.title.replace(/\s*\([^)]+\)/, "")
-              const bodyParts = item.body.split(". ")
-              const hoursLine = bodyParts[0] ?? ""
-              const description = bodyParts[1] ?? ""
-              const bullets = bodyParts[2] ? bodyParts[2].split(", ") : []
-
-              return (
-                <HireRoleCard
-                  key={item.title}
-                  title={cleanTitle}
-                  icon={Briefcase}
-                  badge={badge}
-                  description={[hoursLine, description].filter(Boolean).join(". ")}
-                  tags={bullets}
-                  index={index}
-                />
-              )
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* ── SECTION 6: THE TOADSTER ADVANTAGE TABLE ── */}
-      <section className="py-20 relative z-10 w-full">
-        <div className="text-center flex flex-col gap-3 mb-12">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-            {isFlutter ? "How Dedicated Flutter Developers Compare" : (isReactNative ? "Why Dedicated Beats Every Other Option for React Native Talent" : (isDevOps ? "Why Dedicated Beats Every Other Option for DevOps Talent" : (isIos ? "Why Dedicated Beats Every Other Option for iOS Talent" : (isAndroid ? "Why Dedicated Beats Every Other Option for Android Talent" : (isReact ? "Why Dedicated Beats Every Other Option for React Talent" : "The Toadster Advantage")))))}
-          </h2>
-          <p className="text-page-fg-muted max-w-xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
-            {comparisonSection?.body ??
-              "Understand exactly how dedicated resourcing differs from other common hiring approaches."}
-          </p>
-        </div>
-
-        <div className="overflow-x-auto rounded-2xl border border-page-border shadow-[0_10px_35px_rgba(0,0,0,0.03)] bg-page-card max-w-5xl mx-auto">
-          <table className="w-full text-left border-collapse min-w-[600px]">
-            <thead>
-              <tr className="bg-toadster-green text-white">
-                <th className="px-6 py-4.5 font-bold text-sm">{(isAndroid || isReact) ? "Criteria" : "Feature"}</th>
-                <th className="px-6 py-4.5 font-bold text-sm">{isIos ? "Dedicated iOS Team" : (isAndroid ? "Dedicated Android Team" : (isReact ? "Dedicated React Team" : "Dedicated Developer"))}</th>
-                <th className="px-6 py-4.5 font-bold text-sm">{isFlutter ? "Staff Augmentation" : ((isReactNative || isDevOps || isIos || isAndroid || isReact) ? "Freelancers" : "Staffing / Agency")}</th>
-                <th className="px-6 py-4.5 font-bold text-sm">{(isReactNative || isDevOps || isIos || isAndroid || isReact) ? "In-House Hiring" : "Project Outsourcing"}</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-page-border text-page-fg-muted text-sm">
-              {comparisonRows.map((row) => (
-                <tr key={row.feature} className="hover:bg-page-bg-alt">
-                  <td className="px-6 py-4 font-semibold text-page-fg bg-page-bg-alt/50">{row.feature}</td>
-                  <td className="px-6 py-4 font-medium text-page-fg">{row.dedicated}</td>
-                  <td className="px-6 py-4">{row.staffAug}</td>
-                  <td className="px-6 py-4">{row.outsourcing}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* ── SECTION 10: WHY TOADSTER ── */}
-      {isFlutter && whyToadsterSection?.items && (
-        <section className="py-20 relative z-10 w-full">
-          <div className="text-center flex flex-col gap-3 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-              {whyToadsterSection.heading}
-            </h2>
-            <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
-              {whyToadsterSection.body}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {whyToadsterSection.items.map((item, index) => (
-              <HireRoleCard
-                key={item.title}
-                title={item.title}
-                icon={ShieldCheck}
-                description={item.body}
-                index={index}
-              />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* ── SECTION 11: PRICING ── */}
-      {isFlutter && pricingSection?.items && (
-        <section className="py-20 relative z-10 w-full">
-          <div className="text-center flex flex-col gap-3 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-              {pricingSection.heading}
-            </h2>
-            <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
-              {pricingSection.body}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-            {pricingSection.items.map((item, index) => {
-              const [experiencePart, bestForPart] = item.body.split(". Best for: ")
-              return (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {whyToadsterSection.items.map((item, index) => (
                 <HireRoleCard
                   key={item.title}
                   title={item.title}
-                  icon={Layers}
-                  description={`Experience: ${experiencePart}${bestForPart ? `. Best for: ${bestForPart}` : ""}`}
+                  icon={ShieldCheck}
+                  description={item.body}
                   index={index}
                 />
-              )
-            })}
-          </div>
+              ))}
+            </div>
+          </section>
+        )}
 
-          <p className="text-center text-page-fg-muted text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
-            Contact Toadster Technologies for a customized quote based on your specific engagement model, seniority
-            requirements, and team size. We offer competitive rates with full transparency - no retainer fees, no hidden
-            charges.
-          </p>
+        {/* ── SECTION 11: PRICING ── */}
+        {isFlutter && pricingSection?.items && (
+          <section className="py-10 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+            <div className="text-center flex flex-col gap-3 mb-12">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
+                {pricingSection.heading}
+              </h2>
+              <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
+                {pricingSection.body}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+              {pricingSection.items.map((item, index) => {
+                const [experiencePart, bestForPart] = item.body.split(". Best for: ")
+                return (
+                  <HireRoleCard
+                    key={item.title}
+                    title={item.title}
+                    icon={Layers}
+                    description={`Experience: ${experiencePart}${bestForPart ? `. Best for: ${bestForPart}` : ""}`}
+                    index={index}
+                  />
+                )
+              })}
+            </div>
+
+            <p className="text-center text-page-fg-muted text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
+              Contact Toadster Technologies for a customized quote based on your specific engagement model, seniority
+              requirements, and team size. We offer competitive rates with full transparency - no retainer fees, no hidden
+              charges.
+            </p>
+          </section>
+        )}
+
+        {/* ── SECTION 12: FAQ ── */}
+        {(isFlutter || isReactNative || isDevOps || isIos || isAndroid || isReact) && resource.faqs.length > 0 && (
+          <section className="py-10 px-6 lg:px-16 relative z-10 max-w-4xl mx-auto">
+            <div className="text-center flex flex-col gap-3 mb-12">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-page-fg-muted text-sm sm:text-base leading-relaxed font-medium">
+                Everything you need to know about hiring dedicated {isFlutter ? "Flutter" : (isReactNative ? "React Native" : (isDevOps ? "DevOps" : (isIos ? "iOS" : (isAndroid ? "Android" : (isReact ? "React.js" : "")))))} developers through Toadster Technologies.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              {resource.faqs.map((faq) => (
+                <HomepageFaqItem key={faq.question} question={faq.question} answer={faq.answer} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── SECTION 13: BOTTOM CONVERSION BANNER ── */}
+        <section className="py-10 px-6 lg:px-16 relative z-10 max-w-7xl mx-auto">
+          <div className={isDark
+            ? "bg-white text-black rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center relative overflow-hidden border border-slate-200 shadow-2xl"
+            : "hire-resources-cta relative overflow-hidden rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center"
+          }>
+
+            <div className="flex flex-col gap-3 max-w-2xl">
+              <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${isDark ? 'text-slate-900' : 'text-white'}`}>
+                {bottomBanner.headline}
+              </h2>
+              <p className={`text-sm sm:text-base leading-relaxed ${isDark ? 'text-slate-600' : 'text-white/80'}`}>
+                {bottomBanner.description}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-4 z-10 w-full sm:w-auto mt-2">
+              <button
+                type="button"
+                onClick={scrollToForm}
+                className={`inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold shadow-sm transition-all ${isDark
+                  ? 'bg-[#004d2d] hover:bg-[#003820] text-white'
+                  : 'bg-[#003820]/90 hover:bg-[#003820] text-white border border-white/20'
+                  }`}
+              >
+                {bottomBanner.secondaryCta}
+                <ArrowRight size={16} className="text-white" />
+              </button>
+            </div>
+
+            {bottomBanner.footer && (
+              <p className={`text-xs sm:text-sm mt-2 ${isDark ? 'text-slate-500' : 'text-white/60'}`}>
+                {bottomBanner.footer}
+              </p>
+            )}
+          </div>
         </section>
-      )}
-
-      {/* ── SECTION 12: FAQ ── */}
-      {(isFlutter || isReactNative || isDevOps || isIos || isAndroid || isReact) && resource.faqs.length > 0 && (
-        <section className="py-20 relative z-10">
-          <div className="faq-section-layout">
-          <div className="text-center flex flex-col gap-3 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-page-fg-muted text-sm sm:text-base leading-relaxed font-medium">
-              Everything you need to know about hiring dedicated {isFlutter ? "Flutter" : (isReactNative ? "React Native" : (isDevOps ? "DevOps" : (isIos ? "iOS" : (isAndroid ? "Android" : (isReact ? "React.js" : "")))))} developers through Toadster Technologies.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            {resource.faqs.map((faq) => (
-              <HomepageFaqItem key={faq.question} question={faq.question} answer={faq.answer} />
-            ))}
-          </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── SECTION 13: BOTTOM CONVERSION BANNER ── */}
-      <section className="py-20 relative z-10 w-full">
-        <div className={isDark
-          ? "bg-white text-black rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center relative overflow-hidden border border-slate-200 shadow-2xl"
-          : "hire-resources-cta relative overflow-hidden rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center"
-        }>
-
-          <div className="flex flex-col gap-3 max-w-2xl">
-            <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${isDark ? 'text-slate-900' : 'text-white'}`}>
-              {bottomBanner.headline}
-            </h2>
-            <p className={`text-sm sm:text-base leading-relaxed ${isDark ? 'text-slate-600' : 'text-white/80'}`}>
-              {bottomBanner.description}
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 z-10 w-full sm:w-auto mt-2">
-            <button
-              type="button"
-              onClick={scrollToForm}
-              className={`inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold shadow-sm transition-all ${isDark
-                ? 'bg-primary hover:bg-primary-hover text-white'
-                : 'bg-white hover:bg-slate-50 text-primary'
-                }`}
-            >
-              {bottomBanner.secondaryCta}
-            </button>
-          </div>
-
-          {bottomBanner.footer && (
-            <p className={`text-xs sm:text-sm mt-2 ${isDark ? 'text-slate-500' : 'text-white/60'}`}>
-              {bottomBanner.footer}
-            </p>
-          )}
-        </div>
-      </section>
-
       </div>
     </div>
   )

@@ -41,8 +41,13 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
     if (lineProgressOverride !== null) {
       animatedScaleX.set(lineProgressOverride)
       animatedY.set(-120 + 240 * lineProgressOverride)
+    } else {
+      // Restore to current scroll-driven value when hover ends
+      const currentScroll = lineScaleX.get()
+      animatedScaleX.set(currentScroll)
+      animatedY.set(-120 + 240 * currentScroll)
     }
-  }, [lineProgressOverride, animatedScaleX, animatedY])
+  }, [lineProgressOverride, animatedScaleX, animatedY, lineScaleX])
 
   const lineInsetPercent = steps.length === 4 ? null : 100 / (steps.length * 2)
   const lineInsetClass = steps.length === 4 ? "inset-x-[104px]" : undefined
@@ -75,13 +80,14 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
                 key={step.id}
                 onMouseEnter={() => {
                   setActiveIndex(i)
-                  if (i === 0) setLineProgressOverride(0.5)
+                  // When hovering ball i, fill the line to connect to ball i+1
+                  if (i === 0) setLineProgressOverride(1 / (steps.length - 1))
+                  else if (i === steps.length - 1) setLineProgressOverride(1)
+                  else setLineProgressOverride((i + 1) / (steps.length - 1))
                 }}
                 onMouseLeave={() => {
                   setActiveIndex(null)
-                }}
-                onClick={() => {
-                  if (i === 1 || i === 2) setLineProgressOverride(1)
+                  setLineProgressOverride(null)
                 }}
                 whileHover={{ scale: 1.08 }}
                 transition={{ type: "spring", stiffness: 260, damping: 18 }}
@@ -161,13 +167,13 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
                 <motion.div
                   onMouseEnter={() => {
                     setActiveIndex(i)
-                    if (i === 0) setLineProgressOverride(0.5)
+                    if (i === 0) setLineProgressOverride(1 / (steps.length - 1))
+                    else if (i === steps.length - 1) setLineProgressOverride(1)
+                    else setLineProgressOverride((i + 1) / (steps.length - 1))
                   }}
                   onMouseLeave={() => {
                     setActiveIndex(null)
-                  }}
-                  onClick={() => {
-                    if (i === 1 || i === 2) setLineProgressOverride(1)
+                    setLineProgressOverride(null)
                   }}
                   whileHover={{ scale: 1.08 }}
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}

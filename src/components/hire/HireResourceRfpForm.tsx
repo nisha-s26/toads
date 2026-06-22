@@ -85,24 +85,24 @@ export function HireResourceRfpForm({
     }
   }
 
-  const labelClass = "mb-1.5 block text-xs font-semibold capability-card-copy uppercase tracking-wider"
+  const labelClass = "mb-1 block text-[10px] font-semibold capability-card-copy uppercase tracking-wider"
   const fieldClass =
-    "w-full px-4 h-11 text-sm bright-panel-input border border-slate-200/80 placeholder:text-slate-400/80 focus:outline-none focus:ring-1 focus:ring-toadster-green/20 rounded-lg transition-all"
+    "w-full px-3 h-9 text-xs bright-panel-input border border-slate-200/80 placeholder:text-slate-400/80 focus:outline-none focus:ring-1 focus:ring-toadster-green/20 rounded-lg transition-all"
 
   return (
     <div className="relative">
-      <div className="capability-card-surface relative overflow-hidden rounded-2xl p-6 sm:p-7">
-        <div className="mb-5 text-left">
-          <p className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-black">Request a Free Consultation</p>
-          <p className="mt-1 text-sm leading-relaxed capability-card-copy">
+      <div className="capability-card-surface relative overflow-hidden rounded-2xl p-4 sm:p-5">
+        <div className="mb-3.5 text-left">
+          <p className="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-black">Request a Free Consultation</p>
+          <p className="mt-0.5 text-xs leading-relaxed capability-card-copy">
             {formSubtext}
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="relative z-10 flex flex-col gap-4 text-left">
-          <div className="flex flex-col gap-3.5">
+        <form onSubmit={handleSubmit} className="relative z-10 flex flex-col gap-3 text-left">
+          <div className="flex flex-col gap-2.5">
             {/* First & Last Name */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2.5">
               <div>
                 <label className={labelClass}>First Name</label>
                 <input
@@ -185,12 +185,12 @@ export function HireResourceRfpForm({
                 required
                 placeholder="Tell us about your project requirements..."
                 rows={3}
-                className={`${fieldClass} min-h-[5.5rem] py-3 resize-none`}
+                className={`${fieldClass} min-h-[3.5rem] py-2 resize-none`}
               />
             </div>
           </div>
 
-          <div className="flex items-center justify-between rounded-xl border border-slate-200/80 bg-slate-50/80 px-4 py-2 select-none my-0.5">
+          <div className="flex items-center justify-between rounded-xl border border-slate-200/80 bg-slate-50/80 px-3 py-1.5 select-none my-0.5">
             <label className="flex cursor-pointer items-center gap-3">
               <input
                 type="checkbox"
@@ -226,13 +226,13 @@ export function HireResourceRfpForm({
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="h-11 w-full rounded-lg bg-primary text-sm font-bold text-white shadow-sm hover:bg-primary-hover transition-colors disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer"
+            className="h-9 w-full rounded-lg bg-[#004d2d] text-sm font-bold text-white shadow-sm hover:bg-[#003820] transition-colors disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer"
           >
             {isSubmitting ? "Submitting..." : "Submit Request"}
             {!isSubmitting && <ArrowRight size={16} />}
           </Button>
 
-          <div className="flex items-center justify-center gap-2 text-xs capability-card-copy">
+          <div className="flex items-center justify-center gap-1.5 text-[11px] capability-card-copy">
             <ShieldCheck size={14} className="capability-card-copy" />
             <span>{submitFooterText}</span>
           </div>

@@ -41,141 +41,141 @@ export const capabilities: {
   title: string
   desc: string
 }[] = [
-  {
-    icon: Smartphone,
-    title: "Mobile AR App Development",
-    desc: "AR experiences for iOS and Android built with ARKit, ARCore, and Unity. Product visualisation, marker-based overlays, image tracking, face tracking, and location-based AR — designed for consumer and enterprise mobile use cases.",
-  },
-  {
-    icon: Globe,
-    title: "WebAR Development",
-    desc: "Browser-based AR that works without an app download — using 8th Wall, AR.js, or model-viewer. Customers can point their phone at a product, a space, or a marker and see AR content instantly from a link or QR code. Ideal for retail, marketing, and e-commerce.",
-  },
-  {
-    icon: Glasses,
-    title: "Enterprise Wearable AR (HoloLens / Magic Leap)",
-    desc: "AR applications for Microsoft HoloLens 2 and Magic Leap 2, purpose-built for industrial, medical, and enterprise use cases. Hands-free work instruction delivery, real-time data overlays, spatial mapping, and remote expert collaboration for field and factory environments.",
-  },
-  {
-    icon: Box,
-    title: "AR Product Visualisation & 3D Configuration",
-    desc: "Let customers place, scale, rotate, and configure products in their own space before purchasing. Built for furniture, appliances, automotive, fashion, and any category where 'how will this look in my home/space' is a purchase barrier.",
-  },
-  {
-    icon: GraduationCap,
-    title: "AR Training & Simulation",
-    desc: "Step-by-step AR-guided training for complex procedures, equipment operation, safety protocols, and technical skills. Trainees see instructions and 3D guidance overlaid on the actual equipment or environment they're learning to work with — more effective than video and safer than live practice.",
-  },
-  {
-    icon: Video,
-    title: "AR Remote Assistance & Expert Guidance",
-    desc: "Connect a field technician wearing AR glasses or using a mobile device with a remote expert who can see exactly what they're seeing, annotate their view in real time, and guide them through complex repairs or procedures without travelling. Reduces resolution time and expert travel costs significantly.",
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Spatial Data Visualisation & Dashboards",
-    desc: "Overlay operational data — sensor readings, KPIs, machine status, inventory levels, navigation — directly onto the physical environment where decisions are being made. Particularly valuable for warehouse management, manufacturing floors, and infrastructure inspection.",
-  },
-  {
-    icon: MapPin,
-    title: "AR Navigation & Wayfinding",
-    desc: "Indoor and outdoor AR navigation for large facilities — hospitals, warehouses, airports, campuses, retail spaces — where standard maps are inadequate and getting people to the right place quickly matters operationally.",
-  },
-  {
-    icon: Megaphone,
-    title: "AR Marketing & Brand Experiences",
-    desc: "Interactive AR campaigns, packaging that comes to life, try-before-you-buy product experiences, and event activations that give customers something worth sharing. Designed to drive engagement metrics, dwell time, and conversion — not just impressions.",
-  },
-  {
-    icon: Palette,
-    title: "Custom 3D Asset Creation & Optimisation",
-    desc: "High-quality 3D models, textures, and animations built from scratch or converted from existing CAD files — optimised for real-time AR rendering on mobile and wearable hardware. We handle the full 3D pipeline so you don't need a separate vendor.",
-  },
-]
+    {
+      icon: Smartphone,
+      title: "Mobile AR App Development",
+      desc: "AR experiences for iOS and Android built with ARKit, ARCore, and Unity. Product visualisation, marker-based overlays, image tracking, face tracking, and location-based AR — designed for consumer and enterprise mobile use cases.",
+    },
+    {
+      icon: Globe,
+      title: "WebAR Development",
+      desc: "Browser-based AR that works without an app download — using 8th Wall, AR.js, or model-viewer. Customers can point their phone at a product, a space, or a marker and see AR content instantly from a link or QR code. Ideal for retail, marketing, and e-commerce.",
+    },
+    {
+      icon: Glasses,
+      title: "Enterprise Wearable AR (HoloLens / Magic Leap)",
+      desc: "AR applications for Microsoft HoloLens 2 and Magic Leap 2, purpose-built for industrial, medical, and enterprise use cases. Hands-free work instruction delivery, real-time data overlays, spatial mapping, and remote expert collaboration for field and factory environments.",
+    },
+    {
+      icon: Box,
+      title: "AR Product Visualisation & 3D Configuration",
+      desc: "Let customers place, scale, rotate, and configure products in their own space before purchasing. Built for furniture, appliances, automotive, fashion, and any category where 'how will this look in my home/space' is a purchase barrier.",
+    },
+    {
+      icon: GraduationCap,
+      title: "AR Training & Simulation",
+      desc: "Step-by-step AR-guided training for complex procedures, equipment operation, safety protocols, and technical skills. Trainees see instructions and 3D guidance overlaid on the actual equipment or environment they're learning to work with — more effective than video and safer than live practice.",
+    },
+    {
+      icon: Video,
+      title: "AR Remote Assistance & Expert Guidance",
+      desc: "Connect a field technician wearing AR glasses or using a mobile device with a remote expert who can see exactly what they're seeing, annotate their view in real time, and guide them through complex repairs or procedures without travelling. Reduces resolution time and expert travel costs significantly.",
+    },
+    {
+      icon: LayoutDashboard,
+      title: "Spatial Data Visualisation & Dashboards",
+      desc: "Overlay operational data — sensor readings, KPIs, machine status, inventory levels, navigation — directly onto the physical environment where decisions are being made. Particularly valuable for warehouse management, manufacturing floors, and infrastructure inspection.",
+    },
+    {
+      icon: MapPin,
+      title: "AR Navigation & Wayfinding",
+      desc: "Indoor and outdoor AR navigation for large facilities — hospitals, warehouses, airports, campuses, retail spaces — where standard maps are inadequate and getting people to the right place quickly matters operationally.",
+    },
+    {
+      icon: Megaphone,
+      title: "AR Marketing & Brand Experiences",
+      desc: "Interactive AR campaigns, packaging that comes to life, try-before-you-buy product experiences, and event activations that give customers something worth sharing. Designed to drive engagement metrics, dwell time, and conversion — not just impressions.",
+    },
+    {
+      icon: Palette,
+      title: "Custom 3D Asset Creation & Optimisation",
+      desc: "High-quality 3D models, textures, and animations built from scratch or converted from existing CAD files — optimised for real-time AR rendering on mobile and wearable hardware. We handle the full 3D pipeline so you don't need a separate vendor.",
+    },
+  ]
 
 export const industries: {
   icon: LucideIcon
   title: string
   desc: string
 }[] = [
-  {
-    icon: Factory,
-    title: "Manufacturing & Industrial",
-    desc: "AR-guided assembly instructions, quality inspection support, machine maintenance procedures, safety alert overlays, and real-time equipment status dashboards for factory and industrial environments where accuracy and speed both matter.",
-  },
-  {
-    icon: ShoppingBag,
-    title: "Retail & E-Commerce",
-    desc: "Product visualisation in the customer's own space, virtual try-on for fashion and accessories, in-store wayfinding, and AR-powered loyalty and promotional experiences that increase conversion and reduce returns.",
-  },
-  {
-    icon: HeartPulse,
-    title: "Healthcare & Medical",
-    desc: "Surgical guidance overlays, anatomy training for medical students, patient education visualisations, AR-assisted rehabilitation exercises, and medical device training applications. Built with clinical accuracy and patient safety as non-negotiables.",
-  },
-  {
-    icon: Building2,
-    title: "Construction, Architecture & Real Estate",
-    desc: "Visualise buildings, interiors, and renovations before anything is built. AR-enabled site inspection, BIM overlay on physical sites, and client-facing visualisation tools that reduce revision cycles and accelerate decision-making.",
-  },
-  {
-    icon: Wrench,
-    title: "Field Service & Utilities",
-    desc: "AR-assisted maintenance and repair for field engineers working on complex equipment — overlaying wiring diagrams, component identification, repair sequences, and safety information directly onto the asset being worked on.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Education & Training",
-    desc: "Immersive AR learning experiences for complex subjects — from anatomy and chemistry to engineering and history. Training simulations that let learners practise procedures in AR before doing them for real on expensive equipment or in high-stakes environments.",
-  },
-  {
-    icon: Package,
-    title: "Logistics & Warehouse",
-    desc: "AR-guided pick-and-pack operations, inventory location overlays, shipment verification, and worker navigation in large fulfilment centres — reducing pick errors and improving throughput without replacing the systems already running the operation.",
-  },
-  {
-    icon: Car,
-    title: "Automotive",
-    desc: "AR showroom experiences, virtual configuration tools, AR-assisted vehicle inspection and damage assessment, technician repair guidance, and customer-facing feature demonstration for dealerships and OEMs.",
-  },
-]
+    {
+      icon: Factory,
+      title: "Manufacturing & Industrial",
+      desc: "AR-guided assembly instructions, quality inspection support, machine maintenance procedures, safety alert overlays, and real-time equipment status dashboards for factory and industrial environments where accuracy and speed both matter.",
+    },
+    {
+      icon: ShoppingBag,
+      title: "Retail & E-Commerce",
+      desc: "Product visualisation in the customer's own space, virtual try-on for fashion and accessories, in-store wayfinding, and AR-powered loyalty and promotional experiences that increase conversion and reduce returns.",
+    },
+    {
+      icon: HeartPulse,
+      title: "Healthcare & Medical",
+      desc: "Surgical guidance overlays, anatomy training for medical students, patient education visualisations, AR-assisted rehabilitation exercises, and medical device training applications. Built with clinical accuracy and patient safety as non-negotiables.",
+    },
+    {
+      icon: Building2,
+      title: "Construction, Architecture & Real Estate",
+      desc: "Visualise buildings, interiors, and renovations before anything is built. AR-enabled site inspection, BIM overlay on physical sites, and client-facing visualisation tools that reduce revision cycles and accelerate decision-making.",
+    },
+    {
+      icon: Wrench,
+      title: "Field Service & Utilities",
+      desc: "AR-assisted maintenance and repair for field engineers working on complex equipment — overlaying wiring diagrams, component identification, repair sequences, and safety information directly onto the asset being worked on.",
+    },
+    {
+      icon: GraduationCap,
+      title: "Education & Training",
+      desc: "Immersive AR learning experiences for complex subjects — from anatomy and chemistry to engineering and history. Training simulations that let learners practise procedures in AR before doing them for real on expensive equipment or in high-stakes environments.",
+    },
+    {
+      icon: Package,
+      title: "Logistics & Warehouse",
+      desc: "AR-guided pick-and-pack operations, inventory location overlays, shipment verification, and worker navigation in large fulfilment centres — reducing pick errors and improving throughput without replacing the systems already running the operation.",
+    },
+    {
+      icon: Car,
+      title: "Automotive",
+      desc: "AR showroom experiences, virtual configuration tools, AR-assisted vehicle inspection and damage assessment, technician repair guidance, and customer-facing feature demonstration for dealerships and OEMs.",
+    },
+  ]
 
 export const whyToadster: {
   icon: LucideIcon
   title: string
   desc: string
 }[] = [
-  {
-    icon: Monitor,
-    title: "We design for the real environment, not the demo environment",
-    desc: "AR experiences that work beautifully in a controlled demo often fail in the field — poor lighting, reflective surfaces, cluttered backgrounds, users who don't hold their phones at the right angle. We design and test for the actual conditions your users will be in, not the ideal ones.",
-  },
-  {
-    icon: Box,
-    title: "3D quality is not an afterthought",
-    desc: "A bad 3D model kills an AR experience faster than any technical issue. We invest in high-quality, optimised 3D assets — whether built from scratch or derived from your existing CAD files — because the visual quality of what users see determines whether they trust and use the experience.",
-  },
-  {
-    icon: Target,
-    title: "We choose the platform that fits the use case",
-    desc: "Mobile AR, WebAR, HoloLens, Magic Leap, and mixed reality headsets all have different strengths, limitations, and user experience tradeoffs. We'll tell you which is right for your use case based on your users, your environment, and your budget — not based on which platform is most technically interesting to build for.",
-  },
-  {
-    icon: Link2,
-    title: "We integrate with your existing systems",
-    desc: "The most useful AR experiences pull live data from the systems already running your operations — ERP, CRM, asset management, IoT platforms, product catalogues. We build the integrations that make AR a live operational tool rather than a static overlay.",
-  },
-  {
-    icon: Users,
-    title: "User experience comes before technical ambition",
-    desc: "AR is technically complex. It's easy to get absorbed in what the technology can do and lose sight of what the user needs to do. We run user research, usability testing, and real-environment validation throughout development — because an AR experience that confuses or frustrates users delivers zero business value, no matter how technically impressive it is.",
-  },
-  {
-    icon: TrendingUp,
-    title: "We build for update and scale",
-    desc: "The 3D models your AR experience uses today need to be updateable. The users of your AR app today will become tens of thousands tomorrow. We architect content management systems, model update pipelines, and cloud infrastructure from the start so you're not rebuilding everything when you want to expand.",
-  },
-]
+    {
+      icon: Monitor,
+      title: "We design for the real environment, not the demo environment",
+      desc: "AR experiences that work beautifully in a controlled demo often fail in the field — poor lighting, reflective surfaces, cluttered backgrounds, users who don't hold their phones at the right angle. We design and test for the actual conditions your users will be in, not the ideal ones.",
+    },
+    {
+      icon: Box,
+      title: "3D quality is not an afterthought",
+      desc: "A bad 3D model kills an AR experience faster than any technical issue. We invest in high-quality, optimised 3D assets — whether built from scratch or derived from your existing CAD files — because the visual quality of what users see determines whether they trust and use the experience.",
+    },
+    {
+      icon: Target,
+      title: "We choose the platform that fits the use case",
+      desc: "Mobile AR, WebAR, HoloLens, Magic Leap, and mixed reality headsets all have different strengths, limitations, and user experience tradeoffs. We'll tell you which is right for your use case based on your users, your environment, and your budget — not based on which platform is most technically interesting to build for.",
+    },
+    {
+      icon: Link2,
+      title: "We integrate with your existing systems",
+      desc: "The most useful AR experiences pull live data from the systems already running your operations — ERP, CRM, asset management, IoT platforms, product catalogues. We build the integrations that make AR a live operational tool rather than a static overlay.",
+    },
+    {
+      icon: Users,
+      title: "User experience comes before technical ambition",
+      desc: "AR is technically complex. It's easy to get absorbed in what the technology can do and lose sight of what the user needs to do. We run user research, usability testing, and real-environment validation throughout development — because an AR experience that confuses or frustrates users delivers zero business value, no matter how technically impressive it is.",
+    },
+    {
+      icon: TrendingUp,
+      title: "We build for update and scale",
+      desc: "The 3D models your AR experience uses today need to be updateable. The users of your AR app today will become tens of thousands tomorrow. We architect content management systems, model update pipelines, and cloud infrastructure from the start so you're not rebuilding everything when you want to expand.",
+    },
+  ]
 
 export const processSteps = [
   {
@@ -222,61 +222,61 @@ export const techCategories: {
   why: string
   pills: string[]
 }[] = [
-  {
-    icon: Smartphone,
-    title: "Mobile AR SDKs",
-    why: "ARKit (iOS), ARCore (Android), Vuforia, Wikitude — for native mobile AR on iPhone and Android devices",
-    pills: ["ARKit", "ARCore", "Vuforia", "Wikitude"],
-  },
-  {
-    icon: Layers,
-    title: "Cross-Platform Development",
-    why: "Unity (with AR Foundation), Unreal Engine — for experiences that target both iOS and Android from a single codebase",
-    pills: ["Unity", "AR Foundation", "Unreal Engine"],
-  },
-  {
-    icon: Globe,
-    title: "WebAR",
-    why: "8th Wall, AR.js, A-Frame, model-viewer, Three.js — for browser-based AR with no app download required",
-    pills: ["8th Wall", "AR.js", "Three.js", "model-viewer"],
-  },
-  {
-    icon: Headset,
-    title: "Enterprise / Wearable",
-    why: "Microsoft Mixed Reality Toolkit (MRTK) for HoloLens 2, Lumin SDK for Magic Leap 2, OpenXR standard",
-    pills: ["MRTK", "HoloLens 2", "Magic Leap", "OpenXR"],
-  },
-  {
-    icon: Glasses,
-    title: "Spatial Computing",
-    why: "Apple Vision Pro (visionOS / RealityKit), Meta Quest (Mixed Reality), ARCore Geospatial API for outdoor AR",
-    pills: ["visionOS", "RealityKit", "Meta Quest", "Geospatial API"],
-  },
-  {
-    icon: Palette,
-    title: "3D Tools & Pipeline",
-    why: "Blender, Autodesk Maya, 3ds Max, Cinema 4D, Substance Painter — CAD-to-AR conversion from STEP, OBJ, FBX, GLTF",
-    pills: ["Blender", "Maya", "Substance Painter", "CAD conversion"],
-  },
-  {
-    icon: Box,
-    title: "3D File Formats",
-    why: "glTF/GLB (primary web standard), USDZ (iOS/visionOS), FBX, OBJ — with optimisation via Draco compression",
-    pills: ["glTF/GLB", "USDZ", "FBX", "Draco"],
-  },
-  {
-    icon: Server,
-    title: "Backend & Integration",
-    why: "REST APIs, GraphQL, Firebase, AWS, Azure — for live data feeds, user management, content delivery, and analytics",
-    pills: ["REST", "GraphQL", "Firebase", "AWS"],
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics & Monitoring",
-    why: "Custom AR analytics pipelines, Firebase Analytics, Mixpanel — tracking engagement, session depth, and interaction points",
-    pills: ["Firebase Analytics", "Mixpanel", "Custom pipelines"],
-  },
-]
+    {
+      icon: Smartphone,
+      title: "Mobile AR SDKs",
+      why: "ARKit (iOS), ARCore (Android), Vuforia, Wikitude — for native mobile AR on iPhone and Android devices",
+      pills: ["ARKit", "ARCore", "Vuforia", "Wikitude"],
+    },
+    {
+      icon: Layers,
+      title: "Cross-Platform Development",
+      why: "Unity (with AR Foundation), Unreal Engine — for experiences that target both iOS and Android from a single codebase",
+      pills: ["Unity", "AR Foundation", "Unreal Engine"],
+    },
+    {
+      icon: Globe,
+      title: "WebAR",
+      why: "8th Wall, AR.js, A-Frame, model-viewer, Three.js — for browser-based AR with no app download required",
+      pills: ["8th Wall", "AR.js", "Three.js", "model-viewer"],
+    },
+    {
+      icon: Headset,
+      title: "Enterprise / Wearable",
+      why: "Microsoft Mixed Reality Toolkit (MRTK) for HoloLens 2, Lumin SDK for Magic Leap 2, OpenXR standard",
+      pills: ["MRTK", "HoloLens 2", "Magic Leap", "OpenXR"],
+    },
+    {
+      icon: Glasses,
+      title: "Spatial Computing",
+      why: "Apple Vision Pro (visionOS / RealityKit), Meta Quest (Mixed Reality), ARCore Geospatial API for outdoor AR",
+      pills: ["visionOS", "RealityKit", "Meta Quest", "Geospatial API"],
+    },
+    {
+      icon: Palette,
+      title: "3D Tools & Pipeline",
+      why: "Blender, Autodesk Maya, 3ds Max, Cinema 4D, Substance Painter — CAD-to-AR conversion from STEP, OBJ, FBX, GLTF",
+      pills: ["Blender", "Maya", "Substance Painter", "CAD conversion"],
+    },
+    {
+      icon: Box,
+      title: "3D File Formats",
+      why: "glTF/GLB (primary web standard), USDZ (iOS/visionOS), FBX, OBJ — with optimisation via Draco compression",
+      pills: ["glTF/GLB", "USDZ", "FBX", "Draco"],
+    },
+    {
+      icon: Server,
+      title: "Backend & Integration",
+      why: "REST APIs, GraphQL, Firebase, AWS, Azure — for live data feeds, user management, content delivery, and analytics",
+      pills: ["REST", "GraphQL", "Firebase", "AWS"],
+    },
+    {
+      icon: BarChart3,
+      title: "Analytics & Monitoring",
+      why: "Custom AR analytics pipelines, Firebase Analytics, Mixpanel — tracking engagement, session depth, and interaction points",
+      pills: ["Firebase Analytics", "Mixpanel", "Custom pipelines"],
+    },
+  ]
 
 export const teamStats = [
   { value: "48h", label: "Average onboarding time" },
@@ -325,37 +325,37 @@ export const benefits: {
   title: string
   desc: string
 }[] = [
-  {
-    icon: ShoppingBag,
-    title: "Higher Purchase Conversion in Retail & E-Commerce",
-    desc: "Customers who use AR product visualisation — seeing furniture in their room, trying on glasses, placing appliances in their kitchen — convert at significantly higher rates and return products less. The uncertainty that kills online purchase decisions is eliminated when customers can see the product in their actual space.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Faster, More Effective Training",
-    desc: "AR-guided training reduces time-to-competency for complex procedures by 30–50% compared to traditional video or manual-based training. Trainees retain more because they're doing, not watching — and they make fewer errors because guidance is overlaid on the actual equipment they're learning to operate.",
-  },
-  {
-    icon: Wrench,
-    title: "Reduced Field Service Resolution Time",
-    desc: "Field engineers using AR remote assistance resolve issues significantly faster than those working from phone calls and PDF manuals alone. The expert sees exactly what the engineer sees, can annotate in real time, and can guide step by step — cutting resolution time and expensive expert travel.",
-  },
-  {
-    icon: Target,
-    title: "Lower Error Rates in Complex Processes",
-    desc: "AR-guided assembly, inspection, and quality control processes produce fewer errors than paper-based or screen-based instruction delivery. When the next step is overlaid on the actual part being assembled, there's less ambiguity and less opportunity to miss a step.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Accelerated Sales Cycles for Complex Products",
-    desc: "For high-value or technically complex products — industrial equipment, custom furniture, architectural projects, vehicles — AR visualisation tools help buyers make decisions faster with greater confidence, reducing the back-and-forth that extends sales cycles.",
-  },
-  {
-    icon: Sparkles,
-    title: "Stronger Brand Engagement & Differentiation",
-    desc: "In markets where digital experiences are commoditised, AR creates genuinely memorable brand interactions that customers share, talk about, and come back for — particularly in retail, automotive, and consumer goods categories.",
-  },
-]
+    {
+      icon: ShoppingBag,
+      title: "Higher Purchase Conversion in Retail & E-Commerce",
+      desc: "Customers who use AR product visualisation — seeing furniture in their room, trying on glasses, placing appliances in their kitchen — convert at significantly higher rates and return products less. The uncertainty that kills online purchase decisions is eliminated when customers can see the product in their actual space.",
+    },
+    {
+      icon: GraduationCap,
+      title: "Faster, More Effective Training",
+      desc: "AR-guided training reduces time-to-competency for complex procedures by 30–50% compared to traditional video or manual-based training. Trainees retain more because they're doing, not watching — and they make fewer errors because guidance is overlaid on the actual equipment they're learning to operate.",
+    },
+    {
+      icon: Wrench,
+      title: "Reduced Field Service Resolution Time",
+      desc: "Field engineers using AR remote assistance resolve issues significantly faster than those working from phone calls and PDF manuals alone. The expert sees exactly what the engineer sees, can annotate in real time, and can guide step by step — cutting resolution time and expensive expert travel.",
+    },
+    {
+      icon: Target,
+      title: "Lower Error Rates in Complex Processes",
+      desc: "AR-guided assembly, inspection, and quality control processes produce fewer errors than paper-based or screen-based instruction delivery. When the next step is overlaid on the actual part being assembled, there's less ambiguity and less opportunity to miss a step.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Accelerated Sales Cycles for Complex Products",
+      desc: "For high-value or technically complex products — industrial equipment, custom furniture, architectural projects, vehicles — AR visualisation tools help buyers make decisions faster with greater confidence, reducing the back-and-forth that extends sales cycles.",
+    },
+    {
+      icon: Sparkles,
+      title: "Stronger Brand Engagement & Differentiation",
+      desc: "In markets where digital experiences are commoditised, AR creates genuinely memorable brand interactions that customers share, talk about, and come back for — particularly in retail, automotive, and consumer goods categories.",
+    },
+  ]
 
 export const engagementModels = [
   {
