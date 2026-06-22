@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation"
-import HireResourceDetail from "@/views/hire/HireResourceDetail"
 import {
   HIRE_RESOURCE_BY_SLUG,
   HIRE_RESOURCE_SLUGS,
@@ -56,7 +55,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-      <HireResourceDetail resource={resource} />
     </>
   )
 }
