@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { ChevronDown, Menu, X } from "lucide-react"
-import { GlobeIcon } from "@/components/GlobeIcon"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { ToadsterLogo } from "@/components/ToadsterLogo"
@@ -74,22 +73,6 @@ const globalNavLinks = [
   { label: "Contact Us", href: "#contact", section: "contact" },
 ]
 
-const countries = [
-  {
-    flag: "🇮🇳",
-    label: "India",
-    description: "AI development from our Noida HQ",
-    href: "/ai-development-company-india",
-  },
-  {
-    flag: "🇦🇪",
-    label: "UAE",
-    description: "Enterprise AI delivery through DIFC, Dubai",
-    href: "/ai-development-company-uae",
-  },
-]
-
-
 const NAV_ICON_MAP = {
   Brain,
   Code2,
@@ -138,8 +121,6 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
   const [mobileDedicatedOpen, setMobileDedicatedOpen] = useState(false)
-  const [mobileCountriesOpen, setMobileCountriesOpen] = useState(false)
-  const [desktopCountriesOpen, setDesktopCountriesOpen] = useState(false)
   const router = useRouter();
   const pathname = usePathname();
   const isHirePage = pathname?.startsWith("/hire") || pathname === "/hire-resources";
@@ -153,8 +134,6 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
     setMobileOpen(false)
     setMobileServicesOpen(false)
     setMobileDedicatedOpen(false)
-    setMobileCountriesOpen(false)
-    setDesktopCountriesOpen(false)
   }
 
   useEffect(() => {
@@ -247,45 +226,6 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                         ))}
                       </div>
                     )}
-                    {/* Country Switcher Accordion */}
-                    <div>
-                      <button
-                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${activeSection === "country"
-                          ? "text-brand-green font-semibold bg-page-accent-soft"
-                          : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
-                          }`}
-                        onClick={() => setMobileCountriesOpen((p) => !p)}
-                      >
-                        <span className="flex items-center gap-2">
-                          <GlobeIcon size={16} />
-                          Country
-                        </span>
-                        <ChevronDown
-                          size={16}
-                          className={`transition-transform duration-200 ${mobileCountriesOpen ? "rotate-180" : ""}`}
-                        />
-                      </button>
-                      {mobileCountriesOpen && (
-                        <div className="mt-1 ml-3 pl-3 border-l-2 border-page-border flex flex-col gap-0.5">
-                          {countries.map((country) => (
-                            <a
-                              key={country.label}
-                              href={country.href}
-                              title={`Toadster ${country.label}`}
-                              className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-page-fg-muted transition-colors hover:bg-page-accent-soft hover:text-page-fg"
-                              onClick={(e) => {
-                                e.preventDefault()
-                                closeMobile()
-                                router.push(country.href)
-                              }}
-                            >
-                              <span aria-hidden className="text-base leading-none">{country.flag}</span>
-                              {country.label}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
                   </div>
                 )
               } else if (link.label === "Hire Resources") {
@@ -505,56 +445,6 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
 
           {/* ── CTA + Theme ── */}
           <div className="hidden shrink-0 items-center gap-1.5 lg:flex lg:gap-2">
-            <div className="relative">
-              <button
-                type="button"
-                aria-label="Select country"
-                title="Select country"
-                className={`relative flex h-9 items-center gap-1 rounded-full px-2.5 transition-colors hover:bg-page-accent-soft ${activeSection === "country" ? "text-brand-green" : "text-page-fg-muted hover:text-page-fg"
-                  }`}
-                onClick={() => setDesktopCountriesOpen((p) => !p)}
-              >
-                <GlobeIcon size={18} />
-                <ChevronDown
-                  size={13}
-                  className={`transition-transform duration-200 ${desktopCountriesOpen ? "rotate-180" : ""}`}
-                />
-                {activeSection === "country" && (
-                  <span className="absolute bottom-0 left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full bg-primary" />
-                )}
-              </button>
-
-              {desktopCountriesOpen && (
-                <div className="absolute right-0 top-full z-50 mt-2 w-86 rounded-2xl border border-page-border bg-page-card p-3 shadow-2xl">
-                  <div className="grid gap-1">
-                    {countries.map((country) => (
-                      <div key={country.label} className="rounded-xl">
-                        <button
-                          type="button"
-                          className="flex w-full items-start gap-3 rounded-xl px-4 py-3 text-left transition-colors hover:bg-page-accent-soft"
-                          onClick={() => {
-                            setDesktopCountriesOpen(false)
-                            router.push(country.href)
-                          }}
-                        >
-                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-page-accent-soft text-lg leading-none">
-                            {country.flag}
-                          </span>
-                          <span>
-                            <span className="block text-sm font-semibold leading-tight text-page-fg">
-                              {country.label}
-                            </span>
-                            <span className="mt-0.5 block text-xs leading-snug text-page-fg-muted">
-                              {country.description}
-                            </span>
-                          </span>
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
             <ThemeToggle />
             <Button asChild className="rounded-xl px-5 py-5 text-sm font-semibold">
               <a href={"/contact"} title="Email us to schedule a call">

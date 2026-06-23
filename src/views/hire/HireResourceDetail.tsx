@@ -9,7 +9,6 @@ import {
   Brain,
   GitBranch,
   ShieldCheck,
-  Network,
   Code2,
   Terminal,
   Settings2,
@@ -173,8 +172,7 @@ function parseTitleInfo(heroTitle: string) {
 // Hero subheadings for exact matching
 const SUBHEADINGS: Record<string, string> = {
   "flutter-developers": "Build beautiful, high-performance cross-platform apps. Deploy state-of-the-art Flutter talent. Scale your mobile engineering team with pre-vetted, senior Flutter developers who integrate directly into your workflow - from day one.",
-  "llm-developers": "Deploy state-of-the-art model architectures, we place fine-tuned internet-scale model developers & engineers. Bridge the gap between raw foundation model and production-ready app systems.",
-  "ai-ml-engineers": "Bring production-ready AI and machine learning engineers onto your team. Toadster places vetted AI/ML developers who have shipped real systems - not just run Jupyter notebooks.",
+  "ai-ml-developers": "Bring production-ready AI and machine learning engineers onto your team. Toadster places vetted AI/ML developers who have shipped real systems - not just run Jupyter notebooks.",
 }
 
 // Custom Skill Matrices for all roles
@@ -196,24 +194,7 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
       items: ["DevTools & Memory Profiling", "Unit & Golden Tests", "Codemagic / Fastlane CI/CD", "App Store & Google Play Releases"]
     }
   ],
-  "llm-developers": [
-    {
-      title: "Orchestration",
-      icon: GitBranch,
-      items: ["LangChain / LlamaIndex", "LangGraph / AutoGen", "Semantic Kernel"]
-    },
-    {
-      title: "Models",
-      icon: Cpu,
-      items: ["GPT-4o / Claude 3.5", "Llama 3 / Mistral Large", "Fine-tuning Paradigms"]
-    },
-    {
-      title: "Storage",
-      icon: Database,
-      items: ["Pinecone / Qdrant", "Milvus / pgvector", "FAISS Indexes"]
-    }
-  ],
-  "ai-ml-engineers": [
+  "ai-ml-developers": [
     {
       title: "Frameworks & Tools",
       icon: Layers,
@@ -228,74 +209,6 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
       title: "Data & Inference",
       icon: Database,
       items: ["Apache Spark", "MLflow / ONNX Runtime", "TensorRT / Docker"]
-    }
-  ],
-  "agentic-ai-engineers": [
-    {
-      title: "Agent Frameworks",
-      icon: Network,
-      items: ["LangGraph / CrewAI", "AutoGen Orchestration", "Semantic Kernel"]
-    },
-    {
-      title: "Core Capabilities",
-      icon: Brain,
-      items: ["Hierarchical Planning", "Dynamic Tool Use", "Memory & Reflection"]
-    },
-    {
-      title: "Safety & Guardrails",
-      icon: ShieldCheck,
-      items: ["Llama Guard", "NeMo Guardrails", "Human-in-the-Loop"]
-    }
-  ],
-  "mlops-engineers": [
-    {
-      title: "CI/CD & Registries",
-      icon: Settings2,
-      items: ["GitHub Actions / MLflow", "DVC / Kubeflow", "Apache Airflow"]
-    },
-    {
-      title: "Inference & Serving",
-      icon: Cpu,
-      items: ["Triton Server", "TensorRT Engine", "TorchServe / Seldon"]
-    },
-    {
-      title: "ML Infrastructure",
-      icon: Database,
-      items: ["Kubernetes / EKS", "AWS SageMaker / Vertex AI", "Prometheus & Grafana"]
-    }
-  ],
-  "data-engineers": [
-    {
-      title: "Data Processing",
-      icon: Layers,
-      items: ["Apache Spark", "Apache Flink", "Polars / Pandas"]
-    },
-    {
-      title: "Ingestion & Stream",
-      icon: GitBranch,
-      items: ["Apache Kafka", "RabbitMQ Message Bus", "Fivetran / Airbyte"]
-    },
-    {
-      title: "Storage & Warehouses",
-      icon: Database,
-      items: ["Snowflake / Databricks", "Google BigQuery / Redshift", "PostgreSQL / pgvector"]
-    }
-  ],
-  "python-developers": [
-    {
-      title: "Web Backends",
-      icon: Code2,
-      items: ["FastAPI / Django", "Flask Framework", "Asyncio Async Backends"]
-    },
-    {
-      title: "Data & ML Stack",
-      icon: Brain,
-      items: ["NumPy / Pandas", "SciPy Math Stack", "Scikit-Learn ML"]
-    },
-    {
-      title: "Core & Tooling",
-      icon: Terminal,
-      items: ["Redis / Celery", "Docker Containers", "Poetry Dependency"]
     }
   ],
   "reactjs-developers": [
@@ -386,41 +299,6 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
       items: ["AWS / GCP / Azure", "Prometheus / Grafana / Datadog", "CIS benchmarks, SOC 2, RBAC", "Cost optimisation & FinOps"],
       description: "Cloud environments designed for resilience, observability, and compliance — with cost kept firmly in check."
     }
-  ],
-  "fullstack-developers": [
-    {
-      title: "Frontend Engineering",
-      icon: Layers,
-      items: [
-        "React, Next.js, Vue, Angular",
-        "TypeScript across components and shared types",
-        "Tailwind CSS, Styled Components, design system integration",
-        "State management — Redux Toolkit, Zustand, React Query",
-      ],
-      description: "Our developers know when a server-rendered Next.js app is the right call and when a pure SPA fits the product better.",
-    },
-    {
-      title: "Backend & Database Architecture",
-      icon: Cpu,
-      items: [
-        "Node.js (Express, NestJS), Python (Django, FastAPI), Java (Spring Boot)",
-        "PostgreSQL, MySQL, MongoDB, Redis",
-        "REST & GraphQL API design, authentication, authorization",
-        "Microservices, message queues (Kafka, RabbitMQ)",
-      ],
-      description: "Deep backend expertise for the systems that hold your product together — data modeling, scalability, and security.",
-    },
-    {
-      title: "DevOps, Testing & Deployment",
-      icon: Database,
-      items: [
-        "Docker, Kubernetes, CI/CD pipelines (GitHub Actions, Jenkins)",
-        "AWS, GCP, Azure cloud infrastructure",
-        "Jest, Cypress, Playwright for end-to-end testing",
-        "Monitoring & observability (Datadog, Sentry, Grafana)",
-      ],
-      description: "Production-grade pipelines that get your application deployed reliably and stay observable once it's live.",
-    },
   ],
   "full-stack-developers": [
     {
@@ -537,41 +415,11 @@ const DELIVERABLES: Record<string, DeliverableCard[]> = {
     { title: "AI-Powered Mobile Experiences", description: "Flutter frontends integrated with AI backend layers — on-device ML models (TensorFlow Lite), streaming AI chatbots, speech-to-text, and real-time AI features optimized for mobile hardware constraints.", graphicType: "node-graph" },
     { title: "Performance Optimisation & QA", description: "Rendering profiling (Impeller & Skia), memory leak detection, bundle size auditing, and automated integration testing — ensuring your app maintains 60/120 FPS across all user devices.", graphicType: "shield" }
   ],
-  "llm-developers": [
-    { title: "Advanced RAG Pipelines", description: "Hyper-focused retrieval system, semantic search, query optimization, metadata indexing.", graphicType: "radar" },
-    { title: "Fine Tuning Graphs", description: "Continuous learning loops, parameter-efficient fine-tuning (PEFT), evaluation datasets.", graphicType: "loss-curve" },
-    { title: "Agentic Workflows", description: "Autonomous agents capable of tool use, planning, and self-reflection.", graphicType: "node-graph" },
-    { title: "Safety Guardrails", description: "Implementation of LLM guardrails, prompt injection protection, PII filtering.", graphicType: "shield" }
-  ],
-  "ai-ml-engineers": [
+  "ai-ml-developers": [
     { title: "Computer Vision", description: "Real-time object detection, instance segmentation, and spatial classification pipelines.", graphicType: "radar" },
     { title: "Predictive Modeling", description: "High-accuracy time-series forecasting, regression networks, and multi-variable anomalies.", graphicType: "loss-curve" },
     { title: "NLP & GenAI", description: "Domain-adapted language models, custom text representations, and semantic lookup systems.", graphicType: "node-graph" },
     { title: "Deployment & MLOps", description: "Low-latency inference, model registries, Dockerized microservices, and metrics monitoring.", graphicType: "shield" }
-  ],
-  "agentic-ai-engineers": [
-    { title: "Multi-Agent Systems", description: "Coordinated networks of independent agents exchanging messages to handle workflows.", graphicType: "radar" },
-    { title: "Self-Correction Loops", description: "Run-time tracking models that evaluate output accuracy and self-heal operations.", graphicType: "loss-curve" },
-    { title: "Tool Integrations", description: "Exposing secure API endpoints, web browser agents, and sandboxed execution tools.", graphicType: "node-graph" },
-    { title: "Constitutional Safety", description: "Defining rigid behavioral constraints, compliance monitoring, and audit logging.", graphicType: "shield" }
-  ],
-  "mlops-engineers": [
-    { title: "Automated ML CI/CD", description: "Continuous training pipelines, model integration testing, and automatic registry pushes.", graphicType: "radar" },
-    { title: "Drift Monitoring", description: "Detecting prediction shift and statistical data changes, with auto-retrain triggers.", graphicType: "loss-curve" },
-    { title: "Feature Feature Repositories", description: "Synchronized offline and online feature stores to eliminate training-serving skew.", graphicType: "node-graph" },
-    { title: "Inference Efficiency", description: "GPU quantization, pruning parameters, and low-latency scaling on cloud clusters.", graphicType: "shield" }
-  ],
-  "data-engineers": [
-    { title: "Batch & Streaming", description: "Ultra-low-latency message processing and high-throughput data sync pipelines.", graphicType: "radar" },
-    { title: "Pipeline Quality", description: "End-to-end data lineage tracking, automated schema sanity, and row checks.", graphicType: "loss-curve" },
-    { title: "Lakehouse Architecture", description: "Unified structures with Databricks Delta Lake or Apache Iceberg for query speed.", graphicType: "node-graph" },
-    { title: "Data Governance", description: "Granular access management, field-level encryption, and automated privacy redaction.", graphicType: "shield" }
-  ],
-  "python-developers": [
-    { title: "Async Web Backends", description: "Highly parallel REST and GraphQL APIs using ASGI servers and non-blocking code.", graphicType: "radar" },
-    { title: "Structured Aggregation", description: "High-performance data pipelines with Polars, Pandas, and numpy matrix calculations.", graphicType: "loss-curve" },
-    { title: "Task Queuing", description: "Distributed background job workers using Celery and Redis broker.", graphicType: "node-graph" },
-    { title: "Production Tooling", description: "Strict static typing with mypy, test coverage with pytest, and Docker settings.", graphicType: "shield" }
   ],
   "reactjs-developers": [
     { title: "Custom Web Application Frontends", description: "SaaS dashboards, admin panels, customer portals, and marketing sites built with React and Next.js — optimised for Core Web Vitals and SEO from the first commit, not retrofitted before launch.", graphicType: "radar" },
@@ -596,12 +444,6 @@ const DELIVERABLES: Record<string, DeliverableCard[]> = {
     { title: "CI/CD Pipeline Engineering", description: "End-to-end deployment pipelines that take code from commit to production safely with automated testing.", graphicType: "node-graph" },
     { title: "Kubernetes & Containers", description: "Production-grade Kubernetes clusters with multi-tenant namespace design and autoscaling policies.", graphicType: "shield" },
     { title: "Observability & SRE", description: "Logging pipelines, metric dashboards, alerting rules, and post-incident review frameworks.", graphicType: "loss-curve" }
-  ],
-  "fullstack-developers": [
-    { title: "End-to-End Application Development", description: "A single developer or team owns the full request lifecycle — from UI component to API endpoint to database query — eliminating the handoff gaps that slow down feature delivery.", graphicType: "radar" },
-    { title: "API & Third-Party Integration", description: "Custom REST and GraphQL APIs, payment gateways (Stripe, Razorpay), authentication providers (Auth0, Firebase Auth), and any SDK your product needs to connect to.", graphicType: "loss-curve" },
-    { title: "AI-Powered Web Experiences", description: "Full stack applications wired to AI backends — LLM-powered features, RAG pipelines, AI chat interfaces, and real-time AI feature delivery built with production-grade rate limiting and caching.", graphicType: "node-graph" },
-    { title: "Performance Optimisation & QA", description: "Query optimisation, caching strategy, bundle size audits, and end-to-end test suites — so your application stays fast and stable as usage grows.", graphicType: "shield" },
   ],
   "full-stack-developers": [
     { title: "End-to-End Application Development", description: "A single developer or team owns the full request lifecycle — from UI component to API endpoint to database query — eliminating the handoff gaps that slow down feature delivery.", graphicType: "radar" },
@@ -671,12 +513,6 @@ const BOTTOM_BANNERS: Record<string, {
     description: "Stop debugging API latency and server bottlenecks under load. Get a dedicated Node.js developer who builds fast, reliable backend systems that scale.",
     primaryCta: "Get a Quote for Node.js Experts",
     secondaryCta: "Talk to a Backend Strategist",
-  },
-  "fullstack-developers": {
-    headline: "Ready to Ship Faster, End to End?",
-    description: "Stop splitting your roadmap across separate frontend and backend hires. Get a dedicated full stack developer who owns the entire feature, from interface to infrastructure.",
-    primaryCta: "Get a Quote for Full Stack Experts",
-    secondaryCta: "Talk to a Technical Strategist",
   },
   "full-stack-developers": {
     headline: "Ready to Ship Faster, End to End?",

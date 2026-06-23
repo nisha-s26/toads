@@ -326,7 +326,18 @@
 .service-page-hero {
   padding-top: calc(5.75rem + env(safe-area-inset-top, 0px));
   padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  padding-inline: clamp(0.75rem, 2vw, 1.5rem);
   isolation: isolate;
+  overflow-x: visible;
+}
+
+/* Hero lives inside page-content-container — disable full-bleed break-out to avoid left-edge clipping */
+.page-content-container .software-development-hero.section-full-bleed,
+.page-content-container .service-page-hero.section-full-bleed {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 @media (min-width: 768px) {
@@ -407,6 +418,11 @@
   max-width: 90%;
 }
 
+.page-content-container .section-full-bleed .service-hero-grid {
+  width: 100%;
+  max-width: 100%;
+}
+
 .service-hero-subtitle {
   width: 100%;
   max-width: none;
@@ -417,6 +433,7 @@
     grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     column-gap: clamp(2rem, 4vw, 3.5rem);
     row-gap: 1.5rem;
+    align-items: center;
   }
 
   .service-hero-grid>* {
@@ -429,6 +446,12 @@
   .service-hero-grid>.service-hero-content,
   .service-hero-grid>.lg\:sticky:first-child {
     grid-column: 1;
+    align-self: center;
+  }
+
+  .service-hero-content.lg\:sticky {
+    position: static;
+    top: auto;
   }
 
   /* Right column (~40%): form spans full hero height */
@@ -436,7 +459,7 @@
   .service-hero-grid>.hide-scrollbar:last-child {
     grid-column: 2;
     grid-row: 1 / -1;
-    align-self: start;
+    align-self: center;
     width: 100%;
   }
 
@@ -1758,6 +1781,7 @@ html.homepage-scroll-snap {
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Keep title underline short — do not extend toward the icon */
 /* Capability card hover - subtle scale and heading-width underline */
 .capability-card-surface:not(#contact-form):not(.faq-accordion-surface) {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1775,6 +1799,12 @@ html.homepage-scroll-snap {
 .hire-role-card:hover .capability-card-header h3::after {
   /* Extend to fill the card row including the icon column */
   width: calc(100% + 3.5rem);
+}
+
+/* Keep title underline short — do not extend toward the icon */
+.capability-card-short-rule:hover .capability-card-header h3::after,
+.capability-card-short-rule .capability-card-header h3::after {
+  width: 2.5rem;
 }
 
 /* ── Card icon glow with slow circular shine ── */

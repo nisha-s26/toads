@@ -103,7 +103,7 @@ const FAQS: FaqEntry[] = [
     question: "What jobs will be created by AI - and how do businesses prepare?",
     answer:
       "AI is already creating demand for AI trainers, automation managers, prompt strategists, and AI product owners. Forward-thinking businesses are retooling their teams now. Toadster can help you identify which roles to evolve, which to automate, and how to build an AI-ready organisation.",
-    cta: { label: "Build your AI strategy with us", href: "/services/ai-consultation" },
+    cta: { label: "Build your AI strategy with us", href: "/services/ai-development" },
   },
 ]
 

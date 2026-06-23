@@ -3,6 +3,7 @@
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
 import type { ReactNode } from "react"
+import { cn } from "@/lib/utils"
 
 export type HireRoleCardProps = {
   title: string
@@ -10,9 +11,12 @@ export type HireRoleCardProps = {
   description?: string
   tags?: string[]
   href?: string
+  target?: string
+  rel?: string
   index?: number
   footer?: ReactNode
   badge?: string
+  shortHeadingRule?: boolean
 }
 
 export function HireRoleCard({
@@ -21,12 +25,17 @@ export function HireRoleCard({
   description,
   tags,
   href,
+  target,
+  rel,
   index = 0,
   footer,
   badge,
+  shortHeadingRule = false,
 }: HireRoleCardProps) {
-  const cardClassName =
-    "hire-role-card group relative flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 md:p-7"
+  const cardClassName = cn(
+    "hire-role-card group relative flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 md:p-7",
+    shortHeadingRule && "capability-card-short-rule",
+  )
 
   const content = (
     <>
@@ -76,7 +85,13 @@ export function HireRoleCard({
   return (
     <div className="scroll-reveal-stagger h-full min-w-0 w-full max-w-full" style={{ ["--stagger-index" as string]: index }}>
       {href ? (
-        <Link href={href} title={`Hire ${title}`} className={`${cardClassName} min-w-0 max-w-full`}>
+        <Link
+          href={href}
+          title={`Explore ${title}`}
+          target={target}
+          rel={rel}
+          className={`${cardClassName} min-w-0 max-w-full`}
+        >
           {content}
         </Link>
       ) : (

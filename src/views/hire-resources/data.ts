@@ -59,11 +59,6 @@ export const resourceTypesSection = {
       href: "/hire/nodejs-developers",
     },
     {
-      title: "Full Stack Developers",
-      description: "MERN, Python/React, React, Node.js & Next.js full stack engineers",
-      href: "/hire/full-stack-developers",
-    },
-    {
       title: "MERN Developers",
       description: "Build scalable, full-stack JavaScript web applications",
       href: "/hire/mern-developers",
@@ -77,6 +72,11 @@ export const resourceTypesSection = {
       title: "AI/ML Developers",
       description: "Production ML, LLMs, computer vision & predictive analytics",
       href: "/hire/ai-ml-developers",
+    },
+    {
+      title: "Full Stack Developers",
+      description: "React, Node.js, Next.js, Python full stack engineers",
+      href: "/hire/full-stack-developers",
     },
     {
       title: "Software Developers",

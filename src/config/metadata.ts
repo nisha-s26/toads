@@ -65,95 +65,15 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description:
       "Explore Toadster Technologies' full range of services — AI development, agentic AI, RAG systems, software, mobile, DevOps, cybersecurity, and more. Serving India, UAE, Saudi Arabia & the US.",
   },
-  "/ai-development-company-india": {
-    title: "AI Development Company India | Custom AI, LLM & Agentic Systems | Toadster Noida",
-    description:
-      "Toadster is an AI development company headquartered in Noida, India. We build production-grade AI systems, LLM applications, and agentic workflows for enterprises across India and globally.",
-  },
-  "/ai-development-company-uae": {
-    title: "AI Development Company in UAE | Custom AI & LLM Solutions | Toadster",
-    description:
-      "Toadster delivers custom AI development, agentic AI, and LLM solutions for enterprises across the UAE. Office in DIFC, Dubai. Trusted by UAE enterprises.",
-  },
-  "/ai-development-company-noida": {
-    title: "AI Development Company Noida | Custom AI, LLM & Agentic Systems | Toadster Sector 63",
-    description:
-      "Toadster is an AI development company based in Sector 63, Noida. We build production AI systems, LLM applications, and agentic workflows for enterprises across India and globally.",
-  },
-  "/ai-development-company-delhi": {
-    title: "AI Development Company Delhi | Custom AI & Machine Learning | Toadster NCR",
-    description:
-      "Toadster is a Delhi NCR AI development company (HQ: Sector 63, Noida). We build AI systems, LLM applications, and agentic workflows for Delhi enterprises.",
-  },
-  "/ai-development-company-bangalore": {
-    title: "AI Development Company Bangalore | Custom AI, LLM & Agentic AI | Toadster India",
-    description:
-      "Toadster builds enterprise AI systems for Bangalore-based companies - startups, scale-ups, and large enterprises. Engineering HQ in Noida. Delivery standard: production-grade.",
-  },
-  "/ai-development-company-mumbai": {
-    title: "AI Development Company Mumbai | Custom AI for BFSI & Enterprise | Toadster India",
-    description:
-      "Toadster builds AI systems for Mumbai enterprises - BFSI, fintech, media, and manufacturing. Engineering from Noida. Delivery that meets Mumbai's SEBI and RBI compliance context.",
-  },
-  "/ai-development-company-hyderabad": {
-    title: "AI Development Company Hyderabad | Custom AI & Machine Learning | Toadster India",
-    description:
-      "Toadster provides AI development services to Hyderabad enterprises in pharma, enterprise tech, and manufacturing. Engineering from Noida, India.",
-  },
   "/services/agentic-ai": {
     title: "Agentic AI Development Services | Autonomous AI Agents | Toadster Technologies",
     description:
       "Agentic AI development services — autonomous agents, multi-agent orchestration, tool-use integration, and AI safety guardrails. Built for real operational workflows. Talk to Toadster Technologies.",
   },
-  "/services/generative-ai": {
-    title: "Generative AI Services | Toadster",
-    description:
-      "Toadster's generative AI services deliver enterprise-grade content, code, and creative workflows powered by production-ready AI systems.",
-  },
-  "/services/nlp-services": {
-    title: "NLP Services | Toadster AI Solutions",
-    description:
-      "Toadster's NLP services power language intelligence, document automation, semantic search, and scalable enterprise AI platforms.",
-  },
   "/services/ai-development": {
     title: "AI Development Services | Artificial Intelligence Solutions | Toadster",
     description:
       "Practical AI development for startups, SMEs, and enterprises - custom ML, generative AI, chatbots, computer vision, MLOps, and AI consulting. Built for measurable ROI.",
-  },
-  "/services/machine-learning": {
-    title: "Machine Learning Services | Toadster",
-    description:
-      "Toadster's machine learning services build production models, training pipelines, MLOps platforms, and continuous training systems for the enterprise.",
-  },
-  "/services/custom-ai-solutions": {
-    title: "Custom AI Solutions | Toadster",
-    description:
-      "Toadster's custom AI solutions tailor scalable AI systems, high-throughput data pipelines, and ML platforms to unique business challenges.",
-  },
-  "/services/ai-integration": {
-    title: "AI Integration Services | Toadster",
-    description:
-      "Toadster's AI integration services connect enterprise systems, automate workflows, and deploy production-ready intelligence at scale.",
-  },
-  "/services/ai-chatbots": {
-    title: "AI Chatbot Development | Toadster",
-    description:
-      "Toadster's AI chatbot development delivers intelligent conversational systems, enterprise assistants, and scalable automation platforms.",
-  },
-  "/services/llm-development": {
-    title: "LLM Development Services | Toadster",
-    description:
-      "Toadster's LLM development services build enterprise copilots, retrieval systems, and production-grade AI platforms backed by MLOps.",
-  },
-  "/services/computer-vision": {
-    title: "Computer Vision Services | Toadster",
-    description:
-      "Toadster's computer vision services deliver visual intelligence, automated inspection, image analytics, and enterprise-grade ML systems.",
-  },
-  "/services/ai-data-analytics": {
-    title: "AI Data Analytics Services | Toadster",
-    description:
-      "Toadster's AI data analytics services design scalable analytics platforms, high-throughput data pipelines, and intelligent ML systems.",
   },
   "/technologies/data-analytics": {
     title: "Data Analytics Services | Toadster Technologies",
@@ -189,16 +109,6 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     title: "SaaS App Development Services | Toadster Technologies",
     description:
       "Enterprise SaaS app development from Toadster — multi-tenant architecture, subscription billing, authentication, scaling infrastructure, and compliance built for growth from first customer to millions.",
-  },
-  "/services/industry-solutions": {
-    title: "AI Industry Solutions | Toadster",
-    description:
-      "Toadster's industry AI solutions deliver scalable data platforms, automated intelligence, and production-ready ML systems across sectors.",
-  },
-  "/services/ai-consultation": {
-    title: "AI Consultation Services | Toadster",
-    description:
-      "Toadster's AI consultation services guide strategy, architecture, scalable AI systems, continuous training pipelines, and MLOps adoption.",
   },
   "/services/software-development": {
     title: "Software Development Services | Toadster",
@@ -264,31 +174,6 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     title: "RAG Development Services | Retrieval-Augmented Generation | Toadster",
     description:
       "Production-grade RAG development - custom pipelines, enterprise knowledge bases, multi-source retrieval, hybrid SQL+vector systems, and agentic RAG. Connect LLMs to your proprietary data for accurate, grounded AI.",
-  },
-  "/services/agent-2-agent": {
-    title: "Agent2Agent AI Solutions | Toadster",
-    description:
-      "Toadster's Agent2Agent solutions enable secure AI agent communication, enterprise workflows, and scalable intelligent automation.",
-  },
-  "/services/advanced-ai-tech": {
-    title: "Advanced AI Technology Services | Toadster",
-    description:
-      "Toadster's advanced AI technology services power complex automation, enterprise ML platforms, and high-throughput pipelines for applied intelligence.",
-  },
-  "/services/conversational-ai": {
-    title: "Conversational AI Services | Toadster",
-    description:
-      "Toadster's conversational AI services design enterprise assistants, natural language systems, and scalable automation platforms.",
-  },
-  "/services/ai-automation": {
-    title: "AI Automation Services | Toadster",
-    description:
-      "Toadster's AI automation services deliver intelligent workflows, scalable enterprise systems, data pipelines, and production-ready ML platforms.",
-  },
-  "/services/intelligent-automation": {
-    title: "Intelligent Automation Services | Toadster",
-    description:
-      "Toadster's intelligent automation services power enterprise workflows, scalable AI systems, and high-throughput data platforms.",
   },
 }
 

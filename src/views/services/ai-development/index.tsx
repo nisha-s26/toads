@@ -150,13 +150,13 @@ export default function AIDevelopmentPage() {
 
       <section
         id="contact"
-        className="software-development-hero section-full-bleed relative overflow-hidden bg-page-bg"
+        className="software-development-hero section-full-bleed relative bg-page-bg"
       >
-        <div className="service-hero-grid relative mx-auto grid w-full items-start gap-8 lg:gap-14">
-          <div className="service-hero-content lg:sticky lg:top-24 self-start">
+        <div className="service-hero-grid relative mx-auto grid w-full items-center gap-8 lg:gap-14">
+          <div className="service-hero-content self-center">
             <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
 
-              Artificial Intelligence (AI) Services
+              AI Development
 
             </h1>
             <p className="service-hero-subtitle mb-8 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">

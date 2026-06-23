@@ -31,112 +31,100 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/agentic-ai</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://toadsters.com/services/generative-ai</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://toadsters.com/services/nlp-services</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://toadsters.com/services/ai-development</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/machine-learning</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://toadsters.com/services/custom-ai-solutions</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services/agentic-ai</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/ai-integration</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://toadsters.com/services/ai-chatbots</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://toadsters.com/services/llm-development</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services/rag-development</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/computer-vision</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services/software-development</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/ai-data-analytics</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services/mobile-app-development</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/industry-solutions</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services/devops</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/ai-consultation</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services/iot-development</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/agent-2-agent</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services/vr-development</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/advanced-ai-tech</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services/augmented-reality</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/conversational-ai</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services/product-management</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/ai-automation</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services/penetration-testing</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://toadsters.com/services/intelligent-automation</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://toadsters.com/services/cybersecurity</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://toadsters.com/services/application-support-and-maintenance</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://toadsters.com/services/saas-app-development</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://toadsters.com/services/web-development</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://toadsters.com/blogs/software-development-ai-what-teams-need-to-know</loc>

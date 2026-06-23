@@ -340,15 +340,15 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
               },
               {
                 icon: Sparkles,
-                title: "Generative AI",
-                desc: "Content, copy, and code generation at scale.",
-                to: "/services/generative-ai",
+                title: "RAG Development",
+                desc: "Retrieval-augmented generation at scale.",
+                to: "/services/rag-development",
               },
               {
                 icon: Bot,
-                title: "AI Chatbots",
-                desc: "Intelligent conversational interfaces.",
-                to: "/services/ai-chatbots",
+                title: "AI Development",
+                desc: "Practical AI solutions for enterprise.",
+                to: "/services/ai-development",
               },
               {
                 icon: MessageCircle,

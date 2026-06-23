@@ -56,7 +56,7 @@ const OurProcess = () => {
 
                 <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-3">
                     <Link
-                        href="/services/ai-consultation"
+                        href="/services/ai-development"
                         title="Get a free AI consultation"
                         className="inline-flex items-center gap-2 rounded-xl bg-primary px-7 py-3 font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
                     >

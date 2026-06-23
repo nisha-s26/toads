@@ -177,7 +177,7 @@ export default function HeroSection() {
             variant="outline"
             className="hero-outline-btn w-full rounded-xl px-5 py-4 text-sm shadow-md backdrop-blur-md sm:w-auto sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs"
           >
-            <Link href="/services/ai-automation" title="View AI Solutions">Explore AI Solutions</Link>
+            <Link href="/services/agentic-ai" title="View AI Solutions">Explore AI Solutions</Link>
           </Button>
         </div>
       </div>

@@ -154,13 +154,13 @@ export default function CybersecurityPage() {
 
       <section
         id="contact"
-        className="software-development-hero section-full-bleed relative overflow-hidden bg-page-bg"
+        className="software-development-hero section-full-bleed relative bg-page-bg"
       >
-        <div className="service-hero-grid relative mx-auto grid w-full items-start gap-8 lg:gap-14">
-          <div className="service-hero-content lg:sticky lg:top-24 self-start">
+        <div className="service-hero-grid relative mx-auto grid w-full items-center gap-8 lg:gap-14">
+          <div className="service-hero-content self-center">
             <h1 className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
 
-              Cybersecurity Services
+              Cybersecurity
 
             </h1>
             <p className="mb-6 text-xl font-semibold text-toadster-green md:text-2xl">

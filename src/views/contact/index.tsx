@@ -276,15 +276,15 @@ export default function Contact() {
                         },
                         {
                             icon: Sparkles,
-                            title: "Generative AI",
-                            desc: "AI systems that create content, copy, code, and creative workflows.",
-                            to: "/services/generative-ai",
+                            title: "RAG Development",
+                            desc: "Retrieval-augmented generation and knowledge systems.",
+                            to: "/services/rag-development",
                         },
                         {
                             icon: Bot,
-                            title: "AI Chatbots",
-                            desc: "Intelligent conversational interfaces and enterprise assistants.",
-                            to: "/services/ai-chatbots",
+                            title: "AI Development",
+                            desc: "Practical AI solutions - ML, GenAI, NLP, vision, and MLOps.",
+                            to: "/services/ai-development",
                         },
                         {
                             icon: MessageSquare,

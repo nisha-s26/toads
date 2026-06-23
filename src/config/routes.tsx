@@ -4,7 +4,6 @@ export function resolveActiveSection(pathname: string): string {
   if (pathname.startsWith("/technologies")) return "technologies"
   if (pathname.startsWith("/hire")) return "hire-resources"
   if (pathname === "/hire-resources") return "hire-resources"
-  if (pathname.startsWith("/ai-development-company-")) return "country"
 
   const sections: Record<string, string> = {
     "/": "home",
