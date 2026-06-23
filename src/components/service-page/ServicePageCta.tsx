@@ -6,9 +6,10 @@ type ServicePageCtaProps = {
   title: string
   children: ReactNode
   footnote?: string
+  ctaLabel?: string
 }
 
-export function ServicePageCta({ title, children, footnote }: ServicePageCtaProps) {
+export function ServicePageCta({ title, children, footnote, ctaLabel = "Talk to an Expert" }: ServicePageCtaProps) {
   return (
     <section className="section-padding py-14 md:py-16">
       <div className="service-page-container px-4">
@@ -25,7 +26,7 @@ export function ServicePageCta({ title, children, footnote }: ServicePageCtaProp
               title="Talk to an expert"
               className="inline-flex min-w-[160px] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-primary shadow-sm transition-colors hover:bg-slate-50"
             >
-              Talk to an Expert
+              {ctaLabel}
               <ArrowRight size={16} />
             </Link>
           </div>

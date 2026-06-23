@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url"
 
 const projectRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), "..")
 const nextBin = path.join(projectRoot, "node_modules", "next", "dist", "bin", "next")
-const devPort = process.env.PORT ?? "3000"
+const devPort = process.env.PORT ?? "3001"
 const devPorts = [3000, 3001, 3002, 3003]
 
 function sleep(ms) {

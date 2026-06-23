@@ -1,275 +1,497 @@
 "use client"
 
-import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
-import {
-  Brain,
-  Zap,
-  Shield,
-  Code2,
-  Settings,
-  Eye,
-  Activity,
-  Database,
-  Network,
-  ChevronDown,
-  CheckCircle,
-  Star,
-  TrendingUp,
-  Clock,
-  Users,
-  Target,
-  Lock,
-  Link2,
-  BarChart3,
-  MessageSquare} from "lucide-react"
-import { ServicesTrustedBy } from "@/components/ServicesTrustedBy"
+import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { FAQSection } from "@/components/service-page/FAQSection"
+import { SectionHead } from "@/components/service-page/SectionHead"
+import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
+import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
 import { ServiceHeroViewport } from "@/components/service-page/ServiceHeroViewport"
+import { ServiceStatRow } from "@/components/service-page/ServiceStatRow"
+import { ServicePageCta } from "@/components/service-page/ServicePageCta"
+import {
+  benefits,
+  capabilities,
+  costTimelines,
+  engagementModels,
+  faqs,
+  processSteps,
+  teamRoles,
+  techCategories,
+  trustStats,
+  useCases,
+  whyToadster,
+} from "./data"
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false)
+function HeroConsultationForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    fromEmail: "",
+    company: "",
+    message: "",
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus("idle")
+
+    try {
+      const res = await fetch("/api/send-query", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (!res.ok) throw new Error("Failed")
+
+      setSubmitStatus("success")
+      setFormData({ name: "", fromEmail: "", company: "", message: "" })
+    } catch {
+      setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
-    <div className="border-b border-page-border py-5">
-      <button
-        className="flex items-center justify-between w-full text-left"
-        onClick={() => setOpen(!open)}
-      >
-        <span className="text-page-fg font-medium pr-4">{question}</span>
-        <ChevronDown
-          className={`shrink-0 text-green-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          size={20}
-        />
-      </button>
-      {open && (
-        <p className="mt-3 text-page-fg-muted text-sm leading-relaxed">{answer}</p>
-      )}
+    <div
+      id="contact-form"
+      className="capability-card-surface relative rounded-2xl p-8 shadow-2xl lg:p-9"
+    >
+      <p className="service-form-label relative z-10 mb-3 text-xs font-bold uppercase tracking-wide text-toadster-green">
+        Agentic AI Consultation
+      </p>
+      <h3 className="relative z-10 text-xl font-bold text-slate-900 dark:text-black">
+        Talk to an Agentic AI Specialist
+      </h3>
+      <p className="capability-card-copy relative z-10 mt-2 mb-6 text-sm">
+        Tell us the process or task you&apos;re considering automating — we respond within one business day.
+      </p>
+
+      <form onSubmit={handleSubmit} className="relative z-10 space-y-4">
+        <div>
+          <label htmlFor="agentic-name" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+            Your Name
+          </label>
+          <Input
+            id="agentic-name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Alex Johnson"
+            required
+            className="bright-panel-input"
+          />
+        </div>
+        <div>
+          <label htmlFor="agentic-company" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+            Company
+          </label>
+          <Input
+            id="agentic-company"
+            name="company"
+            value={formData.company}
+            onChange={handleChange}
+            placeholder="Acme Corp"
+            className="bright-panel-input"
+          />
+        </div>
+        <div>
+          <label htmlFor="agentic-email" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+            Email
+          </label>
+          <Input
+            id="agentic-email"
+            name="fromEmail"
+            type="email"
+            value={formData.fromEmail}
+            onChange={handleChange}
+            placeholder="alex@company.com"
+            required
+            className="bright-panel-input"
+          />
+        </div>
+        <div>
+          <label htmlFor="agentic-task" className="capability-card-copy mb-1.5 block text-sm font-semibold">
+            What task or process are you considering automating with an agent?
+          </label>
+          <Textarea
+            id="agentic-task"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Describe the steps involved, the systems it would need to touch, and what decisions it would need to make..."
+            className="bright-panel-input min-h-[100px]"
+          />
+        </div>
+        <Button type="submit" className="w-full rounded-xl py-6 text-base font-bold" disabled={isSubmitting}>
+          {submitStatus === "success"
+            ? "Request Received — We'll be in touch soon!"
+            : isSubmitting
+              ? "Sending..."
+              : "Talk to an Agentic AI Specialist"}
+        </Button>
+        {submitStatus === "error" ? (
+          <p className="text-center text-sm text-red-500">Something went wrong. Please try again.</p>
+        ) : null}
+        <p className="capability-card-copy text-center text-xs">Your information is never shared with third parties.</p>
+      </form>
     </div>
   )
 }
 
-
 export default function AgenticAIPage() {
   return (
-    <div className="service-page bg-page-bg text-page-fg">
-
-      {/* ── HERO ── */}
+    <main className="service-page modern-service-page agentic-ai-page bg-page-bg text-page-fg">
       <ServiceHeroViewport>
+        <section
+          id="contact"
+          className="software-development-hero section-full-bleed relative overflow-hidden bg-page-bg"
+        >
+          <div className="service-hero-grid relative mx-auto grid w-full items-start gap-8 lg:gap-14">
+            <div className="service-hero-content lg:sticky lg:top-24 self-start">
+              <h1 className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
+                Agentic AI Development Services
+              </h1>
+              <p className="mb-6 text-xl font-semibold text-toadster-green md:text-2xl">
+                AI That Doesn&apos;t Just Answer. It Acts.
+              </p>
+              <p className="service-hero-subtitle mb-5 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
+                A chatbot that answers a question is useful. An agent that reads the question, checks three systems,
+                makes a decision within defined boundaries, takes an action, and reports back what it did — that&apos;s a
+                different category of system, and a different category of business value.
+              </p>
+              <p className="service-hero-subtitle mb-8 w-full max-w-none text-base leading-relaxed text-page-fg-muted">
+                Agentic AI systems plan, use tools, make decisions, and complete multi-step tasks with limited human
+                intervention. We design and build agentic AI systems that handle real operational workflows — with the
+                guardrails, evaluation, and human oversight that keep them safe and reliable in production.
+              </p>
 
-      <section className="service-page-hero relative overflow-hidden px-4">
-        <div className="absolute inset-0 pointer-events-none">
-          <div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-105 rounded-full opacity-20"
-            style={{ background: "radial-gradient(ellipse at center, var(--brand-green-radial) 0%, transparent 70%)" }}
-          />
-        </div>
-        <div className="service-page-container text-center relative">
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+              <ServiceStatRow stats={trustStats} />
 
-            Agentic AI
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  href="#contact-form"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+                >
+                  Talk to an Agentic AI Specialist
+                  <ArrowRight size={16} />
+                </Link>
+                <Link
+                  href="#use-cases"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-page-border bg-page-bg-alt px-6 py-3 text-sm font-semibold text-page-fg transition-colors hover:border-toadster-green/40"
+                >
+                  See Our Work
+                </Link>
+              </div>
+            </div>
 
-          </h1>
-          <p className="text-page-fg-subtle text-lg max-w-3xl mx-auto mb-10">
-            Agency AI provides enterprise-grade autonomous agents that plan, execute, and adapt to achieve your business goals with unprecedented intelligence and efficiency.
-          </p>
-        </div>
-      </section>
-      <ServicesTrustedBy />
+            <div
+              style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }}
+              className="service-hero-form hide-scrollbar"
+            >
+              <HeroConsultationForm />
+            </div>
+          </div>
+        </section>
 
-
+        <LazyTrustedBy compact />
       </ServiceHeroViewport>
-      {/* ── SERVICES GRID ── */}
-      <section className="py-20 px-4 bg-page-bg">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What We Offer</p>
-            <h2 className="text-4xl font-extrabold">Agentic AI Services</h2>
-            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">
-              Comprehensive agentic AI solutions that automate, optimize, and transform your business operations.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { icon: <Network size={22} />, title: "Enterprise Process Automation", desc: "Automate complex multi-step business workflows with autonomous AI agents." },
-              { icon: <Brain size={22} />, title: "AI-Powered Decision Making", desc: "Deploy reasoning agents that analyze data and make intelligent decisions." },
-              { icon: <MessageSquare size={22} />, title: "Natural Language Processing", desc: "Agents that understand and process natural language with high accuracy." },
-              { icon: <BarChart3 size={22} />, title: "Predictive Analytics", desc: "Forecast trends and outcomes using AI-driven predictive models." },
-              { icon: <Activity size={22} />, title: "Autonomous Workflow Orchestration", desc: "Coordinate complex workflows across systems without human intervention." },
-              { icon: <Eye size={22} />, title: "Real-time AI Monitoring", desc: "Continuous agent monitoring and performance optimization." },
-              { icon: <Database size={22} />, title: "AI-Driven Insights & Reporting", desc: "Automatically generate actionable insights from your data." },
-              { icon: <Lock size={22} />, title: "Secure Agent Communication", desc: "End-to-end encrypted, decentralized agent protocol (A2A)." },
-            ].map((s) => (
-              <div
-                key={s.title}
-                className="bg-page-card border border-page-border rounded-2xl p-6 hover:border-green-800/50 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
-                  {s.icon}
-                </div>
-                <h3 className="font-bold text-page-fg mb-2">{s.title}</h3>
-                <p className="text-page-fg-muted text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── STATS ── */}
-      <section className="bg-page-bg-alt py-16 px-4">
-        <div className="service-page-container text-center">
-          <h2 className="text-3xl font-extrabold mb-2">
-            Proven Performance, <span className="text-green-400">Trusted Results</span>
-          </h2>
-          <p className="text-page-fg-muted mb-12">
-            Our track record speaks for itself across hundreds of successful deployments.
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { value: "500+", label: "AI Projects Delivered", icon: <TrendingUp size={28} /> },
-              { value: "99.9%", label: "System Uptime Guaranteed", icon: <Shield size={28} /> },
-              { value: "24/7", label: "Dedicated Client Support", icon: <Clock size={28} /> },
-            ].map((s) => (
-              <div key={s.label} className="bg-page-card rounded-2xl p-8 border border-page-border">
-                <div className="text-green-400 flex justify-center mb-3">{s.icon}</div>
-                <div className="text-5xl font-extrabold text-page-fg mb-2">{s.value}</div>
-                <div className="text-page-fg-muted text-sm">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── KEY FEATURES ── */}
-      <section className="py-20 px-4 bg-page-bg">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Capabilities</p>
-            <h2 className="text-4xl font-extrabold">Key Features of Agentic AI</h2>
-            <p className="text-page-fg-muted mt-3 max-w-2xl mx-auto">
-              Agentic AI is capable of performing advanced tasks to deliver business-grade solutions.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { icon: <Brain size={22} />, title: "Advanced Autonomous Reasoning", desc: "Agents that plan multi-step tasks, reason through problems, and adapt on the fly." },
-              { icon: <Settings size={22} />, title: "Self-Improvement Systems", desc: "Continuously learns from feedback and improves performance over time." },
-              { icon: <Eye size={22} />, title: "Context-Aware Intelligence", desc: "Deep understanding of context to deliver highly relevant responses and actions." },
-              { icon: <Link2 size={22} />, title: "Multi-Agent Collaboration", desc: "Multiple specialized agents working in concert to solve complex challenges." },
-              { icon: <Database size={22} />, title: "Deep Domain Understanding", desc: "Pre-trained on domain-specific data for industry-grade accuracy." },
-              { icon: <Lock size={22} />, title: "Enterprise-Grade Security", desc: "Role-based access, audit logs, and encrypted agent communication." },
-            ].map((f) => (
-              <div
-                key={f.title}
-                className="bg-page-card rounded-2xl p-6 border border-page-border hover:border-green-800/40 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
-                  {f.icon}
-                </div>
-                <h3 className="font-semibold text-page-fg mb-2">{f.title}</h3>
-                <p className="text-page-fg-muted text-sm leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── OUR PROCESS ── */}
-      <section id="our-process" className="py-20 px-4 bg-page-bg-alt">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">How We Work</p>
-            <h2 className="text-4xl font-extrabold">Our Process</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-7">
-              {[
-                { step: "01", title: "Discovery & Requirements", desc: "We deeply understand your workflows, pain points, and automation goals." },
-                { step: "02", title: "Agent Architecture Design", desc: "Design multi-agent systems tailored to your specific use cases." },
-                { step: "03", title: "Solution Development", desc: "Build, test, and iterate on agents with robust CI/CD pipelines." },
-                { step: "04", title: "Deployment & Integration", desc: "Seamlessly deploy agents into your existing tech stack." },
-                { step: "05", title: "Monitoring & Optimization", desc: "Continuous monitoring, performance tuning, and improvements." },
-              ].map((p) => (
-                <div key={p.step} className="flex gap-5 items-start">
-                  <span className="text-3xl font-extrabold text-green-800 shrink-0 w-12">{p.step}</span>
-                  <div>
-                    <h4 className="font-bold text-page-fg mb-1">{p.title}</h4>
-                    <p className="text-page-fg-muted text-sm">{p.desc}</p>
+      <section id="services" className="section-padding py-16 bg-page-bg-alt">
+        <div className="service-page-container px-4">
+          <SectionHead
+            label=""
+            title="Agentic AI Services Built for Real Operations"
+            subtitle="Agentic AI spans a range of capabilities and architectures. Here's what we design and build, matched to the complexity your use case actually requires."
+          />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {capabilities.map((cap) => {
+              const Icon = cap.icon
+              return (
+                <div
+                  key={cap.title}
+                  className="capability-card-surface group relative rounded-2xl p-7 transition-all duration-300"
+                >
+                  <div className="capability-card-header relative z-10">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="flex-1 text-lg font-bold text-toadster-green">{cap.title}</h3>
+                      <span className="ml-4 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                        <Icon size={22} strokeWidth={2} />
+                      </span>
+                    </div>
+                    <span className="capability-card-heading-rule" aria-hidden="true" />
+                  </div>
+                  <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{cap.desc}</p>
+                  <p className="relative z-10 mb-4 text-sm font-semibold text-toadster-green">→ {cap.value}</p>
+                  <div className="relative z-10 border-t border-page-border pt-4">
+                    <p className="capability-card-copy mb-2 text-[11px] font-bold uppercase tracking-wider">
+                      Focus Areas
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {cap.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="capability-card-tag rounded border border-page-border bg-page-bg-alt px-2.5 py-1 text-xs"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
-            <div
-              className="relative rounded-3xl overflow-hidden border border-page-border min-h-100 flex items-center justify-center group"
-              style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'}}
-            >
-
-            </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* ── BENEFITS ── */}
-      <section className="py-20 px-4 bg-page-bg">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Why Choose Us</p>
-            <h2 className="text-4xl font-extrabold">Benefits of Working With Us</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { icon: <Zap size={22} />, title: "Faster Delivery", desc: "Agile delivery model with 2-week sprint cycles and rapid prototyping." },
-              { icon: <Shield size={22} />, title: "Enhanced Security", desc: "Enterprise-grade security protocols and compliance-ready architecture." },
-              { icon: <TrendingUp size={22} />, title: "Scalable Solutions", desc: "Systems designed to grow with your business effortlessly." },
-              { icon: <Target size={22} />, title: "Precision Targeting", desc: "AI models trained specifically for your industry and use case." },
-              { icon: <Users size={22} />, title: "Dedicated Team", desc: "A dedicated pod of AI engineers, architects, and PMs." },
-              { icon: <CheckCircle size={22} />, title: "Proven Methodology", desc: "Battle-tested delivery process across 500+ successful projects." },
-            ].map((b) => (
-              <div
-                key={b.title}
-                className="bg-page-card rounded-2xl p-6 border border-page-border hover:border-green-800/40 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 mb-4">
-                  {b.icon}
+      <section id="use-cases" className="section-padding py-16 bg-page-bg">
+        <div className="service-page-container px-4">
+          <SectionHead
+            label=""
+            title="What Businesses Are Actually Using Agentic AI For"
+            subtitle="Agentic AI is most valuable where a task involves multiple steps, requires checking or combining information from more than one source, and follows rules that can be clearly defined."
+          />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {useCases.map((item) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={item.title}
+                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
+                >
+                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                    <Icon size={22} strokeWidth={2} />
+                  </span>
+                  <div className="capability-card-header relative z-10">
+                    <h3 className="font-bold text-toadster-green">{item.title}</h3>
+                    <span className="capability-card-heading-rule" aria-hidden="true" />
+                  </div>
+                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="font-semibold text-page-fg mb-2">{b.title}</h3>
-                <p className="text-page-fg-muted text-sm leading-relaxed">{b.desc}</p>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding py-16 bg-page-bg-alt">
+        <div className="service-page-container px-4">
+          <SectionHead
+            label=""
+            title="What Makes Working With Us Different"
+            subtitle="Agentic AI is one of the most hyped areas of technology right now, and also one of the easiest to get wrong in ways that aren't obvious until an agent has already taken a wrong action."
+            labelClassName="text-toadster-green"
+          />
+          <div className="grid gap-6 md:grid-cols-1 xl:grid-cols-2">
+            {whyToadster.map((item) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={item.title}
+                  className="capability-card-surface group relative flex gap-4 rounded-2xl p-7 transition-all duration-300"
+                >
+                  <span className="relative z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                    <Icon size={22} strokeWidth={2} />
+                  </span>
+                  <div className="relative z-10 min-w-0">
+                    <div className="capability-card-header">
+                      <h3 className="font-bold text-toadster-green">{item.title}</h3>
+                      <span className="capability-card-heading-rule" aria-hidden="true" />
+                    </div>
+                    <p className="capability-card-copy text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="process" className="service-process-section section-padding py-16">
+        <div className="service-process-panel mx-auto grid service-page-container items-start gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[minmax(280px,380px)_1fr] lg:gap-14 lg:px-10 lg:py-14">
+          <div className="service-process-intro lg:sticky lg:top-24 self-start">
+            <SectionHead
+              label=""
+              title="How We Approach an Agentic AI Engagement"
+              subtitle="Agentic AI projects require more upfront boundary-setting and evaluation work than typical software or even standard LLM projects — because the system is taking actions, not just producing outputs."
+            />
+            <div className="service-process-timeline-card">
+              <p className="service-process-timeline-label">Typical pilot timeline</p>
+              <div className="service-process-timeline-value">
+                6–10 <span className="service-process-timeline-unit">weeks</span>
+              </div>
+              <p className="service-process-timeline-desc">
+                for a single, well-bounded agent with guardrails and human oversight
+              </p>
+            </div>
+          </div>
+
+          <ServiceProcessSteps steps={processSteps} />
+        </div>
+      </section>
+
+      <section className="section-padding py-16 bg-page-bg-alt">
+        <div className="service-page-container px-4">
+          <SectionHead
+            label=""
+            title="The Frameworks and Platforms We Work With"
+            subtitle="Agentic AI tooling is evolving quickly. We work across the leading frameworks and choose based on your specific orchestration, reliability, and integration requirements."
+          />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {techCategories.map((cat) => {
+              const Icon = cat.icon
+              return (
+                <div
+                  key={cat.title}
+                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
+                >
+                  <div className="capability-card-header relative z-10">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="text-lg font-bold text-toadster-green">{cat.title}</h3>
+                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                        <Icon size={22} strokeWidth={2} />
+                      </span>
+                    </div>
+                    <span className="capability-card-heading-rule" aria-hidden="true" />
+                  </div>
+                  <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{cat.why}</p>
+                  <div className="relative z-10 flex flex-wrap gap-2">
+                    {cat.pills.map((pill) => (
+                      <span
+                        key={pill}
+                        className="capability-card-tag rounded-full border border-page-border bg-page-bg-alt px-3 py-1 text-xs font-semibold"
+                      >
+                        {pill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding py-16 bg-page-bg">
+        <div className="service-page-container px-4">
+          <SectionHead
+            label=""
+            title="The People You Need, Ready When You Need Them"
+            subtitle="Building agentic AI systems well requires people who understand both the capabilities and the failure modes of autonomous AI — not just standard software engineers applying an LLM API."
+          />
+          <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { value: "48h", label: "Average onboarding time" },
+              { value: "Agent-Native", label: "Specialists, not generalists" },
+              { value: "Safety-First", label: "Guardrails on every build" },
+              { value: "IST · GST · EST", label: "Time zones covered" },
+            ].map((stat) => (
+              <div key={stat.label} className="capability-card-surface rounded-2xl p-5 text-center">
+                <div className="text-2xl font-extrabold text-toadster-green md:text-3xl">{stat.value}</div>
+                <div className="mt-1 text-sm text-page-fg-muted">{stat.label}</div>
               </div>
             ))}
           </div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {teamRoles.map((role) => {
+              const Icon = role.icon
+              return (
+                <div
+                  key={role.title}
+                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
+                >
+                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                    <Icon size={22} strokeWidth={2} />
+                  </span>
+                  <div className="capability-card-header relative z-10">
+                    <h3 className="font-bold text-toadster-green">{role.title}</h3>
+                    <span className="capability-card-heading-rule" aria-hidden="true" />
+                  </div>
+                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{role.desc}</p>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </section>
 
-      {/* ── EXPERTISE ── */}
-      <section className="py-20 px-4 bg-page-bg-alt">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Expertise</p>
-            <h2 className="text-4xl font-extrabold">AI Development Expertise Tailored to You</h2>
+      <section className="section-padding py-16 bg-page-bg-alt">
+        <div className="service-page-container px-4">
+          <SectionHead
+            label=""
+            title="What Well-Built Agentic AI Actually Delivers"
+            subtitle="Agentic AI is justified by what it lets your business do that it couldn't do before — not by the sophistication of the technology."
+          />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {benefits.map((item) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={item.title}
+                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
+                >
+                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
+                    <Icon size={22} strokeWidth={2} />
+                  </span>
+                  <div className="capability-card-header relative z-10">
+                    <h3 className="font-bold text-toadster-green">{item.title}</h3>
+                    <span className="capability-card-heading-rule" aria-hidden="true" />
+                  </div>
+                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              )
+            })}
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "AI & LLM Integration",
-                points: ["GPT-4 / Claude / Gemini integration", "Fine-tuning on proprietary data", "RAG pipelines and vector databases", "Multi-modal AI systems"]},
-              {
-                title: "Infrastructure & Deployment",
-                points: ["Cloud-native deployment (AWS, GCP, Azure)", "Docker & Kubernetes orchestration", "MLOps & CI/CD for AI", "Edge AI deployment"]},
-              {
-                title: "Agent Frameworks",
-                points: ["LangChain & LangGraph", "AutoGen & CrewAI", "Custom agent protocols (A2A)", "Tool use & function calling"]},
-              {
-                title: "Data & Analytics",
-                points: ["Data pipeline engineering", "Real-time stream processing", "BI dashboards & reporting", "Predictive modeling"]},
-            ].map((e) => (
-              <div key={e.title} className="bg-page-card rounded-2xl p-6 border border-page-border">
-                <h3 className="font-bold text-green-400 mb-4">{e.title}</h3>
-                <ul className="space-y-2">
-                  {e.points.map((pt) => (
-                    <li key={pt} className="flex items-start gap-2 text-page-fg-subtle text-sm">
-                      <CheckCircle size={15} className="text-green-500 shrink-0 mt-0.5" />
-                      {pt}
+        </div>
+      </section>
+
+      <section id="engagement" className="section-padding py-16 bg-page-bg">
+        <div className="service-page-container px-4">
+          <SectionHead
+            label=""
+            title="Work With Us the Way That Fits Your Situation"
+            subtitle="Agentic AI engagements range from a focused feasibility assessment to ongoing management of a fleet of production agents. We structure the work to match where you are."
+          />
+          <div className="grid gap-6 lg:grid-cols-2">
+            {engagementModels.map((model) => (
+              <div
+                key={model.title}
+                className={`capability-card-surface relative rounded-2xl p-7 transition-all duration-300 ${
+                  model.featured ? "ring-2 ring-toadster-green/30" : ""
+                }`}
+              >
+                {model.featured ? (
+                  <span className="relative z-10 mb-4 inline-block rounded-full bg-toadster-green px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+                    Recommended starting point
+                  </span>
+                ) : null}
+                <div className="capability-card-header relative z-10">
+                  <h3 className="text-lg font-bold text-toadster-green">{model.title}</h3>
+                  <span className="capability-card-heading-rule" aria-hidden="true" />
+                </div>
+                <p className="relative z-10 mb-2 text-sm font-semibold text-page-fg-muted">{model.timeline}</p>
+                <p className="capability-card-copy relative z-10 mb-5 text-sm leading-relaxed">{model.desc}</p>
+                <p className="capability-card-copy relative z-10 mb-3 text-[11px] font-bold uppercase tracking-wider">
+                  What&apos;s included
+                </p>
+                <ul className="relative z-10 space-y-2">
+                  {model.benefits.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-page-fg-muted">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-toadster-green" />
+                      {item}
                     </li>
                   ))}
                 </ul>
@@ -279,196 +501,53 @@ export default function AgenticAIPage() {
         </div>
       </section>
 
-      {/* ── WHY OUR AI DEVELOPERS ── */}
-      <section className="py-20 px-4 bg-page-bg">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Our Developers</p>
-            <h2 className="text-4xl font-extrabold max-w-3xl mx-auto">
-              Why Our AI Developers to Build Scalable, Secure, and Smart Solutions
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              "Deep LLM Expertise", "Multi-Agent System Design", "Production-Grade Code", "Security-First Development",
-              "Cloud Architecture", "API & Integration Mastery", "MLOps & DevOps", "Performance Optimization",
-              "Domain Knowledge", "Agile Methodology", "24/7 Support", "Cost-Effective Solutions",
-              "Rapid Prototyping", "Custom Model Training", "Compliance-Ready", "Real-time Systems",
-            ].map((cap) => (
-              <div
-                key={cap}
-                className="bg-page-card rounded-xl p-4 border border-page-border flex items-center gap-3 hover:border-green-800/40 transition-colors"
-              >
-                <CheckCircle size={16} className="text-green-400 shrink-0" />
-                <span className="text-page-fg-subtle text-sm font-medium">{cap}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── OUR WORK ── */}
-      <section className="py-20 px-4 bg-page-bg-alt">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Portfolio</p>
-            <h2 className="text-4xl font-extrabold">Our Work Speaks for Itself</h2>
-            <p className="text-page-fg-muted mt-3">Real AI solutions delivering real business results.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { tag: "Agentic AI", title: "Autonomous Support Agent", desc: "Reduced support tickets by 78% for a fintech company using an autonomous triage agent.", metric: "78% reduction", image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80" },
-              { tag: "LLM Integration", title: "Enterprise Document Intelligence", desc: "Deployed a RAG pipeline to process 100K+ legal documents with 95%+ accuracy.", metric: "95%+ accuracy", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80" },
-              { tag: "AI Automation", title: "Supply Chain Optimizer", desc: "AI agent orchestrating real-time supply chain decisions, saving $2M+ annually.", metric: "$2M+ savings", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80" },
-            ].map((w) => (
-              <div
-                key={w.title}
-                className="bg-page-card flex flex-col rounded-2xl overflow-hidden border border-page-border hover:border-green-800/40 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(74,222,128,0.15)]"
-              >
-                <div className="h-48 relative overflow-hidden bg-page-bg shrink-0">
-                  <Image src={w.image} alt={w.title} title={w.title} fill className="object-cover object-center transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 768px) 100vw, 33vw" />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#0d1b2e] via-transparent to-transparent pointer-events-none"></div>
-                </div>
-                <div className="p-6 relative -mt-6 flex flex-col grow">
-                  <div className="mb-4">
-                    <p className="text-xs font-bold uppercase tracking-wide text-green-400">{w.tag}</p>
-                  </div>
-                  <h3 className="font-bold text-page-fg text-lg mb-2 group-hover:text-green-400 transition-colors pt-1">{w.title}</h3>
-                  <p className="text-page-fg-muted text-sm mb-4 leading-relaxed grow">{w.desc}</p>
-                  <div className="flex items-center gap-2 pt-4 border-t border-page-border mt-auto">
-                    <Activity size={16} className="text-green-500" />
-                    <p className="text-green-400 font-semibold text-sm">{w.metric}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+      <section id="pricing" className="section-padding py-16 bg-page-bg-alt">
+        <div className="service-page-container px-4">
+          <SectionHead
+            label=""
+            title="How much does agentic AI development cost?"
+            subtitle="Pricing depends on the number of agents, integration complexity, and autonomy level. Here's a realistic breakdown — we'll give you a detailed estimate after understanding your specific use case."
+          />
+          <div className="overflow-x-auto rounded-2xl border border-page-border">
+            <table className="w-full min-w-[640px] text-left text-sm">
+              <thead>
+                <tr className="border-b border-page-border bg-page-bg">
+                  <th className="px-6 py-4 font-bold text-page-fg">Scope</th>
+                  <th className="px-6 py-4 font-bold text-page-fg">Typical Timeline</th>
+                  <th className="px-6 py-4 font-bold text-page-fg">Indicative Investment</th>
+                </tr>
+              </thead>
+              <tbody>
+                {costTimelines.map((row) => (
+                  <tr key={row.scope} className="border-b border-page-border last:border-0">
+                    <td className="px-6 py-4 font-medium text-page-fg">{row.scope}</td>
+                    <td className="px-6 py-4 text-page-fg-muted">{row.timeline}</td>
+                    <td className="px-6 py-4 font-semibold text-toadster-green">{row.investment}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
-      {/* ── KEY INNOVATIONS ── */}
-      <section className="py-20 px-4 bg-page-bg">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">What's New</p>
-            <h2 className="text-4xl font-extrabold">Key Innovations in AI Development</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { icon: <Code2 size={22} />, label: "GPT-4o Integration" },
-              { icon: <Brain size={22} />, label: "Reasoning Models (o1 / o3)" },
-              { icon: <Network size={22} />, label: "Agent-to-Agent (A2A) Protocol" },
-              { icon: <Database size={22} />, label: "Vector Databases (Pinecone, Weaviate)" },
-              { icon: <Activity size={22} />, label: "Real-time LLM Streaming" },
-              { icon: <Shield size={22} />, label: "AI Safety & Alignment Tooling" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="bg-page-card rounded-2xl p-5 border border-page-border flex items-center gap-4 hover:border-green-800/40 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-xl bg-green-900/30 flex items-center justify-center text-green-400 shrink-0">
-                  {item.icon}
-                </div>
-                <span className="text-page-fg font-medium text-sm">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQSection
+        faqs={faqs}
+        title="Questions We Hear Before Every Agentic AI Project"
+        subtitle="Straight answers about safety, cost, scope, and what to expect before you commit to building."
+      />
 
-      {/* ── TESTIMONIALS ── */}
-      <section className="py-20 px-4 bg-page-bg-alt">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Social Proof</p>
-            <h2 className="text-4xl font-extrabold">What Our Clients Say</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { name: "Siddharth Rao", role: "CTO, FinNext", text: "Toadster built us an autonomous support agent that outperformed our entire human team. The ROI was visible within 3 weeks." },
-              { name: "Priya Shah", role: "VP Product, TechVault", text: "Their LLM expertise is unmatched. The document intelligence platform they built processes our legal docs 10x faster." },
-              { name: "Marcus Lee", role: "Founder, AutoScale", text: "We hired Toadster to build our AI data pipeline. They delivered in 6 weeks with zero production issues." },
-            ].map((t) => (
-              <div key={t.name} className="bg-page-card rounded-2xl p-6 border border-page-border">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} className="text-green-400 fill-green-400" />
-                  ))}
-                </div>
-                <p className="text-page-fg-subtle text-sm leading-relaxed mb-6">"{t.text}"</p>
-                <div>
-                  <div className="font-bold text-page-fg text-sm">{t.name}</div>
-                  <div className="text-gray-500 text-xs">{t.role}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="py-20 px-4 bg-page-bg">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl font-extrabold mb-4">
-            Ready to Harness the Power of<br />
-            <span className="text-green-400">AI for Your Business?</span>
-          </h2>
-          <p className="text-page-fg-muted mb-8">
-            Let's build intelligent agents that work for you - 24/7, at scale, without limits.
-          </p>
-        </div>
-      </section>
-
-      {/* ── BLOGS ── */}
-      {/* <section className="py-20 px-4 bg-page-bg-alt">
-        <div className="service-page-container">
-          <div className="text-center mb-12">
-            <p className="text-xl font-semibold tracking-widest text-green-400 uppercase mb-2">Latest Insights</p>
-            <h2 className="text-4xl font-extrabold">Our Blogs</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { tag: "Agentic AI", title: "What is Agentic AI and Why It Matters in 2026", date: "Feb 15, 2026" },
-              { tag: "LLMs", title: "GPT-4 vs Claude: Which LLM is Best for Enterprise?", date: "Jan 28, 2026" },
-              { tag: "Automation", title: "How Multi-Agent Systems Are Replacing Traditional RPA", date: "Jan 10, 2026" },
-            ].map((b) => (
-              <div
-                key={b.title}
-                className="bg-page-card rounded-2xl overflow-hidden border border-page-border hover:border-green-800/40 transition-colors cursor-pointer group"
-              >
-                <div className="h-36 bg-linear-to-br from-green-900/30 to-page-bg flex items-center justify-center">
-                  <Brain size={40} className="text-green-700" />
-                </div>
-                <div className="p-5">
-                  <p className="text-xs font-bold uppercase tracking-wide text-green-400">{b.tag}</p>
-                  <h3 className="font-bold text-page-fg mt-3 mb-2 group-hover:text-green-400 transition-colors">{b.title}</h3>
-                  <p className="text-gray-500 text-xs">{b.date}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* ── FAQ ── */}
-      <section className="py-20 px-4 bg-page-bg-alt">
-        <div className="faq-section-layout">
-          <div className="text-center mb-12">
-<h2 className="text-4xl font-extrabold">Frequently Asked Questions</h2>
-          </div>
-          {[
-            { q: "What is Agentic AI and how is it different from traditional AI?", a: "Agentic AI systems can autonomously plan, execute multi-step tasks, and adapt without constant human input - unlike traditional AI which requires explicit instructions for each action." },
-            { q: "How long does it take to deploy an Agentic AI solution?", a: "Typical deployments range from 4-12 weeks depending on complexity. We follow a rapid prototyping approach to deliver a working PoC within the first 2 weeks." },
-            { q: "Can Agentic AI integrate with our existing systems?", a: "Yes. Our agents are built with integration-first architecture and can connect to any REST API, database, CRM, ERP, or cloud platform." },
-            { q: "How do you ensure security in Agentic AI deployments?", a: "We implement role-based access control, encrypted agent communication, audit trails, and comply with SOC 2, GDPR, and HIPAA standards where required." },
-            { q: "What industries do you serve with Agentic AI?", a: "We serve fintech, healthcare, legal, e-commerce, manufacturing, logistics, and more. Our agents are tailored to the specific workflows of each industry." },
-            { q: "What is the cost of building an Agentic AI solution?", a: "Costs depend on scope, complexity, and integrations required. We offer fixed-price engagements for well-defined scopes. Contact us for a free estimate." },
-          ].map((item) => (
-            <FAQItem key={item.q} question={item.q} answer={item.a} />
-          ))}
-        </div>
-      </section>
-
-    </div>
+      <ServicePageCta
+        title="Let's Talk About What You Want an AI Agent to Actually Do"
+        ctaLabel="Talk to an Agentic AI Specialist"
+        footnote="We respond within one business day and can have a technical discovery call scheduled within the week."
+      >
+        <p>
+          Tell us the process or task you&apos;re considering automating with an agent — the steps involved, the systems
+          it would need to touch, and what decisions it would need to make — and we&apos;ll have a direct, technically
+          grounded conversation about whether agentic AI is the right approach and what it would take to build well.
+        </p>
+      </ServicePageCta>
+    </main>
   )
 }

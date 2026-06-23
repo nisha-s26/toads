@@ -1,15 +1,17 @@
 "use client"
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react"
+import { useEffect, useRef, useSyncExternalStore } from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { TRUSTED_BY_CLIENTS } from "@/constants/trustedByClients"
 
-const LOGO_HEIGHT_CLASS =
-  "h-7 w-auto shrink-0 sm:h-8 md:h-9 [@media(max-height:720px)]:h-6 [@media(max-height:720px)]:sm:h-7"
+const LOGO_GAP = "gap-16 sm:gap-20 md:gap-24"
+const MARQUEE_SPEED_PX = 48
 
-const LOGO_GAP = "gap-12 sm:gap-16 md:gap-20"
-const MARQUEE_SPEED_PX = 55
+const LOGO_CELL_CLASS = {
+  default: "h-14 w-44 sm:h-16 sm:w-48 md:h-[4.25rem] md:w-52",
+  compact: "h-12 w-40 sm:h-14 sm:w-44 md:h-16 md:w-48",
+} as const
 
 type LogoMarqueeProps = {
   compact?: boolean
@@ -21,32 +23,38 @@ function LogoItem({
   label,
   src,
   onDarkBackground,
+  compact = false,
   decorative = false,
   priority = false,
+  scale = 1,
 }: {
   label: string
   src?: string
   onDarkBackground: boolean
+  compact?: boolean
   decorative?: boolean
   priority?: boolean
+  scale?: number
 }) {
+  const cellClass = compact ? LOGO_CELL_CLASS.compact : LOGO_CELL_CLASS.default
+
   return (
-    <div className="flex shrink-0 items-center justify-center">
+    <div className={cn("flex shrink-0 items-center justify-center", cellClass)}>
       {src ? (
         <Image
           src={src}
           alt={decorative ? "" : label}
-          width={120}
-          height={48}
-          sizes="120px"
+          width={208}
+          height={80}
+          sizes="208px"
           quality={75}
           loading="eager"
           priority={priority}
           draggable={false}
           aria-hidden={decorative}
+          style={scale !== 1 ? { transform: `scale(${scale})` } : undefined}
           className={cn(
-            LOGO_HEIGHT_CLASS,
-            "block max-w-[140px] object-contain opacity-70 transition-opacity duration-200 hover:opacity-100",
+            "block max-h-[88%] max-w-[92%] object-contain opacity-70 transition-opacity duration-200 hover:opacity-100",
             onDarkBackground ? "brightness-0 invert" : "brightness-0 dark:invert",
           )}
         />
@@ -99,13 +107,13 @@ export function LogoMarquee({
   const offsetRef = useRef(0)
   const pausedRef = useRef(false)
   const rafRef = useRef(0)
-  const [ready, setReady] = useState(false)
   const prefersReducedMotion = useSyncExternalStore(
     subscribeToReducedMotion,
     getReducedMotionSnapshot,
     getReducedMotionServerSnapshot,
   )
 
+  // Second set is for seamless looping only — kept off-screen until the first set scrolls out.
   const marqueeLogos = [...TRUSTED_BY_CLIENTS, ...TRUSTED_BY_CLIENTS]
 
   useEffect(() => {
@@ -132,7 +140,7 @@ export function LogoMarquee({
           offsetRef.current += MARQUEE_SPEED_PX * delta
 
           if (offsetRef.current >= setWidth) {
-            offsetRef.current %= setWidth
+            offsetRef.current -= setWidth
           }
 
           applyTransform()
@@ -152,7 +160,6 @@ export function LogoMarquee({
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           if (!running) return
-          setReady(true)
           startAnimation()
         })
       })
@@ -180,13 +187,11 @@ export function LogoMarquee({
     }
   }, [prefersReducedMotion])
 
-  const showTrack = ready || prefersReducedMotion
-
   return (
     <div
       className={cn(
-        "logo-marquee relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]",
-        compact ? "py-1 sm:py-1.5" : "py-3",
+        "logo-marquee relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]",
+        compact ? "py-3 sm:py-4" : "py-5 sm:py-6",
         className,
       )}
       aria-label="Trusted by leading companies"
@@ -197,20 +202,15 @@ export function LogoMarquee({
         pausedRef.current = false
       }}
     >
-      <div
-        ref={trackRef}
-        className={cn(
-          "flex w-max items-center will-change-transform",
-          LOGO_GAP,
-          !showTrack && "invisible",
-        )}
-      >
-        {marqueeLogos.map(({ label, src }, index) => (
+      <div ref={trackRef} className={cn("flex w-max items-center will-change-transform", LOGO_GAP)}>
+        {marqueeLogos.map(({ label, src, scale }, index) => (
           <LogoItem
             key={`${label}-${index}`}
             label={label}
             src={src}
+            scale={scale}
             onDarkBackground={onDarkBackground}
+            compact={compact}
             decorative={index >= TRUSTED_BY_CLIENTS.length}
             priority={index < TRUSTED_BY_CLIENTS.length}
           />

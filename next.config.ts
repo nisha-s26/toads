@@ -6,6 +6,8 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 const apiBaseUrl = process.env.API_BASE_URL ?? process.env.NEXT_PUBLIC_API_BASE_URL ?? ""
 
 const legacyHireRedirects: { source: string; destination: string }[] = [
+  { source: "/hire/fullstack-developers", destination: "/hire/full-stack-developers" },
+  { source: "/hire-flutter-developers", destination: "/hire/flutter-developers" },
   { source: "/hire/llm-application-developers", destination: "/hire/llm-developers" },
   { source: "/hire/backend-developers", destination: "/hire/nodejs-developers" },
   { source: "/hire/rpa-developers", destination: "/services/intelligent-automation" },

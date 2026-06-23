@@ -111,7 +111,7 @@
 .dark {
   /* Flat-UI palette - DARK theme set (different accents than light)
        emerald headings · amethyst buttons · sunflower accents */
-  --flat-emerald: #065606;
+  --flat-emerald: #22C55E;
   --flat-amethyst: #9B59B6;
   --flat-wisteria: #8E44AD;
   --flat-sunflower: #F1C40F;
@@ -120,48 +120,48 @@
   --flat-clouds: #ECF0F1;
   --flat-concrete: #95A5A6;
 
-  --brand-heading: #065606;
-  --brand-button: #065606;
-  --brand-green-bright: #065606;
-  --brand-sage: #065606;
-  --brand-teal: #065606;
+  --brand-heading: #22C55E;
+  --brand-button: #22C55E;
+  --brand-green-bright: #22C55E;
+  --brand-sage: #22C55E;
+  --brand-teal: #22C55E;
   --brand-sky: var(--flat-sunflower);
 
   --page-bg: transparent;
   --page-bg-alt: rgba(255, 255, 255, 0.04);
   --page-bg-deep: #000000;
   --page-bg-gradient:
-    radial-gradient(ellipse 100vw 85vh at 8% 10%, rgba(6, 86, 6, 0.15) 0%, transparent 52%),
+    radial-gradient(ellipse 100vw 85vh at 8% 10%, rgba(34, 197, 94, 0.15) 0%, transparent 52%),
     radial-gradient(ellipse 95vw 80vh at 92% 88%, rgba(155, 89, 182, 0.17) 0%, transparent 50%),
-    radial-gradient(ellipse 90vw 75vh at 50% 100%, rgba(6, 86, 6, 0.09) 0%, transparent 46%),
+    radial-gradient(ellipse 90vw 75vh at 50% 100%, rgba(34, 197, 94, 0.09) 0%, transparent 46%),
     #000000;
-  --page-fg: #ECF0F1;
-  --page-fg-muted: #95A5A6;
-  --page-fg-subtle: #BDC3C7;
+  --page-fg: #ffffff;
+  --page-fg-muted: #ffffff;
+  --page-fg-subtle: #ffffff;
   --page-border: rgba(236, 240, 241, 0.12);
   --page-border-strong: rgba(236, 240, 241, 0.24);
   --page-card: #111111;
-  --page-accent-soft: rgba(6, 86, 6, 0.12);
+  --page-accent-soft: rgba(34, 197, 94, 0.12);
   --page-hero-bg-image: url("/hero-gradient-dark.svg");
   --page-hero-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.12) 0%, transparent 45%, rgba(0, 0, 0, 0.22) 100%);
   --page-hero-fg: #ECF0F1;
   --page-hero-fg-muted: rgba(236, 240, 241, 0.88);
-  --page-hero-accent: #065606;
-  --section-eyebrow-color: #065606;
+  --page-hero-accent: #22C55E;
+  --section-eyebrow-color: #22C55E;
   --page-hero-badge-bg: rgba(236, 240, 241, 0.1);
   --page-hero-badge-border: rgba(236, 240, 241, 0.22);
   --page-nav: #000000;
   --page-nav-shadow: 0 6px 28px -6px rgba(0, 0, 0, 0.65);
 
-  --brand-green: #065606;
-  --toadster-green: #065606;
-  --toadster-green-deep: #044404;
-  --toadster-green-foreground: #ffffff;
-  --brand-green-shadow: rgba(6, 86, 6, 0.15);
-  --brand-green-shadow-lg: rgba(6, 86, 6, 0.25);
-  --brand-green-glow: rgba(6, 86, 6, 0.3);
-  --brand-green-radial: #065606;
-  --primary-hover: #054805;
+  --brand-green: #22C55E;
+  --toadster-green: #22C55E;
+  --toadster-green-deep: #16a34a;
+  --toadster-green-foreground: #000000;
+  --brand-green-shadow: rgba(34, 197, 94, 0.15);
+  --brand-green-shadow-lg: rgba(34, 197, 94, 0.25);
+  --brand-green-glow: rgba(34, 197, 94, 0.3);
+  --brand-green-radial: #22C55E;
+  --primary-hover: #16a34a;
 
   --background: transparent;
   --foreground: var(--page-fg);
@@ -169,8 +169,8 @@
   --card-foreground: var(--page-fg);
   --popover: var(--page-card);
   --popover-foreground: var(--page-fg);
-  --primary: #065606;
-  --primary-foreground: #ffffff;
+  --primary: #22C55E;
+  --primary-foreground: #000000;
   --secondary: var(--page-accent-soft);
   --secondary-foreground: var(--page-fg);
   --muted: rgba(149, 165, 166, 0.14);
@@ -180,20 +180,20 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: var(--page-border);
   --input: var(--page-border-strong);
-  --ring: #065606;
-  --chart-1: #065606;
+  --ring: #22C55E;
+  --chart-1: #22C55E;
   --chart-2: #9B59B6;
   --chart-3: #F1C40F;
   --chart-4: #3498DB;
   --chart-5: #ECF0F1;
   --sidebar: var(--page-card);
   --sidebar-foreground: var(--page-fg);
-  --sidebar-primary: #065606;
-  --sidebar-primary-foreground: #ffffff;
+  --sidebar-primary: #22C55E;
+  --sidebar-primary-foreground: #000000;
   --sidebar-accent: var(--page-accent-soft);
   --sidebar-accent-foreground: var(--page-fg);
   --sidebar-border: var(--page-border);
-  --sidebar-ring: #065606;
+  --sidebar-ring: #22C55E;
 
   /* Bright white card surfaces (matches What We Deliver cards) */
   --bright-surface-gradient: linear-gradient(135deg,
@@ -354,8 +354,8 @@
   .service-hero-viewport {
     display: flex;
     flex-direction: column;
-    min-height: 100dvh;
-    max-height: 100dvh;
+    /* min-height: 100dvh; */
+    /* max-height: 100dvh; */
     overflow: hidden;
     padding-bottom: clamp(1.5rem, 3vh, 2.5rem);
   }
@@ -2483,6 +2483,31 @@ section.trusted-by-marquee+section.section-padding+section.section-padding {
     opacity: 1;
     transform: none;
   }
+
+  .hire-resources-hub .hire-hub-faq-item,
+  .hire-resources-hub .hire-hub-cta-panel {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+
+  .hire-resources-hub .hire-hub-hero-badges span {
+    animation: none;
+  }
+
+  .hire-hub-resource-card-slot--enter,
+  .hire-hub-resource-card-slot--exit,
+  .hire-hub-faq-item--enter,
+  .hire-hub-faq-item--exit {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .hire-hub-toggle-btn {
+    animation: none;
+  }
 }
 
 .scroll-reveal {
@@ -4070,12 +4095,421 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
   }
 }
 
-/* Hire Resources hub — shared cards & sections */
+/* Hire Resources hub — transparent over homepage mesh */
 .hire-resources-hub {
+  background: transparent;
   --hire-hub-card-bg: #ffffff;
   --hire-hub-card-border: rgba(44, 62, 80, 0.12);
   --hire-hub-card-text: #2c3e50;
   --hire-hub-card-muted: #5b6b76;
+}
+
+.hire-resources-hub .hire-page-container {
+  width: 90%;
+  max-width: 90%;
+}
+
+.hire-resources-hub .hire-hub-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.hire-resources-hub .hire-hub-cards-grid>* {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .hire-resources-hub .hire-hub-cards-grid--2>* {
+    width: calc(50% - 0.625rem);
+    max-width: calc(50% - 0.625rem);
+  }
+
+  .hire-resources-hub .hire-hub-cards-grid--3>* {
+    width: calc(50% - 0.625rem);
+    max-width: calc(50% - 0.625rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hire-resources-hub .hire-hub-cards-grid--3>* {
+    width: calc(33.333% - 0.834rem);
+    max-width: calc(33.333% - 0.834rem);
+  }
+}
+
+.hire-resources-hub .hire-hub-faq-wrap {
+  width: 70%;
+  max-width: 70%;
+  margin-inline: auto;
+}
+
+.hire-hub-resource-card-slot--enter {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  animation: hire-hub-resource-reveal-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--resource-reveal-delay, 0s);
+}
+
+.hire-hub-resource-card-slot--exit {
+  animation: hire-hub-resource-reveal-out 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: calc(var(--resource-reveal-delay, 0s) * 0.5);
+  pointer-events: none;
+}
+
+@keyframes hire-hub-resource-reveal-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hire-hub-resource-reveal-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+
+.hire-hub-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 10.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+  animation: hero-enter 0.45s ease-out both;
+}
+
+.hire-hub-toggle-btn--more {
+  border: 1px solid rgba(6, 86, 6, 0.28);
+  background: #ffffff;
+  color: #1a2332;
+  box-shadow:
+    0 4px 18px -6px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.hire-hub-toggle-btn--more:hover {
+  transform: translateY(-2px);
+  border-color: rgba(6, 86, 6, 0.42);
+  box-shadow:
+    0 8px 24px -8px rgba(6, 86, 6, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.hire-hub-toggle-btn--more svg {
+  color: #065606;
+}
+
+.hire-hub-toggle-btn--less {
+  border: 1px solid #065606;
+  background: #065606;
+  color: #ffffff;
+  box-shadow: 0 6px 20px -8px rgba(6, 86, 6, 0.55);
+}
+
+.hire-hub-toggle-btn--less:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: #044d04;
+  border-color: #044d04;
+}
+
+.hire-hub-toggle-btn--less:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.hire-hub-toggle-btn--less svg {
+  color: #ffffff;
+}
+
+.dark .hire-hub-toggle-btn--more {
+  background: #ffffff;
+  color: #1a2332;
+}
+
+.hire-hub-faq-item--enter {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: hire-hub-resource-reveal-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--resource-reveal-delay, 0s);
+}
+
+.hire-hub-faq-item--exit {
+  animation: hire-hub-resource-reveal-out 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: calc(var(--resource-reveal-delay, 0s) * 0.5);
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .hire-resources-hub .hire-hub-faq-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Hire hub cards — solid accent style (distinct from homepage hire-role-card) */
+.hire-hub-card-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.hire-hub-card {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 1.125rem;
+  border: 1px solid rgba(6, 86, 6, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 1.5rem 1.5rem 1.5rem 1.625rem;
+  box-shadow:
+    0 4px 24px -8px rgba(6, 86, 6, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+
+.dark .hire-hub-card {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(6, 86, 6, 0.16);
+  box-shadow:
+    0 8px 32px -12px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.hire-hub-card-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #065606 0%, rgba(6, 86, 6, 0.45) 100%);
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hire-hub-card:hover,
+.hire-hub-card-link:hover,
+.hire-hub-card-link:focus-visible {
+  transform: translateY(-6px);
+  border-color: rgba(6, 86, 6, 0.28);
+  box-shadow:
+    0 22px 48px -18px rgba(6, 86, 6, 0.22),
+    0 8px 20px -10px rgba(6, 86, 6, 0.12);
+}
+
+.hire-hub-card:hover .hire-hub-card-accent,
+.hire-hub-card-link:hover .hire-hub-card-accent,
+.hire-hub-card-link:focus-visible .hire-hub-card-accent {
+  width: 6px;
+}
+
+.hire-hub-card-index {
+  display: none;
+}
+
+.hire-hub-card-header {
+  margin-bottom: 0.85rem;
+  overflow: visible;
+}
+
+.hire-hub-card-header .flex h3 {
+  flex: 1 1 0%;
+  min-width: 0;
+  overflow: visible;
+  padding-right: 0.25rem;
+}
+
+.hire-hub-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.hire-hub-card-icon--lg {
+  height: 2.75rem;
+  width: 2.75rem;
+  border-radius: 0.75rem;
+  background: #065606;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(6, 86, 6, 0.28);
+}
+
+.hire-hub-card:hover .hire-hub-card-icon--lg,
+.hire-hub-card-link:hover .hire-hub-card-icon--lg {
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(6, 86, 6, 0.34);
+}
+
+.hire-hub-card-arrow {
+  display: inline-flex;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(6, 86, 6, 0.2);
+  color: #065606;
+  opacity: 0.55;
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.hire-hub-card-link:hover .hire-hub-card-arrow,
+.hire-hub-card-link:focus-visible .hire-hub-card-arrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
+  background: #065606;
+  color: #fff;
+  border-color: #065606;
+}
+
+.hire-hub-card-title {
+  margin: 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #1a2332;
+}
+
+.hire-hub-card-title::after {
+  content: "";
+  display: block;
+  margin-top: 0.75rem;
+  height: 2px;
+  width: 2.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #065606, #044d04);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hire-hub-card:hover .hire-hub-card-title::after,
+.hire-hub-card-link:hover .hire-hub-card-title::after,
+.hire-hub-card-link:focus-visible .hire-hub-card-title::after {
+  width: 100%;
+}
+
+.hire-hub-card-copy {
+  margin: 0;
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: #5b6b76;
+}
+
+.hire-hub-card--resource {
+  min-height: 11.5rem;
+}
+
+.hire-hub-card--resource .hire-hub-card-title {
+  margin: 0;
+}
+
+.hire-hub-card-explore {
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.hire-hub-card-link:hover .hire-hub-card-explore,
+.hire-hub-card-link:focus-visible .hire-hub-card-explore {
+  opacity: 1;
+}
+
+.hire-resources-hub .hire-hub-section {
+  padding-block: clamp(2rem, 4vw, 3rem);
+}
+
+.hire-resources-hub .hire-hub-hero-section {
+  min-height: min(720px, 88vh);
+  display: flex;
+  align-items: center;
+}
+
+.hire-hub-hero-bg-overlay {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.04) 45%,
+      rgba(255, 255, 255, 0.18) 100%);
+}
+
+.dark .hire-hub-hero-bg-overlay {
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.12) 0%,
+      rgba(0, 0, 0, 0.08) 45%,
+      rgba(0, 0, 0, 0.32) 100%);
+}
+
+@media (max-width: 639px) {
+  .hire-resources-hub .hire-hub-hero-section {
+    min-height: min(640px, 82vh);
+  }
+
+  .hire-resources-hub .hire-hub-hero-section .homepage-hero-bg-image img {
+    object-position: center 20%;
+  }
+}
+
+.hire-resources-hub .hire-hub-hero-badges span {
+  animation: hero-enter 0.55s ease-out both;
+  animation-delay: calc(0.45s + var(--badge-index, 0) * 0.08s);
+}
+
+.hire-resources-hub .hire-hub-faq-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--faq-index, 0) * 0.06s);
+}
+
+.hire-resources-hub .hire-hub-faq-item.hire-hub-faq-item--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hire-resources-hub .hire-hub-cta-panel {
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hire-resources-hub .hire-hub-cta-panel.hire-hub-cta-panel--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .hire-hub-benefit-card,
@@ -4113,7 +4547,7 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
   align-items: stretch;
 }
 
-.hire-challenges-grid > * {
+.hire-challenges-grid>* {
   width: 100%;
   min-width: 0;
   max-width: 100%;

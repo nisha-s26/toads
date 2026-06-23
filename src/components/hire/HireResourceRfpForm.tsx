@@ -226,7 +226,7 @@ export function HireResourceRfpForm({
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="h-9 w-full rounded-lg bg-[#004d2d] text-sm font-bold text-white shadow-sm hover:bg-[#003820] transition-colors disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer"
+            className="h-9 w-full rounded-lg bg-toadster-green text-toadster-green-foreground hover:bg-[var(--primary-hover)] text-sm font-bold shadow-sm transition-colors disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer"
           >
             {isSubmitting ? "Submitting..." : "Submit Request"}
             {!isSubmitting && <ArrowRight size={16} />}

@@ -49,14 +49,10 @@ const FLUTTER_HERO_STATS = [
 ]
 
 const FLUTTER_COMPARISON_ROWS = [
-  { feature: "Team Control", dedicated: "Full", staffAug: "Full", outsourcing: "Limited" },
-  { feature: "Integration", dedicated: "Deep", staffAug: "Moderate", outsourcing: "Low" },
-  { feature: "Flexibility", dedicated: "High", staffAug: "High", outsourcing: "Low" },
-  { feature: "Cost Predictability", dedicated: "High", staffAug: "Moderate", outsourcing: "Variable" },
-  { feature: "Onboarding Speed", dedicated: "Fast (1–2 wks)", staffAug: "Fast (1–2 wks)", outsourcing: "Slow (4–6 wks)" },
-  { feature: "IP Ownership", dedicated: "100% Client", staffAug: "100% Client", outsourcing: "Negotiated" },
-  { feature: "Scalability", dedicated: "Easy", staffAug: "Easy", outsourcing: "Complex" },
-  { feature: "Ideal For", dedicated: "Long-term builds", staffAug: "Skill gaps", outsourcing: "Fixed-scope projects" },
+  { feature: "Team Control", dedicated: "Direct daily collaboration & sprint alignment", staffAug: "Layered management, slower iterations", outsourcing: "No control, milestone-only updates" },
+  { feature: "Communication", dedicated: "Direct Slack, Jira & Git access", staffAug: "Hand-off via account managers", outsourcing: "Communication routed through PM" },
+  { feature: "Free Shadowing", dedicated: "1-week free shadowing for knowledge transfer", staffAug: "Extra cost for shadowing", outsourcing: "Fixed scope, no transfer" },
+  { feature: "Knowledge Retention", dedicated: "100% IP & codebase alignment", staffAug: "High turnover risk", outsourcing: "Code delivered, knowledge lost" },
 ]
 
 
@@ -185,19 +181,19 @@ const SUBHEADINGS: Record<string, string> = {
 const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
   "flutter-developers": [
     {
-      title: "Orchestration / State Management",
+      title: "Core Framework & State Management",
       icon: GitBranch,
-      items: ["Provider / Riverpod", "Bloc / Cubit", "GetX", "MobX"]
+      items: ["Dart & Flutter SDK", "Widget Lifecycle", "Riverpod / BLoC / Provider"]
     },
     {
-      title: "Models & Integration",
+      title: "Native Integrations & Platform Channels",
       icon: Cpu,
-      items: ["Firebase / Supabase", "REST APIs / GraphQL", "WebSockets", "Hive / SQLite / Isar"]
+      items: ["Custom Platform Channels", "Biometrics & Camera", "Push Notifications", "Bluetooth & Local Databases"]
     },
     {
-      title: "Storage & DevOps",
+      title: "Performance, Testing & Deployment",
       icon: Database,
-      items: ["Google Play / App Store", "Fastlane / Codemagic", "AWS Amplify", "Docker / CI-CD"]
+      items: ["DevTools & Memory Profiling", "Unit & Golden Tests", "Codemagic / Fastlane CI/CD", "App Store & Google Play Releases"]
     }
   ],
   "llm-developers": [
@@ -536,12 +532,10 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
 // Deliverables mapping for all roles
 const DELIVERABLES: Record<string, DeliverableCard[]> = {
   "flutter-developers": [
-    { title: "Cross-Platform Mobile Apps", description: "Pixel-perfect Flutter apps for iOS and Android from a single, maintainable codebase.", graphicType: "radar" },
-    { title: "Advanced State Management", description: "Scalable architectures using Bloc, Riverpod, or GetX - structured for long-term maintainability.", graphicType: "loss-curve" },
-    { title: "Backend & API Integration", description: "Seamless REST, GraphQL, and Firebase integrations, authentication, and real-time data layers.", graphicType: "node-graph" },
-    { title: "Custom Widgets & Animations", description: "Bespoke UI components, fluid animations, and branded design systems built natively in Flutter.", graphicType: "shield" },
-    { title: "App Store Deployment", description: "End-to-end release management for Google Play and Apple App Store, including CI/CD pipeline setup.", graphicType: "shield" },
-    { title: "Performance Optimization", description: "App profiling, rendering optimization, and memory management for production-grade performance.", graphicType: "shield" }
+    { title: "Cross-Platform App Development", description: "A single Flutter codebase deployed to iOS, Android, web, and desktop with platform-specific adaptations where it matters — navigation gestures, desktop shortcuts, and native scroll physics — not a generic wrapper.", graphicType: "radar" },
+    { title: "Native Module & Third-Party SDK Integration", description: "Custom platform channels for hardware integrations (camera, Bluetooth, biometrics), third-party SDKs, and native libraries (Swift, Kotlin) that don’t have a Flutter package out of the box.", graphicType: "loss-curve" },
+    { title: "AI-Powered Mobile Experiences", description: "Flutter frontends integrated with AI backend layers — on-device ML models (TensorFlow Lite), streaming AI chatbots, speech-to-text, and real-time AI features optimized for mobile hardware constraints.", graphicType: "node-graph" },
+    { title: "Performance Optimisation & QA", description: "Rendering profiling (Impeller & Skia), memory leak detection, bundle size auditing, and automated integration testing — ensuring your app maintains 60/120 FPS across all user devices.", graphicType: "shield" }
   ],
   "llm-developers": [
     { title: "Advanced RAG Pipelines", description: "Hyper-focused retrieval system, semantic search, query optimization, metadata indexing.", graphicType: "radar" },
@@ -906,7 +900,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                     <button
                       type="button"
                       onClick={scrollToForm}
-                      className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-white shadow-sm transition-all"
+                      className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-toadster-green-foreground shadow-sm transition-all"
                     >
                       {heroCtaData.primary}
                     </button>
@@ -922,7 +916,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                   <button
                     type="button"
                     onClick={scrollToForm}
-                    className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-white shadow-sm transition-all"
+                    className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-toadster-green-foreground shadow-sm transition-all"
                   >
                     {isFlutter ? "Hire Flutter Experts" : `Hire ${titleInfo.highlight} Experts`}
                     <ArrowUpRight size={16} />
@@ -944,16 +938,16 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
               {/* Stat Row */}
               {!heroCtaData && (
-              <div className={`grid gap-4 sm:gap-6 pt-8 sm:pt-10 border-t border-page-border mt-4 ${isFlutter ? "grid-cols-2 sm:grid-cols-4 max-w-3xl" : "grid-cols-3 max-w-xl"}`}>
-                {heroStats.map((stat) => (
-                  <div key={stat.label}>
-                    <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-page-fg">{stat.value}</p>
-                    <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-page-fg-muted mt-1">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                <div className={`grid gap-4 sm:gap-6 pt-8 sm:pt-10 border-t border-page-border mt-4 ${isFlutter ? "grid-cols-2 sm:grid-cols-4 max-w-3xl" : "grid-cols-3 max-w-xl"}`}>
+                  {heroStats.map((stat) => (
+                    <div key={stat.label}>
+                      <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-page-fg">{stat.value}</p>
+                      <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-page-fg-muted mt-1">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               )}
             </div>
 
@@ -981,15 +975,20 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                       </a>
                     </span>
                   ) : isFlutter ? (
-                    "No commitment required. We'll reach out within 24 hours."
+                    <span>
+                      We&apos;ll review your requirements within one business day.{" "}
+                      <a href="/contact" className="text-toadster-green hover:underline">
+                        Schedule a call instead
+                      </a>
+                    </span>
                   ) : undefined
                 }
                 engagementOptions={
                   isFlutter
                     ? [
-                      { value: "Full-Time", label: "Full-Time" },
-                      { value: "Part-Time", label: "Part-Time" },
-                      { value: "Team", label: "Team" },
+                      { value: "Full-Time Dedicated", label: "Full-Time Dedicated" },
+                      { value: "Part-Time Dedicated", label: "Part-Time Dedicated" },
+                      { value: "Dedicated Team", label: "Dedicated Team" },
                     ]
                     : undefined
                 }
@@ -1217,7 +1216,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
             <div className="overflow-x-auto rounded-2xl border border-page-border shadow-[0_10px_35px_rgba(0,0,0,0.03)] bg-page-card">
               <table className="w-full text-left border-collapse min-w-[600px]">
                 <thead>
-                  <tr className="bg-toadster-green text-white">
+                  <tr className="bg-toadster-green text-toadster-green-foreground">
                     <th className="px-6 py-4.5 font-bold text-sm">Resource Type</th>
                     <th className="px-6 py-4.5 font-bold text-sm">What They Do For You</th>
                   </tr>
@@ -1305,90 +1304,96 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                   </tr>
                 ))}
               </tbody>
-            </table>
-          </div>
-        </section>
+            </table >
+          </div >
+        </section >
 
         {/* ── SECTION 10: WHY TOADSTER ── */}
-        {isFlutter && whyToadsterSection?.items && (
-          <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
-            <div className="text-center flex flex-col gap-3 mb-12">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-                {whyToadsterSection.heading}
-              </h2>
-              <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
-                {whyToadsterSection.body}
-              </p>
-            </div>
+        {
+          isFlutter && whyToadsterSection?.items && (
+            <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
+              <div className="text-center flex flex-col gap-3 mb-12">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
+                  {whyToadsterSection.heading}
+                </h2>
+                <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
+                  {whyToadsterSection.body}
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {whyToadsterSection.items.map((item, index) => (
-                <HireRoleCard
-                  key={item.title}
-                  title={item.title}
-                  icon={ShieldCheck}
-                  description={item.body}
-                  index={index}
-                />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* ── SECTION 11: PRICING ── */}
-        {isFlutter && pricingSection?.items && (
-          <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
-            <div className="text-center flex flex-col gap-3 mb-12">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-                {pricingSection.heading}
-              </h2>
-              <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
-                {pricingSection.body}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-              {pricingSection.items.map((item, index) => {
-                const [experiencePart, bestForPart] = item.body.split(". Best for: ")
-                return (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {whyToadsterSection.items.map((item, index) => (
                   <HireRoleCard
                     key={item.title}
                     title={item.title}
-                    icon={Layers}
-                    description={`Experience: ${experiencePart}${bestForPart ? `. Best for: ${bestForPart}` : ""}`}
+                    icon={ShieldCheck}
+                    description={item.body}
                     index={index}
                   />
-                )
-              })}
-            </div>
+                ))}
+              </div>
+            </section>
+          )
+        }
 
-            <p className="text-center text-page-fg-muted text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
-              Contact Toadster Technologies for a customized quote based on your specific engagement model, seniority
-              requirements, and team size. We offer competitive rates with full transparency - no retainer fees, no hidden
-              charges.
-            </p>
-          </section>
-        )}
+        {/* ── SECTION 11: PRICING ── */}
+        {
+          isFlutter && pricingSection?.items && (
+            <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
+              <div className="text-center flex flex-col gap-3 mb-12">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
+                  {pricingSection.heading}
+                </h2>
+                <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
+                  {pricingSection.body}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+                {pricingSection.items.map((item, index) => {
+                  const [experiencePart, bestForPart] = item.body.split(". Best for: ")
+                  return (
+                    <HireRoleCard
+                      key={item.title}
+                      title={item.title}
+                      icon={Layers}
+                      description={`Experience: ${experiencePart}${bestForPart ? `. Best for: ${bestForPart}` : ""}`}
+                      index={index}
+                    />
+                  )
+                })}
+              </div>
+
+              <p className="text-center text-page-fg-muted text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
+                Contact Toadster Technologies for a customized quote based on your specific engagement model, seniority
+                requirements, and team size. We offer competitive rates with full transparency - no retainer fees, no hidden
+                charges.
+              </p>
+            </section>
+          )
+        }
 
         {/* ── SECTION 12: FAQ ── */}
-        {(isFlutter || isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack) && resource.faqs.length > 0 && (
-          <section className="relative z-10 mx-auto min-w-0 max-w-4xl px-3 py-10 sm:px-6 lg:px-16">
-            <div className="text-center flex flex-col gap-3 mb-12">
-              <h2 className="text-3xl sm:text-6xl font-extrabold text-page-fg tracking-tight">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-page-fg-muted text-sm sm:text-base leading-relaxed font-medium">
-                Everything you need to know about hiring dedicated {isFlutter ? "Flutter" : (isReactNative ? "React Native" : (isDevOps ? "DevOps" : (isIos ? "iOS" : (isAndroid ? "Android" : (isReact ? "React.js" : (isFullStack ? "full stack" : ""))))))} developers through Toadster Technologies.
-              </p>
-            </div>
+        {
+          (isFlutter || isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack) && resource.faqs.length > 0 && (
+            <section className="relative z-10 mx-auto min-w-0 max-w-4xl px-3 py-10 sm:px-6 lg:px-16">
+              <div className="text-center flex flex-col gap-3 mb-12">
+                <h2 className="text-3xl sm:text-6xl font-extrabold text-page-fg tracking-tight">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-page-fg-muted text-sm sm:text-base leading-relaxed font-medium">
+                  Everything you need to know about hiring dedicated {isFlutter ? "Flutter" : (isReactNative ? "React Native" : (isDevOps ? "DevOps" : (isIos ? "iOS" : (isAndroid ? "Android" : (isReact ? "React.js" : (isFullStack ? "full stack" : ""))))))} developers through Toadster Technologies.
+                </p>
+              </div>
 
-            <div className="flex flex-col gap-4">
-              {resource.faqs.map((faq) => (
-                <HomepageFaqItem key={faq.question} question={faq.question} answer={faq.answer} />
-              ))}
-            </div>
-          </section>
-        )}
+              <div className="flex flex-col gap-4">
+                {resource.faqs.map((faq) => (
+                  <HomepageFaqItem key={faq.question} question={faq.question} answer={faq.answer} />
+                ))}
+              </div>
+            </section>
+          )
+        }
 
         {/* ── SECTION 13: BOTTOM CONVERSION BANNER ── */}
         <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
@@ -1410,13 +1415,10 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
               <button
                 type="button"
                 onClick={scrollToForm}
-                className={`inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold shadow-sm transition-all ${isDark
-                  ? 'bg-[#004d2d] hover:bg-[#003820] text-white'
-                  : 'bg-[#003820]/90 hover:bg-[#003820] text-white border border-white/20'
-                  }`}
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold shadow-sm transition-all bg-toadster-green text-toadster-green-foreground hover:bg-[var(--primary-hover)] border border-transparent"
               >
                 {bottomBanner.secondaryCta}
-                <ArrowRight size={16} className="text-white" />
+                <ArrowRight size={16} />
               </button>
             </div>
 
@@ -1427,8 +1429,8 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
             )}
           </div>
         </section>
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
 

@@ -41,6 +41,7 @@ import {
   Cloud,
 } from "lucide-react"
 import { HIRE_RESOURCES_NAV } from "@/config/hire-resources"
+import { SERVICES_NAV, SERVICE_ROUTES } from "@/config/services-nav"
 import {
   FaReact,
   FaNodeJs,
@@ -62,33 +63,6 @@ import {
 } from "@/components/ui/navigation-menu"
 
 
-const services = [
-  { icon: "Brain", title: "AI Development", description: "Practical AI solutions - ML, GenAI, NLP, vision, and MLOps for real business outcomes" },
-  // { icon: "Brain", title: "AI Agent Development", description: "Autonomous agents that plan, execute, and adapt at scale" },
-  // { icon: "Flame", title: "Custom AI Solutions", description: "Tailor-made AI systems for unique business challenges" },
-  // { icon: "Settings2", title: "AI Workflow Automation", description: "Intelligent workflows that automate complex decisions" },
-  // { icon: "Bot", title: "AI Chatbot Development", description: "Enterprise chatbots and conversational assistants" },
-  // { icon: "Sparkles", title: "Generative AI Development", description: "AI that creates content, code, and creative output" },
-  // { icon: "Database", title: "LLM Development", description: "Production-grade large language model platforms" },
-  { icon: "GitBranch", title: "RAG Development", description: "Retrieval-augmented generation and knowledge systems" },
-  // { icon: "Link2", title: "AI Integration", description: "Connect AI into your existing tools and workflows" },
-  // { icon: "Building", title: "Enterprise AI Solutions", description: "Sector-specific AI platforms for large organizations" },
-  // { icon: "MessageSquare", title: "AI Copilot Development", description: "Enterprise copilots for teams and knowledge work" },
-  // { icon: "Eye", title: "Computer Vision Development", description: "Visual intelligence and image analytics at scale" },
-  // { icon: "UserCog", title: "AI Consulting", description: "Strategy, architecture, and AI program guidance" },
-  { icon: "Code2", title: "Software Development", description: "Custom software, web apps, and scalable product engineering" },
-  { icon: "Smartphone", title: "Mobile App Development", description: "iOS, Android, and cross-platform apps from MVP to launch" },
-  { icon: "Server", title: "DevOps", description: "CI/CD pipelines, cloud infrastructure, Kubernetes, and SRE" },
-  { icon: "Cpu", title: "IoT Development", description: "End-to-end IoT - firmware, cloud, edge computing, and dashboards" },
-  { icon: "Eye", title: "VR Development", description: "Custom VR apps for training, simulation, virtual showrooms, and enterprise deployment" },
-  { icon: "Scan", title: "AR Development", description: "Mobile AR, WebAR, HoloLens, product visualisation, and enterprise AR solutions" },
-  { icon: "ClipboardList", title: "Product Management", description: "Embedded PMs, roadmaps, discovery, requirements, and fractional CPO leadership" },
-  { icon: "ShieldCheck", title: "Penetration Testing", description: "Manual security testing, red team operations, and compliance-driven assessments" },
-  { icon: "Lock", title: "Cybersecurity Services", description: "Penetration testing, cloud security, compliance, AppSec, and managed SOC" },
-  { icon: "LifeBuoy", title: "Application Support", description: "Proactive monitoring, incident response, patching, and SLA-based maintenance" },
-  { icon: "Layers", title: "SaaS App Development", description: "End-to-end SaaS products from MVP to enterprise-grade multi-tenant platforms" },
-  { icon: "Monitor", title: "Web Development", description: "Custom websites, web applications, and digital platforms that drive business outcomes" },
-]
 
 const globalNavLinks = [
   { label: "Home", href: "#", section: "home" },
@@ -115,33 +89,6 @@ const countries = [
   },
 ]
 
-const SERVICE_ROUTES: Record<string, string> = {
-  "AI Development": "/services/ai-development",
-  // "AI Agent Development": "/services/agentic-ai",
-  // "Custom AI Solutions": "/services/custom-ai-solutions",
-  // "AI Workflow Automation": "/services/intelligent-automation",
-  // "AI Chatbot Development": "/services/ai-chatbots",
-  // "Generative AI Development": "/services/generative-ai",
-  // "LLM Development": "/services/llm-development",
-  "RAG Development": "/services/rag-development",
-  // "AI Integration": "/services/ai-integration",
-  // "Enterprise AI Solutions": "/services/industry-solutions",
-  // "AI Copilot Development": "/services/llm-development",
-  // "Computer Vision Development": "/services/computer-vision",
-  // "AI Consulting": "/services/ai-consultation",
-  "Software Development": "/services/software-development",
-  "Mobile App Development": "/services/mobile-app-development",
-  "DevOps": "/services/devops",
-  "IoT Development": "/services/iot-development",
-  "VR Development": "/services/vr-development",
-  "AR Development": "/services/augmented-reality",
-  "Product Management": "/services/product-management",
-  "Penetration Testing": "/services/penetration-testing",
-  "Cybersecurity Services": "/services/cybersecurity",
-  "Application Support": "/services/application-support-and-maintenance",
-  "SaaS App Development": "/services/saas-app-development",
-  "Web Development": "/services/web-development",
-}
 
 const NAV_ICON_MAP = {
   Brain,
@@ -266,17 +213,24 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                         ? "text-brand-green font-semibold bg-page-accent-soft"
                         : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
                         }`}
-                      onClick={() => setMobileServicesOpen((p) => !p)}
+                      onClick={() => {
+                        closeMobile()
+                        router.push("/services")
+                      }}
                     >
                       Services
                       <ChevronDown
                         size={16}
                         className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          setMobileServicesOpen((p) => !p)
+                        }}
                       />
                     </button>
                     {mobileServicesOpen && (
                       <div className="mt-1 ml-3 pl-3 border-l-2 border-page-border flex flex-col gap-0.5">
-                        {services.map((s) => (
+                        {SERVICES_NAV.map((s) => (
                           <a
                             key={s.title}
                             href="#"
@@ -444,6 +398,10 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                     <NavigationMenuItem className="relative" key={link.label}>
                       <NavigationMenuTrigger
                         className={`px-4 py-2 text-sm font-medium bg-transparent rounded-full transition-colors hover:bg-page-accent-soft data-[state=open]:bg-page-accent-soft data-[state=open]:text-page-fg ${activeSection === link.section ? 'text-brand-green font-semibold' : 'text-page-fg-muted hover:text-page-fg'}`}
+                        onClick={() => {
+                          if (link.label === "Hire Resources") router.push("/hire-resources")
+                          if (link.label === "Services") router.push("/services")
+                        }}
                       >
                         <span className="relative">
                           {link.label}
@@ -456,7 +414,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                         {link.label === "Services" ? (
                           <div className="bg-page-card rounded-2xl p-2 w-260">
                             <ul className="grid grid-cols-4 gap-1">
-                              {services.map((s) => {
+                              {SERVICES_NAV.map((s) => {
                                 const Icon = NAV_ICON_MAP[s.icon as keyof typeof NAV_ICON_MAP]
                                 return (
                                   <li key={s.title}>

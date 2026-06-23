@@ -60,6 +60,11 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description:
       "Hire dedicated developers and technology resources from Toadster Technologies. Flexible staff augmentation across software, mobile, AI/ML, DevOps, and more — onboarded in 5–7 days. Serving India, UAE, Saudi Arabia & the US.",
   },
+  "/services": {
+    title: "Software & AI Development Services | Toadster Technologies",
+    description:
+      "Explore Toadster Technologies' full range of services — AI development, agentic AI, RAG systems, software, mobile, DevOps, cybersecurity, and more. Serving India, UAE, Saudi Arabia & the US.",
+  },
   "/ai-development-company-india": {
     title: "AI Development Company India | Custom AI, LLM & Agentic Systems | Toadster Noida",
     description:
@@ -96,9 +101,9 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
       "Toadster provides AI development services to Hyderabad enterprises in pharma, enterprise tech, and manufacturing. Engineering from Noida, India.",
   },
   "/services/agentic-ai": {
-    title: "Agentic AI Services | Toadster",
+    title: "Agentic AI Development Services | Autonomous AI Agents | Toadster Technologies",
     description:
-      "Toadster's agentic AI services build autonomous reasoning systems, scalable AI platforms, and high-throughput data pipelines for the enterprise.",
+      "Agentic AI development services — autonomous agents, multi-agent orchestration, tool-use integration, and AI safety guardrails. Built for real operational workflows. Talk to Toadster Technologies.",
   },
   "/services/generative-ai": {
     title: "Generative AI Services | Toadster",
