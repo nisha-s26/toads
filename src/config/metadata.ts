@@ -60,6 +60,42 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description:
       "Hire dedicated developers and technology resources from Toadster Technologies. Flexible staff augmentation across software, mobile, AI/ML, DevOps, and more — onboarded in 5–7 days. Serving India, UAE, Saudi Arabia & the US.",
   },
+  "/ai-development-company-australia": {
+    title: "AI Development Company in Australia | Custom AI & GenAI Solutions \u2013 Toadsters",
+    description: "Toadsters is an AI development company helping Australian businesses build custom AI agents, GenAI apps, and enterprise automation \u2013 secure, scalable, and built for ROI.",
+  },
+  "/ai-development-company-canada": {
+    title: "AI Development Company in Canada | Toadsters Technologies",
+    description: "Toadsters Technologies builds custom AI agents, RAG systems & LLM solutions for Canadian businesses. Talk to an AI engineer, not a sales rep. Book a call.",
+  },
+  "/ai-development-company-germany": {
+    title: "AI Development Company in Germany | Custom AI & GenAI Solutions \u2013 Toadsters",
+    description: "Toadsters is an AI development company building custom AI agents, GenAI apps, and enterprise automation for German businesses \u2013 GDPR and EU AI Act compliant by design.",
+  },
+  "/ai-development-company-india": {
+    title: "AI Development Company in India | Toadsters Technologies",
+    description: "Toadsters Technologies builds custom AI agents, RAG systems & LLM solutions for Indian businesses. Talk to an AI engineer, not a sales rep. Book a call.",
+  },
+  "/ai-development-company-saudi-arabia": {
+    title: "AI Development Company in Saudi Arabia | Custom AI & GenAI Solutions \u2013 Toadsters",
+    description: "Toadsters is an AI development company in Saudi Arabia building custom AI agents, GenAI apps, and enterprise automation aligned with Vision 2030, SDAIA, and PDPL requirements.",
+  },
+  "/ai-development-company-singapore": {
+    title: "AI Development Company in Singapore | Toadsters Technologies",
+    description: "Toadsters Technologies is a leading AI development company in Singapore, building custom AI agents, LLM solutions, RAG systems, and enterprise automation for startups, SMBs, and large enterprises across Southeast Asia.",
+  },
+  "/ai-development-company-uae": {
+    title: "AI Development Company in UAE | Custom AI & GenAI Solutions \u2013 Toadsters",
+    description: "Toadsters is an AI development company in the UAE building custom AI agents, GenAI apps, and enterprise automation aligned with UAE PDPL, DIFC, and ADGM requirements.",
+  },
+  "/ai-development-company-uk": {
+    title: "AI Development Company in the UK | Toadsters Technologies",
+    description: "Toadsters Technologies builds custom AI agents, RAG systems & LLM solutions for UK businesses. Talk to an AI engineer, not a sales rep. Book a call.",
+  },
+  "/ai-development-company-usa": {
+    title: "AI Development Company in the USA | Toadsters Technologies",
+    description: "Toadsters Technologies builds custom AI agents, RAG systems & LLM solutions for US businesses. Talk to an AI engineer, not a sales rep. Book a call.",
+  },
   "/services": {
     title: "Software & AI Development Services | Toadster Technologies",
     description:

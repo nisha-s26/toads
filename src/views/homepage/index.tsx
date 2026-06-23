@@ -5,7 +5,6 @@ import TrustedBy from "./TrustedBy"
 import { useTheme } from "@/hooks/theme"
 import Image from "next/image"
 import type { BlogPost } from "@/views/blogs/blogData"
-import { useEffect } from "react"
 import HeroSection from "./HeroSection"
 import AiCap from "./AiCap"
 import WhyUs from "./WhyUs"
@@ -22,13 +21,8 @@ const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
   const { theme } = useTheme()
   const heroOnDarkBackground = theme === "dark"
 
-  useEffect(() => {
-    document.documentElement.classList.add("homepage-scroll-snap")
-    return () => document.documentElement.classList.remove("homepage-scroll-snap")
-  }, [])
-
   return (
-    <div className="homepage-content relative">
+    <div className="homepage-content relative font-sans">
       <section
         id="homepage-hero-viewport"
         className="homepage-snap-section homepage-hero-viewport homepage-hero-viewport--image relative flex flex-col overflow-hidden"

@@ -1,0 +1,361 @@
+"use client"
+
+import Image from "next/image"
+import Link from "next/link"
+import {
+  ArrowRight,
+  Bot,
+  Brain,
+  Check,
+  ChevronRight,
+  Cog,
+  GitBranch,
+  Layers,
+  MapPin,
+  Server,
+  Shield,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react"
+import { ScrollReveal } from "@/components/ScrollReveal"
+import { HomepageFaqItem } from "@/components/homepage/HomepageFaqItem"
+import { COUNTRY_HERO_IMAGES, TECH_IMAGES } from "@/constants/countryTechImages"
+import type { GlobalCountryPageData } from "./types"
+
+const WHY_ICONS = [Shield, MapPin, Cog] as const
+
+const SERVICE_ICONS: Record<string, LucideIcon> = {
+  "Generative AI Development": Sparkles,
+  "AI Agent Development": Bot,
+  "RAG Development (Retrieval-Augmented Generation)": GitBranch,
+  "RAG Development & Enterprise Knowledge Base AI": GitBranch,
+  "LLM Development": Brain,
+  "Machine Learning Development": Layers,
+  "Enterprise AI Integration": Server,
+}
+
+function truncate(text: string, max: number): string {
+  const clean = text.replace(/\s+/g, " ").trim()
+  if (clean.length <= max) return clean
+  const cut = clean.slice(0, max)
+  const lastSpace = cut.lastIndexOf(" ")
+  return `${(lastSpace > max * 0.55 ? cut.slice(0, lastSpace) : cut).trim()}…`
+}
+
+function firstParagraph(text: string): string {
+  const parts = text.split(/\n\n+/).map((p) => p.trim()).filter(Boolean)
+  if (parts.length <= 1) return truncate(text.replace(/\n+/g, " "), 260)
+  return truncate(`${parts[0]} ${parts[1]}`, 260)
+}
+
+function cardTitleFromPoint(point: string): { title: string; body: string } {
+  const bold = point.match(/^\*\*(.+?)\*\*\s*([\s\S]*)/)
+  if (bold) return { title: bold[1], body: truncate(bold[2], 130) }
+  const dot = point.indexOf(". ")
+  if (dot > 0 && dot < 100) {
+    return { title: point.slice(0, dot), body: truncate(point.slice(dot + 2), 130) }
+  }
+  return { title: truncate(point, 48), body: truncate(point, 130) }
+}
+
+function extractChallengeBullets(text: string): { title: string; body: string }[] {
+  const boldItems = [...text.matchAll(/\*\*(.+?)\*\*\s*([^*]+?)(?=\*\*|$)/g)]
+  if (boldItems.length >= 3) {
+    return boldItems.slice(0, 3).map((m) => ({
+      title: m[1].replace(/\.$/, ""),
+      body: truncate(m[2].trim(), 100),
+    }))
+  }
+  const sentences = text.split(/(?<=[.!?])\s+/).filter((s) => s.length > 20)
+  return sentences.slice(0, 3).map((s, i) => ({
+    title: `Challenge ${i + 1}`,
+    body: truncate(s, 100),
+  }))
+}
+
+function serviceIcon(title: string): LucideIcon {
+  for (const [key, icon] of Object.entries(SERVICE_ICONS)) {
+    if (title.includes(key.split(" ")[0]) || title.startsWith(key.slice(0, 12))) return icon
+  }
+  return Sparkles
+}
+
+type ServiceVariant = "featured" | "light" | "lavender" | "mint" | "white"
+
+function serviceVariant(index: number): ServiceVariant {
+  if (index === 0) return "featured"
+  if (index === 2) return "lavender"
+  if (index === 4) return "mint"
+  if (index === 1) return "light"
+  return "white"
+}
+
+function SectionContainer({ children, className }: { children: React.ReactNode; className?: string }) {
+  return <div className={`global-country-container ${className ?? ""}`.trim()}>{children}</div>
+}
+
+export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
+  const heroImage = COUNTRY_HERO_IMAGES[data.key] ?? TECH_IMAGES.aiNeural
+  const heroText = firstParagraph(data.heroIntro)
+  const whyCards = data.whyChoosePoints.slice(0, 3)
+  const services = data.services.slice(0, 5)
+  const challenges = extractChallengeBullets(data.trends)
+  const processSteps = data.processSteps.slice(0, 7)
+  const faqs = data.faqs.slice(0, 8)
+
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: data.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+  ]
+
+  return (
+    <main className="global-country-page font-sans min-h-screen bg-[#eef1f8] pt-28 text-page-fg dark:bg-page-bg">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+
+      {/* Hero */}
+      <section className="global-country-section global-country-hero">
+        <SectionContainer className="global-country-hero-grid">
+          <div className="global-country-hero-enter">
+            <nav className="mb-4 flex flex-wrap items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-page-fg-muted">
+              <Link href="/services" className="hover:text-toadster-green">
+                Services
+              </Link>
+              <ChevronRight className="h-3 w-3" aria-hidden />
+              <Link href="/services/ai-development" className="hover:text-toadster-green">
+                AI Development
+              </Link>
+              <ChevronRight className="h-3 w-3" aria-hidden />
+              <span>{data.country}</span>
+            </nav>
+            <span className="inline-flex rounded-full border border-page-border bg-white/80 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-page-fg-muted dark:bg-page-card">
+              Stable Enterprise Solutions
+            </span>
+            <h1 className="mt-4 text-[1.75rem] font-extrabold uppercase leading-[1.1] tracking-tight text-[#0a2f1f] dark:text-page-fg sm:text-3xl md:text-4xl lg:text-[2.85rem]">
+              {data.heroTitle}
+            </h1>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-page-fg-muted md:text-lg">{heroText}</p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link href="/contact" className="global-country-btn-primary">
+                Book a Strategy Call
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/services/ai-development" className="global-country-btn-outline">
+                View Case Studies
+              </Link>
+            </div>
+          </div>
+
+          <ScrollReveal delay={0.08} y={20} className="relative pb-6 sm:pb-0">
+            <div className="global-country-hero-media relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/60 shadow-lg sm:aspect-[16/11] lg:aspect-auto lg:h-[340px]">
+              <Image src={heroImage} alt={data.heroTitle} fill className="object-cover" sizes="(max-width:1024px) 100vw, 45vw" priority />
+              <div className="absolute inset-0 bg-linear-to-tr from-[#0a2f1f]/30 to-transparent" />
+            </div>
+            <div className="global-country-stat-float relative mt-4 max-w-[280px] rounded-xl border border-page-border bg-white p-4 shadow-lg dark:bg-page-card sm:absolute sm:-bottom-4 sm:left-4 sm:mt-0">
+              <p className="text-xl font-extrabold text-toadster-green">91%</p>
+              <p className="text-sm leading-snug text-page-fg-muted">
+                Average increase in operational efficiency for our {data.country} clients.
+              </p>
+            </div>
+          </ScrollReveal>
+        </SectionContainer>
+      </section>
+
+      {/* Why Choose */}
+      {whyCards.length > 0 && (
+        <section className="global-country-section">
+          <SectionContainer>
+            <ScrollReveal className="global-country-section-header text-center">
+              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-3xl">
+                Why Businesses in {data.country} Choose Toadsters
+              </h2>
+              {data.whyChooseIntro ? (
+                <p className="mx-auto mt-4 max-w-2xl text-base text-page-fg-muted md:text-lg">{truncate(data.whyChooseIntro, 160)}</p>
+              ) : null}
+            </ScrollReveal>
+            <div className="global-country-card-grid">
+              {whyCards.map((point, index) => {
+                const { title, body } = cardTitleFromPoint(point)
+                const Icon = WHY_ICONS[index % WHY_ICONS.length]
+                return (
+                  <ScrollReveal key={point.slice(0, 32)} delay={index * 0.07} y={18}>
+                    <article className="global-country-why-card group h-full">
+                      <Icon className="h-6 w-6 text-toadster-green" strokeWidth={2} />
+                      <div className="global-country-card-header mt-4">
+                        <h3 className="text-base font-bold text-page-fg md:text-lg">{title}</h3>
+                        <span className="global-country-title-rule" aria-hidden />
+                      </div>
+                      <p className="mt-3 text-sm leading-relaxed text-page-fg-muted md:text-base">{body}</p>
+                    </article>
+                  </ScrollReveal>
+                )
+              })}
+            </div>
+          </SectionContainer>
+        </section>
+      )}
+
+      {/* Services bento */}
+      {services.length > 0 && (
+        <section className="global-country-section global-country-services-wrap">
+          <SectionContainer>
+            <ScrollReveal className="global-country-section-header">
+              <h2 className="text-2xl font-extrabold text-white md:text-3xl">Enterprise AI Development Services</h2>
+              <p className="mt-3 max-w-xl text-base text-white/80 md:text-lg">
+                Production-grade AI built for {data.country} — compliance, scale, and measurable ROI.
+              </p>
+            </ScrollReveal>
+            <div className="global-country-bento">
+              {services.map((service, index) => {
+                const variant = serviceVariant(index)
+                const Icon = serviceIcon(service.title)
+                const isFeatured = index === 0
+                return (
+                  <ScrollReveal
+                    key={service.title}
+                    delay={index * 0.06}
+                    y={16}
+                    className={isFeatured ? "global-country-bento-featured" : undefined}
+                  >
+                    <article className={`global-country-service-card global-country-service-card--${variant} group h-full`}>
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="global-country-card-header min-w-0 flex-1">
+                          <h3 className="text-base font-bold leading-snug md:text-lg">{service.title}</h3>
+                          <span className="global-country-title-rule global-country-title-rule--on-dark" aria-hidden />
+                        </div>
+                        <span className="global-country-service-icon shrink-0">
+                          <Icon size={20} strokeWidth={2} />
+                        </span>
+                      </div>
+                      <p className="mt-3 flex-1 text-sm leading-relaxed opacity-90 md:text-base">
+                        {truncate(service.description, isFeatured ? 180 : 110)}
+                      </p>
+                      {isFeatured ? (
+                        <div className="mt-4 flex flex-wrap gap-4 text-sm font-semibold">
+                          <Link href="/contact" className="underline-offset-2 hover:underline">
+                            Get a Quote
+                          </Link>
+                          <Link href="/contact" className="underline-offset-2 hover:underline">
+                            Contact Sales
+                          </Link>
+                        </div>
+                      ) : null}
+                    </article>
+                  </ScrollReveal>
+                )
+              })}
+            </div>
+          </SectionContainer>
+        </section>
+      )}
+
+      {/* Challenges */}
+      {challenges.length > 0 && (
+        <section className="global-country-section global-country-challenges">
+          <SectionContainer className="global-country-split-grid">
+            <ScrollReveal y={18}>
+              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-3xl">
+                Navigating {data.country}&apos;s AI Adoption Challenges
+              </h2>
+              <ul className="global-country-challenge-list">
+                {challenges.map((item, index) => (
+                  <li key={item.title} className="global-country-challenge-item" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <span className="global-country-check">
+                      <Check className="h-4 w-4" strokeWidth={3} />
+                    </span>
+                    <div>
+                      <p className="text-base font-bold text-page-fg md:text-lg">{item.title}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-page-fg-muted md:text-base">{item.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1} y={18}>
+              <div className="global-country-stat-panel rounded-2xl">
+                <p className="text-4xl font-extrabold leading-none text-toadster-green md:text-5xl">86%</p>
+                <p className="mt-3 text-base leading-relaxed text-white/90 md:text-lg">
+                  of enterprise AI initiatives fail to reach production without the right architecture and delivery partner.
+                </p>
+                <blockquote className="mt-5 border-l-2 border-toadster-green pl-4 text-sm italic leading-relaxed text-white/80 md:text-base">
+                  &ldquo;We build AI that survives compliance review, real data volume, and the six-month mark after launch.&rdquo;
+                </blockquote>
+              </div>
+            </ScrollReveal>
+          </SectionContainer>
+        </section>
+      )}
+
+      {/* Process */}
+      {processSteps.length > 0 && (
+        <section className="global-country-section">
+          <SectionContainer>
+            <ScrollReveal className="global-country-section-header text-center">
+              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-3xl">
+                Our {processSteps.length}-Step AI Development Process
+              </h2>
+            </ScrollReveal>
+            <div className="global-country-process-track">
+              {processSteps.map((step, index) => (
+                <ScrollReveal key={step.num} delay={index * 0.05} y={12} className="global-country-process-item">
+                  <div className="global-country-process-node">{step.num}</div>
+                  <h3 className="mt-3 text-sm font-bold md:text-base">{step.title}</h3>
+                  <p className="mt-1.5 text-xs leading-snug text-page-fg-muted md:text-sm">{truncate(step.description, 72)}</p>
+                </ScrollReveal>
+              ))}
+            </div>
+          </SectionContainer>
+        </section>
+      )}
+
+      {/* FAQ */}
+      {faqs.length > 0 && (
+        <section id="faq" className="global-country-section">
+          <SectionContainer className="max-w-4xl">
+            <ScrollReveal className="global-country-section-header text-center">
+              <h2 className="text-2xl font-extrabold md:text-3xl">Frequently Asked Questions</h2>
+            </ScrollReveal>
+            <div className="global-country-faq-list">
+              {faqs.map((faq, index) => (
+                <ScrollReveal key={faq.question} delay={index * 0.04} y={10}>
+                  <HomepageFaqItem question={faq.question} answer={truncate(faq.answer, 320)} />
+                </ScrollReveal>
+              ))}
+            </div>
+          </SectionContainer>
+        </section>
+      )}
+
+      {/* CTA */}
+      <section className="global-country-section">
+        <SectionContainer>
+          <ScrollReveal>
+            <div className="hire-resources-cta relative overflow-hidden rounded-[1.75rem] px-6 py-10 text-center sm:px-10 sm:py-12 md:px-14 md:py-14">
+              <h2 className="mx-auto max-w-2xl text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl">
+                {data.ctaTitle}
+              </h2>
+              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
+                {truncate(data.ctaBody, 180)}
+              </p>
+              <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <Link
+                  href="/contact"
+                  className="inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-toadster-green transition-all hover:-translate-y-0.5 hover:bg-white/90"
+                >
+                  Book a Strategy Call
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </ScrollReveal>
+        </SectionContainer>
+      </section>
+    </main>
+  )
+}

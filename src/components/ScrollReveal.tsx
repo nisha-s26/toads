@@ -15,7 +15,7 @@ function getReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches
 }
 
-export function ScrollReveal({ children, className, delay = 0, y = 28 }: ScrollRevealProps) {
+export function ScrollReveal({ children, className, delay = 0, y = 16 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(getReducedMotion)
 

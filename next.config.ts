@@ -33,13 +33,11 @@ const removedHireRedirects: { source: string; destination: string }[] = [
 ]
 
 const removedGlobalPageRedirects: { source: string; destination: string }[] = [
-  { source: "/ai-development-company-india", destination: "/services/ai-development" },
-  { source: "/ai-development-company-uae", destination: "/services/ai-development" },
-  { source: "/ai-development-company-noida", destination: "/services/ai-development" },
-  { source: "/ai-development-company-delhi", destination: "/services/ai-development" },
-  { source: "/ai-development-company-bangalore", destination: "/services/ai-development" },
-  { source: "/ai-development-company-mumbai", destination: "/services/ai-development" },
-  { source: "/ai-development-company-hyderabad", destination: "/services/ai-development" },
+  { source: "/ai-development-company-noida", destination: "/ai-development-company-india" },
+  { source: "/ai-development-company-delhi", destination: "/ai-development-company-india" },
+  { source: "/ai-development-company-bangalore", destination: "/ai-development-company-india" },
+  { source: "/ai-development-company-mumbai", destination: "/ai-development-company-india" },
+  { source: "/ai-development-company-hyderabad", destination: "/ai-development-company-india" },
 ]
 
 const removedServiceRedirects: { source: string; destination: string }[] = [

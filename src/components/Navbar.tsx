@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ThemeToggle"
+import { GlobalPagesMenu } from "@/components/GlobalPagesMenu"
 import { ToadsterLogo } from "@/components/ToadsterLogo"
 import {
   Brain,
@@ -190,7 +191,8 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
           <Link href="/" onClick={closeMobile} title="Toadster Home" className="flex items-center">
             <ToadsterLogo className="h-5 w-auto" />
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="navbar-utilities flex items-center">
+            <GlobalPagesMenu size="sm" />
             <ThemeToggle size="sm" />
             <button
               className="p-1.5 rounded-lg text-page-fg-muted hover:bg-page-accent-soft transition-colors"
@@ -457,7 +459,8 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
           </div>
 
           {/* ── CTA + Theme ── */}
-          <div className="hidden shrink-0 items-center gap-1.5 lg:flex lg:gap-2">
+          <div className="navbar-utilities hidden shrink-0 items-center lg:flex">
+            <GlobalPagesMenu />
             <ThemeToggle />
             <Button asChild className="rounded-xl px-5 py-5 text-sm font-semibold">
               <a href={"/contact"} title="Email us to schedule a call">
@@ -467,7 +470,8 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
           </div>
 
           {/* ── Mobile Controls ── */}
-          <div className="flex shrink-0 items-center gap-1 lg:hidden">
+          <div className="navbar-utilities flex shrink-0 items-center lg:hidden">
+            <GlobalPagesMenu size="sm" />
             <ThemeToggle size="sm" />
             <button
               className="p-2 rounded-lg text-page-fg-muted hover:bg-page-accent-soft transition-colors"

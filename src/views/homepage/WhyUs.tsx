@@ -68,13 +68,13 @@ const WhyUs = () => {
               Learn About Us
               <ArrowRight size={16} />
             </Link>
-            <Link
+            {/* <Link
               href="/services/ai-development"
               title="View our AI development services"
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-page-border-strong px-7 py-3.5 font-semibold text-page-fg transition-colors hover:bg-page-fg/5"
             >
               View Our Services
-            </Link>
+            </Link> */}
           </div>
         </ScrollReveal>
       </div>
