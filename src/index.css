@@ -361,6 +361,52 @@
   isolation: isolate;
 }
 
+/* Services hero — light / dark background image (hero section only, not full page) */
+.service-hero-viewport--image .software-development-hero,
+.service-hero-viewport--image .service-page-hero,
+.service-hero-viewport--image .hire-hub-hero-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: transparent !important;
+}
+
+.service-hero-viewport--image .software-development-hero::before,
+.service-hero-viewport--image .service-page-hero::before,
+.service-hero-viewport--image .hire-hub-hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/services light mode.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.dark .service-hero-viewport--image .software-development-hero::before,
+.dark .service-hero-viewport--image .service-page-hero::before,
+.dark .service-hero-viewport--image .hire-hub-hero-section::before {
+  background-image: url("/services dark mode.png");
+}
+
+.service-hero-viewport--image .software-development-hero>*,
+.service-hero-viewport--image .service-page-hero>*,
+.service-hero-viewport--image .hire-hub-hero-section>* {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 639px) {
+
+  .service-hero-viewport--image .software-development-hero::before,
+  .service-hero-viewport--image .service-page-hero::before,
+  .service-hero-viewport--image .hire-hub-hero-section::before {
+    background-position: center 28%;
+  }
+}
+
 @media (min-width: 640px) {
   .service-hero-viewport {
     display: flex;
@@ -880,6 +926,69 @@ html.homepage-scroll-snap {
   isolation: isolate;
   width: 100%;
   max-width: 100%;
+  --hire-section-gap: clamp(2.5rem, 4vw, 3.5rem);
+  --hire-body: #000000;
+}
+
+/* Normalize detail-page section rhythm — one gap system, no stacked global margins */
+.hire-page-shell.min-h-screen>section+section {
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.hire-page-shell .hire-page-container>.hire-detail-section {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-block: var(--hire-section-gap) !important;
+  padding-inline: clamp(1rem, 3vw, 4rem) !important;
+  box-sizing: border-box;
+}
+
+.hire-page-shell .hire-page-container>.hire-detail-section:first-of-type {
+  padding-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.hire-page-shell .hire-detail-section--narrow {
+  max-width: 56rem;
+}
+
+.hire-page-shell .hire-detail-section .mb-16,
+.hire-page-shell .hire-detail-section .mb-12 {
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem) !important;
+}
+
+.hire-page-shell .hire-detail-section .mt-12,
+.hire-page-shell .hire-detail-section .mt-8 {
+  margin-top: clamp(1.25rem, 2vw, 1.75rem) !important;
+}
+
+/* Legacy fallback for any remaining bare sections */
+.hire-page-shell .hire-page-container>section:not(.hire-detail-section) {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-block: var(--hire-section-gap) !important;
+  padding-inline: clamp(1rem, 3vw, 4rem) !important;
+}
+
+.hire-page-shell .hire-page-container>section:not(.hire-detail-section):first-of-type {
+  padding-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.hire-page-shell .hire-page-container>section:not(.hire-detail-section) .mb-16,
+.hire-page-shell .hire-page-container>section:not(.hire-detail-section) .mb-12 {
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem) !important;
+}
+
+:not(.dark) .hire-page-shell .text-page-fg-muted,
+:not(.dark) .hire-page-shell .hire-hub-section-intro {
+  color: #000000;
+}
+
+.dark .hire-page-shell .text-page-fg-muted {
+  color: var(--page-fg-muted);
 }
 
 .page-ambient-shell {
@@ -920,7 +1029,7 @@ html.homepage-scroll-snap {
   display: none;
 }
 
-/* Services & blogs - same mesh base; section fills stay transparent */
+/* Services & blogs - section fills stay transparent over mesh; hero uses image bg */
 .services-mesh-shell>div>.bg-page-bg,
 .services-mesh-shell .page-content-container>.bg-page-bg,
 .services-mesh-shell section.bg-page-bg,
@@ -3947,15 +4056,7 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
     padding: 1rem;
   }
 
-  /* Reduce section vertical padding */
-  .hire-page-shell section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
-  .hire-page-shell section:first-of-type {
-    padding-top: 0;
-  }
+  /* Section spacing uses --hire-section-gap from base rules */
 
   /* Hero h1 font sizing */
   .hire-page-shell h1 {
@@ -3982,10 +4083,9 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
     order: -1;
   }
 
-  /* Reduce section spacing */
-  .hire-page-shell section {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+  /* Horizontal inset only — vertical spacing from --hire-section-gap */
+  .hire-page-shell .hire-page-container>.hire-detail-section {
+    padding-inline: clamp(1rem, 4vw, 1.5rem) !important;
   }
 
   /* Skill matrix – 1 col on mobile */
@@ -4093,17 +4193,7 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* Slightly reduce section padding */
-  .hire-page-shell section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  .hire-page-shell section:first-of-type {
-    padding-top: 0;
-  }
+  /* Section spacing uses --hire-section-gap from base rules */
 
   /* Hero h1 */
   .hire-page-shell h1 {
@@ -4125,25 +4215,89 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
   }
 }
 
+/* Hire route navbar — black / white text only */
+.navbar-hire-route [data-slot="navigation-menu-trigger"],
+.navbar-hire-route [data-slot="navigation-menu-link"] {
+  color: #000000;
+}
+
+.dark .navbar-hire-route [data-slot="navigation-menu-trigger"],
+.dark .navbar-hire-route [data-slot="navigation-menu-link"] {
+  color: #ffffff;
+}
+
+.hire-faq-title {
+  white-space: nowrap;
+}
+
+@media (max-width: 380px) {
+  .hire-faq-title {
+    white-space: normal;
+    font-size: 1.25rem !important;
+    line-height: 1.2;
+  }
+}
+
 /* Hire Resources hub — transparent over homepage mesh */
 .hire-resources-hub {
   background: transparent;
+  --hire-section-gap: clamp(2.5rem, 4vw, 3.5rem);
   --hire-hub-card-bg: #ffffff;
   --hire-hub-card-border: rgba(44, 62, 80, 0.12);
-  --hire-hub-card-text: #2c3e50;
-  --hire-hub-card-muted: #5b6b76;
+  --hire-hub-card-text: #000000;
+  --hire-hub-card-muted: #000000;
+  --hire-hub-body: #000000;
+}
+
+/* Neutralise homepage-content stack margins only — spacing lives on .hire-hub-section */
+.hire-resources-hub.homepage-content>section+section,
+.hire-resources-hub.min-h-screen>section+section {
+  margin-top: 0;
+}
+
+.hire-resources-hub.homepage-content>section:first-child {
+  padding-top: 0;
+}
+
+/* Beat homepage-content section rules without zeroing hire section padding */
+.hire-resources-hub.homepage-content>section.hire-hub-section,
+.hire-resources-hub.min-h-screen>section.hire-hub-section {
+  padding-block: var(--hire-section-gap);
+}
+
+.hire-resources-hub.homepage-content>section.hire-hub-hero-section,
+.hire-resources-hub.min-h-screen>section.hire-hub-hero-section {
+  padding-bottom: var(--hire-section-gap);
 }
 
 .hire-resources-hub .hire-page-container {
-  width: 90%;
-  max-width: 90%;
+  width: min(90%, 100%);
+  max-width: 100%;
+}
+
+.hire-resources-hub .hire-hub-section-intro,
+:not(.dark) .hire-resources-hub .text-page-fg-muted,
+:not(.dark) .hire-resources-hub .hero-subtitle,
+:not(.dark) .hire-resources-hub .hire-hub-hero-badges,
+:not(.dark) .hire-resources-hub .hire-hub-card-copy {
+  color: #000000;
+}
+
+.dark .hire-resources-hub .hire-hub-section-intro,
+.dark .hire-resources-hub .text-page-fg-muted {
+  color: var(--page-fg-muted);
+}
+
+.dark .hire-resources-hub .hero-subtitle,
+.dark .hire-resources-hub .hire-hub-hero-badges {
+  color: var(--page-hero-fg-muted);
 }
 
 .hire-resources-hub .hire-hub-cards-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
   width: 100%;
 }
 
@@ -4153,20 +4307,20 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
 
 @media (min-width: 768px) {
   .hire-resources-hub .hire-hub-cards-grid--2>* {
-    width: calc(50% - 0.625rem);
-    max-width: calc(50% - 0.625rem);
+    width: calc(50% - 0.75rem);
+    max-width: calc(50% - 0.75rem);
   }
 
   .hire-resources-hub .hire-hub-cards-grid--3>* {
-    width: calc(50% - 0.625rem);
-    max-width: calc(50% - 0.625rem);
+    width: calc(50% - 0.75rem);
+    max-width: calc(50% - 0.75rem);
   }
 }
 
 @media (min-width: 1024px) {
   .hire-resources-hub .hire-hub-cards-grid--3>* {
-    width: calc(33.333% - 0.834rem);
-    max-width: calc(33.333% - 0.834rem);
+    width: calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
   }
 }
 
@@ -4289,13 +4443,6 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
   pointer-events: none;
 }
 
-@media (max-width: 767px) {
-  .hire-resources-hub .hire-hub-faq-wrap {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
 /* Hire hub cards — solid accent style (distinct from homepage hire-role-card) */
 .hire-hub-card-link {
   text-decoration: none;
@@ -4312,7 +4459,7 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
   border-radius: 1.125rem;
   border: 1px solid rgba(6, 86, 6, 0.12);
   background: rgba(255, 255, 255, 0.92);
-  padding: 1.5rem 1.5rem 1.5rem 1.625rem;
+  padding: 2rem 2rem 2rem 2.125rem;
   box-shadow:
     0 4px 24px -8px rgba(6, 86, 6, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.95);
@@ -4455,7 +4602,7 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
   flex: 1 1 auto;
   font-size: 0.875rem;
   line-height: 1.65;
-  color: #5b6b76;
+  color: var(--hire-hub-card-muted, #44545f);
 }
 
 .hire-hub-card--resource {
@@ -4476,21 +4623,22 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
   opacity: 1;
 }
 
-.hire-resources-hub .hire-hub-section {
-  padding-block: clamp(2rem, 4vw, 3rem);
-}
-
 .hire-resources-hub .hire-hub-hero-section {
   min-height: min(720px, 88vh);
   display: flex;
   align-items: center;
 }
 
+.hire-resources-hub .homepage-hero-viewport--image {
+  --page-hero-fg: #1a2332;
+  --page-hero-fg-muted: rgba(26, 35, 50, 0.9);
+}
+
 .hire-hub-hero-bg-overlay {
   background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(255, 255, 255, 0.04) 45%,
-      rgba(255, 255, 255, 0.18) 100%);
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.08) 45%,
+      rgba(255, 255, 255, 0.22) 100%);
 }
 
 .dark .hire-hub-hero-bg-overlay {
@@ -4500,13 +4648,54 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
       rgba(0, 0, 0, 0.32) 100%);
 }
 
+@media (max-width: 767px) {
+  .hire-resources-hub,
+  .hire-page-shell {
+    --hire-section-gap: clamp(2.25rem, 6.5vw, 3rem);
+  }
+
+  .hire-resources-hub .hire-hub-cta-panel {
+    padding-inline: 1.25rem;
+    padding-block: 2rem;
+  }
+
+  .hire-resources-hub .hire-hub-cards-grid {
+    gap: 1.25rem;
+  }
+
+  .hire-hub-card {
+    padding: 1.625rem 1.625rem 1.625rem 1.75rem;
+  }
+
+  .hire-resources-hub .hire-hub-toggle-btn {
+    min-width: 0;
+    width: 100%;
+    max-width: 16rem;
+  }
+
+  .hire-resources-hub .hire-hub-faq-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 639px) {
   .hire-resources-hub .hire-hub-hero-section {
-    min-height: min(640px, 82vh);
+    min-height: min(600px, 78vh);
   }
 
   .hire-resources-hub .hire-hub-hero-section .homepage-hero-bg-image img {
     object-position: center 20%;
+  }
+
+  .hire-page-shell .hire-page-container>section:first-of-type .grid {
+    gap: 1.5rem;
+  }
+
+  .hire-page-shell #hire-rfp-form {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 }
 

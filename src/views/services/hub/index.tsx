@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import {
@@ -28,7 +29,7 @@ import { HireHubCard } from "@/components/hire/HireHubCard"
 import { HomepageFaqItem } from "@/components/homepage/HomepageFaqItem"
 import { ScrollReveal } from "@/components/ScrollReveal"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
-import { ServiceHeroViewport } from "@/components/service-page/ServiceHeroViewport"
+import { useTheme } from "@/hooks/theme"
 import { cn } from "@/lib/utils"
 import { SERVICES_NAV, type ServiceNavIcon } from "@/config/services-nav"
 import {
@@ -330,11 +331,40 @@ function CtaPanel() {
 }
 
 export default function ServicesHubPage() {
+  const { theme } = useTheme()
+  const heroOnDarkBackground = theme === "dark"
+
   return (
     <main className="services-hub hire-resources-hub homepage-content relative min-h-screen font-sans text-page-fg">
-      <ServiceHeroViewport>
-        <section className="hire-hub-hero-section section-full-bleed relative overflow-hidden pt-28">
-          <div className="hire-page-container relative z-10 w-full">
+      <section className="homepage-hero-viewport homepage-hero-viewport--image relative flex flex-col overflow-hidden">
+        <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+          <div className="homepage-hero-bg-image absolute inset-0">
+            <Image
+              src="/services light mode.png"
+              alt=""
+              fill
+              priority
+              fetchPriority="high"
+              quality={95}
+              sizes="100vw"
+              className="object-cover object-center dark:hidden"
+            />
+            <Image
+              src="/services dark mode.png"
+              alt=""
+              fill
+              priority
+              fetchPriority="high"
+              quality={95}
+              sizes="100vw"
+              className="hidden object-cover object-center dark:block"
+            />
+          </div>
+          <div className="homepage-hero-bg-overlay absolute inset-0" />
+        </div>
+
+        <div className="relative z-10 flex w-full flex-col items-center px-4 pb-4 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:px-6 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
+          <div className="hire-page-container w-full">
             <div className="mx-auto flex w-full max-w-4xl flex-col items-center py-10 text-center sm:py-12 lg:py-14">
               <h1 className="hero-enter-delay-1 w-full text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
                 {heroContent.title}
@@ -382,10 +412,10 @@ export default function ServicesHubPage() {
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
-        <LazyTrustedBy compact />
-      </ServiceHeroViewport>
+        <LazyTrustedBy compact onDarkBackground={heroOnDarkBackground} />
+      </section>
 
       <section className="hire-hub-section relative">
         <div className="hire-page-container w-full">

@@ -12,8 +12,9 @@ export function ClientShell({ children }: { children: ReactNode }) {
   const pathname = usePathname()
   const activeSection = resolveActiveSection(pathname)
   const isServicesPage = pathname?.startsWith("/services") ?? false
+  const isServicesHubPage = pathname === "/services"
   const isTechnologiesPage = pathname?.startsWith("/technologies") ?? false
-  const isContentPage = isServicesPage
+  const isContentPage = isServicesPage && !isServicesHubPage
   const isBlogsPage = pathname?.startsWith("/blogs") ?? false
   const isCareersPage = pathname?.startsWith("/careers") ?? false
   const meshVariant = isBlogsPage ? "blogs" : isCareersPage ? "careers" : "default"

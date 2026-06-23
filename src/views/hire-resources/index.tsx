@@ -74,20 +74,24 @@ function SectionHeading({
   titleAccent,
   intro,
   delay = 0,
+  titleClassName,
 }: {
   titleBefore: string
   titleAccent: string
   intro?: string
   delay?: number
+  titleClassName?: string
 }) {
   return (
-    <ScrollReveal className="mb-8 w-full text-center md:mb-10" delay={delay}>
-      <h2 className="text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl">
+    <ScrollReveal className="mb-7 w-full text-center md:mb-9" delay={delay}>
+      <h2
+        className={`text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl${titleClassName ? ` ${titleClassName}` : ""}`}
+      >
         <span className="text-page-fg">{titleBefore}</span>
         <span className="text-toadster-green">{titleAccent}</span>
       </h2>
       {intro ? (
-        <p className="mx-auto mt-4 w-full text-sm leading-relaxed text-page-fg-muted sm:text-base md:text-lg">
+        <p className="hire-hub-section-intro mx-auto mt-4 w-full text-sm leading-relaxed sm:text-base md:text-lg">
           {intro}
         </p>
       ) : null}
@@ -133,7 +137,7 @@ function SeeMoreToggle({
   onSeeLess: () => void
 }) {
   return (
-    <ScrollReveal className="mt-8 flex justify-center" delay={0.1}>
+    <ScrollReveal className="mt-6 flex justify-center md:mt-8" delay={0.1}>
       {!expanded ? (
         <button type="button" onClick={onSeeMore} className="hire-hub-toggle-btn hire-hub-toggle-btn--more">
           See more
@@ -371,7 +375,7 @@ export default function HireResourcesHubPage() {
               <p
                 key={paragraph}
                 className={cn(
-                  "mt-4 w-full text-sm leading-relaxed text-page-fg-muted sm:text-base md:text-lg",
+                  "hero-subtitle mt-4 w-full text-sm leading-relaxed sm:text-base md:text-lg",
                   index === 0 ? "hero-enter-delay-2" : "hero-enter-delay-3",
                 )}
               >
@@ -397,7 +401,7 @@ export default function HireResourcesHubPage() {
               </button>
             </div>
 
-            <div className="hire-hub-hero-badges hero-enter-delay-4 mt-8 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold text-page-fg-muted sm:text-sm">
+            <div className="hire-hub-hero-badges hero-enter-delay-4 mt-8 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold sm:text-sm">
               {heroContent.badges.map((badge, index) => (
                 <span
                   key={badge}
@@ -481,10 +485,14 @@ export default function HireResourcesHubPage() {
       </section>
 
       {/* FAQs */}
-      <section id="hire-hub-faq" className="hire-hub-section scroll-mt-28 pb-16">
+      <section id="hire-hub-faq" className="hire-hub-section scroll-mt-28">
         <div className="hire-page-container w-full">
           <div className="hire-hub-faq-wrap">
-            <SectionHeading titleBefore="Frequently Asked " titleAccent="Questions" />
+            <SectionHeading
+              titleBefore="Frequently Asked "
+              titleAccent="Questions"
+              titleClassName="hire-faq-title"
+            />
             <FaqList />
           </div>
         </div>

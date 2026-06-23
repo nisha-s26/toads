@@ -128,7 +128,29 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
   const activeSection = isHirePage ? "hire-resources" : incomingActiveSection;
   const navLinks = globalNavLinks;
 
+  const hireNavText = "text-black dark:text-white"
+  const hireNavInactive = `${hireNavText} hover:bg-page-accent-soft`
+  const hireNavActive = `${hireNavText} font-semibold bg-page-accent-soft`
 
+  const mobileNavClass = (section: string) =>
+    isHirePage
+      ? activeSection === section
+        ? hireNavActive
+        : hireNavInactive
+      : activeSection === section
+        ? "text-brand-green font-semibold bg-page-accent-soft"
+        : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
+
+  const desktopNavClass = (section: string) =>
+    isHirePage
+      ? activeSection === section
+        ? `${hireNavText} font-semibold`
+        : `${hireNavText} hover:bg-page-accent-soft`
+      : activeSection === section
+        ? "text-brand-green font-semibold"
+        : "text-page-fg-muted hover:text-page-fg"
+
+  const desktopNavUnderlineClass = isHirePage ? "bg-black dark:bg-white" : "bg-primary"
 
   const closeMobile = () => {
     setMobileOpen(false)
@@ -188,10 +210,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                 return (
                   <div key={link.label}>
                     <button
-                      className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${activeSection === "services"
-                        ? "text-brand-green font-semibold bg-page-accent-soft"
-                        : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
-                        }`}
+                      className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${mobileNavClass("services")}`}
                       onClick={() => {
                         closeMobile()
                         router.push("/services")
@@ -214,7 +233,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                             key={s.title}
                             href="#"
                             title={s.title}
-                            className="px-3 py-2 rounded-lg text-sm text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft transition-colors"
+                            className={`px-3 py-2 rounded-lg text-sm transition-colors hover:bg-page-accent-soft ${isHirePage ? `${hireNavText} hover:opacity-80` : "text-page-fg-muted hover:text-page-fg"}`}
                             onClick={(e) => {
                               e.preventDefault()
                               closeMobile()
@@ -232,10 +251,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                 return (
                   <div key={link.label}>
                     <button
-                      className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${activeSection === "hire-resources"
-                        ? "text-brand-green font-semibold bg-page-accent-soft"
-                        : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
-                        }`}
+                      className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${mobileNavClass("hire-resources")}`}
                       onClick={() => {
                         closeMobile()
                         router.push("/hire-resources")
@@ -258,7 +274,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                             key={s.href}
                             href={s.href}
                             title={s.navTitle}
-                            className="px-3 py-2 rounded-lg text-sm text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft transition-colors"
+                            className={`px-3 py-2 rounded-lg text-sm transition-colors hover:bg-page-accent-soft ${isHirePage ? `${hireNavText} hover:opacity-80` : "text-page-fg-muted hover:text-page-fg"}`}
                             onClick={(e) => {
                               e.preventDefault()
                               closeMobile()
@@ -279,10 +295,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                   key={link.label}
                   href={link.href}
                   title={link.label}
-                  className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${activeSection === link.section
-                    ? "text-brand-green font-semibold bg-page-accent-soft"
-                    : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
-                    }`}
+                  className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${mobileNavClass(link.section ?? "")}`}
                   onClick={(e) => {
                     e.preventDefault()
                     closeMobile()
@@ -315,7 +328,9 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
         </div>
       </div>
 
-      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex max-w-[100vw] justify-center bg-transparent px-2 pt-2 sm:px-4 sm:pt-4 md:px-6">
+      <header
+        className={`pointer-events-none fixed inset-x-0 top-0 z-50 flex max-w-[100vw] justify-center bg-transparent px-2 pt-2 sm:px-4 sm:pt-4 md:px-6${isHirePage ? " navbar-hire-route" : ""}`}
+      >
         <nav
           className="pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-2 rounded-2xl border border-page-border/70 bg-page-nav/85 px-3 py-2 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-3 lg:max-w-[88rem] lg:px-8"
           style={{ boxShadow: "var(--page-nav-shadow)" }}
@@ -337,7 +352,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                   link.dropdown ? (
                     <NavigationMenuItem className="relative" key={link.label}>
                       <NavigationMenuTrigger
-                        className={`px-4 py-2 text-sm font-medium bg-transparent rounded-full transition-colors hover:bg-page-accent-soft data-[state=open]:bg-page-accent-soft data-[state=open]:text-page-fg ${activeSection === link.section ? 'text-brand-green font-semibold' : 'text-page-fg-muted hover:text-page-fg'}`}
+                        className={`px-4 py-2 text-sm font-medium bg-transparent rounded-full transition-colors hover:bg-page-accent-soft data-[state=open]:bg-page-accent-soft ${isHirePage ? "data-[state=open]:text-black dark:data-[state=open]:text-white" : "data-[state=open]:text-page-fg"} ${desktopNavClass(link.section ?? "")}`}
                         onClick={() => {
                           if (link.label === "Hire Resources") router.push("/hire-resources")
                           if (link.label === "Services") router.push("/services")
@@ -346,7 +361,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                         <span className="relative">
                           {link.label}
                           {activeSection === link.section && (
-                            <span className="block mx-auto h-0.5 rounded-full bg-primary" style={{ width: "100%", marginTop: 0 }} />
+                            <span className={`block mx-auto h-0.5 rounded-full ${desktopNavUnderlineClass}`} style={{ width: "100%", marginTop: 0 }} />
                           )}
                         </span>
                       </NavigationMenuTrigger>
@@ -419,10 +434,8 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                         }}
                         className={`
                         relative px-4 py-2 text-sm font-medium rounded-full transition-colors
-                        ${activeSection === link.section
-                            ? "text-brand-green font-semibold"
-                            : "text-page-fg-muted hover:text-page-fg hover:bg-page-accent-soft"
-                          }
+                        ${desktopNavClass(link.section ?? "")}
+                        hover:bg-page-accent-soft
                         ${activeSection === link.section ? "relative" : ""}
                       `}
                       >
@@ -430,7 +443,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                           {link.label}
                           {activeSection === link.section && (
                             <span
-                              className="block mx-auto h-0.5 rounded-full bg-primary"
+                              className={`block mx-auto h-0.5 rounded-full ${desktopNavUnderlineClass}`}
                               style={{ width: "100%", marginTop: 0 }}
                             />
                           )}

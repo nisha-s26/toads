@@ -642,11 +642,6 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
   const bottomBanner = BOTTOM_BANNERS[slug] || BOTTOM_BANNERS["software-developers"]
 
-  const categoryEyebrow = isFlutter
-    ? "Hire Resources / Flutter Developers"
-    : `HOME / HIRE RESOURCES / ${resource.heroTitle.toUpperCase()}`
-
-
   const heroStats = isFlutter
     ? FLUTTER_HERO_STATS
     : [
@@ -685,15 +680,11 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
       <div className="hire-page-container min-w-0">
         {/* ── SECTION 1: HERO SECTION ── */}
-        <section className="relative z-10 mx-auto mb-12 max-w-9xl px-3 sm:mb-16 sm:px-6 lg:mb-20 lg:px-16">
+        <section className="hire-detail-section hire-detail-section--hero relative z-10 mx-auto min-w-0 w-full max-w-9xl">
           <div className="grid min-w-0 grid-cols-1 items-start gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-16">
 
             {/* Left Column (Hero Content) */}
             <div className="lg:col-span-7 flex flex-col gap-6 text-left pt-4">
-              <span className="text-xs sm:text-sm font-bold tracking-[0.15em] text-toadster-green uppercase">
-                {categoryEyebrow}
-              </span>
-
               <h1 className="text-[1.875rem] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-page-fg leading-[1.15]">
                 {isFlutter ? (
                   <>
@@ -836,7 +827,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
         </section>
 
         {/* ── SECTION 2: TECH STACK & SKILL MATRIX ── */}
-        <section className="relative z-10 px-3 py-2 sm:px-6 lg:px-16">
+        <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
           <div className="mx-auto mb-16 flex max-w-7xl min-w-0 flex-col gap-3 text-center">
             <span className="text-xs font-bold uppercase tracking-wider text-page-fg-muted">
 
@@ -867,7 +858,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
           </div>
         </section>
 
-        <section className="relative z-10 px-3 py-10 sm:px-6 lg:px-16">
+        <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
           <div className="mx-auto min-w-0 max-w-7xl">
             <div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight leading-tight text-center">
@@ -912,7 +903,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
         </section>
 
         {/* ── SECTION 4: ENTERPRISE GRADE DELIVERABLES ── */}
-        <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
+        <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
           <div className="bg-[#003820] dark:bg-white rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col gap-12">
 
             {/* Header */}
@@ -1022,7 +1013,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
         </section>
 
         {/* ── SECTION 5: SEAMLESS 3-STEP INTEGRATION ── */}
-        <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
+        <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
           <div className="text-center flex flex-col gap-3 mb-16">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
               Seamless 3-Step Integration
@@ -1039,7 +1030,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
         {/* ── SECTION 6: FLUTTER ROLES YOU CAN HIRE ── */}
         {isFlutter && rolesSection?.items && (
-          <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
+          <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
             <div className="text-center flex flex-col gap-3 mb-12">
               <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
                 {rolesSection.heading}
@@ -1049,7 +1040,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
               </p>
             </div>
 
-            <div className="overflow-x-auto rounded-2xl border border-page-border shadow-[0_10px_35px_rgba(0,0,0,0.03)] bg-page-card">
+            <div className="hidden md:block overflow-x-auto rounded-2xl border border-page-border shadow-[0_10px_35px_rgba(0,0,0,0.03)] bg-page-card">
               <table className="w-full text-left border-collapse min-w-[600px]">
                 <thead>
                   <tr className="bg-toadster-green text-toadster-green-foreground">
@@ -1072,7 +1063,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
         {/* ── SECTION 7: FLEXIBLE ENGAGEMENT MODELS ── */}
         {isFlutter && engagementSection?.items && (
-          <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
+          <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
             <div className="text-center flex flex-col gap-3 mb-12">
               <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
                 {engagementSection.heading}
@@ -1109,7 +1100,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
         )}
 
         {/* ── SECTION 6: THE TOADSTER ADVANTAGE TABLE ── */}
-        <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
+        <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
           <div className="text-center flex flex-col gap-3 mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
               {isFlutter ? "How Dedicated Flutter Developers Compare" : (isReactNative ? "Why Dedicated Beats Every Other Option for React Native Talent" : (isDevOps ? "Why Dedicated Beats Every Other Option for DevOps Talent" : (isIos ? "Why Dedicated Beats Every Other Option for iOS Talent" : (isAndroid ? "Why Dedicated Beats Every Other Option for Android Talent" : (isReact ? "Why Dedicated Beats Every Other Option for React Talent" : (isFullStack ? "Why Dedicated Beats Every Other Option for Full Stack Talent" : "The Toadster Advantage"))))))}
@@ -1120,7 +1111,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-page-border shadow-[0_10px_35px_rgba(0,0,0,0.03)] bg-page-card max-w-5xl mx-auto">
+          <div className="hidden md:block overflow-x-auto rounded-2xl border border-page-border shadow-[0_10px_35px_rgba(0,0,0,0.03)] bg-page-card max-w-5xl mx-auto">
             <table className="w-full text-left border-collapse min-w-[600px]">
               <thead>
                 <tr className="bg-toadster-green text-white">
@@ -1147,7 +1138,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
         {/* ── SECTION 10: WHY TOADSTER ── */}
         {
           isFlutter && whyToadsterSection?.items && (
-            <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
+            <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
               <div className="text-center flex flex-col gap-3 mb-12">
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
                   {whyToadsterSection.heading}
@@ -1175,7 +1166,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
         {/* ── SECTION 11: PRICING ── */}
         {
           isFlutter && pricingSection?.items && (
-            <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
+            <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
               <div className="text-center flex flex-col gap-3 mb-12">
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
                   {pricingSection.heading}
@@ -1212,9 +1203,9 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
         {/* ── SECTION 12: FAQ ── */}
         {
           (isFlutter || isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack) && resource.faqs.length > 0 && (
-            <section className="relative z-10 mx-auto min-w-0 max-w-4xl px-3 py-10 sm:px-6 lg:px-16">
+            <section className="hire-detail-section hire-detail-section--narrow relative z-10 mx-auto min-w-0 w-full max-w-4xl">
               <div className="text-center flex flex-col gap-3 mb-12">
-                <h2 className="text-3xl sm:text-6xl font-extrabold text-page-fg tracking-tight">
+                <h2 className="hire-faq-title text-[clamp(1.25rem,3.5vw,3rem)] font-extrabold text-page-fg tracking-tight">
                   Frequently Asked Questions
                 </h2>
                 <p className="text-page-fg-muted text-sm sm:text-base leading-relaxed font-medium">
@@ -1232,7 +1223,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
         }
 
         {/* ── SECTION 13: BOTTOM CONVERSION BANNER ── */}
-        <section className="relative z-10 mx-auto min-w-0 max-w-7xl px-3 py-10 sm:px-6 lg:px-16">
+        <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
           <div className={isDark
             ? "bg-white text-black rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center relative overflow-hidden border border-slate-200 shadow-2xl"
             : "hire-resources-cta relative overflow-hidden rounded-[1.75rem] p-8 sm:p-14 flex flex-col gap-8 items-center text-center"

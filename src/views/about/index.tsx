@@ -113,57 +113,71 @@ const EXPLORE_LINKS = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
-      <section className="relative isolate overflow-hidden pt-[calc(5.5rem+env(safe-area-inset-top,0px))] pb-12 text-page-fg sm:pb-16 md:py-48">
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
-          <Image
-            src="/about-hero-bg.webp"
-            alt=""
-            fill
-            priority
-            fetchPriority="high"
-            quality={80}
-            sizes="100vw"
-            className="scale-110 object-cover object-center blur-md"
-          />
-          <div className="absolute inset-0 bg-page-bg/45 dark:bg-black/55" />
+    <div className="about-page min-h-screen">
+      <section className="homepage-hero-viewport homepage-hero-viewport--image relative flex flex-col overflow-hidden text-page-fg">
+        <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+          <div className="homepage-hero-bg-image absolute inset-0">
+            <Image
+              src="/about us light mode.png"
+              alt=""
+              fill
+              priority
+              fetchPriority="high"
+              quality={95}
+              sizes="100vw"
+              className="object-cover object-center dark:hidden"
+            />
+            <Image
+              src="/about us dark  mode.png"
+              alt=""
+              fill
+              priority
+              fetchPriority="high"
+              quality={95}
+              sizes="100vw"
+              className="hidden object-cover object-center dark:block"
+            />
+          </div>
+          <div className="homepage-hero-bg-overlay absolute inset-0" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-9xl px-4 transition-transform duration-700 sm:px-6 md:mx-28 md:px-0 md:hover:translate-x-2">
-          <h1 className="mb-5 text-3xl font-extrabold leading-tight text-black dark:text-white sm:mb-6 sm:text-4xl md:mb-8 md:text-7xl">
-            AI-Powered Engineering for the
-            <br />
-            <span className="text-green-400">Businesses of Tomorrow</span>
-          </h1>
-          <p className="max-w-2xl text-base font-medium leading-relaxed text-black dark:text-white sm:text-lg md:text-xl">
-            We are a global team of engineers, data scientists, and AI researchers who architect,
-            build, and scale intelligent digital systems - so your business doesn&apos;t just keep up
-            with the future, it leads it.
-          </p>
+        <div className="relative z-10 flex w-full flex-col px-4 pb-12 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:px-6 sm:pb-16 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
+          <div className="relative z-10 mx-auto w-full max-w-9xl transition-transform duration-700 md:mx-28 md:px-0 md:hover:translate-x-2">
+            <h1 className="mb-5 text-3xl font-extrabold leading-tight text-black dark:text-white sm:mb-6 sm:text-4xl md:mb-8 md:text-7xl">
+              AI-Powered Engineering for the
+              <br />
+              <span className="text-green-400">Businesses of Tomorrow</span>
+            </h1>
+            <p className="max-w-2xl text-base font-medium leading-relaxed text-black dark:text-white sm:text-lg md:text-xl">
+              We are a global team of engineers, data scientists, and AI researchers who architect,
+              build, and scale intelligent digital systems - so your business doesn&apos;t just keep up
+              with the future, it leads it.
+            </p>
 
-          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4 md:mt-10">
-            <Link
-              href="/contact"
-              title="Schedule a free strategy call"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:-translate-y-0.5 sm:px-7 sm:py-3.5 sm:text-base"
-            >
-              Schedule a Free Strategy Call
-              <ArrowRight size={16} />
-            </Link>
-            <Link
-              href="/services/ai-development"
-              title="Explore our AI services"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-page-border-strong px-5 py-3 text-sm font-semibold text-page-fg transition-colors hover:bg-page-accent-soft sm:px-7 sm:py-3.5 sm:text-base"
-            >
-              Explore Our AI Services
-              <ArrowRight size={16} />
-            </Link>
+            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4 md:mt-10">
+              <Link
+                href="/contact"
+                title="Schedule a free strategy call"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:-translate-y-0.5 sm:px-7 sm:py-3.5 sm:text-base"
+              >
+                Schedule a Free Strategy Call
+                <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/services/ai-development"
+                title="Explore our AI services"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-page-border-strong px-5 py-3 text-sm font-semibold text-page-fg transition-colors hover:bg-page-accent-soft sm:px-7 sm:py-3.5 sm:text-base"
+              >
+                Explore Our AI Services
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <p className="mt-5 max-w-3xl text-xs leading-relaxed text-black dark:text-white sm:mt-6 sm:text-sm md:mt-8 md:text-base">
+              Trusted by 250+ businesses across the US, UK, India, and UAE &nbsp;|&nbsp; Clutch Global
+              Leader 2026 &nbsp;|&nbsp; 85% Long-Term Client Retention
+            </p>
           </div>
-
-          <p className="mt-5 max-w-3xl text-xs leading-relaxed text-black dark:text-white sm:mt-6 sm:text-sm md:mt-8 md:text-base">
-            Trusted by 250+ businesses across the US, UK, India, and UAE &nbsp;|&nbsp; Clutch Global
-            Leader 2026 &nbsp;|&nbsp; 85% Long-Term Client Retention
-          </p>
         </div>
       </section>
 
@@ -313,10 +327,29 @@ export default function AboutPage() {
               <div className="group relative mx-auto max-w-5xl">
                 <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-toadster-green/10 via-toadster-green/5 to-toadster-green/10 opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-60" />
 
-                <div className="relative overflow-hidden rounded-2xl border border-page-border bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm transition-all duration-300 group-hover:border-toadster-green/20 sm:rounded-3xl">
-                  <div className="h-1 bg-gradient-to-r from-transparent via-toadster-green to-transparent" />
+                <div className="relative overflow-hidden rounded-2xl border border-page-border transition-all duration-300 group-hover:border-toadster-green/20 sm:rounded-3xl">
+                  <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+                    <Image
+                      src="/naveen sir bg img light mode.png"
+                      alt=""
+                      fill
+                      quality={95}
+                      sizes="(max-width: 1024px) 100vw, 1024px"
+                      className="object-cover object-center dark:hidden"
+                    />
+                    <Image
+                      src="/naveen sir bg dark mode.png"
+                      alt=""
+                      fill
+                      quality={95}
+                      sizes="(max-width: 1024px) 100vw, 1024px"
+                      className="hidden object-cover object-center dark:block"
+                    />
+                  </div>
 
-                  <div className="p-5 sm:p-8 md:p-12">
+                  <div className="relative z-10 h-1 bg-gradient-to-r from-transparent via-toadster-green to-transparent" />
+
+                  <div className="relative z-10 p-5 sm:p-8 md:p-12">
                     <div className="mb-6 flex justify-center sm:mb-8">
                       <div className="relative">
                         <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-toadster-green/40 to-toadster-green/20 blur-md transition-all duration-300" />
