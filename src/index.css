@@ -380,9 +380,17 @@
   position: relative;
   z-index: 1;
   box-sizing: border-box;
-  width: 90%;
-  max-width: 90%;
+  width: min(90%, 100%);
+  max-width: 100%;
   margin-inline: auto;
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  .hire-page-container {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .service-page-container,
@@ -847,10 +855,16 @@ html.homepage-scroll-snap {
 .hire-page-shell {
   position: relative;
   isolation: isolate;
+  width: 100%;
+  max-width: 100%;
+}
+
+.page-ambient-shell {
+  overflow-x: clip;
 }
 
 .hire-page-shell {
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .page-ambient-shell::before,
@@ -2193,7 +2207,8 @@ html.homepage-scroll-snap {
 
   body {
     @apply bg-background text-foreground;
-    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100%;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -2208,7 +2223,8 @@ html.homepage-scroll-snap {
 
   html {
     @apply font-sans;
-    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   img,
@@ -3957,7 +3973,17 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
     max-width: 22rem;
   }
 
-  /* hire-role-card grid: 1 col on very small, 2 col from sm */
+  /* hire-role-card grid: 1 col on mobile, 2 col from sm */
+  .hire-page-shell .hire-challenges-grid {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .hire-page-shell .hire-challenges-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
   .hire-page-shell [class*="sm:grid-cols-2"]:not(.hire-challenges-grid) {
     grid-template-columns: 1fr;
   }
@@ -3998,8 +4024,12 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
 /* Tablet (640px – 1023px) adjustments */
 @media (min-width: 640px) and (max-width: 1023px) {
 
+  .hire-page-shell .hire-challenges-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   /* Two column hire role cards on tablet */
-  .hire-page-shell [class*="sm:grid-cols-2"] {
+  .hire-page-shell [class*="sm:grid-cols-2"]:not(.hire-challenges-grid) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -4086,6 +4116,15 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
 .hire-challenges-grid > * {
   width: 100%;
   min-width: 0;
+  max-width: 100%;
+}
+
+.hire-role-card {
+  max-width: 100%;
+}
+
+.hire-role-card p {
+  overflow-wrap: anywhere;
 }
 
 .hire-challenge-card {

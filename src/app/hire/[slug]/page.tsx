@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
 import HireResourceDetail from "@/views/hire/HireResourceDetail"
 import {
   HIRE_RESOURCE_BY_SLUG,
@@ -48,6 +48,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
+  if (slug === "fullstack-developers") {
+    redirect("/hire/full-stack-developers")
+  }
   const resource = HIRE_RESOURCE_BY_SLUG[slug]
   if (!resource) notFound()
 

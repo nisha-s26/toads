@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { ChevronDown, Menu, X } from "lucide-react"
@@ -210,6 +210,15 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
     setDesktopCountriesOpen(false)
   }
 
+  useEffect(() => {
+    if (!mobileOpen) return
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [mobileOpen])
+
   return (
     <>
       {/* ── Blur Backdrop ── */}
@@ -222,7 +231,10 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
 
       {/* ── Mobile Right-Side Drawer ── */}
       <div
-        className={`fixed top-0 right-0 z-[60] flex h-full w-72 max-w-[85vw] transform flex-col bg-page-card shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${mobileOpen ? "translate-x-0" : "translate-x-full"
+        aria-hidden={!mobileOpen}
+        className={`fixed top-0 z-[60] flex h-full w-72 max-w-[85vw] flex-col bg-page-card transition-[right,box-shadow,visibility] duration-300 ease-in-out lg:hidden ${mobileOpen
+          ? "right-0 visible shadow-2xl"
+          : "-right-full invisible shadow-none pointer-events-none"
           }`}
       >
         {/* Drawer Header */}
@@ -409,22 +421,22 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
         </div>
       </div>
 
-      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center bg-transparent px-3 pt-3 sm:px-4 sm:pt-4 md:px-6">
+      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex max-w-[100vw] justify-center bg-transparent px-2 pt-2 sm:px-4 sm:pt-4 md:px-6">
         <nav
-          className="pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-3 rounded-2xl border border-page-border/70 bg-page-nav/85 px-4 py-2.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-3 lg:max-w-[88rem] lg:px-8"
+          className="pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-2 rounded-2xl border border-page-border/70 bg-page-nav/85 px-3 py-2 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-3 lg:max-w-[88rem] lg:px-8"
           style={{ boxShadow: "var(--page-nav-shadow)" }}
         >
           {/* ── Logo ── */}
-          <Link href="/" title="Toadster Home" className="flex shrink-0 items-center gap-2.5 min-w-0">
+          <Link href="/" title="Toadster Home" className="flex min-w-0 shrink-0 items-center gap-2.5">
             <ToadsterLogo
               width={132}
               height={34}
-              className="h-7 w-auto sm:h-8 md:h-9"
+              className="h-6 w-auto max-w-[7.5rem] sm:h-8 sm:max-w-none md:h-9"
             />
           </Link>
 
           {/* ── Desktop Nav ── */}
-          <div className="hidden lg:flex min-w-0 flex-1 items-center justify-center">
+          <div className="hidden min-w-0 flex-1 items-center justify-center overflow-visible lg:flex">
             <NavigationMenu>
               <NavigationMenuList className="gap-0">
                 {navLinks.map((link) => (
@@ -432,9 +444,6 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                     <NavigationMenuItem className="relative" key={link.label}>
                       <NavigationMenuTrigger
                         className={`px-4 py-2 text-sm font-medium bg-transparent rounded-full transition-colors hover:bg-page-accent-soft data-[state=open]:bg-page-accent-soft data-[state=open]:text-page-fg ${activeSection === link.section ? 'text-brand-green font-semibold' : 'text-page-fg-muted hover:text-page-fg'}`}
-                        onClick={() => {
-                          if (link.label === "Hire Resources") router.push("/hire-resources")
-                        }}
                       >
                         <span className="relative">
                           {link.label}

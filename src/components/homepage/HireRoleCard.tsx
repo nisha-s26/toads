@@ -37,7 +37,7 @@ export function HireRoleCard({
       ) : null}
 
       <div className="capability-card-header">
-        <div className="flex min-h-11 items-center justify-between gap-3 overflow-visible">
+        <div className="flex min-h-11 min-w-0 items-center justify-between gap-3">
           <h3 className="min-w-0 flex-1 text-lg font-bold leading-snug text-slate-900 dark:text-black">
             {title}
           </h3>
@@ -74,13 +74,13 @@ export function HireRoleCard({
   )
 
   return (
-    <div className="scroll-reveal-stagger h-full" style={{ ["--stagger-index" as string]: index }}>
+    <div className="scroll-reveal-stagger h-full min-w-0 w-full max-w-full" style={{ ["--stagger-index" as string]: index }}>
       {href ? (
-        <Link href={href} title={`Hire ${title}`} className={cardClassName}>
+        <Link href={href} title={`Hire ${title}`} className={`${cardClassName} min-w-0 max-w-full`}>
           {content}
         </Link>
       ) : (
-        <div className={cardClassName}>{content}</div>
+        <div className={`${cardClassName} min-w-0 max-w-full`}>{content}</div>
       )}
     </div>
   )

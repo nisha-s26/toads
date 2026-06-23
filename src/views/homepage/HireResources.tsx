@@ -37,7 +37,7 @@ const HIRE_ROLES: HireRole[] = [
     description:
       "From pixel-perfect React frontends to robust APIs - developers who ship AI-powered web applications and scalable SaaS backends that other developers don't dread inheriting.",
     tags: ["React", "Node", "Python"],
-    href: "/hire/fullstack-developers",
+    href: "/hire/full-stack-developers",
   },
   {
     icon: Server,

@@ -28,7 +28,7 @@ export function ClientShell({ children }: { children: ReactNode }) {
       <Navbar activeSection={activeSection} />
       <main
         key={pathname}
-        className={`page-route-enter relative isolate page-ambient-shell homepage-mesh-shell${
+        className={`page-route-enter relative isolate w-full max-w-full overflow-x-clip page-ambient-shell homepage-mesh-shell${
           isContentPage ? " services-mesh-shell" : ""
         }${isBlogsPage ? " blogs-mesh-shell" : ""}${
           isCareersPage ? " careers-mesh-shell" : ""

@@ -129,7 +129,7 @@ function FaqCard({
         onClick={onToggle}
         aria-expanded={isOpen}
       >
-        <span className="text-base font-bold leading-snug text-slate-900 md:text-lg dark:text-white">
+        <span className="text-sm font-bold leading-snug text-slate-900 md:text-lg dark:text-white">
           {entry.question}
         </span>
         <ChevronDown
@@ -202,7 +202,7 @@ export default function HomepageFaq() {
           </p>
         </ScrollReveal>
 
-        <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-2.5 text-sm sm:text-lg md:text-xl">
           {visibleFaqs.map((faq) => (
             <FaqCard
               key={faq.question}

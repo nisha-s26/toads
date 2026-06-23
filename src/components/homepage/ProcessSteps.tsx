@@ -219,7 +219,7 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
                   </div>
                 </motion.div>
 
-                <div className="flex-1 pt-2">
+                <div className="flex-1 min-w-0 pt-2">
                   <p
                     className={`text-base font-extrabold transition-colors duration-300 ${
                       isActive ? "text-page-fg" : "text-page-fg-subtle"
