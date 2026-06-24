@@ -31,7 +31,11 @@ import {
 export default function DevOpsPage() {
   return (
     <div className="data-analytics-landing">
-      <TechnologyHeroSection>
+      <TechnologyHeroSection
+        lightImageSrc="/devops-hero-light.png"
+        darkImageSrc="/devops-hero-dark.png"
+        heroVariant="devops"
+      >
             <span className="da-badge">
               <Server size={14} />
               The Delivery Advantage

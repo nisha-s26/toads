@@ -32,7 +32,11 @@ import {
 export default function DataAnalyticsPage() {
   return (
     <div className="data-analytics-landing">
-      <TechnologyHeroSection>
+      <TechnologyHeroSection
+        lightImageSrc="/data-analytics-hero-light.png"
+        darkImageSrc="/data-analytics-hero-dark.png"
+        heroVariant="devops"
+      >
             <span className="da-badge">
               <Sparkles size={14} />
               The Analytics Advantage

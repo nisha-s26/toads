@@ -31,7 +31,11 @@ import {
 export default function IotPage() {
   return (
     <div className="data-analytics-landing">
-      <TechnologyHeroSection>
+      <TechnologyHeroSection
+        lightImageSrc="/iot-hero-light.png"
+        darkImageSrc="/iot-hero-dark.png"
+        heroVariant="devops"
+      >
             <span className="da-badge">
               <Radio size={14} />
               The Connected Enterprise

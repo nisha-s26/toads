@@ -31,7 +31,11 @@ import {
 export default function ArtificialIntelligencePage() {
   return (
     <div className="data-analytics-landing">
-      <TechnologyHeroSection>
+      <TechnologyHeroSection
+        lightImageSrc="/artificial-intelligence-hero-light.png"
+        darkImageSrc="/artificial-intelligence-hero-dark.png"
+        heroVariant="devops"
+      >
             <span className="da-badge">
               <Sparkles size={14} />
               The Intelligence Revolution

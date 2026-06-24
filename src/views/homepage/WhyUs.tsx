@@ -3,7 +3,6 @@
 import { ArrowRight, Clock, Headphones, Rocket, ShieldCheck, Star } from "lucide-react"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/ScrollReveal"
-import { WhyUsBgSvg } from "@/components/WhyUsBgSvg"
 
 const STATS = [
   { value: "200+", label: "AI systems shipped", Icon: Rocket },
@@ -12,74 +11,107 @@ const STATS = [
   { value: "SOC 2", label: "Compliance-ready by default", Icon: ShieldCheck },
 ]
 
+function WhyUsNetworkDecor({ mirrored = false }: { mirrored?: boolean }) {
+  return (
+    <svg
+      className={mirrored ? "-scale-x-100" : undefined}
+      viewBox="0 0 120 200"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <circle cx="18" cy="24" r="2.5" fill="currentColor" />
+      <circle cx="42" cy="12" r="2" fill="currentColor" />
+      <circle cx="68" cy="38" r="2.5" fill="currentColor" />
+      <circle cx="92" cy="18" r="2" fill="currentColor" />
+      <circle cx="28" cy="58" r="2" fill="currentColor" />
+      <circle cx="54" cy="72" r="2.5" fill="currentColor" />
+      <circle cx="82" cy="56" r="2" fill="currentColor" />
+      <circle cx="14" cy="96" r="2" fill="currentColor" />
+      <circle cx="38" cy="112" r="2.5" fill="currentColor" />
+      <circle cx="64" cy="98" r="2" fill="currentColor" />
+      <circle cx="96" cy="118" r="2.5" fill="currentColor" />
+      <circle cx="22" cy="148" r="2" fill="currentColor" />
+      <circle cx="48" cy="162" r="2.5" fill="currentColor" />
+      <circle cx="76" cy="142" r="2" fill="currentColor" />
+      <circle cx="100" cy="168" r="2" fill="currentColor" />
+      <path
+        d="M18 24L42 12M42 12L68 38M68 38L92 18M18 24L28 58M28 58L54 72M54 72L82 56M82 56L92 18M28 58L14 96M14 96L38 112M38 112L64 98M64 98L82 56M38 112L22 148M22 148L48 162M48 162L76 142M76 142L96 118M96 118L64 98"
+        stroke="currentColor"
+        strokeWidth="0.75"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
 const WhyUs = () => {
   return (
     <section
       id="why-us"
       className="homepage-snap-section section-full-bleed why-us-section-bg relative isolate flex flex-col justify-center overflow-hidden px-4 py-10 sm:py-14 md:py-16"
     >
-      <div className="relative z-10 mx-auto w-full max-w-6xl">
+      <div className="relative z-10 mx-auto w-full max-w-[72rem]">
         <ScrollReveal>
-          <div className="homepage-cta-box relative overflow-hidden rounded-[1.75rem] px-5 py-9 sm:px-10 sm:py-12 md:px-14 md:py-14">
+          <div className="why-us-card relative overflow-hidden rounded-[1.75rem] px-5 py-9 sm:px-10 sm:py-12 md:px-14 md:py-14 lg:px-16 lg:py-[3.25rem]">
+            <div className="why-us-dotted-pattern pointer-events-none absolute inset-0" aria-hidden />
             <div
-              className="why-us-grid pointer-events-none absolute inset-y-0 left-0 w-[min(38%,220px)] opacity-70"
+              className="pointer-events-none absolute left-[10%] top-[20%] h-24 w-24 rounded-full bg-toadster-green/[0.06] blur-2xl"
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute -left-4 bottom-2 hidden w-[min(42%,280px)] opacity-100 lg:block"
+              className="pointer-events-none absolute bottom-[14%] right-[10%] h-28 w-28 rounded-full bg-emerald-400/[0.05] blur-2xl"
+              aria-hidden
+            />
+            <div
+              className="why-us-network-decor pointer-events-none absolute bottom-8 left-4 top-8 hidden w-[7.5rem] text-slate-400/25 lg:block dark:text-slate-500/20"
               aria-hidden
             >
-              <WhyUsBgSvg className="h-auto w-full drop-shadow-sm" />
+              <WhyUsNetworkDecor />
             </div>
             <div
-              className="pointer-events-none absolute -right-6 top-1/2 hidden w-[min(36%,240px)] -translate-y-1/2 opacity-100 lg:block"
+              className="why-us-network-decor pointer-events-none absolute bottom-8 right-4 top-8 hidden w-[7.5rem] text-slate-400/25 lg:block dark:text-slate-500/20"
               aria-hidden
             >
-              <WhyUsBgSvg className="h-auto w-full -scale-x-100 drop-shadow-sm" />
+              <WhyUsNetworkDecor mirrored />
             </div>
-            <div
-              className="pointer-events-none absolute left-[10%] top-[20%] h-24 w-24 rounded-full bg-toadster-green/10 blur-2xl"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute bottom-[14%] right-[10%] h-28 w-28 rounded-full bg-emerald-400/8 blur-2xl"
-              aria-hidden
-            />
 
-            <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center text-center">
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-toadster-green/20 bg-toadster-green/8 px-4 py-1.5 text-sm font-semibold text-toadster-green">
+            <div className="relative z-10 mx-auto flex w-full max-w-[56rem] flex-col items-center text-center">
+              <div className="why-us-badge mb-5 inline-flex items-center gap-2 rounded-full border border-toadster-green/25 bg-toadster-green/[0.06] px-4 py-1.5 text-sm font-semibold text-toadster-green">
                 <Star className="h-4 w-4 fill-toadster-green/15" strokeWidth={2} />
                 Trusted AI Development Partner
               </div>
 
-              <h2 className="text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-[2.75rem]">
-                <span className="text-page-fg">Why Choose </span>
+              <h2 className="why-us-heading text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-[2.75rem]">
+                <span className="text-slate-900 dark:text-white">Why Choose </span>
                 <span className="text-toadster-green">Us</span>
               </h2>
 
-              <p className="mt-6 max-w-3xl text-sm leading-relaxed text-page-fg-muted sm:text-base md:text-lg">
+              <p className="why-us-description mt-6 max-w-[42rem] text-sm leading-relaxed text-slate-600 sm:text-base md:text-[1.0625rem] md:leading-[1.75] dark:text-slate-300">
                 Most software agencies build features. We build AI-integrated systems that hold up - under
                 real load, with real data, in production environments where things actually break. Whether
                 you need an{" "}
-                <strong className="font-semibold text-page-fg">LLM integration agency</strong>, a team to
-                handle{" "}
-                <strong className="font-semibold text-page-fg">
+                <strong className="font-semibold text-slate-800 dark:text-white">
+                  LLM integration agency
+                </strong>
+                , a team to handle{" "}
+                <strong className="font-semibold text-slate-800 dark:text-white">
                   AI pipeline development for startups
                 </strong>
                 , or experts in{" "}
-                <strong className="font-semibold text-page-fg">
+                <strong className="font-semibold text-slate-800 dark:text-white">
                   retrieval-augmented generation consulting
                 </strong>{" "}
                 - that distinction matters more than ever.
               </p>
 
-              <p className="mt-5 max-w-3xl text-sm leading-relaxed text-page-fg-muted sm:text-base md:text-lg">
+              <p className="why-us-description mt-5 max-w-[42rem] text-sm leading-relaxed text-slate-600 sm:text-base md:text-[1.0625rem] md:leading-[1.75] dark:text-slate-300">
                 We have worked with early-stage startups that needed an MVP built to scale, and enterprise teams
                 who inherited AI systems that were silently failing. What we bring is not just technical depth - it is the
                 judgment to know which solution fits your constraints, your team, and your next 18 months.
               </p>
 
-              <div className="mt-10 grid w-full grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
+              <div className="why-us-stats-grid mt-10 grid w-full grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
                 {STATS.map((stat, index) => {
                   const Icon = stat.Icon
                   return (
@@ -88,23 +120,17 @@ const WhyUs = () => {
                       delay={0.15 + index * 0.08}
                       className="h-full min-w-0"
                     >
-                      <div className="why-us-stat-card group relative mx-auto flex aspect-[3/4] w-full max-w-[11.75rem] flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white text-left shadow-[0_10px_32px_rgba(15,23,42,0.07)] transition-transform duration-300 hover:-translate-y-0.5 dark:border-slate-200/90 dark:bg-white sm:max-w-none">
-                        <span
-                          className="block h-1 w-full shrink-0 bg-toadster-green"
-                          aria-hidden
-                        />
-                        <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
-                          <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-toadster-green text-white shadow-[0_4px_14px_rgba(6,86,6,0.28)]">
-                            <Icon className="h-5 w-5" strokeWidth={2} />
-                          </span>
-                          <div>
-                            <p className="text-[1.55rem] font-extrabold leading-none text-toadster-green sm:text-[1.65rem]">
-                              {stat.value}
-                            </p>
-                            <p className="mt-2 text-xs font-medium leading-snug text-slate-600 sm:text-sm dark:text-slate-600">
-                              {stat.label}
-                            </p>
+                      <div className="why-us-stat-card group flex h-full min-h-[10.5rem] flex-col overflow-hidden rounded-2xl transition-transform duration-300 hover:-translate-y-0.5 sm:min-h-[11.25rem]">
+                        <span className="why-us-stat-card-accent block h-[3px] w-full shrink-0 bg-toadster-green" aria-hidden />
+                        <div className="why-us-stat-card-body flex min-h-0 flex-1 flex-col px-4 pb-5 pt-4 sm:px-5 sm:pb-6 sm:pt-5">
+                          <div className="why-us-stat-icon-slot flex h-11 shrink-0 items-start">
+                            <span className="why-us-stat-icon inline-flex h-10 w-10 items-center justify-center rounded-full sm:h-11 sm:w-11">
+                              <Icon className="h-5 w-5" strokeWidth={2} />
+                            </span>
                           </div>
+                          <div className="why-us-stat-spacer min-h-0 flex-1" aria-hidden="true" />
+                          <p className="why-us-stat-value shrink-0">{stat.value}</p>
+                          <p className="why-us-stat-label shrink-0">{stat.label}</p>
                         </div>
                       </div>
                     </ScrollReveal>
@@ -112,12 +138,17 @@ const WhyUs = () => {
                 })}
               </div>
 
-              <div className="mt-10 flex flex-col items-center gap-3">
-                <ShieldCheck className="h-5 w-5 text-toadster-green/75" aria-hidden />
+              <div className="why-us-cta-wrap mt-10 w-full max-w-[42rem]">
+                <div className="relative flex items-center justify-center py-1">
+                  <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-slate-200 dark:bg-slate-600/50" />
+                  <span className="why-us-cta-icon relative z-[1] inline-flex items-center justify-center rounded-full px-2">
+                    <ShieldCheck className="h-5 w-5 text-toadster-green" strokeWidth={2} aria-hidden />
+                  </span>
+                </div>
                 <Link
                   href="/about"
                   title="Learn more about Toadster"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-primary-hover"
+                  className="mt-4 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-primary-hover sm:text-base"
                 >
                   Learn About Us
                   <ArrowRight size={16} />

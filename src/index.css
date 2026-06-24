@@ -747,31 +747,130 @@
 }
 
 .why-us-section-bg {
-  background:
-    radial-gradient(ellipse 85% 110% at 92% 50%, rgba(96, 165, 250, 0.38) 0%, rgba(59, 130, 246, 0.16) 34%, transparent 68%),
-    radial-gradient(ellipse 70% 55% at 8% 20%, rgba(148, 163, 184, 0.18) 0%, transparent 58%),
-    linear-gradient(180deg, #eef1f8 0%, #dde3ef 48%, #cfd9e4 100%);
+  background: #eef1f6;
 }
 
 .dark .why-us-section-bg {
   background:
-    radial-gradient(ellipse 90% 110% at 92% 50%, rgba(59, 130, 246, 0.58) 0%, rgba(37, 99, 235, 0.26) 28%, transparent 62%),
-    radial-gradient(ellipse 65% 55% at 50% 42%, rgba(6, 86, 6, 0.18) 0%, transparent 68%),
-    radial-gradient(ellipse 75% 55% at 8% 18%, rgba(255, 255, 255, 0.06) 0%, transparent 52%),
+    radial-gradient(ellipse 65% 55% at 50% 42%, rgba(6, 86, 6, 0.12) 0%, transparent 68%),
     linear-gradient(180deg, #020617 0%, #030712 42%, #000000 100%);
 }
 
-.why-us-grid {
-  background-image:
-    linear-gradient(rgba(100, 116, 139, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100, 116, 139, 0.07) 1px, transparent 1px);
-  background-size: 28px 28px;
+.why-us-card {
+  position: relative;
+  background: #f8fafb;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.08),
+    0 4px 16px rgba(15, 23, 42, 0.04);
 }
 
-.dark .why-us-grid {
-  background-image:
-    linear-gradient(rgba(6, 86, 6, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(6, 86, 6, 0.1) 1px, transparent 1px);
+.dark .why-us-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(2, 6, 23, 0.98) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.why-us-dotted-pattern {
+  background-image: radial-gradient(circle, rgba(100, 116, 139, 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.35;
+  mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, black 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, black 20%, transparent 78%);
+}
+
+.dark .why-us-dotted-pattern {
+  background-image: radial-gradient(circle, rgba(148, 163, 184, 0.18) 1px, transparent 1px);
+  opacity: 0.22;
+}
+
+.why-us-network-decor svg {
+  width: 100%;
+  height: 100%;
+}
+
+.why-us-stats-grid {
+  width: 100%;
+  align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+  .why-us-stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.why-us-stat-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+  text-align: left;
+}
+
+.why-us-stat-icon {
+  background: rgba(6, 86, 6, 0.1);
+  color: #065606;
+}
+
+.why-us-stat-value {
+  display: flex;
+  height: 1.625rem;
+  align-items: flex-end;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #0f172a;
+}
+
+.why-us-stat-label {
+  margin-top: 0.5rem;
+  min-height: 2.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.375;
+  color: #64748b;
+}
+
+@media (min-width: 640px) {
+  .why-us-stat-value {
+    font-size: 1.625rem;
+  }
+
+  .why-us-stat-label {
+    font-size: 0.875rem;
+    min-height: 2.75rem;
+  }
+}
+
+.dark .why-us-stat-card {
+  background: #1e293b;
+  border-color: rgba(148, 163, 184, 0.24);
+  box-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.dark .why-us-stat-icon {
+  background: rgba(34, 197, 94, 0.14);
+  color: #22c55e;
+}
+
+.dark .why-us-stat-value {
+  color: #f8fafc;
+}
+
+.dark .why-us-stat-label {
+  color: #94a3b8;
+}
+
+.why-us-cta-icon {
+  background: #f8fafb;
+}
+
+.dark .why-us-cta-icon {
+  background: #0f172a;
 }
 
 .contact-explore-bg {
@@ -2938,6 +3037,85 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
 }
 
 .dark .data-analytics-landing .da-hero--image .da-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* DevOps technology hero — custom image + services-style readable text */
+.data-analytics-landing .da-hero--devops {
+  background: #eef1f8;
+}
+
+.dark .data-analytics-landing .da-hero--devops {
+  background: #020617;
+}
+
+.data-analytics-landing .da-hero--devops .homepage-hero-bg-overlay {
+  background: transparent;
+}
+
+.data-analytics-landing .da-hero--devops .da-hero-title {
+  color: #000000;
+  font-size: clamp(1.875rem, 4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.08;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.92);
+}
+
+.dark .data-analytics-landing .da-hero--devops .da-hero-title {
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+}
+
+.data-analytics-landing .da-hero--devops .da-hero-subtitle {
+  color: rgba(0, 0, 0, 0.82);
+  font-size: clamp(0.875rem, 1.6vw, 1.125rem);
+  font-weight: 500;
+  line-height: 1.65;
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.85);
+}
+
+.dark .data-analytics-landing .da-hero--devops .da-hero-subtitle {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85);
+}
+
+.data-analytics-landing .da-hero--devops .da-text-accent {
+  color: #065606;
+}
+
+.dark .data-analytics-landing .da-hero--devops .da-text-accent {
+  color: #22c55e;
+}
+
+.data-analytics-landing .da-hero--devops .da-badge {
+  color: #1a2332;
+  border-color: rgba(26, 35, 50, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .data-analytics-landing .da-hero--devops .da-badge {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline {
+  border-color: #0f172a;
+  color: #0f172a;
+}
+
+html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.dark .data-analytics-landing .da-hero--devops .da-btn-outline {
+  border-color: rgba(255, 255, 255, 0.72);
+  color: #ffffff;
+}
+
+.dark .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
