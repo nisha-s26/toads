@@ -31,7 +31,11 @@ import {
 export default function AugmentedRealityPage() {
   return (
     <div className="data-analytics-landing">
-      <TechnologyHeroSection>
+      <TechnologyHeroSection
+        lightImageSrc="/technologies/augmented-reality-hero-light.png"
+        darkImageSrc="/technologies/augmented-reality-hero-dark.png"
+        heroVariant="devops"
+      >
             <span className="da-badge">
               <Scan size={14} />
               The Spatial Advantage

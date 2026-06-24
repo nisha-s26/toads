@@ -2855,6 +2855,7 @@ section.trusted-by-marquee+section.section-padding+section.section-padding {
 /* Data Analytics landing page — dark hero + bento layout */
 .data-analytics-landing {
   --da-green: #065606;
+  --da-accent-text: #166534;
   --da-green-dark: #054805;
   --da-dark: #0a0a0a;
   --da-dark-soft: #141414;
@@ -2877,6 +2878,10 @@ section.trusted-by-marquee+section.section-padding+section.section-padding {
 }
 
 .data-analytics-landing .da-text-accent {
+  color: var(--da-accent-text);
+}
+
+.dark .data-analytics-landing .da-text-accent {
   color: var(--da-green);
 }
 
@@ -2997,6 +3002,10 @@ section.trusted-by-marquee+section.section-padding+section.section-padding {
 }
 
 .data-analytics-landing .da-hero--image .da-text-accent {
+  color: var(--da-accent-text);
+}
+
+.dark .data-analytics-landing .da-hero--image .da-text-accent {
   color: var(--page-hero-accent);
 }
 
@@ -3080,7 +3089,7 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
 }
 
 .data-analytics-landing .da-hero--devops .da-text-accent {
-  color: #065606;
+  color: var(--da-accent-text);
 }
 
 .dark .data-analytics-landing .da-hero--devops .da-text-accent {

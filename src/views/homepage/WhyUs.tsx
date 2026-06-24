@@ -53,7 +53,7 @@ const WhyUs = () => {
     >
       <div className="relative z-10 mx-auto w-full max-w-[72rem]">
         <ScrollReveal>
-          <div className="why-us-card relative overflow-hidden rounded-[1.75rem] px-5 py-9 sm:px-10 sm:py-12 md:px-14 md:py-14 lg:px-16 lg:py-[3.25rem]">
+          <div className="why-us-card relative overflow-hidden rounded-[1.75rem] px-5 py-9 sm:px-10 sm:py-12 md:px-14 md:py-14 lg:px-16 lg:py-[3.25rem] mt-5">
             <div className="why-us-dotted-pattern pointer-events-none absolute inset-0" aria-hidden />
             <div
               className="pointer-events-none absolute left-[10%] top-[20%] h-24 w-24 rounded-full bg-toadster-green/[0.06] blur-2xl"

@@ -31,7 +31,11 @@ import {
 export default function PenetrationTestingPage() {
   return (
     <div className="data-analytics-landing">
-      <TechnologyHeroSection>
+      <TechnologyHeroSection
+        lightImageSrc="/technologies/penetration-testing-hero-light.png"
+        darkImageSrc="/technologies/penetration-testing-hero-dark.png"
+        heroVariant="devops"
+      >
             <span className="da-badge">
               <ShieldCheck size={14} />
               The Security Assurance Advantage

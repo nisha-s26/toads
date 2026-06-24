@@ -31,7 +31,7 @@ const rings: Ring[] = [
 ]
 
 const FADE_WORD_INTERVAL_MS = 2800
-const FADE_WORDS = ["Custom AI Development", "Machine Learning", "AI Automation", "Predictive Analytics", ""]
+const FADE_WORDS = ["Custom AI Development", "Machine Learning", "AI Automation", "Predictive Analytics"]
 
 function subscribeReducedMotion(onStoreChange: () => void) {
   const media = window.matchMedia("(prefers-reduced-motion: reduce)")
@@ -48,24 +48,30 @@ function getReducedMotionServerSnapshot() {
 }
 
 function AnimatedFadeText({ words }: { words: string[] }) {
+  const displayWords = words.filter((word) => word.length > 0)
   const [index, setIndex] = useState(0)
-  const [visible, setVisible] = useState(true)
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setVisible(false)
-      window.setTimeout(() => {
-        setIndex((prev) => (prev + 1) % words.length)
-        setVisible(true)
-      }, 280)
+    if (displayWords.length <= 1) return
+
+    const timeout = window.setTimeout(() => {
+      setIndex((prev) => (prev + 1) % displayWords.length)
     }, FADE_WORD_INTERVAL_MS)
 
-    return () => clearTimeout(timeout)
-  }, [index, words.length])
+    return () => window.clearTimeout(timeout)
+  }, [index, displayWords.length])
 
   return (
-    <span className={`hero-accent inline-block min-h-[1.2em] hero-fade-word ${visible ? "hero-fade-word-visible" : ""}`}>
-      {words[index]}
+    <span className="hero-accent inline-grid min-h-[1.2em] [grid-template-columns:1fr] [grid-template-rows:1fr]">
+      {displayWords.map((word, wordIndex) => (
+        <span
+          key={word}
+          aria-hidden={wordIndex !== index}
+          className={`hero-fade-word col-start-1 row-start-1 inline-block ${wordIndex === index ? "hero-fade-word-visible" : ""}`}
+        >
+          {word}
+        </span>
+      ))}
     </span>
   )
 }
@@ -78,7 +84,8 @@ function FadeText({ words }: { words: string[] }) {
   )
 
   if (reduceMotion) {
-    return <span className="hero-accent">{words[0]}</span>
+    const firstWord = words.find((word) => word.length > 0) ?? words[0]
+    return <span className="hero-accent">{firstWord}</span>
   }
 
   return <AnimatedFadeText words={words} />
