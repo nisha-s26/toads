@@ -66,6 +66,23 @@ export const COUNTRY_HERO_IMAGES: Record<string, string> = {
     "https://images.unsplash.com/photo-1768728584556-e97f86b51417?auto=format&fit=crop&w=1200&q=80",
   delhi:
     "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80",
+  montreal:
+    "https://images.unsplash.com/photo-1519178614-68673b201f36?auto=format&fit=crop&w=1200&q=80",
+  melbourne:
+    "https://images.unsplash.com/photo-1742643635715-00c577862b56?auto=format&fit=crop&w=1200&q=80",
+  dubai: TECH_IMAGES.dubai,
+  "abu-dhabi":
+    "https://images.unsplash.com/photo-1749653652468-98a34f0be831?auto=format&fit=crop&w=1200&q=80",
+  jeddah:
+    "https://images.unsplash.com/photo-1699954669485-812988f5c2db?auto=format&fit=crop&w=1200&q=80",
+  riyadh:
+    "https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=1200&q=80",
+  frankfurt:
+    "https://images.unsplash.com/photo-1648634032154-ad0ece188b47?auto=format&fit=crop&w=1200&q=80",
+  munich:
+    "https://images.unsplash.com/photo-1751039531516-caedbb85dfe0?auto=format&fit=crop&w=1200&q=80",
+  berlin:
+    "https://images.unsplash.com/photo-1747119421266-742889fcde8a?auto=format&fit=crop&w=1200&q=80",
 }
 
 export const CITY_CARD_IMAGES: Record<string, string> = {
@@ -80,4 +97,13 @@ export const CITY_CARD_IMAGES: Record<string, string> = {
   bangalore: COUNTRY_HERO_IMAGES.bangalore,
   mumbai: COUNTRY_HERO_IMAGES.mumbai,
   delhi: COUNTRY_HERO_IMAGES.delhi,
+  montreal: COUNTRY_HERO_IMAGES.montreal,
+  melbourne: COUNTRY_HERO_IMAGES.melbourne,
+  dubai: COUNTRY_HERO_IMAGES.dubai,
+  "abu-dhabi": COUNTRY_HERO_IMAGES["abu-dhabi"],
+  jeddah: COUNTRY_HERO_IMAGES.jeddah,
+  riyadh: COUNTRY_HERO_IMAGES.riyadh,
+  frankfurt: COUNTRY_HERO_IMAGES.frankfurt,
+  munich: COUNTRY_HERO_IMAGES.munich,
+  berlin: COUNTRY_HERO_IMAGES.berlin,
 }

@@ -678,7 +678,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
               : isFullStack
                 ? getSection(resource, "Why Dedicated Beats Every Other Option for Full Stack Talent")
                 : null
-  const whyToadsterSection = isFlutter ? getSection(resource, "Why Toadster Technologies?") : null
+  const whyToadsterection = isFlutter ? getSection(resource, "Why Toadster Technologies?") : null
   const pricingSection = isFlutter ? getSection(resource, "How Much Does It Cost to Hire Dedicated Flutter Developers?") : null
   const skillMatrixSection = isFlutter
     ? getSection(resource, "Tech Stack & Skill Matrix")
@@ -1239,19 +1239,19 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
         {/* ── SECTION 10: WHY TOADSTER ── */}
         {
-          isFlutter && whyToadsterSection?.items && (
+          isFlutter && whyToadsterection?.items && (
             <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
               <div className="text-center flex flex-col gap-3 mb-12">
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-                  {whyToadsterSection.heading}
+                  {whyToadsterection.heading}
                 </h2>
                 <p className="text-page-fg-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
-                  {whyToadsterSection.body}
+                  {whyToadsterection.body}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                {whyToadsterSection.items.map((item, index) => (
+                {whyToadsterection.items.map((item, index) => (
                   <HireRoleCard
                     key={item.title}
                     title={item.title}

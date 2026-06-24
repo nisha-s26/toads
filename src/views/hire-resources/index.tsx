@@ -36,7 +36,7 @@ import {
   heroContent,
   resourceTypesSection,
   whyHireSection,
-  whyToadsterSection,
+  whyToadsterection,
 } from "./data"
 
 const WHY_HIRE_ICONS = [Clock, Wallet, TrendingUp] as const
@@ -455,10 +455,10 @@ export default function HireResourcesHubPage() {
           <SectionHeading
             titleBefore="Why Choose "
             titleAccent="Toadster Technologies"
-            intro={whyToadsterSection.intro}
+            intro={whyToadsterection.intro}
           />
           <div className="hire-hub-cards-grid hire-hub-cards-grid--2">
-            {whyToadsterSection.items.map((item, index) => (
+            {whyToadsterection.items.map((item, index) => (
               <ScrollReveal key={item.title} delay={index * STAGGER_STEP} className="h-full">
                 <HireHubCard
                   title={item.title}

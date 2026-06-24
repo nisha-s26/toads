@@ -1,13 +1,13 @@
 import type { GlobalCountryPageData } from '../types'
 
 export const USA_PAGE: GlobalCountryPageData = {
-  "seoTitle": "AI Development Company in the USA | Toadsters Technologies",
-  "metaDescription": "Toadsters Technologies builds custom AI agents, RAG systems & LLM solutions for US businesses. Talk to an AI engineer, not a sales rep. Book a call.",
+  "seoTitle": "AI Development Company in the USA | Toadster Technologies",
+  "metaDescription": "Toadster Technologies builds custom AI agents, RAG systems & LLM solutions for US businesses. Talk to an AI engineer, not a sales rep. Book a call.",
   "slug": "/ai-development-company-usa",
   "country": "USA",
   "heroTitle": "AI Development Company in the USA",
   "heroSubtitle": "An AI Development Company That Ships Working Software, Not Just Demos",
-  "heroIntro": "Most companies don't have an AI problem. They have an execution problem. They've seen a slick demo, maybe even built one internally, and then watched it stall before it ever touched a real customer or a real workflow.\n\nToadsters Technologies is an AI development company in the USA built around one job: turning AI from a talking point into something that actually runs in production. We build generative AI applications, AI agents, RAG systems, and custom LLM tools for companies that need results, not buzzwords.\n\nIf you're a founder trying to figure out where AI fits in your roadmap, or a CTO who's tired of vendors who can talk about AI but can't ship it, we should talk.",
+  "heroIntro": "Most companies don't have an AI problem. They have an execution problem. They've seen a slick demo, maybe even built one internally, and then watched it stall before it ever touched a real customer or a real workflow.\n\nToadster Technologies is an AI development company in the USA built around one job: turning AI from a talking point into something that actually runs in production. We build generative AI applications, AI agents, RAG systems, and custom LLM tools for companies that need results, not buzzwords.\n\nIf you're a founder trying to figure out where AI fits in your roadmap, or a CTO who's tired of vendors who can talk about AI but can't ship it, we should talk.",
   "whyChooseIntro": "",
   "whyChoosePoints": [
     "We tell you when AI isn't the answer. Sometimes a rules-based workflow or a better database query solves the problem faster and cheaper than a model. We'll tell you that upfront, even if it means a smaller invoice.",
@@ -109,7 +109,7 @@ export const USA_PAGE: GlobalCountryPageData = {
       "description": "Launch isn't the finish line. We monitor performance and cost after go-live and tune the system as real usage teaches us things the test environment couldn't."
     }
   ],
-  "whyToadsters": "",
+  "whyToadster": "",
   "faqs": [
     {
       "question": "What does an AI development company actually do?",
@@ -140,7 +140,7 @@ export const USA_PAGE: GlobalCountryPageData = {
       "answer": "A focused tool, four to eight weeks. A more complex platform with multiple integrations, a few months. We'll give you a real estimate after discovery, not a marketing number."
     },
     {
-      "question": "Does Toadsters work with startups or only enterprises?",
+      "question": "Does Toadster work with startups or only enterprises?",
       "answer": "Both. Startups usually need speed and a tight scope. Enterprises usually need governance and integration work. We adjust the approach, not the quality."
     },
     {

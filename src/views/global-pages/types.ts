@@ -34,7 +34,7 @@ export type GlobalCountryPageData = {
   industries: GlobalCountryIndustry[]
   trends: string
   processSteps: GlobalCountryProcessStep[]
-  whyToadsters?: string
+  whyToadster?: string
   faqs: GlobalCountryFaq[]
   ctaTitle: string
   ctaBody: string

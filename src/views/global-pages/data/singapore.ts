@@ -2,13 +2,13 @@ import type { GlobalCountryPageData } from '../types'
 
 export const SINGAPORE_PAGE: GlobalCountryPageData = {
   "key": "singapore",
-  "seoTitle": "AI Development Company in Singapore | Toadsters Technologies",
-  "metaDescription": "Toadsters Technologies is a leading AI development company in Singapore, building custom AI agents, LLM solutions, RAG systems, and enterprise automation for startups, SMBs, and large enterprises across Southeast Asia.",
+  "seoTitle": "AI Development Company in Singapore | Toadster Technologies",
+  "metaDescription": "Toadster Technologies is a leading AI development company in Singapore, building custom AI agents, LLM solutions, RAG systems, and enterprise automation for startups, SMBs, and large enterprises across Southeast Asia.",
   "slug": "/ai-development-company-singapore",
   "country": "Singapore",
   "heroTitle": "AI Development Company in Singapore",
   "heroSubtitle": "Build AI That Works for Your Business, Not the Other Way Around",
-  "heroIntro": "Toadsters Technologies partners with Singapore startups, SMBs, and enterprises to design, develop, and deploy production-ready AI systems — from custom LLMs and AI agents to enterprise automation and RAG-powered knowledge tools.",
+  "heroIntro": "Toadster Technologies partners with Singapore startups, SMBs, and enterprises to design, develop, and deploy production-ready AI systems — from custom LLMs and AI agents to enterprise automation and RAG-powered knowledge tools.",
   "whyChooseIntro": "Singapore is not short of technology vendors. What businesses here need is an AI development partner who understands both the technical complexity and the business context — someone who can tell you when AI is the right answer and how to implement it without creating expensive technical debt.",
   "whyChoosePoints": [
     "We build for production, not prototypes Many AI projects stall at proof-of-concept. We architect AI systems designed to scale — handling thousands of users, millions of documents, and real enterprise workloads from day one.",
@@ -134,7 +134,7 @@ export const SINGAPORE_PAGE: GlobalCountryPageData = {
       "description": "Production deployment with full monitoring — latency, cost per query, accuracy drift, and business KPIs. We set up the observability infrastructure so you can see exactly how your AI system is performing at all times."
     }
   ],
-  "whyToadsters": "",
+  "whyToadster": "",
   "faqs": [
     {
       "question": "What does an AI development company actually do?",
@@ -161,7 +161,7 @@ export const SINGAPORE_PAGE: GlobalCountryPageData = {
       "answer": "Building an in-house AI team in Singapore takes 6–12 months minimum and requires competing for talent in one of the most competitive hiring markets in APAC. Beyond headcount, AI development requires accumulated experience in prompt engineering, model evaluation, vector infrastructure, and production observability — skills that take time to build. An experienced AI development partner shortens your time-to-production significantly, brings patterns from dozens of prior implementations, and reduces the risk of costly architectural mistakes. Many of our clients start with an external partner, build internal capability in parallel, and transfer ownership once the system is stable and the team is confident."
     },
     {
-      "question": "How does Toadsters handle data privacy and PDPA compliance?",
+      "question": "How does Toadster handle data privacy and PDPA compliance?",
       "answer": "Singapore's Personal Data Protection Act imposes specific obligations on how personal data is collected, stored, processed, and shared. For AI systems, this becomes especially relevant when user queries, customer profiles, or employee data are involved. Our standard approach includes data minimisation by design, clear data retention policies, role-based access controls, and audit logging. Where required, we deploy on private cloud infrastructure (AWS Singapore region, Azure Southeast Asia) to ensure data residency. For regulated industries — financial services, healthcare — we factor in MAS, MOH, and sector-specific guidelines from the architecture stage."
     },
     {
@@ -173,7 +173,7 @@ export const SINGAPORE_PAGE: GlobalCountryPageData = {
       "answer": "Fine-tuning trains a base language model further on your specific data — changing the model's weights so it learns your terminology, tone, and domain knowledge. RAG, by contrast, leaves the base model unchanged and dynamically retrieves relevant context from an external database at inference time. Fine-tuning is better for capturing style, format, and consistent domain behaviour. RAG is better for answering questions against large, frequently updated document collections. In practice, many enterprise AI systems use a combination — a fine-tuned model for domain understanding, connected to a RAG pipeline for current knowledge retrieval. We recommend the right approach based on your data volume, update frequency, and accuracy requirements."
     },
     {
-      "question": "Does Toadsters work with startups or only large enterprises?",
+      "question": "Does Toadster work with startups or only large enterprises?",
       "answer": "Both. Our approach differs by stage. With Singapore startups, we often begin with a tightly scoped MVP — one well-defined AI capability that proves business value and supports fundraising narratives. We know how to build cost-efficiently on a startup budget while keeping architecture extensible. With SMBs and enterprises, engagements typically involve a full discovery process, architecture review, and a longer development roadmap. The common thread is that we always start with business outcomes rather than technology for its own sake."
     },
     {

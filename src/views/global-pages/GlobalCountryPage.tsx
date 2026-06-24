@@ -187,7 +187,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
           <SectionContainer>
             <ScrollReveal className="global-country-section-header text-center">
               <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-3xl">
-                Why Businesses in {data.country} Choose Toadsters
+                Why Businesses in {data.country} Choose Toadster
               </h2>
               {data.whyChooseIntro ? (
                 <p className="mx-auto mt-4 max-w-2xl text-base text-page-fg-muted md:text-lg">{truncate(data.whyChooseIntro, 160)}</p>

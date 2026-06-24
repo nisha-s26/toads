@@ -1,13 +1,13 @@
 import type { GlobalCountryPageData } from '../types'
 
 export const CANADA_PAGE: GlobalCountryPageData = {
-  "seoTitle": "AI Development Company in Canada | Toadsters Technologies",
-  "metaDescription": "Toadsters Technologies builds custom AI agents, RAG systems & LLM solutions for Canadian businesses. Talk to an AI engineer, not a sales rep. Book a call.",
+  "seoTitle": "AI Development Company in Canada | Toadster Technologies",
+  "metaDescription": "Toadster Technologies builds custom AI agents, RAG systems & LLM solutions for Canadian businesses. Talk to an AI engineer, not a sales rep. Book a call.",
   "slug": "/ai-development-company-canada",
   "country": "Canada",
   "heroTitle": "AI Development Company in Canada",
   "heroSubtitle": "An AI Development Company That Ships Working Software, Not Just Demos",
-  "heroIntro": "Most companies don't have an AI problem. They have an execution problem. They've seen a slick demo, maybe even built a prototype internally, and then watched it stall the moment it had to deal with real customers, real data, or a privacy officer asking hard questions.\n\nToadsters Technologies is an AI development company in Canada built around one job: turning AI from a slide in a strategy deck into something that actually runs in production. We build generative AI applications, AI agents, RAG systems, and custom LLM tools for companies that want results, not a buzzword-heavy pitch.\n\nIf you're a founder figuring out where AI fits in your roadmap, or a CTO who's tired of vendors who can talk about AI but can't ship it, we should talk.",
+  "heroIntro": "Most companies don't have an AI problem. They have an execution problem. They've seen a slick demo, maybe even built a prototype internally, and then watched it stall the moment it had to deal with real customers, real data, or a privacy officer asking hard questions.\n\nToadster Technologies is an AI development company in Canada built around one job: turning AI from a slide in a strategy deck into something that actually runs in production. We build generative AI applications, AI agents, RAG systems, and custom LLM tools for companies that want results, not a buzzword-heavy pitch.\n\nIf you're a founder figuring out where AI fits in your roadmap, or a CTO who's tired of vendors who can talk about AI but can't ship it, we should talk.",
   "whyChooseIntro": "",
   "whyChoosePoints": [
     "We tell you when AI isn't the answer. Sometimes a cleaner database query or a simple rules-based workflow solves the problem faster and cheaper than a model. We'll say that upfront, even if it means a smaller invoice for us.",
@@ -109,7 +109,7 @@ export const CANADA_PAGE: GlobalCountryPageData = {
       "description": "Launch isn't the finish line. We monitor performance and cost after go-live and tune the system as real usage teaches us things the test environment never could."
     }
   ],
-  "whyToadsters": "",
+  "whyToadster": "",
   "faqs": [
     {
       "question": "What does an AI development company actually do?",
@@ -136,11 +136,11 @@ export const CANADA_PAGE: GlobalCountryPageData = {
       "answer": "Because the expensive part of AI work isn't writing code — it's avoiding the mistakes that come from doing it for the first time. An experienced team has already made those mistakes on someone else's budget."
     },
     {
-      "question": "Is Toadsters a Canada-based company or does it work internationally?",
-      "answer": "Toadsters Technologies serves Canadian clients directly and also works with businesses internationally, so we're used to working across time zones and regulatory contexts."
+      "question": "Is Toadster a Canada-based company or does it work internationally?",
+      "answer": "Toadster Technologies serves Canadian clients directly and also works with businesses internationally, so we're used to working across time zones and regulatory contexts."
     },
     {
-      "question": "How does Toadsters handle PIPEDA and Canadian data residency requirements?",
+      "question": "How does Toadster handle PIPEDA and Canadian data residency requirements?",
       "answer": "We factor data residency, processing location, and access controls into the architecture from the discovery stage, rather than treating it as a compliance step bolted on at the end."
     },
     {
@@ -148,7 +148,7 @@ export const CANADA_PAGE: GlobalCountryPageData = {
       "answer": "A focused tool, four to eight weeks. A more complex platform with multiple integrations, a few months. We'll give you a real estimate after discovery, not a marketing number."
     },
     {
-      "question": "Does Toadsters work with startups or only enterprises?",
+      "question": "Does Toadster work with startups or only enterprises?",
       "answer": "Both. Startups usually need speed and a tight scope. Enterprises usually need governance and integration work. We adjust the approach, not the quality."
     },
     {

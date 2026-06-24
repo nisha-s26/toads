@@ -105,7 +105,7 @@ export const resourceTypesSection = {
   ],
 }
 
-export const whyToadsterSection = {
+export const whyToadsterection = {
   eyebrow: "Why Toadster",
   title: "Why Choose Toadster Technologies",
   intro:
