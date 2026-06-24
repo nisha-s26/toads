@@ -1,6 +1,6 @@
 import type { HireResource } from "./hire-resources"
 
-const SITE = "https://toadsters.com"
+const SITE = "https://toadster.com"
 
 function hirePage(
   slug: string,

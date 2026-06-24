@@ -1,19 +1,19 @@
-import type { GlobalCountryPageData } from '../types'
+import type { GlobalCityPageData } from '../../types'
 
-export const INDIA_PAGE: GlobalCountryPageData = {
-  "seoTitle": "AI Development Company in India | Toadsters Technologies",
-  "metaDescription": "Toadsters Technologies builds custom AI agents, RAG systems & LLM solutions for Indian businesses. Talk to an AI engineer, not a sales rep. Book a call.",
-  "slug": "/ai-development-company-india",
-  "country": "India",
-  "heroTitle": "AI Development Company in India",
-  "heroSubtitle": "An AI Development Company That Ships Working Software, Not Just Demos",
-  "heroIntro": "Most companies don't have an AI problem. They have an execution problem. They've seen a slick demo, maybe even built a prototype with an in-house team, and then watched it stall the moment it had to handle real customers or messy real-world data.\n\nToadsters Technologies is an AI development company in India built around one job: turning AI from a slide in a strategy deck into something that actually runs in production. We build generative AI applications, AI agents, RAG systems, and custom LLM tools for companies that want results, not a buzzword-heavy pitch.\n\nIf you're a founder figuring out where AI fits in your roadmap, or a CTO who's tired of vendors who can talk about AI but can't ship it, we should talk.",
+export const SEATTLE_PAGE: GlobalCityPageData = {
+  "seoTitle": "AI Development Company in Seattle | Toadsters Technologies",
+  "metaDescription": "Toadsters Technologies builds custom AI agents, RAG systems & LLM solutions for Seattle businesses. Talk to an AI engineer, not a sales rep. Book a call.",
+  "slug": "/ai-development-company-seattle",
+  "country": "Seattle",
+  "heroTitle": "AI Development Company in Seattle",
+  "heroSubtitle": "An AI Development Company in Seattle That Ships Working Software, Not Just Demos",
+  "heroIntro": "Seattle has no shortage of AI talent or AI vendors. Between Amazon, Microsoft, and a deep bench of engineers who've worked on cloud and ML infrastructure at scale, the city is full of people who can talk about AI fluently. What's harder to find is a team that can take a working prototype and turn it into something that survives real users, real data, and real production load. Most companies don't have an AI problem. They have an execution problem — a demo that looked great in a meeting and quietly stalled the moment it had to do its job.\n\nToadsters Technologies is an AI development company serving Seattle, built around one job: turning AI from a slide in a strategy deck into something that actually runs in production. We build generative AI applications, AI agents, RAG systems, and custom LLM tools for companies that want results, not a buzzword-heavy pitch.\n\nIf you're a founder figuring out where AI fits in your roadmap, or a CTO who's tired of vendors who can talk about AI but can't ship it, we should talk.",
   "whyChooseIntro": "",
   "whyChoosePoints": [
     "We tell you when AI isn't the answer. Sometimes a cleaner database query or a simple rules-based workflow solves the problem faster and cheaper than a model. We'll say that upfront, even if it means a smaller invoice for us.",
-    "You talk to the people building it. No account manager relaying messages between you and an offshore team you've never met. Our engineers are in the calls, in the WhatsApp or Slack thread, and accountable for the result.",
-    "We design for what happens after launch. Plenty of AI projects look great in a demo and fall apart the moment real users or real data show up. We build with monitoring, retraining, and cost control in mind from day one, because the bill for a poorly optimized LLM pipeline can climb fast once usage picks up.",
-    "Security and governance aren't an afterthought. If you're in healthcare, fintech, or any regulated space, you already know \"it works\" isn't enough. We build access controls, audit trails, and proper data handling into the architecture from the start, not as a patch applied later."
+    "You talk to the people building it. No account manager relaying messages between you and a team you've never met. Our engineers are in the calls, in the Slack thread, and accountable for the result.",
+    "We design for what happens after launch. Plenty of AI projects look great in a demo and fall apart the moment real users or real data show up. We build with monitoring, retraining, and cost control in mind from day one, because the bill for a poorly optimized LLM pipeline can climb fast once usage picks up — something that matters even more in a city where cloud spend is already under a microscope.",
+    "Security and governance aren't an afterthought. Whether you're a fast-growing startup or an established enterprise, you already know \"it works\" isn't enough. We build access controls, audit trails, and proper data handling into the architecture from the start, not as a patch applied later."
   ],
   "services": [
     {
@@ -30,7 +30,7 @@ export const INDIA_PAGE: GlobalCountryPageData = {
     },
     {
       "title": "LLM Development",
-      "description": "Sometimes an off-the-shelf model isn't enough, or sending company data to a third-party API isn't acceptable for compliance reasons. We handle fine-tuning, prompt engineering, evaluation, and self-hosted deployment for businesses that need more control over how their AI behaves and where their data physically sits."
+      "description": "Sometimes an off-the-shelf model isn't enough, or sending company data to a third-party API isn't an option. We handle fine-tuning, prompt engineering, evaluation, and self-hosted deployment for businesses that need more control over how their AI behaves and where their data lives."
     },
     {
       "title": "AI Chatbot & Conversational AI",
@@ -45,33 +45,8 @@ export const INDIA_PAGE: GlobalCountryPageData = {
       "description": "The hardest part of an AI project usually isn't the model. It's getting that model to talk to your existing systems without breaking something else. We handle that integration work using Docker and Kubernetes, deployed on AWS, Azure, or Google Cloud, so the new piece fits into what you've already built instead of sitting awkwardly next to it."
     }
   ],
-  "industries": [
-    {
-      "title": "Healthcare",
-      "description": "Clinical documentation support, patient intake automation, and decision support tools, built with the understanding that patient data isn't something you experiment with."
-    },
-    {
-      "title": "FinTech",
-      "description": "Fraud detection, credit risk models, and KYC or compliance automation for teams that need accuracy and a clear audit trail, not just a fast output."
-    },
-    {
-      "title": "SaaS",
-      "description": "Embedded copilots, smarter in-app search, and usage analytics for product teams trying to make their platform feel genuinely intelligent, not just AI-labelled."
-    },
-    {
-      "title": "Manufacturing",
-      "description": "Predictive maintenance and visual quality inspection that catches problems on the line before they turn into expensive ones."
-    },
-    {
-      "title": "Retail",
-      "description": "Personalization and demand forecasting based on your actual sales patterns, not a generic industry benchmark."
-    },
-    {
-      "title": "Logistics",
-      "description": "Route and inventory optimization for operations where a bad forecast costs real money, not just a bad report nobody reads."
-    }
-  ],
-  "trends": "India's AI adoption is moving fast — strong engineering talent, a maturing SaaS ecosystem, and growing government push toward digital infrastructure are all part of that. But most of the AI conversations we have aren't about whether AI works. They're about why the first attempt didn't.\n\nA few patterns come up again and again:\n\n**The pilot that never graduates.** A team builds a proof of concept, it looks promising in a demo, and then it sits untouched because nobody planned for what production actually requires — security review, monitoring, cost controls, clear ownership.\n\n**Underestimating the cost curve.** A chatbot that costs a modest amount a month at low usage can get expensive fast once real traffic hits it, if nobody designed for efficiency. This catches a lot of growing companies off guard.\n\n**Fragmented data across legacy systems.** Many Indian businesses are running a mix of old and new systems, which makes feeding clean, structured data into an AI pipeline harder than it sounds on paper.\n\n**Confusing build-vs-buy.** There's a real gap between off-the-shelf AI tools and something built specifically around your workflows. Buying is faster upfront. Building is what actually fits your business long-term.\n\n**Treating AI as a one-time project instead of an ongoing capability.** Models drift, data changes, and what worked at launch needs tuning months later. The businesses that get real, lasting value treat AI as something they keep investing in, not a one-time install.\n\nWe've built our process around solving exactly these problems before they become expensive surprises.",
+  "industries": [],
+  "trends": "Seattle is one of the deepest AI and cloud engineering talent pools in the country, which makes it tempting to assume execution will just happen because the skills are local. In practice, most of the AI conversations we have aren't about whether AI works. They're about why the first attempt didn't.\n\nA few patterns come up again and again:\n\n**The pilot that never graduates.** A team builds a proof of concept, it looks promising in a demo, and then it sits untouched because nobody planned for what production actually requires — security review, monitoring, cost controls, clear ownership.\n\n**Underestimating the cost curve.** A chatbot that costs a modest amount a month at low usage can get expensive fast once real traffic hits it, if nobody designed for efficiency. This catches a lot of growing companies off guard, especially fast-scaling startups burning through cloud credits.\n\n**Over-hiring instead of right-sizing.** With so much AI and ML talent in the area, it's easy to build a large internal team before you actually know what you're building. We often see more value in a focused outside team that can move fast and hand off cleanly.\n\n**Confusing build-vs-buy.** There's a real gap between off-the-shelf AI tools and something built specifically around your workflows. Buying is faster upfront. Building is what actually fits your business long-term.\n\n**Treating AI as a one-time project instead of an ongoing capability.** Models drift, data changes, and what worked at launch needs tuning months later. The businesses that get real, lasting value treat AI as something they keep investing in, not a one-time install.\n\nWe've built our process around solving exactly these problems before they become expensive surprises.",
   "processSteps": [
     {
       "num": "1",
@@ -116,8 +91,8 @@ export const INDIA_PAGE: GlobalCountryPageData = {
       "answer": "It designs, builds, and deploys AI systems — models, agents, automation tools — tailored to a specific business problem, instead of selling a generic off-the-shelf product."
     },
     {
-      "question": "How much does AI development cost in India?",
-      "answer": "It depends heavily on scope. A focused tool like an internal chatbot might run in the range of a few lakhs. A full enterprise AI platform with custom infrastructure can run considerably higher. We give you a real number after understanding your use case, not before."
+      "question": "How much does AI development cost in Seattle?",
+      "answer": "It depends heavily on scope. A focused tool like an internal chatbot might run in the tens of thousands of dollars. A full enterprise AI platform with custom infrastructure can run well into six figures. We give you a real number after understanding your use case, not before."
     },
     {
       "question": "What are AI agents, in plain terms?",
@@ -136,16 +111,16 @@ export const INDIA_PAGE: GlobalCountryPageData = {
       "answer": "Because the expensive part of AI work isn't writing code — it's avoiding the mistakes that come from doing it for the first time. An experienced team has already made those mistakes on someone else's budget."
     },
     {
-      "question": "Is Toadsters an India-based company or does it work internationally?",
-      "answer": "Toadsters Technologies has a strong India presence and serves clients both locally and across global markets."
+      "question": "Is Toadsters based in Seattle or does it work with clients elsewhere too?",
+      "answer": "Toadsters Technologies serves Seattle-area clients directly and also works with businesses across other regions and time zones."
     },
     {
       "question": "How long does a typical AI project take?",
       "answer": "A focused tool, four to eight weeks. A more complex platform with multiple integrations, a few months. We'll give you a real estimate after discovery, not a marketing number."
     },
     {
-      "question": "Does Toadsters work with startups or only enterprises?",
-      "answer": "Both. Startups usually need speed and a tight scope. Enterprises usually need governance and integration work. We adjust the approach, not the quality."
+      "question": "Does Toadsters work with startups or only larger companies?",
+      "answer": "Both. Startups usually need speed and a tight scope. Larger companies usually need governance and integration work. We adjust the approach, not the quality."
     },
     {
       "question": "Which AI models and tools do you work with?",
@@ -160,12 +135,12 @@ export const INDIA_PAGE: GlobalCountryPageData = {
       "answer": "Yes. Some clients need a single project. Others need an embedded team for continuous AI work. We support both models."
     },
     {
-      "question": "How do you handle AI security and compliance for Indian businesses?",
-      "answer": "We build access controls, data handling rules, and audit trails into the system from the start, based on your industry's actual requirements rather than a generic checklist."
+      "question": "How do you handle AI security and data handling?",
+      "answer": "We build access controls, data handling rules, and audit trails into the system from the start, based on your specific requirements rather than a generic checklist."
     },
     {
-      "question": "What industries do you specialize in?",
-      "answer": "Healthcare, fintech, SaaS, manufacturing, retail, and logistics, with hands-on experience in each."
+      "question": "Do we need to be based in Seattle to work with you?",
+      "answer": "No. Being familiar with the Seattle market just means we understand the local talent landscape and cloud ecosystem — most of our process works perfectly well remotely too."
     },
     {
       "question": "How do we get started?",
@@ -173,8 +148,10 @@ export const INDIA_PAGE: GlobalCountryPageData = {
     }
   ],
   "ctaTitle": "Let's Build Something That Actually Works",
-  "ctaBody": "If you're evaluating AI development companies in India, the real question isn't \"do they know AI.\" Most do, at least on paper. The question is whether they can ship something that survives contact with real users, real data, and real cost pressure.\n\nThat's the part we're good at.\n\n**Book a free strategy call and find out if we're the right fit.**\n\n[Schedule Your Free Consultation →]",
+  "ctaBody": "If you're evaluating AI development companies in Seattle, the real question isn't \"do they know AI.\" Most do, at least on paper, in a city this close to two of the biggest names in cloud and AI. The question is whether they can ship something that survives contact with real users, real data, and real cost pressure.\n\nThat's the part we're good at.\n\n**Book a free strategy call and find out if we're the right fit.**\n\n[Schedule Your Free Consultation →]",
   "ctaPrimary": "Book a free strategy call and find out if we're the right fit.",
   "ctaSecondary": "Schedule Your Free Consultation",
-  "key": "india"
+  "parentCountryKey": "usa",
+  "exploreCardDescription": "Seattle has no shortage of AI talent or AI vendors. Between Amazon, Microsoft, and a deep bench of engineers who've…",
+  "key": "seattle"
 }

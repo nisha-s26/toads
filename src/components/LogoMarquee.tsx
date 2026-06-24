@@ -5,13 +5,24 @@ import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { TRUSTED_BY_CLIENTS } from "@/constants/trustedByClients"
 
-const LOGO_GAP = "gap-16 sm:gap-20 md:gap-24"
-const MARQUEE_SPEED_PX = 48
+const LOGO_GAP = {
+  default: "gap-14 sm:gap-16 md:gap-20",
+  compact: "gap-10 sm:gap-12 md:gap-14",
+} as const
+
+const MARQUEE_MASK = {
+  default:
+    "[mask-image:linear-gradient(to_right,transparent,black_3%,black_97%,transparent)]",
+  compact:
+    "[mask-image:linear-gradient(to_right,transparent,black_1.5%,black_98.5%,transparent)]",
+} as const
 
 const LOGO_CELL_CLASS = {
   default: "h-14 w-44 sm:h-16 sm:w-48 md:h-[4.25rem] md:w-52",
   compact: "h-12 w-40 sm:h-14 sm:w-44 md:h-16 md:w-48",
 } as const
+
+const MARQUEE_SPEED_PX = 48
 
 type LogoMarqueeProps = {
   compact?: boolean
@@ -190,7 +201,8 @@ export function LogoMarquee({
   return (
     <div
       className={cn(
-        "logo-marquee relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]",
+        "logo-marquee relative overflow-hidden",
+        compact ? MARQUEE_MASK.compact : MARQUEE_MASK.default,
         compact ? "py-3 sm:py-4" : "py-5 sm:py-6",
         className,
       )}
@@ -202,7 +214,13 @@ export function LogoMarquee({
         pausedRef.current = false
       }}
     >
-      <div ref={trackRef} className={cn("flex w-max items-center will-change-transform", LOGO_GAP)}>
+      <div
+        ref={trackRef}
+        className={cn(
+          "flex w-max items-center will-change-transform",
+          compact ? LOGO_GAP.compact : LOGO_GAP.default,
+        )}
+      >
         {marqueeLogos.map(({ label, src, scale }, index) => (
           <LogoItem
             key={`${label}-${index}`}

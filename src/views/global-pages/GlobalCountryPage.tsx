@@ -19,7 +19,10 @@ import {
 } from "lucide-react"
 import { ScrollReveal } from "@/components/ScrollReveal"
 import { HomepageFaqItem } from "@/components/homepage/HomepageFaqItem"
+import { GlobalExploreCities } from "@/components/global-pages/GlobalExploreCities"
 import { COUNTRY_HERO_IMAGES, TECH_IMAGES } from "@/constants/countryTechImages"
+import { getCitiesForCountry } from "@/views/global-pages/city-registry"
+import { GLOBAL_COUNTRY_PAGES } from "@/views/global-pages/registry"
 import type { GlobalCountryPageData } from "./types"
 
 const WHY_ICONS = [Shield, MapPin, Cog] as const
@@ -95,7 +98,12 @@ function SectionContainer({ children, className }: { children: React.ReactNode; 
 }
 
 export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
-  const heroImage = COUNTRY_HERO_IMAGES[data.key] ?? TECH_IMAGES.aiNeural
+  const isCityPage = Boolean(data.parentCountryKey)
+  const parentCountry = data.parentCountryKey ? GLOBAL_COUNTRY_PAGES[data.parentCountryKey] : undefined
+  const exploreCountryKey = data.parentCountryKey ?? data.key
+  const exploreCountryLabel = parentCountry?.country ?? data.country
+  const exploreCities = getCitiesForCountry(exploreCountryKey)
+  const heroImage = COUNTRY_HERO_IMAGES[data.key] ?? COUNTRY_HERO_IMAGES[data.parentCountryKey ?? ""] ?? TECH_IMAGES.aiNeural
   const heroText = firstParagraph(data.heroIntro)
   const whyCards = data.whyChoosePoints.slice(0, 3)
   const services = data.services.slice(0, 5)
@@ -116,11 +124,11 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
   ]
 
   return (
-    <main className="global-country-page font-sans min-h-screen bg-[#eef1f8] pt-28 text-page-fg dark:bg-page-bg">
+    <main className="global-country-page font-sans min-h-screen bg-[#eef1f8] text-page-fg dark:bg-page-bg">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       {/* Hero */}
-      <section className="global-country-section global-country-hero">
+      <section className="global-country-section global-country-hero" style={{ padding: "11rem 2rem"}}>
         <SectionContainer className="global-country-hero-grid">
           <div className="global-country-hero-enter">
             <nav className="mb-4 flex flex-wrap items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-page-fg-muted">
@@ -132,6 +140,14 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                 AI Development
               </Link>
               <ChevronRight className="h-3 w-3" aria-hidden />
+              {parentCountry ? (
+                <>
+                  <Link href={parentCountry.slug} className="hover:text-toadster-green">
+                    {parentCountry.country}
+                  </Link>
+                  <ChevronRight className="h-3 w-3" aria-hidden />
+                </>
+              ) : null}
               <span>{data.country}</span>
             </nav>
             <span className="inline-flex rounded-full border border-page-border bg-white/80 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-page-fg-muted dark:bg-page-card">
@@ -146,9 +162,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                 Book a Strategy Call
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="/services/ai-development" className="global-country-btn-outline">
-                View Case Studies
-              </Link>
+              
             </div>
           </div>
 
@@ -169,7 +183,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
 
       {/* Why Choose */}
       {whyCards.length > 0 && (
-        <section className="global-country-section">
+        <section className="global-country-section" style={{ padding: "4rem 2rem"}}>
           <SectionContainer>
             <ScrollReveal className="global-country-section-header text-center">
               <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-3xl">
@@ -203,7 +217,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
 
       {/* Services bento */}
       {services.length > 0 && (
-        <section className="global-country-section global-country-services-wrap">
+        <section className="global-country-section global-country-services-wrap" style={{ padding: "4rem 2rem"}}>
           <SectionContainer>
             <ScrollReveal className="global-country-section-header">
               <h2 className="text-2xl font-extrabold text-white md:text-3xl">Enterprise AI Development Services</h2>
@@ -257,7 +271,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
 
       {/* Challenges */}
       {challenges.length > 0 && (
-        <section className="global-country-section global-country-challenges">
+        <section className="global-country-section global-country-challenges" style={{ padding: "4rem 2rem"}}>
           <SectionContainer className="global-country-split-grid">
             <ScrollReveal y={18}>
               <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-3xl">
@@ -294,19 +308,24 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
 
       {/* Process */}
       {processSteps.length > 0 && (
-        <section className="global-country-section">
+        <section className="global-country-section global-country-process-section">
           <SectionContainer>
             <ScrollReveal className="global-country-section-header text-center">
               <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-3xl">
                 Our {processSteps.length}-Step AI Development Process
               </h2>
             </ScrollReveal>
-            <div className="global-country-process-track">
+            <div
+              className="global-country-process-track"
+              style={{ "--gc-process-cols": processSteps.length } as React.CSSProperties}
+            >
               {processSteps.map((step, index) => (
                 <ScrollReveal key={step.num} delay={index * 0.05} y={12} className="global-country-process-item">
                   <div className="global-country-process-node">{step.num}</div>
-                  <h3 className="mt-3 text-sm font-bold md:text-base">{step.title}</h3>
-                  <p className="mt-1.5 text-xs leading-snug text-page-fg-muted md:text-sm">{truncate(step.description, 72)}</p>
+                  <h3 className="global-country-process-title mt-3 text-sm font-bold md:text-base">{step.title}</h3>
+                  <p className="global-country-process-desc mt-1.5 text-xs leading-snug text-page-fg-muted md:text-sm">
+                    {truncate(step.description, 100)}
+                  </p>
                 </ScrollReveal>
               ))}
             </div>
@@ -314,9 +333,18 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
         </section>
       )}
 
+      {exploreCities.length > 0 ? (
+        <GlobalExploreCities
+          countryKey={exploreCountryKey}
+          countryLabel={exploreCountryLabel}
+          cities={exploreCities}
+          activeCityKey={isCityPage ? data.key : undefined}
+        />
+      ) : null}
+
       {/* FAQ */}
       {faqs.length > 0 && (
-        <section id="faq" className="global-country-section">
+        <section id="faq" className="max-w-7xl mx-auto">
           <SectionContainer className="max-w-4xl">
             <ScrollReveal className="global-country-section-header text-center">
               <h2 className="text-2xl font-extrabold md:text-3xl">Frequently Asked Questions</h2>

@@ -237,8 +237,8 @@ export default function Careers() {
                     <div className="mt-12 pt-8 border-t border-page-border">
                         <p className="text-page-fg-muted text-sm">
                             Questions about careers at Toadster? Contact us at{" "}
-                            <a href="mailto:careers@toadsters.com" title="Email careers@toadsters.com" className="text-toadster-green hover:underline">
-                                careers@toadsters.com
+                            <a href="mailto:business@toadsters.com" title="Email business@toadsters.com" className="text-toadster-green hover:underline">
+                                business@toadsters.com
                             </a>
                         </p>
                     </div>

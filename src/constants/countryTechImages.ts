@@ -43,4 +43,41 @@ export const COUNTRY_HERO_IMAGES: Record<string, string> = {
   canada: TECH_IMAGES.cloud,
   india: TECH_IMAGES.india,
   singapore: TECH_IMAGES.fintech,
+  // City monuments — verified Unsplash URLs
+  sydney:
+    "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1200&q=80",
+  vancouver:
+    "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=80",
+  toronto:
+    "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80",
+  london:
+    "https://images.unsplash.com/photo-1494783367193-149034c05e8f?auto=format&fit=crop&w=1200&q=80",
+  manchester:
+    "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=1200&q=80",
+  "new-york":
+    "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1200&q=80",
+  hyderabad:
+    "https://images.unsplash.com/photo-1750834115164-8c2658f18dd0?auto=format&fit=crop&w=1200&q=80",
+  seattle:
+    "https://images.unsplash.com/photo-1587330979470-3595ac045ab0?auto=format&fit=crop&w=1200&q=80",
+  bangalore:
+    "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1200&q=80",
+  mumbai:
+    "https://images.unsplash.com/photo-1768728584556-e97f86b51417?auto=format&fit=crop&w=1200&q=80",
+  delhi:
+    "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80",
+}
+
+export const CITY_CARD_IMAGES: Record<string, string> = {
+  sydney: COUNTRY_HERO_IMAGES.sydney,
+  vancouver: COUNTRY_HERO_IMAGES.vancouver,
+  toronto: COUNTRY_HERO_IMAGES.toronto,
+  london: COUNTRY_HERO_IMAGES.london,
+  manchester: COUNTRY_HERO_IMAGES.manchester,
+  "new-york": COUNTRY_HERO_IMAGES["new-york"],
+  hyderabad: COUNTRY_HERO_IMAGES.hyderabad,
+  seattle: COUNTRY_HERO_IMAGES.seattle,
+  bangalore: COUNTRY_HERO_IMAGES.bangalore,
+  mumbai: COUNTRY_HERO_IMAGES.mumbai,
+  delhi: COUNTRY_HERO_IMAGES.delhi,
 }

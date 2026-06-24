@@ -1,4 +1,4 @@
-# https://toadsters.com robots.txt
+# https://toadster.com robots.txt
 # Allow all reputable crawlers; block only internal API surface.
 
 User-agent: *
@@ -30,4 +30,4 @@ Allow: /
 User-agent: SemrushBot
 Allow: /
 
-Sitemap: https://toadsters.com/sitemap.xml
+Sitemap: https://toadster.com/sitemap.xml

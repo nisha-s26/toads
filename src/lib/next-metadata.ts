@@ -43,7 +43,7 @@ export function createStaticMetadata(path: string): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      site: "@toadsters",
+      site: "@toadster",
       title,
       description,
       images: [{ url: SITE_OG_IMAGE, alt: SITE_OG_IMAGE_ALT }],
@@ -85,7 +85,7 @@ export async function createBlogMetadata(slug: string): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      site: "@toadsters",
+      site: "@toadster",
       title,
       description,
       images: [{ url: SITE_OG_IMAGE, alt: SITE_OG_IMAGE_ALT }],

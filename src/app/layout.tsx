@@ -33,8 +33,8 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Toadster",
   alternateName: "Toadster Technologies",
-  url: "https://toadsters.com/",
-  logo: "https://toadsters.com/toadster-logo.svg",
+  url: "https://toadster.com/",
+  logo: "https://toadster.com/toadster-logo.svg",
   description:
     "Toadster delivers AI software development, MLOps, data engineering & custom software solutions for global enterprises, startups, and SMBs.",
   email: "business@toadsters.com",
@@ -66,10 +66,10 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Toadster",
-  url: "https://toadsters.com/",
+  url: "https://toadster.com/",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://toadsters.com/blogs?q={search_term_string}",
+    target: "https://toadster.com/blogs?q={search_term_string}",
     "query-input": "required name=search_term_string",
   },
 }

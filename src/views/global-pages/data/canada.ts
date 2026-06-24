@@ -109,7 +109,7 @@ export const CANADA_PAGE: GlobalCountryPageData = {
       "description": "Launch isn't the finish line. We monitor performance and cost after go-live and tune the system as real usage teaches us things the test environment never could."
     }
   ],
-  "whyToadsters": "We're not the cheapest AI vendor you'll find serving the Canadian market, and we're not trying to be. We're the team you call when you need something that actually works in production and keeps working six months down the line.\n\nThat comes from real deployment experience across healthcare, fintech, and SaaS — not just certifications and case study slides. It comes from staying genuinely close to how the underlying technology moves, from new model releases to how vector databases and orchestration frameworks handle scale. And it comes from building governance and security into the foundation, because that's the actual difference between a system you can trust and one you're crossing your fingers about.\n\nIf that sounds like the kind of partner you're looking for, let's talk.",
+  "whyToadsters": "",
   "faqs": [
     {
       "question": "What does an AI development company actually do?",

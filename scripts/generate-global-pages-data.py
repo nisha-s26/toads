@@ -11,12 +11,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "src/views/global-pages/data"
+CITY_OUT = OUT / "cities"
 DOWNLOADS = Path("/home/dell/Downloads")
 
 SERVICE_TITLES = [
     "Generative AI Development",
     "AI Agent Development",
     "RAG Development & Enterprise Knowledge Base AI",
+    "RAG & Enterprise Knowledge Platforms",
+    "Private LLM Development",
     "Private LLM Development Services",
     "AI Workflow Automation & Business Process Automation",
     "Machine Learning & Predictive Analytics",
@@ -61,38 +64,62 @@ def ts_escape(s: str) -> str:
     return s.replace("\\", "\\\\").replace("`", "\\`").replace("${", "\\${")
 
 
+def extract_slug(text: str) -> str:
+    marker = re.search(r"(?:URL Slug|URL SLUG):\s*", text, re.I)
+    if not marker:
+        return ""
+    rest = text[marker.end():]
+    slug_match = re.search(r"/ai-development-company-[a-z0-9-]+", rest, re.I)
+    if not slug_match:
+        return ""
+    slug = slug_match.group(0)
+    # Docx sources often glue section text onto the slug without a space (e.g. germanyAI, delhiPRIMARY).
+    slug = re.sub(r"(PRIMARY|AI)$", "", slug, flags=re.I)
+    return slug.lower()
+
+
 def parse_seo(text: str) -> dict[str, str]:
-    title = re.search(r"SEO Title:\s*(.+?)(?:Meta Description|$)", text)
-    desc = re.search(r"Meta Description:\s*(.+?)(?:URL Slug|$)", text)
-    slug = re.search(r"URL Slug:\s*(/ai-development-company-[a-z-]+)", text)
+    title = re.search(r"(?:SEO Title|SEO TITLE)(?:\s*\([^)]*\))?:\s*(.+?)(?:Meta Description|META DESCRIPTION|$)", text, re.I | re.S)
+    desc = re.search(
+        r"(?:Meta Description|META DESCRIPTION)(?:\s*\([^)]*\))?:\s*(.+?)(?:URL Slug|URL SLUG|$)",
+        text,
+        re.I | re.S,
+    )
+    slug = extract_slug(text)
     return {
-        "seoTitle": title.group(1).strip() if title else "",
-        "metaDescription": desc.group(1).strip() if desc else "",
-        "slug": slug.group(1) if slug else "",
+        "seoTitle": re.sub(r"\s+", " ", title.group(1)).strip() if title else "",
+        "metaDescription": re.sub(r"\s+", " ", desc.group(1)).strip() if desc else "",
+        "slug": slug,
     }
 
 
 def split_services_block(block: str) -> list[dict[str, str]]:
+    if not block.strip():
+        return []
     items: list[dict[str, str]] = []
     titles = sorted(SERVICE_TITLES, key=len, reverse=True)
-    pos = 0
-    while pos < len(block):
-        match = None
-        for title in titles:
-            idx = block.find(title, pos)
-            if idx == pos:
-                match = title
+    matches: list[tuple[int, str]] = []
+    for title in titles:
+        start = 0
+        while True:
+            idx = block.find(title, start)
+            if idx == -1:
                 break
-        if not match:
-            break
-        next_pos = len(block)
-        for title in titles:
-            idx = block.find(title, pos + len(match))
-            if idx > pos and idx < next_pos:
-                next_pos = idx
-        desc = block[pos + len(match) : next_pos].strip()
-        items.append({"title": match, "description": desc})
-        pos = next_pos
+            matches.append((idx, title))
+            start = idx + len(title)
+    if not matches:
+        return []
+    matches.sort(key=lambda item: item[0])
+    deduped: list[tuple[int, str]] = []
+    for start, title in matches:
+        if any(start >= s and start < s + len(t) for s, t in deduped):
+            continue
+        deduped.append((start, title))
+    deduped.sort(key=lambda item: item[0])
+    for i, (start, title) in enumerate(deduped):
+        end = deduped[i + 1][0] if i + 1 < len(deduped) else len(block)
+        desc = block[start + len(title) : end].strip()
+        items.append({"title": title, "description": desc})
     return items
 
 
@@ -137,6 +164,32 @@ def split_why_paragraphs(block: str) -> list[str]:
 
 def split_process_steps(block: str) -> list[dict[str, str]]:
     steps: list[dict[str, str]] = []
+    step_parts = re.split(r"(?=Step \d+:)", block)
+    if len(step_parts) > 1:
+        for part in step_parts:
+            part = part.strip()
+            if not part:
+                continue
+            m = re.match(r"Step (\d+):\s*(.+)", part, re.S)
+            if not m:
+                continue
+            content = m.group(2).strip()
+            desc_start = re.search(r"(We |For |This |At |In |Every |A team|An )", content)
+            if desc_start and desc_start.start() > 0:
+                title = content[:desc_start.start()].strip()
+                description = content[desc_start.start():].strip()
+            else:
+                dot = content.find(". ")
+                if dot > 0 and dot < 80:
+                    title = content[:dot].strip()
+                    description = content[dot + 2 :].strip()
+                else:
+                    title = content[:72].strip()
+                    description = content
+            steps.append({"num": m.group(1), "title": title, "description": description})
+        if steps:
+            return steps
+
     chunks = re.split(r"(?=\d+\.\s)", block)
     for chunk in chunks:
         chunk = chunk.strip()
@@ -151,7 +204,7 @@ def split_process_steps(block: str) -> list[dict[str, str]]:
 def split_faqs(block: str) -> list[dict[str, str]]:
     faqs: list[dict[str, str]] = []
     questions = re.findall(
-        r"(What does an AI development company[^?]+\?|How much does AI development[^?]+\?|What are AI agents[^?]+\?|What is Generative AI[^?]+\?|What is RAG[^?]+\?|Why hire an AI development company[^?]+\?|How long does[^?]+\?|Is my data safe[^?]+\?|Do you build AI solutions[^?]+\?|Which AI models[^?]+\?|Can you integrate AI[^?]+\?|Does the EU AI Act[^?]+\?|Do you offer ongoing support[^?]+\?|How do you ensure AI compliance[^?]+\?|Can Toadsters help us hire[^?]+\?|Is Toadsters[^?]+\?|How does Toadsters handle[^?]+\?|Does Toadsters work with startups[^?]+\?|Can you build a private[^?]+\?|Do you offer dedicated[^?]+\?|What industries do you[^?]+\?|What happens after[^?]+\?|How do we get started[^?]+\?|What support do you provide[^?]+\?|Is AI development a good investment[^?]+\?|What is the difference between fine-tuning[^?]+\?|Can you integrate AI into our existing[^?]+\?)",
+        r"(What does an AI development company[^?]+\?|How much does AI development[^?]+\?|What are AI agents[^?]+\?|What is Generative AI[^?]+\?|What is RAG[^?]+\?|Why hire an AI development company[^?]+\?|How long does[^?]+\?|Is my data safe[^?]+\?|Do you build AI solutions[^?]+\?|Which AI models[^?]+\?|Can you integrate AI[^?]+\?|Does the EU AI Act[^?]+\?|Do you offer ongoing support[^?]+\?|How do you ensure AI compliance[^?]+\?|Can Toadster help us hire[^?]+\?|Is Toadster[^?]+\?|How does Toadster handle[^?]+\?|Does Toadster work with startups[^?]+\?|Can you build a private[^?]+\?|Do you offer dedicated[^?]+\?|What industries do you[^?]+\?|What happens after[^?]+\?|How do we get started[^?]+\?|What support do you provide[^?]+\?|Is AI development a good investment[^?]+\?|What is the difference between fine-tuning[^?]+\?|Can you integrate AI into our existing[^?]+\?)",
         block,
     )
     for q in questions:
@@ -169,6 +222,41 @@ def split_faqs(block: str) -> list[dict[str, str]]:
     return faqs
 
 
+def find_why_section_start(body: str, label: str) -> int:
+    patterns = [
+        f"Why Businesses in {label} Choose Toadsters",
+        f"Why Businesses in {label} Choose Toadster",
+        f"Why {label} Businesses Choose Toadsters",
+        f"Why {label} and NCR Businesses Choose Toadsters",
+    ]
+    for pattern in patterns:
+        idx = body.find(pattern)
+        if idx != -1:
+            return idx
+    return -1
+
+
+def find_industries_start(body: str, label: str) -> int:
+    patterns = [
+        f"Industries We Serve in {label}",
+        f"Industries We Serve in {label} NCR",
+    ]
+    for pattern in patterns:
+        idx = body.find(pattern)
+        if idx != -1:
+            return idx
+    return -1
+
+
+def card_description(text: str, max_len: int = 120) -> str:
+    clean = re.sub(r"\s+", " ", text).strip()
+    if len(clean) <= max_len:
+        return clean
+    cut = clean[:max_len]
+    last_space = cut.rfind(" ")
+    return (cut[:last_space] if last_space > max_len * 0.55 else cut).strip() + "…"
+
+
 def parse_docx_country(text: str, country_label: str) -> dict:
     seo = parse_seo(text)
     slug_marker = seo["slug"]
@@ -177,36 +265,52 @@ def parse_docx_country(text: str, country_label: str) -> dict:
     hero_title = f"AI Development Company in {country_label}"
     hero_start = body.find(hero_title)
     hero_end = body.find("Book a Free AI Strategy Call")
+    if hero_end == -1:
+        hero_end = body.find("Book a Strategy Call")
     hero_intro = body[hero_start + len(hero_title) : hero_end].strip() if hero_start != -1 else ""
 
-    why_start = body.find(f"Why Businesses in {country_label} Choose Toadsters")
-    if why_start == -1:
-        why_start = body.find("Why Businesses in the UAE Choose Toadsters")
+    why_start = find_why_section_start(body, country_label)
     services_start = body.find("AI Development Services We Offer")
-    why_block = body[why_start : services_start].replace(f"Why Businesses in {country_label} Choose Toadsters", "").replace("Why Businesses in the UAE Choose Toadsters", "").strip() if why_start != -1 else ""
+    why_block = ""
+    if why_start != -1 and services_start != -1:
+        why_heading_end = body.find("\n", why_start)
+        if why_heading_end == -1:
+            why_heading_end = why_start + 40
+        why_block = body[why_heading_end : services_start].strip()
 
-    industries_start = body.find(f"Industries We Serve in {country_label}")
-    if industries_start == -1:
-        industries_start = body.find("Industries We Serve in the UAE")
+    industries_start = find_industries_start(body, country_label)
     trends_start = body.find("AI Adoption Trends and Opportunities in")
-    services_block = body[services_start + len("AI Development Services We Offer") : industries_start].strip() if services_start != -1 else ""
+    if trends_start == -1:
+        trends_start = body.find("AI Adoption in ")
+    services_end = industries_start if industries_start != -1 else trends_start
+    if services_end == -1:
+        services_end = body.find("Our AI Development Process")
+    services_block = body[services_start + len("AI Development Services We Offer") : services_end].strip() if services_start != -1 and services_end != -1 else ""
 
     process_start = body.find("Our AI Development Process")
-    trends_block = body[trends_start : process_start].strip() if trends_start != -1 else ""
+    trends_block = body[trends_start : process_start].strip() if trends_start != -1 and process_start != -1 else ""
     if trends_block.startswith("AI Adoption Trends"):
         trends_block = re.sub(r"^AI Adoption Trends and Opportunities in [^A]+", "", trends_block).strip()
 
-    why_choose_toadsters_start = body.find("Why Choose Toadsters")
+    why_choose_Toadster_start = body.find("Why Choose Toadster")
     faq_start = body.find("FAQs")
-    process_block = body[process_start + len("Our AI Development Process") : why_choose_toadsters_start].strip() if process_start != -1 else ""
-    why_toadsters_block = body[why_choose_toadsters_start + len("Why Choose Toadsters") : faq_start].strip() if why_choose_toadsters_start != -1 else ""
+    if faq_start == -1:
+        faq_start = body.find("Frequently Asked Questions")
+    process_block = body[process_start + len("Our AI Development Process") : why_choose_Toadster_start].strip() if process_start != -1 and why_choose_Toadster_start != -1 else ""
+    why_Toadster_block = body[why_choose_Toadster_start + len("Why Choose Toadster") : faq_start].strip() if why_choose_Toadster_start != -1 and faq_start != -1 else ""
 
     cta_start = body.find("Final CTA")
-    faq_block = body[faq_start + len("FAQs") : cta_start].strip() if faq_start != -1 else body[faq_start + len("FAQs") :].strip() if faq_start != -1 else ""
+    faq_block = body[faq_start : cta_start].strip() if faq_start != -1 and cta_start != -1 else body[faq_start:].strip() if faq_start != -1 else ""
+    if faq_block.startswith("FAQs"):
+        faq_block = faq_block[len("FAQs") :].strip()
+    if faq_block.startswith("Frequently Asked Questions"):
+        faq_block = faq_block[len("Frequently Asked Questions") :].strip()
+
     cta_block = body[cta_start:].replace("Final CTA", "").strip() if cta_start != -1 else ""
 
-    industries_block = body[industries_start : trends_start].strip() if industries_start != -1 else ""
-    industries_block = re.sub(r"^Industries We Serve in [^A]+", "", industries_block).strip()
+    industries_block = body[industries_start : trends_start].strip() if industries_start != -1 and trends_start != -1 else ""
+    if industries_block:
+        industries_block = re.sub(r"^Industries We Serve in [^A\n]+", "", industries_block).strip()
 
     return {
         **seo,
@@ -219,7 +323,7 @@ def parse_docx_country(text: str, country_label: str) -> dict:
         "industries": split_industries_block(industries_block),
         "trends": trends_block,
         "processSteps": split_process_steps(process_block),
-        "whyToadsters": why_toadsters_block,
+        "whyToadsters": why_Toadster_block,
         "faqs": split_faqs(faq_block),
         "ctaTitle": "Ready to Build AI That Actually Works for Your Business?",
         "ctaBody": cta_block.replace("Ready to Build AI That Actually Works for Your Business?", "").strip(),
@@ -235,12 +339,12 @@ def parse_md_country(path: Path, country_label: str) -> dict:
     slug = re.search(r"\*\*URL Slug:\*\*\n(/ai-development-company-[a-z-]+)", text)
 
     hero_heading = re.search(r"### (.+?)\n\n(.+?)(?=\*\*Book a free|\[Book a Call)", text, re.S)
-    why_block = re.search(r"## Why .+? Work With Toadsters\n\n(.+?)(?=---\n\n## What We Build)", text, re.S)
-    services_block = re.search(r"## What We Build\n\n(.+?)(?=---\n\n## Industries)", text, re.S)
+    why_block = re.search(r"## Why .+? Work With Toadsters?\n\n(.+?)(?=---\n\n## What We Build)", text, re.S)
+    services_block = re.search(r"## What We Build\n\n(.+?)(?=---\n\n## (?:Industries|Where))", text, re.S)
     industries_block = re.search(r"## Industries We Know\n\n(.+?)(?=---\n\n## Where)", text, re.S)
     challenges_block = re.search(r"## Where .+?\n\n(.+?)(?=---\n\n## How We Work)", text, re.S)
     process_block = re.search(r"## How We Work\n\n(.+?)(?=---\n\n## Why Companies)", text, re.S)
-    why_toadsters = re.search(r"## Why Companies Choose Toadsters\n\n(.+?)(?=---\n\n## Frequently)", text, re.S)
+    why_Toadster = re.search(r"## Why Companies Choose Toadster\n\n(.+?)(?=---\n\n## Frequently)", text, re.S)
     faq_block = re.search(r"## Frequently Asked Questions\n\n(.+?)(?=---\n\n## Let's Build)", text, re.S)
     cta_block = re.search(r"## Let's Build Something That Actually Works\n\n(.+)", text, re.S)
 
@@ -298,7 +402,7 @@ def parse_md_country(path: Path, country_label: str) -> dict:
         "industries": industries,
         "trends": challenges_block.group(1).strip() if challenges_block else "",
         "processSteps": process_steps,
-        "whyToadsters": why_toadsters.group(1).strip() if why_toadsters else "",
+        "whyToadsters": why_Toadster.group(1).strip() if why_Toadster else "",
         "faqs": faqs,
         "ctaTitle": cta_title,
         "ctaBody": cta_body,
@@ -318,6 +422,69 @@ def write_ts(key: str, data: dict) -> None:
     print(f"Wrote {path}")
 
 
+def write_city_ts(key: str, data: dict) -> None:
+    CITY_OUT.mkdir(parents=True, exist_ok=True)
+    path = CITY_OUT / f"{key}.ts"
+    const = key.upper().replace("-", "_")
+    content = f"import type {{ GlobalCityPageData }} from '../../types'\n\n"
+    content += f"export const {const}_PAGE: GlobalCityPageData = "
+    content += json.dumps(data, indent=2, ensure_ascii=False)
+    content += "\n"
+    path.write_text(content, encoding="utf-8")
+    print(f"Wrote {path}")
+
+
+def parse_md_city(path: Path, city_label: str, parent_country_key: str) -> dict:
+    data = parse_md_country(path, city_label)
+    data["country"] = city_label
+    data["heroTitle"] = f"AI Development Company in {city_label}"
+    data["parentCountryKey"] = parent_country_key
+    data["exploreCardDescription"] = card_description(data.get("heroIntro", ""))
+    return data
+
+
+def parse_docx_city(path: Path, city_label: str, parent_country_key: str) -> dict:
+    data = parse_docx_country(docx_text(path), city_label)
+    data["parentCountryKey"] = parent_country_key
+    data["exploreCardDescription"] = card_description(data.get("heroIntro", ""))
+    return data
+
+
+def write_city_registry(city_keys: list[str], city_parents: dict[str, str]) -> None:
+    registry = OUT.parent / "city-registry.ts"
+    imports = "\n".join(
+        f"import {{ {k.upper().replace('-', '_')}_PAGE }} from './data/cities/{k}'" for k in city_keys
+    )
+    entries = ",\n  ".join(f'"{k}": {k.upper().replace("-", "_")}_PAGE' for k in city_keys)
+    by_country: dict[str, list[str]] = {}
+    for key, parent in city_parents.items():
+        by_country.setdefault(parent, []).append(key)
+    parent_lines = ",\n  ".join(f'"{country}": {json.dumps(keys)}' for country, keys in sorted(by_country.items()))
+
+    registry.write_text(
+        f"""{imports}
+import type {{ GlobalCityPageData }} from './types'
+
+export const GLOBAL_CITY_PAGES: Record<string, GlobalCityPageData> = {{
+  {entries},
+}}
+
+export const GLOBAL_CITY_SLUGS = Object.keys(GLOBAL_CITY_PAGES)
+
+export const CITIES_BY_COUNTRY: Record<string, string[]> = {{
+  {parent_lines},
+}}
+
+export function getCitiesForCountry(countryKey: string): GlobalCityPageData[] {{
+  const keys = CITIES_BY_COUNTRY[countryKey] ?? []
+  return keys.map((key) => GLOBAL_CITY_PAGES[key]).filter(Boolean)
+}}
+""",
+        encoding="utf-8",
+    )
+    print(f"Wrote {registry}")
+
+
 def parse_singapore_html(html: str) -> dict:
     def extract_section(after: str, until: str) -> str:
         start = html.find(after)
@@ -334,7 +501,7 @@ def parse_singapore_html(html: str) -> dict:
         s = re.sub(r"\s+", " ", s)
         return s.strip()
 
-    why_html = extract_section("Why Singapore Businesses Choose Toadsters", "<!-- ═")
+    why_html = extract_section("Why Singapore Businesses Choose Toadster", "<!-- ═")
     why_points: list[str] = []
     for m in re.finditer(r"<h4>(.+?)</h4>\s*<p>(.+?)</p>", why_html, re.S):
         why_points.append(f"{strip_tags(m.group(1))} {strip_tags(m.group(2))}")
@@ -364,13 +531,13 @@ def parse_singapore_html(html: str) -> dict:
 
     return {
         "key": "singapore",
-        "seoTitle": "AI Development Company in Singapore | Toadsters Technologies",
-        "metaDescription": "Toadsters Technologies is a leading AI development company in Singapore, building custom AI agents, LLM solutions, RAG systems, and enterprise automation for startups, SMBs, and large enterprises across Southeast Asia.",
+        "seoTitle": "AI Development Company in Singapore | Toadster Technologies",
+        "metaDescription": "Toadster Technologies is a leading AI development company in Singapore, building custom AI agents, LLM solutions, RAG systems, and enterprise automation for startups, SMBs, and large enterprises across Southeast Asia.",
         "slug": "/ai-development-company-singapore",
         "country": "Singapore",
         "heroTitle": "AI Development Company in Singapore",
         "heroSubtitle": "Build AI That Works for Your Business, Not the Other Way Around",
-        "heroIntro": "Toadsters Technologies partners with Singapore startups, SMBs, and enterprises to design, develop, and deploy production-ready AI systems — from custom LLMs and AI agents to enterprise automation and RAG-powered knowledge tools.",
+        "heroIntro": "Toadster Technologies partners with Singapore startups, SMBs, and enterprises to design, develop, and deploy production-ready AI systems — from custom LLMs and AI agents to enterprise automation and RAG-powered knowledge tools.",
         "whyChooseIntro": "Singapore is not short of technology vendors. What businesses here need is an AI development partner who understands both the technical complexity and the business context — someone who can tell you when AI is the right answer and how to implement it without creating expensive technical debt.",
         "whyChoosePoints": why_points,
         "services": services,
@@ -408,17 +575,62 @@ def main() -> None:
         all_keys.append(key)
 
     for key, label, path in md_sources:
-        data = parse_md_country(path, label.replace("the ", "").title() if key != "usa" else "the USA")
+        data = parse_md_country(path, label)
         if key == "usa":
-            data["country"] = "the USA"
+            data["country"] = "USA"
+            data["heroTitle"] = "AI Development Company in the USA"
+        if key == "uk":
+            data["country"] = "UK"
+            data["heroTitle"] = "AI Development Company in the UK"
         data["key"] = key
         write_ts(key, data)
         all_keys.append(key)
 
-    sg_html = (DOWNLOADS / "toadsters-singapore-ai-landing.html").read_text(encoding="utf-8")
+    sg_html = (DOWNLOADS / "Toadster-singapore-ai-landing.html").read_text(encoding="utf-8")
     sg = parse_singapore_html(sg_html)
     write_ts("singapore", sg)
     all_keys.append("singapore")
+
+    md_city_sources = [
+        ("sydney", "Sydney", "australia", DOWNLOADS / "toadsters-ai-development-company-sydney.md"),
+        ("vancouver", "Vancouver", "canada", DOWNLOADS / "toadsters-ai-development-company-vancouver.md"),
+        ("london", "London", "uk", DOWNLOADS / "toadsters-ai-development-company-london.md"),
+        ("seattle", "Seattle", "usa", DOWNLOADS / "toadsters-ai-development-company-seattle.md"),
+        ("bangalore", "Bangalore", "india", DOWNLOADS / "toadsters-ai-development-company-bangalore.md"),
+    ]
+    docx_city_sources = [
+        ("toronto", "Toronto", "canada", DOWNLOADS / "AI-Development-Company-Toronto.docx"),
+        ("manchester", "Manchester", "uk", DOWNLOADS / "AI-Development-Company-Manchester.docx"),
+        ("new-york", "New York", "usa", DOWNLOADS / "AI-Development-Company-New-York.docx"),
+        ("hyderabad", "Hyderabad", "india", DOWNLOADS / "toadsters-hyderabad-ai-landing.docx"),
+        ("mumbai", "Mumbai", "india", DOWNLOADS / "AI-Development-Company-Mumbai.docx"),
+        ("delhi", "Delhi", "india", DOWNLOADS / "toadsters-delhi-ai-landing.docx"),
+    ]
+
+    city_keys: list[str] = []
+    city_parents: dict[str, str] = {}
+    for key, label, parent, path in md_city_sources:
+        if not path.exists():
+            print(f"Skip missing city source: {path}")
+            continue
+        data = parse_md_city(path, label, parent)
+        data["key"] = key
+        write_city_ts(key, data)
+        city_keys.append(key)
+        city_parents[key] = parent
+
+    for key, label, parent, path in docx_city_sources:
+        if not path.exists():
+            print(f"Skip missing city source: {path}")
+            continue
+        data = parse_docx_city(path, label, parent)
+        data["key"] = key
+        write_city_ts(key, data)
+        city_keys.append(key)
+        city_parents[key] = parent
+
+    if city_keys:
+        write_city_registry(city_keys, city_parents)
 
     registry = OUT.parent / "registry.ts"
     imports = "\n".join(
@@ -433,12 +645,54 @@ export const GLOBAL_COUNTRY_PAGES: Record<string, GlobalCountryPageData> = {{
   {entries},
 }}
 
-export const GLOBAL_COUNTRY_NAV = Object.values(GLOBAL_COUNTRY_PAGES).map((page) => ({{
-  key: page.key,
-  label: page.country,
-  href: page.slug,
-  description: page.metaDescription,
-}}))
+export const GLOBAL_COUNTRY_FLAGS: Record<string, string> = {{
+  germany: "🇩🇪",
+  uae: "🇦🇪",
+  "saudi-arabia": "🇸🇦",
+  australia: "🇦🇺",
+  usa: "🇺🇸",
+  uk: "🇬🇧",
+  canada: "🇨🇦",
+  india: "🇮🇳",
+  singapore: "🇸🇬",
+}}
+
+export const GLOBAL_COUNTRY_NAV_ORDER: string[] = [
+  "india",
+  "usa",
+  "uae",
+  "saudi-arabia",
+  "germany",
+  "australia",
+  "uk",
+  "canada",
+  "singapore",
+]
+
+export const GLOBAL_COUNTRY_NAV_LABELS: Record<string, string> = {{
+  india: "IN",
+  usa: "USA",
+  uae: "UAE",
+  "saudi-arabia": "SA",
+  germany: "DE",
+  australia: "AU",
+  uk: "UK",
+  canada: "CA",
+  singapore: "SG",
+}}
+
+export const GLOBAL_COUNTRY_NAV = GLOBAL_COUNTRY_NAV_ORDER
+  .filter((key) => GLOBAL_COUNTRY_PAGES[key])
+  .map((key) => {{
+    const page = GLOBAL_COUNTRY_PAGES[key]
+    return {{
+      key: page.key,
+      label: GLOBAL_COUNTRY_NAV_LABELS[key] ?? page.country,
+      href: page.slug,
+      description: page.metaDescription,
+      flag: GLOBAL_COUNTRY_FLAGS[page.key] ?? "🌐",
+    }}
+  }})
 """,
         encoding="utf-8",
     )

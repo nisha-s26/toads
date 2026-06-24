@@ -135,7 +135,7 @@ export const ctaSection = {
   description:
     "Every quarter you delay closing a skills gap is a quarter your roadmap slips further behind. Tell us what you're building, and we'll have a shortlist of vetted candidates in front of you within a week.",
   expertCta: "Talk to an Expert",
-  footer: "info@toadsters.com | Sector 63, Noida, India",
+  footer: "business@toadsters.com | Sector 63, Noida, India",
 }
 
 export const faqsSection = {

@@ -40,4 +40,12 @@ export type GlobalCountryPageData = {
   ctaBody: string
   ctaPrimary: string
   ctaSecondary?: string
+  /** Set on city/state landing pages */
+  parentCountryKey?: string
+  exploreCardDescription?: string
+}
+
+export type GlobalCityPageData = GlobalCountryPageData & {
+  parentCountryKey: string
+  exploreCardDescription: string
 }

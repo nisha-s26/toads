@@ -9,39 +9,52 @@ import {
     Briefcase,
     Bot,
     BookOpen,
-    Mail,
-    MapPin,
+    Clock,
+    Headphones,
     MessageSquare,
-    Phone,
     Sparkles,
+    Zap,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const CONTACT_FEATURES = [
+type ContactFeature = {
+    icon: LucideIcon;
+    title: string;
+    description: string;
+    href?: string;
+    iconClassName?: string;
+};
+
+const CONTACT_FEATURES: ContactFeature[] = [
     {
-        icon: Mail,
-        title: "Email",
-        description: "business@toadsters.com",
+        icon: Headphones,
+        title: "24/7 Support",
+        description: "Always available for your mission-critical needs.",
+        iconClassName: "text-sky-600",
     },
     {
-        icon: Phone,
-        title: "Phone",
-        description: "+91 92205 17988",
+        icon: Zap,
+        title: "Instant Call",
+        description: "Connect with our specialists in under 60 seconds.",
+        href: "tel:+919220517988",
+        iconClassName: "text-violet-600",
     },
     {
-        icon: MapPin,
-        title: "Location",
-        description:
-            "🇮🇳 JAV Tower, H17, H Block, Sector 63, Noida, Uttar Pradesh 201309 · 🇦🇪 Level 1, Avenue Gate, South Zone, DIFC, Dubai, UAE",
+        icon: Clock,
+        title: "Fast Response",
+        description: "We respond to all inquiries within 24 business hours.",
+        iconClassName: "text-teal-600",
     },
-] as const;
+];
 
 export default function Contact() {
     const [formData, setFormData] = useState({
-        name: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
         fromEmail: "",
-        company: "",
         message: "",
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -61,9 +74,10 @@ export default function Contact() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    name: formData.name,
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    phone: formData.phone,
                     fromEmail: formData.fromEmail,
-                    company: formData.company,
                     message: formData.message,
                 }),
             });
@@ -71,7 +85,7 @@ export default function Contact() {
             if (!res.ok) throw new Error("Failed");
 
             setSubmitStatus("success");
-            setFormData({ name: "", fromEmail: "", company: "", message: "" });
+            setFormData({ firstName: "", lastName: "", phone: "", fromEmail: "", message: "" });
             setTimeout(() => setSubmitStatus("idle"), 4000);
         } catch {
             setSubmitStatus("error");
@@ -82,9 +96,9 @@ export default function Contact() {
     };
 
     return (
-        <div className="relative isolate min-h-screen">
+        <div className="contact-page relative isolate min-h-screen font-sans">
             {/* Contact Hero + Form */}
-            <section className="relative z-10 flex min-h-screen items-center overflow-hidden px-4 pb-16 pt-24 sm:pt-28 md:px-8 lg:px-12">
+            <section className="relative z-10 flex min-h-screen items-center overflow-hidden px-2 pb-16 pt-24 sm:px-4 sm:pt-28 md:px-6">
                 <div className="pointer-events-none absolute inset-0" aria-hidden="true">
                     <div
                         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-[filter] duration-500 brightness-[1.08] saturate-[0.92] contrast-[0.98] dark:brightness-[0.38] dark:saturate-[0.8] dark:contrast-[1.12]"
@@ -94,54 +108,75 @@ export default function Contact() {
                     <div className="absolute inset-0 contact-hero-fade" />
                 </div>
 
-                <div className="relative mx-auto grid w-[90%] max-w-[90%] gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-8 md:items-stretch">
+                <div className="relative mx-auto grid w-full max-w-7xl gap-5 md:grid-cols-2 md:gap-6 md:items-stretch lg:max-w-[88rem]">
                     {/* Left panel */}
-                    <div className="faq-glass-surface relative flex min-h-[640px] flex-col overflow-hidden rounded-[2rem] p-8 text-slate-900 dark:text-white md:p-10 lg:p-12">
+                    <div className="relative flex min-h-[680px] flex-col overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white p-7 text-black shadow-[0_32px_80px_-24px_rgba(15,23,42,0.18)] md:min-h-[760px] md:p-8 lg:p-10">
                         <div className="relative flex flex-1 flex-col">
-                            <span className="text-sm font-bold uppercase tracking-[0.3em] text-slate-500 dark:text-sky-200/75">
+                            <span className="text-sm font-bold uppercase tracking-[0.28em] text-black/60 md:text-base">
                                 Get in Touch
                             </span>
-                            <h1 className="mt-4 text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl lg:text-[3.25rem] dark:text-page-fg">
+                            <h1 className="mt-3 text-[2.25rem] font-extrabold leading-tight text-black md:text-[2.75rem]">
                                 Let&apos;s Talk
                             </h1>
-                            <p className="mt-4 max-w-md text-base leading-relaxed text-slate-600 dark:text-page-fg-subtle">
+                            <p className="mt-3 max-w-md text-base leading-relaxed text-black/75 md:text-lg">
                                 Ready to build something amazing? We&apos;d love to hear about your project.
                             </p>
 
-                            <div className="mt-10 flex flex-col gap-7">
-                                {CONTACT_FEATURES.map(({ icon: Icon, title, description }) => (
-                                    <div key={title} className="flex items-start gap-4">
-                                        <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/60 bg-white/25 text-slate-600 backdrop-blur-sm dark:border-white/30 dark:bg-white/10 dark:text-sky-100/90">
-                                            <Icon size={18} strokeWidth={1.75} />
-                                        </span>
-                                        <div>
-                                            <p className="font-semibold text-slate-900 dark:text-white">{title}</p>
-                                            <p className="mt-1 text-sm leading-relaxed text-slate-700 dark:text-white/75">{description}</p>
+                            <div className="mt-8 flex flex-col gap-5">
+                                {CONTACT_FEATURES.map(({ icon: Icon, title, description, href, iconClassName }) => {
+                                    const content = (
+                                        <div className="flex items-start gap-4">
+                                            <span
+                                                className={`inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 ${iconClassName ?? "text-slate-600"}`}
+                                            >
+                                                <Icon size={24} strokeWidth={1.75} />
+                                            </span>
+                                            <div>
+                                                <p className="text-base font-semibold text-black md:text-lg">
+                                                    {title}
+                                                </p>
+                                                <p className="mt-1 text-sm leading-relaxed text-black/70 md:text-base">
+                                                    {description}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
+                                    );
 
-                            <div className="mt-auto border-t border-white/50 pt-8 dark:border-white/20">
-                                <div className="grid gap-6 sm:grid-cols-2">
+                                    if (href) {
+                                        return (
+                                            <a
+                                                key={title}
+                                                href={href}
+                                                className="group rounded-2xl transition-colors hover:bg-black/5"
+                                            >
+                                                {content}
+                                            </a>
+                                        );
+                                    }
+
+                                    return <div key={title}>{content}</div>;
+                                })}
+                            </div>
+                            <div className="mt-auto border-t border-slate-200 pt-6">
+                                <div className="grid gap-5 sm:grid-cols-2">
                                     <div>
-                                        <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-slate-500 dark:text-sky-200/75">
+                                        <p className="text-xs font-bold tracking-[0.2em] uppercase text-black/60 md:text-sm">
                                             Email Us
                                         </p>
                                         <a
                                             href="mailto:business@toadsters.com"
-                                            className="mt-2 block text-sm font-medium text-slate-900 transition-colors hover:text-slate-700 dark:text-page-fg dark:hover:text-white"
+                                            className="mt-2 block text-base font-medium text-black transition-colors hover:text-black/70"
                                         >
                                             business@toadsters.com
                                         </a>
                                     </div>
                                     <div>
-                                        <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-slate-500 dark:text-sky-200/75">
+                                        <p className="text-xs font-bold tracking-[0.2em] uppercase text-black/60 md:text-sm">
                                             Call Now
                                         </p>
                                         <a
                                             href="tel:+919220517988"
-                                            className="mt-2 block text-sm font-medium text-slate-900 transition-colors hover:text-slate-700 dark:text-page-fg dark:hover:text-white"
+                                            className="mt-2 block text-base font-medium text-black transition-colors hover:text-black/70"
                                         >
                                             +91 92205 17988
                                         </a>
@@ -152,35 +187,68 @@ export default function Contact() {
                     </div>
 
                     {/* Right panel - form */}
-                    <div className="overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white px-8 py-10 text-slate-900 shadow-[0_32px_80px_-24px_rgba(15,23,42,0.18)] md:px-10 lg:px-12">
-                        <div className="mb-8">
-                            <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
+                    <div className="flex min-h-[680px] flex-col overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white px-7 py-8 text-black shadow-[0_32px_80px_-24px_rgba(15,23,42,0.18)] md:min-h-[760px] md:px-8 md:py-9 lg:px-10 lg:py-10">
+                        <div className="mb-6">
+                            <h2 className="text-[1.75rem] font-bold text-black md:text-[2rem]">
                                 Submit your Query
                             </h2>
-                            <p className="mt-2 text-sm text-slate-500">
+                            <p className="mt-2 text-base text-black/70">
                                 Tell us about your vision and let&apos;s bring it to life.
                             </p>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                        <form onSubmit={handleSubmit} className="flex flex-1 flex-col gap-4">
+                            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <div>
-                                    <label className="mb-2 block text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase">
-                                        Name
+                                    <label className="mb-2 block text-xs font-semibold tracking-[0.16em] text-black/60 uppercase md:text-sm">
+                                        First Name
                                     </label>
                                     <Input
-                                        name="name"
-                                        value={formData.name}
+                                        name="firstName"
+                                        value={formData.firstName}
                                         onChange={handleChange}
                                         required
                                         type="text"
-                                        className="h-12 rounded-2xl border-slate-200 bg-slate-50/80 px-4 text-slate-900 placeholder:text-slate-400 focus-visible:border-slate-400 focus-visible:ring-slate-200/60"
-                                        placeholder="Enter your name"
+                                        className="contact-form-field h-12 rounded-2xl border-slate-200 bg-slate-50/80 px-4 text-base text-black placeholder:text-black/40 focus-visible:border-slate-400 focus-visible:ring-slate-200/60 dark:!bg-slate-50/80 dark:!text-black dark:placeholder:!text-black/40"
+                                        placeholder="Enter your first name"
                                     />
                                 </div>
                                 <div>
-                                    <label className="mb-2 block text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase">
-                                        Email
+                                    <label className="mb-2 block text-xs font-semibold tracking-[0.16em] text-black/60 uppercase md:text-sm">
+                                        Last Name
+                                    </label>
+                                    <Input
+                                        name="lastName"
+                                        value={formData.lastName}
+                                        onChange={handleChange}
+                                        required
+                                        type="text"
+                                        className="contact-form-field h-12 rounded-2xl border-slate-200 bg-slate-50/80 px-4 text-base text-black placeholder:text-black/40 focus-visible:border-slate-400 focus-visible:ring-slate-200/60 dark:!bg-slate-50/80 dark:!text-black dark:placeholder:!text-black/40"
+                                        placeholder="Enter your last name"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                <div>
+                                    <label className="mb-2 block text-xs font-semibold tracking-[0.16em] text-black/60 uppercase md:text-sm">
+                                        Phone No
+                                    </label>
+                                    <Input
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        required
+                                        type="tel"
+                                        pattern="[0-9]*"
+                                        maxLength={10}
+                                        className="contact-form-field h-12 rounded-2xl border-slate-200 bg-slate-50/80 px-4 text-base text-black placeholder:text-black/40 focus-visible:border-slate-400 focus-visible:ring-slate-200/60 dark:!bg-slate-50/80 dark:!text-black dark:placeholder:!text-black/40"
+                                        placeholder="Enter your phone number"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="mb-2 block text-xs font-semibold tracking-[0.16em] text-black/60 uppercase md:text-sm">
+                                        Mail
                                     </label>
                                     <Input
                                         name="fromEmail"
@@ -188,28 +256,14 @@ export default function Contact() {
                                         onChange={handleChange}
                                         required
                                         type="email"
-                                        className="h-12 rounded-2xl border-slate-200 bg-slate-50/80 px-4 text-slate-900 placeholder:text-slate-400 focus-visible:border-slate-400 focus-visible:ring-slate-200/60"
-                                        placeholder="Enter your email"
+                                        className="contact-form-field h-12 rounded-2xl border-slate-200 bg-slate-50/80 px-4 text-base text-black placeholder:text-black/40 focus-visible:border-slate-400 focus-visible:ring-slate-200/60 dark:!bg-slate-50/80 dark:!text-black dark:placeholder:!text-black/40"
+                                        placeholder="Enter your email address"
                                     />
                                 </div>
                             </div>
 
-                            <div>
-                                <label className="mb-2 block text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase">
-                                    Company
-                                </label>
-                                <Input
-                                    name="company"
-                                    value={formData.company}
-                                    onChange={handleChange}
-                                    type="text"
-                                    className="h-12 rounded-2xl border-slate-200 bg-slate-50/80 px-4 text-slate-900 placeholder:text-slate-400 focus-visible:border-slate-400 focus-visible:ring-slate-200/60"
-                                    placeholder="Your company"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="mb-2 block text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase">
+                            <div className="flex flex-1 flex-col">
+                                <label className="mb-2 block text-xs font-semibold tracking-[0.16em] text-black/60 uppercase md:text-sm">
                                     Query
                                 </label>
                                 <Textarea
@@ -217,9 +271,9 @@ export default function Contact() {
                                     value={formData.message}
                                     onChange={handleChange}
                                     required
-                                    placeholder="Tell me about your query..."
-                                    rows={5}
-                                    className="min-h-[140px] rounded-2xl border-slate-200 bg-slate-50/80 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus-visible:border-slate-400 focus-visible:ring-slate-200/60"
+                                    placeholder="What's on your mind?"
+                                    rows={6}
+                                    className="contact-form-field min-h-[180px] flex-1 rounded-2xl border-slate-200 bg-slate-50/80 px-4 py-3 text-base text-black placeholder:text-black/40 focus-visible:border-slate-400 focus-visible:ring-slate-200/60 dark:!bg-slate-50/80 dark:!text-black dark:placeholder:!text-black/40 md:min-h-[220px]"
                                 />
                             </div>
 
@@ -241,10 +295,10 @@ export default function Contact() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="mt-1 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50"
+                                className="mt-1 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-primary px-6 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50"
                             >
                                 {isSubmitting ? "Sending..." : "Send Message"}
-                                {!isSubmitting && <ArrowRight size={18} strokeWidth={2} />}
+                                {!isSubmitting && <ArrowRight size={20} strokeWidth={2} />}
                             </button>
                         </form>
                     </div>
@@ -255,13 +309,13 @@ export default function Contact() {
             <section className="section-full-bleed relative z-10 px-4 pb-20 pt-16 md:px-8 lg:px-12 xl:px-20">
                 <div className="mx-auto max-w-9xl">
                 <div className="mb-12 text-center">
-                    <p className="mb-3 text-sm font-bold uppercase tracking-[0.3em] section-eyebrow md:text-base">
+                    <p className="section-eyebrow mb-3 text-sm font-bold uppercase tracking-[0.3em] text-black/60 md:text-base dark:text-white/70">
                         While You&apos;re Here
                     </p>
-                    <h2 className="text-3xl font-extrabold text-page-fg md:text-4xl lg:text-[2.75rem]">
+                    <h2 className="text-3xl font-extrabold text-black md:text-4xl lg:text-[2.75rem] dark:text-white">
                         Explore Our Work
                     </h2>
-                    <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-page-fg-subtle">
+                    <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-black/75 dark:text-white/80">
                         Browse our top services, recent insights, and open roles while you wait.
                     </p>
                 </div>
@@ -316,12 +370,12 @@ export default function Contact() {
                             </span>
                             <div className="flex-1 min-w-0">
                                 <div className="flex items-center justify-between gap-2">
-                                    <p className="text-page-fg font-semibold group-hover:text-toadster-green transition-colors">
+                                    <p className="font-semibold text-black transition-colors group-hover:text-toadster-green dark:text-white">
                                         {title}
                                     </p>
-                                    <ArrowUpRight size={16} className="text-gray-500 group-hover:text-toadster-green transition-colors" />
+                                    <ArrowUpRight size={16} className="text-black/50 transition-colors group-hover:text-toadster-green dark:text-white/50" />
                                 </div>
-                                <p className="text-page-fg-muted text-sm mt-1 leading-relaxed">{desc}</p>
+                                <p className="mt-1 text-sm leading-relaxed text-black/70 dark:text-white/75">{desc}</p>
                             </div>
                         </Link>
                     ))}

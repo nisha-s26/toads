@@ -69,11 +69,11 @@ export function buildHireResourceJsonLd(resource: HireResource): string {
     "@context": "https://schema.org",
     "@type": "Service",
     name: resource.schema.name,
-    provider: { "@type": "Organization", name: "Toadster", url: "https://toadsters.com" },
+    provider: { "@type": "Organization", name: "Toadster", url: "https://toadster.com" },
     serviceType: resource.schema.serviceType ?? "Staff Augmentation",
     description: resource.schema.description,
     ...(resource.schema.areaServed ? { areaServed: resource.schema.areaServed } : {}),
-    url: resource.schema.url ?? `https://toadsters.com/hire/${resource.slug}`,
+    url: resource.schema.url ?? `https://toadster.com/hire/${resource.slug}`,
   }
   return JSON.stringify(schema)
 }

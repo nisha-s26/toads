@@ -3,12 +3,18 @@ import { NextResponse } from "next/server"
 
 export async function POST(request: Request) {
   try {
-    const { name, fromEmail, company, message } = await request.json()
+    const { name, firstName, lastName, phone, fromEmail, company, message } = await request.json()
+
+    const fullName =
+      [firstName, lastName].filter(Boolean).join(" ").trim() || name || "Unknown"
 
     const emailContent = `
-Name: ${name}
+First Name: ${firstName || "-"}
+Last Name: ${lastName || "-"}
+Name: ${fullName}
+Phone: ${phone || "-"}
 Email: ${fromEmail}
-Company: ${company}
+Company: ${company || "-"}
 Message: ${message}
     `
 
@@ -25,8 +31,8 @@ Message: ${message}
     const mailOptions: nodemailer.SendMailOptions = {
       to: "business@toadsters.com",
       from: `"Toadster Query" <${process.env.SMTP_USER}>`,
-      replyTo: `"${name}" <${fromEmail}>`,
-      subject: `Regarding Query - ${name}`,
+      replyTo: `"${fullName}" <${fromEmail}>`,
+      subject: `Regarding Query - ${fullName}`,
       text: emailContent,
     }
 

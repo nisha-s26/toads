@@ -34,10 +34,6 @@ const removedHireRedirects: { source: string; destination: string }[] = [
 
 const removedGlobalPageRedirects: { source: string; destination: string }[] = [
   { source: "/ai-development-company-noida", destination: "/ai-development-company-india" },
-  { source: "/ai-development-company-delhi", destination: "/ai-development-company-india" },
-  { source: "/ai-development-company-bangalore", destination: "/ai-development-company-india" },
-  { source: "/ai-development-company-mumbai", destination: "/ai-development-company-india" },
-  { source: "/ai-development-company-hyderabad", destination: "/ai-development-company-india" },
 ]
 
 const removedServiceRedirects: { source: string; destination: string }[] = [
@@ -88,13 +84,21 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
-    if (!apiBaseUrl) return []
-    return [
+    const rewrites = [
       {
-        source: "/api/public/:path*",
-        destination: `${apiBaseUrl.replace(/\/$/, "")}/api/public/:path*`,
+        source: "/ai-development-company-:slug",
+        destination: "/global-ai-pages/:slug",
       },
     ]
+
+    if (apiBaseUrl) {
+      rewrites.push({
+        source: "/api/public/:path*",
+        destination: `${apiBaseUrl.replace(/\/$/, "")}/api/public/:path*`,
+      })
+    }
+
+    return rewrites
   },
   async redirects() {
     const redirects = [

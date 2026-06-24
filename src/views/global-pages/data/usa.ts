@@ -109,7 +109,7 @@ export const USA_PAGE: GlobalCountryPageData = {
       "description": "Launch isn't the finish line. We monitor performance and cost after go-live and tune the system as real usage teaches us things the test environment couldn't."
     }
   ],
-  "whyToadsters": "We're not the cheapest AI shop you'll find, and we're not trying to be. We're the team you call when you need something that actually works in production and keeps working six months later.\n\nThat comes from experience — real deployments across healthcare, fintech, and SaaS, not just certifications and case study slides. It comes from staying close to how the underlying technology actually moves, from new model releases to changes in how vector databases and orchestration frameworks handle scale. And it comes from building governance and security into the foundation, because that's the difference between a system you can trust and one you're crossing your fingers about.\n\nIf that sounds like the kind of partner you're looking for, let's talk.",
+  "whyToadsters": "",
   "faqs": [
     {
       "question": "What does an AI development company actually do?",

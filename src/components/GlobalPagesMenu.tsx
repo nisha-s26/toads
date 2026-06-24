@@ -38,7 +38,7 @@ export function GlobalPagesMenu({ size = "default" }: { size?: "sm" | "default" 
       </button>
 
       {open ? (
-        <div className="absolute right-0 top-[calc(100%+0.625rem)] z-[70] w-40 overflow-hidden rounded-xl border border-page-border bg-page-card py-1.5 shadow-2xl">
+        <div className="absolute right-0 top-[calc(100%+0.625rem)] z-[70] w-24 overflow-hidden rounded-xl border border-page-border bg-page-card py-1.5 shadow-2xl">
           <ul className="max-h-[min(24rem,60vh)] overflow-y-auto">
             {GLOBAL_COUNTRY_NAV.map((item) => (
               <li key={item.key}>
