@@ -51,9 +51,9 @@ const WhyUs = () => {
       id="why-us"
       className="homepage-snap-section section-full-bleed why-us-section-bg relative isolate flex flex-col justify-center overflow-hidden px-4 py-10 sm:py-14 md:py-16"
     >
-      <div className="relative z-10 mx-auto w-full max-w-[72rem]">
+      <div className="relative z-10 mx-auto w-full max-w-[80rem]">
         <ScrollReveal>
-          <div className="why-us-card relative overflow-hidden rounded-[1.75rem] px-5 py-9 sm:px-10 sm:py-12 md:px-14 md:py-14 lg:px-16 lg:py-[3.25rem] mt-5">
+          <div className="why-us-card relative overflow-hidden rounded-[1.75rem] px-5 py-9 sm:px-8 sm:py-12 md:px-12 md:py-14 lg:px-14 lg:py-[3.25rem] xl:px-16 mt-13">
             <div className="why-us-dotted-pattern pointer-events-none absolute inset-0" aria-hidden />
             <div
               className="pointer-events-none absolute left-[10%] top-[20%] h-24 w-24 rounded-full bg-toadster-green/[0.06] blur-2xl"
@@ -64,19 +64,19 @@ const WhyUs = () => {
               aria-hidden
             />
             <div
-              className="why-us-network-decor pointer-events-none absolute bottom-8 left-4 top-8 hidden w-[7.5rem] text-slate-400/25 lg:block dark:text-slate-500/20"
+              className="why-us-network-decor pointer-events-none absolute bottom-8 left-2 top-8 hidden w-[6.5rem] text-slate-400/25 xl:left-4 xl:w-[7.5rem] lg:block dark:text-slate-500/20"
               aria-hidden
             >
               <WhyUsNetworkDecor />
             </div>
             <div
-              className="why-us-network-decor pointer-events-none absolute bottom-8 right-4 top-8 hidden w-[7.5rem] text-slate-400/25 lg:block dark:text-slate-500/20"
+              className="why-us-network-decor pointer-events-none absolute bottom-8 right-2 top-8 hidden w-[6.5rem] text-slate-400/25 xl:right-4 xl:w-[7.5rem] lg:block dark:text-slate-500/20"
               aria-hidden
             >
               <WhyUsNetworkDecor mirrored />
             </div>
 
-            <div className="relative z-10 mx-auto flex w-full max-w-[56rem] flex-col items-center text-center">
+            <div className="relative z-10 flex w-full flex-col items-center text-center">
               <div className="why-us-badge mb-5 inline-flex items-center gap-2 rounded-full border border-toadster-green/25 bg-toadster-green/[0.06] px-4 py-1.5 text-sm font-semibold text-toadster-green">
                 <Star className="h-4 w-4 fill-toadster-green/15" strokeWidth={2} />
                 Trusted AI Development Partner
@@ -87,7 +87,7 @@ const WhyUs = () => {
                 <span className="text-toadster-green">Us</span>
               </h2>
 
-              <p className="why-us-description mt-6 max-w-[42rem] text-sm leading-relaxed text-slate-600 sm:text-base md:text-[1.0625rem] md:leading-[1.75] dark:text-slate-300">
+              <p className="why-us-description mt-6 w-full max-w-none px-0 text-sm leading-relaxed text-slate-600 sm:text-base md:text-[1.0625rem] md:leading-[1.75] lg:px-6 dark:text-slate-300">
                 Most software agencies build features. We build AI-integrated systems that hold up - under
                 real load, with real data, in production environments where things actually break. Whether
                 you need an{" "}
@@ -105,13 +105,13 @@ const WhyUs = () => {
                 - that distinction matters more than ever.
               </p>
 
-              <p className="why-us-description mt-5 max-w-[42rem] text-sm leading-relaxed text-slate-600 sm:text-base md:text-[1.0625rem] md:leading-[1.75] dark:text-slate-300">
+              <p className="why-us-description mt-5 w-full max-w-none px-0 text-sm leading-relaxed text-slate-600 sm:text-base md:text-[1.0625rem] md:leading-[1.75] lg:px-6 dark:text-slate-300">
                 We have worked with early-stage startups that needed an MVP built to scale, and enterprise teams
                 who inherited AI systems that were silently failing. What we bring is not just technical depth - it is the
                 judgment to know which solution fits your constraints, your team, and your next 18 months.
               </p>
 
-              <div className="why-us-stats-grid mt-10 grid w-full grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
+              <div className="why-us-stats-grid mt-10 grid w-full grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4 lg:gap-6">
                 {STATS.map((stat, index) => {
                   const Icon = stat.Icon
                   return (
@@ -120,15 +120,14 @@ const WhyUs = () => {
                       delay={0.15 + index * 0.08}
                       className="h-full min-w-0"
                     >
-                      <div className="why-us-stat-card group flex h-full min-h-[10.5rem] flex-col overflow-hidden rounded-2xl transition-transform duration-300 hover:-translate-y-0.5 sm:min-h-[11.25rem]">
+                      <div className="why-us-stat-card group flex h-full min-h-[10.75rem] flex-col overflow-hidden rounded-2xl transition-transform duration-300 hover:-translate-y-0.5 sm:min-h-[11.5rem]">
                         <span className="why-us-stat-card-accent block h-[3px] w-full shrink-0 bg-toadster-green" aria-hidden />
                         <div className="why-us-stat-card-body flex min-h-0 flex-1 flex-col px-4 pb-5 pt-4 sm:px-5 sm:pb-6 sm:pt-5">
-                          <div className="why-us-stat-icon-slot flex h-11 shrink-0 items-start">
+                          <div className="why-us-stat-icon-slot flex shrink-0 items-start">
                             <span className="why-us-stat-icon inline-flex h-10 w-10 items-center justify-center rounded-full sm:h-11 sm:w-11">
                               <Icon className="h-5 w-5" strokeWidth={2} />
                             </span>
                           </div>
-                          <div className="why-us-stat-spacer min-h-0 flex-1" aria-hidden="true" />
                           <p className="why-us-stat-value shrink-0">{stat.value}</p>
                           <p className="why-us-stat-label shrink-0">{stat.label}</p>
                         </div>
@@ -138,7 +137,7 @@ const WhyUs = () => {
                 })}
               </div>
 
-              <div className="why-us-cta-wrap mt-10 w-full max-w-[42rem]">
+              <div className="why-us-cta-wrap mt-10 w-full">
                 <div className="relative flex items-center justify-center py-1">
                   <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-slate-200 dark:bg-slate-600/50" />
                   <span className="why-us-cta-icon relative z-[1] inline-flex items-center justify-center rounded-full px-2">
