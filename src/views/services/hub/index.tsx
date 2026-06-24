@@ -361,19 +361,31 @@ export default function ServicesHubPage() {
             />
           </div>
           <div className="homepage-hero-bg-overlay absolute inset-0" />
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/35 via-white/20 to-white/30 dark:hidden"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 hidden bg-black/45 dark:block"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 hidden bg-gradient-to-b from-black/80 via-black/72 to-black/78 dark:block"
+            aria-hidden
+          />
         </div>
 
         <div className="relative z-10 flex w-full flex-col items-center px-4 pb-4 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:px-6 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
           <div className="hire-page-container w-full">
             <div className="mx-auto flex w-full max-w-4xl flex-col items-center py-10 text-center sm:py-12 lg:py-14">
-              <h1 className="hero-enter-delay-1 w-full text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+              <h1 className="hero-enter-delay-1 w-full text-3xl font-extrabold leading-[1.08] text-black dark:text-white dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
                 {heroContent.title}
               </h1>
               {heroContent.paragraphs.map((paragraph, index) => (
                 <p
                   key={paragraph}
                   className={cn(
-                    "mt-4 w-full text-sm leading-relaxed text-page-fg-muted sm:text-base md:text-lg",
+                    "mt-4 w-full text-sm font-medium leading-relaxed text-black dark:text-white dark:drop-shadow-[0_1px_10px_rgba(0,0,0,0.85)] sm:text-base md:text-lg",
                     index === 0 ? "hero-enter-delay-2" : "hero-enter-delay-3",
                   )}
                 >
@@ -392,17 +404,17 @@ export default function ServicesHubPage() {
                 </button>
                 <Link
                   href="/contact"
-                  className="inline-flex h-11 items-center justify-center rounded-xl border border-page-border-strong px-7 py-3.5 text-sm font-semibold text-page-fg transition-colors hover:-translate-y-0.5 hover:bg-page-fg/5"
+                  className="inline-flex h-11 items-center justify-center rounded-xl border border-page-border-strong px-7 py-3.5 text-sm font-semibold text-black transition-colors hover:-translate-y-0.5 hover:bg-page-fg/5 dark:border-white/45 dark:text-white dark:hover:bg-white/10"
                 >
                   {heroContent.secondaryCta}
                 </Link>
               </div>
 
-              <div className="hire-hub-hero-badges hero-enter-delay-4 mt-8 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold text-page-fg-muted sm:text-sm">
+              <div className="hire-hub-hero-badges hero-enter-delay-4 mt-8 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold text-black dark:!text-white dark:drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)] sm:text-sm">
                 {heroContent.badges.map((badge, index) => (
-                  <span key={badge} className="flex items-center gap-4">
+                  <span key={badge} className="flex items-center gap-4 dark:!text-white">
                     {index > 0 ? (
-                      <span className="hidden text-page-border sm:inline" aria-hidden="true">
+                      <span className="hidden text-page-border dark:text-white/35 sm:inline" aria-hidden="true">
                         |
                       </span>
                     ) : null}

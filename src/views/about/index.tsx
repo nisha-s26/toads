@@ -345,6 +345,8 @@ export default function AboutPage() {
                       sizes="(max-width: 1024px) 100vw, 1024px"
                       className="hidden object-cover object-center dark:block"
                     />
+                    <div className="absolute inset-0 hidden bg-black/50 dark:block" />
+                    <div className="absolute inset-0 hidden bg-gradient-to-b from-black/30 via-black/45 to-black/65 dark:block" />
                   </div>
 
                   <div className="relative z-10 h-1 bg-gradient-to-r from-transparent via-toadster-green to-transparent" />
@@ -361,7 +363,7 @@ export default function AboutPage() {
                             fill
                             loading="lazy"
                             quality={80}
-                            className="scale-[1.12] object-cover object-[50%_20%] transition-transform duration-500 group-hover:scale-[1.18]"
+                            className="scale-[1.06] origin-[50%_32%] object-cover object-[50%_18%] transition-transform duration-500 group-hover:scale-[1.1]"
                             sizes="(max-width: 640px) 144px, (max-width: 768px) 192px, 224px"
                           />
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-toadster-green/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

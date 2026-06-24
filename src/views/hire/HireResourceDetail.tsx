@@ -115,6 +115,26 @@ const FULL_STACK_COMPARISON_ROWS = [
   { feature: "Contractual Flexibility", dedicated: "Flexible", staffAug: "Per-Project", outsourcing: "Long-Term Only" },
 ]
 
+const SOFTWARE_COMPARISON_ROWS = [
+  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "30–90 Days" },
+  { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
+  { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Varies" },
+  { feature: "Team Continuity", dedicated: "High", staffAug: "Low", outsourcing: "High" },
+  { feature: "Scalability", dedicated: "Instant", staffAug: "Limited", outsourcing: "Slow" },
+  { feature: "Management Overhead", dedicated: "Low", staffAug: "High", outsourcing: "High" },
+  { feature: "Contractual Flexibility", dedicated: "Flexible", staffAug: "Per-Project", outsourcing: "Long-Term Only" },
+]
+
+const AI_ML_COMPARISON_ROWS = [
+  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "60–120 Days" },
+  { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
+  { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Hard to Find" },
+  { feature: "Model Ownership", dedicated: "Full Client IP", staffAug: "Shared Risk", outsourcing: "Full Client IP" },
+  { feature: "Scalability", dedicated: "Instant", staffAug: "Limited", outsourcing: "Slow" },
+  { feature: "Management Overhead", dedicated: "Low", staffAug: "High", outsourcing: "High" },
+  { feature: "Contractual Flexibility", dedicated: "Flexible", staffAug: "Per-Project", outsourcing: "Long-Term Only" },
+]
+
 const DEFAULT_COMPARISON_ROWS = [
   { feature: "Team Control", dedicated: "Direct Control", staffAug: "Staff Control", outsourcing: "Less Control" },
   { feature: "Communication", dedicated: "Direct Communication", staffAug: "Direct and Constant", outsourcing: "Project Manager Only" },
@@ -172,7 +192,6 @@ function parseTitleInfo(heroTitle: string) {
 // Hero subheadings for exact matching
 const SUBHEADINGS: Record<string, string> = {
   "flutter-developers": "Build beautiful, high-performance cross-platform apps. Deploy state-of-the-art Flutter talent. Scale your mobile engineering team with pre-vetted, senior Flutter developers who integrate directly into your workflow - from day one.",
-  "ai-ml-developers": "Bring production-ready AI and machine learning engineers onto your team. Toadster places vetted AI/ML developers who have shipped real systems - not just run Jupyter notebooks.",
 }
 
 // Custom Skill Matrices for all roles
@@ -196,20 +215,38 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
   ],
   "ai-ml-developers": [
     {
-      title: "Frameworks & Tools",
+      title: "Orchestration & MLOps",
       icon: Layers,
-      items: ["PyTorch / TensorFlow", "Keras / Scikit-Learn", "JAX Foundations"]
+      items: [
+        "MLflow / Weights & Biases / DVC",
+        "Kubeflow / Airflow / Prefect",
+        "Model versioning & experiment tracking",
+        "Feature stores — Feast, Tecton",
+      ],
+      description: "Our ML engineers build the operational infrastructure that turns experimental models into reliable, monitored production systems.",
     },
     {
-      title: "Models",
+      title: "Models & Frameworks",
       icon: Brain,
-      items: ["ResNet & ViT", "BERT & GPT Models", "Diffusion / CNNs"]
+      items: [
+        "PyTorch / TensorFlow / JAX / Scikit-learn",
+        "Hugging Face Transformers & PEFT",
+        "LangChain / LlamaIndex / OpenAI API",
+        "Computer Vision — YOLO, Detectron2, OpenCV",
+      ],
+      description: "Deep framework fluency across classical ML, deep learning, large language models, and computer vision — matched to your use case, not our comfort zone.",
     },
     {
-      title: "Data & Inference",
+      title: "Data & Inference Infrastructure",
       icon: Database,
-      items: ["Apache Spark", "MLflow / ONNX Runtime", "TensorRT / Docker"]
-    }
+      items: [
+        "PySpark / Dask / Polars for large-scale data",
+        "Vector databases — Pinecone, Weaviate, Qdrant",
+        "Model serving — TorchServe, Triton, BentoML",
+        "Cloud ML platforms — AWS SageMaker, GCP Vertex AI, Azure ML",
+      ],
+      description: "End-to-end data and serving infrastructure that keeps your models accurate, fast, and cost-efficient at any scale.",
+    },
   ],
   "reactjs-developers": [
     {
@@ -335,6 +372,41 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
       description: "Production-grade pipelines that get your application deployed reliably and stay observable once it's live.",
     },
   ],
+  "software-developers": [
+    {
+      title: "Orchestration / Architecture",
+      icon: Layers,
+      items: [
+        "Microservices & Monorepo architecture",
+        "Domain-Driven Design (DDD)",
+        "Event-driven systems (Kafka, RabbitMQ)",
+        "API design — REST, GraphQL, gRPC",
+      ],
+      description: "Our software engineers design systems built to last — scalable, maintainable, and ready for the load spikes that come with growth.",
+    },
+    {
+      title: "Languages & Frameworks",
+      icon: Code2,
+      items: [
+        "Node.js / Python / Java / Go / .NET",
+        "React / Next.js / Vue / Angular",
+        "Django / FastAPI / Spring Boot / Laravel",
+        "TypeScript across the full stack",
+      ],
+      description: "We match developers to your existing stack rather than asking you to change technologies to fit our bench.",
+    },
+    {
+      title: "Storage, Cloud & DevOps",
+      icon: Database,
+      items: [
+        "PostgreSQL / MySQL / MongoDB / Redis",
+        "AWS / GCP / Azure (certified engineers)",
+        "Docker / Kubernetes / Terraform",
+        "CI/CD — GitHub Actions / Jenkins / ArgoCD",
+      ],
+      description: "End-to-end cloud-native expertise so your codebase ships to production reliably, repeatedly, and at scale.",
+    },
+  ],
   "ios-developers": [
     {
       title: "Core Language & UI Frameworks",
@@ -416,10 +488,10 @@ const DELIVERABLES: Record<string, DeliverableCard[]> = {
     { title: "Performance Optimisation & QA", description: "Rendering profiling (Impeller & Skia), memory leak detection, bundle size auditing, and automated integration testing — ensuring your app maintains 60/120 FPS across all user devices.", graphicType: "shield" }
   ],
   "ai-ml-developers": [
-    { title: "Computer Vision", description: "Real-time object detection, instance segmentation, and spatial classification pipelines.", graphicType: "radar" },
-    { title: "Predictive Modeling", description: "High-accuracy time-series forecasting, regression networks, and multi-variable anomalies.", graphicType: "loss-curve" },
-    { title: "NLP & GenAI", description: "Domain-adapted language models, custom text representations, and semantic lookup systems.", graphicType: "node-graph" },
-    { title: "Deployment & MLOps", description: "Low-latency inference, model registries, Dockerized microservices, and metrics monitoring.", graphicType: "shield" }
+    { title: "Custom ML Model Development", description: "Supervised, unsupervised, and reinforcement learning models built for your specific dataset and business objective — with rigorous validation, bias testing, and performance reporting before handoff.", graphicType: "radar" },
+    { title: "Advanced RAG Pipelines", description: "Retrieval-Augmented Generation systems that ground LLM responses in your proprietary data — document ingestion, chunking strategy, embedding pipelines, vector search, and re-ranking layers all production-ready.", graphicType: "loss-curve" },
+    { title: "Agentic AI Workflows", description: "Multi-step AI agent systems that plan, reason, and execute across tools and data sources — built with LangChain, LlamaIndex, or custom orchestration frameworks, with safety guardrails and human-in-the-loop controls.", graphicType: "node-graph" },
+    { title: "Safety, Evaluation & Guardrails", description: "Structured evaluation frameworks, red-teaming, output filtering, hallucination detection, and continuous drift monitoring — so your AI system behaves reliably in production, not just in a demo.", graphicType: "shield" },
   ],
   "reactjs-developers": [
     { title: "Custom Web Application Frontends", description: "SaaS dashboards, admin panels, customer portals, and marketing sites built with React and Next.js — optimised for Core Web Vitals and SEO from the first commit, not retrofitted before launch.", graphicType: "radar" },
@@ -450,6 +522,12 @@ const DELIVERABLES: Record<string, DeliverableCard[]> = {
     { title: "API & Third-Party Integration", description: "Custom REST and GraphQL APIs, payment gateways (Stripe, Razorpay), authentication providers (Auth0, Firebase Auth), and any SDK your product needs to connect to.", graphicType: "loss-curve" },
     { title: "AI-Powered Web Experiences", description: "Full stack applications wired to AI backends — LLM-powered features, RAG pipelines, AI chat interfaces, and real-time AI feature delivery built with production-grade rate limiting and caching.", graphicType: "node-graph" },
     { title: "Performance Optimisation & QA", description: "Query optimisation, caching strategy, bundle size audits, and end-to-end test suites — so your application stays fast and stable as usage grows.", graphicType: "shield" },
+  ],
+  "software-developers": [
+    { title: "Custom Software Development", description: "Web apps, SaaS platforms, internal tools, and enterprise systems built to your exact specification — no templated solutions, no off-the-shelf shortcuts.", graphicType: "radar" },
+    { title: "Advanced API & Integration Pipelines", description: "Third-party integrations, payment gateways, ERP connectors, and data pipelines architected for reliability, speed, and long-term maintainability.", graphicType: "loss-curve" },
+    { title: "Agentic & AI-Augmented Software", description: "For products with AI at their core — our software developers build the backend infrastructure, APIs, and orchestration layers that make intelligent features work in production.", graphicType: "node-graph" },
+    { title: "QA, Testing & Code Quality", description: "Automated test suites, code reviews, static analysis, and performance benchmarking built into the development cycle — not bolted on at the end.", graphicType: "shield" },
   ],
   "ios-developers": [
     { title: "Native iOS App Development", description: "SwiftUI and UIKit applications built from the ground up — consumer apps, enterprise tools, and SaaS companion apps — architected for maintainability as your feature set grows.", graphicType: "radar" },
@@ -527,17 +605,19 @@ const BOTTOM_BANNERS: Record<string, {
     secondaryCta: "Talk to a MERN Strategist",
   },
   "ai-ml-developers": {
-    headline: "Ready to Put Production-Grade Models to Work?",
-    description: "Stop stalling your AI features in staging notebooks. Get a dedicated AI/ML engineer who integrates intelligent models, RAG pipelines, and low-latency inference.",
+    headline: "Ready to Bridge the AI Gap?",
+    description: "Stop experimenting and start shipping. Give your dedicated AI/ML developer a clear brief today — and see your models move from roadmap to production.",
     primaryCta: "Get a Quote for AI/ML Experts",
     secondaryCta: "Talk to an AI Strategist",
+    footer: "+91-XXXXXXXXXX | info@toadsters.com | Sector 63, Noida, India",
   },
   "software-developers": {
-    headline: "Ready to Scale Your Engineering Team?",
-    description: "Stop compromising on code quality. Get a dedicated software developer who hits the ground running, writes clean code, and embeds seamlessly into your sprints.",
-    primaryCta: "Get a Quote for Software Experts",
-    secondaryCta: "Talk to an Engineering Strategist",
-  }
+    headline: "Ready to Bridge the Software Development Gap?",
+    description: "Stop stretching your existing team and start shipping. Get a dedicated software developer matched to your stack, your timeline, and your budget.",
+    primaryCta: "Get a Quote for Software Developers",
+    secondaryCta: "Talk to a Software Strategist",
+    footer: "+91-XXXXXXXXXX | info@toadsters.com | Sector 63, Noida, India",
+  },
 }
 
 export default function HireResourceDetail({ resource }: { resource: HireResource }) {
@@ -552,6 +632,8 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
   const isAndroid = slug === "android-developers"
   const isReact = slug === "reactjs-developers"
   const isFullStack = slug === "full-stack-developers"
+  const isSoftwareDevelopers = slug === "software-developers"
+  const isAiMlDevelopers = slug === "ai-ml-developers"
   const titleInfo = parseTitleInfo(resource.heroTitle)
   const customSubheading = SUBHEADINGS[slug] || resource.subheading
   const skillColumns = SKILL_MATRICES[slug] || SKILL_MATRICES["flutter-developers"]
@@ -570,11 +652,15 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
               ? REACT_COMPARISON_ROWS
               : isFullStack
                 ? FULL_STACK_COMPARISON_ROWS
-                : DEFAULT_COMPARISON_ROWS
+                : isSoftwareDevelopers
+                  ? SOFTWARE_COMPARISON_ROWS
+                  : isAiMlDevelopers
+                    ? AI_ML_COMPARISON_ROWS
+                    : DEFAULT_COMPARISON_ROWS
 
   const whyHireSection = isFlutter ? getSection(resource, "Why Hire Dedicated Flutter Developers?") : null
-  const deliverablesSection = isFlutter ? getSection(resource, "What Your Dedicated Flutter Developers Will Deliver") : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack) ? getSection(resource, "Production Deliverables") : null)
-  const integrationSection = isFlutter ? getSection(resource, "Seamless 3-Step Integration") : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack) ? getSection(resource, "Seamless 3-Step Integration") : null)
+  const deliverablesSection = isFlutter ? getSection(resource, "What Your Dedicated Flutter Developers Will Deliver") : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? getSection(resource, "Production Deliverables") : null)
+  const integrationSection = isFlutter ? getSection(resource, "Seamless 3-Step Integration") : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? getSection(resource, "Seamless 3-Step Integration") : null)
   const rolesSection = isFlutter ? getSection(resource, "Flutter Roles You Can Hire") : null
   const engagementSection = isFlutter ? getSection(resource, "Flexible Engagement Models") : null
   const comparisonSection = isFlutter
@@ -598,7 +684,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
     ? getSection(resource, "Tech Stack & Skill Matrix")
     : isReactNative
       ? getSection(resource, "Tech Stack & Capabilities")
-      : (isDevOps || isIos || isAndroid || isReact || isFullStack)
+      : (isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers)
         ? getSection(resource, "Tech Stack & Skill Matrix")
         : null
 
@@ -638,7 +724,19 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                 secondary: "View Portfolio",
                 badges: ["⭐ 4.9/5 on Clutch", "70+ full stack products shipped", "8 countries served"]
               }
-              : null
+              : isSoftwareDevelopers
+                ? {
+                  primary: "Hire Software Developers →",
+                  secondary: "View Portfolio",
+                  badges: ["⭐ 4.9/5 on Clutch", "100+ software projects delivered", "8 countries served"]
+                }
+                : isAiMlDevelopers
+                  ? {
+                    primary: "Hire AI/ML Experts →",
+                    secondary: "View Portfolio",
+                    badges: ["⭐ 4.9/5 on Clutch", "80+ AI/ML projects delivered", "8 countries served"]
+                  }
+                : null
 
   const bottomBanner = BOTTOM_BANNERS[slug] || BOTTOM_BANNERS["software-developers"]
 
@@ -783,7 +881,11 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
               <HireResourceRfpForm
                 roleTitle={resource.heroTitle}
                 formSubtext={
-                  isFullStack
+                  isSoftwareDevelopers
+                    ? "Tell us your project requirements and we'll match you with the right software developers within 24 hours."
+                    : isAiMlDevelopers
+                      ? "Tell us your AI/ML requirements and we'll match you with the right engineers within 24 hours."
+                    : isFullStack
                     ? "Tell us your project requirements and we'll match you with the right full stack developer within 24 hours."
                     : isAndroid
                       ? "Tell us your project requirements and we'll match you with the right Android developer within 24 hours."
@@ -794,7 +896,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                           : undefined
                 }
                 submitFooterText={
-                  (isFullStack || isAndroid || isReact) ? (
+                  (isFullStack || isAndroid || isReact || isSoftwareDevelopers || isAiMlDevelopers) ? (
                     <span>
                       We&apos;ll review your CV details.{" "}
                       <a href="/contact" className="text-toadster-green hover:underline">
@@ -819,7 +921,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                     ]
                     : undefined
                 }
-                projectBriefLabel={(isFullStack || isAndroid || isReact) ? "Tell us about your project" : undefined}
+                projectBriefLabel={(isFullStack || isAndroid || isReact || isSoftwareDevelopers || isAiMlDevelopers) ? "Tell us about your project" : undefined}
               />
             </div>
 
@@ -833,7 +935,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-              {(isFlutter || isAndroid || isReact || isFullStack) ? "Tech Stack & Skill Matrix" : `Advanced ${titleInfo.highlight} Skill Matrix`}
+              {(isFlutter || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? "Tech Stack & Skill Matrix" : `Advanced ${titleInfo.highlight} Skill Matrix`}
             </h2>
             <p className="text-page-fg-muted max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
               {skillMatrixSection?.body ??
@@ -909,7 +1011,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
             {/* Header */}
             <div className="text-center flex flex-col gap-3 max-w-2xl mx-auto">
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white dark:text-black">
-                {isFlutter ? "What Your Dedicated Flutter Developers Will Deliver" : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack) ? "Production Deliverables" : "Enterprise Grade Deliverables")}
+                {isFlutter ? "What Your Dedicated Flutter Developers Will Deliver" : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? "Production Deliverables" : "Enterprise Grade Deliverables")}
               </h2>
               <p className="text-[#a0c5b3] dark:text-gray-600 text-sm sm:text-base leading-relaxed">
                 {deliverablesSection?.body ??
@@ -1103,7 +1205,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
         <section className="hire-detail-section relative z-10 mx-auto min-w-0 w-full max-w-7xl">
           <div className="text-center flex flex-col gap-3 mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-page-fg tracking-tight">
-              {isFlutter ? "How Dedicated Flutter Developers Compare" : (isReactNative ? "Why Dedicated Beats Every Other Option for React Native Talent" : (isDevOps ? "Why Dedicated Beats Every Other Option for DevOps Talent" : (isIos ? "Why Dedicated Beats Every Other Option for iOS Talent" : (isAndroid ? "Why Dedicated Beats Every Other Option for Android Talent" : (isReact ? "Why Dedicated Beats Every Other Option for React Talent" : (isFullStack ? "Why Dedicated Beats Every Other Option for Full Stack Talent" : "The Toadster Advantage"))))))}
+              {isFlutter ? "How Dedicated Flutter Developers Compare" : (isReactNative ? "Why Dedicated Beats Every Other Option for React Native Talent" : (isDevOps ? "Why Dedicated Beats Every Other Option for DevOps Talent" : (isIos ? "Why Dedicated Beats Every Other Option for iOS Talent" : (isAndroid ? "Why Dedicated Beats Every Other Option for Android Talent" : (isReact ? "Why Dedicated Beats Every Other Option for React Talent" : (isFullStack ? "Why Dedicated Beats Every Other Option for Full Stack Talent" : (isSoftwareDevelopers ? "Why Dedicated Beats Every Other Hiring Model" : (isAiMlDevelopers ? "Why Dedicated Beats Every Other Option for AI/ML Talent" : "The Toadster Advantage"))))))))}
             </h2>
             <p className="text-page-fg-muted max-w-xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
               {comparisonSection?.body ??
@@ -1115,10 +1217,10 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
             <table className="w-full text-left border-collapse min-w-[600px]">
               <thead>
                 <tr className="bg-toadster-green text-white">
-                  <th className="px-6 py-4.5 font-bold text-sm">{(isAndroid || isReact || isFullStack) ? "Criteria" : "Feature"}</th>
-                  <th className="px-6 py-4.5 font-bold text-sm">{isIos ? "Dedicated iOS Team" : (isAndroid ? "Dedicated Android Team" : (isReact ? "Dedicated React Team" : (isFullStack ? "Dedicated Full Stack Team" : "Dedicated Developer")))}</th>
-                  <th className="px-6 py-4.5 font-bold text-sm">{isFlutter ? "Staff Augmentation" : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack) ? "Freelancers" : "Staffing / Agency")}</th>
-                  <th className="px-6 py-4.5 font-bold text-sm">{(isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack) ? "In-House Hiring" : "Project Outsourcing"}</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{(isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? "Criteria" : "Feature"}</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{isIos ? "Dedicated iOS Team" : (isAndroid ? "Dedicated Android Team" : (isReact ? "Dedicated React Team" : (isFullStack ? "Dedicated Full Stack Team" : (isSoftwareDevelopers ? "Dedicated Team" : (isAiMlDevelopers ? "Dedicated AI/ML Team" : "Dedicated Developer")))))}</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{isFlutter ? "Staff Augmentation" : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? "Freelancers" : "Staffing / Agency")}</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{(isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? "In-House Hiring" : "Project Outsourcing"}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-page-border text-page-fg-muted text-sm">
@@ -1202,14 +1304,14 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
         {/* ── SECTION 12: FAQ ── */}
         {
-          (isFlutter || isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack) && resource.faqs.length > 0 && (
+          (isFlutter || isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) && resource.faqs.length > 0 && (
             <section className="hire-detail-section hire-detail-section--narrow relative z-10 mx-auto min-w-0 w-full max-w-4xl">
               <div className="text-center flex flex-col gap-3 mb-12">
                 <h2 className="hire-faq-title text-[clamp(1.25rem,3.5vw,3rem)] font-extrabold text-page-fg tracking-tight">
                   Frequently Asked Questions
                 </h2>
                 <p className="text-page-fg-muted text-sm sm:text-base leading-relaxed font-medium">
-                  Everything you need to know about hiring dedicated {isFlutter ? "Flutter" : (isReactNative ? "React Native" : (isDevOps ? "DevOps" : (isIos ? "iOS" : (isAndroid ? "Android" : (isReact ? "React.js" : (isFullStack ? "full stack" : ""))))))} developers through Toadster Technologies.
+                  Everything you need to know about hiring dedicated {isFlutter ? "Flutter" : (isReactNative ? "React Native" : (isDevOps ? "DevOps" : (isIos ? "iOS" : (isAndroid ? "Android" : (isReact ? "React.js" : (isFullStack ? "full stack" : (isSoftwareDevelopers ? "software" : (isAiMlDevelopers ? "AI/ML" : ""))))))))} developers through Toadster Technologies.
                 </p>
               </div>
 

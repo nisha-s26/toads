@@ -428,44 +428,54 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "AI/ML Developers",
     "Production ML, LLMs, computer vision & predictive analytics",
     "AiMl",
-    "Hire AI/ML Developers | Dedicated Machine Learning Engineers - Toadster Technologies",
-    "Hire expert AI/ML developers from Toadster Technologies. Get dedicated machine learning engineers onboarded in 5–7 days - RAG pipelines, LLMs, computer vision, and MLOps. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire AI/ML Developers | Dedicated Machine Learning Engineers — Toadster Technologies",
+    "Hire expert AI/ML developers from Toadster Technologies. Get dedicated machine learning engineers onboarded in 5–7 days — RAG pipelines, LLMs, computer vision, and MLOps. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert AI/ML Developers",
-    "Put proven AI and machine learning engineers on your product - developers who have shipped real models, not just run notebooks. From data pipelines to production inference, they hit the ground running.",
+    "Put proven AI and machine learning engineers on your product — developers who have shipped real models, not just run notebooks. From data pipelines to production inference, they hit the ground running.",
     [
-      "Trained, evaluated, and versioned models with documented performance benchmarks",
-      "Reproducible training pipelines and deployment-ready inference endpoints"
+      "⭐ 4.9/5 on Clutch",
+      "80+ AI/ML projects delivered",
+      "8 countries served",
     ],
     "Hire AI/ML Experts",
     [
       {
         heading: "Tech Stack & Skill Matrix",
-        body: "Our dedicated AI/ML developers are fluent across the full machine learning lifecycle - from raw data ingestion and model training to serving, monitoring, and continuous retraining in production.",
+        body: "Our dedicated AI/ML developers are fluent across the full machine learning lifecycle — from raw data ingestion and model training to serving, monitoring, and continuous retraining in production.",
         items: [
-          { title: "Orchestration & MLOps", body: "MLflow / Weights & Biases / DVC, Kubeflow / Airflow / Prefect, Model versioning & experiment tracking, Feature stores - Feast, Tecton" },
-          { title: "Models & Frameworks", body: "PyTorch / TensorFlow / JAX / Scikit-learn, Hugging Face Transformers & PEFT, LangChain / LlamaIndex / OpenAI API, Computer Vision - YOLO, Detectron2, OpenCV" },
-          { title: "Data & Inference Infrastructure", body: "PySpark / Dask / Polars for large-scale data, Vector databases - Pinecone, Weaviate, Qdrant, Model serving - TorchServe, Triton, BentoML, Cloud ML platforms - AWS SageMaker, GCP Vertex AI, Azure ML" }
-        ]
+          {
+            title: "Orchestration & MLOps",
+            body: "MLflow / Weights & Biases / DVC\nKubeflow / Airflow / Prefect\nModel versioning & experiment tracking\nFeature stores — Feast, Tecton\n\nOur ML engineers build the operational infrastructure that turns experimental models into reliable, monitored production systems.",
+          },
+          {
+            title: "Models & Frameworks",
+            body: "PyTorch / TensorFlow / JAX / Scikit-learn\nHugging Face Transformers & PEFT\nLangChain / LlamaIndex / OpenAI API\nComputer Vision — YOLO, Detectron2, OpenCV\n\nDeep framework fluency across classical ML, deep learning, large language models, and computer vision — matched to your use case, not our comfort zone.",
+          },
+          {
+            title: "Data & Inference Infrastructure",
+            body: "PySpark / Dask / Polars for large-scale data\nVector databases — Pinecone, Weaviate, Qdrant\nModel serving — TorchServe, Triton, BentoML\nCloud ML platforms — AWS SageMaker, GCP Vertex AI, Azure ML\n\nEnd-to-end data and serving infrastructure that keeps your models accurate, fast, and cost-efficient at any scale.",
+          },
+        ],
       },
       {
         heading: "Production Deliverables",
-        body: "When you hire AI/ML developers from Toadster Technologies, every engagement produces working, deployable intelligence - not research papers or proof-of-concept demos that stall in staging.",
+        body: "When you hire AI/ML developers from Toadster Technologies, every engagement produces working, deployable intelligence — not research papers or proof-of-concept demos that stall in staging.\nCore deliverables include:\n• Trained, evaluated, and versioned models with documented performance benchmarks\n• Reproducible training pipelines and deployment-ready inference endpoints",
         items: [
-          { title: "Custom ML Model Development", body: "Supervised, unsupervised, and reinforcement learning models built for your specific dataset and business objective - with rigorous validation, bias testing, and performance reporting before handoff." },
-          { title: "Advanced RAG Pipelines", body: "Retrieval-Augmented Generation systems that ground LLM responses in your proprietary data - document ingestion, chunking strategy, embedding pipelines, vector search, and re-ranking layers all production-ready." },
-          { title: "Agentic AI Workflows", body: "Multi-step AI agent systems that plan, reason, and execute across tools and data sources - built with LangChain, LlamaIndex, or custom orchestration frameworks, with safety guardrails and human-in-the-loop controls." },
-          { title: "Safety, Evaluation & Guardrails", body: "Structured evaluation frameworks, red-teaming, output filtering, hallucination detection, and continuous drift monitoring - so your AI system behaves reliably in production, not just in a demo." }
-        ]
+          { title: "Custom ML Model Development", body: "Supervised, unsupervised, and reinforcement learning models built for your specific dataset and business objective — with rigorous validation, bias testing, and performance reporting before handoff." },
+          { title: "Advanced RAG Pipelines", body: "Retrieval-Augmented Generation systems that ground LLM responses in your proprietary data — document ingestion, chunking strategy, embedding pipelines, vector search, and re-ranking layers all production-ready." },
+          { title: "Agentic AI Workflows", body: "Multi-step AI agent systems that plan, reason, and execute across tools and data sources — built with LangChain, LlamaIndex, or custom orchestration frameworks, with safety guardrails and human-in-the-loop controls." },
+          { title: "Safety, Evaluation & Guardrails", body: "Structured evaluation frameworks, red-teaming, output filtering, hallucination detection, and continuous drift monitoring — so your AI system behaves reliably in production, not just in a demo." },
+        ],
       },
       {
         heading: "Seamless 3-Step Integration",
-        body: "From first conversation to a dedicated AI/ML engineer embedded in your team - in under a week.",
+        body: "From first conversation to a dedicated AI/ML engineer embedded in your team — in under a week.",
         items: [
-          { title: "01 - Technical Scoping", body: "We assess your data landscape, model requirements, infrastructure constraints, and business objectives - then identify the exact AI/ML profile that closes your capability gap without over-engineering." },
-          { title: "02 - Vetting & Matching", body: "You interview shortlisted AI/ML engineers from our pre-vetted talent pool - reviewed for both technical depth and communication quality. No black-box staffing, no surprises." },
-          { title: "03 - Dedicated Onboarding", body: "Your engineer joins your data stack, experiment tracking environment, and team standups within days. They work your hours, follow your development cadence, and report directly to your team." }
-        ]
-      }
+          { title: "01 — Technical Scoping", body: "We assess your data landscape, model requirements, infrastructure constraints, and business objectives — then identify the exact AI/ML profile that closes your capability gap without over-engineering." },
+          { title: "02 — Vetting & Matching", body: "You interview shortlisted AI/ML engineers from our pre-vetted talent pool — reviewed for both technical depth and communication quality. No black-box staffing, no surprises." },
+          { title: "03 — Dedicated Onboarding", body: "Your engineer joins your data stack, experiment tracking environment, and team standups within days. They work your hours, follow your development cadence, and report directly to your team." },
+        ],
+      },
     ],
     [
       { question: "What does a dedicated AI/ML developer do?", answer: "A dedicated AI/ML developer designs, builds, trains, and deploys machine learning models and AI systems for your product. This includes data preprocessing, model selection, training pipeline development, evaluation, and production deployment - working exclusively on your project as part of your team." },
@@ -479,10 +489,19 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       { question: "Can I scale my dedicated AI/ML team up or down?", answer: "Yes. You can add specialised engineers - a computer vision expert, an MLOps engineer, a data engineer - or reduce the team with 30 days' notice. The model is built for the uneven resource demands that come with AI product development." }
     ],
     [
-      "Toadster Technologies provides AI/ML developers staff augmentation from India, serving UAE, Saudi Arabia, and the US.",
-      "Hire dedicated machine learning engineers onboarded in 5-7 days."
+      "Hire AI/ML Developers",
+      "Dedicated AI Engineers",
+      "Hire Machine Learning Developers",
+      "AI Development Company",
+      "Machine Learning Staff Augmentation",
+      "Hire LLM Engineers",
+      "Dedicated AI Development Team",
+      "Generative AI Developers for Hire",
+      "Hire Data Scientists",
+      "MLOps Engineers",
+      "AI Staff Augmentation Services",
     ],
-    { name: "Hire AI/ML Developers", description: "Hire expert AI/ML developers from Toadster Technologies. Get dedicated machine learning engineers onboarded in 5-7 days.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+    { name: "Hire AI/ML Developers", description: "Hire expert AI/ML developers from Toadster Technologies. Get dedicated machine learning engineers onboarded in 5–7 days.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
   ),
   hirePage(
     "full-stack-developers",
@@ -557,44 +576,54 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Software Developers",
     "Web, backend, cloud & AI software engineering",
     "Software",
-    "Hire Software Developers | Dedicated Development Team - Toadster Technologies",
+    "Hire Software Developers | Dedicated Development Team — Toadster Technologies",
     "Hire expert software developers from Toadster Technologies. Get dedicated engineers onboarded in 5–7 days across web, backend, cloud, and AI. Flexible models. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert Software Developers",
-    "Build faster, ship smarter, and close the talent gap - with dedicated software developers who plug into your team and start contributing from day one.",
+    "Build faster, ship smarter, and close the talent gap — with dedicated software developers who plug into your team and start contributing from day one.",
     [
-      "Well-documented, peer-reviewed code pushed to your repo on every sprint",
-      "Sprint demos, progress reports, and milestone sign-offs at every stage"
+      "⭐ 4.9/5 on Clutch",
+      "100+ software projects delivered",
+      "8 countries served",
     ],
     "Hire Software Developers",
     [
       {
         heading: "Tech Stack & Skill Matrix",
-        body: "Our dedicated software developers bring deep, production-tested expertise across the full stack - from system architecture to deployment pipelines and everything in between.",
+        body: "Our dedicated software developers bring deep, production-tested expertise across the full stack — from system architecture to deployment pipelines and everything in between.",
         items: [
-          { title: "Orchestration / Architecture", body: "Microservices & Monorepo architecture, Domain-Driven Design (DDD), Event-driven systems (Kafka, RabbitMQ), API design - REST, GraphQL, gRPC" },
-          { title: "Languages & Frameworks", body: "Node.js / Python / Java / Go / .NET, React / Next.js / Vue / Angular, Django / FastAPI / Spring Boot / Laravel, TypeScript across the full stack" },
-          { title: "Storage, Cloud & DevOps", body: "PostgreSQL / MySQL / MongoDB / Redis, AWS / GCP / Azure (certified engineers), Docker / Kubernetes / Terraform, CI/CD - GitHub Actions / Jenkins / ArgoCD" }
-        ]
+          {
+            title: "Orchestration / Architecture",
+            body: "Microservices & Monorepo architecture\nDomain-Driven Design (DDD)\nEvent-driven systems (Kafka, RabbitMQ)\nAPI design — REST, GraphQL, gRPC\n\nOur software engineers design systems built to last — scalable, maintainable, and ready for the load spikes that come with growth.",
+          },
+          {
+            title: "Languages & Frameworks",
+            body: "Node.js / Python / Java / Go / .NET\nReact / Next.js / Vue / Angular\nDjango / FastAPI / Spring Boot / Laravel\nTypeScript across the full stack\n\nWe match developers to your existing stack rather than asking you to change technologies to fit our bench.",
+          },
+          {
+            title: "Storage, Cloud & DevOps",
+            body: "PostgreSQL / MySQL / MongoDB / Redis\nAWS / GCP / Azure (certified engineers)\nDocker / Kubernetes / Terraform\nCI/CD — GitHub Actions / Jenkins / ArgoCD\n\nEnd-to-end cloud-native expertise so your codebase ships to production reliably, repeatedly, and at scale.",
+          },
+        ],
       },
       {
         heading: "Production Deliverables",
-        body: "When you hire software developers from Toadster Technologies, every engagement ships real, measurable output - not just effort hours.",
+        body: "When you hire software developers from Toadster Technologies, every engagement ships real, measurable output — not just effort hours.\nCore deliverables include:\n• Well-documented, peer-reviewed code pushed to your repo on every sprint\n• Sprint demos, progress reports, and milestone sign-offs at every stage",
         items: [
-          { title: "Custom Software Development", body: "Web apps, SaaS platforms, internal tools, and enterprise systems built to your exact specification - no templated solutions, no off-the-shelf shortcuts." },
+          { title: "Custom Software Development", body: "Web apps, SaaS platforms, internal tools, and enterprise systems built to your exact specification — no templated solutions, no off-the-shelf shortcuts." },
           { title: "Advanced API & Integration Pipelines", body: "Third-party integrations, payment gateways, ERP connectors, and data pipelines architected for reliability, speed, and long-term maintainability." },
-          { title: "Agentic & AI-Augmented Software", body: "For products with AI at their core - our software developers build the backend infrastructure, APIs, and orchestration layers that make intelligent features work in production." },
-          { title: "QA, Testing & Code Quality", body: "Automated test suites, code reviews, static analysis, and performance benchmarking built into the development cycle - not bolted on at the end." }
-        ]
+          { title: "Agentic & AI-Augmented Software", body: "For products with AI at their core — our software developers build the backend infrastructure, APIs, and orchestration layers that make intelligent features work in production." },
+          { title: "QA, Testing & Code Quality", body: "Automated test suites, code reviews, static analysis, and performance benchmarking built into the development cycle — not bolted on at the end." },
+        ],
       },
       {
         heading: "Seamless 3-Step Integration",
-        body: "From first conversation to a dedicated software developer embedded in your team - in under a week.",
+        body: "From first conversation to a dedicated software developer embedded in your team — in under a week.",
         items: [
-          { title: "01 - Technical Scoping", body: "We map your product requirements, current architecture, and team structure to identify exactly which software engineering expertise will move your roadmap forward." },
-          { title: "02 - Vetting & Matching", body: "You interview handpicked developers from our pre-vetted talent pool. No recruitment agency markup, no opaque selection process - just the right engineer for your stack and culture." },
-          { title: "03 - Dedicated Onboarding", body: "Your developer joins your Slack, Jira, GitHub, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." }
-        ]
-      }
+          { title: "01 — Technical Scoping", body: "We map your product requirements, current architecture, and team structure to identify exactly which software engineering expertise will move your roadmap forward." },
+          { title: "02 — Vetting & Matching", body: "You interview handpicked developers from our pre-vetted talent pool. No recruitment agency markup, no opaque selection process — just the right engineer for your stack and culture." },
+          { title: "03 — Dedicated Onboarding", body: "Your developer joins your Slack, Jira, GitHub, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." },
+        ],
+      },
     ],
     [
       { question: "What is a dedicated software developer?", answer: "A dedicated software developer is a full-time engineer who works exclusively on your product, managed through a technology partner like Toadster Technologies. They integrate into your team, follow your processes, and build long-term product knowledge - without the overhead of traditional recruitment or the risk of a generalist freelancer." },
@@ -608,10 +637,18 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       { question: "Can I scale my dedicated software development team up or down?", answer: "Yes. You can add or reduce developers with 30 days' notice. There are no rigid annual commitments unless you opt for one. Growth phases, product launches, or quieter periods - your team size adjusts with your business." }
     ],
     [
-      "Toadster Technologies provides software developer staff augmentation from India.",
-      "Hire dedicated software engineers onboarded in 5-7 days."
+      "Hire Software Developers",
+      "Dedicated Software Developers",
+      "Software Development Company",
+      "Hire Dedicated Developers",
+      "Remote Software Developers",
+      "IT Staff Augmentation Services",
+      "Offshore Software Development Team",
+      "Extended Development Team",
+      "Hire Backend Developers",
+      "Hire Full Stack Developers",
     ],
-    { name: "Hire Software Developers", description: "Hire expert software developers from Toadster Technologies. Get dedicated engineers onboarded in 5-7 days.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+    { name: "Hire Software Developers", description: "Hire expert software developers from Toadster Technologies. Get dedicated engineers onboarded in 5–7 days across web, backend, cloud, and AI.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
   )
 
   ,

@@ -92,7 +92,6 @@ export default function AiCap() {
                 target="_blank"
                 rel="noopener noreferrer"
                 index={index}
-                shortHeadingRule
               />
             </ScrollReveal>
           )

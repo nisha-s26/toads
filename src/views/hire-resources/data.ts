@@ -10,8 +10,7 @@ export const heroContent = {
     "Scaling a product or engineering team usually comes down to one constraint: finding the right people fast enough. Toadster Technologies gives growing companies access to vetted, dedicated developers and technology specialists who join your team directly — without the months-long hiring cycle, the recruitment overhead, or the risk of a mismatched freelancer.",
     "Whether you need a single backend engineer for three months or a complete cross-functional pod for a year-long build, our staff augmentation and dedicated resource model is built around one principle: you keep control, we remove the friction of finding and retaining the talent.",
   ],
-  primaryCta: "Hire Dedicated Developers",
-  secondaryCta: "View All Resource Types",
+  expertCta: "Talk to an Expert",
   badges: ["⭐ 4.9/5 on Clutch", "300+ engineers placed", "8 countries served"],
   form: {
     headline: "Request a Free Consultation",
@@ -135,8 +134,7 @@ export const ctaSection = {
   title: "Ready to Build Your Dedicated Team?",
   description:
     "Every quarter you delay closing a skills gap is a quarter your roadmap slips further behind. Tell us what you're building, and we'll have a shortlist of vetted candidates in front of you within a week.",
-  primaryCta: "Hire Dedicated Developers Now",
-  secondaryCta: "Talk to a Resourcing Strategist",
+  expertCta: "Talk to an Expert",
   footer: "info@toadsters.com | Sector 63, Noida, India",
 }
 

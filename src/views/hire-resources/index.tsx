@@ -61,13 +61,11 @@ const RESOURCE_TYPES_INITIAL_COUNT = 9
 const FAQ_INITIAL_COUNT = 5
 const REVEAL_COLLAPSE_MS = 420
 
-function scrollToCta() {
-  document.getElementById("hire-hub-cta")?.scrollIntoView({ behavior: "smooth", block: "center" })
-}
+const EXPERT_CTA_CLASS =
+  "inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-toadster-green transition-all hover:-translate-y-0.5 hover:bg-white/90"
 
-function scrollToResourceTypes() {
-  document.getElementById("resource-types")?.scrollIntoView({ behavior: "smooth", block: "start" })
-}
+const HERO_EXPERT_CTA_CLASS =
+  "inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-primary-hover"
 
 function SectionHeading({
   titleBefore,
@@ -311,21 +309,10 @@ function CtaPanel() {
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
           {ctaSection.description}
         </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <button
-            type="button"
-            onClick={scrollToCta}
-            className="inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-toadster-green transition-all hover:-translate-y-0.5 hover:bg-white/90"
-          >
-            {ctaSection.primaryCta}
+        <div className="mt-8 flex justify-center">
+          <Link href="/contact" title={ctaSection.expertCta} className={EXPERT_CTA_CLASS}>
+            {ctaSection.expertCta}
             <ArrowRight size={16} />
-          </button>
-          <Link
-            href="/contact"
-            title={ctaSection.secondaryCta}
-            className="inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full border border-white/90 px-7 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
-          >
-            {ctaSection.secondaryCta}
           </Link>
         </div>
         <p className="mt-6 text-xs text-white/70">{ctaSection.footer}</p>
@@ -362,20 +349,37 @@ export default function HireResourcesHubPage() {
               className="hidden object-cover object-center dark:block"
             />
           </div>
+          <div className="homepage-hero-bg-overlay absolute inset-0" />
           <div className="hire-hub-hero-bg-overlay absolute inset-0" />
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#065606]/22 via-[#065606]/14 to-[#044404]/26 dark:hidden"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/35 via-white/20 to-white/30 dark:hidden"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 hidden bg-black/45 dark:block"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 hidden bg-gradient-to-b from-[#022802]/80 via-[#065606]/72 to-black/78 dark:block"
+            aria-hidden
+          />
         </div>
 
         <div className="hire-page-container relative z-10 w-full">
           <div className="mx-auto flex w-full max-w-4xl flex-col items-center py-10 text-center sm:py-12 lg:py-14">
-            <h1 className="hero-enter-delay-1 w-full text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
-              <span className="text-page-fg">Hire Dedicated Developers & </span>
-              <span className="text-toadster-green">Technology Resources</span>
+            <h1 className="hero-enter-delay-1 w-full text-3xl font-extrabold leading-[1.08] dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+              <span className="text-black dark:text-white">Hire Dedicated Developers & </span>
+              <span className="text-toadster-green dark:text-green-400">Technology Resources</span>
             </h1>
             {heroContent.paragraphs.map((paragraph, index) => (
               <p
                 key={paragraph}
                 className={cn(
-                  "hero-subtitle mt-4 w-full text-sm leading-relaxed sm:text-base md:text-lg",
+                  "mt-4 w-full text-sm font-medium leading-relaxed text-black dark:text-white dark:drop-shadow-[0_1px_10px_rgba(0,0,0,0.85)] sm:text-base md:text-lg",
                   index === 0 ? "hero-enter-delay-2" : "hero-enter-delay-3",
                 )}
               >
@@ -383,33 +387,22 @@ export default function HireResourcesHubPage() {
               </p>
             ))}
 
-            <div className="hero-enter-delay-3 mt-8 flex w-full flex-col gap-3 sm:flex-row sm:justify-center">
-              <button
-                type="button"
-                onClick={scrollToCta}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-primary-hover"
-              >
-                {heroContent.primaryCta}
+            <div className="hero-enter-delay-3 mt-8 flex w-full justify-center">
+              <Link href="/contact" title={heroContent.expertCta} className={HERO_EXPERT_CTA_CLASS}>
+                {heroContent.expertCta}
                 <ArrowRight className="h-4 w-4" />
-              </button>
-              <button
-                type="button"
-                onClick={scrollToResourceTypes}
-                className="inline-flex h-11 items-center justify-center rounded-xl border border-page-border-strong px-7 py-3.5 text-sm font-semibold text-page-fg transition-colors hover:-translate-y-0.5 hover:bg-page-fg/5"
-              >
-                {heroContent.secondaryCta}
-              </button>
+              </Link>
             </div>
 
-            <div className="hire-hub-hero-badges hero-enter-delay-4 mt-8 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold sm:text-sm">
+            <div className="hire-hub-hero-badges hero-enter-delay-4 mt-8 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold text-black dark:!text-white dark:drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)] sm:text-sm">
               {heroContent.badges.map((badge, index) => (
                 <span
                   key={badge}
-                  className="flex items-center gap-4"
+                  className="flex items-center gap-4 dark:!text-white"
                   style={{ ["--badge-index" as string]: index }}
                 >
                   {index > 0 ? (
-                    <span className="hidden text-page-border sm:inline" aria-hidden="true">
+                    <span className="hidden text-page-border dark:text-white/35 sm:inline" aria-hidden="true">
                       |
                     </span>
                   ) : null}

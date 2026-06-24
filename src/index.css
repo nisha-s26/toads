@@ -1889,16 +1889,15 @@
   z-index: 10;
 }
 
-/* On hover – expand the green rule to full card width using vw trick */
+/* On hover – expand the green rule to the title/content column only (not under the icon) */
 .capability-card-surface:not(#contact-form):not(.faq-accordion-surface):hover .capability-card-header h3::after,
 .hire-role-card:hover .capability-card-header h3::after {
-  /* Extend to fill the card row including the icon column */
-  width: calc(100% + 3.5rem);
+  width: 100%;
 }
 
-/* Keep title underline short — do not extend toward the icon */
-.capability-card-short-rule:hover .capability-card-header h3::after,
-.capability-card-short-rule .capability-card-header h3::after {
+/* Keep title underline short at rest and on hover */
+.capability-card-short-rule .capability-card-header h3::after,
+.capability-card-short-rule:hover .capability-card-header h3::after {
   width: 2.5rem;
 }
 
