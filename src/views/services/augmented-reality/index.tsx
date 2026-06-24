@@ -70,7 +70,7 @@ function HeroConsultationForm() {
       </p>
       <h3 className="relative z-10 text-xl font-bold text-slate-900 dark:text-black">Discuss your AR project</h3>
       <p className="capability-card-copy relative z-10 mt-2 mb-6 text-sm">
-        Tell us the experience you want to create and we&apos;ll schedule a focused discovery call — no hard sell, no
+        Tell us the experience you want to create and we&apos;ll schedule a focused discovery call - no hard sell, no
         generic demo reel.
       </p>
 
@@ -132,7 +132,7 @@ function HeroConsultationForm() {
         </div>
         <Button type="submit" className="w-full rounded-xl py-6 text-base font-bold" disabled={isSubmitting}>
           {submitStatus === "success"
-            ? "Request Received — We'll be in touch soon!"
+            ? "Request Received - We'll be in touch soon!"
             : isSubmitting
               ? "Sending..."
               : "Discuss Your AR Project"}
@@ -167,13 +167,13 @@ export default function AugmentedRealityPage() {
             </p>
             <p className="service-hero-subtitle mb-6 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
               There&apos;s a meaningful gap between what customers can imagine from a product page, what trainees can
-              absorb from a manual, and what field engineers can diagnose from a diagram — and what they can understand
+              absorb from a manual, and what field engineers can diagnose from a diagram - and what they can understand
               when they can actually see it in their environment, overlaid on the real world.
             </p>
             <p className="service-hero-subtitle mb-6 w-full max-w-none text-base leading-relaxed text-page-fg-muted">
               Augmented reality closes that gap. Not as a novelty, but as a practical tool that changes how people buy,
               learn, work, and make decisions. At Toadster Technologies, we design and build AR applications that solve
-              real operational and commercial problems — from industrial training and remote assistance to retail
+              real operational and commercial problems - from industrial training and remote assistance to retail
               product visualisation and spatial data overlays.
             </p>
             <p className="service-hero-subtitle mb-8 w-full max-w-none text-base leading-relaxed text-page-fg-muted">
@@ -199,7 +199,7 @@ export default function AugmentedRealityPage() {
           <SectionHead
             label=""
             title="Augmented Reality Development Services"
-            subtitle="We build across the full AR spectrum — from smartphone-based experiences to enterprise wearable applications, WebAR, and spatial computing. Here's what we cover:"
+            subtitle="We build across the full AR spectrum - from smartphone-based experiences to enterprise wearable applications, WebAR, and spatial computing. Here's what we cover:"
           />
           <div className="grid gap-6 md:grid-cols-2">
             {capabilities.map((cap) => {
@@ -265,7 +265,7 @@ export default function AugmentedRealityPage() {
             <SectionHead
               label=""
               title="How We Approach an AR Development Project"
-              subtitle="AR projects involve more design and user experience work upfront than standard app development — because the experience is spatial and physical in a way that a screen-based UI is not. Our process reflects that."
+              subtitle="AR projects involve more design and user experience work upfront than standard app development - because the experience is spatial and physical in a way that a screen-based UI is not. Our process reflects that."
             />
             <div className="service-process-timeline-card">
               <p className="service-process-timeline-label">Typical PoC timeline</p>
@@ -327,7 +327,7 @@ export default function AugmentedRealityPage() {
           <SectionHead
             label=""
             title="The People You Need, Ready When You Need Them"
-            subtitle="AR development requires a blend of skills that you won't find in a standard mobile development team — spatial UX design, 3D art, real-time rendering optimisation, and AR SDK expertise all need to work together."
+            subtitle="AR development requires a blend of skills that you won't find in a standard mobile development team - spatial UX design, 3D art, real-time rendering optimisation, and AR SDK expertise all need to work together."
           />
           <ServiceStatRow stats={teamStats} />
           <div className="ar-content-list divide-y divide-page-border border-y border-page-border">
@@ -346,7 +346,7 @@ export default function AugmentedRealityPage() {
           <SectionHead
             label=""
             title="What Well-Built AR Actually Delivers"
-            subtitle="AR is justified by the business outcomes it produces — not by the technology itself. Here's what organisations that have deployed AR well are actually seeing:"
+            subtitle="AR is justified by the business outcomes it produces - not by the technology itself. Here's what organisations that have deployed AR well are actually seeing:"
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((item) => {
@@ -379,8 +379,8 @@ export default function AugmentedRealityPage() {
 
         footnote="Typically responds within one business day"
       >
-        <p>Tell us the experience you&apos;re trying to create — the product you want customers to visualise, the
-            procedure you want engineers to follow, the data you want teams to see in context — and we&apos;ll have a
+        <p>Tell us the experience you&apos;re trying to create - the product you want customers to visualise, the
+            procedure you want engineers to follow, the data you want teams to see in context - and we&apos;ll have a
             direct conversation about what it would take to build it well.</p>
         <p>We respond within one business day and can schedule a discovery call within the week. No hard sell, no
             generic demo reel. Just a focused conversation about your use case.</p>

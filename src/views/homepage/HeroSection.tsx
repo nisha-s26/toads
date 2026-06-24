@@ -177,14 +177,13 @@ export default function HeroSection() {
 
         <div className="hero-enter-delay-4 mx-auto mt-4 flex w-full max-w-sm flex-col items-stretch justify-center gap-2.5 sm:mt-6 sm:max-w-none sm:flex-row sm:items-center sm:gap-3 [@media(max-height:720px)]:mt-3 [@media(max-height:720px)]:gap-2">
           <Button asChild className="w-full rounded-xl px-5 py-4 text-sm shadow-lg sm:w-auto sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs">
-            <Link href="/contact" title="Get Started">Get Free Consultation</Link>
+            <Link href="/contact" title="Get Started">Start Your Project</Link>
           </Button>
           <Button
             asChild
             variant="outline"
             className="hero-outline-btn w-full rounded-xl px-5 py-4 text-sm shadow-md backdrop-blur-md sm:w-auto sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs"
           >
-            <Link href="/services/agentic-ai" title="View AI Solutions">Explore AI Solutions</Link>
           </Button>
         </div>
       </div>

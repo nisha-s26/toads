@@ -308,7 +308,7 @@
   margin-right: calc(50% - 50vw);
 }
 
-/* Shared FAQ section layout — 70% width, centered */
+/* Shared FAQ section layout - 70% width, centered */
 .faq-section-layout {
   width: 70%;
   max-width: 70%;
@@ -331,7 +331,7 @@
   overflow-x: visible;
 }
 
-/* Hero lives inside page-content-container — disable full-bleed break-out to avoid left-edge clipping */
+/* Hero lives inside page-content-container - disable full-bleed break-out to avoid left-edge clipping */
 .page-content-container .software-development-hero.section-full-bleed,
 .page-content-container .service-page-hero.section-full-bleed {
   width: 100%;
@@ -361,7 +361,7 @@
   isolation: isolate;
 }
 
-/* Services hero — light / dark background image (hero section only, not full page) */
+/* Services hero - light / dark background image (hero section only, not full page) */
 .service-hero-viewport--image .software-development-hero,
 .service-hero-viewport--image .service-page-hero,
 .service-hero-viewport--image .hire-hub-hero-section {
@@ -431,7 +431,7 @@
   }
 }
 
-/* Service pages — constrain content to 90% viewport width */
+/* Service pages - constrain content to 90% viewport width */
 .page-content-container,
 .hire-page-container {
   position: relative;
@@ -650,7 +650,7 @@
   padding-top: var(--homepage-section-gap);
 }
 
-/* Same gap between stacked homepage sections — no extra top padding */
+/* Same gap between stacked homepage sections - no extra top padding */
 #homepage-sections>.homepage-snap-section+.homepage-snap-section {
   padding-top: 0;
 }
@@ -931,7 +931,95 @@
 }
 
 .contact-page .contact-form-field::placeholder {
-  color: rgb(0 0 0 / 0.4);
+  color: #9ca3af;
+  -webkit-text-fill-color: #9ca3af;
+  opacity: 1;
+}
+
+.contact-page .contact-explore-card-item .hire-role-card {
+  padding: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .contact-page .contact-explore-card-item .hire-role-card {
+    padding: 1.375rem;
+  }
+}
+
+.contact-feature-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.62) 0%,
+      rgba(248, 250, 252, 0.38) 48%,
+      rgba(255, 255, 255, 0.52) 100%);
+  backdrop-filter: blur(18px) saturate(165%);
+  -webkit-backdrop-filter: blur(18px) saturate(165%);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 10px 28px rgba(59, 130, 246, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    inset 0 -1px 0 rgba(186, 211, 252, 0.18);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease;
+}
+
+.contact-feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(125deg,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0.08) 38%,
+      transparent 58%);
+}
+
+.contact-feature-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 16px 36px rgba(59, 130, 246, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(186, 211, 252, 0.28);
+}
+
+.dark .contact-feature-card {
+  background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(224, 242, 254, 0.1) 48%,
+      rgba(255, 255, 255, 0.12) 100%);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(186, 211, 252, 0.1);
+}
+
+.dark .contact-feature-card:hover {
+  border-color: rgba(255, 255, 255, 0.36);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    inset 0 -1px 0 rgba(186, 211, 252, 0.14);
+}
+
+.contact-feature-icon {
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.dark .contact-feature-icon {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
 .homepage-content {
@@ -1047,7 +1135,7 @@
   --hire-body: #000000;
 }
 
-/* Normalize detail-page section rhythm — one gap system, no stacked global margins */
+/* Normalize detail-page section rhythm - one gap system, no stacked global margins */
 .hire-page-shell.min-h-screen>section+section {
   margin-top: 0;
   padding-top: 0;
@@ -1562,7 +1650,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Service process section — dark green panel, white typography */
+/* Service process section - dark green panel, white typography */
 .service-process-section {
   --process-panel-bg: linear-gradient(145deg, #005a35 0%, #004528 42%, #00301c 100%);
   --process-panel-border: rgba(255, 255, 255, 0.1);
@@ -1979,8 +2067,8 @@
 
 .capability-card-header h3 {
   display: block;
-  width: 100%;
-  max-width: 100%;
+  width: fit-content;
+  max-width: calc(100% - 3.75rem);
   overflow: visible;
 }
 
@@ -1988,11 +2076,12 @@
   overflow: visible;
 }
 
-.capability-card-header .flex h3 {
-  flex: 1 1 0%;
+.capability-card-header .flex > h3 {
+  flex: 0 1 auto;
   min-width: 0;
+  width: fit-content;
+  max-width: calc(100% - 3.75rem);
   overflow: visible;
-  /* Use padding-right to avoid overlapping icon rather than max-width */
   padding-right: 0.25rem;
 }
 
@@ -2007,8 +2096,7 @@
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Keep title underline short — do not extend toward the icon */
-/* Capability card hover - subtle scale and heading-width underline */
+/* Capability card hover - subtle scale */
 .capability-card-surface:not(#contact-form):not(.faq-accordion-surface) {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform-origin: center;
@@ -2020,16 +2108,10 @@
   z-index: 10;
 }
 
-/* On hover – expand the green rule to the title/content column only (not under the icon) */
+/* Expand underline to full heading width on hover (h3 is fit-content, so 100% = text width) */
 .capability-card-surface:not(#contact-form):not(.faq-accordion-surface):hover .capability-card-header h3::after,
 .hire-role-card:hover .capability-card-header h3::after {
   width: 100%;
-}
-
-/* Keep title underline short at rest and on hover */
-.capability-card-short-rule .capability-card-header h3::after,
-.capability-card-short-rule:hover .capability-card-header h3::after {
-  width: 2.5rem;
 }
 
 /* ── Card icon glow with slow circular shine ── */
@@ -2691,11 +2773,6 @@ section.trusted-by-marquee+section.section-padding+section.section-padding {
   will-change: transform;
 }
 
-.logo-marquee:hover .logo-marquee-track,
-.logo-marquee:hover .animate-logo-marquee {
-  animation-play-state: paused;
-}
-
 @keyframes trusted-by-scroll {
   from {
     transform: translateX(0);
@@ -2875,7 +2952,7 @@ section.trusted-by-marquee+section.section-padding+section.section-padding {
   --da-green-dark: #054805;
 }
 
-/* Data Analytics landing page — dark hero + bento layout */
+/* Data Analytics landing page - dark hero + bento layout */
 .data-analytics-landing {
   --da-green: #065606;
   --da-accent-text: #166534;
@@ -3072,7 +3149,7 @@ html:not(.dark) .data-analytics-landing .da-hero--image .da-btn-outline:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* DevOps technology hero — custom image + services-style readable text */
+/* DevOps technology hero - custom image + services-style readable text */
 .data-analytics-landing .da-hero--devops {
   background: #eef1f8;
 }
@@ -4203,7 +4280,7 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
   color: #ffffff;
 }
 
-/* Dark mode — invert light sections while keeping hero/CTA/stats dark */
+/* Dark mode - invert light sections while keeping hero/CTA/stats dark */
 .dark .data-analytics-landing {
   --da-muted: #111111;
   --da-text: #f3f4f6;
@@ -4291,7 +4368,7 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
     order: -1;
   }
 
-  /* Horizontal inset only — vertical spacing from --hire-section-gap */
+  /* Horizontal inset only - vertical spacing from --hire-section-gap */
   .hire-page-shell .hire-page-container>.hire-detail-section {
     padding-inline: clamp(1rem, 4vw, 1.5rem) !important;
   }
@@ -4423,7 +4500,7 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
   }
 }
 
-/* Hire route navbar — black / white text only */
+/* Hire route navbar - black / white text only */
 .navbar-hire-route [data-slot="navigation-menu-trigger"],
 .navbar-hire-route [data-slot="navigation-menu-link"] {
   color: #000000;
@@ -4446,7 +4523,7 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
   }
 }
 
-/* Hire Resources hub — transparent over homepage mesh */
+/* Hire Resources hub - transparent over homepage mesh */
 .hire-resources-hub {
   background: transparent;
   --hire-section-gap: clamp(2.5rem, 4vw, 3.5rem);
@@ -4457,7 +4534,7 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
   --hire-hub-body: #000000;
 }
 
-/* Neutralise homepage-content stack margins only — spacing lives on .hire-hub-section */
+/* Neutralise homepage-content stack margins only - spacing lives on .hire-hub-section */
 .hire-resources-hub.homepage-content>section+section,
 .hire-resources-hub.min-h-screen>section+section {
   margin-top: 0;
@@ -4651,7 +4728,7 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
   pointer-events: none;
 }
 
-/* Hire hub cards — solid accent style (distinct from homepage hire-role-card) */
+/* Hire hub cards - solid accent style (distinct from homepage hire-role-card) */
 .hire-hub-card-link {
   text-decoration: none;
   color: inherit;
@@ -5484,7 +5561,7 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
   }
 }
 
-/* Global country landing pages — stitch layout */
+/* Global country landing pages - stitch layout */
 .global-country-page {
   --gc-green: #0a2f1f;
   --gc-green-deep: #003d2b;
@@ -5600,12 +5677,96 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
 }
 
 .global-country-hero {
-  background: linear-gradient(165deg, #eef1f8 0%, #f5f7fc 45%, #e9f5ef 100%);
-  padding-top: 7rem;
+  padding: clamp(7rem, 12vw, 11rem) 0 clamp(3rem, 5vw, 4rem);
+  min-height: min(520px, 88vh);
+  background: transparent;
+}
+
+.global-country-hero-bg,
+.global-country-hero-bg-image,
+.global-country-hero-bg-image img {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.global-country-hero-bg-image {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.global-country-hero-bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.global-country-hero-bg-overlay {
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(255, 255, 255, 0.82) 28%,
+    rgba(255, 255, 255, 0.52) 58%,
+    rgba(255, 255, 255, 0.18) 100%
+  );
+}
+
+.dark .global-country-hero-bg-overlay {
+  background: linear-gradient(
+    105deg,
+    rgba(6, 10, 16, 0.9) 0%,
+    rgba(6, 10, 16, 0.78) 28%,
+    rgba(6, 10, 16, 0.52) 58%,
+    rgba(6, 10, 16, 0.22) 100%
+  );
+}
+
+.global-country-hero-content nav a {
+  transition: color 0.2s ease;
+}
+
+.global-country-hero-content nav a:hover {
+  color: var(--toadster-green);
+}
+
+.dark .global-country-hero-content nav a:hover {
+  color: #6ee7a8;
+}
+
+@media (max-width: 639px) {
+  .global-country-hero {
+    min-height: min(480px, 82vh);
+  }
+
+  .global-country-hero-bg-image img {
+    object-position: center 18%;
+  }
+
+  .global-country-hero-bg-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.78) 55%,
+      rgba(255, 255, 255, 0.35) 100%
+    );
+  }
+
+  .dark .global-country-hero-bg-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(6, 10, 16, 0.9) 0%,
+      rgba(6, 10, 16, 0.76) 55%,
+      rgba(6, 10, 16, 0.35) 100%
+    );
+  }
 }
 
 .dark .global-country-hero {
-  background: linear-gradient(165deg, var(--page-bg) 0%, var(--page-bg-alt) 100%);
+  background: transparent;
 }
 
 .global-country-hero-enter {

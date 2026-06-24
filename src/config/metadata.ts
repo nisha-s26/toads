@@ -48,17 +48,17 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
   "/privacy-policy": {
     title: "Privacy Policy | Toadster Technologies",
     description:
-      "Toadster Technologies Privacy Policy — how we collect, use, protect, and retain personal data, your privacy rights, cookies, and contact information.",
+      "Toadster Technologies Privacy Policy - how we collect, use, protect, and retain personal data, your privacy rights, cookies, and contact information.",
   },
   "/terms-and-conditions": {
     title: "Terms and Conditions | Toadster Technologies",
     description:
-      "Toadster Technologies Terms and Conditions — website use, services, intellectual property, disclaimers, liability, privacy, governing law, and contact information.",
+      "Toadster Technologies Terms and Conditions - website use, services, intellectual property, disclaimers, liability, privacy, governing law, and contact information.",
   },
   "/hire-resources": {
-    title: "Hire Dedicated Developers | IT Staff Augmentation Services — Toadster Technologies",
+    title: "Hire Dedicated Developers | IT Staff Augmentation Services - Toadster Technologies",
     description:
-      "Hire dedicated developers and technology resources from Toadster Technologies. Flexible staff augmentation across software, mobile, AI/ML, DevOps, and more — onboarded in 5–7 days. Serving India, UAE, Saudi Arabia & the US.",
+      "Hire dedicated developers and technology resources from Toadster Technologies. Flexible staff augmentation across software, mobile, AI/ML, DevOps, and more - onboarded in 5–7 days. Serving India, UAE, Saudi Arabia & the US.",
   },
   "/ai-development-company-australia": {
     title: "AI Development Company in Australia | Custom AI & GenAI Solutions – Toadster",
@@ -179,12 +179,12 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
   "/services": {
     title: "Software & AI Development Services | Toadster Technologies",
     description:
-      "Explore Toadster Technologies' full range of services — AI development, agentic AI, RAG systems, software, mobile, DevOps, cybersecurity, and more. Serving India, UAE, Saudi Arabia & the US.",
+      "Explore Toadster Technologies' full range of services - AI development, agentic AI, RAG systems, software, mobile, DevOps, cybersecurity, and more. Serving India, UAE, Saudi Arabia & the US.",
   },
   "/services/agentic-ai": {
     title: "Agentic AI Development Services | Autonomous AI Agents | Toadster Technologies",
     description:
-      "Agentic AI development services — autonomous agents, multi-agent orchestration, tool-use integration, and AI safety guardrails. Built for real operational workflows. Talk to Toadster Technologies.",
+      "Agentic AI development services - autonomous agents, multi-agent orchestration, tool-use integration, and AI safety guardrails. Built for real operational workflows. Talk to Toadster Technologies.",
   },
   "/services/ai-development": {
     title: "AI Development Services | Artificial Intelligence Solutions | Toadster",
@@ -194,37 +194,37 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
   "/technologies/data-analytics": {
     title: "Data Analytics Services | Toadster Technologies",
     description:
-      "Enterprise data analytics consulting from Toadster — data engineering, warehouse architecture, BI dashboards, predictive analytics, and governance built for measurable ROI.",
+      "Enterprise data analytics consulting from Toadster - data engineering, warehouse architecture, BI dashboards, predictive analytics, and governance built for measurable ROI.",
   },
   "/technologies/artificial-intelligence": {
     title: "Artificial Intelligence Services | Toadster Technologies",
     description:
-      "Enterprise AI services from Toadster — custom LLM and RAG integration, autonomous agents, predictive ML models, MLOps, and governance built for production-grade outcomes.",
+      "Enterprise AI services from Toadster - custom LLM and RAG integration, autonomous agents, predictive ML models, MLOps, and governance built for production-grade outcomes.",
   },
   "/technologies/iot": {
     title: "IoT Services | Toadster Technologies",
     description:
-      "Enterprise IoT services from Toadster — device architecture, connectivity design, edge computing, platform integration, predictive maintenance, and analytics for connected operations.",
+      "Enterprise IoT services from Toadster - device architecture, connectivity design, edge computing, platform integration, predictive maintenance, and analytics for connected operations.",
   },
   "/technologies/augmented-reality": {
     title: "Augmented Reality Services | Toadster Technologies",
     description:
-      "Enterprise AR services from Toadster — AR application development, head-mounted display integration, 3D content, remote assistance, and analytics for spatial computing deployments.",
+      "Enterprise AR services from Toadster - AR application development, head-mounted display integration, 3D content, remote assistance, and analytics for spatial computing deployments.",
   },
   "/technologies/penetration-testing": {
     title: "Penetration Testing Services | Toadster Technologies",
     description:
-      "Enterprise penetration testing from Toadster — network, web application, API, and cloud security assessments aligned to OWASP, PTES, and NIST SP 800-115 with risk-prioritized reporting.",
+      "Enterprise penetration testing from Toadster - network, web application, API, and cloud security assessments aligned to OWASP, PTES, and NIST SP 800-115 with risk-prioritized reporting.",
   },
   "/technologies/devops": {
     title: "DevOps Services | Toadster Technologies",
     description:
-      "Enterprise DevOps from Toadster — CI/CD pipeline design, infrastructure as code, Kubernetes, observability, and SRE built for faster, more reliable software delivery.",
+      "Enterprise DevOps from Toadster - CI/CD pipeline design, infrastructure as code, Kubernetes, observability, and SRE built for faster, more reliable software delivery.",
   },
   "/technologies/saas-app-development": {
     title: "SaaS App Development Services | Toadster Technologies",
     description:
-      "Enterprise SaaS app development from Toadster — multi-tenant architecture, subscription billing, authentication, scaling infrastructure, and compliance built for growth from first customer to millions.",
+      "Enterprise SaaS app development from Toadster - multi-tenant architecture, subscription billing, authentication, scaling infrastructure, and compliance built for growth from first customer to millions.",
   },
   "/services/software-development": {
     title: "Software Development Services | Toadster",
@@ -254,12 +254,12 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
   "/services/augmented-reality": {
     title: "Augmented Reality Development Services | AR Apps & Enterprise Solutions | Toadster Technologies",
     description:
-      "Custom AR development services — mobile AR, WebAR, HoloLens, AR training, product visualisation, and remote assistance. Built for real users in real environments. Talk to Toadster Technologies.",
+      "Custom AR development services - mobile AR, WebAR, HoloLens, AR training, product visualisation, and remote assistance. Built for real users in real environments. Talk to Toadster Technologies.",
   },
   "/services/application-support-and-maintenance": {
     title: "Application Support & Maintenance Services | Toadster Technologies",
     description:
-      "Proactive application support and maintenance — 24/7 monitoring, incident response, security patching, performance optimisation, and SLA-based helpdesk. Keep your applications running and your business moving.",
+      "Proactive application support and maintenance - 24/7 monitoring, incident response, security patching, performance optimisation, and SLA-based helpdesk. Keep your applications running and your business moving.",
   },
   "/services/product-management": {
     title: "Product Management Services | Roadmaps, Discovery & Delivery | Toadster",
@@ -274,7 +274,7 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
   "/services/cybersecurity": {
     title: "Cybersecurity Services | Penetration Testing & Security Consulting | Toadster Technologies",
     description:
-      "Toadster Technologies delivers enterprise cybersecurity services — penetration testing, vulnerability assessments, cloud security audits, compliance consulting (ISO 27001, SOC 2, GDPR), and managed security. Protect your business before attackers find you.",
+      "Toadster Technologies delivers enterprise cybersecurity services - penetration testing, vulnerability assessments, cloud security audits, compliance consulting (ISO 27001, SOC 2, GDPR), and managed security. Protect your business before attackers find you.",
   },
   "/services/saas-app-development": {
     title: "SaaS App Development Services | Toadster Technologies",

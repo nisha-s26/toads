@@ -364,7 +364,7 @@ def parse_md_country(path: Path, country_label: str) -> dict:
             line = line.strip()
             if not line.startswith("**"):
                 continue
-            m = re.match(r"\*\*(.+?)\*\* — (.+)", line)
+            m = re.match(r"\*\*(.+?)\*\* - (.+)", line)
             if m:
                 industries.append({"title": m.group(1), "description": m.group(2)})
 
@@ -465,7 +465,7 @@ def parse_landing_docx_city(path: Path, city_label: str, parent_country_key: str
     city_upper = city_label.upper()
     hero_raw = slice_between(text, "HERO SECTION", [f"WHY {city_upper}", f"Why {city_label}"])
     hero_intro = re.sub(
-        rf"AI Development Company in {re.escape(city_label)}\s*—[^.]*\.\s*",
+        rf"AI Development Company in {re.escape(city_label)}\s*-[^.]*\.\s*",
         "",
         hero_raw,
         count=1,
@@ -656,8 +656,8 @@ def parse_singapore_html(html: str) -> dict:
         "country": "Singapore",
         "heroTitle": "AI Development Company in Singapore",
         "heroSubtitle": "Build AI That Works for Your Business, Not the Other Way Around",
-        "heroIntro": "Toadster Technologies partners with Singapore startups, SMBs, and enterprises to design, develop, and deploy production-ready AI systems — from custom LLMs and AI agents to enterprise automation and RAG-powered knowledge tools.",
-        "whyChooseIntro": "Singapore is not short of technology vendors. What businesses here need is an AI development partner who understands both the technical complexity and the business context — someone who can tell you when AI is the right answer and how to implement it without creating expensive technical debt.",
+        "heroIntro": "Toadster Technologies partners with Singapore startups, SMBs, and enterprises to design, develop, and deploy production-ready AI systems - from custom LLMs and AI agents to enterprise automation and RAG-powered knowledge tools.",
+        "whyChooseIntro": "Singapore is not short of technology vendors. What businesses here need is an AI development partner who understands both the technical complexity and the business context - someone who can tell you when AI is the right answer and how to implement it without creating expensive technical debt.",
         "whyChoosePoints": why_points,
         "services": services,
         "industries": industries,
@@ -666,7 +666,7 @@ def parse_singapore_html(html: str) -> dict:
         "whyToadster": "",
         "faqs": faqs,
         "ctaTitle": "Ready to Build AI That Actually Works?",
-        "ctaBody": "Talk to our team about your use case. No generic pitch decks — just an honest conversation about what AI can do for your business, what it will cost, and how long it will take.",
+        "ctaBody": "Talk to our team about your use case. No generic pitch decks - just an honest conversation about what AI can do for your business, what it will cost, and how long it will take.",
         "ctaPrimary": "Schedule a Discovery Call",
         "ctaSecondary": "Send Us a Brief",
     }

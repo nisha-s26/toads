@@ -14,7 +14,7 @@ export const whatIsDevOps = {
   directAnswer:
     "DevOps is a set of practices and tooling that unifies software development and IT operations to shorten the software delivery lifecycle. It combines continuous integration/continuous delivery (CI/CD), infrastructure as code (IaC), automated testing, and monitoring to enable frequent, reliable releases. Enterprise DevOps differs from basic automation in that it must operate across multiple teams, environments, and compliance boundaries at scale.",
   enterpriseDiff:
-    "DevOps maturity typically progresses through four stages — from manual operations to self-healing systems.",
+    "DevOps maturity typically progresses through four stages - from manual operations to self-healing systems.",
   decisionChain: "Code Commit → Automated Pipeline → Reliable Release → Business Velocity",
   decisionChainDesc:
     "Each stage compounds. Automated pipelines reduce release friction; reliable releases reduce downtime and rework; reduced downtime and faster releases compound into shipping speed that becomes a competitive advantage, not just an engineering metric. Toadster builds the entire chain, not just the pipeline configuration.",
@@ -44,7 +44,7 @@ export const devopsMaturityStages = [
 ]
 
 export const servicesIntro =
-  "Toadster's DevOps services span the full delivery lifecycle — CI/CD pipeline design, infrastructure as code, container orchestration, observability, and incident response — delivered as a full platform build or as targeted engagements such as a CI/CD modernization or a Kubernetes migration."
+  "Toadster's DevOps services span the full delivery lifecycle - CI/CD pipeline design, infrastructure as code, container orchestration, observability, and incident response - delivered as a full platform build or as targeted engagements such as a CI/CD modernization or a Kubernetes migration."
 
 export const capabilities: { icon: LucideIcon; title: string; desc: string; ctaAnchor: string }[] = [
   {
@@ -118,10 +118,10 @@ export const iacVsManualComparison = {
 }
 
 export const platformIntro =
-  "There is no single \"best\" DevOps stack — the right choice depends on existing cloud commitments, team size, and workload type. GitHub Actions and GitLab CI favor teams already on those platforms; Jenkins favors teams needing deep customization on legacy infrastructure; Kubernetes favors workloads needing portability and fine-grained scaling control over simpler container hosting."
+  "There is no single \"best\" DevOps stack - the right choice depends on existing cloud commitments, team size, and workload type. GitHub Actions and GitLab CI favor teams already on those platforms; Jenkins favors teams needing deep customization on legacy infrastructure; Kubernetes favors workloads needing portability and fine-grained scaling control over simpler container hosting."
 
 export const platformQuote =
-  "Most DevOps failures we see aren't tooling failures — they're process failures wearing tooling as a disguise. A team can run Kubernetes and still take an hour to roll back a bad deploy if the pipeline, alerting, and ownership model aren't designed together. We treat the pipeline and the org process as one system, not two separate projects."
+  "Most DevOps failures we see aren't tooling failures - they're process failures wearing tooling as a disguise. A team can run Kubernetes and still take an hour to roll back a bad deploy if the pipeline, alerting, and ownership model aren't designed together. We treat the pipeline and the org process as one system, not two separate projects."
 
 export const platformComparison = {
   headers: ["Category", "Common Tools", "Strongest For"],
@@ -159,11 +159,11 @@ export const devSecOpsIntro =
   "DevSecOps embeds security scanning and compliance checks directly into the CI/CD pipeline rather than treating security as a separate, end-of-cycle review. Toadster implements automated dependency scanning, secrets detection, container image scanning, and infrastructure policy checks at the pipeline level, aligned to SOC 2, HIPAA, and ISO 27001 requirements where applicable."
 
 export const devSecOpsComponents = [
-  "Static & Dependency Scanning — Automated code and library vulnerability checks on every commit",
-  "Secrets Detection — Prevents credentials and keys from being committed to source control",
-  "Container Image Scanning — Identifies vulnerabilities in base images before deployment",
-  "Policy as Code — Automated enforcement of infrastructure and access policies (e.g., via Open Policy Agent)",
-  "Audit Logging — Full traceability of who deployed what, when, and through which approval gate",
+  "Static & Dependency Scanning - Automated code and library vulnerability checks on every commit",
+  "Secrets Detection - Prevents credentials and keys from being committed to source control",
+  "Container Image Scanning - Identifies vulnerabilities in base images before deployment",
+  "Policy as Code - Automated enforcement of infrastructure and access policies (e.g., via Open Policy Agent)",
+  "Audit Logging - Full traceability of who deployed what, when, and through which approval gate",
 ]
 
 export const industryUseCasesIntro =
@@ -171,19 +171,19 @@ export const industryUseCasesIntro =
 
 export const industryUseCases = [
   {
-    title: "Finance — CI/CD Modernization for Compliance-Heavy Releases",
+    title: "Finance - CI/CD Modernization for Compliance-Heavy Releases",
     desc: "Migrating from quarterly manual releases to an automated CI/CD pipeline with built-in compliance gates reduced release cycle time from weeks to under 48 hours, without reducing audit coverage.",
   },
   {
-    title: "Logistics — Kubernetes Migration for Autoscaling Workloads",
+    title: "Logistics - Kubernetes Migration for Autoscaling Workloads",
     desc: "Migrating from fixed-capacity VMs to Kubernetes-based autoscaling reduced infrastructure costs by 35% during off-peak periods while maintaining performance during demand spikes.",
   },
   {
-    title: "Healthcare — Observability Overhaul for Incident Response",
+    title: "Healthcare - Observability Overhaul for Incident Response",
     desc: "Implementing centralized logging and distributed tracing across microservices reduced mean time to resolution (MTTR) for production incidents by 60%.",
   },
   {
-    title: "Across Engagements — Deployment Frequency",
+    title: "Across Engagements - Deployment Frequency",
     desc: "Teams onboarded onto Toadster-built CI/CD pipelines have sustained deployment frequencies of multiple releases per day, up from a pre-engagement baseline typically measured in weeks.",
   },
 ]
@@ -218,7 +218,7 @@ export const whyToadster = [
   {
     icon: GitBranch,
     title: "Toolchain-agnostic expertise",
-    desc: "Across GitHub Actions, Jenkins, Kubernetes, and major cloud providers — we architect around your existing investments, not a fixed vendor stack.",
+    desc: "Across GitHub Actions, Jenkins, Kubernetes, and major cloud providers - we architect around your existing investments, not a fixed vendor stack.",
   },
   {
     icon: Shield,
@@ -241,7 +241,7 @@ export const faqs = [
   {
     question: "What is DevOps?",
     answer:
-      "DevOps is a set of practices that combines software development and IT operations to enable faster, more reliable software releases. It relies on automation — CI/CD pipelines, infrastructure as code, and monitoring — to reduce the manual work and coordination overhead between development and operations teams.",
+      "DevOps is a set of practices that combines software development and IT operations to enable faster, more reliable software releases. It relies on automation - CI/CD pipelines, infrastructure as code, and monitoring - to reduce the manual work and coordination overhead between development and operations teams.",
   },
   {
     question: "What is the difference between DevOps and SRE?",
@@ -256,7 +256,7 @@ export const faqs = [
   {
     question: "How much does DevOps consulting cost?",
     answer:
-      "Costs vary by scope: a focused CI/CD pipeline modernization can range from tens of thousands of dollars, while a full platform engineering build — including Kubernetes migration, IaC, and observability — typically ranges into the hundreds of thousands, depending on infrastructure complexity and compliance requirements.",
+      "Costs vary by scope: a focused CI/CD pipeline modernization can range from tens of thousands of dollars, while a full platform engineering build - including Kubernetes migration, IaC, and observability - typically ranges into the hundreds of thousands, depending on infrastructure complexity and compliance requirements.",
   },
   {
     question: "How long does a DevOps implementation take?",
@@ -266,7 +266,7 @@ export const faqs = [
   {
     question: "What is infrastructure as code and why does it matter?",
     answer:
-      "Infrastructure as code (IaC) means defining cloud infrastructure — servers, networks, storage — in version-controlled code rather than configuring it manually through a console. It makes environments reproducible, auditable, and quickly recoverable, which reduces both human error and disaster-recovery time.",
+      "Infrastructure as code (IaC) means defining cloud infrastructure - servers, networks, storage - in version-controlled code rather than configuring it manually through a console. It makes environments reproducible, auditable, and quickly recoverable, which reduces both human error and disaster-recovery time.",
   },
   {
     question: "Do I need Kubernetes for my application?",

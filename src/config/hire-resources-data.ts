@@ -42,10 +42,10 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "React Native Developers",
     "Cross-platform iOS & Android with shared codebase",
     "ReactNative",
-    "Hire React Native Developers | Dedicated Cross-Platform App Experts — Toadster Technologies",
-    "Hire expert React Native developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days — iOS, Android, Expo, and native modules. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire React Native Developers | Dedicated Cross-Platform App Experts - Toadster Technologies",
+    "Hire expert React Native developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days - iOS, Android, Expo, and native modules. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert React Native Developers",
-    "Scale your mobile engineering team with pre-vetted, senior React Native developers who embed directly into your workflow. Build cross-platform apps that feel genuinely native — without maintaining two codebases.",
+    "Scale your mobile engineering team with pre-vetted, senior React Native developers who embed directly into your workflow. Build cross-platform apps that feel genuinely native - without maintaining two codebases.",
     [
       "React Native & Expo Specialists",
       "Vetted Senior Developers",
@@ -56,10 +56,10 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     [
       {
         heading: "Tech Stack & Capabilities",
-        body: "Our dedicated React Native developers are proficient across the complete mobile ecosystem — from UI performance to native Swift/Kotlin bridging.",
+        body: "Our dedicated React Native developers are proficient across the complete mobile ecosystem - from UI performance to native Swift/Kotlin bridging.",
         items: [
-          { title: "UI & Architecture", body: "Building fluid, responsive interfaces that never feel like web wrappers — complete with complex gesture handling and smooth transitions." },
-          { title: "State Management & Native Integrations", body: "Deep native integration expertise for the features that pure JavaScript can't reach — camera, biometrics, background tasks, and device-specific APIs." },
+          { title: "UI & Architecture", body: "Building fluid, responsive interfaces that never feel like web wrappers - complete with complex gesture handling and smooth transitions." },
+          { title: "State Management & Native Integrations", body: "Deep native integration expertise for the features that pure JavaScript can't reach - camera, biometrics, background tasks, and device-specific APIs." },
           { title: "Performance, Testing & Deployment", body: "Production-grade pipelines that get your app through app store review and into users' hands without last-minute surprises." },
         ],
       },
@@ -67,31 +67,31 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
         heading: "Production Deliverables",
         body: "When you hire React Native developers from Toadster Technologies, every engagement ships apps that pass app store review on the first submission and feel genuinely native to the platform.\nCore deliverables include:\n• Pixel-perfect UI matched to your design system, tested on real iOS and Android devices\n• TestFlight and Play Console builds at every milestone, with crash-free session tracking",
         items: [
-          { title: "Cross-Platform App Development", body: "A single React Native codebase deployed to iOS and Android with platform-specific polish where it matters — navigation gestures, haptics, and native look-and-feel — not a generic wrapper that feels foreign on either platform." },
+          { title: "Cross-Platform App Development", body: "A single React Native codebase deployed to iOS and Android with platform-specific polish where it matters - navigation gestures, haptics, and native look-and-feel - not a generic wrapper that feels foreign on either platform." },
           { title: "Native Module & Third-Party SDK Integration", body: "Custom native modules for camera, Bluetooth, AR, payments (Stripe, Apple Pay, Google Pay), and any SDK that doesn't have a clean React Native wrapper out of the box." },
-          { title: "AI-Powered Mobile Experiences", body: "React Native frontends wired to AI backends — on-device ML inference, AI chat interfaces, and real-time AI feature delivery built for mobile network and battery constraints." },
-          { title: "Performance Optimisation & QA", body: "Bundle size audits, Hermes engine tuning, memory leak detection, and Detox end-to-end test suites — so your app stays fast and stable across the full range of devices your users actually own." },
+          { title: "AI-Powered Mobile Experiences", body: "React Native frontends wired to AI backends - on-device ML inference, AI chat interfaces, and real-time AI feature delivery built for mobile network and battery constraints." },
+          { title: "Performance Optimisation & QA", body: "Bundle size audits, Hermes engine tuning, memory leak detection, and Detox end-to-end test suites - so your app stays fast and stable across the full range of devices your users actually own." },
         ],
       },
       {
         heading: "Seamless 3-Step Integration",
-        body: "From first conversation to a dedicated React Native developer embedded in your team — in under a week.",
+        body: "From first conversation to a dedicated React Native developer embedded in your team - in under a week.",
         items: [
-          { title: "01 — Technical Scoping", body: "We review your app requirements, target platforms, and any native functionality needed to identify exactly which React Native expertise — Expo, bare workflow, or native bridging — fills your gap." },
-          { title: "02 — Vetting & Matching", body: "You interview shortlisted React Native developers from our pre-vetted talent pool, assessed on real shipped apps in both app stores — not just tutorial projects." },
-          { title: "03 — Dedicated Onboarding", body: "Your developer joins your GitHub, design tools, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." },
+          { title: "01 - Technical Scoping", body: "We review your app requirements, target platforms, and any native functionality needed to identify exactly which React Native expertise - Expo, bare workflow, or native bridging - fills your gap." },
+          { title: "02 - Vetting & Matching", body: "You interview shortlisted React Native developers from our pre-vetted talent pool, assessed on real shipped apps in both app stores - not just tutorial projects." },
+          { title: "03 - Dedicated Onboarding", body: "Your developer joins your GitHub, design tools, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." },
         ],
       },
     ],
     [
-      { question: "What does a dedicated React Native developer do?", answer: "A dedicated React Native developer builds and maintains mobile applications for iOS and Android from a single JavaScript/TypeScript codebase. This includes UI implementation, native module integration, performance optimisation, and app store deployment — working exclusively on your product as part of your team." },
-      { question: "Is React Native a good choice for my app, or should I build native iOS and Android apps separately?", answer: "React Native is well suited for most consumer and business apps, offering significant cost and time savings through code sharing — typically 70 to 90 percent of code reused across platforms. Fully native development makes sense for apps with extremely heavy graphics processing, complex AR/VR, or platform-exclusive features. Our developers can assess your specific requirements during scoping." },
+      { question: "What does a dedicated React Native developer do?", answer: "A dedicated React Native developer builds and maintains mobile applications for iOS and Android from a single JavaScript/TypeScript codebase. This includes UI implementation, native module integration, performance optimisation, and app store deployment - working exclusively on your product as part of your team." },
+      { question: "Is React Native a good choice for my app, or should I build native iOS and Android apps separately?", answer: "React Native is well suited for most consumer and business apps, offering significant cost and time savings through code sharing - typically 70 to 90 percent of code reused across platforms. Fully native development makes sense for apps with extremely heavy graphics processing, complex AR/VR, or platform-exclusive features. Our developers can assess your specific requirements during scoping." },
       { question: "How quickly can a dedicated React Native developer join my project?", answer: "Most engagements at Toadster go from initial brief to an onboarded React Native developer in 5 to 7 business days, covering technical scoping, candidate shortlisting, your interview round, and tool access setup." },
       { question: "How much does it cost to hire a dedicated React Native developer?", answer: "Pricing depends on seniority level, native integration complexity, and engagement duration. Toadster offers transparent monthly retainer pricing with no hidden recruitment fees. Contact us for a quote tailored to your specific app requirements." },
-      { question: "Can React Native apps access native device features like camera, biometrics, or Bluetooth?", answer: "Yes. React Native supports native device features either through existing community libraries or custom native modules written in Swift and Kotlin. Our developers handle both — using proven libraries where available and writing custom bridges when a feature requires it." },
+      { question: "Can React Native apps access native device features like camera, biometrics, or Bluetooth?", answer: "Yes. React Native supports native device features either through existing community libraries or custom native modules written in Swift and Kotlin. Our developers handle both - using proven libraries where available and writing custom bridges when a feature requires it." },
       { question: "Should I use Expo or the bare React Native workflow?", answer: "Expo's managed workflow is faster to start with and suits most apps without unusual native requirements. The bare workflow gives full control for apps needing custom native modules or specific build configurations. Our developers evaluate your feature list during scoping and recommend the right starting point." },
-      { question: "Do your React Native developers handle app store submission and approval?", answer: "Yes. Our developers manage the full release process — App Store and Play Store listing setup, build signing, compliance with platform guidelines, and submission — to minimise rejection risk and delays." },
-      { question: "Can I scale my React Native team up or down during the engagement?", answer: "Yes. You can add developers — for a major feature push, a native module specialist, or a QA engineer — or scale down with 30 days' notice, depending on your app's development phase." },
+      { question: "Do your React Native developers handle app store submission and approval?", answer: "Yes. Our developers manage the full release process - App Store and Play Store listing setup, build signing, compliance with platform guidelines, and submission - to minimise rejection risk and delays." },
+      { question: "Can I scale my React Native team up or down during the engagement?", answer: "Yes. You can add developers - for a major feature push, a native module specialist, or a QA engineer - or scale down with 30 days' notice, depending on your app's development phase." },
     ],
     [
       "Dedicated React Native Developers",
@@ -104,7 +104,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "React Native App Development Services",
       "Native Module Integration Developers",
     ],
-    { name: "Hire React Native Developers", description: "Hire expert React Native developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days — iOS, Android, Expo, and native modules.", serviceType: "Staff Augmentation" },
+    { name: "Hire React Native Developers", description: "Hire expert React Native developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days - iOS, Android, Expo, and native modules.", serviceType: "Staff Augmentation" },
   ),
   hirePage(
     "nodejs-developers",
@@ -279,10 +279,10 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Flutter Developers",
     "Build beautiful, high-performance cross-platform apps",
     "Flutter",
-    "Hire Flutter Developers | Dedicated Cross-Platform App Experts — Toadster Technologies",
-    "Hire expert Flutter developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days — iOS, Android, web, desktop, and native modules. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire Flutter Developers | Dedicated Cross-Platform App Experts - Toadster Technologies",
+    "Hire expert Flutter developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days - iOS, Android, web, desktop, and native modules. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert Flutter Developers",
-    "Launch on iOS, Android, web, and desktop from a single Dart codebase — with dedicated Flutter developers who build beautiful, high-performance apps that ship faster without compromising on native feel.",
+    "Launch on iOS, Android, web, and desktop from a single Dart codebase - with dedicated Flutter developers who build beautiful, high-performance apps that ship faster without compromising on native feel.",
     [
       "150+ Flutter Apps Delivered",
       "50+ Vetted Flutter Developers",
@@ -318,19 +318,19 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
         heading: "What Your Dedicated Flutter Developers Will Deliver",
         body: "Production-grade outputs from day one - not prototypes or proofs of concept.\nCore deliverables include:\n• Pixel-perfect UI matched to your design system, tested on real iOS, Android, and web devices\n• TestFlight and Play Console builds at every milestone, with crash-free session tracking",
         items: [
-          { title: "Cross-Platform App Development", body: "A single Flutter codebase deployed to iOS, Android, web, and desktop with platform-specific adaptations where it matters — navigation gestures, desktop shortcuts, and native scroll physics — not a generic wrapper." },
+          { title: "Cross-Platform App Development", body: "A single Flutter codebase deployed to iOS, Android, web, and desktop with platform-specific adaptations where it matters - navigation gestures, desktop shortcuts, and native scroll physics - not a generic wrapper." },
           { title: "Native Module & Third-Party SDK Integration", body: "Custom platform channels for hardware integrations (camera, Bluetooth, biometrics), third-party SDKs, and native libraries (Swift, Kotlin) that don’t have a Flutter package out of the box." },
-          { title: "AI-Powered Mobile Experiences", body: "Flutter frontends integrated with AI backend layers — on-device ML models (TensorFlow Lite), streaming AI chatbots, speech-to-text, and real-time AI features optimized for mobile hardware constraints." },
-          { title: "Performance Optimisation & QA", body: "Rendering profiling (Impeller & Skia), memory leak detection, bundle size auditing, and automated integration testing — ensuring your app maintains 60/120 FPS across all user devices." },
+          { title: "AI-Powered Mobile Experiences", body: "Flutter frontends integrated with AI backend layers - on-device ML models (TensorFlow Lite), streaming AI chatbots, speech-to-text, and real-time AI features optimized for mobile hardware constraints." },
+          { title: "Performance Optimisation & QA", body: "Rendering profiling (Impeller & Skia), memory leak detection, bundle size auditing, and automated integration testing - ensuring your app maintains 60/120 FPS across all user devices." },
         ],
       },
       {
         heading: "Seamless 3-Step Integration",
         body: "From brief to building - your dedicated Flutter developer is live in under a week.",
         items: [
-          { title: "01 — Technical Scoping", body: "We review your app requirements, target platforms, and native features to identify the exact Flutter and Dart expertise required for your project." },
-          { title: "02 — Vetting & Matching", body: "You interview shortlisted senior Flutter developers from our pre-vetted pool, assessed on real shipped apps in the app stores." },
-          { title: "03 — Dedicated Onboarding", body: "Your developer joins your Slack, Jira, and GitHub repositories within 48 hours, fully aligned with your sprint schedule." },
+          { title: "01 - Technical Scoping", body: "We review your app requirements, target platforms, and native features to identify the exact Flutter and Dart expertise required for your project." },
+          { title: "02 - Vetting & Matching", body: "You interview shortlisted senior Flutter developers from our pre-vetted pool, assessed on real shipped apps in the app stores." },
+          { title: "03 - Dedicated Onboarding", body: "Your developer joins your Slack, Jira, and GitHub repositories within 48 hours, fully aligned with your sprint schedule." },
         ],
       },
       {
@@ -421,17 +421,17 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "Flutter App Development Services",
       "Native Module Integration Developers",
     ],
-    { name: "Hire Dedicated Flutter Developers", description: "Hire expert Flutter developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days — iOS, Android, web, desktop, and native modules.", serviceType: "Staff Augmentation" },
+    { name: "Hire Dedicated Flutter Developers", description: "Hire expert Flutter developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days - iOS, Android, web, desktop, and native modules.", serviceType: "Staff Augmentation" },
   ),
   hirePage(
     "ai-ml-developers",
     "AI/ML Developers",
     "Production ML, LLMs, computer vision & predictive analytics",
     "AiMl",
-    "Hire AI/ML Developers | Dedicated Machine Learning Engineers — Toadster Technologies",
-    "Hire expert AI/ML developers from Toadster Technologies. Get dedicated machine learning engineers onboarded in 5–7 days — RAG pipelines, LLMs, computer vision, and MLOps. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire AI/ML Developers | Dedicated Machine Learning Engineers - Toadster Technologies",
+    "Hire expert AI/ML developers from Toadster Technologies. Get dedicated machine learning engineers onboarded in 5–7 days - RAG pipelines, LLMs, computer vision, and MLOps. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert AI/ML Developers",
-    "Put proven AI and machine learning engineers on your product — developers who have shipped real models, not just run notebooks. From data pipelines to production inference, they hit the ground running.",
+    "Put proven AI and machine learning engineers on your product - developers who have shipped real models, not just run notebooks. From data pipelines to production inference, they hit the ground running.",
     [
       "⭐ 4.9/5 on Clutch",
       "80+ AI/ML projects delivered",
@@ -441,39 +441,39 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     [
       {
         heading: "Tech Stack & Skill Matrix",
-        body: "Our dedicated AI/ML developers are fluent across the full machine learning lifecycle — from raw data ingestion and model training to serving, monitoring, and continuous retraining in production.",
+        body: "Our dedicated AI/ML developers are fluent across the full machine learning lifecycle - from raw data ingestion and model training to serving, monitoring, and continuous retraining in production.",
         items: [
           {
             title: "Orchestration & MLOps",
-            body: "MLflow / Weights & Biases / DVC\nKubeflow / Airflow / Prefect\nModel versioning & experiment tracking\nFeature stores — Feast, Tecton\n\nOur ML engineers build the operational infrastructure that turns experimental models into reliable, monitored production systems.",
+            body: "MLflow / Weights & Biases / DVC\nKubeflow / Airflow / Prefect\nModel versioning & experiment tracking\nFeature stores - Feast, Tecton\n\nOur ML engineers build the operational infrastructure that turns experimental models into reliable, monitored production systems.",
           },
           {
             title: "Models & Frameworks",
-            body: "PyTorch / TensorFlow / JAX / Scikit-learn\nHugging Face Transformers & PEFT\nLangChain / LlamaIndex / OpenAI API\nComputer Vision — YOLO, Detectron2, OpenCV\n\nDeep framework fluency across classical ML, deep learning, large language models, and computer vision — matched to your use case, not our comfort zone.",
+            body: "PyTorch / TensorFlow / JAX / Scikit-learn\nHugging Face Transformers & PEFT\nLangChain / LlamaIndex / OpenAI API\nComputer Vision - YOLO, Detectron2, OpenCV\n\nDeep framework fluency across classical ML, deep learning, large language models, and computer vision - matched to your use case, not our comfort zone.",
           },
           {
             title: "Data & Inference Infrastructure",
-            body: "PySpark / Dask / Polars for large-scale data\nVector databases — Pinecone, Weaviate, Qdrant\nModel serving — TorchServe, Triton, BentoML\nCloud ML platforms — AWS SageMaker, GCP Vertex AI, Azure ML\n\nEnd-to-end data and serving infrastructure that keeps your models accurate, fast, and cost-efficient at any scale.",
+            body: "PySpark / Dask / Polars for large-scale data\nVector databases - Pinecone, Weaviate, Qdrant\nModel serving - TorchServe, Triton, BentoML\nCloud ML platforms - AWS SageMaker, GCP Vertex AI, Azure ML\n\nEnd-to-end data and serving infrastructure that keeps your models accurate, fast, and cost-efficient at any scale.",
           },
         ],
       },
       {
         heading: "Production Deliverables",
-        body: "When you hire AI/ML developers from Toadster Technologies, every engagement produces working, deployable intelligence — not research papers or proof-of-concept demos that stall in staging.\nCore deliverables include:\n• Trained, evaluated, and versioned models with documented performance benchmarks\n• Reproducible training pipelines and deployment-ready inference endpoints",
+        body: "When you hire AI/ML developers from Toadster Technologies, every engagement produces working, deployable intelligence - not research papers or proof-of-concept demos that stall in staging.\nCore deliverables include:\n• Trained, evaluated, and versioned models with documented performance benchmarks\n• Reproducible training pipelines and deployment-ready inference endpoints",
         items: [
-          { title: "Custom ML Model Development", body: "Supervised, unsupervised, and reinforcement learning models built for your specific dataset and business objective — with rigorous validation, bias testing, and performance reporting before handoff." },
-          { title: "Advanced RAG Pipelines", body: "Retrieval-Augmented Generation systems that ground LLM responses in your proprietary data — document ingestion, chunking strategy, embedding pipelines, vector search, and re-ranking layers all production-ready." },
-          { title: "Agentic AI Workflows", body: "Multi-step AI agent systems that plan, reason, and execute across tools and data sources — built with LangChain, LlamaIndex, or custom orchestration frameworks, with safety guardrails and human-in-the-loop controls." },
-          { title: "Safety, Evaluation & Guardrails", body: "Structured evaluation frameworks, red-teaming, output filtering, hallucination detection, and continuous drift monitoring — so your AI system behaves reliably in production, not just in a demo." },
+          { title: "Custom ML Model Development", body: "Supervised, unsupervised, and reinforcement learning models built for your specific dataset and business objective - with rigorous validation, bias testing, and performance reporting before handoff." },
+          { title: "Advanced RAG Pipelines", body: "Retrieval-Augmented Generation systems that ground LLM responses in your proprietary data - document ingestion, chunking strategy, embedding pipelines, vector search, and re-ranking layers all production-ready." },
+          { title: "Agentic AI Workflows", body: "Multi-step AI agent systems that plan, reason, and execute across tools and data sources - built with LangChain, LlamaIndex, or custom orchestration frameworks, with safety guardrails and human-in-the-loop controls." },
+          { title: "Safety, Evaluation & Guardrails", body: "Structured evaluation frameworks, red-teaming, output filtering, hallucination detection, and continuous drift monitoring - so your AI system behaves reliably in production, not just in a demo." },
         ],
       },
       {
         heading: "Seamless 3-Step Integration",
-        body: "From first conversation to a dedicated AI/ML engineer embedded in your team — in under a week.",
+        body: "From first conversation to a dedicated AI/ML engineer embedded in your team - in under a week.",
         items: [
-          { title: "01 — Technical Scoping", body: "We assess your data landscape, model requirements, infrastructure constraints, and business objectives — then identify the exact AI/ML profile that closes your capability gap without over-engineering." },
-          { title: "02 — Vetting & Matching", body: "You interview shortlisted AI/ML engineers from our pre-vetted talent pool — reviewed for both technical depth and communication quality. No black-box staffing, no surprises." },
-          { title: "03 — Dedicated Onboarding", body: "Your engineer joins your data stack, experiment tracking environment, and team standups within days. They work your hours, follow your development cadence, and report directly to your team." },
+          { title: "01 - Technical Scoping", body: "We assess your data landscape, model requirements, infrastructure constraints, and business objectives - then identify the exact AI/ML profile that closes your capability gap without over-engineering." },
+          { title: "02 - Vetting & Matching", body: "You interview shortlisted AI/ML engineers from our pre-vetted talent pool - reviewed for both technical depth and communication quality. No black-box staffing, no surprises." },
+          { title: "03 - Dedicated Onboarding", body: "Your engineer joins your data stack, experiment tracking environment, and team standups within days. They work your hours, follow your development cadence, and report directly to your team." },
         ],
       },
     ],
@@ -508,10 +508,10 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Full Stack Developers",
     "React, Node.js, Next.js, Python full stack engineers",
     "FullStack",
-    "Hire Full Stack Developers | Dedicated End-to-End Web Engineers — Toadster Technologies",
-    "Hire expert full stack developers from Toadster Technologies. Get dedicated end-to-end web engineers onboarded in 5–7 days — frontend, backend, databases, and DevOps. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire Full Stack Developers | Dedicated End-to-End Web Engineers - Toadster Technologies",
+    "Hire expert full stack developers from Toadster Technologies. Get dedicated end-to-end web engineers onboarded in 5–7 days - frontend, backend, databases, and DevOps. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert Full Stack Developers",
-    "Ship complete features end-to-end — frontend, backend, database, and deployment — with dedicated full stack developers who own the entire pipeline without the coordination overhead of separate frontend and backend hires.",
+    "Ship complete features end-to-end - frontend, backend, database, and deployment - with dedicated full stack developers who own the entire pipeline without the coordination overhead of separate frontend and backend hires.",
     [
       "⭐ 4.9/5 on Clutch",
       "70+ full stack products shipped",
@@ -521,42 +521,42 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     [
       {
         heading: "Tech Stack & Skill Matrix",
-        body: "Our dedicated full stack developers are fluent across the entire web application lifecycle — from interface design to API architecture to infrastructure and deployment.",
+        body: "Our dedicated full stack developers are fluent across the entire web application lifecycle - from interface design to API architecture to infrastructure and deployment.",
         items: [
-          { title: "Frontend Engineering", body: "React, Next.js, Vue, Angular\nTypeScript across components and shared types\nTailwind CSS, Styled Components, design system integration\nState management — Redux Toolkit, Zustand, React Query\n\nOur developers know when a server-rendered Next.js app is the right call and when a pure SPA fits the product better." },
-          { title: "Backend & Database Architecture", body: "Node.js (Express, NestJS), Python (Django, FastAPI), Java (Spring Boot)\nPostgreSQL, MySQL, MongoDB, Redis\nREST & GraphQL API design, authentication, authorization\nMicroservices, message queues (Kafka, RabbitMQ)\n\nDeep backend expertise for the systems that hold your product together — data modeling, scalability, and security." },
+          { title: "Frontend Engineering", body: "React, Next.js, Vue, Angular\nTypeScript across components and shared types\nTailwind CSS, Styled Components, design system integration\nState management - Redux Toolkit, Zustand, React Query\n\nOur developers know when a server-rendered Next.js app is the right call and when a pure SPA fits the product better." },
+          { title: "Backend & Database Architecture", body: "Node.js (Express, NestJS), Python (Django, FastAPI), Java (Spring Boot)\nPostgreSQL, MySQL, MongoDB, Redis\nREST & GraphQL API design, authentication, authorization\nMicroservices, message queues (Kafka, RabbitMQ)\n\nDeep backend expertise for the systems that hold your product together - data modeling, scalability, and security." },
           { title: "DevOps, Testing & Deployment", body: "Docker, Kubernetes, CI/CD pipelines (GitHub Actions, Jenkins)\nAWS, GCP, Azure cloud infrastructure\nJest, Cypress, Playwright for end-to-end testing\nMonitoring & observability (Datadog, Sentry, Grafana)\n\nProduction-grade pipelines that get your application deployed reliably and stay observable once it's live." },
         ],
       },
       {
         heading: "Production Deliverables",
-        body: "When you hire full stack developers from Toadster Technologies, every engagement ships features that are tested, documented, and production-ready from day one — not handed off half-finished between teams.\nCore deliverables include:\n• End-to-end feature delivery — UI, API, database schema, and deployment in one accountable workflow\n• Automated test coverage and staging builds at every milestone, with CI/CD pipeline ownership",
+        body: "When you hire full stack developers from Toadster Technologies, every engagement ships features that are tested, documented, and production-ready from day one - not handed off half-finished between teams.\nCore deliverables include:\n• End-to-end feature delivery - UI, API, database schema, and deployment in one accountable workflow\n• Automated test coverage and staging builds at every milestone, with CI/CD pipeline ownership",
         items: [
-          { title: "End-to-End Application Development", body: "A single developer or team owns the full request lifecycle — from UI component to API endpoint to database query — eliminating the handoff gaps that slow down feature delivery." },
+          { title: "End-to-End Application Development", body: "A single developer or team owns the full request lifecycle - from UI component to API endpoint to database query - eliminating the handoff gaps that slow down feature delivery." },
           { title: "API & Third-Party Integration", body: "Custom REST and GraphQL APIs, payment gateways (Stripe, Razorpay), authentication providers (Auth0, Firebase Auth), and any SDK your product needs to connect to." },
-          { title: "AI-Powered Web Experiences", body: "Full stack applications wired to AI backends — LLM-powered features, RAG pipelines, AI chat interfaces, and real-time AI feature delivery built with production-grade rate limiting and caching." },
-          { title: "Performance Optimisation & QA", body: "Query optimisation, caching strategy, bundle size audits, and end-to-end test suites — so your application stays fast and stable as usage grows." },
+          { title: "AI-Powered Web Experiences", body: "Full stack applications wired to AI backends - LLM-powered features, RAG pipelines, AI chat interfaces, and real-time AI feature delivery built with production-grade rate limiting and caching." },
+          { title: "Performance Optimisation & QA", body: "Query optimisation, caching strategy, bundle size audits, and end-to-end test suites - so your application stays fast and stable as usage grows." },
         ],
       },
       {
         heading: "Seamless 3-Step Integration",
-        body: "From first conversation to a dedicated full stack developer embedded in your team — in under a week.",
+        body: "From first conversation to a dedicated full stack developer embedded in your team - in under a week.",
         items: [
-          { title: "01 — Technical Scoping", body: "We review your product requirements, existing architecture, and any integration needs to identify exactly which full stack expertise — frontend-heavy, backend-heavy, or balanced — fills your gap." },
-          { title: "02 — Vetting & Matching", body: "You interview shortlisted full stack developers from our pre-vetted talent pool, assessed on real shipped products across the full stack — not just isolated coding tests." },
-          { title: "03 — Dedicated Onboarding", body: "Your developer joins your GitHub, design tools, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." },
+          { title: "01 - Technical Scoping", body: "We review your product requirements, existing architecture, and any integration needs to identify exactly which full stack expertise - frontend-heavy, backend-heavy, or balanced - fills your gap." },
+          { title: "02 - Vetting & Matching", body: "You interview shortlisted full stack developers from our pre-vetted talent pool, assessed on real shipped products across the full stack - not just isolated coding tests." },
+          { title: "03 - Dedicated Onboarding", body: "Your developer joins your GitHub, design tools, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." },
         ],
       },
     ],
     [
-      { question: "What does a dedicated full stack developer do?", answer: "A dedicated full stack developer builds and maintains both the frontend and backend of a web application, including UI implementation, API development, database design, and deployment — working exclusively on your product as part of your team." },
+      { question: "What does a dedicated full stack developer do?", answer: "A dedicated full stack developer builds and maintains both the frontend and backend of a web application, including UI implementation, API development, database design, and deployment - working exclusively on your product as part of your team." },
       { question: "Should I hire a full stack developer or separate frontend and backend specialists?", answer: "A full stack developer is well suited for small to mid-sized teams and products where end-to-end ownership speeds up delivery and reduces coordination overhead. Larger, highly complex products with deep specialization needs on either side may benefit from dedicated specialists. Our developers can assess your specific requirements during scoping." },
       { question: "How quickly can a dedicated full stack developer join my project?", answer: "Most engagements at Toadster go from initial brief to an onboarded full stack developer in 5 to 7 business days, covering technical scoping, candidate shortlisting, your interview round, and tool access setup." },
       { question: "How much does it cost to hire a dedicated full stack developer?", answer: "Pricing depends on seniority level, tech stack complexity, and engagement duration. Toadster offers transparent monthly retainer pricing with no hidden recruitment fees. Contact us for a quote tailored to your specific project requirements." },
       { question: "Which tech stacks do your full stack developers specialize in?", answer: "Our developers work across modern JavaScript/TypeScript stacks (MERN, MEAN, Next.js), Python (Django, FastAPI), and Java (Spring Boot), paired with PostgreSQL, MySQL, or MongoDB. We match the developer to your existing stack or recommend one during scoping." },
-      { question: "Do your full stack developers handle deployment and infrastructure?", answer: "Yes. Our developers manage CI/CD pipeline setup, containerization with Docker, and cloud deployment on AWS, GCP, or Azure — ensuring your application ships reliably and stays observable in production." },
+      { question: "Do your full stack developers handle deployment and infrastructure?", answer: "Yes. Our developers manage CI/CD pipeline setup, containerization with Docker, and cloud deployment on AWS, GCP, or Azure - ensuring your application ships reliably and stays observable in production." },
       { question: "Can your full stack developers integrate AI features into my product?", answer: "Yes. Our developers build LLM-powered features, RAG pipelines, and AI chat interfaces, wiring them into your existing frontend and backend with production-grade rate limiting, caching, and error handling." },
-      { question: "Can I scale my full stack team up or down during the engagement?", answer: "Yes. You can add developers — for a major feature push, a DevOps specialist, or a QA engineer — or scale down with 30 days' notice, depending on your product's development phase." },
+      { question: "Can I scale my full stack team up or down during the engagement?", answer: "Yes. You can add developers - for a major feature push, a DevOps specialist, or a QA engineer - or scale down with 30 days' notice, depending on your product's development phase." },
     ],
     [
       "Dedicated Full Stack Developers",
@@ -576,10 +576,10 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Software Developers",
     "Web, backend, cloud & AI software engineering",
     "Software",
-    "Hire Software Developers | Dedicated Development Team — Toadster Technologies",
+    "Hire Software Developers | Dedicated Development Team - Toadster Technologies",
     "Hire expert software developers from Toadster Technologies. Get dedicated engineers onboarded in 5–7 days across web, backend, cloud, and AI. Flexible models. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert Software Developers",
-    "Build faster, ship smarter, and close the talent gap — with dedicated software developers who plug into your team and start contributing from day one.",
+    "Build faster, ship smarter, and close the talent gap - with dedicated software developers who plug into your team and start contributing from day one.",
     [
       "⭐ 4.9/5 on Clutch",
       "100+ software projects delivered",
@@ -589,11 +589,11 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     [
       {
         heading: "Tech Stack & Skill Matrix",
-        body: "Our dedicated software developers bring deep, production-tested expertise across the full stack — from system architecture to deployment pipelines and everything in between.",
+        body: "Our dedicated software developers bring deep, production-tested expertise across the full stack - from system architecture to deployment pipelines and everything in between.",
         items: [
           {
             title: "Orchestration / Architecture",
-            body: "Microservices & Monorepo architecture\nDomain-Driven Design (DDD)\nEvent-driven systems (Kafka, RabbitMQ)\nAPI design — REST, GraphQL, gRPC\n\nOur software engineers design systems built to last — scalable, maintainable, and ready for the load spikes that come with growth.",
+            body: "Microservices & Monorepo architecture\nDomain-Driven Design (DDD)\nEvent-driven systems (Kafka, RabbitMQ)\nAPI design - REST, GraphQL, gRPC\n\nOur software engineers design systems built to last - scalable, maintainable, and ready for the load spikes that come with growth.",
           },
           {
             title: "Languages & Frameworks",
@@ -601,27 +601,27 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
           },
           {
             title: "Storage, Cloud & DevOps",
-            body: "PostgreSQL / MySQL / MongoDB / Redis\nAWS / GCP / Azure (certified engineers)\nDocker / Kubernetes / Terraform\nCI/CD — GitHub Actions / Jenkins / ArgoCD\n\nEnd-to-end cloud-native expertise so your codebase ships to production reliably, repeatedly, and at scale.",
+            body: "PostgreSQL / MySQL / MongoDB / Redis\nAWS / GCP / Azure (certified engineers)\nDocker / Kubernetes / Terraform\nCI/CD - GitHub Actions / Jenkins / ArgoCD\n\nEnd-to-end cloud-native expertise so your codebase ships to production reliably, repeatedly, and at scale.",
           },
         ],
       },
       {
         heading: "Production Deliverables",
-        body: "When you hire software developers from Toadster Technologies, every engagement ships real, measurable output — not just effort hours.\nCore deliverables include:\n• Well-documented, peer-reviewed code pushed to your repo on every sprint\n• Sprint demos, progress reports, and milestone sign-offs at every stage",
+        body: "When you hire software developers from Toadster Technologies, every engagement ships real, measurable output - not just effort hours.\nCore deliverables include:\n• Well-documented, peer-reviewed code pushed to your repo on every sprint\n• Sprint demos, progress reports, and milestone sign-offs at every stage",
         items: [
-          { title: "Custom Software Development", body: "Web apps, SaaS platforms, internal tools, and enterprise systems built to your exact specification — no templated solutions, no off-the-shelf shortcuts." },
+          { title: "Custom Software Development", body: "Web apps, SaaS platforms, internal tools, and enterprise systems built to your exact specification - no templated solutions, no off-the-shelf shortcuts." },
           { title: "Advanced API & Integration Pipelines", body: "Third-party integrations, payment gateways, ERP connectors, and data pipelines architected for reliability, speed, and long-term maintainability." },
-          { title: "Agentic & AI-Augmented Software", body: "For products with AI at their core — our software developers build the backend infrastructure, APIs, and orchestration layers that make intelligent features work in production." },
-          { title: "QA, Testing & Code Quality", body: "Automated test suites, code reviews, static analysis, and performance benchmarking built into the development cycle — not bolted on at the end." },
+          { title: "Agentic & AI-Augmented Software", body: "For products with AI at their core - our software developers build the backend infrastructure, APIs, and orchestration layers that make intelligent features work in production." },
+          { title: "QA, Testing & Code Quality", body: "Automated test suites, code reviews, static analysis, and performance benchmarking built into the development cycle - not bolted on at the end." },
         ],
       },
       {
         heading: "Seamless 3-Step Integration",
-        body: "From first conversation to a dedicated software developer embedded in your team — in under a week.",
+        body: "From first conversation to a dedicated software developer embedded in your team - in under a week.",
         items: [
-          { title: "01 — Technical Scoping", body: "We map your product requirements, current architecture, and team structure to identify exactly which software engineering expertise will move your roadmap forward." },
-          { title: "02 — Vetting & Matching", body: "You interview handpicked developers from our pre-vetted talent pool. No recruitment agency markup, no opaque selection process — just the right engineer for your stack and culture." },
-          { title: "03 — Dedicated Onboarding", body: "Your developer joins your Slack, Jira, GitHub, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." },
+          { title: "01 - Technical Scoping", body: "We map your product requirements, current architecture, and team structure to identify exactly which software engineering expertise will move your roadmap forward." },
+          { title: "02 - Vetting & Matching", body: "You interview handpicked developers from our pre-vetted talent pool. No recruitment agency markup, no opaque selection process - just the right engineer for your stack and culture." },
+          { title: "03 - Dedicated Onboarding", body: "Your developer joins your Slack, Jira, GitHub, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." },
         ],
       },
     ],
@@ -660,7 +660,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Hire DevOps Engineers | Dedicated Cloud & Infrastructure Experts - Toadster Technologies",
     "Hire expert DevOps engineers from Toadster Technologies. Get dedicated infrastructure and CI/CD specialists onboarded in 5–7 days - Kubernetes, Terraform, AWS, GCP, Azure, and more. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert DevOps Engineers",
-    "Ship faster, break less, and recover instantly — with dedicated DevOps engineers who build the infrastructure, pipelines, and reliability systems your product needs to run at scale.",
+    "Ship faster, break less, and recover instantly - with dedicated DevOps engineers who build the infrastructure, pipelines, and reliability systems your product needs to run at scale.",
     [
       "Fully documented infrastructure code committed to your repository with runbooks",
       "Incident response playbooks, alerting configurations, and SLA-aligned monitoring dashboards"
@@ -718,10 +718,10 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "iOS Developers",
     "Swift & SwiftUI native iOS app experts",
     "Ios",
-    "Hire iOS Developers | Dedicated Swift & SwiftUI Experts — Toadster Technologies",
-    "Hire expert iOS developers from Toadster Technologies. Get dedicated Swift and SwiftUI engineers onboarded in 5–7 days — App Store ready, Apple ecosystem integrations included. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire iOS Developers | Dedicated Swift & SwiftUI Experts - Toadster Technologies",
+    "Hire expert iOS developers from Toadster Technologies. Get dedicated Swift and SwiftUI engineers onboarded in 5–7 days - App Store ready, Apple ecosystem integrations included. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert iOS Developers",
-    "Build polished, high-performance iOS apps with dedicated Swift developers who know Apple's platform deeply — from Human Interface Guidelines to App Store review, so your app gets approved and feels right at home on iPhone.",
+    "Build polished, high-performance iOS apps with dedicated Swift developers who know Apple's platform deeply - from Human Interface Guidelines to App Store review, so your app gets approved and feels right at home on iPhone.",
     [
       "⭐ 4.9/5 on Clutch",
       "50+ iOS apps shipped",
@@ -731,42 +731,42 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     [
       {
         heading: "Tech Stack & Skill Matrix",
-        body: "Our dedicated iOS developers are fluent across Apple's full development ecosystem — modern declarative UI, native performance tuning, and the deployment pipeline that gets your app through App Store review smoothly.",
+        body: "Our dedicated iOS developers are fluent across Apple's full development ecosystem - modern declarative UI, native performance tuning, and the deployment pipeline that gets your app through App Store review smoothly.",
         items: [
-          { title: "Core Language & UI Frameworks", body: "Swift 5+ / SwiftUI / UIKit\nCombine & async/await for concurrency\nMVVM / Clean Architecture / Coordinator pattern\nHuman Interface Guidelines (HIG) compliance\n\nOur developers build interfaces that feel native to iOS — not web views wrapped in a native shell, and not Android patterns ported over without adaptation." },
-          { title: "Data, Networking & Native Integrations", body: "Core Data / SwiftData / Realm\nURLSession / Alamofire for networking\nPush Notifications (APNs), HealthKit, ARKit, CoreML\nSign in with Apple, Apple Pay, Face ID / Touch ID\n\nDeep integration with Apple's native frameworks — the features that make an app feel like it belongs on iOS, not just compiled for it." },
+          { title: "Core Language & UI Frameworks", body: "Swift 5+ / SwiftUI / UIKit\nCombine & async/await for concurrency\nMVVM / Clean Architecture / Coordinator pattern\nHuman Interface Guidelines (HIG) compliance\n\nOur developers build interfaces that feel native to iOS - not web views wrapped in a native shell, and not Android patterns ported over without adaptation." },
+          { title: "Data, Networking & Native Integrations", body: "Core Data / SwiftData / Realm\nURLSession / Alamofire for networking\nPush Notifications (APNs), HealthKit, ARKit, CoreML\nSign in with Apple, Apple Pay, Face ID / Touch ID\n\nDeep integration with Apple's native frameworks - the features that make an app feel like it belongs on iOS, not just compiled for it." },
           { title: "Testing, CI/CD & App Store Deployment", body: "XCTest / XCUITest for unit and UI testing\nFastlane for automated builds and releases\nTestFlight beta distribution management\nApp Store Connect submission & compliance review\n\nProduction pipelines that minimise App Store rejection risk and get your releases into users' hands on schedule." }
         ]
       },
       {
         heading: "Production Deliverables",
-        body: "When you hire iOS developers from Toadster Technologies, every engagement ships an app built to Apple's standards — not just functional code that happens to run on an iPhone.\nCore deliverables include:\n• Pixel-perfect UI built to HIG standards, tested across iPhone and iPad screen sizes\n• TestFlight builds at every milestone with crash reporting and performance benchmarks",
+        body: "When you hire iOS developers from Toadster Technologies, every engagement ships an app built to Apple's standards - not just functional code that happens to run on an iPhone.\nCore deliverables include:\n• Pixel-perfect UI built to HIG standards, tested across iPhone and iPad screen sizes\n• TestFlight builds at every milestone with crash reporting and performance benchmarks",
         items: [
-          { title: "Native iOS App Development", body: "SwiftUI and UIKit applications built from the ground up — consumer apps, enterprise tools, and SaaS companion apps — architected for maintainability as your feature set grows." },
-          { title: "Apple Ecosystem & SDK Integrations", body: "HealthKit, ARKit, CoreML, Apple Pay, Sign in with Apple, and Watch app companion development — the integrations that differentiate a good iOS app from a merely functional one." },
-          { title: "On-Device AI & ML Features", body: "CoreML model integration for on-device inference, AI-powered camera features, and intelligent text/image processing — built for the privacy and performance expectations iOS users have." },
+          { title: "Native iOS App Development", body: "SwiftUI and UIKit applications built from the ground up - consumer apps, enterprise tools, and SaaS companion apps - architected for maintainability as your feature set grows." },
+          { title: "Apple Ecosystem & SDK Integrations", body: "HealthKit, ARKit, CoreML, Apple Pay, Sign in with Apple, and Watch app companion development - the integrations that differentiate a good iOS app from a merely functional one." },
+          { title: "On-Device AI & ML Features", body: "CoreML model integration for on-device inference, AI-powered camera features, and intelligent text/image processing - built for the privacy and performance expectations iOS users have." },
           { title: "Performance Optimisation & App Store Readiness", body: "Instruments profiling for memory and battery usage, crash-free session targets, accessibility (VoiceOver) compliance, and App Store guideline review before every submission." }
         ]
       },
       {
         heading: "Seamless 3-Step Integration",
-        body: "From first conversation to a dedicated iOS developer embedded in your team — in under a week.",
+        body: "From first conversation to a dedicated iOS developer embedded in your team - in under a week.",
         items: [
-          { title: "01 — Technical Scoping", body: "We review your app requirements, target iOS versions, and any Apple ecosystem integrations needed to identify exactly which iOS expertise — SwiftUI, UIKit, or native frameworks depth — fills your gap." },
-          { title: "02 — Vetting & Matching", body: "You interview shortlisted iOS developers from our pre-vetted talent pool, assessed on real apps shipped to the App Store — not just sample projects." },
-          { title: "03 — Dedicated Onboarding", body: "Your developer joins your Xcode project, design tools, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." }
+          { title: "01 - Technical Scoping", body: "We review your app requirements, target iOS versions, and any Apple ecosystem integrations needed to identify exactly which iOS expertise - SwiftUI, UIKit, or native frameworks depth - fills your gap." },
+          { title: "02 - Vetting & Matching", body: "You interview shortlisted iOS developers from our pre-vetted talent pool, assessed on real apps shipped to the App Store - not just sample projects." },
+          { title: "03 - Dedicated Onboarding", body: "Your developer joins your Xcode project, design tools, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." }
         ]
       }
     ],
     [
-      { question: "What does a dedicated iOS developer do?", answer: "A dedicated iOS developer designs, builds, and maintains native applications for iPhone and iPad using Swift, SwiftUI, and UIKit. This includes UI implementation, Apple ecosystem integrations, performance optimisation, and App Store submission — working exclusively on your product as part of your team." },
-      { question: "Should I build a native iOS app or use a cross-platform framework like React Native?", answer: "Native iOS development is the right choice when your app needs deep Apple ecosystem integration — ARKit, HealthKit, complex animations, or maximum performance — or when iOS is your primary platform with no near-term Android plans. Cross-platform frameworks make more sense when you need both iOS and Android with shared logic and a faster timeline. Our developers can assess your specific requirements." },
-      { question: "SwiftUI or UIKit — which should my app use?", answer: "SwiftUI is Apple's modern declarative framework and is well suited for new apps, especially those targeting recent iOS versions. UIKit remains relevant for apps needing fine-grained control, supporting older iOS versions, or maintaining a large existing UIKit codebase. Many production apps use both side by side. Our developers make this call based on your app's specific needs during scoping." },
+      { question: "What does a dedicated iOS developer do?", answer: "A dedicated iOS developer designs, builds, and maintains native applications for iPhone and iPad using Swift, SwiftUI, and UIKit. This includes UI implementation, Apple ecosystem integrations, performance optimisation, and App Store submission - working exclusively on your product as part of your team." },
+      { question: "Should I build a native iOS app or use a cross-platform framework like React Native?", answer: "Native iOS development is the right choice when your app needs deep Apple ecosystem integration - ARKit, HealthKit, complex animations, or maximum performance - or when iOS is your primary platform with no near-term Android plans. Cross-platform frameworks make more sense when you need both iOS and Android with shared logic and a faster timeline. Our developers can assess your specific requirements." },
+      { question: "SwiftUI or UIKit - which should my app use?", answer: "SwiftUI is Apple's modern declarative framework and is well suited for new apps, especially those targeting recent iOS versions. UIKit remains relevant for apps needing fine-grained control, supporting older iOS versions, or maintaining a large existing UIKit codebase. Many production apps use both side by side. Our developers make this call based on your app's specific needs during scoping." },
       { question: "How quickly can a dedicated iOS developer join my project?", answer: "Most engagements at Toadster go from initial brief to an onboarded iOS developer in 5 to 7 business days, covering technical scoping, candidate shortlisting, your interview round, and tool access setup." },
       { question: "How much does it cost to hire a dedicated iOS developer?", answer: "Pricing depends on seniority level, the complexity of Apple ecosystem integrations required, and engagement duration. Toadster offers transparent monthly retainer pricing with no hidden recruitment fees. Contact us for a quote tailored to your specific app requirements." },
-      { question: "Can your iOS developers help reduce App Store rejection risk?", answer: "Yes. Our developers review submissions against Apple's App Store Review Guidelines before each release, covering common rejection triggers — privacy disclosures, metadata accuracy, and Human Interface Guidelines compliance — to reduce back-and-forth with Apple's review team." },
+      { question: "Can your iOS developers help reduce App Store rejection risk?", answer: "Yes. Our developers review submissions against Apple's App Store Review Guidelines before each release, covering common rejection triggers - privacy disclosures, metadata accuracy, and Human Interface Guidelines compliance - to reduce back-and-forth with Apple's review team." },
       { question: "Do your iOS developers handle Apple Watch and other companion apps?", answer: "Yes. Our developers build watchOS companion apps, widgets, and App Clips alongside the main iOS application when your product calls for an extended Apple ecosystem presence." },
-      { question: "Can I scale my iOS development team up or down during the engagement?", answer: "Yes. You can add developers — for a major feature push, a Watch app build, or an ARKit specialist — or scale down with 30 days' notice, depending on your app's development phase." }
+      { question: "Can I scale my iOS development team up or down during the engagement?", answer: "Yes. You can add developers - for a major feature push, a Watch app build, or an ARKit specialist - or scale down with 30 days' notice, depending on your app's development phase." }
     ],
     [
       "Dedicated iOS Developers",
@@ -779,17 +779,17 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "iOS App Development Services",
       "Apple Ecosystem Integration Developers"
     ],
-    { name: "Hire iOS Developers", description: "Hire expert iOS developers from Toadster Technologies. Get dedicated Swift and SwiftUI engineers onboarded in 5–7 days — App Store ready, Apple ecosystem integrations included.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+    { name: "Hire iOS Developers", description: "Hire expert iOS developers from Toadster Technologies. Get dedicated Swift and SwiftUI engineers onboarded in 5–7 days - App Store ready, Apple ecosystem integrations included.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
   ),
   hirePage(
     "android-developers",
     "Android Developers",
     "Kotlin & Jetpack Compose Android app experts",
     "Android",
-    "Hire Android Developers | Dedicated Kotlin & Compose Experts — Toadster Technologies",
-    "Hire expert Android developers from Toadster Technologies. Get dedicated Kotlin and Jetpack Compose engineers onboarded in 5–7 days — Play Store ready, Google ecosystem integrations included. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire Android Developers | Dedicated Kotlin & Compose Experts - Toadster Technologies",
+    "Hire expert Android developers from Toadster Technologies. Get dedicated Kotlin and Jetpack Compose engineers onboarded in 5–7 days - Play Store ready, Google ecosystem integrations included. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert Android Developers",
-    "Build Android apps that perform reliably across thousands of device configurations — with dedicated Kotlin developers who understand fragmentation, battery constraints, and what it actually takes to pass Play Store review.",
+    "Build Android apps that perform reliably across thousands of device configurations - with dedicated Kotlin developers who understand fragmentation, battery constraints, and what it actually takes to pass Play Store review.",
     [
       "⭐ 4.9/5 on Clutch",
       "55+ Android apps shipped",
@@ -799,42 +799,42 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     [
       {
         heading: "Tech Stack & Skill Matrix",
-        body: "Our dedicated Android developers are fluent across the modern Android ecosystem — declarative UI, architecture patterns built for testability, and the device-level optimisation that fragmentation demands.",
+        body: "Our dedicated Android developers are fluent across the modern Android ecosystem - declarative UI, architecture patterns built for testability, and the device-level optimisation that fragmentation demands.",
         items: [
           { title: "Core Language & UI Frameworks", body: "Kotlin / Jetpack Compose / XML Views\nCoroutines & Flow for asynchronous programming\nMVVM / MVI / Clean Architecture\nMaterial Design 3 compliance\n\nOur developers build with Compose-first thinking while maintaining legacy View-based code where migration isn't yet justified." },
-          { title: "Data, Networking & Native Integrations", body: "Room / DataStore for local persistence\nRetrofit / OkHttp / Ktor for networking\nFirebase (FCM, Crashlytics, Remote Config, Analytics)\nCameraX, Biometric API, Google Pay, Maps SDK\n\nDeep integration with Google's native frameworks and Play Services — the features that make an app feel purpose-built for Android, not ported." },
+          { title: "Data, Networking & Native Integrations", body: "Room / DataStore for local persistence\nRetrofit / OkHttp / Ktor for networking\nFirebase (FCM, Crashlytics, Remote Config, Analytics)\nCameraX, Biometric API, Google Pay, Maps SDK\n\nDeep integration with Google's native frameworks and Play Services - the features that make an app feel purpose-built for Android, not ported." },
           { title: "Testing, CI/CD & Play Store Deployment", body: "JUnit / Espresso / Compose Testing for UI tests\nGradle build optimisation & flavors\nGitHub Actions / Bitrise for CI/CD\nPlay Console release tracks & staged rollouts\n\nProduction pipelines built for device fragmentation testing and controlled rollouts that catch issues before they reach your full user base." }
         ]
       },
       {
         heading: "Production Deliverables",
-        body: "When you hire Android developers from Toadster Technologies, every engagement ships an app tested across real device diversity — not just validated on a single flagship emulator.\nCore deliverables include:\n• Material Design-compliant UI tested across phone, tablet, and foldable form factors\n• Staged Play Console rollout builds at every milestone with Crashlytics monitoring",
+        body: "When you hire Android developers from Toadster Technologies, every engagement ships an app tested across real device diversity - not just validated on a single flagship emulator.\nCore deliverables include:\n• Material Design-compliant UI tested across phone, tablet, and foldable form factors\n• Staged Play Console rollout builds at every milestone with Crashlytics monitoring",
         items: [
-          { title: "Native Android App Development", body: "Kotlin and Jetpack Compose applications built from the ground up — consumer apps, enterprise tools, and SaaS companion apps — architected to handle the device and OS-version fragmentation unique to Android." },
-          { title: "Google Ecosystem & Play Services Integration", body: "Firebase, Google Pay, Maps SDK, CameraX, and Wear OS companion development — the integrations that connect your app meaningfully into the broader Android and Google ecosystem." },
-          { title: "On-Device AI & ML Features", body: "ML Kit and TensorFlow Lite model integration for on-device inference, AI-powered camera features, and intelligent text processing — optimised for the wide range of hardware capabilities across Android devices." },
+          { title: "Native Android App Development", body: "Kotlin and Jetpack Compose applications built from the ground up - consumer apps, enterprise tools, and SaaS companion apps - architected to handle the device and OS-version fragmentation unique to Android." },
+          { title: "Google Ecosystem & Play Services Integration", body: "Firebase, Google Pay, Maps SDK, CameraX, and Wear OS companion development - the integrations that connect your app meaningfully into the broader Android and Google ecosystem." },
+          { title: "On-Device AI & ML Features", body: "ML Kit and TensorFlow Lite model integration for on-device inference, AI-powered camera features, and intelligent text processing - optimised for the wide range of hardware capabilities across Android devices." },
           { title: "Performance Optimisation & Device Compatibility", body: "Android Profiler analysis for memory and battery usage, ANR (App Not Responding) prevention, accessibility (TalkBack) compliance, and compatibility testing across manufacturer-specific Android skins." }
         ]
       },
       {
         heading: "Seamless 3-Step Integration",
-        body: "From first conversation to a dedicated Android developer embedded in your team — in under a week.",
+        body: "From first conversation to a dedicated Android developer embedded in your team - in under a week.",
         items: [
-          { title: "01 — Technical Scoping", body: "We review your app requirements, target device range, and minimum supported Android version to identify exactly which Android expertise — Compose, legacy Views, or device optimisation depth — fills your gap." },
-          { title: "02 — Vetting & Matching", body: "You interview shortlisted Android developers from our pre-vetted talent pool, assessed on real apps shipped to the Play Store across diverse device fleets — not just emulator-tested projects." },
-          { title: "03 — Dedicated Onboarding", body: "Your developer joins your Android Studio project, design tools, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." }
+          { title: "01 - Technical Scoping", body: "We review your app requirements, target device range, and minimum supported Android version to identify exactly which Android expertise - Compose, legacy Views, or device optimisation depth - fills your gap." },
+          { title: "02 - Vetting & Matching", body: "You interview shortlisted Android developers from our pre-vetted talent pool, assessed on real apps shipped to the Play Store across diverse device fleets - not just emulator-tested projects." },
+          { title: "03 - Dedicated Onboarding", body: "Your developer joins your Android Studio project, design tools, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." }
         ]
       }
     ],
     [
-      { question: "What does a dedicated Android developer do?", answer: "A dedicated Android developer designs, builds, and maintains native applications using Kotlin, Jetpack Compose, and Android SDK frameworks. This includes UI implementation, Google ecosystem integrations, device compatibility testing, and Play Store deployment — working exclusively on your product as part of your team." },
+      { question: "What does a dedicated Android developer do?", answer: "A dedicated Android developer designs, builds, and maintains native applications using Kotlin, Jetpack Compose, and Android SDK frameworks. This includes UI implementation, Google ecosystem integrations, device compatibility testing, and Play Store deployment - working exclusively on your product as part of your team." },
       { question: "Should I build a native Android app or use a cross-platform framework like React Native?", answer: "Native Android development is the right choice when your app needs deep hardware integration, maximum performance across diverse devices, or close coupling with Android-specific features like widgets and background services. Cross-platform frameworks suit teams targeting both iOS and Android with shared logic and tighter timelines. Our developers can assess your specific requirements during scoping." },
       { question: "How does Toadster handle Android device fragmentation?", answer: "Our developers test across a representative range of screen sizes, OS versions, and manufacturer skins (Samsung One UI, Xiaomi MIUI, etc.), use Android's compatibility libraries appropriately, and follow staged Play Console rollouts to catch device-specific issues before they reach your full user base." },
-      { question: "Jetpack Compose or traditional XML Views — which should my app use?", answer: "Jetpack Compose is Google's modern declarative UI toolkit and is the recommended approach for new apps. XML-based Views remain relevant for large existing codebases or apps requiring specific legacy library support. Many production apps run both side by side during a Compose migration. Our developers assess your codebase and recommend the right path." },
+      { question: "Jetpack Compose or traditional XML Views - which should my app use?", answer: "Jetpack Compose is Google's modern declarative UI toolkit and is the recommended approach for new apps. XML-based Views remain relevant for large existing codebases or apps requiring specific legacy library support. Many production apps run both side by side during a Compose migration. Our developers assess your codebase and recommend the right path." },
       { question: "How quickly can a dedicated Android developer join my project?", answer: "Most engagements at Toadster go from initial brief to an onboarded Android developer in 5 to 7 business days, covering technical scoping, candidate shortlisting, your interview round, and tool access setup." },
       { question: "How much does it cost to hire a dedicated Android developer?", answer: "Pricing depends on seniority level, the complexity of Google ecosystem integrations required, and engagement duration. Toadster offers transparent monthly retainer pricing with no hidden recruitment fees. Contact us for a quote tailored to your specific app requirements." },
-      { question: "Can your Android developers help reduce Play Store rejection risk?", answer: "Yes. Our developers review submissions against Google Play's policy guidelines before each release, covering common rejection triggers — permissions misuse, data safety disclosures, and target API level requirements — to reduce delays in getting your app live." },
-      { question: "Can I scale my Android development team up or down during the engagement?", answer: "Yes. You can add developers — for a major feature push, a Wear OS builder, or an ML specialist — or scale down with 30 days' notice, depending on your app's development phase." }
+      { question: "Can your Android developers help reduce Play Store rejection risk?", answer: "Yes. Our developers review submissions against Google Play's policy guidelines before each release, covering common rejection triggers - permissions misuse, data safety disclosures, and target API level requirements - to reduce delays in getting your app live." },
+      { question: "Can I scale my Android development team up or down during the engagement?", answer: "Yes. You can add developers - for a major feature push, a Wear OS builder, or an ML specialist - or scale down with 30 days' notice, depending on your app's development phase." }
     ],
     [
       "Dedicated Android Developers",
@@ -847,17 +847,17 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "Android App Development Services",
       "Google Ecosystem Integration Developers"
     ],
-    { name: "Hire Android Developers", description: "Hire expert Android developers from Toadster Technologies. Get dedicated Kotlin and Jetpack Compose engineers onboarded in 5–7 days — Play Store ready, Google ecosystem integrations included.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+    { name: "Hire Android Developers", description: "Hire expert Android developers from Toadster Technologies. Get dedicated Kotlin and Jetpack Compose engineers onboarded in 5–7 days - Play Store ready, Google ecosystem integrations included.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
   ),
   hirePage(
     "reactjs-developers",
     "React.js Developers",
     "React, Next.js, and modern UI architecture",
     "Reactjs",
-    "Hire React.js Developers | Dedicated Frontend Engineers — Toadster Technologies",
-    "Hire expert React.js developers from Toadster Technologies. Get dedicated frontend engineers onboarded in 5–7 days — React, Next.js, TypeScript, and modern UI architecture. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire React.js Developers | Dedicated Frontend Engineers - Toadster Technologies",
+    "Hire expert React.js developers from Toadster Technologies. Get dedicated frontend engineers onboarded in 5–7 days - React, Next.js, TypeScript, and modern UI architecture. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert React.js Developers",
-    "Build fast, responsive, and scalable web interfaces with dedicated React developers who write component architecture that survives your product's next five feature releases — not just the demo.",
+    "Build fast, responsive, and scalable web interfaces with dedicated React developers who write component architecture that survives your product's next five feature releases - not just the demo.",
     [
       "⭐ 4.9/5 on Clutch",
       "100+ React projects delivered",
@@ -867,10 +867,10 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     [
       {
         heading: "Tech Stack & Skill Matrix",
-        body: "Our dedicated React developers are fluent across the modern frontend ecosystem — component architecture, state management, performance optimisation, and the build tooling that keeps large applications maintainable.",
+        body: "Our dedicated React developers are fluent across the modern frontend ecosystem - component architecture, state management, performance optimisation, and the build tooling that keeps large applications maintainable.",
         items: [
-          { title: "Core React & Architecture", body: "React 18+ (Hooks, Suspense, Server Components)\nNext.js for SSR, SSG, and ISR\nComponent-driven architecture & design systems\nTypeScript across components, hooks, and utilities\n\nArchitecture decisions made upfront — not patched in later — so your codebase stays maintainable as your team and feature set grow." },
-          { title: "State Management & Data Layer", body: "Redux Toolkit / Zustand / Jotai / Recoil\nReact Query / TanStack Query / SWR\nGraphQL clients — Apollo, Relay, urql\nContext API for scoped state needs\n\nThe right state management tool for the actual problem — not Redux by default for every app, regardless of complexity." },
+          { title: "Core React & Architecture", body: "React 18+ (Hooks, Suspense, Server Components)\nNext.js for SSR, SSG, and ISR\nComponent-driven architecture & design systems\nTypeScript across components, hooks, and utilities\n\nArchitecture decisions made upfront - not patched in later - so your codebase stays maintainable as your team and feature set grow." },
+          { title: "State Management & Data Layer", body: "Redux Toolkit / Zustand / Jotai / Recoil\nReact Query / TanStack Query / SWR\nGraphQL clients - Apollo, Relay, urql\nContext API for scoped state needs\n\nThe right state management tool for the actual problem - not Redux by default for every app, regardless of complexity." },
           { title: "Styling, Testing & Build Tooling", body: "Tailwind CSS / Styled Components / CSS Modules\nJest, React Testing Library, Cypress for E2E\nVite / Webpack configuration & bundle optimisation\nStorybook for component documentation\n\nFast build pipelines, meaningful test coverage, and styling systems that scale across design tokens and themes." }
         ]
       },
@@ -878,31 +878,31 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
         heading: "Production Deliverables",
         body: "When you hire React developers from Toadster Technologies, every engagement ships interfaces that are pixel-accurate, performant, and built on architecture your team can extend without a rewrite.\nCore deliverables include:\n• Pixel-perfect, responsive UI matched precisely to your Figma designs\n• Reusable component libraries with Storybook documentation and sprint demos",
         items: [
-          { title: "Custom Web Application Frontends", body: "SaaS dashboards, admin panels, customer portals, and marketing sites built with React and Next.js — optimised for Core Web Vitals and SEO from the first commit, not retrofitted before launch." },
-          { title: "Design System & Component Library Development", body: "Scalable, themeable component libraries with documented props, accessibility built in (WCAG-compliant), and Storybook coverage — so design and engineering stop reinventing the same button." },
-          { title: "AI-Integrated Frontend Experiences", body: "React interfaces wired to AI backends — chat UIs, streaming responses, RAG-powered search bars, and agent status dashboards — built for the latency and UX patterns AI features actually need." },
-          { title: "Performance Optimisation & Testing", body: "Bundle size audits, code-splitting strategy, lazy loading, and comprehensive test suites — so your React app stays fast and stable as it scales past its first thousand users." }
+          { title: "Custom Web Application Frontends", body: "SaaS dashboards, admin panels, customer portals, and marketing sites built with React and Next.js - optimised for Core Web Vitals and SEO from the first commit, not retrofitted before launch." },
+          { title: "Design System & Component Library Development", body: "Scalable, themeable component libraries with documented props, accessibility built in (WCAG-compliant), and Storybook coverage - so design and engineering stop reinventing the same button." },
+          { title: "AI-Integrated Frontend Experiences", body: "React interfaces wired to AI backends - chat UIs, streaming responses, RAG-powered search bars, and agent status dashboards - built for the latency and UX patterns AI features actually need." },
+          { title: "Performance Optimisation & Testing", body: "Bundle size audits, code-splitting strategy, lazy loading, and comprehensive test suites - so your React app stays fast and stable as it scales past its first thousand users." }
         ]
       },
       {
         heading: "Seamless 3-Step Integration",
-        body: "From first conversation to a dedicated React developer embedded in your team — in under a week.",
+        body: "From first conversation to a dedicated React developer embedded in your team - in under a week.",
         items: [
-          { title: "01 — Technical Scoping", body: "We review your design system, existing codebase, and product roadmap to identify exactly which React expertise — component architecture, performance, or design-system depth — fills your gap." },
-          { title: "02 — Vetting & Matching", body: "You interview shortlisted React developers from our pre-vetted talent pool, assessed on real component architecture decisions — not just framework trivia." },
-          { title: "03 — Dedicated Onboarding", body: "Your developer joins your Figma, GitHub, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." }
+          { title: "01 - Technical Scoping", body: "We review your design system, existing codebase, and product roadmap to identify exactly which React expertise - component architecture, performance, or design-system depth - fills your gap." },
+          { title: "02 - Vetting & Matching", body: "You interview shortlisted React developers from our pre-vetted talent pool, assessed on real component architecture decisions - not just framework trivia." },
+          { title: "03 - Dedicated Onboarding", body: "Your developer joins your Figma, GitHub, and standups within days. They work your hours, follow your sprint cadence, and report directly to your team lead." }
         ]
       }
     ],
     [
-      { question: "What does a dedicated React.js developer do?", answer: "A dedicated React.js developer builds and maintains the user-facing interface of your web application — component architecture, state management, performance optimisation, and integration with backend APIs — working exclusively on your product as part of your team." },
+      { question: "What does a dedicated React.js developer do?", answer: "A dedicated React.js developer builds and maintains the user-facing interface of your web application - component architecture, state management, performance optimisation, and integration with backend APIs - working exclusively on your product as part of your team." },
       { question: "When should a company hire a dedicated React developer?", answer: "Hire a dedicated React developer when your product needs a fast, responsive, and maintainable frontend, when your existing UI has accumulated technical debt, when you're rebuilding a legacy interface, or when internal teams need additional frontend capacity to hit a launch deadline." },
       { question: "What is the difference between React and Next.js, and which do I need?", answer: "React is a UI library for building components. Next.js is a framework built on React that adds server-side rendering, routing, and performance optimisations out of the box. Most production applications benefit from Next.js, especially when SEO or initial load speed matters. Our developers assess your requirements and recommend accordingly." },
-      { question: "How quickly can a dedicated React developer join my project?", answer: "Most engagements at Toadster go from initial brief to an onboarded React developer in 5 to 7 business days — covering technical scoping, candidate shortlisting, your interview round, and tool access setup." },
+      { question: "How quickly can a dedicated React developer join my project?", answer: "Most engagements at Toadster go from initial brief to an onboarded React developer in 5 to 7 business days - covering technical scoping, candidate shortlisting, your interview round, and tool access setup." },
       { question: "How much does it cost to hire a dedicated React developer?", answer: "Pricing depends on seniority level, project complexity, and engagement duration. Toadster offers transparent monthly retainer pricing with no hidden recruitment fees. Contact us for a quote tailored to your specific frontend requirements." },
       { question: "Can your React developers work with our existing design system?", answer: "Yes. Our developers regularly build on top of existing design systems, Figma libraries, and component conventions. They adapt to your established patterns rather than introducing inconsistent new ones." },
       { question: "Do your React developers also handle backend integration?", answer: "Yes. Our React developers are comfortable consuming REST APIs and GraphQL endpoints, handling authentication flows, and managing real-time data via WebSockets. For dedicated backend development, we can pair a React developer with a backend engineer under the same engagement." },
-      { question: "Can I scale my React development team up or down?", answer: "Yes. You can add developers — for a major feature push or design system overhaul — or scale down with 30 days' notice. The model is built for the uneven resourcing demands that come with frontend-heavy product phases." }
+      { question: "Can I scale my React development team up or down?", answer: "Yes. You can add developers - for a major feature push or design system overhaul - or scale down with 30 days' notice. The model is built for the uneven resourcing demands that come with frontend-heavy product phases." }
     ],
     [
       "Dedicated React Developers",
@@ -915,7 +915,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "Hire React TypeScript Developers",
       "React UI Development Services"
     ],
-    { name: "Hire React.js Developers", description: "Hire expert React.js developers from Toadster Technologies. Get dedicated frontend engineers onboarded in 5–7 days — React, Next.js, TypeScript, and modern UI architecture.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+    { name: "Hire React.js Developers", description: "Hire expert React.js developers from Toadster Technologies. Get dedicated frontend engineers onboarded in 5–7 days - React, Next.js, TypeScript, and modern UI architecture.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
   )
 ]
 

@@ -324,7 +324,7 @@ function CtaPanel() {
 export default function HireResourcesHubPage() {
   return (
     <main className="hire-resources-hub homepage-content relative min-h-screen font-sans text-page-fg">
-      {/* Hero — background extends behind fixed navbar */}
+      {/* Hero - background extends behind fixed navbar */}
       <section className="hire-hub-hero-section section-full-bleed homepage-hero-viewport--image relative isolate overflow-hidden pt-28">
         <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
           <div className="homepage-hero-bg-image absolute inset-0">

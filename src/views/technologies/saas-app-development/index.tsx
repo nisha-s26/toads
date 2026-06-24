@@ -45,8 +45,8 @@ export default function SaasAppDevelopmentPage() {
               <span className="da-text-accent">Millions</span>
             </h1>
             <p className="da-hero-subtitle">
-              We design and build multi-tenant SaaS applications — from architecture and core product to billing,
-              security, and scaling infrastructure — engineered to support rapid growth without costly re-platforming.
+              We design and build multi-tenant SaaS applications - from architecture and core product to billing,
+              security, and scaling infrastructure - engineered to support rapid growth without costly re-platforming.
             </p>
             <div className="da-hero-actions">
               <Link href="/contact" className="da-btn da-btn-primary" title="Request a SaaS Architecture Session">
@@ -149,7 +149,7 @@ export default function SaasAppDevelopmentPage() {
         <div className="da-container">
           <ComparisonTable headers={platformComparison.headers} rows={platformComparison.rows} />
           <blockquote className="da-quote">
-            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{platformQuote}&rdquo; —
+            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{platformQuote}&rdquo; -
             Toadster Product Engineering Team
           </blockquote>
         </div>
@@ -275,7 +275,7 @@ export default function SaasAppDevelopmentPage() {
                 Download SaaS Architecture Guide
               </Link>
             </div>
-            <p className="da-cta-footnote">Toadster Technologies — Precision Engineering for Scalable Software.</p>
+            <p className="da-cta-footnote">Toadster Technologies - Precision Engineering for Scalable Software.</p>
           </div>
         </div>
       </section>

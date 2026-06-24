@@ -76,7 +76,7 @@ function HeroConsultationForm() {
         Talk to an Agentic AI Specialist
       </h3>
       <p className="capability-card-copy relative z-10 mt-2 mb-6 text-sm">
-        Tell us the process or task you&apos;re considering automating — we respond within one business day.
+        Tell us the process or task you&apos;re considering automating - we respond within one business day.
       </p>
 
       <form onSubmit={handleSubmit} className="relative z-10 space-y-4">
@@ -137,7 +137,7 @@ function HeroConsultationForm() {
         </div>
         <Button type="submit" className="w-full rounded-xl py-6 text-base font-bold" disabled={isSubmitting}>
           {submitStatus === "success"
-            ? "Request Received — We'll be in touch soon!"
+            ? "Request Received - We'll be in touch soon!"
             : isSubmitting
               ? "Sending..."
               : "Talk to an Agentic AI Specialist"}
@@ -169,12 +169,12 @@ export default function AgenticAIPage() {
               </p>
               <p className="service-hero-subtitle mb-5 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
                 A chatbot that answers a question is useful. An agent that reads the question, checks three systems,
-                makes a decision within defined boundaries, takes an action, and reports back what it did — that&apos;s a
+                makes a decision within defined boundaries, takes an action, and reports back what it did - that&apos;s a
                 different category of system, and a different category of business value.
               </p>
               <p className="service-hero-subtitle mb-8 w-full max-w-none text-base leading-relaxed text-page-fg-muted">
                 Agentic AI systems plan, use tools, make decisions, and complete multi-step tasks with limited human
-                intervention. We design and build agentic AI systems that handle real operational workflows — with the
+                intervention. We design and build agentic AI systems that handle real operational workflows - with the
                 guardrails, evaluation, and human oversight that keep them safe and reliable in production.
               </p>
 
@@ -326,7 +326,7 @@ export default function AgenticAIPage() {
             <SectionHead
               label=""
               title="How We Approach an Agentic AI Engagement"
-              subtitle="Agentic AI projects require more upfront boundary-setting and evaluation work than typical software or even standard LLM projects — because the system is taking actions, not just producing outputs."
+              subtitle="Agentic AI projects require more upfront boundary-setting and evaluation work than typical software or even standard LLM projects - because the system is taking actions, not just producing outputs."
             />
             <div className="service-process-timeline-card">
               <p className="service-process-timeline-label">Typical pilot timeline</p>
@@ -390,7 +390,7 @@ export default function AgenticAIPage() {
           <SectionHead
             label=""
             title="The People You Need, Ready When You Need Them"
-            subtitle="Building agentic AI systems well requires people who understand both the capabilities and the failure modes of autonomous AI — not just standard software engineers applying an LLM API."
+            subtitle="Building agentic AI systems well requires people who understand both the capabilities and the failure modes of autonomous AI - not just standard software engineers applying an LLM API."
           />
           <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -433,7 +433,7 @@ export default function AgenticAIPage() {
           <SectionHead
             label=""
             title="What Well-Built Agentic AI Actually Delivers"
-            subtitle="Agentic AI is justified by what it lets your business do that it couldn't do before — not by the sophistication of the technology."
+            subtitle="Agentic AI is justified by what it lets your business do that it couldn't do before - not by the sophistication of the technology."
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((item) => {
@@ -506,7 +506,7 @@ export default function AgenticAIPage() {
           <SectionHead
             label=""
             title="How much does agentic AI development cost?"
-            subtitle="Pricing depends on the number of agents, integration complexity, and autonomy level. Here's a realistic breakdown — we'll give you a detailed estimate after understanding your specific use case."
+            subtitle="Pricing depends on the number of agents, integration complexity, and autonomy level. Here's a realistic breakdown - we'll give you a detailed estimate after understanding your specific use case."
           />
           <div className="overflow-x-auto rounded-2xl border border-page-border">
             <table className="w-full min-w-[640px] text-left text-sm">
@@ -543,8 +543,8 @@ export default function AgenticAIPage() {
         footnote="We respond within one business day and can have a technical discovery call scheduled within the week."
       >
         <p>
-          Tell us the process or task you&apos;re considering automating with an agent — the steps involved, the systems
-          it would need to touch, and what decisions it would need to make — and we&apos;ll have a direct, technically
+          Tell us the process or task you&apos;re considering automating with an agent - the steps involved, the systems
+          it would need to touch, and what decisions it would need to make - and we&apos;ll have a direct, technically
           grounded conversation about whether agentic AI is the right approach and what it would take to build well.
         </p>
       </ServicePageCta>

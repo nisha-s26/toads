@@ -116,7 +116,6 @@ export function LogoMarquee({
 }: LogoMarqueeProps) {
   const trackRef = useRef<HTMLDivElement>(null)
   const offsetRef = useRef(0)
-  const pausedRef = useRef(false)
   const rafRef = useRef(0)
   const prefersReducedMotion = useSyncExternalStore(
     subscribeToReducedMotion,
@@ -124,7 +123,7 @@ export function LogoMarquee({
     getReducedMotionServerSnapshot,
   )
 
-  // Second set is for seamless looping only — kept off-screen until the first set scrolls out.
+  // Second set is for seamless looping only - kept off-screen until the first set scrolls out.
   const marqueeLogos = [...TRUSTED_BY_CLIENTS, ...TRUSTED_BY_CLIENTS]
 
   useEffect(() => {
@@ -146,7 +145,7 @@ export function LogoMarquee({
         if (!running) return
 
         const setWidth = getSetWidth()
-        if (setWidth > 0 && !pausedRef.current) {
+        if (setWidth > 0) {
           const delta = (now - lastTime) / 1000
           offsetRef.current += MARQUEE_SPEED_PX * delta
 
@@ -207,12 +206,6 @@ export function LogoMarquee({
         className,
       )}
       aria-label="Trusted by leading companies"
-      onMouseEnter={() => {
-        pausedRef.current = true
-      }}
-      onMouseLeave={() => {
-        pausedRef.current = false
-      }}
     >
       <div
         ref={trackRef}

@@ -126,7 +126,7 @@ export const termsSections: TermsSection[] = [
       {
         title: "4.1 Our Website Content",
         paragraphs: [
-          "All content on this website — including text, graphics, logos, designs, and software — is the property of Toadster Technologies or its licensors and is protected by applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from our website content without our prior written consent, except as necessary for normal personal or internal business use of the website (e.g., printing a page for reference).",
+          "All content on this website - including text, graphics, logos, designs, and software - is the property of Toadster Technologies or its licensors and is protected by applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from our website content without our prior written consent, except as necessary for normal personal or internal business use of the website (e.g., printing a page for reference).",
         ],
       },
       {
@@ -271,4 +271,4 @@ export const termsSections: TermsSection[] = [
   },
 ]
 
-export const termsFootnote = "Toadster Technologies — Precision Engineering for Data, AI, and Enterprise Systems."
+export const termsFootnote = "Toadster Technologies - Precision Engineering for Data, AI, and Enterprise Systems."

@@ -72,7 +72,7 @@ export default function AiCap() {
           <span className="text-toadster-green">Capabilities</span>
         </h2>
         <p className="mx-auto max-w-7xl px-2 text-base text-page-fg-muted sm:px-0 sm:text-lg md:text-xl">
-          From AI and agentic systems to software, mobile, DevOps, and security — explore the full
+          From AI and agentic systems to software, mobile, DevOps, and security - explore the full
           range of services we deliver for production-grade digital products.
         </p>
       </ScrollReveal>

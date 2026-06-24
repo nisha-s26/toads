@@ -1,13 +1,13 @@
 export const HIRE_RESOURCES_META = {
-  title: "Hire Dedicated Developers | IT Staff Augmentation Services — Toadster Technologies",
+  title: "Hire Dedicated Developers | IT Staff Augmentation Services - Toadster Technologies",
   description:
-    "Hire dedicated developers and technology resources from Toadster Technologies. Flexible staff augmentation across software, mobile, AI/ML, DevOps, and more — onboarded in 5–7 days. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire dedicated developers and technology resources from Toadster Technologies. Flexible staff augmentation across software, mobile, AI/ML, DevOps, and more - onboarded in 5–7 days. Serving India, UAE, Saudi Arabia & the US.",
 }
 
 export const heroContent = {
   title: "Hire Dedicated Developers & Technology Resources",
   paragraphs: [
-    "Scaling a product or engineering team usually comes down to one constraint: finding the right people fast enough. Toadster Technologies gives growing companies access to vetted, dedicated developers and technology specialists who join your team directly — without the months-long hiring cycle, the recruitment overhead, or the risk of a mismatched freelancer.",
+    "Scaling a product or engineering team usually comes down to one constraint: finding the right people fast enough. Toadster Technologies gives growing companies access to vetted, dedicated developers and technology specialists who join your team directly - without the months-long hiring cycle, the recruitment overhead, or the risk of a mismatched freelancer.",
     "Whether you need a single backend engineer for three months or a complete cross-functional pod for a year-long build, our staff augmentation and dedicated resource model is built around one principle: you keep control, we remove the friction of finding and retaining the talent.",
   ],
   expertCta: "Talk to an Expert",
@@ -24,7 +24,7 @@ export const heroContent = {
 export const whyHireSection = {
   title: "Why Hire Dedicated Resources",
   intro:
-    "Dedicated hiring exists because the traditional alternatives — full-time recruitment and generic outsourcing — both come with trade-offs most growing companies can't afford. A dedicated developer is a technology professional who works exclusively on your project while remaining employed and managed through a technology partner, allowing you to scale a team quickly without the overhead of running a hiring pipeline yourself.",
+    "Dedicated hiring exists because the traditional alternatives - full-time recruitment and generic outsourcing - both come with trade-offs most growing companies can't afford. A dedicated developer is a technology professional who works exclusively on your project while remaining employed and managed through a technology partner, allowing you to scale a team quickly without the overhead of running a hiring pipeline yourself.",
   benefits: [
     {
       title: "Faster Access to Skilled Talent",
@@ -32,7 +32,7 @@ export const whyHireSection = {
     },
     {
       title: "Predictable, Transparent Costs",
-      body: "A fixed monthly engagement replaces the unpredictable mix of recruiter fees, onboarding overhead, benefits, and attrition risk that come with permanent hiring — without sacrificing the quality of who you bring on.",
+      body: "A fixed monthly engagement replaces the unpredictable mix of recruiter fees, onboarding overhead, benefits, and attrition risk that come with permanent hiring - without sacrificing the quality of who you bring on.",
     },
     {
       title: "Flexibility to Scale Either Direction",
@@ -113,11 +113,11 @@ export const whyToadsterection = {
   items: [
     {
       title: "Pre-Vetted, Senior-Leaning Talent Pool",
-      body: "Every developer in our network has been technically screened before you ever see a profile — covering both depth in their stack and the ability to communicate clearly with a distributed team.",
+      body: "Every developer in our network has been technically screened before you ever see a profile - covering both depth in their stack and the ability to communicate clearly with a distributed team.",
     },
     {
       title: "Direct Communication, No Middlemen",
-      body: "You work with your developer directly through your existing tools — Slack, Jira, GitHub — not through a vendor account manager relaying messages back and forth.",
+      body: "You work with your developer directly through your existing tools - Slack, Jira, GitHub - not through a vendor account manager relaying messages back and forth.",
     },
     {
       title: "Global Delivery Across Key Markets",
@@ -125,7 +125,7 @@ export const whyToadsterection = {
     },
     {
       title: "No Long-Term Lock-In",
-      body: "Engagements are structured month-to-month by default. You scale up, scale down, or end an engagement with 30 days' notice — there's no multi-year contract protecting our revenue at the expense of your flexibility.",
+      body: "Engagements are structured month-to-month by default. You scale up, scale down, or end an engagement with 30 days' notice - there's no multi-year contract protecting our revenue at the expense of your flexibility.",
     },
   ],
 }
@@ -167,7 +167,7 @@ export const faqs = [
   {
     question: "How do dedicated development teams work?",
     answer:
-      "A dedicated team operates as an extension of your internal team — joining your existing tools, attending your standups, and following your sprint cadence. Toadster manages the employment relationship and ongoing vetting; you manage the day-to-day technical direction.",
+      "A dedicated team operates as an extension of your internal team - joining your existing tools, attending your standups, and following your sprint cadence. Toadster manages the employment relationship and ongoing vetting; you manage the day-to-day technical direction.",
   },
   {
     question: "What are the benefits of hiring remote developers through a staffing partner?",
@@ -187,7 +187,7 @@ export const faqs = [
   {
     question: "Can dedicated developers work with my internal team?",
     answer:
-      "Yes — that is the core of the model. Dedicated developers join your existing communication channels, version control, and project management tools, and report into your team structure rather than operating as a separate, disconnected unit.",
+      "Yes - that is the core of the model. Dedicated developers join your existing communication channels, version control, and project management tools, and report into your team structure rather than operating as a separate, disconnected unit.",
   },
   {
     question: "How much does it cost to hire dedicated developers?",

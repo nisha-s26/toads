@@ -11,11 +11,11 @@ const EXPLORE_CITIES_INTROS: Record<string, string> = {
   india:
     "Discover the unique pulse of India's most iconic urban centers, where ancient monuments stand as silent guardians over bustling modern metropolises.",
   australia:
-    "Explore AI development across Australia's leading business hubs — from harbour-side enterprise to national innovation corridors.",
+    "Explore AI development across Australia's leading business hubs - from harbour-side enterprise to national innovation corridors.",
   canada:
-    "From Pacific tech corridors to Canada's largest financial centre — explore AI development where your business operates.",
+    "From Pacific tech corridors to Canada's largest financial centre - explore AI development where your business operates.",
   uk: "Explore AI development across the UK's most dynamic cities, from global finance to northern innovation hubs.",
-  usa: "From coast to coast — explore AI development in America's most competitive business markets.",
+  usa: "From coast to coast - explore AI development in America's most competitive business markets.",
 }
 
 type GlobalExploreCitiesProps = {
@@ -39,7 +39,7 @@ export function GlobalExploreCities({ countryKey, countryLabel, cities, activeCi
       <div className="global-country-container global-country-explore-cities">
         <ScrollReveal>
           <div className="global-country-explore-cities-header text-center">
-            <h2 className="global-country-explore-cities-title text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-3xl">
+            <h2 className="global-country-explore-cities-title text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-5xl">
               {title}
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-page-fg-muted md:text-lg">{intro}</p>

@@ -46,7 +46,7 @@ export default function PenetrationTestingPage() {
             </h1>
             <p className="da-hero-subtitle">
               We simulate real-world attacks against your applications, networks, and cloud infrastructure to find
-              exploitable vulnerabilities before adversaries do — with findings prioritized by actual business risk, not
+              exploitable vulnerabilities before adversaries do - with findings prioritized by actual business risk, not
               just severity scores.
             </p>
             <div className="da-hero-actions">
@@ -148,7 +148,7 @@ export default function PenetrationTestingPage() {
         <div className="da-container">
           <ComparisonTable headers={standardsComparison.headers} rows={standardsComparison.rows} />
           <blockquote className="da-quote">
-            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{standardsQuote}&rdquo; —
+            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{standardsQuote}&rdquo; -
             Toadster Security Testing Team
           </blockquote>
         </div>
@@ -266,7 +266,7 @@ export default function PenetrationTestingPage() {
                 Download Sample Findings Report
               </Link>
             </div>
-            <p className="da-cta-footnote">Toadster Technologies — Precision Engineering for Security Assurance.</p>
+            <p className="da-cta-footnote">Toadster Technologies - Precision Engineering for Security Assurance.</p>
           </div>
         </div>
       </section>

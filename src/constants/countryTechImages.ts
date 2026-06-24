@@ -43,7 +43,7 @@ export const COUNTRY_HERO_IMAGES: Record<string, string> = {
   canada: TECH_IMAGES.cloud,
   india: TECH_IMAGES.india,
   singapore: TECH_IMAGES.fintech,
-  // City monuments — verified Unsplash URLs
+  // City monuments - verified Unsplash URLs
   sydney:
     "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1200&q=80",
   vancouver:

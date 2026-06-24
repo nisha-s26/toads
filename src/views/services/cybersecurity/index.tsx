@@ -71,7 +71,7 @@ function HeroConsultationForm() {
       </p>
       <h3 className="relative z-10 text-xl font-bold text-slate-900 dark:text-black">Tell us about your security needs</h3>
       <p className="capability-card-copy relative z-10 mt-2 mb-6 text-sm">
-        We typically respond within one business day. No sales pitch — just an honest conversation about your security
+        We typically respond within one business day. No sales pitch - just an honest conversation about your security
         requirements and what the right engagement looks like.
       </p>
 
@@ -133,7 +133,7 @@ function HeroConsultationForm() {
         </div>
         <Button type="submit" className="w-full rounded-xl py-6 text-base font-bold" disabled={isSubmitting}>
           {submitStatus === "success"
-            ? "Request Received — We'll be in touch soon!"
+            ? "Request Received - We'll be in touch soon!"
             : isSubmitting
               ? "Sending..."
               : "Get a Free Security Consultation"}
@@ -167,12 +167,12 @@ export default function CybersecurityPage() {
               Security That Actually Protects Your Business
             </p>
             <p className="service-hero-subtitle mb-6 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
-              Most organisations discover security gaps only after something goes wrong — a breach, a failed audit, a
+              Most organisations discover security gaps only after something goes wrong - a breach, a failed audit, a
               customer security questionnaire they can&apos;t answer. We help you find and fix those gaps before they
               become incidents.
             </p>
             <p className="service-hero-subtitle mb-8 w-full max-w-none text-base leading-relaxed text-page-fg-muted">
-              At Toadster Technologies, we deliver end-to-end cybersecurity services — from penetration testing and
+              At Toadster Technologies, we deliver end-to-end cybersecurity services - from penetration testing and
               vulnerability assessment to cloud security, compliance readiness, and managed SOC operations. Every
               engagement is scoped to your actual environment and threat profile, with manual testing, business-context
               reporting, and retesting included.
@@ -196,7 +196,7 @@ export default function CybersecurityPage() {
           <SectionHead
             label=""
             title="Cybersecurity Services Built for Real Risk"
-            subtitle="Every engagement is scoped to your actual environment — not a generic checklist. Here's what we cover:"
+            subtitle="Every engagement is scoped to your actual environment - not a generic checklist. Here's what we cover:"
           />
           <div className="grid gap-6 md:grid-cols-2">
             {capabilities.map((cap) => {
@@ -264,7 +264,7 @@ export default function CybersecurityPage() {
             <SectionHead
               label=""
               title="How a Cybersecurity Engagement Works"
-              subtitle="From first conversation to continuous improvement, here's how we run a security engagement — transparently, with your team involved at every stage."
+              subtitle="From first conversation to continuous improvement, here's how we run a security engagement - transparently, with your team involved at every stage."
             />
             <div className="service-process-timeline-card">
               <p className="service-process-timeline-label">Typical assessment timeline</p>
@@ -272,7 +272,7 @@ export default function CybersecurityPage() {
                 1-6 <span className="service-process-timeline-unit">weeks</span>
               </div>
               <p className="service-process-timeline-desc">
-                depending on scope — from a focused assessment to a comprehensive security programme
+                depending on scope - from a focused assessment to a comprehensive security programme
               </p>
             </div>
           </div>
@@ -406,7 +406,7 @@ export default function CybersecurityPage() {
         footnote="Typically responds within one business day"
       >
         <p>Whether you have an upcoming compliance audit, a product launch, or a nagging feeling that your security
-            posture needs a proper look — we can help you work out what the right engagement looks like.</p>
+            posture needs a proper look - we can help you work out what the right engagement looks like.</p>
         <p>We respond within one business day and can schedule a discovery call within the week. No hard sell, no
             generic checklist. Just a focused conversation about your environment and what you need to protect.</p>
       </ServicePageCta>

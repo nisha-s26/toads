@@ -164,11 +164,11 @@ export default function AboutPage() {
                 <ArrowRight size={16} />
               </Link>
               <Link
-                href="/services/ai-development"
-                title="Explore our AI services"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-page-border-strong px-5 py-3 text-sm font-semibold text-page-fg transition-colors hover:bg-page-accent-soft sm:px-7 sm:py-3.5 sm:text-base"
+                href="/services"
+                title="Explore our services"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/90 bg-white px-5 py-3 text-sm font-semibold text-black shadow-sm transition-all hover:-translate-y-0.5 hover:bg-white/90 sm:px-7 sm:py-3.5 sm:text-base"
               >
-                Explore Our AI Services
+                Explore Our Services
                 <ArrowRight size={16} />
               </Link>
             </div>

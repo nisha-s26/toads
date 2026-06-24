@@ -70,7 +70,7 @@ function HeroConsultationForm() {
       </p>
       <h3 className="relative z-10 text-xl font-bold text-slate-900 dark:text-black">Talk to our support team</h3>
       <p className="capability-card-copy relative z-10 mt-2 mb-6 text-sm">
-        Tell us about your applications and support requirements — we&apos;ll respond within one business day with a
+        Tell us about your applications and support requirements - we&apos;ll respond within one business day with a
         clear view of how we can help.
       </p>
 
@@ -132,7 +132,7 @@ function HeroConsultationForm() {
         </div>
         <Button type="submit" className="w-full rounded-xl py-6 text-base font-bold" disabled={isSubmitting}>
           {submitStatus === "success"
-            ? "Request Received — We'll be in touch soon!"
+            ? "Request Received - We'll be in touch soon!"
             : isSubmitting
               ? "Sending..."
               : "Talk to Our Support Team"}
@@ -163,19 +163,19 @@ export default function ApplicationSupportAndMaintenancePage() {
 
             </h1>
             <p className="service-hero-subtitle mb-6 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
-              Production applications don&apos;t fail on a schedule — and when they do, the cost isn&apos;t just
+              Production applications don&apos;t fail on a schedule - and when they do, the cost isn&apos;t just
               downtime. It&apos;s lost revenue, eroded user trust, and your internal team pulled away from building what
               matters next.
             </p>
             <p className="service-hero-subtitle mb-6 w-full max-w-none text-base leading-relaxed text-page-fg-muted">
               At Toadster Technologies, we provide application support and maintenance that goes beyond ticket
               closing. Proactive monitoring, structured incident response, preventive maintenance, security patching, and
-              the documentation that makes your applications supportable long-term — whether we built them or inherited
+              the documentation that makes your applications supportable long-term - whether we built them or inherited
               them from someone else.
             </p>
             <p className="service-hero-subtitle mb-8 w-full max-w-none text-base leading-relaxed text-page-fg-muted">
               We support web applications, mobile apps, APIs, cloud infrastructure, and legacy systems across modern
-              and established tech stacks — with SLAs that match how critical your applications actually are to your
+              and established tech stacks - with SLAs that match how critical your applications actually are to your
               business.
             </p>
 
@@ -197,7 +197,7 @@ export default function ApplicationSupportAndMaintenancePage() {
           <SectionHead
             label=""
             title="Application Support & Maintenance Services"
-            subtitle="From 24/7 monitoring and incident response to security patching, performance optimisation, and legacy stabilisation — here's what we cover:"
+            subtitle="From 24/7 monitoring and incident response to security patching, performance optimisation, and legacy stabilisation - here's what we cover:"
           />
           <div className="grid gap-6 md:grid-cols-2">
             {capabilities.map((cap) => {
@@ -282,7 +282,7 @@ export default function ApplicationSupportAndMaintenancePage() {
           <SectionHead
             label=""
             title="Technologies & Platforms We Support"
-            subtitle="We maintain applications across modern and legacy tech stacks — web, mobile, cloud, and data layers."
+            subtitle="We maintain applications across modern and legacy tech stacks - web, mobile, cloud, and data layers."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {techCategories.map((cat) => {
@@ -324,7 +324,7 @@ export default function ApplicationSupportAndMaintenancePage() {
           <SectionHead
             label=""
             title="The Support Team Behind Your Applications"
-            subtitle="Application support requires engineers who can diagnose, fix, and maintain — not just route tickets. Here's who you'll be working with."
+            subtitle="Application support requires engineers who can diagnose, fix, and maintain - not just route tickets. Here's who you'll be working with."
           />
           <ServiceStatRow stats={teamStats} />
           <div className="ar-content-list divide-y divide-page-border border-y border-page-border">
@@ -343,7 +343,7 @@ export default function ApplicationSupportAndMaintenancePage() {
           <SectionHead
             label=""
             title="What Reliable Application Support Actually Delivers"
-            subtitle="Support is justified by the business outcomes it produces — not by ticket volume. Here's what well-maintained applications deliver:"
+            subtitle="Support is justified by the business outcomes it produces - not by ticket volume. Here's what well-maintained applications deliver:"
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((item) => {
@@ -376,10 +376,10 @@ export default function ApplicationSupportAndMaintenancePage() {
 
         footnote="Typically responds within one business day"
       >
-        <p>Tell us about the applications you need supported — their tech stack, current challenges, uptime requirements,
-            and what&apos;s not working with your current support setup — and we&apos;ll have a direct conversation about
+        <p>Tell us about the applications you need supported - their tech stack, current challenges, uptime requirements,
+            and what&apos;s not working with your current support setup - and we&apos;ll have a direct conversation about
             what the right plan looks like.</p>
-        <p>We respond within one business day. No hard sell, no generic pitch deck — just an honest assessment of
+        <p>We respond within one business day. No hard sell, no generic pitch deck - just an honest assessment of
             whether we&apos;re the right fit for your applications.</p>
       </ServicePageCta>
     </div>

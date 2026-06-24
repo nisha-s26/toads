@@ -152,10 +152,10 @@ export const privacySections: PrivacySection[] = [
     icon: Share2,
     paragraphs: ["We may share information with:"],
     orderedList: [
-      "Service providers and subprocessors — including cloud hosting providers, analytics platforms, billing and payment processors, and communication tools, under contractual confidentiality and data protection obligations",
-      "Professional advisors — including legal, accounting, and audit professionals, where necessary",
-      "Business transfers — in connection with a merger, acquisition, financing, or sale of assets, subject to appropriate confidentiality protections",
-      "Legal and regulatory authorities — where required to comply with applicable law, legal process, or to protect our rights, property, or safety, or that of others",
+      "Service providers and subprocessors - including cloud hosting providers, analytics platforms, billing and payment processors, and communication tools, under contractual confidentiality and data protection obligations",
+      "Professional advisors - including legal, accounting, and audit professionals, where necessary",
+      "Business transfers - in connection with a merger, acquisition, financing, or sale of assets, subject to appropriate confidentiality protections",
+      "Legal and regulatory authorities - where required to comply with applicable law, legal process, or to protect our rights, property, or safety, or that of others",
     ],
     highlightBox: {
       text: "We do not sell personal information to third parties for their own marketing or advertising purposes.",
@@ -173,7 +173,7 @@ export const privacySections: PrivacySection[] = [
         [
           "Essential / Strictly Necessary",
           "Required for core website functionality (e.g., navigation, forms)",
-          "No — required for site to function",
+          "No - required for site to function",
         ],
         ["Analytics", "Understand visitor behavior to improve site experience", "Yes, via browser or cookie settings"],
         ["Functional", "Remember preferences (e.g., language, region)", "Yes"],
@@ -301,4 +301,4 @@ export const privacySections: PrivacySection[] = [
   },
 ]
 
-export const privacyFootnote = "Toadster Technologies — Precision Engineering for Data, AI, and Enterprise Systems."
+export const privacyFootnote = "Toadster Technologies - Precision Engineering for Data, AI, and Enterprise Systems."

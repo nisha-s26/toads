@@ -20,7 +20,6 @@ import {
 import { ScrollReveal } from "@/components/ScrollReveal"
 import { HomepageFaqItem } from "@/components/homepage/HomepageFaqItem"
 import { GlobalExploreCities } from "@/components/global-pages/GlobalExploreCities"
-import { COUNTRY_HERO_IMAGES, TECH_IMAGES } from "@/constants/countryTechImages"
 import { getCitiesForCountry } from "@/views/global-pages/city-registry"
 import { GLOBAL_COUNTRY_PAGES } from "@/views/global-pages/registry"
 import type { GlobalCountryPageData } from "./types"
@@ -103,7 +102,6 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
   const exploreCountryKey = data.parentCountryKey ?? data.key
   const exploreCountryLabel = parentCountry?.country ?? data.country
   const exploreCities = getCitiesForCountry(exploreCountryKey)
-  const heroImage = COUNTRY_HERO_IMAGES[data.key] ?? COUNTRY_HERO_IMAGES[data.parentCountryKey ?? ""] ?? TECH_IMAGES.aiNeural
   const heroText = firstParagraph(data.heroIntro)
   const whyCards = data.whyChoosePoints.slice(0, 3)
   const services = data.services.slice(0, 5)
@@ -128,18 +126,36 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       {/* Hero */}
-      <section className="global-country-section global-country-hero" style={{ padding: "11rem 2rem"}}>
-        <SectionContainer className="global-country-hero-grid">
-          <div className="global-country-hero-enter">
-            <nav className="mb-4 flex flex-wrap items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-page-fg-muted">
-              <Link href="/services" className="hover:text-toadster-green">
-                Services
-              </Link>
-              <ChevronRight className="h-3 w-3" aria-hidden />
-              <Link href="/services/ai-development" className="hover:text-toadster-green">
-                AI Development
-              </Link>
-              <ChevronRight className="h-3 w-3" aria-hidden />
+      <section className="global-country-section global-country-hero relative overflow-hidden">
+        <div className="global-country-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+          <div className="global-country-hero-bg-image absolute inset-0">
+            <Image
+              src="/global-country-hero-light.png"
+              alt=""
+              fill
+              priority
+              fetchPriority="high"
+              quality={90}
+              sizes="100vw"
+              className="object-cover object-center dark:hidden"
+            />
+            <Image
+              src="/global-country-hero-dark.png"
+              alt=""
+              fill
+              priority
+              fetchPriority="high"
+              quality={90}
+              sizes="100vw"
+              className="hidden object-cover object-center dark:block"
+            />
+          </div>
+          <div className="global-country-hero-bg-overlay absolute inset-0" />
+        </div>
+
+        <SectionContainer className="global-country-hero-content relative z-10">
+          <div className="w-full max-w-7xl">
+            <nav className="mb-4 flex flex-wrap items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-page-fg-muted dark:text-white/75">
               {parentCountry ? (
                 <>
                   <Link href={parentCountry.slug} className="hover:text-toadster-green">
@@ -150,13 +166,10 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
               ) : null}
               <span>{data.country}</span>
             </nav>
-            <span className="inline-flex rounded-full border border-page-border bg-white/80 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-page-fg-muted dark:bg-page-card">
-              Stable Enterprise Solutions
-            </span>
-            <h1 className="mt-4 text-[1.75rem] font-extrabold uppercase leading-[1.1] tracking-tight text-[#0a2f1f] dark:text-page-fg sm:text-3xl md:text-4xl lg:text-[2.85rem]">
+            <h1 className="mt-4 text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-[#0a2f1f] drop-shadow-[0_1px_12px_rgba(255,255,255,0.65)] dark:text-white dark:drop-shadow-[0_2px_16px_rgba(0,0,0,0.75)] sm:text-3xl md:text-4xl lg:text-6xl">
               {data.heroTitle}
             </h1>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-page-fg-muted md:text-lg">{heroText}</p>
+            <p className="mt-4 text-base leading-relaxed text-black dark:text-white/85 md:text-lg">{heroText}</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link href="/contact" className="global-country-btn-primary">
                 Book a Strategy Call
@@ -166,7 +179,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
             </div>
           </div>
 
-          <ScrollReveal delay={0.08} y={20} className="relative pb-6 sm:pb-0">
+          {/* <ScrollReveal delay={0.08} y={20} className="relative pb-6 sm:pb-0">
             <div className="global-country-hero-media relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/60 shadow-lg sm:aspect-[16/11] lg:aspect-auto lg:h-[340px]">
               <Image src={heroImage} alt={data.heroTitle} fill className="object-cover" sizes="(max-width:1024px) 100vw, 45vw" priority />
               <div className="absolute inset-0 bg-linear-to-tr from-[#0a2f1f]/30 to-transparent" />
@@ -177,7 +190,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                 Average increase in operational efficiency for our {data.country} clients.
               </p>
             </div>
-          </ScrollReveal>
+          </ScrollReveal> */}
         </SectionContainer>
       </section>
 
@@ -186,7 +199,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
         <section className="global-country-section" style={{ padding: "4rem 2rem"}}>
           <SectionContainer>
             <ScrollReveal className="global-country-section-header text-center">
-              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-3xl">
+              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-5xl">
                 Why Businesses in {data.country} Choose Toadster
               </h2>
               {data.whyChooseIntro ? (
@@ -220,9 +233,9 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
         <section className="global-country-section global-country-services-wrap" style={{ padding: "4rem 2rem"}}>
           <SectionContainer>
             <ScrollReveal className="global-country-section-header">
-              <h2 className="text-2xl font-extrabold text-white md:text-3xl">Enterprise AI Development Services</h2>
+              <h2 className="text-2xl font-extrabold text-white md:text-5xl">Enterprise AI Development Services</h2>
               <p className="mt-3 max-w-xl text-base text-white/80 md:text-lg">
-                Production-grade AI built for {data.country} — compliance, scale, and measurable ROI.
+                Production-grade AI built for {data.country} - compliance, scale, and measurable ROI.
               </p>
             </ScrollReveal>
             <div className="global-country-bento">
@@ -274,7 +287,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
         <section className="global-country-section global-country-challenges" style={{ padding: "4rem 2rem"}}>
           <SectionContainer className="global-country-split-grid">
             <ScrollReveal y={18}>
-              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-3xl">
+              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-5xl">
                 Navigating {data.country}&apos;s AI Adoption Challenges
               </h2>
               <ul className="global-country-challenge-list">
@@ -311,7 +324,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
         <section className="global-country-section global-country-process-section">
           <SectionContainer>
             <ScrollReveal className="global-country-section-header text-center">
-              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-3xl">
+              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-5xl">
                 Our {processSteps.length}-Step AI Development Process
               </h2>
             </ScrollReveal>
@@ -347,7 +360,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
         <section id="faq" className="max-w-7xl mx-auto">
           <SectionContainer className="max-w-4xl">
             <ScrollReveal className="global-country-section-header text-center">
-              <h2 className="text-2xl font-extrabold md:text-3xl">Frequently Asked Questions</h2>
+              <h2 className="text-2xl font-extrabold md:text-5xl">Frequently Asked Questions</h2>
             </ScrollReveal>
             <div className="global-country-faq-list">
               {faqs.map((faq, index) => (
@@ -365,10 +378,10 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
         <SectionContainer>
           <ScrollReveal>
             <div className="hire-resources-cta relative overflow-hidden rounded-[1.75rem] px-6 py-10 text-center sm:px-10 sm:py-12 md:px-14 md:py-14">
-              <h2 className="mx-auto max-w-2xl text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl">
+              <h2 className="mx-auto max-w-7xl text-2xl font-bold leading-tight text-white md:text-3xl lg:text-5xl">
                 {data.ctaTitle}
               </h2>
-              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
+              <p className="mx-auto mt-5 max-w-7xl text-base leading-relaxed text-white/80 md:text-lg">
                 {truncate(data.ctaBody, 180)}
               </p>
               <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">

@@ -17,7 +17,7 @@ export const heroStats = [
 
 export const whatIsAnalytics = {
   directAnswer:
-    "Data analytics is the process of collecting, cleaning, transforming, and interpreting data to support business decision-making. It spans four maturity levels — descriptive (what happened), diagnostic (why it happened), predictive (what will happen), and prescriptive (what to do about it) — and depends on a reliable data pipeline: ingestion, storage, transformation, and visualization.",
+    "Data analytics is the process of collecting, cleaning, transforming, and interpreting data to support business decision-making. It spans four maturity levels - descriptive (what happened), diagnostic (why it happened), predictive (what will happen), and prescriptive (what to do about it) - and depends on a reliable data pipeline: ingestion, storage, transformation, and visualization.",
   enterpriseDiff:
     "Enterprise data analytics differs from basic reporting in three ways: it operates on governed, high-volume, multi-source data; it supports both batch and real-time decision cycles; and it is built on a scalable architecture (data warehouse, data lake, or lakehouse) rather than spreadsheets or siloed tools.",
   decisionChain:
@@ -30,7 +30,7 @@ export const advantages = [
   {
     icon: Workflow,
     title: "Governed Multi-Source Data",
-    desc: "Operate on high-volume, multi-source enterprise data with batch and real-time decision cycles — not siloed spreadsheets.",
+    desc: "Operate on high-volume, multi-source enterprise data with batch and real-time decision cycles - not siloed spreadsheets.",
   },
   {
     icon: Activity,
@@ -40,19 +40,19 @@ export const advantages = [
   {
     icon: Shield,
     title: "Full Decision Chain",
-    desc: "From raw ingestion to BI dashboards to predictive models — we build the entire analytics chain, not just the final report.",
+    desc: "From raw ingestion to BI dashboards to predictive models - we build the entire analytics chain, not just the final report.",
   },
 ]
 
 export const servicesIntro =
-  "Toadster's data analytics services cover the full lifecycle — data engineering, warehouse/lakehouse architecture, governance, BI reporting, and predictive analytics — delivered as either a full-stack implementation or as targeted engagements (e.g., migration only, dashboard layer only)."
+  "Toadster's data analytics services cover the full lifecycle - data engineering, warehouse/lakehouse architecture, governance, BI reporting, and predictive analytics - delivered as either a full-stack implementation or as targeted engagements (e.g., migration only, dashboard layer only)."
 
 export const coreCapabilitiesBento = [
   {
     variant: "dark" as const,
     badge: "FLAGSHIP SERVICE",
     title: "Data Engineering & Pipeline Development",
-    desc: "ETL/ELT pipelines using Apache Spark, dbt, AWS Glue, and Apache Airflow — orchestration, testing, and lineage from day one.",
+    desc: "ETL/ELT pipelines using Apache Spark, dbt, AWS Glue, and Apache Airflow - orchestration, testing, and lineage from day one.",
     href: "#all-services",
   },
   {
@@ -70,7 +70,7 @@ export const coreCapabilitiesBento = [
   {
     variant: "outline" as const,
     title: "Data Warehouse & Lakehouse Architecture",
-    desc: "Cloud-native platforms on Snowflake, Databricks, BigQuery, and Redshift — matched to workload, latency, and cost.",
+    desc: "Cloud-native platforms on Snowflake, Databricks, BigQuery, and Redshift - matched to workload, latency, and cost.",
     icon: Database,
   },
 ]
@@ -89,7 +89,7 @@ export const capabilities: { icon: LucideIcon; title: string; desc: string }[] =
   {
     icon: Activity,
     title: "Real-Time & Streaming Analytics",
-    desc: "We implement event-driven pipelines using Apache Kafka and stream processing frameworks to power fraud detection, operational monitoring, and live KPI tracking — typically reducing decision latency from hours to seconds.",
+    desc: "We implement event-driven pipelines using Apache Kafka and stream processing frameworks to power fraud detection, operational monitoring, and live KPI tracking - typically reducing decision latency from hours to seconds.",
   },
   {
     icon: LineChart,
@@ -104,7 +104,7 @@ export const capabilities: { icon: LucideIcon; title: string; desc: string }[] =
   {
     icon: Shield,
     title: "Data Governance & Quality Management",
-    desc: "We implement data catalogs, master data management (MDM), data quality rules, and access controls aligned to GDPR, HIPAA, and SOC 2 requirements — so growth in data volume doesn't outpace control.",
+    desc: "We implement data catalogs, master data management (MDM), data quality rules, and access controls aligned to GDPR, HIPAA, and SOC 2 requirements - so growth in data volume doesn't outpace control.",
   },
 ]
 
@@ -141,10 +141,10 @@ export const olapVsOltp = {
 }
 
 export const platformIntro =
-  "There is no universally \"best\" data platform — the right choice depends on workload type, existing cloud commitments, team skill sets, and budget. Snowflake favors simplicity and elasticity; Databricks favors unified ML/lakehouse workloads; BigQuery and Redshift favor teams already standardized on GCP or AWS, respectively."
+  "There is no universally \"best\" data platform - the right choice depends on workload type, existing cloud commitments, team skill sets, and budget. Snowflake favors simplicity and elasticity; Databricks favors unified ML/lakehouse workloads; BigQuery and Redshift favor teams already standardized on GCP or AWS, respectively."
 
 export const platformQuote =
-  "We don't sell a single-stack answer. We've migrated clients off legacy on-prem warehouses to Snowflake for elasticity, and we've built lakehouse architectures on Databricks when ML and BI needed to share the same governed dataset. The platform decision should follow the workload — not the other way around."
+  "We don't sell a single-stack answer. We've migrated clients off legacy on-prem warehouses to Snowflake for elasticity, and we've built lakehouse architectures on Databricks when ML and BI needed to share the same governed dataset. The platform decision should follow the workload - not the other way around."
 
 export const platformComparison = {
   headers: ["Platform", "Architecture", "Strongest For", "Native Integrations"],
@@ -170,15 +170,15 @@ export const governanceIntro =
   "A data governance framework defines who owns data, how its quality is measured, who can access it, and how it complies with regulation. Toadster implements governance using a data catalog (metadata and lineage), master data management (single source of truth for core entities), and automated data quality rules (completeness, accuracy, consistency checks) enforced at the pipeline layer, not after the fact."
 
 export const governanceComponents = [
-  "Data Catalog — Searchable inventory of datasets, owners, and lineage",
-  "Master Data Management (MDM) — Single, reconciled definition of customers, products, vendors",
-  "Data Quality Rules — Automated validation at ingestion (nulls, duplicates, schema drift)",
-  "Access Control — Role-based and row-level security tied to identity providers",
-  "Compliance Mapping — Controls aligned to GDPR, HIPAA, SOC 2, and industry-specific mandates",
+  "Data Catalog - Searchable inventory of datasets, owners, and lineage",
+  "Master Data Management (MDM) - Single, reconciled definition of customers, products, vendors",
+  "Data Quality Rules - Automated validation at ingestion (nulls, duplicates, schema drift)",
+  "Access Control - Role-based and row-level security tied to identity providers",
+  "Compliance Mapping - Controls aligned to GDPR, HIPAA, SOC 2, and industry-specific mandates",
 ]
 
 export const architecturePatternsIntro =
-  "A centralized lakehouse consolidates all enterprise data into one governed platform managed by a central team — best for organizations under ~2,000 employees or with simpler domain structures. A data mesh distributes ownership to domain teams (e.g., finance, marketing) who manage their own data products against shared governance standards — best for large, multi-business-unit enterprises where a single team can't keep pace with demand."
+  "A centralized lakehouse consolidates all enterprise data into one governed platform managed by a central team - best for organizations under ~2,000 employees or with simpler domain structures. A data mesh distributes ownership to domain teams (e.g., finance, marketing) who manage their own data products against shared governance standards - best for large, multi-business-unit enterprises where a single team can't keep pace with demand."
 
 export const architecturePatterns = {
   headers: ["Pattern", "Ownership Model", "Best Fit", "Trade-off"],
@@ -218,7 +218,7 @@ export const whyToadster = [
   {
     icon: GitBranch,
     title: "Platform-agnostic expertise",
-    desc: "Across Snowflake, Databricks, BigQuery, and Redshift — we recommend based on workload fit, not vendor incentive.",
+    desc: "Across Snowflake, Databricks, BigQuery, and Redshift - we recommend based on workload fit, not vendor incentive.",
   },
   {
     icon: Shield,
@@ -241,7 +241,7 @@ export const faqs = [
   {
     question: "What is enterprise data analytics?",
     answer:
-      "Enterprise data analytics is the practice of collecting and analyzing data across an entire organization's systems — not a single department — to support coordinated decision-making. It requires centralized or federated data architecture, governance standards, and BI tooling that can serve multiple business units consistently.",
+      "Enterprise data analytics is the practice of collecting and analyzing data across an entire organization's systems - not a single department - to support coordinated decision-making. It requires centralized or federated data architecture, governance standards, and BI tooling that can serve multiple business units consistently.",
   },
   {
     question: "How much does data analytics consulting cost?",
@@ -261,7 +261,7 @@ export const faqs = [
   {
     question: "What tools does Toadster use for data analytics?",
     answer:
-      "Toadster works across Apache Spark, Databricks, Snowflake, dbt, Tableau, Power BI, Looker, Google BigQuery, Amazon Redshift, AWS Glue, Apache Kafka, and Apache Airflow — selecting tools based on workload, not a fixed stack.",
+      "Toadster works across Apache Spark, Databricks, Snowflake, dbt, Tableau, Power BI, Looker, Google BigQuery, Amazon Redshift, AWS Glue, Apache Kafka, and Apache Airflow - selecting tools based on workload, not a fixed stack.",
   },
   {
     question: "What is the difference between predictive and prescriptive analytics?",
@@ -271,6 +271,6 @@ export const faqs = [
   {
     question: "Is real-time analytics necessary for my business?",
     answer:
-      "Real-time analytics is necessary when decisions must be made in seconds or minutes — fraud detection, operational monitoring, dynamic pricing. If decisions are made daily or weekly, batch processing is usually more cost-effective and easier to maintain.",
+      "Real-time analytics is necessary when decisions must be made in seconds or minutes - fraud detection, operational monitoring, dynamic pricing. If decisions are made daily or weekly, batch processing is usually more cost-effective and easier to maintain.",
   },
 ]

@@ -7,7 +7,7 @@ export const SYDNEY_PAGE: GlobalCityPageData = {
   "country": "Sydney",
   "heroTitle": "AI Development Company in Sydney",
   "heroSubtitle": "An AI Development Company in Sydney That Ships Working Software, Not Just Demos",
-  "heroIntro": "Sydney has no shortage of AI talent or AI vendors. Between the financial services hub around the CBD, a growing SaaS scene, and a constant stream of consultancies offering AI strategy decks, it's full of people who can talk about AI fluently. What's harder to find is a team that can take a working prototype and turn it into something that survives real users, real data, and a board asking where exactly the data is stored. Most companies don't have an AI problem. They have an execution problem — a demo that looked great in a meeting room and quietly stalled the moment it had to do its job.\n\nToadster Technologies is an AI development company serving Sydney, built around one job: turning AI from a slide in a strategy deck into something that actually runs in production. We build generative AI applications, AI agents, RAG systems, and custom LLM tools for companies that want results, not a buzzword-heavy pitch.\n\nIf you're a founder figuring out where AI fits in your roadmap, or a CTO who's tired of vendors who can talk about AI but can't ship it, we should talk.",
+  "heroIntro": "Sydney has no shortage of AI talent or AI vendors. Between the financial services hub around the CBD, a growing SaaS scene, and a constant stream of consultancies offering AI strategy decks, it's full of people who can talk about AI fluently. What's harder to find is a team that can take a working prototype and turn it into something that survives real users, real data, and a board asking where exactly the data is stored. Most companies don't have an AI problem. They have an execution problem - a demo that looked great in a meeting room and quietly stalled the moment it had to do its job.\n\nToadster Technologies is an AI development company serving Sydney, built around one job: turning AI from a slide in a strategy deck into something that actually runs in production. We build generative AI applications, AI agents, RAG systems, and custom LLM tools for companies that want results, not a buzzword-heavy pitch.\n\nIf you're a founder figuring out where AI fits in your roadmap, or a CTO who's tired of vendors who can talk about AI but can't ship it, we should talk.",
   "whyChooseIntro": "",
   "whyChoosePoints": [
     "We tell you when AI isn't the answer. Sometimes a cleaner database query or a simple rules-based workflow solves the problem faster and cheaper than a model. We'll say that upfront, even if it means a smaller invoice for us.",
@@ -18,7 +18,7 @@ export const SYDNEY_PAGE: GlobalCityPageData = {
   "services": [
     {
       "title": "Generative AI Development",
-      "description": "We build applications powered by GPT-5, Google Gemini, and Anthropic Claude — for content workflows, internal tools, document processing, and customer-facing products. The model itself is just one piece. The real engineering work is in what surrounds it: how data flows in, how outputs get checked, and how the system holds up once real traffic hits it."
+      "description": "We build applications powered by GPT-5, Google Gemini, and Anthropic Claude - for content workflows, internal tools, document processing, and customer-facing products. The model itself is just one piece. The real engineering work is in what surrounds it: how data flows in, how outputs get checked, and how the system holds up once real traffic hits it."
     },
     {
       "title": "AI Agent Development",
@@ -26,7 +26,7 @@ export const SYDNEY_PAGE: GlobalCityPageData = {
     },
     {
       "title": "RAG Development (Retrieval-Augmented Generation)",
-      "description": "If you've ever asked a chatbot something about your own company and gotten a confident, wrong answer, you've seen the exact problem RAG solves. We connect language models to your actual data — using vector databases like Pinecone, Weaviate, or ChromaDB — so the system answers based on what's true in your documents, not what a general-purpose model assumes."
+      "description": "If you've ever asked a chatbot something about your own company and gotten a confident, wrong answer, you've seen the exact problem RAG solves. We connect language models to your actual data - using vector databases like Pinecone, Weaviate, or ChromaDB - so the system answers based on what's true in your documents, not what a general-purpose model assumes."
     },
     {
       "title": "LLM Development",
@@ -34,7 +34,7 @@ export const SYDNEY_PAGE: GlobalCityPageData = {
     },
     {
       "title": "AI Chatbot & Conversational AI",
-      "description": "We build conversational tools that plug into systems you already use — your CRM, your support desk, your internal documentation — instead of living in a separate tab nobody opens after the first week."
+      "description": "We build conversational tools that plug into systems you already use - your CRM, your support desk, your internal documentation - instead of living in a separate tab nobody opens after the first week."
     },
     {
       "title": "Machine Learning Development",
@@ -46,12 +46,12 @@ export const SYDNEY_PAGE: GlobalCityPageData = {
     }
   ],
   "industries": [],
-  "trends": "Sydney is one of the densest AI and fintech talent pools in the Asia-Pacific region, which makes it tempting to assume execution will just happen because the skills are local. In practice, most of the AI conversations we have aren't about whether AI works. They're about why the first attempt didn't.\n\nA few patterns come up again and again:\n\n**The pilot that never graduates.** A team builds a proof of concept, it looks promising in a demo, and then it sits untouched because nobody planned for what production actually requires — security review, monitoring, cost controls, clear ownership.\n\n**Underestimating the cost curve.** A chatbot that costs a modest amount a month at low usage can get expensive fast once real traffic hits it, if nobody designed for efficiency. This catches a lot of growing companies off guard.\n\n**Data residency questions left too late.** Sydney businesses working in finance, healthcare, or with government clients often need to know exactly where data sits and who can access it. The mistake is bringing that conversation in after the architecture is already decided, rather than before.\n\n**Confusing build-vs-buy.** There's a real gap between off-the-shelf AI tools and something built specifically around your workflows. Buying is faster upfront. Building is what actually fits your business long-term.\n\n**Treating AI as a one-time project instead of an ongoing capability.** Models drift, data changes, and what worked at launch needs tuning months later. The businesses that get real, lasting value treat AI as something they keep investing in, not a one-time install.\n\nWe've built our process around solving exactly these problems before they become expensive surprises.",
+  "trends": "Sydney is one of the densest AI and fintech talent pools in the Asia-Pacific region, which makes it tempting to assume execution will just happen because the skills are local. In practice, most of the AI conversations we have aren't about whether AI works. They're about why the first attempt didn't.\n\nA few patterns come up again and again:\n\n**The pilot that never graduates.** A team builds a proof of concept, it looks promising in a demo, and then it sits untouched because nobody planned for what production actually requires - security review, monitoring, cost controls, clear ownership.\n\n**Underestimating the cost curve.** A chatbot that costs a modest amount a month at low usage can get expensive fast once real traffic hits it, if nobody designed for efficiency. This catches a lot of growing companies off guard.\n\n**Data residency questions left too late.** Sydney businesses working in finance, healthcare, or with government clients often need to know exactly where data sits and who can access it. The mistake is bringing that conversation in after the architecture is already decided, rather than before.\n\n**Confusing build-vs-buy.** There's a real gap between off-the-shelf AI tools and something built specifically around your workflows. Buying is faster upfront. Building is what actually fits your business long-term.\n\n**Treating AI as a one-time project instead of an ongoing capability.** Models drift, data changes, and what worked at launch needs tuning months later. The businesses that get real, lasting value treat AI as something they keep investing in, not a one-time install.\n\nWe've built our process around solving exactly these problems before they become expensive surprises.",
   "processSteps": [
     {
       "num": "1",
       "title": "Discovery",
-      "description": "We look at your data, your systems, and your actual business goals — not just what's technically possible. Some of our best advice at this stage is what not to build."
+      "description": "We look at your data, your systems, and your actual business goals - not just what's technically possible. Some of our best advice at this stage is what not to build."
     },
     {
       "num": "2",
@@ -71,7 +71,7 @@ export const SYDNEY_PAGE: GlobalCityPageData = {
     {
       "num": "5",
       "title": "Testing",
-      "description": "Before anything reaches a real user, we test for accuracy, bias, and failure modes — including the awkward edge cases that demos conveniently skip over."
+      "description": "Before anything reaches a real user, we test for accuracy, bias, and failure modes - including the awkward edge cases that demos conveniently skip over."
     },
     {
       "num": "6",
@@ -88,7 +88,7 @@ export const SYDNEY_PAGE: GlobalCityPageData = {
   "faqs": [
     {
       "question": "What does an AI development company actually do?",
-      "answer": "It designs, builds, and deploys AI systems — models, agents, automation tools — tailored to a specific business problem, instead of selling a generic off-the-shelf product."
+      "answer": "It designs, builds, and deploys AI systems - models, agents, automation tools - tailored to a specific business problem, instead of selling a generic off-the-shelf product."
     },
     {
       "question": "How much does AI development cost in Sydney?",
@@ -96,11 +96,11 @@ export const SYDNEY_PAGE: GlobalCityPageData = {
     },
     {
       "question": "What are AI agents, in plain terms?",
-      "answer": "Software that can take a goal, break it into steps, use tools to complete those steps, and finish a task — without a human guiding every single action along the way."
+      "answer": "Software that can take a goal, break it into steps, use tools to complete those steps, and finish a task - without a human guiding every single action along the way."
     },
     {
       "question": "What is Generative AI?",
-      "answer": "Models that produce new content — text, code, images — based on patterns they learned during training, rather than retrieving a pre-written answer."
+      "answer": "Models that produce new content - text, code, images - based on patterns they learned during training, rather than retrieving a pre-written answer."
     },
     {
       "question": "What is RAG (Retrieval-Augmented Generation), and why does it matter?",
@@ -108,7 +108,7 @@ export const SYDNEY_PAGE: GlobalCityPageData = {
     },
     {
       "question": "Why hire an AI development company instead of building in-house?",
-      "answer": "Because the expensive part of AI work isn't writing code — it's avoiding the mistakes that come from doing it for the first time. An experienced team has already made those mistakes on someone else's budget."
+      "answer": "Because the expensive part of AI work isn't writing code - it's avoiding the mistakes that come from doing it for the first time. An experienced team has already made those mistakes on someone else's budget."
     },
     {
       "question": "Is Toadster based in Sydney or does it work with clients elsewhere too?",
@@ -132,7 +132,7 @@ export const SYDNEY_PAGE: GlobalCityPageData = {
     },
     {
       "question": "Can you build a private, internal version of ChatGPT for our company?",
-      "answer": "Yes — we build internal AI assistants trained on your own documents and data, with proper controls over who can access what."
+      "answer": "Yes - we build internal AI assistants trained on your own documents and data, with proper controls over who can access what."
     },
     {
       "question": "Do you offer dedicated AI development teams for ongoing work?",
@@ -140,7 +140,7 @@ export const SYDNEY_PAGE: GlobalCityPageData = {
     },
     {
       "question": "Do we need to be based in Sydney to work with you?",
-      "answer": "No. Being familiar with the Sydney market just means we understand the local financial services scene and regulatory landscape — most of our process works perfectly well remotely too."
+      "answer": "No. Being familiar with the Sydney market just means we understand the local financial services scene and regulatory landscape - most of our process works perfectly well remotely too."
     },
     {
       "question": "How do we get started?",

@@ -143,7 +143,7 @@ export default function DevOpsPage() {
         <div className="da-container">
           <ComparisonTable headers={platformComparison.headers} rows={platformComparison.rows} />
           <blockquote className="da-quote">
-            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{platformQuote}&rdquo; —
+            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{platformQuote}&rdquo; -
             Toadster Platform Engineering Team
           </blockquote>
         </div>
@@ -271,7 +271,7 @@ export default function DevOpsPage() {
                 Download DevOps Architecture Guide
               </Link>
             </div>
-            <p className="da-cta-footnote">Toadster Technologies — Precision Engineering for Delivery.</p>
+            <p className="da-cta-footnote">Toadster Technologies - Precision Engineering for Delivery.</p>
           </div>
         </div>
       </section>

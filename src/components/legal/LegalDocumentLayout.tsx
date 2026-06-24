@@ -120,7 +120,7 @@ export function LegalLabelList({ items }: { items: { label?: string; text: strin
         <li key={`${item.label ?? ""}-${item.text}`}>
           {item.label ? (
             <>
-              <strong>{item.label}</strong> — {item.text}
+              <strong>{item.label}</strong> - {item.text}
             </>
           ) : (
             item.text

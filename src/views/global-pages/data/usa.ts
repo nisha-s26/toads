@@ -12,13 +12,13 @@ export const USA_PAGE: GlobalCountryPageData = {
   "whyChoosePoints": [
     "We tell you when AI isn't the answer. Sometimes a rules-based workflow or a better database query solves the problem faster and cheaper than a model. We'll tell you that upfront, even if it means a smaller invoice.",
     "You talk to the people building it. No account manager relaying messages to an offshore team you'll never meet. Our engineers are in the calls, in the Slack channel, and accountable for the outcome.",
-    "We design for what happens after launch. A lot of AI projects look great in a demo and fall apart the moment real users or real data hit them. We build with monitoring, retraining, and cost control in mind from day one — because the bill for an unoptimized LLM pipeline can get ugly fast.",
+    "We design for what happens after launch. A lot of AI projects look great in a demo and fall apart the moment real users or real data hit them. We build with monitoring, retraining, and cost control in mind from day one - because the bill for an unoptimized LLM pipeline can get ugly fast.",
     "Security and governance aren't an afterthought. If you're in healthcare, finance, or any regulated space, you already know that \"it works\" isn't enough. We build access controls, audit trails, and data handling practices into the architecture, not bolted on at the end."
   ],
   "services": [
     {
       "title": "Generative AI Development",
-      "description": "We build applications powered by GPT-5, Google Gemini, and Anthropic Claude — for content workflows, internal tools, document processing, and customer-facing products. The model is one piece of the system. The real work is in the architecture around it: how data flows in, how outputs get checked, and how the whole thing holds up under real usage."
+      "description": "We build applications powered by GPT-5, Google Gemini, and Anthropic Claude - for content workflows, internal tools, document processing, and customer-facing products. The model is one piece of the system. The real work is in the architecture around it: how data flows in, how outputs get checked, and how the whole thing holds up under real usage."
     },
     {
       "title": "AI Agent Development",
@@ -26,7 +26,7 @@ export const USA_PAGE: GlobalCountryPageData = {
     },
     {
       "title": "RAG Development (Retrieval-Augmented Generation)",
-      "description": "If you've ever asked a chatbot a question about your own company and gotten a confidently wrong answer, you've seen the problem RAG solves. We connect language models to your actual data — using vector databases like Pinecone, Weaviate, or ChromaDB — so the system answers based on what's actually true in your documents, not just what a general-purpose model assumes."
+      "description": "If you've ever asked a chatbot a question about your own company and gotten a confidently wrong answer, you've seen the problem RAG solves. We connect language models to your actual data - using vector databases like Pinecone, Weaviate, or ChromaDB - so the system answers based on what's actually true in your documents, not just what a general-purpose model assumes."
     },
     {
       "title": "LLM Development",
@@ -34,7 +34,7 @@ export const USA_PAGE: GlobalCountryPageData = {
     },
     {
       "title": "AI Chatbot & Conversational AI",
-      "description": "We build conversational tools that integrate with the systems you already use — your CRM, your support desk, your internal docs — instead of living in a separate tab nobody opens after week one."
+      "description": "We build conversational tools that integrate with the systems you already use - your CRM, your support desk, your internal docs - instead of living in a separate tab nobody opens after week one."
     },
     {
       "title": "Machine Learning Development",
@@ -71,12 +71,12 @@ export const USA_PAGE: GlobalCountryPageData = {
       "description": "Route and inventory optimization for operations where a bad forecast costs real money, not just a bad report."
     }
   ],
-  "trends": "Most of the AI conversations we have aren't about whether AI works. They're about why the first attempt didn't.\n\nA few patterns come up again and again:\n\n**The pilot that never graduates.** A team builds a proof of concept, it looks promising, and then it sits there because nobody planned for what production actually requires — security review, monitoring, cost controls, ownership.\n\n**Underestimating the cost curve.** A chatbot that costs a few hundred dollars a month at low usage can cost thousands once real traffic hits it, if nobody designed for efficiency. We see this constantly with companies that built fast and didn't plan for scale.\n\n**Vendor lock-in disguised as convenience.** Plenty of \"AI platforms\" make it easy to start and painful to leave. We build with portability in mind, so you're not stuck if a vendor changes pricing or shuts down a feature you depend on.\n\n**Treating AI as a single project instead of an ongoing capability.** Models drift, data changes, and what worked at launch needs tuning six months later. The companies that get real value treat AI development as something they keep investing in, not a one-time install.\n\nWe've built our process around solving exactly these problems before they show up.",
+  "trends": "Most of the AI conversations we have aren't about whether AI works. They're about why the first attempt didn't.\n\nA few patterns come up again and again:\n\n**The pilot that never graduates.** A team builds a proof of concept, it looks promising, and then it sits there because nobody planned for what production actually requires - security review, monitoring, cost controls, ownership.\n\n**Underestimating the cost curve.** A chatbot that costs a few hundred dollars a month at low usage can cost thousands once real traffic hits it, if nobody designed for efficiency. We see this constantly with companies that built fast and didn't plan for scale.\n\n**Vendor lock-in disguised as convenience.** Plenty of \"AI platforms\" make it easy to start and painful to leave. We build with portability in mind, so you're not stuck if a vendor changes pricing or shuts down a feature you depend on.\n\n**Treating AI as a single project instead of an ongoing capability.** Models drift, data changes, and what worked at launch needs tuning six months later. The companies that get real value treat AI development as something they keep investing in, not a one-time install.\n\nWe've built our process around solving exactly these problems before they show up.",
   "processSteps": [
     {
       "num": "1",
       "title": "Discovery",
-      "description": "We look at your data, your systems, and your actual business goals — not just what's technically possible. Some of the best advice we give in this stage is what not to build."
+      "description": "We look at your data, your systems, and your actual business goals - not just what's technically possible. Some of the best advice we give in this stage is what not to build."
     },
     {
       "num": "2",
@@ -96,7 +96,7 @@ export const USA_PAGE: GlobalCountryPageData = {
     {
       "num": "5",
       "title": "Testing",
-      "description": "Before anything reaches a real user, we test for accuracy, bias, and failure modes — including the awkward edge cases that demos conveniently skip."
+      "description": "Before anything reaches a real user, we test for accuracy, bias, and failure modes - including the awkward edge cases that demos conveniently skip."
     },
     {
       "num": "6",
@@ -113,7 +113,7 @@ export const USA_PAGE: GlobalCountryPageData = {
   "faqs": [
     {
       "question": "What does an AI development company actually do?",
-      "answer": "It designs, builds, and deploys AI systems — models, agents, automation tools — tailored to a specific business problem, rather than selling a generic off-the-shelf product."
+      "answer": "It designs, builds, and deploys AI systems - models, agents, automation tools - tailored to a specific business problem, rather than selling a generic off-the-shelf product."
     },
     {
       "question": "How much does custom AI development cost?",
@@ -121,11 +121,11 @@ export const USA_PAGE: GlobalCountryPageData = {
     },
     {
       "question": "What are AI agents, in plain terms?",
-      "answer": "Software that can take a goal, break it into steps, use tools to complete those steps, and finish a task — without a human guiding every single action along the way."
+      "answer": "Software that can take a goal, break it into steps, use tools to complete those steps, and finish a task - without a human guiding every single action along the way."
     },
     {
       "question": "What is Generative AI?",
-      "answer": "Models that produce new content — text, code, images — based on patterns they learned during training, rather than retrieving a pre-written answer."
+      "answer": "Models that produce new content - text, code, images - based on patterns they learned during training, rather than retrieving a pre-written answer."
     },
     {
       "question": "What is RAG (Retrieval-Augmented Generation), and why does it matter?",
@@ -133,7 +133,7 @@ export const USA_PAGE: GlobalCountryPageData = {
     },
     {
       "question": "Why hire an AI development company instead of building in-house?",
-      "answer": "Because the expensive part of AI isn't writing code — it's avoiding the mistakes that come from doing it for the first time. An experienced team has already made those mistakes on someone else's budget."
+      "answer": "Because the expensive part of AI isn't writing code - it's avoiding the mistakes that come from doing it for the first time. An experienced team has already made those mistakes on someone else's budget."
     },
     {
       "question": "How long does a typical AI project take?",
@@ -149,7 +149,7 @@ export const USA_PAGE: GlobalCountryPageData = {
     },
     {
       "question": "Can you build a private, internal version of ChatGPT for our company?",
-      "answer": "Yes — we build internal AI assistants trained on your own documents and data, with controls over who can access what."
+      "answer": "Yes - we build internal AI assistants trained on your own documents and data, with controls over who can access what."
     },
     {
       "question": "Do you offer dedicated AI development teams for ongoing work?",
@@ -157,7 +157,7 @@ export const USA_PAGE: GlobalCountryPageData = {
     },
     {
       "question": "How do you handle AI security and compliance?",
-      "answer": "We build access controls, data handling rules, and audit trails into the system from the start, based on your industry's actual requirements — not a generic checklist."
+      "answer": "We build access controls, data handling rules, and audit trails into the system from the start, based on your industry's actual requirements - not a generic checklist."
     },
     {
       "question": "What industries do you specialize in?",
@@ -169,7 +169,7 @@ export const USA_PAGE: GlobalCountryPageData = {
     },
     {
       "question": "How do we get started?",
-      "answer": "Book a free strategy call. We'll talk through your use case honestly — including telling you if AI isn't actually the right tool for the job."
+      "answer": "Book a free strategy call. We'll talk through your use case honestly - including telling you if AI isn't actually the right tool for the job."
     }
   ],
   "ctaTitle": "Let's Build Something That Actually Works",

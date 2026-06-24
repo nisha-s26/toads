@@ -44,13 +44,13 @@ export const saasArchitecturePillars = [
 ]
 
 export const servicesIntro =
-  "Toadster's SaaS development services span the full product lifecycle — architecture strategy, multi-tenant application development, billing integration, and scaling infrastructure — delivered as a full build, an MVP-to-production engagement, or a re-architecture of an existing SaaS product hitting scaling limits."
+  "Toadster's SaaS development services span the full product lifecycle - architecture strategy, multi-tenant application development, billing integration, and scaling infrastructure - delivered as a full build, an MVP-to-production engagement, or a re-architecture of an existing SaaS product hitting scaling limits."
 
 export const capabilities: { icon: LucideIcon; title: string; desc: string; ctaAnchor: string }[] = [
   {
     icon: Layers,
     title: "SaaS Architecture & Tenancy Strategy",
-    desc: "We design the multi-tenant data and infrastructure model — shared database with tenant isolation, database-per-tenant, or hybrid — based on your security, compliance, and cost requirements at projected scale.",
+    desc: "We design the multi-tenant data and infrastructure model - shared database with tenant isolation, database-per-tenant, or hybrid - based on your security, compliance, and cost requirements at projected scale.",
     ctaAnchor: "Explore Architecture",
   },
   {
@@ -80,7 +80,7 @@ export const capabilities: { icon: LucideIcon; title: string; desc: string; ctaA
   {
     icon: Cloud,
     title: "Scaling, Infrastructure & DevOps Integration",
-    desc: "We architect cloud infrastructure on AWS, Azure, and Google Cloud, with containerization (Kubernetes, Docker) and CI/CD pipelines — built in coordination with the same DevOps practices used across Toadster's broader engineering work — so the product scales without manual infrastructure firefighting.",
+    desc: "We architect cloud infrastructure on AWS, Azure, and Google Cloud, with containerization (Kubernetes, Docker) and CI/CD pipelines - built in coordination with the same DevOps practices used across Toadster's broader engineering work - so the product scales without manual infrastructure firefighting.",
     ctaAnchor: "Explore Infrastructure",
   },
 ]
@@ -119,29 +119,29 @@ export const architectureSteps = [
 export const singleVsMultiTenantComparison = {
   headers: ["Dimension", "Single-Tenant", "Multi-Tenant"],
   rows: [
-    ["Data Isolation", "Complete — separate database per customer", "Shared infrastructure with logical isolation"],
-    ["Infrastructure Cost", "Higher — scales linearly with customer count", "Lower — shared resources amortize cost"],
+    ["Data Isolation", "Complete - separate database per customer", "Shared infrastructure with logical isolation"],
+    ["Infrastructure Cost", "Higher - scales linearly with customer count", "Lower - shared resources amortize cost"],
     ["Customization", "Easier per-customer customization", "More constrained, standardized product"],
     ["Best For", "Enterprise customers with strict compliance needs", "Mid-market and high-volume customer bases"],
-    ["Operational Complexity", "Higher — many environments to manage", "Lower — one environment, many tenants"],
+    ["Operational Complexity", "Higher - many environments to manage", "Lower - one environment, many tenants"],
   ],
 }
 
 export const monolithVsMicroservicesComparison = {
   headers: ["Dimension", "Monolith / Modular Monolith", "Microservices"],
   rows: [
-    ["Development Speed (Early Stage)", "Faster — single codebase, simpler deployment", "Slower initially — more moving parts"],
+    ["Development Speed (Early Stage)", "Faster - single codebase, simpler deployment", "Slower initially - more moving parts"],
     ["Scaling Granularity", "Scales as one unit", "Scales individual services independently"],
-    ["Operational Overhead", "Lower", "Higher — requires service mesh, orchestration"],
+    ["Operational Overhead", "Lower", "Higher - requires service mesh, orchestration"],
     ["Best For", "Pre-product-market-fit, smaller engineering teams", "Mature products with distinct, independently-scaling domains"],
   ],
 }
 
 export const platformIntro =
-  "There is no single \"best\" SaaS stack — the right choice depends on team size, expected scale, and time-to-market pressure. Next.js and Node.js favor fast-moving teams needing a unified JavaScript stack; Django/FastAPI favor teams prioritizing rapid backend development with strong typing and built-in admin tooling; Go favors performance-critical services at high scale."
+  "There is no single \"best\" SaaS stack - the right choice depends on team size, expected scale, and time-to-market pressure. Next.js and Node.js favor fast-moving teams needing a unified JavaScript stack; Django/FastAPI favor teams prioritizing rapid backend development with strong typing and built-in admin tooling; Go favors performance-critical services at high scale."
 
 export const platformQuote =
-  "The SaaS products that struggle to scale almost never fail because of the framework choice — they fail because tenancy and billing were treated as afterthoughts bolted onto a single-customer architecture. We design the tenant model and the pricing model at the same time as the data model, because retrofitting either one after a few hundred customers is far more expensive than building it correctly the first time."
+  "The SaaS products that struggle to scale almost never fail because of the framework choice - they fail because tenancy and billing were treated as afterthoughts bolted onto a single-customer architecture. We design the tenant model and the pricing model at the same time as the data model, because retrofitting either one after a few hundred customers is far more expensive than building it correctly the first time."
 
 export const platformComparison = {
   headers: ["Category", "Common Tools", "Strongest For"],
@@ -181,15 +181,15 @@ export const billingModels = [
 ]
 
 export const securityIntro =
-  "Enterprise SaaS buyers expect SOC 2 compliance, data encryption at rest and in transit, role-based access control, and audit logging as baseline requirements before procurement — not as a roadmap item. Toadster builds these controls into the architecture from the first release rather than retrofitting them when the first enterprise deal requires a security review."
+  "Enterprise SaaS buyers expect SOC 2 compliance, data encryption at rest and in transit, role-based access control, and audit logging as baseline requirements before procurement - not as a roadmap item. Toadster builds these controls into the architecture from the first release rather than retrofitting them when the first enterprise deal requires a security review."
 
 export const securityComponents = [
-  "Tenant Data Isolation — Enforced at the database or schema level to prevent cross-tenant data exposure",
-  "Encryption — TLS in transit and AES-256 at rest for all customer data",
-  "Role-Based Access Control (RBAC) — Granular permissions configurable per customer organization",
-  "SSO & SCIM Provisioning — Enterprise identity integration for automated user provisioning/deprovisioning",
-  "Audit Logging — Traceable records of data access and configuration changes for compliance review",
-  "SOC 2 Readiness — Architecture and process documentation aligned to SOC 2 Type I/II audit requirements",
+  "Tenant Data Isolation - Enforced at the database or schema level to prevent cross-tenant data exposure",
+  "Encryption - TLS in transit and AES-256 at rest for all customer data",
+  "Role-Based Access Control (RBAC) - Granular permissions configurable per customer organization",
+  "SSO & SCIM Provisioning - Enterprise identity integration for automated user provisioning/deprovisioning",
+  "Audit Logging - Traceable records of data access and configuration changes for compliance review",
+  "SOC 2 Readiness - Architecture and process documentation aligned to SOC 2 Type I/II audit requirements",
 ]
 
 export const industryUseCasesIntro =
@@ -197,19 +197,19 @@ export const industryUseCasesIntro =
 
 export const industryUseCases = [
   {
-    title: "B2B Software — Multi-Tenant Re-Architecture",
+    title: "B2B Software - Multi-Tenant Re-Architecture",
     desc: "Migrating a single-tenant SaaS product to a multi-tenant architecture reduced infrastructure cost per customer significantly while maintaining the data isolation guarantees enterprise customers required for renewal.",
   },
   {
-    title: "Fintech — Usage-Based Billing Implementation",
+    title: "Fintech - Usage-Based Billing Implementation",
     desc: "Replacing flat-rate pricing with usage-based billing tied to actual transaction volume increased expansion revenue from existing accounts without requiring new customer acquisition.",
   },
   {
-    title: "Healthcare SaaS — Compliance-Driven Security Build",
+    title: "Healthcare SaaS - Compliance-Driven Security Build",
     desc: "Building SOC 2-aligned access controls and audit logging into the core architecture shortened enterprise sales-cycle security review time, removing a recurring deal-blocking step.",
   },
   {
-    title: "Across Engagements — Onboarding Time",
+    title: "Across Engagements - Onboarding Time",
     desc: "SaaS products rebuilt with Toadster's onboarding-first architecture approach have reduced time-to-first-value for new customers, directly correlating with improved trial-to-paid conversion rates.",
   },
 ]
@@ -249,7 +249,7 @@ export const whyToadster = [
   {
     icon: Server,
     title: "Stack-agnostic expertise",
-    desc: "Across React, Next.js, Node.js, Python, and Go — we recommend based on team and scale requirements, not a fixed toolchain.",
+    desc: "Across React, Next.js, Node.js, Python, and Go - we recommend based on team and scale requirements, not a fixed toolchain.",
   },
   {
     icon: Cloud,
@@ -272,7 +272,7 @@ export const faqs = [
   {
     question: "What is the difference between SaaS development and regular web app development?",
     answer:
-      "Regular web app development typically serves a single organization or use case. SaaS development must additionally support multiple customer organizations (tenants) on shared infrastructure, subscription or usage-based billing, and role-based access control across customer accounts — all while scaling cost-efficiently as the customer base grows.",
+      "Regular web app development typically serves a single organization or use case. SaaS development must additionally support multiple customer organizations (tenants) on shared infrastructure, subscription or usage-based billing, and role-based access control across customer accounts - all while scaling cost-efficiently as the customer base grows.",
   },
   {
     question: "How much does SaaS app development cost?",
@@ -287,7 +287,7 @@ export const faqs = [
   {
     question: "Should I build single-tenant or multi-tenant architecture?",
     answer:
-      "Multi-tenant architecture is generally more cost-efficient and easier to scale for mid-market and high-volume customer bases. Single-tenant architecture is worth the additional infrastructure cost when customers — often large enterprise or regulated-industry buyers — require complete data isolation as a procurement requirement.",
+      "Multi-tenant architecture is generally more cost-efficient and easier to scale for mid-market and high-volume customer bases. Single-tenant architecture is worth the additional infrastructure cost when customers - often large enterprise or regulated-industry buyers - require complete data isolation as a procurement requirement.",
   },
   {
     question: "What billing model should my SaaS product use?",

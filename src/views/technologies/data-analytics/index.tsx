@@ -47,7 +47,7 @@ export default function DataAnalyticsPage() {
             </h1>
             <p className="da-hero-subtitle">
               We design and build data analytics systems that turn fragmented enterprise data into governed, real-time
-              decision intelligence — engineered for scale, accuracy, and measurable ROI.
+              decision intelligence - engineered for scale, accuracy, and measurable ROI.
             </p>
             <div className="da-hero-actions">
               <Link href="/contact" className="da-btn da-btn-primary" title="Request a Data Strategy Session">
@@ -204,7 +204,7 @@ export default function DataAnalyticsPage() {
         <div className="da-container">
           <ComparisonTable headers={platformComparison.headers} rows={platformComparison.rows} />
           <blockquote className="da-quote">
-            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{platformQuote}&rdquo; —
+            <span className="da-quote-label">Toadster engineering perspective:</span> &ldquo;{platformQuote}&rdquo; -
             Toadster Data Engineering Team
           </blockquote>
         </div>
@@ -346,7 +346,7 @@ export default function DataAnalyticsPage() {
                 Download Analytics Architecture Guide
               </Link>
             </div>
-            <p className="da-cta-footnote">Toadster Technologies — Precision Engineering for Data.</p>
+            <p className="da-cta-footnote">Toadster Technologies - Precision Engineering for Data.</p>
           </div>
         </div>
       </section>

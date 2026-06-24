@@ -13,12 +13,12 @@ import {
 
 export const whatIsPenetrationTesting = {
   directAnswer:
-    "Penetration testing is an authorized, simulated cyberattack against an organization's systems — applications, networks, APIs, or cloud infrastructure — performed to identify exploitable security vulnerabilities before real attackers find them. Unlike automated vulnerability scanning, penetration testing involves manual exploitation by security professionals who chain together weaknesses the way a real adversary would.",
+    "Penetration testing is an authorized, simulated cyberattack against an organization's systems - applications, networks, APIs, or cloud infrastructure - performed to identify exploitable security vulnerabilities before real attackers find them. Unlike automated vulnerability scanning, penetration testing involves manual exploitation by security professionals who chain together weaknesses the way a real adversary would.",
   enterpriseDiff:
     "Penetration testing engagements generally fall into four categories: network, web application, API, and cloud & infrastructure testing.",
   decisionChain: "Vulnerability → Exploitation Risk → Business Impact → Security Investment Priority",
   decisionChainDesc:
-    "Each stage compounds. Not every vulnerability is equally exploitable; not every exploitable vulnerability carries equal business impact; understanding real impact — not just CVSS score — is what determines where security investment should actually go. Toadster delivers the full chain of analysis, not just a vulnerability list.",
+    "Each stage compounds. Not every vulnerability is equally exploitable; not every exploitable vulnerability carries equal business impact; understanding real impact - not just CVSS score - is what determines where security investment should actually go. Toadster delivers the full chain of analysis, not just a vulnerability list.",
 }
 
 export const testingCategories = [
@@ -45,7 +45,7 @@ export const testingCategories = [
 ]
 
 export const servicesIntro =
-  "Toadster's penetration testing services span network, application, API, cloud, and social engineering assessments — delivered as point-in-time engagements, recurring annual testing programs, or continuous testing integrated into your development lifecycle."
+  "Toadster's penetration testing services span network, application, API, cloud, and social engineering assessments - delivered as point-in-time engagements, recurring annual testing programs, or continuous testing integrated into your development lifecycle."
 
 export const capabilities: { icon: LucideIcon; title: string; desc: string; ctaAnchor: string }[] = [
   {
@@ -63,7 +63,7 @@ export const capabilities: { icon: LucideIcon; title: string; desc: string; ctaA
   {
     icon: GitBranch,
     title: "API Penetration Testing",
-    desc: "We test REST and GraphQL APIs against the OWASP API Security Top 10, covering broken object-level authorization, excessive data exposure, and improper rate limiting — gaps automated scanners frequently miss.",
+    desc: "We test REST and GraphQL APIs against the OWASP API Security Top 10, covering broken object-level authorization, excessive data exposure, and improper rate limiting - gaps automated scanners frequently miss.",
     ctaAnchor: "Explore API Testing",
   },
   {
@@ -81,7 +81,7 @@ export const capabilities: { icon: LucideIcon; title: string; desc: string; ctaA
   {
     icon: Target,
     title: "Red Team Engagements",
-    desc: "We run goal-oriented, multi-vector campaigns simulating a sophisticated adversary across network, application, cloud, and human layers simultaneously — testing detection and response capability, not just individual vulnerabilities.",
+    desc: "We run goal-oriented, multi-vector campaigns simulating a sophisticated adversary across network, application, cloud, and human layers simultaneously - testing detection and response capability, not just individual vulnerabilities.",
     ctaAnchor: "Explore Red Team",
   },
 ]
@@ -122,7 +122,7 @@ export const testingApproachComparison = {
   rows: [
     ["Tester Knowledge", "No prior knowledge of internal systems", "Partial knowledge (e.g., user credentials)", "Full knowledge, including source code and architecture"],
     ["Realism", "Closest to an external attacker's perspective", "Simulates an insider or compromised-account attacker", "Most thorough; not representative of an external attacker"],
-    ["Time Required", "Longest — more reconnaissance needed", "Moderate", "Shortest — no reconnaissance phase needed"],
+    ["Time Required", "Longest - more reconnaissance needed", "Moderate", "Shortest - no reconnaissance phase needed"],
     ["Best For", "External attack-surface validation", "Realistic insider-threat or compromised-credential scenarios", "Deep code-level and architectural review"],
   ],
 }
@@ -132,7 +132,7 @@ export const scanVsPentestComparison = {
   rows: [
     ["Method", "Automated tools identify known vulnerability signatures", "Manual exploitation by security professionals"],
     ["Depth", "Identifies what might be vulnerable", "Confirms what is actually exploitable and its real impact"],
-    ["False Positive Rate", "Higher", "Lower — findings are manually validated"],
+    ["False Positive Rate", "Higher", "Lower - findings are manually validated"],
     ["Best For", "Continuous, frequent baseline coverage", "Point-in-time validation of real-world exploitability"],
     ["Typical Cadence", "Weekly to monthly", "Annually, or after major system changes"],
   ],
@@ -142,7 +142,7 @@ export const standardsIntro =
   "Toadster aligns penetration testing methodology to recognized industry standards rather than proprietary checklists, ensuring findings are defensible in audits and comparable across engagements. Core frameworks include OWASP Top 10 and ASVS for applications, OWASP API Security Top 10 for APIs, PTES and NIST SP 800-115 for overall methodology, and MITRE ATT&CK for adversary technique mapping."
 
 export const standardsQuote =
-  "A clean scan report is not the same thing as a secure system. We've seen organizations pass automated scans with zero critical findings and still have a direct path from an unauthenticated API endpoint to full database access — because scanners look for known signatures, not exploitable logic flaws. That gap is exactly what manual penetration testing exists to close."
+  "A clean scan report is not the same thing as a secure system. We've seen organizations pass automated scans with zero critical findings and still have a direct path from an unauthenticated API endpoint to full database access - because scanners look for known signatures, not exploitable logic flaws. That gap is exactly what manual penetration testing exists to close."
 
 export const standardsComparison = {
   headers: ["Framework", "Scope", "Used For"],
@@ -159,21 +159,21 @@ export const complianceIntro =
   "Many regulatory and contractual frameworks require periodic penetration testing as a condition of compliance, including PCI DSS (payment card data), SOC 2 (service organization controls), HIPAA (healthcare data), and ISO 27001 (information security management). Toadster scopes and documents engagements to satisfy the specific evidentiary requirements of each framework."
 
 export const complianceFrameworks = [
-  "PCI DSS — Requires annual penetration testing and testing after significant infrastructure changes for organizations handling payment card data",
-  "SOC 2 — Often requires penetration testing evidence as part of the security trust services criteria during audit",
-  "HIPAA — Requires risk assessments that commonly include penetration testing for organizations handling protected health information",
-  "ISO 27001 — Requires regular security testing as part of its continuous risk management and control validation requirements",
+  "PCI DSS - Requires annual penetration testing and testing after significant infrastructure changes for organizations handling payment card data",
+  "SOC 2 - Often requires penetration testing evidence as part of the security trust services criteria during audit",
+  "HIPAA - Requires risk assessments that commonly include penetration testing for organizations handling protected health information",
+  "ISO 27001 - Requires regular security testing as part of its continuous risk management and control validation requirements",
 ]
 
 export const riskPrioritizationIntro =
-  "A vulnerability's CVSS (Common Vulnerability Scoring System) score reflects theoretical severity but not actual business risk. Toadster prioritizes findings using exploitability in your specific environment, the sensitivity of data or systems exposed, and the realistic likelihood of an attacker reaching that vulnerability — so remediation effort goes toward what matters most, not just what scores highest in isolation."
+  "A vulnerability's CVSS (Common Vulnerability Scoring System) score reflects theoretical severity but not actual business risk. Toadster prioritizes findings using exploitability in your specific environment, the sensitivity of data or systems exposed, and the realistic likelihood of an attacker reaching that vulnerability - so remediation effort goes toward what matters most, not just what scores highest in isolation."
 
 export const riskPrioritizationFactors = [
-  "Exploitability — Whether the vulnerability was actually exploited during testing, not just flagged as theoretically present",
-  "Business Impact — What data, system, or process would be compromised if the vulnerability were exploited",
-  "Attack Path Position — Whether the vulnerability sits on a realistic path to critical assets or is isolated",
-  "Compensating Controls — Whether existing monitoring or segmentation would limit real-world impact",
-  "Remediation Effort vs. Risk Reduction — Prioritizing fixes that reduce the most risk for the least implementation cost",
+  "Exploitability - Whether the vulnerability was actually exploited during testing, not just flagged as theoretically present",
+  "Business Impact - What data, system, or process would be compromised if the vulnerability were exploited",
+  "Attack Path Position - Whether the vulnerability sits on a realistic path to critical assets or is isolated",
+  "Compensating Controls - Whether existing monitoring or segmentation would limit real-world impact",
+  "Remediation Effort vs. Risk Reduction - Prioritizing fixes that reduce the most risk for the least implementation cost",
 ]
 
 export const industryUseCasesIntro =
@@ -181,19 +181,19 @@ export const industryUseCasesIntro =
 
 export const industryUseCases = [
   {
-    title: "Finance — PCI DSS-Aligned Application Testing",
+    title: "Finance - PCI DSS-Aligned Application Testing",
     desc: "Annual web application and API testing aligned to PCI DSS requirements identified and enabled remediation of critical authorization flaws before they appeared in a compliance audit, preserving payment processing certification.",
   },
   {
-    title: "Healthcare — HIPAA Risk Assessment Support",
+    title: "Healthcare - HIPAA Risk Assessment Support",
     desc: "Network and application testing supporting a HIPAA risk assessment identified unsegmented network paths between administrative and clinical systems, leading to a segmentation project that reduced breach blast radius.",
   },
   {
-    title: "SaaS — Pre-Funding Security Due Diligence",
+    title: "SaaS - Pre-Funding Security Due Diligence",
     desc: "A comprehensive penetration test commissioned ahead of a funding round identified and resolved critical findings prior to investor security review, removing a deal-risk item from due diligence.",
   },
   {
-    title: "Across Engagements — Critical Finding Remediation",
+    title: "Across Engagements - Critical Finding Remediation",
     desc: "Organizations engaging Toadster for recurring annual testing have shown measurable reduction in critical and high-severity finding recurrence year-over-year, reflecting improved baseline security posture.",
   },
 ]

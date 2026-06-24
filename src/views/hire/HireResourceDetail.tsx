@@ -221,7 +221,7 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
         "MLflow / Weights & Biases / DVC",
         "Kubeflow / Airflow / Prefect",
         "Model versioning & experiment tracking",
-        "Feature stores — Feast, Tecton",
+        "Feature stores - Feast, Tecton",
       ],
       description: "Our ML engineers build the operational infrastructure that turns experimental models into reliable, monitored production systems.",
     },
@@ -232,18 +232,18 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
         "PyTorch / TensorFlow / JAX / Scikit-learn",
         "Hugging Face Transformers & PEFT",
         "LangChain / LlamaIndex / OpenAI API",
-        "Computer Vision — YOLO, Detectron2, OpenCV",
+        "Computer Vision - YOLO, Detectron2, OpenCV",
       ],
-      description: "Deep framework fluency across classical ML, deep learning, large language models, and computer vision — matched to your use case, not our comfort zone.",
+      description: "Deep framework fluency across classical ML, deep learning, large language models, and computer vision - matched to your use case, not our comfort zone.",
     },
     {
       title: "Data & Inference Infrastructure",
       icon: Database,
       items: [
         "PySpark / Dask / Polars for large-scale data",
-        "Vector databases — Pinecone, Weaviate, Qdrant",
-        "Model serving — TorchServe, Triton, BentoML",
-        "Cloud ML platforms — AWS SageMaker, GCP Vertex AI, Azure ML",
+        "Vector databases - Pinecone, Weaviate, Qdrant",
+        "Model serving - TorchServe, Triton, BentoML",
+        "Cloud ML platforms - AWS SageMaker, GCP Vertex AI, Azure ML",
       ],
       description: "End-to-end data and serving infrastructure that keeps your models accurate, fast, and cost-efficient at any scale.",
     },
@@ -258,7 +258,7 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
         "Component-driven architecture & design systems",
         "TypeScript across components, hooks, and utilities"
       ],
-      description: "Architecture decisions made upfront — not patched in later — so your codebase stays maintainable as your team and feature set grow."
+      description: "Architecture decisions made upfront - not patched in later - so your codebase stays maintainable as your team and feature set grow."
     },
     {
       title: "State Management & Data Layer",
@@ -266,10 +266,10 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
       items: [
         "Redux Toolkit / Zustand / Jotai / Recoil",
         "React Query / TanStack Query / SWR",
-        "GraphQL clients — Apollo, Relay, urql",
+        "GraphQL clients - Apollo, Relay, urql",
         "Context API for scoped state needs"
       ],
-      description: "The right state management tool for the actual problem — not Redux by default for every app, regardless of complexity."
+      description: "The right state management tool for the actual problem - not Redux by default for every app, regardless of complexity."
     },
     {
       title: "Styling, Testing & Build Tooling",
@@ -322,19 +322,19 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
       title: "Orchestration & Automation",
       icon: Layers,
       items: ["Kubernetes (EKS / GKE / AKS) & Helm", "Docker & container lifecycle management", "Terraform / Pulumi / Ansible / Chef", "Infrastructure as Code (IaC)"],
-      description: "We automate everything that can be automated — provisioning, scaling, patching, and recovery — so your engineers spend time building products, not babysitting servers."
+      description: "We automate everything that can be automated - provisioning, scaling, patching, and recovery - so your engineers spend time building products, not babysitting servers."
     },
     {
       title: "CI/CD & Developer Pipelines",
       icon: Terminal,
       items: ["GitHub Actions / GitLab CI / Jenkins", "ArgoCD / Flux for GitOps", "Testing gates & rollback strategies", "Secrets management (Vault, SOPS)"],
-      description: "Deployment pipelines built for speed and safety — so every release is a non-event, not a fire drill."
+      description: "Deployment pipelines built for speed and safety - so every release is a non-event, not a fire drill."
     },
     {
       title: "Cloud, Security & Observability",
       icon: ShieldCheck,
       items: ["AWS / GCP / Azure", "Prometheus / Grafana / Datadog", "CIS benchmarks, SOC 2, RBAC", "Cost optimisation & FinOps"],
-      description: "Cloud environments designed for resilience, observability, and compliance — with cost kept firmly in check."
+      description: "Cloud environments designed for resilience, observability, and compliance - with cost kept firmly in check."
     }
   ],
   "full-stack-developers": [
@@ -345,7 +345,7 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
         "React, Next.js, Vue, Angular",
         "TypeScript across components and shared types",
         "Tailwind CSS, Styled Components, design system integration",
-        "State management — Redux Toolkit, Zustand, React Query",
+        "State management - Redux Toolkit, Zustand, React Query",
       ],
       description: "Our developers know when a server-rendered Next.js app is the right call and when a pure SPA fits the product better.",
     },
@@ -358,7 +358,7 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
         "REST & GraphQL API design, authentication, authorization",
         "Microservices, message queues (Kafka, RabbitMQ)",
       ],
-      description: "Deep backend expertise for the systems that hold your product together — data modeling, scalability, and security.",
+      description: "Deep backend expertise for the systems that hold your product together - data modeling, scalability, and security.",
     },
     {
       title: "DevOps, Testing & Deployment",
@@ -380,9 +380,9 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
         "Microservices & Monorepo architecture",
         "Domain-Driven Design (DDD)",
         "Event-driven systems (Kafka, RabbitMQ)",
-        "API design — REST, GraphQL, gRPC",
+        "API design - REST, GraphQL, gRPC",
       ],
-      description: "Our software engineers design systems built to last — scalable, maintainable, and ready for the load spikes that come with growth.",
+      description: "Our software engineers design systems built to last - scalable, maintainable, and ready for the load spikes that come with growth.",
     },
     {
       title: "Languages & Frameworks",
@@ -402,7 +402,7 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
         "PostgreSQL / MySQL / MongoDB / Redis",
         "AWS / GCP / Azure (certified engineers)",
         "Docker / Kubernetes / Terraform",
-        "CI/CD — GitHub Actions / Jenkins / ArgoCD",
+        "CI/CD - GitHub Actions / Jenkins / ArgoCD",
       ],
       description: "End-to-end cloud-native expertise so your codebase ships to production reliably, repeatedly, and at scale.",
     },
@@ -417,7 +417,7 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
         "MVVM / Clean Architecture / Coordinator pattern",
         "Human Interface Guidelines (HIG) compliance"
       ],
-      description: "Our developers build interfaces that feel native to iOS — not web views wrapped in a native shell, and not Android patterns ported over without adaptation."
+      description: "Our developers build interfaces that feel native to iOS - not web views wrapped in a native shell, and not Android patterns ported over without adaptation."
     },
     {
       title: "Data, Networking & Native Integrations",
@@ -428,7 +428,7 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
         "Push Notifications (APNs), HealthKit, ARKit, CoreML",
         "Sign in with Apple, Apple Pay, Face ID / Touch ID"
       ],
-      description: "Deep integration with Apple's native frameworks — the features that make an app feel like it belongs on iOS, not just compiled for it."
+      description: "Deep integration with Apple's native frameworks - the features that make an app feel like it belongs on iOS, not just compiled for it."
     },
     {
       title: "Testing, CI/CD & App Store Deployment",
@@ -463,7 +463,7 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
         "Firebase (FCM, Crashlytics, Remote Config, Analytics)",
         "CameraX, Biometric API, Google Pay, Maps SDK"
       ],
-      description: "Deep integration with Google's native frameworks and Play Services — the features that make an app feel purpose-built for Android, not ported."
+      description: "Deep integration with Google's native frameworks and Play Services - the features that make an app feel purpose-built for Android, not ported."
     },
     {
       title: "Testing, CI/CD & Play Store Deployment",
@@ -482,22 +482,22 @@ const SKILL_MATRICES: Record<string, SkillMatrixColumn[]> = {
 // Deliverables mapping for all roles
 const DELIVERABLES: Record<string, DeliverableCard[]> = {
   "flutter-developers": [
-    { title: "Cross-Platform App Development", description: "A single Flutter codebase deployed to iOS, Android, web, and desktop with platform-specific adaptations where it matters — navigation gestures, desktop shortcuts, and native scroll physics — not a generic wrapper.", graphicType: "radar" },
+    { title: "Cross-Platform App Development", description: "A single Flutter codebase deployed to iOS, Android, web, and desktop with platform-specific adaptations where it matters - navigation gestures, desktop shortcuts, and native scroll physics - not a generic wrapper.", graphicType: "radar" },
     { title: "Native Module & Third-Party SDK Integration", description: "Custom platform channels for hardware integrations (camera, Bluetooth, biometrics), third-party SDKs, and native libraries (Swift, Kotlin) that don’t have a Flutter package out of the box.", graphicType: "loss-curve" },
-    { title: "AI-Powered Mobile Experiences", description: "Flutter frontends integrated with AI backend layers — on-device ML models (TensorFlow Lite), streaming AI chatbots, speech-to-text, and real-time AI features optimized for mobile hardware constraints.", graphicType: "node-graph" },
-    { title: "Performance Optimisation & QA", description: "Rendering profiling (Impeller & Skia), memory leak detection, bundle size auditing, and automated integration testing — ensuring your app maintains 60/120 FPS across all user devices.", graphicType: "shield" }
+    { title: "AI-Powered Mobile Experiences", description: "Flutter frontends integrated with AI backend layers - on-device ML models (TensorFlow Lite), streaming AI chatbots, speech-to-text, and real-time AI features optimized for mobile hardware constraints.", graphicType: "node-graph" },
+    { title: "Performance Optimisation & QA", description: "Rendering profiling (Impeller & Skia), memory leak detection, bundle size auditing, and automated integration testing - ensuring your app maintains 60/120 FPS across all user devices.", graphicType: "shield" }
   ],
   "ai-ml-developers": [
-    { title: "Custom ML Model Development", description: "Supervised, unsupervised, and reinforcement learning models built for your specific dataset and business objective — with rigorous validation, bias testing, and performance reporting before handoff.", graphicType: "radar" },
-    { title: "Advanced RAG Pipelines", description: "Retrieval-Augmented Generation systems that ground LLM responses in your proprietary data — document ingestion, chunking strategy, embedding pipelines, vector search, and re-ranking layers all production-ready.", graphicType: "loss-curve" },
-    { title: "Agentic AI Workflows", description: "Multi-step AI agent systems that plan, reason, and execute across tools and data sources — built with LangChain, LlamaIndex, or custom orchestration frameworks, with safety guardrails and human-in-the-loop controls.", graphicType: "node-graph" },
-    { title: "Safety, Evaluation & Guardrails", description: "Structured evaluation frameworks, red-teaming, output filtering, hallucination detection, and continuous drift monitoring — so your AI system behaves reliably in production, not just in a demo.", graphicType: "shield" },
+    { title: "Custom ML Model Development", description: "Supervised, unsupervised, and reinforcement learning models built for your specific dataset and business objective - with rigorous validation, bias testing, and performance reporting before handoff.", graphicType: "radar" },
+    { title: "Advanced RAG Pipelines", description: "Retrieval-Augmented Generation systems that ground LLM responses in your proprietary data - document ingestion, chunking strategy, embedding pipelines, vector search, and re-ranking layers all production-ready.", graphicType: "loss-curve" },
+    { title: "Agentic AI Workflows", description: "Multi-step AI agent systems that plan, reason, and execute across tools and data sources - built with LangChain, LlamaIndex, or custom orchestration frameworks, with safety guardrails and human-in-the-loop controls.", graphicType: "node-graph" },
+    { title: "Safety, Evaluation & Guardrails", description: "Structured evaluation frameworks, red-teaming, output filtering, hallucination detection, and continuous drift monitoring - so your AI system behaves reliably in production, not just in a demo.", graphicType: "shield" },
   ],
   "reactjs-developers": [
-    { title: "Custom Web Application Frontends", description: "SaaS dashboards, admin panels, customer portals, and marketing sites built with React and Next.js — optimised for Core Web Vitals and SEO from the first commit, not retrofitted before launch.", graphicType: "radar" },
-    { title: "Design System & Component Library Development", description: "Scalable, themeable component libraries with documented props, accessibility built in (WCAG-compliant), and Storybook coverage — so design and engineering stop reinventing the same button.", graphicType: "loss-curve" },
-    { title: "AI-Integrated Frontend Experiences", description: "React interfaces wired to AI backends — chat UIs, streaming responses, RAG-powered search bars, and agent status dashboards — built for the latency and UX patterns AI features actually need.", graphicType: "node-graph" },
-    { title: "Performance Optimisation & Testing", description: "Bundle size audits, code-splitting strategy, lazy loading, and comprehensive test suites — so your React app stays fast and stable as it scales past its first thousand users.", graphicType: "shield" }
+    { title: "Custom Web Application Frontends", description: "SaaS dashboards, admin panels, customer portals, and marketing sites built with React and Next.js - optimised for Core Web Vitals and SEO from the first commit, not retrofitted before launch.", graphicType: "radar" },
+    { title: "Design System & Component Library Development", description: "Scalable, themeable component libraries with documented props, accessibility built in (WCAG-compliant), and Storybook coverage - so design and engineering stop reinventing the same button.", graphicType: "loss-curve" },
+    { title: "AI-Integrated Frontend Experiences", description: "React interfaces wired to AI backends - chat UIs, streaming responses, RAG-powered search bars, and agent status dashboards - built for the latency and UX patterns AI features actually need.", graphicType: "node-graph" },
+    { title: "Performance Optimisation & Testing", description: "Bundle size audits, code-splitting strategy, lazy loading, and comprehensive test suites - so your React app stays fast and stable as it scales past its first thousand users.", graphicType: "shield" }
   ],
   "react-native-developers": [
     { title: "Cross-Platform Apps", description: "Sleek iOS and Android applications utilizing a shared codebase.", graphicType: "radar" },
@@ -518,27 +518,27 @@ const DELIVERABLES: Record<string, DeliverableCard[]> = {
     { title: "Observability & SRE", description: "Logging pipelines, metric dashboards, alerting rules, and post-incident review frameworks.", graphicType: "loss-curve" }
   ],
   "full-stack-developers": [
-    { title: "End-to-End Application Development", description: "A single developer or team owns the full request lifecycle — from UI component to API endpoint to database query — eliminating the handoff gaps that slow down feature delivery.", graphicType: "radar" },
+    { title: "End-to-End Application Development", description: "A single developer or team owns the full request lifecycle - from UI component to API endpoint to database query - eliminating the handoff gaps that slow down feature delivery.", graphicType: "radar" },
     { title: "API & Third-Party Integration", description: "Custom REST and GraphQL APIs, payment gateways (Stripe, Razorpay), authentication providers (Auth0, Firebase Auth), and any SDK your product needs to connect to.", graphicType: "loss-curve" },
-    { title: "AI-Powered Web Experiences", description: "Full stack applications wired to AI backends — LLM-powered features, RAG pipelines, AI chat interfaces, and real-time AI feature delivery built with production-grade rate limiting and caching.", graphicType: "node-graph" },
-    { title: "Performance Optimisation & QA", description: "Query optimisation, caching strategy, bundle size audits, and end-to-end test suites — so your application stays fast and stable as usage grows.", graphicType: "shield" },
+    { title: "AI-Powered Web Experiences", description: "Full stack applications wired to AI backends - LLM-powered features, RAG pipelines, AI chat interfaces, and real-time AI feature delivery built with production-grade rate limiting and caching.", graphicType: "node-graph" },
+    { title: "Performance Optimisation & QA", description: "Query optimisation, caching strategy, bundle size audits, and end-to-end test suites - so your application stays fast and stable as usage grows.", graphicType: "shield" },
   ],
   "software-developers": [
-    { title: "Custom Software Development", description: "Web apps, SaaS platforms, internal tools, and enterprise systems built to your exact specification — no templated solutions, no off-the-shelf shortcuts.", graphicType: "radar" },
+    { title: "Custom Software Development", description: "Web apps, SaaS platforms, internal tools, and enterprise systems built to your exact specification - no templated solutions, no off-the-shelf shortcuts.", graphicType: "radar" },
     { title: "Advanced API & Integration Pipelines", description: "Third-party integrations, payment gateways, ERP connectors, and data pipelines architected for reliability, speed, and long-term maintainability.", graphicType: "loss-curve" },
-    { title: "Agentic & AI-Augmented Software", description: "For products with AI at their core — our software developers build the backend infrastructure, APIs, and orchestration layers that make intelligent features work in production.", graphicType: "node-graph" },
-    { title: "QA, Testing & Code Quality", description: "Automated test suites, code reviews, static analysis, and performance benchmarking built into the development cycle — not bolted on at the end.", graphicType: "shield" },
+    { title: "Agentic & AI-Augmented Software", description: "For products with AI at their core - our software developers build the backend infrastructure, APIs, and orchestration layers that make intelligent features work in production.", graphicType: "node-graph" },
+    { title: "QA, Testing & Code Quality", description: "Automated test suites, code reviews, static analysis, and performance benchmarking built into the development cycle - not bolted on at the end.", graphicType: "shield" },
   ],
   "ios-developers": [
-    { title: "Native iOS App Development", description: "SwiftUI and UIKit applications built from the ground up — consumer apps, enterprise tools, and SaaS companion apps — architected for maintainability as your feature set grows.", graphicType: "radar" },
-    { title: "Apple Ecosystem & SDK Integrations", description: "HealthKit, ARKit, CoreML, Apple Pay, Sign in with Apple, and Watch app companion development — the integrations that differentiate a good iOS app from a merely functional one.", graphicType: "loss-curve" },
-    { title: "On-Device AI & ML Features", description: "CoreML model integration for on-device inference, AI-powered camera features, and intelligent text/image processing — built for the privacy and performance expectations iOS users have.", graphicType: "node-graph" },
+    { title: "Native iOS App Development", description: "SwiftUI and UIKit applications built from the ground up - consumer apps, enterprise tools, and SaaS companion apps - architected for maintainability as your feature set grows.", graphicType: "radar" },
+    { title: "Apple Ecosystem & SDK Integrations", description: "HealthKit, ARKit, CoreML, Apple Pay, Sign in with Apple, and Watch app companion development - the integrations that differentiate a good iOS app from a merely functional one.", graphicType: "loss-curve" },
+    { title: "On-Device AI & ML Features", description: "CoreML model integration for on-device inference, AI-powered camera features, and intelligent text/image processing - built for the privacy and performance expectations iOS users have.", graphicType: "node-graph" },
     { title: "Performance Optimisation & App Store Readiness", description: "Instruments profiling for memory and battery usage, crash-free session targets, accessibility (VoiceOver) compliance, and App Store guideline review before every submission.", graphicType: "shield" }
   ],
   "android-developers": [
-    { title: "Native Android App Development", description: "Kotlin and Jetpack Compose applications built from the ground up — consumer apps, enterprise tools, and SaaS companion apps — architected to handle the device and OS-version fragmentation unique to Android.", graphicType: "radar" },
-    { title: "Google Ecosystem & Play Services Integration", description: "Firebase, Google Pay, Maps SDK, CameraX, and Wear OS companion development — the integrations that connect your app meaningfully into the broader Android and Google ecosystem.", graphicType: "loss-curve" },
-    { title: "On-Device AI & ML Features", description: "ML Kit and TensorFlow Lite model integration for on-device inference, AI-powered camera features, and intelligent text processing — optimised for the wide range of hardware capabilities across Android devices.", graphicType: "node-graph" },
+    { title: "Native Android App Development", description: "Kotlin and Jetpack Compose applications built from the ground up - consumer apps, enterprise tools, and SaaS companion apps - architected to handle the device and OS-version fragmentation unique to Android.", graphicType: "radar" },
+    { title: "Google Ecosystem & Play Services Integration", description: "Firebase, Google Pay, Maps SDK, CameraX, and Wear OS companion development - the integrations that connect your app meaningfully into the broader Android and Google ecosystem.", graphicType: "loss-curve" },
+    { title: "On-Device AI & ML Features", description: "ML Kit and TensorFlow Lite model integration for on-device inference, AI-powered camera features, and intelligent text processing - optimised for the wide range of hardware capabilities across Android devices.", graphicType: "node-graph" },
     { title: "Performance Optimisation & Device Compatibility", description: "Android Profiler analysis for memory and battery usage, ANR (App Not Responding) prevention, accessibility (TalkBack) compliance, and compatibility testing across manufacturer-specific Android skins.", graphicType: "shield" }
   ]
 }
@@ -606,7 +606,7 @@ const BOTTOM_BANNERS: Record<string, {
   },
   "ai-ml-developers": {
     headline: "Ready to Bridge the AI Gap?",
-    description: "Stop experimenting and start shipping. Give your dedicated AI/ML developer a clear brief today — and see your models move from roadmap to production.",
+    description: "Stop experimenting and start shipping. Give your dedicated AI/ML developer a clear brief today - and see your models move from roadmap to production.",
     primaryCta: "Get a Quote for AI/ML Experts",
     secondaryCta: "Talk to an AI Strategist",
     footer: "+91-XXXXXXXXXX | info@toadsters.com | Sector 63, Noida, India",
@@ -767,7 +767,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
   const processSteps: ProcessStepItem[] = integrationSteps.map((step, index) => ({
     id: String(index + 1).padStart(2, "0"),
-    title: step.title.replace(/^\d+\s*(?:—|-)\s*/, ""),
+    title: step.title.replace(/^\d+\s*(?:-|-)\s*/, ""),
     description: step.body,
     Icon: INTEGRATION_STEP_ICONS[index] ?? Search,
   }))

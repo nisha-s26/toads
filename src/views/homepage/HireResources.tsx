@@ -109,7 +109,7 @@ export default function HireResources() {
               Need a different role or a full dedicated pod?
             </h3>
             <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/80">
-              Browse all 11 resource types — mobile, backend, AI/ML, DevOps, and more — or tell us what you&apos;re
+              Browse all 11 resource types - mobile, backend, AI/ML, DevOps, and more - or tell us what you&apos;re
               building and we&apos;ll shortlist candidates within 24 hours.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

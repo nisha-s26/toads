@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-/** Same markup as Home page hero — services light / dark assets */
+/** Same markup as Home page hero - services light / dark assets */
 export function ServiceHeroBackground() {
   return (
     <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>

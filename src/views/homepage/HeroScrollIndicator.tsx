@@ -42,7 +42,7 @@ export function HeroScrollIndicator({ targetId, onDarkBackground = false }: Hero
       type="button"
       onClick={scrollToContent}
       aria-label="Scroll down to explore more"
-      className={`absolute bottom-[3.25rem] left-1/2 z-30 hidden -translate-x-1/2 transition-colors hover:text-toadster-green sm:block sm:bottom-[5.25rem] ${
+      className={`absolute bottom-[3.25rem] left-1/2 z-30 hidden -translate-x-1/2 transition-colors hover:text-toadster-green sm:block sm:bottom-[2.25rem] ${
         onDarkBackground ? "text-white/70" : "text-page-fg/70"
       }`}
     >
