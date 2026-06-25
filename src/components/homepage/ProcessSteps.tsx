@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion"
 import type { LucideIcon } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 export type ProcessStepItem = {
   id: string
@@ -13,9 +14,10 @@ export type ProcessStepItem = {
 
 type ProcessStepsProps = {
   steps: ProcessStepItem[]
+  className?: string
 }
 
-export function ProcessSteps({ steps }: ProcessStepsProps) {
+export function ProcessSteps({ steps, className }: ProcessStepsProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const sectionRef = useRef<HTMLDivElement | null>(null)
 
@@ -57,7 +59,7 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
       : undefined
 
   return (
-    <div ref={sectionRef} className="relative">
+    <div ref={sectionRef} className={cn("process-steps relative", className)}>
       <div className="hidden md:block relative">
         <div
           className={`absolute top-[52px] z-0 h-[2px] bg-page-fg/10 rounded-full ${lineInsetClass ?? ""}`}
@@ -91,18 +93,18 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
                 }}
                 whileHover={{ scale: 1.08 }}
                 transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                className="text-center"
+                className="process-step text-center"
               >
                 <div className="relative z-10 mx-auto w-[104px] h-[104px]">
                   <div
-                    className={`relative w-full h-full rounded-full bg-page-card border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 dark:bg-white dark:shadow-[0_4px_20px_-8px_rgba(0,0,0,0.45)] ${
+                    className={`process-step-circle relative z-10 flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-full border bg-white shadow-sm transition-all duration-300 dark:bg-white dark:shadow-[0_4px_20px_-8px_rgba(0,0,0,0.45)] ${
                       isActive
-                        ? "border-toadster-green dark:border-toadster-green"
+                        ? "border-toadster-green"
                         : "border-page-border dark:border-slate-200/80"
                     }`}
                   >
                     <motion.div
-                      className="absolute inset-0 rounded-full"
+                      className="process-step-circle-glow absolute inset-0 rounded-full"
                       initial={false}
                       animate={
                         isActive
@@ -117,14 +119,15 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
                     />
 
                     <Icon
-                      className={`transition-colors duration-300 ${
-                        isActive ? "text-page-fg dark:text-slate-900" : "text-page-fg-muted dark:text-slate-600"
+                      className={`process-step-icon relative z-[2] transition-colors duration-300 ${
+                        isActive ? "text-toadster-green" : "text-toadster-green/80"
                       }`}
                       size={28}
+                      strokeWidth={2}
                     />
                     <span
-                      className={`mt-1 text-[12px] font-bold transition-colors duration-300 ${
-                        isActive ? "text-page-fg dark:text-slate-900" : "text-page-fg-muted dark:text-slate-600"
+                      className={`process-step-num relative z-[2] mt-1 text-[12px] font-bold transition-colors duration-300 ${
+                        isActive ? "text-toadster-green" : "text-toadster-green/75"
                       }`}
                     >
                       {step.id}
@@ -133,13 +136,13 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
                 </div>
 
                 <p
-                  className={`mt-5 text-base font-extrabold transition-colors duration-300 ${
+                  className={`process-step-title mt-5 text-base font-extrabold transition-colors duration-300 ${
                     isActive ? "text-page-fg" : "text-page-fg-subtle"
                   }`}
                 >
                   {step.title}
                 </p>
-                <p className="mt-2 text-sm text-page-fg-muted leading-relaxed max-w-[18rem] mx-auto">
+                <p className="process-step-desc mt-2 mx-auto max-w-[18rem] text-sm leading-relaxed text-page-fg-muted sm:text-base">
                   {step.description}
                 </p>
               </motion.div>
@@ -181,14 +184,14 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
                 >
                   <div className="relative z-10 w-[80px] h-[80px]">
                     <div
-                      className={`relative w-full h-full rounded-full bg-page-card border shadow-sm flex flex-col items-center justify-center overflow-hidden transition-all duration-300 dark:bg-white dark:shadow-[0_4px_20px_-8px_rgba(0,0,0,0.45)] ${
+                      className={`process-step-circle relative z-10 flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-full border bg-white shadow-sm transition-all duration-300 dark:bg-white dark:shadow-[0_4px_20px_-8px_rgba(0,0,0,0.45)] ${
                         isActive
-                          ? "border-toadster-green dark:border-toadster-green"
+                          ? "border-toadster-green"
                           : "border-page-border dark:border-slate-200/80"
                       }`}
                     >
                       <motion.div
-                        className="absolute inset-0 rounded-full"
+                        className="process-step-circle-glow absolute inset-0 rounded-full"
                         initial={false}
                         animate={
                           isActive
@@ -203,14 +206,15 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
                       />
 
                       <Icon
-                        className={`transition-colors duration-300 ${
-                          isActive ? "text-page-fg dark:text-slate-900" : "text-page-fg-muted dark:text-slate-600"
+                        className={`process-step-icon relative z-[2] transition-colors duration-300 ${
+                          isActive ? "text-toadster-green" : "text-toadster-green/80"
                         }`}
                         size={24}
+                        strokeWidth={2}
                       />
                       <span
-                        className={`mt-1 text-[10px] font-bold transition-colors duration-300 ${
-                          isActive ? "text-page-fg dark:text-slate-900" : "text-page-fg-muted dark:text-slate-600"
+                        className={`process-step-num relative z-[2] mt-1 text-[10px] font-bold transition-colors duration-300 ${
+                          isActive ? "text-toadster-green" : "text-toadster-green/75"
                         }`}
                       >
                         {step.id}
@@ -221,13 +225,13 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
 
                 <div className="flex-1 min-w-0 pt-2">
                   <p
-                    className={`text-base font-extrabold transition-colors duration-300 ${
+                    className={`process-step-title text-base font-extrabold transition-colors duration-300 ${
                       isActive ? "text-page-fg" : "text-page-fg-subtle"
                     }`}
                   >
                     {step.title}
                   </p>
-                  <p className="mt-2 text-sm text-page-fg-muted leading-relaxed">{step.description}</p>
+                  <p className="process-step-desc mt-2 text-sm leading-relaxed text-page-fg-muted sm:text-base">{step.description}</p>
                 </div>
               </div>
             )

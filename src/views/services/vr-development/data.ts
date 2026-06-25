@@ -35,11 +35,18 @@ export const heroTrustItems = [
 ]
 
 export const trustStats = [
-  { number: "120+", label: "VR projects delivered" },
-  { number: "15+", label: "VR platforms supported" },
-  { number: "8+", label: "Years in immersive tech" },
-  { number: "95%", label: "Client satisfaction rate" },
+  { number: "Training & Sims", label: "Immersive learning and virtual showrooms" },
+  { number: "Multi-Platform", label: "Meta Quest · PCVR · WebXR" },
+  { number: "End-to-End", label: "Concept, build, deploy, and iterate" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Immersive Experiences That Train, Sell, and Engage."
+
+export const heroCta = {
+  label: "Talk to a VR Specialist",
+  href: "#contact-form",
+}
 
 export const capabilities: {
   icon: LucideIcon

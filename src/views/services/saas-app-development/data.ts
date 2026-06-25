@@ -31,10 +31,18 @@ export const heroTrustItems = [
 ]
 
 export const trustStats = [
-  { number: "150+", label: "SaaS products built" },
-  { number: "40+", label: "Engineers on-demand" },
-  { number: "92%", label: "Client retention rate" },
+  { number: "Multi-Tenant", label: "Architecture designed for scale" },
+  { number: "Subscriptions", label: "Billing, plans, and self-serve flows" },
+  { number: "Secure Auth", label: "SSO, RBAC, and compliance-ready access" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "SaaS Products Built to Grow With Your Customers."
+
+export const heroCta = {
+  label: "Talk to a SaaS Development Specialist",
+  href: "#contact-form",
+}
 
 export const teamStats = [
   { number: "48h", label: "Average team assembly time" },

@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { SplitSectionHeading } from "@/components/SplitSectionHeading"
 import { useState, useEffect } from "react"
 import { ArrowRight, Calendar, Clock, User, ArrowUpRight, Brain, Bot, Sparkles, MessageCircle } from "lucide-react"
 import Link from "next/link"
@@ -49,9 +50,12 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
         <div className="max-w-7xl mx-auto relative z-10 mt-10">
           <div className="mb-8 sm:mb-12 md:mb-16">
             <div className={`text-center transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-toadster-green">
-                Resources and Insights
-              </h1>
+              <SplitSectionHeading
+                as="h1"
+                titleBefore="Resources and "
+                titleAccent="Insights"
+                className="mb-4 text-3xl font-bold sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl"
+              />
               <p className="text-sm sm:text-base md:text-lg text-page-fg-subtle max-w-4xl mx-auto leading-relaxed px-4">
                 Tap into the latest AI innovations and insights from industry experts. Explore our comprehensive collection of articles, whitepapers, and case studies to stay ahead in the rapidly evolving AI landscape. Whether you're a business leader, developer, or enthusiast, our resources offer valuable knowledge and practical guidance to help you harness the power of artificial intelligence.
               </p>
@@ -136,7 +140,12 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
       {/* Featured Blogs Section */}
       <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-4 lg:px-5 relative">
         <div className="max-w-7xl mx-auto relative z-10">
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '400ms' }}>Featured Blogs</h2>
+          <SplitSectionHeading
+            as="h2"
+            titleBefore="Featured "
+            titleAccent="Blogs"
+            className={`mb-8 text-center text-2xl font-bold sm:mb-12 sm:text-3xl md:text-4xl transition-all duration-1000 transform ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {featuredBlogs.map((blog, index) => (
               <div
@@ -242,7 +251,12 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
       {/* Latest Blogs Section */}
       <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-4 lg:px-5 relative">
         <div className="max-w-7xl mx-auto relative z-10">
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1000ms' }}>Latest Blogs</h2>
+          <SplitSectionHeading
+            as="h2"
+            titleBefore="Latest "
+            titleAccent="Blogs"
+            className={`mb-8 text-center text-2xl font-bold sm:mb-12 sm:text-3xl md:text-4xl transition-all duration-1000 transform ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {latestBlogs.map((blog, index) => (
               <div
@@ -322,8 +336,9 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
             <p className="text-sm sm:text-xl tracking-[0.25em] text-toadster-green font-bold uppercase mb-3">
               Put Insights to Work
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-page-fg">
-              Explore Our AI Services
+            <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl">
+              <span className="text-black dark:text-white">Explore Our AI </span>
+              <span className="text-toadster-green">Services</span>
             </h2>
             <p className="text-page-fg-subtle mt-3 max-w-xl mx-auto text-sm sm:text-base">
               Turn ideas from the blog into production-ready AI solutions for your business.

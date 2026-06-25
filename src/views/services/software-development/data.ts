@@ -39,12 +39,18 @@ export const heroTrustItems = [
 ]
 
 export const trustStats = [
-  { number: "150+", label: "Software projects delivered" },
-  // { number: "8+", label: "Years of experience" },
-  { number: "40+", label: "Technology experts" },
-  // { number: "18", label: "Industries served" },
-  { number: "92%", label: "Client retention rate" },
+  { number: "Custom Build", label: "Software tailored to your business logic" },
+  { number: "API-First", label: "Integrates with your existing systems" },
+  { number: "Scalable", label: "Architecture built for growth from day one" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Software Built for How Your Business Actually Works."
+
+export const heroCta = {
+  label: "Talk to a Software Development Specialist",
+  href: "#contact-form",
+}
 
 export const capabilities: {
   icon: LucideIcon

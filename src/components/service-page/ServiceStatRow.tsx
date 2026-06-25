@@ -1,3 +1,6 @@
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+
 type ServiceStat = {
   label: string
   number?: string
@@ -8,15 +11,37 @@ function getStatValue(stat: ServiceStat) {
   return stat.number ?? stat.value ?? ""
 }
 
-export function ServiceStatRow({ stats }: { stats: ServiceStat[] }) {
+type ServiceStatRowProps = {
+  stats: ServiceStat[]
+  ctaLabel?: string
+  ctaHref?: string
+}
+
+export function ServiceStatRow({ stats, ctaLabel, ctaHref = "#contact-form" }: ServiceStatRowProps) {
   return (
-    <div className="service-stat-row mb-8 flex flex-wrap gap-x-6 gap-y-3 sm:gap-x-8 md:gap-x-10">
-      {stats.map((stat) => (
-        <div key={stat.label} className="min-w-[6.5rem] text-left">
-          <div className="text-2xl font-extrabold text-page-fg md:text-3xl">{getStatValue(stat)}</div>
-          <div className="mt-0.5 text-sm leading-snug text-page-fg-muted">{stat.label}</div>
+    <div>
+      <div className="service-stat-row mb-8 grid grid-cols-2 gap-x-6 gap-y-4 md:grid-cols-4 md:gap-x-8">
+        {stats.map((stat) => (
+          <div key={stat.label} className="min-w-0 text-left">
+            <div className="text-lg font-extrabold leading-tight text-page-fg md:text-xl lg:text-2xl">
+              {getStatValue(stat)}
+            </div>
+            <div className="mt-1 text-sm leading-snug text-page-fg-muted">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {ctaLabel ? (
+        <div className="flex flex-wrap gap-4">
+          <Link
+            href={ctaHref}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+          >
+            {ctaLabel}
+            <ArrowRight size={16} />
+          </Link>
         </div>
-      ))}
+      ) : null}
     </div>
   )
 }

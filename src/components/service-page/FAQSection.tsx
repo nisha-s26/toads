@@ -38,11 +38,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export function FAQSection({
   faqs,
-  title = "Frequently Asked Questions",
   subtitle,
 }: {
   faqs: ServiceFaq[]
-  title?: string
   subtitle?: string
 }) {
   const FAQ_INITIAL_COUNT = 5
@@ -55,7 +53,13 @@ export function FAQSection({
   return (
     <section id="faq" className="section-padding bg-page-bg-alt py-16">
       <div className="faq-section-layout px-4">
-        <SectionHead label="" title={title} subtitle={subtitle} centered />
+        <SectionHead
+          label=""
+          titleBefore="Frequently Asked "
+          titleAccent="Questions"
+          subtitle={subtitle}
+          centered
+        />
         <div className="flex flex-col gap-4">
           {visibleFaqs.map((item) => (
             <FAQItem key={item.question} question={item.question} answer={item.answer} />

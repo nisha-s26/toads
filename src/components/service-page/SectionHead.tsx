@@ -1,24 +1,45 @@
+import { SplitSectionHeading } from "@/components/SplitSectionHeading"
+import { cn } from "@/lib/utils"
+
 export function SectionHead({
   label,
   title,
+  titleBefore,
+  titleAccent,
+  accent,
   subtitle,
   centered = false,
-  labelClassName = "text-green-400",
+  labelClassName = "text-toadster-green",
 }: {
   label: string
-  title: string
+  title?: string
+  titleBefore?: string
+  titleAccent?: string
+  accent?: string
   subtitle?: string
   centered?: boolean
   labelClassName?: string
 }) {
   return (
-    <div className={`section-head mb-8 ${centered ? "text-center" : ""}`}>
+    <div className={cn("section-head mb-8", centered && "text-center")}>
       {label ? (
-        <p className={`text-xs font-bold uppercase tracking-[0.08em] ${labelClassName} mb-4`}>{label}</p>
+        <p className={cn("mb-4 text-xs font-bold uppercase tracking-[0.08em]", labelClassName)}>{label}</p>
       ) : null}
-      <h2 className="text-4xl md:text-5xl font-extrabold text-page-fg tracking-tight mb-4">{title}</h2>
+      <SplitSectionHeading
+        as="h2"
+        title={title}
+        titleBefore={titleBefore}
+        titleAccent={titleAccent}
+        accent={accent}
+        className="mb-4 text-4xl font-extrabold tracking-tight md:text-5xl"
+      />
       {subtitle ? (
-        <p className={`text-page-fg-muted text-lg leading-relaxed ${centered ? "mx-auto max-w-2xl" : "max-w-full"}`}>
+        <p
+          className={cn(
+            "text-lg leading-relaxed text-page-fg-muted",
+            centered ? "mx-auto max-w-2xl" : "max-w-full",
+          )}
+        >
           {subtitle}
         </p>
       ) : null}

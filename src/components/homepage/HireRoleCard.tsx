@@ -40,14 +40,14 @@ export function HireRoleCard({
   const content = (
     <>
       {badge ? (
-        <span className="mb-3 inline-flex w-fit rounded-full border border-slate-200/80 bg-slate-100/90 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-800 dark:border-slate-300/60 dark:bg-white/55 dark:text-black">
+        <span className="mb-3 inline-flex w-fit rounded-full border border-[#065606]/20 bg-[#065606]/8 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-black">
           {badge}
         </span>
       ) : null}
 
       <div className="capability-card-header">
         <div className="flex min-h-11 min-w-0 items-center justify-between gap-3">
-          <h3 className="min-w-0 flex-1 text-lg font-bold leading-snug text-slate-900 dark:text-black">
+          <h3 className="min-w-0 flex-1 text-lg font-bold leading-snug text-black">
             {title}
           </h3>
           <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
@@ -59,7 +59,7 @@ export function HireRoleCard({
 
       {description ? (
         <div className="flex-1">
-          <p className="text-sm leading-relaxed text-slate-700 md:text-[0.9375rem] dark:text-black/80">
+          <p className="text-sm leading-relaxed text-black/85 md:text-[0.9375rem]">
             {description}
           </p>
         </div>
@@ -72,7 +72,7 @@ export function HireRoleCard({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-slate-200/80 bg-slate-100/90 px-2.5 py-0.5 text-xs font-semibold text-slate-800 dark:border-slate-300/60 dark:bg-white/55 dark:text-black"
+              className="rounded-full border border-[#065606]/20 bg-[#065606]/8 px-2.5 py-0.5 text-xs font-semibold text-black"
             >
               {tag}
             </span>

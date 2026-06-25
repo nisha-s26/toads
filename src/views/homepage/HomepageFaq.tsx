@@ -194,8 +194,9 @@ export default function HomepageFaq() {
     >
       <div className="relative z-10 mx-auto faq-section-layout">
         <ScrollReveal className="mb-8 text-center md:mb-10">
-          <h2 className="text-3xl font-extrabold text-page-fg sm:text-4xl md:text-5xl lg:text-6xl">
-            Frequently Asked <span className="text-toadster-green">Questions</span>
+          <h2 className="text-3xl font-extrabold sm:text-4xl md:text-5xl">
+            <span className="text-black dark:text-white">Frequently Asked </span>
+            <span className="text-toadster-green">Questions</span>
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base text-page-fg-muted sm:text-lg md:text-xl">
             Everything you need to know about working with Toadster Technologies.

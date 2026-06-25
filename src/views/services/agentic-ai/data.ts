@@ -35,6 +35,13 @@ export const trustStats = [
   { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
 
+export const heroSubheading = "AI That Doesn't Just Answer. It Acts."
+
+export const heroCta = {
+  label: "Talk to an Agentic AI Specialist",
+  href: "#contact-form",
+}
+
 export const capabilities: {
   icon: LucideIcon
   title: string

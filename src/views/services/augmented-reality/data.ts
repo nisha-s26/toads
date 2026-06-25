@@ -33,8 +33,15 @@ export const trustStats = [
   { number: "Mobile & Wearable", label: "iOS · Android · HoloLens · Magic Leap" },
   { number: "WebAR Ready", label: "No app install required" },
   { number: "End-to-End", label: "Concept to deployed experience" },
-  { number: "3 Regions", label: "India · UAE · Saudi Arabia · US" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Bring Your Products, Spaces, and Processes to Life."
+
+export const heroCta = {
+  label: "Talk to an AR Specialist",
+  href: "#contact-form",
+}
 
 export const capabilities: {
   icon: LucideIcon

@@ -20,8 +20,8 @@ export default function HomepageBlogs({ initialBlogs = [] }: HomepageBlogsProps)
     >
       <div className="relative z-10 mx-auto w-full max-w-9xl">
         <ScrollReveal className="mb-8 text-center md:mb-10">
-          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
-            <span className="text-page-fg">Our Latest </span>
+          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl md:text-5xl">
+            <span className="text-black dark:text-white">Our Latest </span>
             <span className="text-toadster-green">Blogs</span>
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base text-page-fg-muted sm:text-lg md:text-xl">

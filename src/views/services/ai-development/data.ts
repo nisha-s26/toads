@@ -34,10 +34,18 @@ export const heroTrustItems = [
 ]
 
 export const trustStats = [
-  { number: "190+", label: "AI & ML projects delivered" },
-  { number: "40+", label: "Skilled AI engineers & data scientists" },
-  { number: "92%", label: "Client retention rate" },
+  { number: "ML & LLM", label: "Custom models matched to your use case" },
+  { number: "Production", label: "Deployed, monitored, and maintained" },
+  { number: "End-to-End", label: "From data pipelines to integration" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Practical AI That Delivers Measurable ROI."
+
+export const heroCta = {
+  label: "Talk to an AI Development Specialist",
+  href: "#contact-form",
+}
 
 export const capabilities: {
   icon: LucideIcon

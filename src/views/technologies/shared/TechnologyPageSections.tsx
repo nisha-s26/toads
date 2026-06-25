@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { ArrowRight, Users, type LucideIcon } from "lucide-react"
+import { SplitSectionHeading } from "@/components/SplitSectionHeading"
+import { cn } from "@/lib/utils"
 import { FaqItem } from "./FaqItem"
 import { TechnologyCapabilityCard, TechnologyCapabilityGrid } from "./TechnologyCapabilityCard"
 import type { ExploreCard } from "./technology-explore-utils"
@@ -44,7 +46,7 @@ export function TechnologyServicesSection({
   return (
     <section id="services" className="my-14 da-section da-section-muted">
       <div className="da-container da-section-head pb-6">
-        <h2 className="da-section-title">{title}</h2>
+        <SplitSectionHeading as="h2" title={title} className="da-section-title" />
         <p className="da-section-subtitle">{intro}</p>
       </div>
       <div className="da-container da-bento-grid">
@@ -109,10 +111,15 @@ export function TechnologyProcessSection({
   return (
     <section className="py-14 da-section da-process-section">
       <div className="da-container da-section-head pb-6">
-        <h2 className="da-section-title">{title}</h2>
+        <SplitSectionHeading as="h2" title={title} className="da-section-title" />
         <p className="da-section-subtitle">{intro}</p>
       </div>
-      <div className="da-container da-process-grid">
+      <div
+        className={cn(
+          "da-container da-process-grid",
+          steps.length >= 5 && "da-process-grid--5",
+        )}
+      >
         {steps.map((step) => (
           <article key={step.title} className="da-process-step">
             <span className={`da-process-num ${step.num % 2 === 0 ? "da-process-num--alt" : ""}`}>{step.num}</span>
@@ -136,7 +143,7 @@ export function TechnologyExploreSections({
     <>
       <section className="da-section da-section-light da-explore-section">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">{services.title}</h2>
+          <SplitSectionHeading as="h2" title={services.title} className="da-section-title" />
           <p className="da-section-subtitle">{services.subtitle}</p>
         </div>
         <TechnologyCapabilityGrid className="da-explore-cards-grid">
@@ -161,7 +168,7 @@ export function TechnologyExploreSections({
 
       <section className="da-section da-explore-section">
         <div className="da-container da-section-head">
-          <h2 className="da-section-title">{hire.title}</h2>
+          <SplitSectionHeading as="h2" title={hire.title} className="da-section-title" />
           <p className="da-section-subtitle">{hire.subtitle}</p>
         </div>
         <TechnologyCapabilityGrid className="da-explore-cards-grid">
@@ -192,7 +199,12 @@ export function TechnologyFaqSection({ faqs }: { faqs: Faq[] }) {
     <section className="da-section da-faq-section">
       <div className="faq-section-layout da-faq-wrap">
         <div className="da-faq-heading">
-          <h2>Frequently Asked Questions</h2>
+          <SplitSectionHeading
+            as="h2"
+            titleBefore="Frequently Asked "
+            titleAccent="Questions"
+            className="da-section-title"
+          />
         </div>
         <div className="da-faq-list">
           {faqs.map((item) => (
@@ -219,7 +231,7 @@ export function TechnologyCtaSection({
     <section className="da-section da-cta-section">
       <div className="da-container">
         <div className="hire-resources-cta da-cta-card text-center">
-          <h2 className="da-cta-title">{title}</h2>
+          <SplitSectionHeading as="h2" title={title} inverted className="da-cta-title" />
           <p className="da-cta-subtitle">{subtitle}</p>
           <div className="da-cta-actions">
             <Link href="/contact" className="da-cta-btn da-cta-btn-primary" title={primaryLabel}>

@@ -6,10 +6,14 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { FAQSection } from "@/components/service-page/FAQSection"
 import { SectionHead } from "@/components/service-page/SectionHead"
+import { ServiceCapabilitiesGrid } from "@/components/service-page/ServiceCapabilitiesGrid"
+import { ServiceTechCategoriesGrid } from "@/components/service-page/ServiceTechCategoriesGrid"
+import { ServiceIconCardGrid } from "@/components/service-page/ServiceIconCardGrid"
 import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
 import { ServiceHeroViewport } from "@/components/service-page/ServiceHeroViewport"
 import { ServiceStatRow } from "@/components/service-page/ServiceStatRow"
+import { ServiceHeroSubheading } from "@/components/service-page/ServiceHeroSubheading"
 import { ServicePageCta } from "@/components/service-page/ServicePageCta"
 import {
   benefits,
@@ -20,6 +24,8 @@ import {
   teamStats,
   techCategories,
   trustStats,
+  heroSubheading,
+  heroCta,
   whyToadster,
 } from "./data"
 
@@ -157,17 +163,19 @@ export default function PenetrationTestingPage() {
       >
         <div className="service-hero-grid relative mx-auto grid w-full items-center gap-8 lg:gap-14">
           <div className="service-hero-content self-center">
-            <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
+            <h1 className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
 
               Penetration Testing
 
             </h1>
+            <ServiceHeroSubheading text={heroSubheading} />
+
             <p className="service-hero-subtitle mb-8 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
               Most businesses only discover security vulnerabilities after a breach. We find them first - through
               structured, real-world attack simulations that expose exactly what your defences are missing.
             </p>
 
-            <ServiceStatRow stats={trustStats} />
+            <ServiceStatRow stats={trustStats} ctaLabel={heroCta.label} ctaHref={heroCta.href} />
           </div>
 
           <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="service-hero-form hide-scrollbar">
@@ -187,44 +195,7 @@ export default function PenetrationTestingPage() {
             title="Penetration testing services built for real risk"
             subtitle="Every engagement is scoped to your actual environment - not a generic checklist. Here is what we cover."
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {capabilities.map((cap) => {
-              const Icon = cap.icon
-              return (
-                <div
-                  key={cap.title}
-                  className="capability-card-surface group relative rounded-2xl p-7 transition-all duration-300"
-                >
-                  <div className="capability-card-header relative z-10">
-                    <div className="flex items-start justify-between gap-3">
-                      <h3 className="text-lg font-bold text-toadster-green flex-1">{cap.title}</h3>
-                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md ml-4">
-                        <Icon size={22} strokeWidth={2} />
-                      </span>
-                    </div>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{cap.desc}</p>
-                  <p className="relative z-10 mb-4 text-sm font-semibold text-toadster-green">→ {cap.value}</p>
-                  <div className="relative z-10 border-t border-page-border pt-4">
-                    <p className="capability-card-copy mb-2 text-[11px] font-bold uppercase tracking-wider">
-                      Focus Areas
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {cap.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="capability-card-tag rounded border border-page-border bg-page-bg-alt px-2.5 py-1 text-xs"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <ServiceCapabilitiesGrid capabilities={capabilities} columns="three" tagsLabel="Focus Areas" compact={false} />
         </div>
       </section>
 
@@ -293,38 +264,7 @@ export default function PenetrationTestingPage() {
             title="The tools behind the testing"
             subtitle="We use industry-standard tooling, combined with custom scripts and manual techniques that go beyond what commercial platforms can do."
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {techCategories.map((cat) => {
-              const Icon = cat.icon
-              return (
-                <div
-                  key={cat.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <div className="capability-card-header relative z-10">
-                    <div className="flex items-start justify-between gap-3">
-                      <h3 className="text-lg font-bold text-toadster-green">{cat.title}</h3>
-                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                        <Icon size={22} strokeWidth={2} />
-                      </span>
-                    </div>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{cat.why}</p>
-                  <div className="relative z-10 flex flex-wrap gap-2">
-                    {cat.pills.map((pill) => (
-                      <span
-                        key={pill}
-                        className="capability-card-tag rounded-full border border-page-border bg-page-bg-alt px-3 py-1 text-xs font-semibold"
-                      >
-                        {pill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <ServiceTechCategoriesGrid categories={techCategories} />
         </div>
       </section>
 
@@ -380,26 +320,7 @@ export default function PenetrationTestingPage() {
             title="What good penetration testing actually delivers"
             subtitle="Beyond the report, here is what you actually get from a well-run engagement."
           />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                    <Icon size={22} strokeWidth={2} />
-                  </span>
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="font-bold text-toadster-green">{item.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              )
-            })}
-          </div>
+          <ServiceIconCardGrid items={benefits} />
         </div>
       </section>
 

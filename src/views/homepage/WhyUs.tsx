@@ -99,8 +99,8 @@ const WhyUs = () => {
                 Trusted AI Development Partner
               </div> */}
 
-              <h2 className="why-us-heading text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-[2.75rem]">
-                <span className="text-slate-900 dark:text-white">Why Choose </span>
+              <h2 className="why-us-heading text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl">
+                <span className="text-black dark:text-white">Why Choose </span>
                 <span className="text-toadster-green">Us</span>
               </h2>
 

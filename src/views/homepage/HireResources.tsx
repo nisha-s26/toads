@@ -78,8 +78,8 @@ export default function HireResources() {
     <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center px-4 pb-8 pt-0 sm:px-0">
       <div className="hire-page-container">
         <ScrollReveal className="mb-8 text-center md:mb-10">
-          <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
-            <span className="text-page-fg">Hire </span>
+          <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl md:text-5xl">
+            <span className="text-black dark:text-white">Hire </span>
             <span className="text-toadster-green">Dedicated Resources</span>
           </h2>
           <p className="mx-auto max-w-3xl text-sm leading-relaxed text-page-fg-muted sm:text-base md:text-lg">

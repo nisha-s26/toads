@@ -4,7 +4,6 @@ import type { ComponentType, ReactNode } from "react"
 import {
   Mail,
   Phone,
-  MapPin,
   Linkedin,
   Instagram,
   Youtube,
@@ -62,6 +61,29 @@ const HIRE_RESOURCE_LINKS: InternalLink[] = HIRE_RESOURCES.map((resource) => ({
 }))
 
 const FOOTER_LINK_LIMIT = 6
+
+const OFFICE_LOCATIONS: {
+  flag: string
+  country: string
+  title?: string
+  lines: string[]
+}[] = [
+  {
+    flag: "🇮🇳",
+    country: "India",
+    lines: ["JAV Tower, H17, H Block, Sector 63, Noida, UP 201309"],
+  },
+  {
+    flag: "🇦🇪",
+    country: "UAE",
+    lines: ["Level 1, Avenue Gate, South Zone, DIFC, Dubai, UAE"],
+  },
+  {
+    flag: "🇺🇸",
+    country: "United States",
+    lines: ["17350 STATE HWY 249,", "STE 220, HOUSTON,", "TEXAS, 77064, U.S.A"],
+  },
+]
 
 const FOOTER_SERVICE_LINKS = SERVICE_LINKS.slice(0, FOOTER_LINK_LIMIT)
 const FOOTER_HIRE_RESOURCE_LINKS = HIRE_RESOURCE_LINKS.slice(0, FOOTER_LINK_LIMIT)
@@ -209,32 +231,34 @@ function ContactDetails({ compact = false }: { compact?: boolean }) {
         </span>
         <FooterExternalLink href="tel:+919220517988" label="+91 92205 17988" />
       </li>
-      <li className={cn("flex items-start", rowGap)}>
-        <span
-          className={cn(
-            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white",
-            iconBox,
-          )}
-        >
-          <MapPin size={iconSize} />
-        </span>
-        <span className={textClass}>
-          JAV Tower, H17, H Block, Sector 63, Noida, UP 201309
-        </span>
-      </li>
-      <li className={cn("flex items-start", rowGap)}>
-        <span
-          className={cn(
-            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white",
-            iconBox,
-          )}
-        >
-          <MapPin size={iconSize} />
-        </span>
-        <span className={textClass}>
-          Level 1, Avenue Gate, South Zone, DIFC, Dubai, UAE
-        </span>
-      </li>
+      {OFFICE_LOCATIONS.map((location) => (
+        <li key={location.country} className={cn("flex items-start", rowGap)}>
+          <span
+            className={cn(
+              "mt-0.5 flex shrink-0 items-center justify-center text-lg leading-none",
+              iconBox,
+            )}
+            role="img"
+            aria-label={`${location.country} office`}
+          >
+            {location.flag}
+          </span>
+          <span className={textClass}>
+            {location.title ? (
+              <>
+                <span className="block font-semibold">{location.title}</span>
+                {location.lines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </>
+            ) : (
+              location.lines.join(", ")
+            )}
+          </span>
+        </li>
+      ))}
     </ul>
   )
 }

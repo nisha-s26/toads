@@ -28,11 +28,18 @@ import {
 } from "lucide-react"
 
 export const trustStats = [
-  { number: "99.5%", label: "Average uptime SLA across supported applications" },
-  { number: "<4h", label: "Critical incident response time" },
-  { number: "120+", label: "Applications under active support" },
-  { number: "24/7", label: "Monitoring and on-call coverage available" },
+  { number: "99.5% SLA", label: "Average uptime across supported applications" },
+  { number: "<4h Response", label: "Critical incident response time" },
+  { number: "24/7 Coverage", label: "Monitoring and on-call available" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Keep Your Applications Running — Reliably, Every Day."
+
+export const heroCta = {
+  label: "Talk to Our Support Team",
+  href: "#contact-form",
+}
 
 export const capabilities: {
   icon: LucideIcon

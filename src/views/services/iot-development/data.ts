@@ -41,8 +41,16 @@ export const heroTrustItems = [
 export const trustStats = [
   { number: "End-to-End", label: "Hardware to cloud to dashboard" },
   { number: "Multi-Protocol", label: "MQTT · CoAP · BLE · LoRa · Zigbee" },
-  { number: "3 Regions", label: "India · UAE · Saudi Arabia · US" },
+  { number: "Edge-to-Cloud", label: "Devices, gateways, and analytics connected" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Connected Devices That Turn Data Into Decisions."
+
+export const heroCta = {
+  label: "Talk to an IoT Specialist",
+  href: "#contact-form",
+}
 
 export const capabilities: {
   icon: LucideIcon

@@ -24,8 +24,9 @@ import {
   Smartphone,
   type LucideIcon,
 } from "lucide-react"
-import { HubFeatureCard, HubSectionHeader, HubTable } from "@/components/hire/HireHubUi"
+import { HubTable } from "@/components/hire/HireHubUi"
 import { HireHubCard } from "@/components/hire/HireHubCard"
+import { HireRoleCard } from "@/components/homepage/HireRoleCard"
 import { HomepageFaqItem } from "@/components/homepage/HomepageFaqItem"
 import { ScrollReveal } from "@/components/ScrollReveal"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
@@ -73,32 +74,7 @@ function scrollToAllServices() {
   document.getElementById("all-services")?.scrollIntoView({ behavior: "smooth", block: "start" })
 }
 
-function SectionHeading({
-  titleBefore,
-  titleAccent,
-  intro,
-  delay = 0,
-}: {
-  titleBefore: string
-  titleAccent: string
-  intro?: string
-  delay?: number
-}) {
-  return (
-    <ScrollReveal className="mb-8 w-full text-center md:mb-10" delay={delay}>
-      <h2 className="text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl">
-        <span className="text-page-fg">{titleBefore}</span>
-        <span className="text-toadster-green">{titleAccent}</span>
-      </h2>
-      {intro ? (
-        <p className="mx-auto mt-4 w-full max-w-3xl text-sm leading-relaxed text-page-fg-muted sm:text-base md:text-lg">
-          {intro}
-        </p>
-      ) : null}
-    </ScrollReveal>
-  )
-}
-
+import { PageSectionHeading } from "@/components/PageSectionHeading"
 function useInViewOnce(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
@@ -360,24 +336,18 @@ export default function ServicesHubPage() {
               className="hidden object-cover object-center dark:block"
             />
           </div>
+          <div className="services-hub-hero-blur absolute inset-0" aria-hidden />
           <div className="homepage-hero-bg-overlay absolute inset-0" />
           <div
             className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/35 via-white/20 to-white/30 dark:hidden"
             aria-hidden
           />
-          <div
-            className="pointer-events-none absolute inset-0 hidden bg-black/45 dark:block"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-0 hidden bg-gradient-to-b from-black/80 via-black/72 to-black/78 dark:block"
-            aria-hidden
-          />
+          <div className="services-hub-hero-dark-tint pointer-events-none absolute inset-0 hidden dark:block" aria-hidden />
         </div>
 
         <div className="relative z-10 flex w-full flex-col items-start px-4 pb-4 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:px-6 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
           <div className="hire-page-container w-full">
-            <div className="flex w-full max-w-4xl flex-col items-start py-10 text-left sm:py-12 lg:py-14">
+            <div className="services-hub-hero-copy flex w-full max-w-full flex-col items-start py-10 text-left sm:py-12 lg:py-14">
               <h1 className="hero-enter-delay-1 w-full text-3xl font-extrabold leading-[1.08] text-black dark:text-white dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
                 {heroContent.title}
               </h1>
@@ -404,7 +374,7 @@ export default function ServicesHubPage() {
                 </button>
                 <Link
                   href="/contact"
-                  className="inline-flex h-11 items-center justify-center rounded-xl border border-page-border-strong px-7 py-3.5 text-sm font-semibold text-black transition-colors hover:-translate-y-0.5 hover:bg-page-fg/5 dark:border-white/45 dark:text-white dark:hover:bg-white/10"
+                  className="inline-flex h-11 items-center justify-center rounded-xl border border-white bg-white px-7 py-3.5 text-sm font-semibold text-slate-900 shadow-sm transition-all hover:-translate-y-0.5 hover:bg-white/90"
                 >
                   {heroContent.secondaryCta}
                 </Link>
@@ -431,7 +401,7 @@ export default function ServicesHubPage() {
 
       <section className="hire-hub-section relative">
         <div className="hire-page-container w-full">
-          <SectionHeading titleBefore="What We " titleAccent="Do" />
+          <PageSectionHeading titleBefore="What We " titleAccent="Do" />
           <p className="mx-auto mb-10 max-w-3xl text-center text-sm leading-relaxed text-page-fg-muted sm:text-base">
             Our services fall into five practice areas, each staffed by engineers who specialise in that domain rather
             than generalists spread thin across every technology we offer.
@@ -439,11 +409,11 @@ export default function ServicesHubPage() {
           <div className="hire-hub-cards-grid hire-hub-cards-grid--2">
             {practiceAreas.map((area, index) => (
               <ScrollReveal key={area.title} delay={index * STAGGER_STEP} className="h-full">
-                <HireHubCard
+                <HireRoleCard
                   title={area.title}
                   description={area.description}
                   icon={PRACTICE_ICONS[index] ?? area.icon}
-                  variant="feature"
+                  index={index}
                 />
               </ScrollReveal>
             ))}
@@ -453,7 +423,7 @@ export default function ServicesHubPage() {
 
       <section id="all-services" className="hire-hub-section relative scroll-mt-28">
         <div className="hire-page-container w-full">
-          <SectionHeading
+          <PageSectionHeading
             titleBefore="All "
             titleAccent="Services"
             intro={allServicesSection.intro}
@@ -464,42 +434,37 @@ export default function ServicesHubPage() {
 
       <section className="hire-hub-section relative">
         <div className="hire-page-container w-full">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
-            <ScrollReveal>
-              <HubSectionHeader
-                eyebrow="Integrated delivery"
-                title={togetherSection.title}
-                intro={togetherSection.paragraphs[0]}
-              />
-              <p className="text-sm leading-relaxed text-page-fg-muted md:text-base">{togetherSection.paragraphs[1]}</p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.12}>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {practiceAreas.map((area, index) => (
-                  <div key={area.title} className="hire-hub-feature-card">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-toadster-green/12 text-toadster-green">
-                      {(() => {
-                        const Icon = PRACTICE_ICONS[index] ?? area.icon
-                        return <Icon className="h-5 w-5" strokeWidth={1.75} />
-                      })()}
-                    </span>
-                    <h3 className="mt-4 text-base font-bold text-slate-900">{area.title}</h3>
-                    <div className="mt-4 h-0.5 w-10 rounded-full bg-toadster-green" />
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
+            <PageSectionHeading
+              titleBefore="Why These Services "
+              titleAccent="Work Together"
+              intro={togetherSection.paragraphs[0]}
+              introSecondary={togetherSection.paragraphs[1]}
+              align="left"
+              noMargin
+            />
+            <div className="hire-hub-cards-grid hire-hub-cards-grid--2">
+              {practiceAreas.map((area, index) => (
+                <ScrollReveal key={area.title} delay={0.08 + index * STAGGER_STEP} className="h-full">
+                  <HireRoleCard
+                    title={area.title}
+                    description={area.description}
+                    icon={PRACTICE_ICONS[index] ?? area.icon}
+                    index={index}
+                  />
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="service-process-section section-padding py-16">
-        <div className="service-process-panel mx-auto max-w-6xl px-6 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-14">
-          <HubSectionHeader
-            eyebrow="How we work"
-            title={deliveryProcess.title}
+        <div className="service-process-panel px-6 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-14">
+          <PageSectionHeading
+            titleBefore="Our Delivery "
+            titleAccent="Process"
             intro={deliveryProcess.intro}
-            centered
             inverted
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -519,7 +484,7 @@ export default function ServicesHubPage() {
 
       <section className="hire-hub-section relative">
         <div className="hire-page-container w-full">
-          <SectionHeading
+          <PageSectionHeading
             titleBefore="Engagement "
             titleAccent="Models"
             intro="How you engage us depends on how well-defined your scope already is. A fixed-scope project suits a clearly bounded deliverable; a dedicated team suits ongoing product development where requirements will keep evolving."
@@ -532,7 +497,7 @@ export default function ServicesHubPage() {
 
       <section className="hire-hub-section relative">
         <div className="hire-page-container w-full">
-          <SectionHeading
+          <PageSectionHeading
             titleBefore="Why Choose "
             titleAccent="Toadster Technologies"
             intro="Choosing a technology partner usually comes down to trust in their judgment as much as their technical ability. Here's what that looks like in practice."
@@ -540,10 +505,11 @@ export default function ServicesHubPage() {
           <div className="hire-hub-cards-grid hire-hub-cards-grid--2">
             {whyToadster.map((item, index) => (
               <ScrollReveal key={item.title} delay={index * STAGGER_STEP} className="h-full">
-                <HubFeatureCard
+                <HireRoleCard
                   title={item.title}
                   description={item.description}
                   icon={item.icon}
+                  index={index}
                 />
               </ScrollReveal>
             ))}
@@ -558,7 +524,7 @@ export default function ServicesHubPage() {
       <section id="services-hub-faq" className="hire-hub-section scroll-mt-28 pb-16">
         <div className="hire-page-container w-full">
           <div className="hire-hub-faq-wrap">
-            <SectionHeading titleBefore="Frequently Asked " titleAccent="Questions" />
+            <PageSectionHeading titleBefore="Frequently Asked " titleAccent="Questions" />
             <FaqList />
           </div>
         </div>

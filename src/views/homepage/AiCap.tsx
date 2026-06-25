@@ -67,8 +67,8 @@ export default function AiCap() {
   return (
     <section id="services" className="homepage-snap-section flex w-full flex-col justify-center px-4">
       <ScrollReveal className="mb-8 text-center">
-        <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
-          <span className="text-page-fg">AI </span>
+        <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl md:text-5xl">
+          <span className="text-black dark:text-white">AI </span>
           <span className="text-toadster-green">Capabilities</span>
         </h2>
         <p className="mx-auto max-w-7xl px-2 text-base text-page-fg-muted sm:px-0 sm:text-lg md:text-xl">

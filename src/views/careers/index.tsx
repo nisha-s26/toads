@@ -93,9 +93,9 @@ export default function Careers() {
             <section className="pt-16 pb-8 flex flex-col items-center text-center">
                 <span className="text-xl font-semibold tracking-widest text-green-400 mb-2">JOIN OUR TEAM</span>
                 <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
-                    <span className="text-page-fg">Build the </span>
-                    <span className="text-green-400">Future</span>
-                    <span className="text-page-fg"> with Us</span>
+                    <span className="text-black dark:text-white">Build the </span>
+                    <span className="text-toadster-green">Future</span>
+                    <span className="text-black dark:text-white"> with Us</span>
                 </h1>
                 <p className="text-page-fg-subtle text-lg max-w-2xl mx-auto">
                     Join a team of passionate innovators shaping the future of AI and technology.
@@ -109,8 +109,9 @@ export default function Careers() {
                         <p className="text-xl tracking-widest text-green-400 font-medium mb-3">
                             OUR VALUES
                         </p>
-                        <h2 className="text-4xl md:text-5xl font-bold text-page-fg">
-                            Why Work at <span className="text-green-400">Toadster</span>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                            <span className="text-black dark:text-white">Why Work at </span>
+                            <span className="text-toadster-green">Toadster</span>
                         </h2>
                     </div>
 
@@ -142,8 +143,9 @@ export default function Careers() {
                         <p className="text-xl tracking-widest text-green-400 font-medium mb-3">
                             OPEN POSITIONS
                         </p>
-                        <h2 className="text-4xl md:text-5xl font-bold text-page-fg mb-4">
-                            Current <span className="text-green-400">Opportunities</span>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                            <span className="text-black dark:text-white">Current </span>
+                            <span className="text-toadster-green">Opportunities</span>
                         </h2>
                         <p className="text-page-fg-subtle text-lg max-w-2xl mx-auto">
                             Join our growing team and help shape the future of AI technology.
@@ -211,8 +213,9 @@ export default function Careers() {
             {/* Contact Section */}
             <section className="py-20">
                 <div className="max-w-9xl mx-20 text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold text-page-fg mb-6">
-                        Ready to Join Our <span className="text-green-400">Team?</span>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                        <span className="text-black dark:text-white">Ready to Join Our </span>
+                        <span className="text-toadster-green">Team?</span>
                     </h2>
                     <p className="text-page-fg-subtle text-lg mb-8 max-w-2xl mx-auto">
                         Don't see a position that matches your skills? We're always looking for talented individuals.
@@ -252,8 +255,9 @@ export default function Careers() {
                         <p className="text-sm font-semibold tracking-[0.25em] text-toadster-green uppercase mb-2">
                             Get to Know Us
                         </p>
-                        <h2 className="text-2xl md:text-3xl font-bold text-page-fg">
-                            Before You Apply
+                        <h2 className="text-2xl font-bold md:text-3xl">
+                            <span className="text-black dark:text-white">Before You </span>
+                            <span className="text-toadster-green">Apply</span>
                         </h2>
                         <p className="text-page-fg-muted mt-2 max-w-xl mx-auto text-sm">
                             See what we build, who we are, and how we share what we learn.

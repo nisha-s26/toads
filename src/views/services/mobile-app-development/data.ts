@@ -34,10 +34,18 @@ export const heroTrustItems = [
 ]
 
 export const trustStats = [
-  { number: "50+", label: "Mobile apps delivered" },
-  { number: "iOS & Android", label: "Native + cross-platform" },
-  { number: "4-16", label: "Weeks MVP to full app" },
+  { number: "Native & Cross", label: "iOS · Android · Flutter · React Native" },
+  { number: "App Store Ready", label: "Launch, compliance, and ongoing updates" },
+  { number: "Full Stack", label: "Mobile frontends connected to real APIs" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Mobile Apps Your Users Actually Keep Using."
+
+export const heroCta = {
+  label: "Talk to a Mobile App Specialist",
+  href: "#contact-form",
+}
 
 export const capabilities: {
   icon: LucideIcon

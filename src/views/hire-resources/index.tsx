@@ -26,8 +26,9 @@ import {
   Wallet,
   type LucideIcon,
 } from "lucide-react"
-import { HireHubCard } from "@/components/hire/HireHubCard"
+import { HireRoleCard } from "@/components/homepage/HireRoleCard"
 import { HomepageFaqItem } from "@/components/homepage/HomepageFaqItem"
+import { PageSectionHeading } from "@/components/PageSectionHeading"
 import { ScrollReveal } from "@/components/ScrollReveal"
 import { cn } from "@/lib/utils"
 import {
@@ -61,41 +62,14 @@ const RESOURCE_TYPES_INITIAL_COUNT = 9
 const FAQ_INITIAL_COUNT = 5
 const REVEAL_COLLAPSE_MS = 420
 
+const CARD_GRID_CLASS = "grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+const FEATURE_GRID_CLASS = "grid gap-5 sm:grid-cols-2"
+
 const EXPERT_CTA_CLASS =
-  "inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-toadster-green transition-all hover:-translate-y-0.5 hover:bg-white/90"
+  "inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-toadster-green shadow-md transition-all hover:-translate-y-0.5 hover:bg-white/90 dark:bg-primary dark:text-white dark:shadow-md dark:ring-1 dark:ring-white/15 dark:hover:bg-primary-hover"
 
 const HERO_EXPERT_CTA_CLASS =
   "inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-primary-hover"
-
-function SectionHeading({
-  titleBefore,
-  titleAccent,
-  intro,
-  delay = 0,
-  titleClassName,
-}: {
-  titleBefore: string
-  titleAccent: string
-  intro?: string
-  delay?: number
-  titleClassName?: string
-}) {
-  return (
-    <ScrollReveal className="mb-7 w-full text-center md:mb-9" delay={delay}>
-      <h2
-        className={`text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-5xl${titleClassName ? ` ${titleClassName}` : ""}`}
-      >
-        <span className="text-page-fg">{titleBefore}</span>
-        <span className="text-toadster-green">{titleAccent}</span>
-      </h2>
-      {intro ? (
-        <p className="hire-hub-section-intro mx-auto mt-4 w-full text-sm leading-relaxed sm:text-base md:text-lg">
-          {intro}
-        </p>
-      ) : null}
-    </ScrollReveal>
-  )
-}
 
 function useInViewOnce(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null)
@@ -137,7 +111,11 @@ function SeeMoreToggle({
   return (
     <ScrollReveal className="mt-6 flex justify-center md:mt-8" delay={0.1}>
       {!expanded ? (
-        <button type="button" onClick={onSeeMore} className="hire-hub-toggle-btn hire-hub-toggle-btn--more">
+        <button
+          type="button"
+          onClick={onSeeMore}
+          className="inline-flex w-fit items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
+        >
           See more
           <ChevronDown className="h-4 w-4" aria-hidden />
         </button>
@@ -146,7 +124,7 @@ function SeeMoreToggle({
           type="button"
           onClick={onSeeLess}
           disabled={collapsing}
-          className="hire-hub-toggle-btn hire-hub-toggle-btn--less"
+          className="inline-flex w-fit items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md disabled:opacity-60"
         >
           See less
           <ChevronUp className="h-4 w-4" aria-hidden />
@@ -180,7 +158,7 @@ function FaqList() {
 
   return (
     <>
-      <div ref={ref} className="flex w-full flex-col gap-3">
+      <div ref={ref} className="flex w-full flex-col gap-2.5">
         {visibleFaqs.map((faq, index) => {
           const isExtra = index >= FAQ_INITIAL_COUNT
 
@@ -243,16 +221,16 @@ function ResourceTypesGrid() {
 
   return (
     <>
-      <div className="hire-hub-cards-grid hire-hub-cards-grid--3">
+      <div className={CARD_GRID_CLASS}>
         {visibleItems.map((item, index) => {
           const isExtra = index >= RESOURCE_TYPES_INITIAL_COUNT
           const card = (
-            <HireHubCard
+            <HireRoleCard
               title={item.title}
               description={item.description}
               icon={RESOURCE_ICONS[index] ?? Code2}
               href={item.href}
-              variant="resource"
+              index={index}
             />
           )
 
@@ -296,17 +274,17 @@ function CtaPanel() {
   const { ref, visible } = useInViewOnce(0.2)
 
   return (
-    <div ref={ref} className="hire-page-container w-full">
+    <div ref={ref} className="hire-page-container">
       <div
         className={cn(
           "hire-resources-cta hire-hub-cta-panel relative overflow-hidden rounded-[1.75rem] px-6 py-10 text-center sm:px-10 sm:py-12 md:px-14 md:py-14",
           visible && "hire-hub-cta-panel--visible",
         )}
       >
-        <h2 className="mx-auto max-w-3xl text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl">
+        <h3 className="mx-auto max-w-2xl text-2xl font-bold leading-tight text-white md:text-3xl">
           {ctaSection.title}
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
+        </h3>
+        <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/80">
           {ctaSection.description}
         </p>
         <div className="mt-8 flex justify-center">
@@ -349,38 +327,27 @@ export default function HireResourcesHubPage() {
               className="hidden object-cover object-center dark:block"
             />
           </div>
+          <div className="services-hub-hero-blur absolute inset-0" aria-hidden />
           <div className="homepage-hero-bg-overlay absolute inset-0" />
-          <div className="hire-hub-hero-bg-overlay absolute inset-0" />
-          <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#065606]/22 via-[#065606]/14 to-[#044404]/26 dark:hidden"
-            aria-hidden
-          />
           <div
             className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/35 via-white/20 to-white/30 dark:hidden"
             aria-hidden
           />
-          <div
-            className="pointer-events-none absolute inset-0 hidden bg-black/45 dark:block"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-0 hidden bg-gradient-to-b from-[#022802]/80 via-[#065606]/72 to-black/78 dark:block"
-            aria-hidden
-          />
+          <div className="services-hub-hero-dark-tint pointer-events-none absolute inset-0 hidden dark:block" aria-hidden />
         </div>
 
-        <div className="relative z-10 flex w-full flex-col items-start px-4 pb-4 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:px-6 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
-          <div className="hire-page-container w-full">
-            <div className="flex w-full max-w-4xl flex-col items-start py-10 text-left sm:py-12 lg:py-14">
-            <h1 className="hero-enter-delay-1 w-full text-3xl font-extrabold leading-[1.08] dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+        <div className="relative z-10 flex w-full flex-1 flex-col items-start justify-center pb-4 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
+          <div className="hire-page-container">
+            <div className="flex w-full flex-col items-start py-6 text-left sm:py-8 lg:py-10">
+            <h1 className="hero-enter-delay-1 w-full text-3xl font-extrabold leading-[1.08] text-[var(--page-hero-fg)] sm:text-4xl md:text-5xl lg:text-[3.25rem] dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
               <span className="text-black dark:text-white">Hire Dedicated Developers & </span>
-              <span className="text-toadster-green dark:text-green-400">Technology Resources</span>
+              <span className="text-toadster-green dark:text-[var(--page-hero-accent)]">Technology Resources</span>
             </h1>
             {heroContent.paragraphs.map((paragraph, index) => (
               <p
                 key={paragraph}
                 className={cn(
-                  "mt-4 w-full text-sm font-medium leading-relaxed text-black dark:text-white dark:drop-shadow-[0_1px_10px_rgba(0,0,0,0.85)] sm:text-base md:text-lg",
+                  "mt-4 w-full text-sm font-medium leading-relaxed text-black dark:text-[var(--page-hero-fg-muted)] dark:drop-shadow-[0_1px_10px_rgba(0,0,0,0.85)] sm:text-base md:text-lg",
                   index === 0 ? "hero-enter-delay-2" : "hero-enter-delay-3",
                 )}
               >
@@ -395,11 +362,11 @@ export default function HireResourcesHubPage() {
               </Link>
             </div>
 
-            <div className="hire-hub-hero-badges hero-enter-delay-4 mt-8 flex w-full flex-wrap items-center justify-start gap-x-4 gap-y-2 text-xs font-semibold text-black dark:!text-white dark:drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)] sm:text-sm">
+            <div className="hire-hub-hero-badges hero-enter-delay-4 mt-8 flex w-full flex-wrap items-center justify-start gap-x-4 gap-y-2 text-xs font-semibold text-black dark:text-[var(--page-hero-fg-muted)] dark:drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)] sm:text-sm">
               {heroContent.badges.map((badge, index) => (
                 <span
                   key={badge}
-                  className="flex items-center gap-4 dark:!text-white"
+                  className="flex items-center gap-4"
                   style={{ ["--badge-index" as string]: index }}
                 >
                   {index > 0 ? (
@@ -417,21 +384,23 @@ export default function HireResourcesHubPage() {
       </section>
 
       {/* Why Hire Dedicated Resources */}
-      <section className="hire-hub-section relative">
-        <div className="hire-page-container w-full">
-          <SectionHeading
+      <section className="hire-hub-section homepage-snap-section relative px-4 sm:px-0">
+        <div className="hire-page-container">
+          <PageSectionHeading
             titleBefore="Why Hire "
             titleAccent="Dedicated Resources"
             intro={whyHireSection.intro}
+            introClassName="max-w-none"
+            headingClassName="mb-4"
           />
-          <div className="hire-hub-cards-grid hire-hub-cards-grid--3">
+          <div className={CARD_GRID_CLASS}>
             {whyHireSection.benefits.map((benefit, index) => (
               <ScrollReveal key={benefit.title} delay={index * STAGGER_STEP} className="h-full">
-                <HireHubCard
+                <HireRoleCard
                   title={benefit.title}
                   description={benefit.body}
                   icon={WHY_HIRE_ICONS[index] ?? Clock}
-                  variant="benefit"
+                  index={index}
                 />
               </ScrollReveal>
             ))}
@@ -440,33 +409,37 @@ export default function HireResourcesHubPage() {
       </section>
 
       {/* Resource Types Available */}
-      <section id="resource-types" className="hire-hub-section relative scroll-mt-28">
-        <div className="hire-page-container w-full">
-          <SectionHeading
+      <section id="resource-types" className="hire-hub-section homepage-snap-section relative scroll-mt-28 px-4 sm:px-0">
+        <div className="hire-page-container">
+          <PageSectionHeading
             titleBefore="Resource Types "
             titleAccent="Available"
             intro={resourceTypesSection.intro}
+            introClassName="max-w-none"
+            headingClassName="mb-4"
           />
           <ResourceTypesGrid />
         </div>
       </section>
 
       {/* Why Choose Toadster */}
-      <section className="hire-hub-section relative">
-        <div className="hire-page-container w-full">
-          <SectionHeading
+      <section className="hire-hub-section homepage-snap-section relative px-4 sm:px-0">
+        <div className="hire-page-container">
+          <PageSectionHeading
             titleBefore="Why Choose "
             titleAccent="Toadster Technologies"
             intro={whyToadsterection.intro}
+            introClassName="max-w-none"
+            headingClassName="mb-4"
           />
-          <div className="hire-hub-cards-grid hire-hub-cards-grid--2">
+          <div className={FEATURE_GRID_CLASS}>
             {whyToadsterection.items.map((item, index) => (
               <ScrollReveal key={item.title} delay={index * STAGGER_STEP} className="h-full">
-                <HireHubCard
+                <HireRoleCard
                   title={item.title}
                   description={item.body}
                   icon={WHY_TOADSTER_ICONS[index] ?? ShieldCheck}
-                  variant="feature"
+                  index={index}
                 />
               </ScrollReveal>
             ))}
@@ -475,21 +448,19 @@ export default function HireResourcesHubPage() {
       </section>
 
       {/* CTA */}
-      <section id="hire-hub-cta" className="hire-hub-section scroll-mt-28">
+      <section id="hire-hub-cta" className="hire-hub-section homepage-snap-section scroll-mt-28 px-4 sm:px-0">
         <CtaPanel />
       </section>
 
       {/* FAQs */}
-      <section id="hire-hub-faq" className="hire-hub-section scroll-mt-28">
-        <div className="hire-page-container w-full">
-          <div className="hire-hub-faq-wrap">
-            <SectionHeading
-              titleBefore="Frequently Asked "
-              titleAccent="Questions"
-              titleClassName="hire-faq-title"
-            />
-            <FaqList />
-          </div>
+      <section id="hire-hub-faq" className="hire-hub-section homepage-snap-section scroll-mt-28 px-4 sm:px-0">
+        <div className="hire-page-container">
+          <PageSectionHeading
+            titleBefore="Frequently Asked "
+            titleAccent="Questions"
+            headingClassName="mb-4"
+          />
+          <FaqList />
         </div>
       </section>
     </main>

@@ -19,8 +19,8 @@ export type HireHubCardProps = {
 function CardHeader({ title, icon: Icon }: { title: string; icon: LucideIcon }) {
   return (
     <div className="capability-card-header hire-hub-card-header">
-      <div className="flex min-h-11 items-center justify-between gap-3 overflow-visible">
-        <h3 className="hire-hub-card-title min-w-0 flex-1">{title}</h3>
+      <div className="flex min-h-11 items-start justify-between gap-3 overflow-visible">
+        <h3 className="hire-hub-card-title">{title}</h3>
         <span className="hire-hub-card-icon hire-hub-card-icon--lg shrink-0">
           <Icon size={22} strokeWidth={2} />
         </span>
@@ -49,7 +49,7 @@ export function HireHubCard({
         <p className={cn("hire-hub-card-copy", isResource ? "mt-3" : "mt-1")}>{description}</p>
 
         {isResource ? (
-          <span className="hire-hub-card-explore mt-auto inline-flex items-center gap-1.5 pt-5 text-xs font-bold uppercase tracking-[0.18em] text-toadster-green">
+          <span className="hire-hub-card-explore mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-bold tracking-[0.14em] text-toadster-green">
             {exploreLabel}
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={2.25} />
           </span>

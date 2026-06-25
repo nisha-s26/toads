@@ -147,8 +147,9 @@ export default function Solutions() {
       <div className="mx-auto max-w-9xl px-4 lg:px-20">
         <div className="mb-14 text-center">
           <p className="section-eyebrow-heading text-2xl font-bold tracking-[0.35em]">SOLUTIONS</p>
-          <h2 className="mt-3 text-4xl font-bold text-page-fg md:text-6xl">
-            What We <span className="text-toadster-green">Deliver</span>
+          <h2 className="mt-3 text-4xl font-bold md:text-5xl">
+            <span className="text-black dark:text-white">What We </span>
+            <span className="text-toadster-green">Deliver</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-page-fg-subtle">
             Comprehensive technology solutions from concept to scale.

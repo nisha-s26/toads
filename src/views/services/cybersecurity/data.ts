@@ -27,11 +27,18 @@ import {
 } from "lucide-react"
 
 export const trustStats = [
-  { number: "200+", label: "Security assessments completed" },
-  { number: "98%", label: "Client satisfaction rate" },
-  { number: "Zero", label: "Breaches post-engagement for retained clients" },
-  { number: "3 TZ", label: "IST · GST · EST coverage" },
+  { number: "Assessments", label: "Full security posture reviews" },
+  { number: "Compliance", label: "SOC 2 · ISO 27001 · industry frameworks" },
+  { number: "Incident Ready", label: "Detection, response, and recovery plans" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Security That Actually Protects Your Business."
+
+export const heroCta = {
+  label: "Talk to a Cybersecurity Specialist",
+  href: "#contact-form",
+}
 
 export const capabilities: {
   icon: LucideIcon

@@ -1,17 +1,19 @@
 "use client"
 
-import Link from "next/link"
 import { useState } from "react"
-import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { FAQSection } from "@/components/service-page/FAQSection"
 import { SectionHead } from "@/components/service-page/SectionHead"
+import { ServiceCapabilitiesGrid } from "@/components/service-page/ServiceCapabilitiesGrid"
+import { ServiceTechCategoriesGrid } from "@/components/service-page/ServiceTechCategoriesGrid"
+import { ServiceIconCardGrid } from "@/components/service-page/ServiceIconCardGrid"
 import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
 import { ServiceHeroViewport } from "@/components/service-page/ServiceHeroViewport"
 import { ServiceStatRow } from "@/components/service-page/ServiceStatRow"
+import { ServiceHeroSubheading } from "@/components/service-page/ServiceHeroSubheading"
 import { ServicePageCta } from "@/components/service-page/ServicePageCta"
 import {
   benefits,
@@ -23,6 +25,8 @@ import {
   teamRoles,
   techCategories,
   trustStats,
+  heroSubheading,
+  heroCta,
   useCases,
   whyToadster,
 } from "./data"
@@ -164,9 +168,7 @@ export default function AgenticAIPage() {
               <h1 className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-page-fg md:text-5xl lg:text-[3.25rem]">
                 Agentic AI
               </h1>
-              <p className="mb-6 text-xl font-semibold text-toadster-green md:text-2xl">
-                AI That Doesn&apos;t Just Answer. It Acts.
-              </p>
+              <ServiceHeroSubheading text={heroSubheading} />
               <p className="service-hero-subtitle mb-5 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
                 A chatbot that answers a question is useful. An agent that reads the question, checks three systems,
                 makes a decision within defined boundaries, takes an action, and reports back what it did - that&apos;s a
@@ -178,23 +180,7 @@ export default function AgenticAIPage() {
                 guardrails, evaluation, and human oversight that keep them safe and reliable in production.
               </p>
 
-              <ServiceStatRow stats={trustStats} />
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="#contact-form"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-                >
-                  Talk to an Agentic AI Specialist
-                  <ArrowRight size={16} />
-                </Link>
-                <Link
-                  href="#use-cases"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-page-border bg-page-bg-alt px-6 py-3 text-sm font-semibold text-page-fg transition-colors hover:border-toadster-green/40"
-                >
-                  See Our Work
-                </Link>
-              </div>
+              <ServiceStatRow stats={trustStats} ctaLabel={heroCta.label} ctaHref={heroCta.href} />
             </div>
 
             <div
@@ -216,44 +202,7 @@ export default function AgenticAIPage() {
             title="Agentic AI Services Built for Real Operations"
             subtitle="Agentic AI spans a range of capabilities and architectures. Here's what we design and build, matched to the complexity your use case actually requires."
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {capabilities.map((cap) => {
-              const Icon = cap.icon
-              return (
-                <div
-                  key={cap.title}
-                  className="capability-card-surface group relative rounded-2xl p-7 transition-all duration-300"
-                >
-                  <div className="capability-card-header relative z-10">
-                    <div className="flex items-start justify-between gap-3">
-                      <h3 className="flex-1 text-lg font-bold text-toadster-green">{cap.title}</h3>
-                      <span className="ml-4 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                        <Icon size={22} strokeWidth={2} />
-                      </span>
-                    </div>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{cap.desc}</p>
-                  <p className="relative z-10 mb-4 text-sm font-semibold text-toadster-green">→ {cap.value}</p>
-                  <div className="relative z-10 border-t border-page-border pt-4">
-                    <p className="capability-card-copy mb-2 text-[11px] font-bold uppercase tracking-wider">
-                      Focus Areas
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {cap.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="capability-card-tag rounded border border-page-border bg-page-bg-alt px-2.5 py-1 text-xs"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <ServiceCapabilitiesGrid capabilities={capabilities} columns="three" tagsLabel="Focus Areas" compact={false} />
         </div>
       </section>
 
@@ -264,26 +213,7 @@ export default function AgenticAIPage() {
             title="What Businesses Are Actually Using Agentic AI For"
             subtitle="Agentic AI is most valuable where a task involves multiple steps, requires checking or combining information from more than one source, and follows rules that can be clearly defined."
           />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {useCases.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                    <Icon size={22} strokeWidth={2} />
-                  </span>
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="font-bold text-toadster-green">{item.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              )
-            })}
-          </div>
+          <ServiceIconCardGrid items={useCases} scrollTargetId="use-cases" />
         </div>
       </section>
 
@@ -350,38 +280,7 @@ export default function AgenticAIPage() {
             title="The Frameworks and Platforms We Work With"
             subtitle="Agentic AI tooling is evolving quickly. We work across the leading frameworks and choose based on your specific orchestration, reliability, and integration requirements."
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {techCategories.map((cat) => {
-              const Icon = cat.icon
-              return (
-                <div
-                  key={cat.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <div className="capability-card-header relative z-10">
-                    <div className="flex items-start justify-between gap-3">
-                      <h3 className="text-lg font-bold text-toadster-green">{cat.title}</h3>
-                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                        <Icon size={22} strokeWidth={2} />
-                      </span>
-                    </div>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{cat.why}</p>
-                  <div className="relative z-10 flex flex-wrap gap-2">
-                    {cat.pills.map((pill) => (
-                      <span
-                        key={pill}
-                        className="capability-card-tag rounded-full border border-page-border bg-page-bg-alt px-3 py-1 text-xs font-semibold"
-                      >
-                        {pill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <ServiceTechCategoriesGrid categories={techCategories} />
         </div>
       </section>
 
@@ -435,26 +334,7 @@ export default function AgenticAIPage() {
             title="What Well-Built Agentic AI Actually Delivers"
             subtitle="Agentic AI is justified by what it lets your business do that it couldn't do before - not by the sophistication of the technology."
           />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                    <Icon size={22} strokeWidth={2} />
-                  </span>
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="font-bold text-toadster-green">{item.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              )
-            })}
-          </div>
+          <ServiceIconCardGrid items={benefits} />
         </div>
       </section>
 
@@ -533,7 +413,6 @@ export default function AgenticAIPage() {
 
       <FAQSection
         faqs={faqs}
-        title="Questions We Hear Before Every Agentic AI Project"
         subtitle="Straight answers about safety, cost, scope, and what to expect before you commit to building."
       />
 

@@ -5,11 +5,15 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { SectionHead } from "@/components/service-page/SectionHead"
+import { ServiceCapabilitiesGrid } from "@/components/service-page/ServiceCapabilitiesGrid"
+import { ServiceTechCategoriesGrid } from "@/components/service-page/ServiceTechCategoriesGrid"
+import { ServiceIconCardGrid } from "@/components/service-page/ServiceIconCardGrid"
 import { FAQSection } from "@/components/service-page/FAQSection"
 import { ServiceProcessSteps } from "@/components/service-page/ServiceProcessSteps"
 import { LazyTrustedBy } from "@/components/service-page/LazyTrustedBy"
 import { ServiceHeroViewport } from "@/components/service-page/ServiceHeroViewport"
 import { ServiceStatRow } from "@/components/service-page/ServiceStatRow"
+import { ServiceHeroSubheading } from "@/components/service-page/ServiceHeroSubheading"
 import { ServicePageCta } from "@/components/service-page/ServicePageCta"
 import {
   benefits,
@@ -20,6 +24,8 @@ import {
   teamStats,
   techCategories,
   trustStats,
+  heroSubheading,
+  heroCta,
   whyToadster,
 } from "./data"
 
@@ -162,6 +168,8 @@ export default function ApplicationSupportAndMaintenancePage() {
               Application Support & Maintenance
 
             </h1>
+            <ServiceHeroSubheading text={heroSubheading} />
+
             <p className="service-hero-subtitle mb-6 w-full max-w-none text-lg leading-relaxed text-page-fg-muted">
               Production applications don&apos;t fail on a schedule - and when they do, the cost isn&apos;t just
               downtime. It&apos;s lost revenue, eroded user trust, and your internal team pulled away from building what
@@ -179,7 +187,7 @@ export default function ApplicationSupportAndMaintenancePage() {
               business.
             </p>
 
-            <ServiceStatRow stats={trustStats.slice(0, 3)} />
+            <ServiceStatRow stats={trustStats} ctaLabel={heroCta.label} ctaHref={heroCta.href} />
           </div>
 
           <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="service-hero-form hide-scrollbar">
@@ -199,28 +207,7 @@ export default function ApplicationSupportAndMaintenancePage() {
             title="Application Support & Maintenance Services"
             subtitle="From 24/7 monitoring and incident response to security patching, performance optimisation, and legacy stabilisation - here's what we cover:"
           />
-          <div className="grid gap-6 md:grid-cols-2">
-            {capabilities.map((cap) => {
-              const Icon = cap.icon
-              return (
-                <div
-                  key={cap.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <div className="capability-card-header relative z-10">
-                    <div className="flex items-start justify-between gap-3">
-                      <h3 className="flex-1 text-lg font-bold text-toadster-green">{cap.title}</h3>
-                      <span className="ml-4 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                        <Icon size={22} strokeWidth={2} />
-                      </span>
-                    </div>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{cap.desc}</p>
-                </div>
-              )
-            })}
-          </div>
+          <ServiceCapabilitiesGrid capabilities={capabilities} columns="two" tagsLabel="Common Use Cases" compact={true} />
         </div>
       </section>
 
@@ -284,38 +271,7 @@ export default function ApplicationSupportAndMaintenancePage() {
             title="Technologies & Platforms We Support"
             subtitle="We maintain applications across modern and legacy tech stacks - web, mobile, cloud, and data layers."
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {techCategories.map((cat) => {
-              const Icon = cat.icon
-              return (
-                <div
-                  key={cat.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <div className="capability-card-header relative z-10">
-                    <div className="flex items-start justify-between gap-3">
-                      <h3 className="text-lg font-bold text-toadster-green">{cat.title}</h3>
-                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                        <Icon size={22} strokeWidth={2} />
-                      </span>
-                    </div>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 mb-4 text-sm leading-relaxed">{cat.why}</p>
-                  <div className="relative z-10 flex flex-wrap gap-2">
-                    {cat.pills.map((pill) => (
-                      <span
-                        key={pill}
-                        className="capability-card-tag rounded-full border border-page-border bg-page-bg-alt px-3 py-1 text-xs font-semibold"
-                      >
-                        {pill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <ServiceTechCategoriesGrid categories={techCategories} />
         </div>
       </section>
 
@@ -345,26 +301,7 @@ export default function ApplicationSupportAndMaintenancePage() {
             title="What Reliable Application Support Actually Delivers"
             subtitle="Support is justified by the business outcomes it produces - not by ticket volume. Here's what well-maintained applications deliver:"
           />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="capability-card-surface group relative rounded-2xl p-6 transition-all duration-300"
-                >
-                  <span className="relative z-10 mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-toadster-green text-white shadow-md">
-                    <Icon size={22} strokeWidth={2} />
-                  </span>
-                  <div className="capability-card-header relative z-10">
-                    <h3 className="font-bold text-toadster-green">{item.title}</h3>
-                    <span className="capability-card-heading-rule" aria-hidden="true" />
-                  </div>
-                  <p className="capability-card-copy relative z-10 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              )
-            })}
-          </div>
+          <ServiceIconCardGrid items={benefits} />
         </div>
       </section>
 

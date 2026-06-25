@@ -36,11 +36,18 @@ export const heroTrustItems = [
 ]
 
 export const trustStats = [
-  { number: "48h", label: "Average onboarding time" },
-  { number: "40+", label: "Developers on demand" },
-  { number: "3", label: "Time zones - IST · EST · GST" },
-  { number: "92%", label: "Client retention rate" },
+  { number: "Retrieval-First", label: "Grounded answers from your own data" },
+  { number: "Multi-Source", label: "Docs, APIs, databases, and knowledge bases" },
+  { number: "Evaluation", label: "Systematic testing before production" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Answers Grounded in Your Data — Not Guesses."
+
+export const heroCta = {
+  label: "Talk to a RAG Development Specialist",
+  href: "#contact-form",
+}
 
 export const whatIsRag = {
   title: "Retrieval-Augmented Generation - Explained Simply",

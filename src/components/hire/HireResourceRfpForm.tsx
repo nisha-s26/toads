@@ -11,6 +11,7 @@ interface HireResourceRfpFormProps {
   submitFooterText?: React.ReactNode
   engagementOptions?: { value: string; label: string }[]
   projectBriefLabel?: string
+  size?: "default" | "large"
 }
 
 export function HireResourceRfpForm({
@@ -23,6 +24,7 @@ export function HireResourceRfpForm({
     { value: "Dedicated Team", label: "Dedicated Team" },
   ],
   projectBriefLabel = "Project Brief / Requirements",
+  size = "default",
 }: HireResourceRfpFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -85,24 +87,32 @@ export function HireResourceRfpForm({
     }
   }
 
-  const labelClass = "mb-1 block text-[10px] font-semibold capability-card-copy uppercase tracking-wider"
-  const fieldClass =
-    "w-full px-3 h-9 text-xs bright-panel-input border border-slate-200/80 placeholder:text-slate-400/80 focus:outline-none focus:ring-1 focus:ring-toadster-green/20 rounded-lg transition-all"
+  const isLarge = size === "large"
+  const labelClass = isLarge
+    ? "mb-1.5 block text-xs font-semibold capability-card-copy uppercase tracking-wider"
+    : "mb-1 block text-[10px] font-semibold capability-card-copy uppercase tracking-wider"
+  const fieldClass = isLarge
+    ? "w-full px-3.5 h-10 text-sm bright-panel-input border border-slate-200/80 placeholder:text-slate-400/80 focus:outline-none focus:ring-1 focus:ring-toadster-green/20 rounded-lg transition-all"
+    : "w-full px-3 h-9 text-xs bright-panel-input border border-slate-200/80 placeholder:text-slate-400/80 focus:outline-none focus:ring-1 focus:ring-toadster-green/20 rounded-lg transition-all"
 
   return (
     <div className="relative">
-      <div className="capability-card-surface relative overflow-hidden rounded-2xl p-4 sm:p-5">
-        <div className="mb-3.5 text-left">
-          <p className="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-black">Request a Free Consultation</p>
-          <p className="mt-0.5 text-xs leading-relaxed capability-card-copy">
+      <div
+        className={`capability-card-surface hire-rfp-form relative overflow-hidden rounded-2xl ${isLarge ? "hire-rfp-form--large p-6 sm:p-7 lg:p-8" : "p-4 sm:p-5"}`}
+      >
+        <div className={isLarge ? "mb-5 text-left" : "mb-3.5 text-left"}>
+          <p className={`font-bold tracking-tight text-slate-900 dark:text-black ${isLarge ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"}`}>
+            Request a Free Consultation
+          </p>
+          <p className={`mt-1 leading-relaxed capability-card-copy ${isLarge ? "text-sm" : "mt-0.5 text-xs"}`}>
             {formSubtext}
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="relative z-10 flex flex-col gap-3 text-left">
-          <div className="flex flex-col gap-2.5">
+        <form onSubmit={handleSubmit} className={`relative z-10 flex flex-col text-left ${isLarge ? "gap-4" : "gap-3"}`}>
+          <div className={`flex flex-col ${isLarge ? "gap-3.5" : "gap-2.5"}`}>
             {/* First & Last Name */}
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className={`grid grid-cols-2 ${isLarge ? "gap-3.5" : "gap-2.5"}`}>
               <div>
                 <label className={labelClass}>First Name</label>
                 <input
@@ -184,13 +194,13 @@ export function HireResourceRfpForm({
                 onChange={handleChange}
                 required
                 placeholder="Tell us about your project requirements..."
-                rows={3}
-                className={`${fieldClass} min-h-[3.5rem] py-2 resize-none`}
+                rows={isLarge ? 4 : 3}
+                className={`${fieldClass} resize-none ${isLarge ? "min-h-[5rem] py-2.5" : "min-h-[3.5rem] py-2"}`}
               />
             </div>
           </div>
 
-          <div className="flex items-center justify-between rounded-xl border border-slate-200/80 bg-slate-50/80 px-3 py-1.5 select-none my-0.5">
+          <div className={`flex items-center justify-between rounded-xl border border-slate-200/80 bg-slate-50/80 select-none ${isLarge ? "px-4 py-2" : "px-3 py-1.5 my-0.5"}`}>
             <label className="flex cursor-pointer items-center gap-3">
               <input
                 type="checkbox"
@@ -226,13 +236,13 @@ export function HireResourceRfpForm({
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="h-9 w-full rounded-lg bg-toadster-green text-toadster-green-foreground hover:bg-[var(--primary-hover)] text-sm font-bold shadow-sm transition-colors disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer"
+            className={`w-full rounded-lg bg-toadster-green text-toadster-green-foreground hover:bg-[var(--primary-hover)] font-bold shadow-sm transition-colors disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer ${isLarge ? "h-11 text-base" : "h-9 text-sm"}`}
           >
             {isSubmitting ? "Submitting..." : "Submit Request"}
             {!isSubmitting && <ArrowRight size={16} />}
           </Button>
 
-          <div className="flex items-center justify-center gap-1.5 text-[11px] capability-card-copy">
+          <div className={`flex items-center justify-center gap-1.5 capability-card-copy ${isLarge ? "text-xs" : "text-[11px]"}`}>
             <ShieldCheck size={14} className="capability-card-copy" />
             <span>{submitFooterText}</span>
           </div>

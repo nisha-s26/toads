@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { SplitSectionHeading } from "@/components/SplitSectionHeading"
 import {
   ArrowRight,
   ArrowUpRight,
@@ -146,7 +147,7 @@ export default function AboutPage() {
             <h1 className="mb-5 text-3xl font-extrabold leading-tight text-black dark:text-white sm:mb-6 sm:text-4xl md:mb-8 md:text-7xl">
               AI-Powered Engineering for the
               <br />
-              <span className="text-green-400">Businesses of Tomorrow</span>
+              <span className="text-toadster-green">Businesses of Tomorrow</span>
             </h1>
             <p className="max-w-2xl text-base font-medium leading-relaxed text-black dark:text-white sm:text-lg md:text-xl">
               We are a global team of engineers, data scientists, and AI researchers who architect,
@@ -189,9 +190,12 @@ export default function AboutPage() {
                 <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-green-400 sm:text-base md:text-xl">
                   Our Mission
                 </p>
-                <h2 className="mb-3 text-xl font-extrabold leading-snug text-page-fg sm:mb-4 sm:text-2xl md:text-4xl">
-                  Making Enterprise-Grade AI Accessible to Every Business
-                </h2>
+                <SplitSectionHeading
+                  as="h2"
+                  title="Making Enterprise-Grade AI Accessible to Every Business"
+                  accent="Every Business"
+                  className="mb-3 text-xl font-extrabold leading-snug sm:mb-4 sm:text-2xl md:text-4xl"
+                />
                 <p className="mb-3 text-sm leading-relaxed text-page-fg-subtle sm:mb-4 sm:text-base">
                   We believe powerful technology should not be the exclusive privilege of Fortune 500
                   companies. Toadster Technologies was founded on a single conviction: every business -
@@ -274,9 +278,12 @@ export default function AboutPage() {
                 <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-green-400 sm:text-base md:text-xl">
                   What We Stand For
                 </p>
-                <h2 className="text-2xl font-extrabold text-page-fg sm:text-3xl md:text-4xl">
-                  The Principles That Drive Every Line of Code
-                </h2>
+                <SplitSectionHeading
+                  as="h2"
+                  title="The Principles That Drive Every Line of Code"
+                  accent="Every Line of Code"
+                  className="text-2xl font-extrabold sm:text-3xl md:text-4xl"
+                />
                 <p className="mx-auto mt-2 max-w-2xl text-sm text-page-fg-subtle sm:mt-3 sm:text-base">
                   At Toadster, our values are not wall art - they are the operating principles behind
                   every architecture decision, client conversation, and product we ship.
@@ -315,10 +322,13 @@ export default function AboutPage() {
                 <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-toadster-green sm:mb-3 sm:text-base md:text-xl">
                   The Team
                 </p>
-                <h2 className="mb-3 text-2xl font-extrabold text-page-fg sm:mb-4 sm:text-3xl md:text-5xl">
-                  Meet the Visionary Behind Toadster Technologies
-                </h2>
-                <p className="mx-auto max-w-2xl text-sm text-page-fg-muted sm:text-base md:text-lg">
+                <SplitSectionHeading
+                  as="h2"
+                  title="Meet the Visionary Behind Toadster Technologies"
+                  accent="Toadster Technologies"
+                  className="mb-3 text-2xl font-extrabold sm:mb-4 sm:text-3xl md:text-5xl"
+                />
+                <p className="mx-auto max-w-2xl text-sm text-black/80 sm:text-base md:text-lg dark:text-page-fg-muted">
                   Our leadership combines decades of enterprise technology experience with a builder&apos;s
                   mindset and a strategist&apos;s eye for business impact.
                 </p>
@@ -327,7 +337,7 @@ export default function AboutPage() {
               <div className="group relative mx-auto max-w-5xl">
                 <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-toadster-green/10 via-toadster-green/5 to-toadster-green/10 opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-60" />
 
-                <div className="relative overflow-hidden rounded-2xl border border-page-border transition-all duration-300 group-hover:border-toadster-green/20 sm:rounded-3xl">
+                <div className="relative overflow-hidden rounded-2xl border border-page-border transition-all duration-300 group-hover:border-toadster-green/20 sm:rounded-3xl founder-profile-card">
                   <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
                     <Image
                       src="/naveen sir bg img light mode.png"
@@ -375,7 +385,7 @@ export default function AboutPage() {
 
                     <div className="space-y-3 text-center sm:space-y-4">
                       <div>
-                        <h3 className="mb-2 text-2xl font-bold tracking-tight text-page-fg sm:text-3xl md:text-4xl">
+                        <h3 className="mb-2 text-2xl font-bold tracking-tight text-black sm:text-3xl md:text-4xl dark:text-white">
                           Mr. Naveen Singh
                         </h3>
                         <div className="inline-flex items-center justify-center gap-2 rounded-full border border-toadster-green/30 bg-toadster-green/10 px-3 py-1.5 sm:px-4 sm:py-2">
@@ -384,7 +394,9 @@ export default function AboutPage() {
                             Founder & Chief Executive Officer
                           </h4>
                         </div>
-                        <p className="mt-2 text-xs text-page-fg-muted sm:text-sm">Toadster Technologies Pvt. Ltd.</p>
+                        <p className="mt-2 text-xs text-black/75 sm:text-sm dark:text-white/80">
+                          Toadster Technologies Pvt. Ltd.
+                        </p>
                       </div>
 
                       <div className="flex items-center justify-center gap-2 py-3 sm:py-4">
@@ -393,14 +405,14 @@ export default function AboutPage() {
                         <div className="h-px w-12 bg-gradient-to-l from-transparent to-toadster-green/50" />
                       </div>
 
-                      <div className="mx-auto max-w-3xl text-left sm:text-center">
-                        <p className="text-sm leading-relaxed text-page-fg-subtle sm:text-base md:text-lg">
+                      <div className="founder-profile-copy mx-auto max-w-3xl text-left sm:text-center">
+                        <p className="text-sm leading-relaxed text-black sm:text-base md:text-lg dark:text-white/90">
                           Naveen Singh is a technology entrepreneur and AI innovation leader with over{" "}
                           <span className="font-semibold text-toadster-green">two decades</span> of
                           hands-on experience transforming complex business challenges into scalable,
                           production-ready technology solutions.
                         </p>
-                        <p className="mt-3 text-sm leading-relaxed text-page-fg-muted sm:mt-4 sm:text-base">
+                        <p className="mt-3 text-sm leading-relaxed text-black sm:mt-4 sm:text-base dark:text-white/85">
                           As the Founder and CEO of Toadster Technologies Pvt. Ltd., Naveen drives the
                           company&apos;s strategic vision: building AI-powered platforms that help enterprises
                           operate with greater speed, intelligence, and precision. Under his leadership,
@@ -408,15 +420,15 @@ export default function AboutPage() {
                           India, and UAE seeking to modernize their operations through applied AI and custom
                           software engineering.
                         </p>
-                        <p className="mt-3 text-sm leading-relaxed text-page-fg-muted sm:mt-4 sm:text-base">
+                        <p className="mt-3 text-sm leading-relaxed text-black sm:mt-4 sm:text-base dark:text-white/85">
                           Before founding Toadster, Naveen held senior benchmark roles at{" "}
-                          <span className="font-medium text-page-fg">EA Sports</span> and{" "}
-                          <span className="font-medium text-page-fg">Samsung India Electronics</span>,
+                          <span className="font-medium text-black dark:text-white">EA Sports</span> and{" "}
+                          <span className="font-medium text-black dark:text-white">Samsung India Electronics</span>,
                           where he contributed to globally distributed products and set new performance
                           standards for technology delivery. These experiences forged his philosophy:
                           technology must serve business outcomes, not the other way around.
                         </p>
-                        <p className="mt-3 text-sm leading-relaxed text-page-fg-muted sm:mt-4 sm:text-base">
+                        <p className="mt-3 text-sm leading-relaxed text-black sm:mt-4 sm:text-base dark:text-white/85">
                           A strategic thinker and hands-on builder, Naveen is a vocal advocate for
                           responsible AI innovation. He believes that the most powerful technology is
                           technology that is explainable, ethical, and built with the end user at its
@@ -427,19 +439,19 @@ export default function AboutPage() {
                       <div className="mt-6 grid grid-cols-1 gap-3 border-t border-page-border pt-6 sm:mt-8 sm:gap-4 sm:pt-8 md:grid-cols-3">
                         <div className="rounded-xl border border-page-border bg-white/[0.02] p-3 text-center transition-colors duration-200 sm:p-4">
                           <div className="mb-1 text-xl font-bold text-toadster-green sm:text-2xl">20+</div>
-                          <div className="text-[10px] uppercase tracking-wide text-page-fg-muted sm:text-xs">
+                          <div className="text-[10px] uppercase tracking-wide text-black/75 sm:text-xs dark:text-white/75">
                             Years of Experience
                           </div>
                         </div>
                         <div className="rounded-xl border border-page-border bg-white/[0.02] p-3 text-center transition-colors duration-200 sm:p-4">
                           <div className="mb-1 text-xl font-bold text-toadster-green sm:text-2xl">Global</div>
-                          <div className="text-[10px] uppercase tracking-wide text-page-fg-muted sm:text-xs">
+                          <div className="text-[10px] uppercase tracking-wide text-black/75 sm:text-xs dark:text-white/75">
                             Impact & Reach - 4 Continents
                           </div>
                         </div>
                         <div className="rounded-xl border border-page-border bg-white/[0.02] p-3 text-center transition-colors duration-200 sm:p-4">
                           <div className="mb-1 text-xl font-bold text-toadster-green sm:text-2xl">AI</div>
-                          <div className="text-[10px] uppercase tracking-wide text-page-fg-muted sm:text-xs">
+                          <div className="text-[10px] uppercase tracking-wide text-black/75 sm:text-xs dark:text-white/75">
                             Innovation Leader - Recognized 2026
                           </div>
                         </div>
@@ -457,9 +469,12 @@ export default function AboutPage() {
                 <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-toadster-green sm:mb-3 sm:text-base md:text-xl">
                   Keep Exploring
                 </p>
-                <h2 className="text-2xl font-extrabold text-page-fg sm:text-3xl md:text-4xl">
-                  Everything You Need to Know About Toadster - In One Place
-                </h2>
+                <SplitSectionHeading
+                  as="h2"
+                  title="Everything You Need to Know About Toadster - In One Place"
+                  accent="In One Place"
+                  className="text-2xl font-extrabold sm:text-3xl md:text-4xl"
+                />
                 <p className="mx-auto mt-2 max-w-2xl text-sm text-page-fg-subtle sm:mt-3 sm:text-base">
                   From production-ready AI services and thought-leadership resources to open engineering
                   positions and direct access to our team - explore what makes Toadster the technology

@@ -29,10 +29,18 @@ export const heroTrustItems = [
 ]
 
 export const trustStats = [
-  { number: "10x", label: "Faster release cycles after CI/CD" },
-  { number: "99.9%", label: "Uptime target with SRE practices" },
-  { number: "40%+", label: "Average cloud cost reduction" },
+  { number: "CI/CD", label: "Automated pipelines and faster releases" },
+  { number: "Cloud Native", label: "AWS · Azure · GCP · Kubernetes" },
+  { number: "DevSecOps", label: "Security built into every pipeline stage" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Ship Faster. Break Less. Sleep Better."
+
+export const heroCta = {
+  label: "Talk to a DevOps Engineer",
+  href: "#contact-form",
+}
 
 export const capabilities: {
   icon: LucideIcon

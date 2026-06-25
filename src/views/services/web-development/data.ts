@@ -32,10 +32,18 @@ export const heroTrustItems = [
 ]
 
 export const trustStats = [
-  { number: "150+", label: "Web projects delivered" },
-  { number: "40+", label: "Industries served" },
-  { number: "94%", label: "Client retention rate" },
+  { number: "Modern Stack", label: "React · Next.js · Node · headless CMS" },
+  { number: "Performance", label: "Core Web Vitals optimised by default" },
+  { number: "SEO-Ready", label: "Technical foundation for discoverability" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Web Experiences That Perform, Convert, and Scale."
+
+export const heroCta = {
+  label: "Talk to a Web Development Specialist",
+  href: "#contact-form",
+}
 
 export const teamStats = [
   { number: "48h", label: "Average response time" },

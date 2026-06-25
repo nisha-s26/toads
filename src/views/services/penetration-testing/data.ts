@@ -29,11 +29,18 @@ export const heroTrustItems = [
 ]
 
 export const trustStats = [
-  { number: "200+", label: "Security assessments completed" },
-  { number: "95%", label: "Critical findings resolved within 30 days" },
-  { number: "48hr", label: "Initial report turnaround" },
-  { number: "3 TZ", label: "IST · GST · EST coverage" },
+  { number: "Manual Testing", label: "Real attackers, not just automated scans" },
+  { number: "Actionable Reports", label: "Prioritised findings with remediation steps" },
+  { number: "Re-Test Included", label: "Verify fixes before you close the engagement" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Find What Attackers Would — Before They Do."
+
+export const heroCta = {
+  label: "Talk to a Penetration Testing Specialist",
+  href: "#contact-form",
+}
 
 export const teamStats = [
   { number: "48hr", label: "Typical report delivery" },

@@ -42,8 +42,9 @@ const OurProcess = () => {
             <div className="max-w-9xl mx-20 px-4 pt-10 pb-10">
                 <div className="text-center">
                     <p className="text-lg tracking-[0.35em] section-eyebrow font-bold">OUR PROCESS</p>
-                    <h2 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight text-page-fg">
-                        How We <span className="text-toadster-green">Work</span>
+                    <h2 className="mt-4 text-4xl font-extrabold tracking-tight md:text-5xl">
+                        <span className="text-black dark:text-white">How We </span>
+                        <span className="text-toadster-green">Work</span>
                     </h2>
                     <p className="mt-4 text-sm md:text-xl text-page-fg-subtle max-w-2xl mx-auto">
                         A proven methodology that turns complex challenges into scalable solutions.

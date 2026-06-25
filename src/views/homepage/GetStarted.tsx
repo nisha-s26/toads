@@ -27,9 +27,9 @@ export default function GetStarted() {
         </div>
 
         <ScrollReveal className="relative z-10 py-10">
-          <h2 className="text-3xl font-bold leading-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl md:text-5xl">
             Ready to Build{" "}
-            <span className="text-[#15803d] dark:text-toadster-green">Intelligent Systems?</span>
+            <span className="text-toadster-green">Intelligent Systems?</span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-800 sm:text-lg dark:text-white/85">

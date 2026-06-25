@@ -33,11 +33,18 @@ export const heroTrustItems = [
 ]
 
 export const trustStats = [
-  { number: "150+", label: "Products managed end-to-end" },
-  { number: "40+", label: "Product managers & strategists" },
-  { number: "8+", label: "Years of PM delivery" },
-  { number: "92%", label: "On-time release rate" },
+  { number: "Roadmaps", label: "Strategy aligned to business outcomes" },
+  { number: "Delivery", label: "Sprint planning, backlog, and release cadence" },
+  { number: "Stakeholders", label: "Bridge between business and engineering" },
+  { number: "4 Regions", label: "India · UAE · Saudi Arabia · US" },
 ]
+
+export const heroSubheading = "Product Leadership That Keeps Engineering Aligned."
+
+export const heroCta = {
+  label: "Talk to a Product Management Specialist",
+  href: "#contact-form",
+}
 
 export const capabilities: {
   icon: LucideIcon

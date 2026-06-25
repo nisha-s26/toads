@@ -214,8 +214,9 @@ export default function Contact() {
                             <span className="text-sm font-bold uppercase tracking-[0.28em] text-slate-500 dark:text-sky-200/75 md:text-base">
                                 Get in Touch
                             </span>
-                            <h1 className="mt-3 text-[2.25rem] font-extrabold leading-tight text-slate-900 dark:text-page-fg md:text-[2.75rem]">
-                                Let&apos;s Talk
+                            <h1 className="mt-3 text-[2.25rem] font-extrabold leading-tight md:text-[2.75rem]">
+                                <span className="text-black dark:text-white">Let&apos;s </span>
+                                <span className="text-toadster-green">Talk</span>
                             </h1>
                             <p className="mt-3 max-w-md text-base leading-relaxed text-slate-600 dark:text-page-fg-subtle md:text-lg">
                                 Ready to build something amazing? We&apos;d love to hear about your project.
@@ -235,7 +236,7 @@ export default function Contact() {
                                 </div>
                             </div>
                             <div className="mt-auto border-t border-white/50 pt-6 dark:border-white/20">
-                                <div className="grid gap-5 sm:grid-cols-2">
+                                <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
                                     <div>
                                         <p className="text-xs font-bold tracking-[0.2em] uppercase text-slate-500 dark:text-sky-200/75 md:text-sm">
                                             Email Us
@@ -389,8 +390,9 @@ export default function Contact() {
                         <p className="section-eyebrow mb-3 text-sm font-bold uppercase tracking-[0.3em] text-black md:text-base dark:text-white/70">
                             While You&apos;re Here
                         </p>
-                        <h2 className="text-3xl font-extrabold text-black md:text-4xl lg:text-[2.75rem] dark:text-white">
-                            Explore Our Work
+                        <h2 className="text-3xl font-extrabold md:text-4xl lg:text-[2.75rem]">
+                            <span className="text-black dark:text-white">Explore Our </span>
+                            <span className="text-toadster-green">Work</span>
                         </h2>
                         <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-black/75 dark:text-white/80">
                             Browse our services, hire dedicated talent, and learn more about Toadster.
