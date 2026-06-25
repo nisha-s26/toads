@@ -57,6 +57,34 @@ export const arCategories = [
 export const servicesIntro =
   "Toadster's AR services span the full deployment lifecycle - use-case strategy, content and 3D model development, device integration, and data connectivity - delivered as a full deployment or as targeted engagements such as a remote-assistance pilot or a training-module build."
 
+export const coreCapabilitiesBento = [
+  {
+    variant: "dark" as const,
+    badge: "FLAGSHIP SERVICE",
+    title: "AR Strategy & Use-Case Assessment",
+    desc: "Identify where AR reduces error rate or task time enough to justify deployment cost before hardware or content spend.",
+    href: "/contact",
+  },
+  {
+    variant: "green" as const,
+    title: "AR Application Development",
+    desc: "Native and cross-platform apps with ARKit, ARCore, and Unity AR Foundation for phones, tablets, and head-mounted displays.",
+    icon: Smartphone,
+  },
+  {
+    variant: "white" as const,
+    title: "3D Content & Digital Twin Development",
+    desc: "Unity, Unreal Engine, and Blender models synced to equipment specs and live IoT data where relevant.",
+    icon: Box,
+  },
+  {
+    variant: "outline" as const,
+    title: "Head-Mounted Display & Wearable Integration",
+    desc: "HoloLens, Magic Leap, and RealWear deployments matched to field-of-view, hands-free, and durability needs.",
+    icon: Glasses,
+  },
+]
+
 export const capabilities: { icon: LucideIcon; title: string; desc: string; ctaAnchor: string }[] = [
   {
     icon: Target,
@@ -288,3 +316,29 @@ export const faqs = [
       "AR application usage and outcome data - task completion time, error rates, session logs - can be exported into a data warehouse or lakehouse (Snowflake, Databricks) and visualized in BI tools like Tableau or Power BI, using the same analytics architecture applied across other enterprise systems.",
   },
 ]
+
+export const exploreServicesSection = {
+  title: "Expert Solutions Tailored for Your Growth",
+  subtitle:
+    "From mobile AR to HoloLens deployments and 3D content, explore our full suite of augmented reality services designed to transform your operations.",
+  ctaLabel: "Explore All Services",
+  ctaHref: "/services",
+  serviceCardHref: "/services/augmented-reality",
+}
+
+export const exploreHireSection = {
+  title: "Build Your Dream AR Team",
+  subtitle:
+    "Scale your AR initiatives with top-tier mobile developers, 3D engineers, and full-stack specialists. Our resources integrate seamlessly into your workflow.",
+  ctaLabel: "Hire Expert Resources",
+  ctaHref: "/hire-resources",
+}
+
+export const exploreHireSlugs = [
+  "flutter-developers",
+  "react-native-developers",
+  "ios-developers",
+  "android-developers",
+  "full-stack-developers",
+  "ai-ml-developers",
+] as const

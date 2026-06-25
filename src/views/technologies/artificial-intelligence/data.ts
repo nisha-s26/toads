@@ -56,7 +56,7 @@ export const coreCapabilitiesBento = [
     badge: "FLAGSHIP SERVICE",
     title: "AI Strategy & Readiness Assessment",
     desc: "Evaluate data quality, infrastructure, and use cases to identify where AI will produce measurable ROI versus where it will add risk without return - before any model is built.",
-    href: "#all-services",
+    href: "/contact",
   },
   {
     variant: "green" as const,
@@ -302,3 +302,29 @@ export const faqs = [
       "AI can support high-stakes decisions when deployed with human-in-the-loop approval gates, model validation, drift monitoring, and audit logging. Fully autonomous action without oversight is appropriate only for well-tested, lower-risk, high-frequency tasks - not for decisions with significant financial, legal, or safety consequences.",
   },
 ]
+
+export const exploreServicesSection = {
+  title: "Expert Solutions Tailored for Your Growth",
+  subtitle:
+    "From custom LLM integration to autonomous agents and predictive models, explore our full suite of AI services designed to solve your most complex enterprise challenges.",
+  ctaLabel: "Explore All Services",
+  ctaHref: "/services",
+  serviceCardHref: "/services/ai-development",
+}
+
+export const exploreHireSection = {
+  title: "Build Your Dream AI Team",
+  subtitle:
+    "Scale your AI initiatives with top-tier ML engineers, LLM specialists, and full-stack developers. Our resources integrate seamlessly into your workflow.",
+  ctaLabel: "Hire Expert Resources",
+  ctaHref: "/hire-resources",
+}
+
+export const exploreHireSlugs = [
+  "ai-ml-developers",
+  "nodejs-developers",
+  "full-stack-developers",
+  "software-developers",
+  "devops-engineers",
+  "reactjs-developers",
+] as const

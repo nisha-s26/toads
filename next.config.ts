@@ -32,9 +32,7 @@ const removedHireRedirects: { source: string; destination: string }[] = [
   { source: "/hire/agentic-ai-engineers", destination: "/hire/ai-ml-developers" },
 ]
 
-const removedGlobalPageRedirects: { source: string; destination: string }[] = [
-  { source: "/ai-development-company-noida", destination: "/ai-development-company-india" },
-]
+const removedGlobalPageRedirects: { source: string; destination: string }[] = []
 
 const removedServiceRedirects: { source: string; destination: string }[] = [
   { source: "/services/generative-ai", destination: "/services/ai-development" },

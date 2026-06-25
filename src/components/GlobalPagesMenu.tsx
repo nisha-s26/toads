@@ -38,19 +38,19 @@ export function GlobalPagesMenu({ size = "default" }: { size?: "sm" | "default" 
       </button>
 
       {open ? (
-        <div className="absolute right-0 top-[calc(100%+0.625rem)] z-[70] w-24 overflow-hidden rounded-xl border border-page-border bg-page-card py-1.5 shadow-2xl">
+        <div className="global-pages-menu-dropdown absolute right-0 top-[calc(100%+0.625rem)] z-[100] min-w-[6.75rem] rounded-xl border border-page-border bg-page-card py-1.5 shadow-2xl">
           <ul className="max-h-[min(24rem,60vh)] overflow-y-auto">
             {GLOBAL_COUNTRY_NAV.map((item) => (
               <li key={item.key}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-page-fg transition hover:bg-page-accent-soft"
+                  className="global-pages-menu-link flex items-center gap-2.5 whitespace-nowrap px-3.5 py-2.5 text-sm transition hover:bg-page-accent-soft"
                 >
-                  <span className="text-lg leading-none" aria-hidden>
+                  <span className="shrink-0 text-lg leading-none" aria-hidden>
                     {item.flag}
                   </span>
-                  <span className="font-medium">{item.label}</span>
+                  <span className="shrink-0 font-medium">{item.label}</span>
                 </Link>
               </li>
             ))}

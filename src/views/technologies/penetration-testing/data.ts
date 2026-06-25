@@ -47,6 +47,34 @@ export const testingCategories = [
 export const servicesIntro =
   "Toadster's penetration testing services span network, application, API, cloud, and social engineering assessments - delivered as point-in-time engagements, recurring annual testing programs, or continuous testing integrated into your development lifecycle."
 
+export const coreCapabilitiesBento = [
+  {
+    variant: "dark" as const,
+    badge: "FLAGSHIP SERVICE",
+    title: "Web Application Penetration Testing",
+    desc: "Manual testing against OWASP Top 10 and ASVS - chaining vulnerabilities the way a real attacker would.",
+    href: "/contact",
+  },
+  {
+    variant: "green" as const,
+    title: "Cloud Penetration Testing",
+    desc: "AWS, Azure, and GCP assessments for IAM misconfigurations, exposed storage, and privilege escalation paths.",
+    icon: Cloud,
+  },
+  {
+    variant: "white" as const,
+    title: "API Penetration Testing",
+    desc: "REST and GraphQL testing against OWASP API Security Top 10 - gaps automated scanners frequently miss.",
+    icon: GitBranch,
+  },
+  {
+    variant: "outline" as const,
+    title: "Red Team Engagements",
+    desc: "Goal-oriented campaigns across network, application, cloud, and human layers to test detection and response.",
+    icon: Target,
+  },
+]
+
 export const capabilities: { icon: LucideIcon; title: string; desc: string; ctaAnchor: string }[] = [
   {
     icon: Network,
@@ -289,3 +317,29 @@ export const faqs = [
       "Penetration testing typically focuses on identifying and validating vulnerabilities within a defined scope, such as one application or network segment. A red team engagement is broader and goal-oriented, simulating a sophisticated adversary across multiple attack vectors simultaneously to test an organization's overall detection and response capability, not just individual vulnerabilities.",
   },
 ]
+
+export const exploreServicesSection = {
+  title: "Expert Solutions Tailored for Your Growth",
+  subtitle:
+    "From web application testing to cloud security and red team operations, explore our full suite of penetration testing services designed to strengthen your security posture.",
+  ctaLabel: "Explore All Services",
+  ctaHref: "/services",
+  serviceCardHref: "/services/penetration-testing",
+}
+
+export const exploreHireSection = {
+  title: "Build Your Dream Security Team",
+  subtitle:
+    "Scale your security operations with top-tier software engineers, DevOps specialists, and full-stack developers. Our resources integrate seamlessly into your workflow.",
+  ctaLabel: "Hire Expert Resources",
+  ctaHref: "/hire-resources",
+}
+
+export const exploreHireSlugs = [
+  "software-developers",
+  "full-stack-developers",
+  "devops-engineers",
+  "nodejs-developers",
+  "ai-ml-developers",
+  "reactjs-developers",
+] as const

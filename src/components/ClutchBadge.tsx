@@ -27,7 +27,7 @@ export function ClutchBadge({ className, compact = false, onDarkBackground = fal
         compact ? "px-3 py-2" : "px-4 py-3",
         className,
       )}
-      aria-label="Toadster - Clutch Global Top AI Development Company 2024"
+      aria-label="Toadster - Clutch Global Top AI Development Company 2026"
     >
       <div
         className={cn(
@@ -60,7 +60,7 @@ export function ClutchBadge({ className, compact = false, onDarkBackground = fal
             compact ? "text-[10px]" : "text-xs",
           )}
         >
-          Top AI Development Company 2024
+          Top AI Development Company 2026
         </p>
       </div>
     </a>

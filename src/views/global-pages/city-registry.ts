@@ -18,6 +18,13 @@ import { RIYADH_PAGE } from './data/cities/riyadh'
 import { FRANKFURT_PAGE } from './data/cities/frankfurt'
 import { MUNICH_PAGE } from './data/cities/munich'
 import { BERLIN_PAGE } from './data/cities/berlin'
+import { NOIDA_PAGE } from './data/cities/noida'
+import { CHICAGO_PAGE } from './data/cities/chicago'
+import { SAN_FRANCISCO_PAGE } from './data/cities/san-francisco'
+import { LOS_ANGELES_PAGE } from './data/cities/los-angeles'
+import { SAN_DIEGO_PAGE } from './data/cities/san-diego'
+import { BRISBANE_PAGE } from './data/cities/brisbane'
+import { PERTH_PAGE } from './data/cities/perth'
 import type { GlobalCityPageData } from './types'
 
 export const GLOBAL_CITY_PAGES: Record<string, GlobalCityPageData> = {
@@ -41,16 +48,23 @@ export const GLOBAL_CITY_PAGES: Record<string, GlobalCityPageData> = {
   "frankfurt": FRANKFURT_PAGE,
   "munich": MUNICH_PAGE,
   "berlin": BERLIN_PAGE,
+  "noida": NOIDA_PAGE,
+  "chicago": CHICAGO_PAGE,
+  "san-francisco": SAN_FRANCISCO_PAGE,
+  "los-angeles": LOS_ANGELES_PAGE,
+  "san-diego": SAN_DIEGO_PAGE,
+  "brisbane": BRISBANE_PAGE,
+  "perth": PERTH_PAGE,
 }
 
 export const GLOBAL_CITY_SLUGS = Object.keys(GLOBAL_CITY_PAGES)
 
 export const CITIES_BY_COUNTRY: Record<string, string[]> = {
-  "australia": ["sydney", "melbourne"],
+  "australia": ["sydney", "melbourne", "brisbane", "perth"],
   "canada": ["vancouver", "toronto", "montreal"],
-  "india": ["bangalore", "hyderabad", "mumbai", "delhi"],
+  "india": ["bangalore", "hyderabad", "mumbai", "delhi", "noida"],
   "uk": ["london", "manchester"],
-  "usa": ["seattle", "new-york"],
+  "usa": ["seattle", "new-york", "los-angeles", "san-diego", "chicago", "san-francisco"],
   "uae": ["dubai", "abu-dhabi"],
   "saudi-arabia": ["jeddah", "riyadh"],
   "germany": ["frankfurt", "munich", "berlin"],

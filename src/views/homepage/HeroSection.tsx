@@ -156,8 +156,8 @@ export default function HeroSection() {
   }, [reduceMotion])
 
   return (
-    <div className="relative z-10 flex w-full flex-col items-center px-4 pb-4 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:px-6 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
-      <div className="hero-enter relative z-20 mx-auto w-full max-w-9xl text-center py-10">
+    <div className="relative z-10 flex w-full flex-col items-center px-4 pb-3 pt-[calc(5.25rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:px-6 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
+      <div className="hero-enter relative z-20 mx-auto w-full max-w-9xl text-center py-6 max-md:max-w-md md:py-10">
         <div className="hero-enter-delay-1 mb-2 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 shadow-sm hero-badge backdrop-blur-md sm:mb-3 sm:px-4 sm:py-2 [@media(max-height:720px)]:mb-1.5 [@media(max-height:720px)]:px-2.5 [@media(max-height:720px)]:py-1">
           <span className="h-2.5 w-2.5 rounded-full bg-toadster-green" />
           <span className="text-xs font-medium sm:text-sm">Agentic AI and Data Transformation</span>
@@ -170,19 +170,19 @@ export default function HeroSection() {
           </div>
         </h1>
 
-        <p className="hero-enter-delay-3 hero-subtitle mx-auto mt-1.5 max-w-2xl px-1 text-sm font-semibold leading-snug drop-shadow-[0_1px_10px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)] sm:mt-2 sm:px-0 sm:text-base md:text-lg [@media(max-height:720px)]:mt-1 [@media(max-height:720px)]:text-xs [@media(max-height:720px)]:sm:text-sm">
+        <p className="hero-enter-delay-3 hero-subtitle mx-auto mt-1.5 max-w-2xl px-1 text-sm font-semibold leading-snug drop-shadow-[0_1px_10px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)] md:max-w-4xl lg:max-w-5xl sm:mt-2 sm:px-0 sm:text-base md:text-lg [@media(max-height:720px)]:mt-1 [@media(max-height:720px)]:text-xs [@media(max-height:720px)]:sm:text-sm">
           We engineer production-ready AI agents, LLM-powered applications, and scalable data platforms -
           purpose-built for startups, mid-market, and enterprise teams across globe.
         </p>
 
-        <div className="hero-enter-delay-4 mx-auto mt-4 flex w-full max-w-sm flex-col items-stretch justify-center gap-2.5 sm:mt-6 sm:max-w-none sm:flex-row sm:items-center sm:gap-3 [@media(max-height:720px)]:mt-3 [@media(max-height:720px)]:gap-2">
-          <Button asChild className="w-full rounded-xl px-5 py-4 text-sm shadow-lg sm:w-auto sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs">
+        <div className="hero-enter-delay-4 mx-auto mt-4 flex w-full flex-col items-center justify-center gap-2.5 sm:mt-6 sm:flex-row sm:gap-3 [@media(max-height:720px)]:mt-3 [@media(max-height:720px)]:gap-2">
+          <Button asChild className="w-auto rounded-xl px-6 py-4 text-sm shadow-lg sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs">
             <Link href="/contact" title="Get Started">Start Your Project</Link>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="hero-outline-btn w-full rounded-xl px-5 py-4 text-sm shadow-md backdrop-blur-md sm:w-auto sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs"
+            className="hero-outline-btn w-auto rounded-xl px-6 py-4 text-sm shadow-md backdrop-blur-md sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs"
           >
           </Button>
         </div>

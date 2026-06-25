@@ -120,7 +120,11 @@ const SOCIAL_LINKS: SocialLink[] = [
 ]
 
 const linkClassName =
-  "relative inline-block min-w-0 text-sm leading-snug text-white/75 transition-colors hover:text-white after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100 break-words lg:text-[0.8125rem] lg:leading-snug xl:text-sm"
+  "footer-text-link min-w-0 text-sm leading-snug text-white break-words lg:text-[0.8125rem] lg:leading-snug xl:text-sm"
+
+function FooterLinkText({ children }: { children: ReactNode }) {
+  return <span className="footer-text-link-label">{children}</span>
+}
 
 function FooterLinkList({
   links,
@@ -141,20 +145,20 @@ function FooterLinkList({
       )}
     >
       {links.map((link) => (
-        <li key={`${link.to}-${link.label}`} className="min-w-0">
+        <li key={`${link.to}-${link.label}`} className="min-w-0 overflow-visible">
           <Link href={link.to} title={link.label} className={linkClassName}>
-            {link.label}
+            <FooterLinkText>{link.label}</FooterLinkText>
           </Link>
         </li>
       ))}
       {viewMore ? (
-        <li key={`${viewMore.to}-${viewMore.label}`} className="min-w-0">
+        <li key={`${viewMore.to}-${viewMore.label}`} className="min-w-0 overflow-visible">
           <Link
             href={viewMore.to}
             title={viewMore.label}
-            className={cn(linkClassName, "font-semibold text-white hover:text-white")}
+            className={cn(linkClassName, "font-semibold")}
           >
-            {viewMore.label}
+            <FooterLinkText>{viewMore.label}</FooterLinkText>
           </Link>
         </li>
       ) : null}
@@ -165,7 +169,7 @@ function FooterLinkList({
 function FooterExternalLink({ href, label }: { href: string; label: string }) {
   return (
     <a href={href} title={label} className={linkClassName}>
-      {label}
+      <FooterLinkText>{label}</FooterLinkText>
     </a>
   )
 }
@@ -178,15 +182,15 @@ function ContactDetails({ compact = false }: { compact?: boolean }) {
   const rowGap = compact ? "gap-3" : "gap-3.5"
   const listGap = compact ? "gap-3.5" : "gap-5"
   const textClass = compact
-    ? "text-xs leading-relaxed text-white/75"
-    : "text-sm leading-relaxed text-white/75"
+    ? "text-xs leading-relaxed text-white"
+    : "text-sm leading-relaxed text-white"
 
   return (
     <ul className={cn("flex flex-col", listGap)}>
       <li className={cn("flex items-start", rowGap)}>
         <span
           className={cn(
-            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white/80",
+            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white",
             iconBox,
           )}
         >
@@ -197,7 +201,7 @@ function ContactDetails({ compact = false }: { compact?: boolean }) {
       <li className={cn("flex items-start", rowGap)}>
         <span
           className={cn(
-            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white/80",
+            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white",
             iconBox,
           )}
         >
@@ -208,7 +212,7 @@ function ContactDetails({ compact = false }: { compact?: boolean }) {
       <li className={cn("flex items-start", rowGap)}>
         <span
           className={cn(
-            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white/80",
+            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white",
             iconBox,
           )}
         >
@@ -221,7 +225,7 @@ function ContactDetails({ compact = false }: { compact?: boolean }) {
       <li className={cn("flex items-start", rowGap)}>
         <span
           className={cn(
-            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white/80",
+            "mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-white/10 text-white",
             iconBox,
           )}
         >
@@ -274,10 +278,10 @@ function FooterAccordionSection({
           <FooterSectionTitle>{title}</FooterSectionTitle>
           <ChevronDown
             size={18}
-            className="shrink-0 text-white/60 transition-transform duration-200 group-open:rotate-180"
+            className="shrink-0 text-white transition-transform duration-200 group-open:rotate-180"
           />
         </summary>
-        <div className="pb-2 pt-1">{children}</div>
+        <div className="overflow-visible pb-2 pt-1">{children}</div>
       </details>
 
       <div className="hidden lg:block">
@@ -330,13 +334,13 @@ const Footer = () => {
                   href={href}
                   aria-label={label}
                   title={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white/80 transition-colors hover:border-toadster-green/50 hover:text-toadster-green"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white transition-colors hover:border-toadster-green/50 hover:text-toadster-green"
                 >
                   <Icon size={18} />
                 </a>
               ))}
             </div>
-            <p className="mt-5 text-sm leading-relaxed text-white/70">
+            <p className="mt-5 text-sm leading-relaxed text-white">
               AI-powered digital engineering for enterprises and startups. Building the
               intelligent future, one system at a time.
             </p>
@@ -378,13 +382,13 @@ const Footer = () => {
                     href={href}
                     aria-label={label}
                     title={label}
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white/80 transition-colors hover:border-toadster-green/50 hover:text-toadster-green"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white transition-colors hover:border-toadster-green/50 hover:text-toadster-green"
                   >
                     <Icon size={18} />
                   </a>
                 ))}
               </div>
-              <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/70">
+              <p className="mt-5 max-w-xs text-sm leading-relaxed text-white">
                 AI-powered digital engineering for enterprises and startups. Building the
                 intelligent future, one system at a time.
               </p>
@@ -412,25 +416,27 @@ const Footer = () => {
 
       </div>
       {/* Bottom bar */}
-      <div className="bg-black mx-auto py-5 flex w-full items-center justify-center gap-4 border-t border-white/10 pt-8 text-center">
-        <p className="text-xs text-white/60">
-          © {new Date().getFullYear()} Toadster Technologies Pvt. Ltd. All rights reserved.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs">
-          <Link
-            href="/privacy-policy"
-            title="Privacy Policy"
-            className="text-white/60 transition-colors hover:text-white"
-          >
-            Privacy Policy
-          </Link>
-          <Link
-            href="/terms-and-conditions"
-            title="Terms and Conditions"
-            className="text-white/60 transition-colors hover:text-white"
-          >
-            Terms and Conditions
-          </Link>
+      <div className="border-t border-white/10 bg-black">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center justify-center gap-3 px-4 py-6 text-center sm:flex-row sm:gap-4 sm:px-6 lg:px-10 xl:px-12">
+          <p className="text-xs leading-relaxed text-white">
+            © {new Date().getFullYear()} Toadster Technologies Pvt. Ltd. All rights reserved.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs">
+            <Link
+              href="/privacy-policy"
+              title="Privacy Policy"
+              className="footer-text-link text-white"
+            >
+              <FooterLinkText>Privacy Policy</FooterLinkText>
+            </Link>
+            <Link
+              href="/terms-and-conditions"
+              title="Terms and Conditions"
+              className="footer-text-link text-white"
+            >
+              <FooterLinkText>Terms and Conditions</FooterLinkText>
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

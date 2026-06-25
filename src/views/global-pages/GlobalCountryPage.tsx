@@ -170,7 +170,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
               {data.heroTitle}
             </h1>
             <p className="mt-4 text-base leading-relaxed text-black dark:text-white/85 md:text-lg">{heroText}</p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
               <Link href="/contact" className="global-country-btn-primary">
                 Book a Strategy Call
                 <ArrowRight className="h-4 w-4" />
@@ -203,7 +203,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                 Why Businesses in {data.country} Choose Toadster
               </h2>
               {data.whyChooseIntro ? (
-                <p className="mx-auto mt-4 max-w-2xl text-base text-page-fg-muted md:text-lg">{truncate(data.whyChooseIntro, 160)}</p>
+                <p className="mx-auto mt-4 max-w-4xl text-base text-page-fg-muted md:text-lg">{truncate(data.whyChooseIntro, 160)}</p>
               ) : null}
             </ScrollReveal>
             <div className="global-country-card-grid">

@@ -21,18 +21,18 @@ export default function GetStarted() {
             fill
             loading="lazy"
             quality={80}
-            className="object-contain object-right"
+            className="object-contain object-right opacity-95 dark:opacity-100"
             sizes="(max-width: 768px) 42vw, 480px"
           />
         </div>
 
         <ScrollReveal className="relative z-10 py-10">
-          <h2 className="text-3xl font-bold leading-tight text-slate-900 dark:text-black sm:text-4xl md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-bold leading-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl lg:text-6xl">
             Ready to Build{" "}
-            <span className="text-[#15803d] dark:text-black">Intelligent Systems?</span>
+            <span className="text-[#15803d] dark:text-toadster-green">Intelligent Systems?</span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-800 sm:text-lg dark:text-black/85">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-800 sm:text-lg dark:text-white/85">
             Let&apos;s partner to design and build the AI-powered future your business deserves.
           </p>
 
@@ -40,7 +40,7 @@ export default function GetStarted() {
             <Link
               href="/contact"
               title="Get started with Toadster"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover hover:shadow-md dark:shadow-[0_0_28px_rgba(34,197,94,0.32)] dark:hover:shadow-[0_0_36px_rgba(34,197,94,0.42)]"
             >
               Get Started Today
               <ChevronRight
@@ -50,7 +50,7 @@ export default function GetStarted() {
             </Link>
           </div>
 
-          <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm text-slate-800 sm:gap-8 dark:text-black/80">
+          <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm text-slate-800 sm:gap-8 dark:text-white/75">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-toadster-green" />
               No Lock-in

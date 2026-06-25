@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { ScrollReveal } from "@/components/ScrollReveal"
-import { CITY_CARD_IMAGES } from "@/constants/countryTechImages"
+import { CITY_CARD_IMAGES, COUNTRY_HERO_IMAGES } from "@/constants/countryTechImages"
 import type { GlobalCityPageData } from "@/views/global-pages/types"
 
 const EXPLORE_CITIES_INTROS: Record<string, string> = {
@@ -49,7 +49,10 @@ export function GlobalExploreCities({ countryKey, countryLabel, cities, activeCi
         <div className="global-country-explore-cities-track">
           {cities.map((city, index) => {
             const isActive = city.key === activeCityKey
-            const image = CITY_CARD_IMAGES[city.key] ?? CITY_CARD_IMAGES.sydney
+            const image =
+              CITY_CARD_IMAGES[city.key] ??
+              (city.parentCountryKey ? COUNTRY_HERO_IMAGES[city.parentCountryKey] : undefined) ??
+              COUNTRY_HERO_IMAGES.sydney
             const description = (city.exploreCardDescription ?? city.metaDescription).slice(0, 100).trim()
             const descriptionText = description.length >= 100 ? `${description}…` : description
 

@@ -75,7 +75,7 @@ const HIRE_ROLES: HireRole[] = [
 
 export default function HireResources() {
   return (
-    <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center pb-8 pt-0">
+    <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center px-4 pb-8 pt-0 sm:px-0">
       <div className="hire-page-container">
         <ScrollReveal className="mb-8 text-center md:mb-10">
           <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
@@ -102,8 +102,7 @@ export default function HireResources() {
           ))}
         </div>
 
-        <ScrollReveal className="section-full-bleed mt-14 md:mt-16">
-          <div className="hire-page-container">
+        <ScrollReveal className="mt-14 md:mt-16">
           <div className="hire-resources-cta relative overflow-hidden rounded-[1.75rem] px-6 py-10 text-center sm:px-10 sm:py-12 md:px-14 md:py-14">
             <h3 className="mx-auto max-w-2xl text-2xl font-bold leading-tight text-white md:text-3xl">
               Need a different role or a full dedicated pod?
@@ -115,7 +114,7 @@ export default function HireResources() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/hire-resources"
-                className="inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-toadster-green transition-all hover:-translate-y-0.5 hover:bg-white/90"
+                className="inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-toadster-green shadow-md transition-all hover:-translate-y-0.5 hover:bg-white/90 dark:bg-primary dark:text-white dark:shadow-md dark:ring-1 dark:ring-white/15 dark:hover:bg-primary-hover"
               >
                 View All Resources
                 <ArrowRight size={16} />
@@ -127,7 +126,6 @@ export default function HireResources() {
                 Talk to Us
               </Link>
             </div>
-          </div>
           </div>
         </ScrollReveal>
       </div>

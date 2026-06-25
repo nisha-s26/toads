@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRight, Clock, Headphones, Rocket, ShieldCheck, Star } from "lucide-react"
+import { ArrowRight, Clock, Headphones, Rocket, ShieldCheck } from "lucide-react"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/ScrollReveal"
 
@@ -10,6 +10,16 @@ const STATS = [
   { value: "24/7", label: "Dedicated support", Icon: Headphones },
   { value: "SOC 2", label: "Compliance-ready by default", Icon: ShieldCheck },
 ]
+
+const WHY_US_GLOW_DOTS = [
+  { className: "top-[12%] left-[16%] h-10 w-10 sm:h-11 sm:w-11" },
+  { className: "top-[20%] left-[34%] h-8 w-8 sm:h-9 sm:w-9" },
+  { className: "top-[8%] right-[22%] h-9 w-9 sm:h-10 sm:w-10" },
+  { className: "top-[36%] left-[10%] h-11 w-11 sm:h-12 sm:w-12" },
+  { className: "top-[30%] right-[12%] h-12 w-12 sm:h-14 sm:w-14" },
+  { className: "bottom-[26%] left-[22%] h-9 w-9 sm:h-10 sm:w-10" },
+  { className: "bottom-[20%] right-[28%] h-10 w-10 sm:h-11 sm:w-11" },
+] as const
 
 function WhyUsNetworkDecor({ mirrored = false }: { mirrored?: boolean }) {
   return (
@@ -49,38 +59,45 @@ const WhyUs = () => {
   return (
     <section
       id="why-us"
-      className="homepage-snap-section section-full-bleed why-us-section-bg relative isolate flex flex-col justify-center overflow-hidden px-4 py-10 sm:py-14 md:py-16"
+      className="homepage-snap-section section-full-bleed relative isolate flex flex-col justify-center overflow-hidden px-4 py-8 sm:py-10 md:py-12"
     >
       <div className="relative z-10 mx-auto w-full max-w-[80rem]">
         <ScrollReveal>
           <div className="why-us-card relative overflow-hidden rounded-[1.75rem] px-5 py-9 sm:px-8 sm:py-12 md:px-12 md:py-14 lg:px-14 lg:py-[3.25rem] xl:px-16 mt-13">
-            <div className="why-us-dotted-pattern pointer-events-none absolute inset-0" aria-hidden />
+            <div className="why-us-dot-grid pointer-events-none absolute inset-0" aria-hidden />
             <div
-              className="pointer-events-none absolute left-[10%] top-[20%] h-24 w-24 rounded-full bg-toadster-green/[0.06] blur-2xl"
+              className="why-us-corner-dots why-us-corner-dots--tl pointer-events-none absolute"
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute bottom-[14%] right-[10%] h-28 w-28 rounded-full bg-emerald-400/[0.05] blur-2xl"
+              className="why-us-corner-dots why-us-corner-dots--br pointer-events-none absolute"
               aria-hidden
             />
+            {WHY_US_GLOW_DOTS.map((dot, index) => (
+              <div
+                key={index}
+                className={`why-us-glow-dot pointer-events-none absolute ${dot.className}`}
+                aria-hidden
+              />
+            ))}
             <div
-              className="why-us-network-decor pointer-events-none absolute bottom-8 left-2 top-8 hidden w-[6.5rem] text-slate-400/25 xl:left-4 xl:w-[7.5rem] lg:block dark:text-slate-500/20"
+              className="why-us-network-decor pointer-events-none absolute bottom-10 left-3 top-10 hidden w-[6.5rem] text-toadster-green/[0.18] xl:left-5 xl:w-[7.5rem] lg:block dark:text-emerald-400/16"
               aria-hidden
             >
               <WhyUsNetworkDecor />
             </div>
             <div
-              className="why-us-network-decor pointer-events-none absolute bottom-8 right-2 top-8 hidden w-[6.5rem] text-slate-400/25 xl:right-4 xl:w-[7.5rem] lg:block dark:text-slate-500/20"
+              className="why-us-network-decor pointer-events-none absolute bottom-10 right-3 top-10 hidden w-[6.5rem] text-toadster-green/[0.18] xl:right-5 xl:w-[7.5rem] lg:block dark:text-emerald-400/16"
               aria-hidden
             >
               <WhyUsNetworkDecor mirrored />
             </div>
 
             <div className="relative z-10 flex w-full flex-col items-center text-center">
-              <div className="why-us-badge mb-5 inline-flex items-center gap-2 rounded-full border border-toadster-green/25 bg-toadster-green/[0.06] px-4 py-1.5 text-sm font-semibold text-toadster-green">
+              {/* <div className="why-us-badge mb-5 inline-flex items-center gap-2 rounded-full border border-toadster-green/25 bg-toadster-green/[0.06] px-4 py-1.5 text-sm font-semibold text-toadster-green">
                 <Star className="h-4 w-4 fill-toadster-green/15" strokeWidth={2} />
                 Trusted AI Development Partner
-              </div>
+              </div> */}
 
               <h2 className="why-us-heading text-3xl font-extrabold leading-[1.08] sm:text-4xl md:text-[2.75rem]">
                 <span className="text-slate-900 dark:text-white">Why Choose </span>
@@ -138,12 +155,12 @@ const WhyUs = () => {
               </div>
 
               <div className="why-us-cta-wrap mt-10 w-full">
-                <div className="relative flex items-center justify-center py-1">
+                {/* <div className="relative flex items-center justify-center py-1">
                   <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-slate-200 dark:bg-slate-600/50" />
                   <span className="why-us-cta-icon relative z-[1] inline-flex items-center justify-center rounded-full px-2">
                     <ShieldCheck className="h-5 w-5 text-toadster-green" strokeWidth={2} aria-hidden />
                   </span>
-                </div>
+                </div> */}
                 <Link
                   href="/about"
                   title="Learn more about Toadster"

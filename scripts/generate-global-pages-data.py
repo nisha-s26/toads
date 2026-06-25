@@ -339,7 +339,7 @@ def parse_md_country(path: Path, country_label: str) -> dict:
     slug = re.search(r"\*\*URL Slug:\*\*\n(/ai-development-company-[a-z-]+)", text)
 
     hero_heading = re.search(r"### (.+?)\n\n(.+?)(?=\*\*Book a free|\[Book a Call)", text, re.S)
-    why_block = re.search(r"## Why .+? Work With Toadster?\n\n(.+?)(?=---\n\n## What We Build)", text, re.S)
+    why_block = re.search(r"## Why .+? Work With Toadsters?\n\n(.+?)(?=---\n\n## What We Build)", text, re.S)
     services_block = re.search(r"## What We Build\n\n(.+?)(?=---\n\n## (?:Industries|Where))", text, re.S)
     industries_block = re.search(r"## Industries We Know\n\n(.+?)(?=---\n\n## Where)", text, re.S)
     challenges_block = re.search(r"## Where .+?\n\n(.+?)(?=---\n\n## How We Work)", text, re.S)
@@ -720,6 +720,9 @@ def main() -> None:
         ("frankfurt", "Frankfurt", "germany", DOWNLOADS / "toadster-ai-development-company-frankfurt.md"),
         ("munich", "Munich", "germany", DOWNLOADS / "toadster-ai-development-company-munich.md"),
         ("berlin", "Berlin", "germany", DOWNLOADS / "toadster-ai-development-company-berlin.md"),
+        ("los-angeles", "Los Angeles", "usa", DOWNLOADS / "toadsters-ai-development-company-los-angeles.md"),
+        ("san-diego", "San Diego", "usa", DOWNLOADS / "toadsters-ai-development-company-san-diego.md"),
+        ("perth", "Perth", "australia", DOWNLOADS / "toadsters-ai-development-company-perth.md"),
     ]
     docx_city_sources = [
         ("toronto", "Toronto", "canada", DOWNLOADS / "AI-Development-Company-Toronto.docx"),
@@ -733,6 +736,10 @@ def main() -> None:
         ("dubai", "Dubai", "uae", DOWNLOADS / "AI-Development-Company-Dubai.docx"),
         ("abu-dhabi", "Abu Dhabi", "uae", DOWNLOADS / "AI-Development-Company-Abu-Dhabi.docx"),
         ("jeddah", "Jeddah", "saudi-arabia", DOWNLOADS / "toadster-jeddah-ai-landing.docx"),
+        ("noida", "Noida", "india", DOWNLOADS / "AI-Development-Company-Noida.docx"),
+        ("chicago", "Chicago", "usa", DOWNLOADS / "AI-Development-Company-Chicago.docx"),
+        ("san-francisco", "San Francisco", "usa", DOWNLOADS / "AI-Development-Company-San-Francisco.docx"),
+        ("brisbane", "Brisbane", "australia", DOWNLOADS / "toadsters-brisbane-ai-landing.docx"),
     ]
 
     city_keys: list[str] = []

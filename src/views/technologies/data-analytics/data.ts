@@ -53,7 +53,7 @@ export const coreCapabilitiesBento = [
     badge: "FLAGSHIP SERVICE",
     title: "Data Engineering & Pipeline Development",
     desc: "ETL/ELT pipelines using Apache Spark, dbt, AWS Glue, and Apache Airflow - orchestration, testing, and lineage from day one.",
-    href: "#all-services",
+    href: "/contact",
   },
   {
     variant: "green" as const,
@@ -274,3 +274,29 @@ export const faqs = [
       "Real-time analytics is necessary when decisions must be made in seconds or minutes - fraud detection, operational monitoring, dynamic pricing. If decisions are made daily or weekly, batch processing is usually more cost-effective and easier to maintain.",
   },
 ]
+
+export const exploreServicesSection = {
+  title: "Expert Solutions Tailored for Your Growth",
+  subtitle:
+    "From data-engineering to predictive modeling, explore our full suite of analytics services designed to solve your most complex data challenges.",
+  ctaLabel: "Explore All Services",
+  ctaHref: "/services",
+  serviceCardHref: "/services/ai-development",
+}
+
+export const exploreHireSection = {
+  title: "Build Your Dream Data Team",
+  subtitle:
+    "Scale your operations with top-tier data engineers, analysts, and AI specialists. Our resources integrate seamlessly into your workflow.",
+  ctaLabel: "Hire Expert Resources",
+  ctaHref: "/hire-resources",
+}
+
+export const exploreHireSlugs = [
+  "ai-ml-developers",
+  "full-stack-developers",
+  "software-developers",
+  "devops-engineers",
+  "nodejs-developers",
+  "mern-developers",
+] as const

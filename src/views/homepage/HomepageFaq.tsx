@@ -164,7 +164,7 @@ function FaqCard({
 
 export default function HomepageFaq() {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
-  const [openQuestion, setOpenQuestion] = useState<string | null>(FAQS[0].question)
+  const [openQuestion, setOpenQuestion] = useState<string | null>(null)
 
   const visibleFaqs = FAQS.slice(0, visibleCount)
   const canShowMore = visibleCount < FAQS.length
@@ -195,7 +195,7 @@ export default function HomepageFaq() {
       <div className="relative z-10 mx-auto faq-section-layout">
         <ScrollReveal className="mb-8 text-center md:mb-10">
           <h2 className="text-3xl font-extrabold text-page-fg sm:text-4xl md:text-5xl lg:text-6xl">
-            Frequently Asked Questions
+            Frequently Asked <span className="text-toadster-green">Questions</span>
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base text-page-fg-muted sm:text-lg md:text-xl">
             Everything you need to know about working with Toadster Technologies.

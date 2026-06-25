@@ -83,6 +83,20 @@ export const COUNTRY_HERO_IMAGES: Record<string, string> = {
     "https://images.unsplash.com/photo-1751039531516-caedbb85dfe0?auto=format&fit=crop&w=1200&q=80",
   berlin:
     "https://images.unsplash.com/photo-1747119421266-742889fcde8a?auto=format&fit=crop&w=1200&q=80",
+  "los-angeles":
+    "https://images.unsplash.com/photo-1757386117831-d4e9bc583076?auto=format&fit=crop&w=1200&q=80",
+  "san-diego":
+    "https://images.unsplash.com/photo-1634312944845-72e0075cf500?auto=format&fit=crop&w=1200&q=80",
+  chicago:
+    "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=80",
+  "san-francisco":
+    "https://images.unsplash.com/photo-1521747116042-5a810fda9664?auto=format&fit=crop&w=1200&q=80",
+  brisbane:
+    "https://images.unsplash.com/photo-1664187284244-3b181ef82e2d?auto=format&fit=crop&w=1200&q=80",
+  perth:
+    "https://images.unsplash.com/photo-1755927630441-0635eef8f388?auto=format&fit=crop&w=1200&q=80",
+  noida:
+    "https://images.unsplash.com/photo-1648455288365-ee27a61c95bd?auto=format&fit=crop&w=1200&q=80",
 }
 
 export const CITY_CARD_IMAGES: Record<string, string> = {
@@ -106,4 +120,11 @@ export const CITY_CARD_IMAGES: Record<string, string> = {
   frankfurt: COUNTRY_HERO_IMAGES.frankfurt,
   munich: COUNTRY_HERO_IMAGES.munich,
   berlin: COUNTRY_HERO_IMAGES.berlin,
+  "los-angeles": COUNTRY_HERO_IMAGES["los-angeles"],
+  "san-diego": COUNTRY_HERO_IMAGES["san-diego"],
+  chicago: COUNTRY_HERO_IMAGES.chicago,
+  "san-francisco": COUNTRY_HERO_IMAGES["san-francisco"],
+  brisbane: COUNTRY_HERO_IMAGES.brisbane,
+  perth: COUNTRY_HERO_IMAGES.perth,
+  noida: COUNTRY_HERO_IMAGES.noida,
 }

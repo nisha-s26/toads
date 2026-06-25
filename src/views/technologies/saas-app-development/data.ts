@@ -46,6 +46,34 @@ export const saasArchitecturePillars = [
 export const servicesIntro =
   "Toadster's SaaS development services span the full product lifecycle - architecture strategy, multi-tenant application development, billing integration, and scaling infrastructure - delivered as a full build, an MVP-to-production engagement, or a re-architecture of an existing SaaS product hitting scaling limits."
 
+export const coreCapabilitiesBento = [
+  {
+    variant: "dark" as const,
+    badge: "FLAGSHIP SERVICE",
+    title: "SaaS Architecture & Tenancy Strategy",
+    desc: "Multi-tenant data and infrastructure models matched to security, compliance, and cost at projected scale.",
+    href: "/contact",
+  },
+  {
+    variant: "green" as const,
+    title: "MVP & Core Product Development",
+    desc: "Production-grade MVPs in React, Next.js, and Node.js that prove product-market fit without scaling debt.",
+    icon: Rocket,
+  },
+  {
+    variant: "white" as const,
+    title: "Subscription Billing & Payments Integration",
+    desc: "Stripe, Chargebee, and Paddle with usage-based, seat-based, and hybrid pricing plus dunning and proration.",
+    icon: CreditCard,
+  },
+  {
+    variant: "outline" as const,
+    title: "Authentication, Authorization & Security",
+    desc: "Auth0, Okta, SSO, RBAC, and SCIM provisioning built for enterprise customer requirements.",
+    icon: Lock,
+  },
+]
+
 export const capabilities: { icon: LucideIcon; title: string; desc: string; ctaAnchor: string }[] = [
   {
     icon: Layers,
@@ -300,3 +328,29 @@ export const faqs = [
       "Most enterprise buyers will require SOC 2 Type I or II compliance, or at minimum a security questionnaire covering equivalent controls, before completing procurement. Building these controls into the architecture early avoids a costly, sales-blocking retrofit once the first enterprise deal reaches security review.",
   },
 ]
+
+export const exploreServicesSection = {
+  title: "Expert Solutions Tailored for Your Growth",
+  subtitle:
+    "From multi-tenant architecture to billing integration and scaling, explore our full suite of SaaS services designed to take your product from MVP to enterprise.",
+  ctaLabel: "Explore All Services",
+  ctaHref: "/services",
+  serviceCardHref: "/services/saas-app-development",
+}
+
+export const exploreHireSection = {
+  title: "Build Your Dream SaaS Team",
+  subtitle:
+    "Scale your product with top-tier full-stack developers, backend engineers, and DevOps specialists. Our resources integrate seamlessly into your workflow.",
+  ctaLabel: "Hire Expert Resources",
+  ctaHref: "/hire-resources",
+}
+
+export const exploreHireSlugs = [
+  "full-stack-developers",
+  "mern-developers",
+  "nodejs-developers",
+  "software-developers",
+  "reactjs-developers",
+  "devops-engineers",
+] as const

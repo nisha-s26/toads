@@ -17,6 +17,7 @@ export function ClientShell({ children }: { children: ReactNode }) {
   const isContentPage = isServicesPage && !isServicesHubPage
   const isBlogsPage = pathname?.startsWith("/blogs") ?? false
   const isCareersPage = pathname?.startsWith("/careers") ?? false
+  const isHomePage = pathname === "/"
   const meshVariant = isBlogsPage ? "blogs" : isCareersPage ? "careers" : "default"
   const showFloatingDecor = !isTechnologiesPage
 
@@ -25,7 +26,7 @@ export function ClientShell({ children }: { children: ReactNode }) {
   }, [pathname])
 
   return (
-    <div>
+    <div className={isHomePage ? "homepage-route" : undefined}>
       <Navbar activeSection={activeSection} />
       <main
         key={pathname}

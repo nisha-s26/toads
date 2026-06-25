@@ -46,6 +46,34 @@ export const devopsMaturityStages = [
 export const servicesIntro =
   "Toadster's DevOps services span the full delivery lifecycle - CI/CD pipeline design, infrastructure as code, container orchestration, observability, and incident response - delivered as a full platform build or as targeted engagements such as a CI/CD modernization or a Kubernetes migration."
 
+export const coreCapabilitiesBento = [
+  {
+    variant: "dark" as const,
+    badge: "FLAGSHIP SERVICE",
+    title: "CI/CD Pipeline Design & Implementation",
+    desc: "Automated build, test, and deploy pipelines with staged environments, rollback, and approval gates matched to your release risk.",
+    href: "/contact",
+  },
+  {
+    variant: "green" as const,
+    title: "Infrastructure as Code (IaC)",
+    desc: "Terraform, Pulumi, and CloudFormation so environments are reproducible, auditable, and recoverable.",
+    icon: Layers,
+  },
+  {
+    variant: "white" as const,
+    title: "Container Orchestration & Kubernetes",
+    desc: "Design, migrate, and operate workloads on EKS, GKE, and Kubernetes with autoscaling and service mesh.",
+    icon: Container,
+  },
+  {
+    variant: "outline" as const,
+    title: "Observability & Monitoring",
+    desc: "Prometheus, Grafana, Datadog, and ELK so teams detect issues before customers and diagnose root cause in minutes.",
+    icon: Activity,
+  },
+]
+
 export const capabilities: { icon: LucideIcon; title: string; desc: string; ctaAnchor: string }[] = [
   {
     icon: GitBranch,
@@ -274,3 +302,29 @@ export const faqs = [
       "Kubernetes is most valuable when you have multiple services that need independent scaling, frequent deployments, or portability across cloud environments. For simpler applications with stable, predictable load, a managed container service or traditional VM-based deployment is often more cost-effective and easier to maintain.",
   },
 ]
+
+export const exploreServicesSection = {
+  title: "Expert Solutions Tailored for Your Growth",
+  subtitle:
+    "From CI/CD pipelines to cloud infrastructure and SRE, explore our full suite of DevOps services designed to accelerate delivery and improve reliability.",
+  ctaLabel: "Explore All Services",
+  ctaHref: "/services",
+  serviceCardHref: "/services/devops",
+}
+
+export const exploreHireSection = {
+  title: "Build Your Dream DevOps Team",
+  subtitle:
+    "Scale your platform with top-tier DevOps engineers, cloud architects, and SRE specialists. Our resources integrate seamlessly into your workflow.",
+  ctaLabel: "Hire Expert Resources",
+  ctaHref: "/hire-resources",
+}
+
+export const exploreHireSlugs = [
+  "devops-engineers",
+  "full-stack-developers",
+  "software-developers",
+  "nodejs-developers",
+  "ai-ml-developers",
+  "mern-developers",
+] as const

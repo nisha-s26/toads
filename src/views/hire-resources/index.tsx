@@ -325,7 +325,7 @@ export default function HireResourcesHubPage() {
   return (
     <main className="hire-resources-hub homepage-content relative min-h-screen font-sans text-page-fg">
       {/* Hero - background extends behind fixed navbar */}
-      <section className="hire-hub-hero-section section-full-bleed homepage-hero-viewport--image relative isolate overflow-hidden pt-28">
+      <section className="hire-hub-hero-section section-full-bleed homepage-hero-viewport homepage-hero-viewport--image relative flex flex-col overflow-hidden">
         <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
           <div className="homepage-hero-bg-image absolute inset-0">
             <Image
@@ -369,8 +369,9 @@ export default function HireResourcesHubPage() {
           />
         </div>
 
-        <div className="hire-page-container relative z-10 w-full">
-          <div className="mx-auto flex w-full max-w-4xl flex-col items-center py-10 text-center sm:py-12 lg:py-14">
+        <div className="relative z-10 flex w-full flex-col items-start px-4 pb-4 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:px-6 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
+          <div className="hire-page-container w-full">
+            <div className="flex w-full max-w-4xl flex-col items-start py-10 text-left sm:py-12 lg:py-14">
             <h1 className="hero-enter-delay-1 w-full text-3xl font-extrabold leading-[1.08] dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
               <span className="text-black dark:text-white">Hire Dedicated Developers & </span>
               <span className="text-toadster-green dark:text-green-400">Technology Resources</span>
@@ -387,14 +388,14 @@ export default function HireResourcesHubPage() {
               </p>
             ))}
 
-            <div className="hero-enter-delay-3 mt-8 flex w-full justify-center">
+            <div className="hero-enter-delay-3 mt-8 flex w-full justify-start">
               <Link href="/contact" title={heroContent.expertCta} className={HERO_EXPERT_CTA_CLASS}>
                 {heroContent.expertCta}
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
-            <div className="hire-hub-hero-badges hero-enter-delay-4 mt-8 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold text-black dark:!text-white dark:drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)] sm:text-sm">
+            <div className="hire-hub-hero-badges hero-enter-delay-4 mt-8 flex w-full flex-wrap items-center justify-start gap-x-4 gap-y-2 text-xs font-semibold text-black dark:!text-white dark:drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)] sm:text-sm">
               {heroContent.badges.map((badge, index) => (
                 <span
                   key={badge}
@@ -411,6 +412,7 @@ export default function HireResourcesHubPage() {
               ))}
             </div>
           </div>
+        </div>
         </div>
       </section>
 

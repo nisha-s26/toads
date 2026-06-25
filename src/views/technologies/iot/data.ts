@@ -57,6 +57,34 @@ export const iotLayers = [
 export const servicesIntro =
   "Toadster's IoT services span the full deployment lifecycle - device and sensor strategy, connectivity architecture, edge computing, platform integration, and analytics - delivered as a full deployment or as targeted engagements such as a connectivity pilot or a predictive maintenance use case."
 
+export const coreCapabilitiesBento = [
+  {
+    variant: "dark" as const,
+    badge: "FLAGSHIP SERVICE",
+    title: "IoT Strategy & Device Architecture",
+    desc: "Assess assets and operational goals to identify sensor, protocol, and connectivity options that deliver ROI before hardware spend.",
+    href: "/contact",
+  },
+  {
+    variant: "green" as const,
+    title: "Predictive Maintenance & Asset Monitoring",
+    desc: "Detect equipment degradation from sensor data so maintenance happens before failure, not after downtime.",
+    icon: Activity,
+  },
+  {
+    variant: "white" as const,
+    title: "Edge Computing & Edge Analytics",
+    desc: "AWS IoT Greengrass, Azure IoT Edge, and NVIDIA Jetson for local processing that cuts latency and bandwidth cost.",
+    icon: Cpu,
+  },
+  {
+    variant: "outline" as const,
+    title: "IoT Platform & Device Management",
+    desc: "Provisioning, monitoring, OTA updates, and remote diagnostics on AWS IoT Core, Azure IoT Hub, and Google Cloud IoT.",
+    icon: Cloud,
+  },
+]
+
 export const capabilities: { icon: LucideIcon; title: string; desc: string; ctaAnchor: string }[] = [
   {
     icon: Radio,
@@ -286,3 +314,29 @@ export const faqs = [
       "IoT device data is typically streamed into a data pipeline (often via Kafka) and stored in a cloud data warehouse or lakehouse (Snowflake, Databricks), where it can be combined with business data and visualized in BI tools like Tableau or Power BI - using the same architecture as broader enterprise data analytics.",
   },
 ]
+
+export const exploreServicesSection = {
+  title: "Expert Solutions Tailored for Your Growth",
+  subtitle:
+    "From firmware and edge computing to cloud dashboards, explore our full suite of IoT services designed to connect and scale your device fleets.",
+  ctaLabel: "Explore All Services",
+  ctaHref: "/services",
+  serviceCardHref: "/services/iot-development",
+}
+
+export const exploreHireSection = {
+  title: "Build Your Dream IoT Team",
+  subtitle:
+    "Scale your connected product with top-tier embedded engineers, cloud developers, and AI specialists. Our resources integrate seamlessly into your workflow.",
+  ctaLabel: "Hire Expert Resources",
+  ctaHref: "/hire-resources",
+}
+
+export const exploreHireSlugs = [
+  "ai-ml-developers",
+  "full-stack-developers",
+  "software-developers",
+  "devops-engineers",
+  "android-developers",
+  "nodejs-developers",
+] as const
