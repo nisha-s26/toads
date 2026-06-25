@@ -187,9 +187,7 @@ export default function AboutPage() {
           <section className="pt-6 sm:pt-8 md:pt-10">
             <div className="mx-auto grid max-w-9xl items-stretch gap-6 px-4 sm:gap-8 sm:px-6 md:mx-20 md:grid-cols-2 md:gap-12 md:px-0">
               <div>
-                <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-green-400 sm:text-base md:text-xl">
-                  Our Mission
-                </p>
+              
                 <SplitSectionHeading
                   as="h2"
                   title="Making Enterprise-Grade AI Accessible to Every Business"
@@ -275,9 +273,7 @@ export default function AboutPage() {
           <section className="py-10 sm:py-14 md:py-20">
             <div className="mx-auto max-w-9xl px-4 sm:px-6 md:mx-20 md:px-0">
               <div className="mb-8 text-center sm:mb-10 md:mb-12">
-                <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-green-400 sm:text-base md:text-xl">
-                  What We Stand For
-                </p>
+              
                 <SplitSectionHeading
                   as="h2"
                   title="The Principles That Drive Every Line of Code"
@@ -319,9 +315,7 @@ export default function AboutPage() {
 
             <div className="relative z-10 mx-auto max-w-9xl px-4 sm:px-6 md:mx-20 md:px-0">
               <div className="mb-8 text-center sm:mb-12 md:mb-16">
-                <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-toadster-green sm:mb-3 sm:text-base md:text-xl">
-                  The Team
-                </p>
+               
                 <SplitSectionHeading
                   as="h2"
                   title="Meet the Visionary Behind Toadster Technologies"
@@ -466,9 +460,7 @@ export default function AboutPage() {
           <section className="pb-10 sm:pb-14 md:pb-20">
             <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-0">
               <div className="mb-8 text-center sm:mb-10 md:mb-12">
-                <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-toadster-green sm:mb-3 sm:text-base md:text-xl">
-                  Keep Exploring
-                </p>
+               
                 <SplitSectionHeading
                   as="h2"
                   title="Everything You Need to Know About Toadster - In One Place"

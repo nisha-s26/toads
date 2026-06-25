@@ -181,7 +181,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
       {/* ── Mobile Right-Side Drawer ── */}
       <div
         aria-hidden={!mobileOpen}
-        className={`fixed top-0 z-[60] flex h-full w-72 max-w-[85vw] flex-col bg-page-card transition-[right,box-shadow,visibility] duration-300 ease-in-out lg:hidden ${mobileOpen
+        className={`fixed top-0 z-[60] flex h-full w-[85%] max-w-[85vw] flex-col bg-page-card transition-[right,box-shadow,visibility] duration-300 ease-in-out lg:hidden ${mobileOpen
           ? "right-0 visible shadow-2xl"
           : "-right-full invisible shadow-none pointer-events-none"
           }`}
@@ -380,12 +380,12 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                                       title={s.title}
                                       className="flex items-start gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-page-accent-soft cursor-pointer"
                                     >
-                                      <span className="w-10 h-10 shrink-0 flex items-center justify-center rounded-lg bg-page-accent-soft text-brand-green">
-                                        {Icon && <Icon size={22} />}
+                                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-brand-green">
+                                        {Icon && <Icon className="size-8" />}
                                       </span>
                                       <div>
-                                        <div className="text-sm font-semibold text-page-fg leading-tight mb-0.5">{s.title}</div>
-                                        <div className="text-xs text-page-fg-muted leading-snug">{s.description}</div>
+                                        <div className="text-base font-semibold text-page-fg leading-tight mb-0.5">{s.title}</div>
+                                        <div className="text-sm text-page-fg-muted leading-snug">{s.description}</div>
                                       </div>
                                     </NavigationMenuLink>
                                   </li>
@@ -405,8 +405,8 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                                       title={s.navTitle}
                                       className="flex items-start gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-page-accent-soft cursor-pointer"
                                     >
-                                      <span className="w-10 h-10 shrink-0 flex items-center justify-center rounded-lg bg-page-accent-soft text-brand-green">
-                                        {Icon && <Icon size={22} />}
+                                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-brand-green">
+                                        {Icon && <Icon className="size-8" />}
                                       </span>
                                       <div>
                                         <div className="text-sm font-semibold text-page-fg leading-tight mb-0.5">{s.navTitle}</div>

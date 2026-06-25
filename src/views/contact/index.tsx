@@ -209,7 +209,7 @@ export default function Contact() {
 
                 <div className="relative mx-auto grid w-full max-w-7xl gap-5 md:grid-cols-2 md:gap-6 md:items-stretch lg:max-w-[88rem]">
                     {/* Left panel */}
-                    <div className="faq-glass-surface relative flex min-h-[680px] flex-col overflow-hidden rounded-[2rem] p-7 text-slate-900 dark:text-white md:min-h-[760px] md:p-8 lg:p-10">
+                    <div className="faq-glass-surface relative hidden min-h-[680px] flex-col overflow-hidden rounded-[2rem] p-7 text-slate-900 dark:text-white md:flex md:min-h-[760px] md:p-8 lg:p-10">
                         <div className="relative flex flex-1 flex-col">
                             <span className="text-sm font-bold uppercase tracking-[0.28em] text-slate-500 dark:text-sky-200/75 md:text-base">
                                 Get in Touch
