@@ -139,17 +139,25 @@ export default function AboutPage() {
               className="hidden object-cover object-center dark:block"
             />
           </div>
+          <div className="services-hub-hero-blur absolute inset-0" aria-hidden />
           <div className="homepage-hero-bg-overlay absolute inset-0" />
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/35 via-white/20 to-white/30 dark:hidden"
+            aria-hidden
+          />
+          <div className="services-hub-hero-dark-tint pointer-events-none absolute inset-0 hidden dark:block" aria-hidden />
         </div>
 
         <div className="relative z-10 flex w-full flex-col px-4 pb-12 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:px-6 sm:pb-16 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
-          <div className="relative z-10 mx-auto w-full max-w-9xl transition-transform duration-700 md:mx-28 md:px-0 md:hover:translate-x-2">
-            <h1 className="mb-5 text-3xl font-extrabold leading-tight text-black dark:text-white sm:mb-6 sm:text-4xl md:mb-8 md:text-7xl">
+          <div className="about-hero-copy relative z-10 mx-auto w-full max-w-9xl transition-transform duration-700 md:mx-28 md:px-0 md:hover:translate-x-2">
+            <h1 className="mb-5 text-3xl font-extrabold leading-tight text-black dark:text-white dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] sm:mb-6 sm:text-4xl md:mb-8 md:text-7xl">
               AI-Powered Engineering for the
               <br />
-              <span className="text-toadster-green">Businesses of Tomorrow</span>
+              <span className="text-toadster-green dark:text-[var(--page-hero-accent)] dark:drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+                Businesses of Tomorrow
+              </span>
             </h1>
-            <p className="max-w-2xl text-base font-medium leading-relaxed text-black dark:text-white sm:text-lg md:text-xl">
+            <p className="max-w-2xl text-base font-medium leading-relaxed text-black dark:text-[var(--page-hero-fg-muted)] dark:drop-shadow-[0_1px_10px_rgba(0,0,0,0.85)] sm:text-lg md:text-xl">
               We are a global team of engineers, data scientists, and AI researchers who architect,
               build, and scale intelligent digital systems - so your business doesn&apos;t just keep up
               with the future, it leads it.
@@ -167,14 +175,14 @@ export default function AboutPage() {
               <Link
                 href="/services"
                 title="Explore our services"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/90 bg-white px-5 py-3 text-sm font-semibold text-black shadow-sm transition-all hover:-translate-y-0.5 hover:bg-white/90 sm:px-7 sm:py-3.5 sm:text-base"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-black shadow-sm transition-all hover:-translate-y-0.5 hover:bg-white/90 dark:border-white/35 dark:bg-white/10 dark:text-white dark:backdrop-blur-sm dark:hover:border-white/45 dark:hover:bg-white/15 sm:px-7 sm:py-3.5 sm:text-base"
               >
                 Explore Our Services
                 <ArrowRight size={16} />
               </Link>
             </div>
 
-            <p className="mt-5 max-w-3xl text-xs leading-relaxed text-black dark:text-white sm:mt-6 sm:text-sm md:mt-8 md:text-base">
+            <p className="mt-5 max-w-3xl text-xs leading-relaxed text-black dark:text-white/90 dark:drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)] sm:mt-6 sm:text-sm md:mt-8 md:text-base">
               Trusted by 250+ businesses across the US, UK, India, and UAE &nbsp;|&nbsp; Clutch Global
               Leader 2026 &nbsp;|&nbsp; 85% Long-Term Client Retention
             </p>
@@ -349,8 +357,8 @@ export default function AboutPage() {
                       sizes="(max-width: 1024px) 100vw, 1024px"
                       className="hidden object-cover object-center dark:block"
                     />
-                    <div className="absolute inset-0 hidden bg-black/50 dark:block" />
-                    <div className="absolute inset-0 hidden bg-gradient-to-b from-black/30 via-black/45 to-black/65 dark:block" />
+                    <div className="absolute inset-0 hidden bg-black/50 dark:block founder-profile-bg-scrim" />
+                    <div className="absolute inset-0 hidden bg-gradient-to-b from-black/30 via-black/45 to-black/65 dark:block founder-profile-bg-gradient" />
                   </div>
 
                   <div className="relative z-10 h-1 bg-gradient-to-r from-transparent via-toadster-green to-transparent" />
@@ -379,16 +387,16 @@ export default function AboutPage() {
 
                     <div className="space-y-3 text-center sm:space-y-4">
                       <div>
-                        <h3 className="mb-2 text-2xl font-bold tracking-tight text-black sm:text-3xl md:text-4xl dark:text-white">
+                        <h3 className="founder-profile-name mb-2 text-2xl font-bold tracking-tight text-black sm:text-3xl md:text-4xl dark:text-white">
                           Mr. Naveen Singh
                         </h3>
-                        <div className="inline-flex items-center justify-center gap-2 rounded-full border border-toadster-green/30 bg-toadster-green/10 px-3 py-1.5 sm:px-4 sm:py-2">
+                        <div className="founder-profile-role-badge inline-flex items-center justify-center gap-2 rounded-full border border-toadster-green/30 bg-toadster-green/10 px-3 py-1.5 sm:px-4 sm:py-2">
                           <div className="h-2 w-2 animate-pulse rounded-full bg-toadster-green" />
-                          <h4 className="text-xs font-semibold text-toadster-green sm:text-sm md:text-base">
+                          <h4 className="founder-profile-role-title text-xs font-semibold text-toadster-green dark:text-green-400 sm:text-sm md:text-base">
                             Founder & Chief Executive Officer
                           </h4>
                         </div>
-                        <p className="mt-2 text-xs text-black/75 sm:text-sm dark:text-white/80">
+                        <p className="founder-profile-company mt-2 text-xs text-black/75 sm:text-sm dark:text-white/80">
                           Toadster Technologies Pvt. Ltd.
                         </p>
                       </div>
@@ -402,7 +410,7 @@ export default function AboutPage() {
                       <div className="founder-profile-copy mx-auto max-w-3xl text-left sm:text-center">
                         <p className="text-sm leading-relaxed text-black sm:text-base md:text-lg dark:text-white/90">
                           Naveen Singh is a technology entrepreneur and AI innovation leader with over{" "}
-                          <span className="font-semibold text-toadster-green">two decades</span> of
+                          <span className="founder-profile-accent font-semibold text-toadster-green">two decades</span> of
                           hands-on experience transforming complex business challenges into scalable,
                           production-ready technology solutions.
                         </p>
@@ -416,8 +424,8 @@ export default function AboutPage() {
                         </p>
                         <p className="mt-3 text-sm leading-relaxed text-black sm:mt-4 sm:text-base dark:text-white/85">
                           Before founding Toadster, Naveen held senior benchmark roles at{" "}
-                          <span className="font-medium text-black dark:text-white">EA Sports</span> and{" "}
-                          <span className="font-medium text-black dark:text-white">Samsung India Electronics</span>,
+                          <span className="founder-profile-accent font-medium text-black dark:text-white">EA Sports</span> and{" "}
+                          <span className="founder-profile-accent font-medium text-black dark:text-white">Samsung India Electronics</span>,
                           where he contributed to globally distributed products and set new performance
                           standards for technology delivery. These experiences forged his philosophy:
                           technology must serve business outcomes, not the other way around.
@@ -432,20 +440,20 @@ export default function AboutPage() {
 
                       <div className="mt-6 grid grid-cols-1 gap-3 border-t border-page-border pt-6 sm:mt-8 sm:gap-4 sm:pt-8 md:grid-cols-3">
                         <div className="rounded-xl border border-page-border bg-white/[0.02] p-3 text-center transition-colors duration-200 sm:p-4">
-                          <div className="mb-1 text-xl font-bold text-toadster-green sm:text-2xl">20+</div>
-                          <div className="text-[10px] uppercase tracking-wide text-black/75 sm:text-xs dark:text-white/75">
+                          <div className="founder-stat-value mb-1 text-xl font-bold text-toadster-green sm:text-2xl">20+</div>
+                          <div className="founder-stat-label text-[10px] uppercase tracking-wide text-black/75 sm:text-xs dark:text-white/75">
                             Years of Experience
                           </div>
                         </div>
                         <div className="rounded-xl border border-page-border bg-white/[0.02] p-3 text-center transition-colors duration-200 sm:p-4">
-                          <div className="mb-1 text-xl font-bold text-toadster-green sm:text-2xl">Global</div>
-                          <div className="text-[10px] uppercase tracking-wide text-black/75 sm:text-xs dark:text-white/75">
+                          <div className="founder-stat-value mb-1 text-xl font-bold text-toadster-green sm:text-2xl">Global</div>
+                          <div className="founder-stat-label text-[10px] uppercase tracking-wide text-black/75 sm:text-xs dark:text-white/75">
                             Impact & Reach - 4 Continents
                           </div>
                         </div>
                         <div className="rounded-xl border border-page-border bg-white/[0.02] p-3 text-center transition-colors duration-200 sm:p-4">
-                          <div className="mb-1 text-xl font-bold text-toadster-green sm:text-2xl">AI</div>
-                          <div className="text-[10px] uppercase tracking-wide text-black/75 sm:text-xs dark:text-white/75">
+                          <div className="founder-stat-value mb-1 text-xl font-bold text-toadster-green sm:text-2xl">AI</div>
+                          <div className="founder-stat-label text-[10px] uppercase tracking-wide text-black/75 sm:text-xs dark:text-white/75">
                             Innovation Leader - Recognized 2026
                           </div>
                         </div>
