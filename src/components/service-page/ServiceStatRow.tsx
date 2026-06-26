@@ -15,9 +15,18 @@ type ServiceStatRowProps = {
   stats: ServiceStat[]
   ctaLabel?: string
   ctaHref?: string
+  ctaStatic?: boolean
 }
 
-export function ServiceStatRow({ stats, ctaLabel, ctaHref = "#contact-form" }: ServiceStatRowProps) {
+const ctaClassName =
+  "inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm"
+
+export function ServiceStatRow({
+  stats,
+  ctaLabel,
+  ctaHref = "#contact-form",
+  ctaStatic = false,
+}: ServiceStatRowProps) {
   return (
     <div>
       <div className="service-stat-row mb-8 grid grid-cols-2 gap-x-6 gap-y-4 md:grid-cols-4 md:gap-x-8">
@@ -33,13 +42,17 @@ export function ServiceStatRow({ stats, ctaLabel, ctaHref = "#contact-form" }: S
 
       {ctaLabel ? (
         <div className="flex flex-wrap gap-4">
-          <Link
-            href={ctaHref}
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-          >
-            {ctaLabel}
-            <ArrowRight size={16} />
-          </Link>
+          {ctaStatic ? (
+            <span className={`${ctaClassName} cursor-default`}>
+              {ctaLabel}
+              <ArrowRight size={16} />
+            </span>
+          ) : (
+            <Link href={ctaHref} className={`${ctaClassName} transition-colors hover:bg-primary/90`}>
+              {ctaLabel}
+              <ArrowRight size={16} />
+            </Link>
+          )}
         </div>
       ) : null}
     </div>

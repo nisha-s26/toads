@@ -44,7 +44,6 @@ export const heroSubheading = "Practical AI That Delivers Measurable ROI."
 
 export const heroCta = {
   label: "Talk to an AI Development Specialist",
-  href: "#contact-form",
 }
 
 export const capabilities: {

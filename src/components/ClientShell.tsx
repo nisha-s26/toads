@@ -26,7 +26,8 @@ export function ClientShell({ children }: { children: ReactNode }) {
   }, [pathname])
 
   return (
-    <div className={isHomePage ? "homepage-route" : undefined}>
+    <div className="min-w-0 w-full max-w-full overflow-x-clip">
+    <div className={isHomePage ? "homepage-route min-w-0 w-full max-w-full" : undefined}>
       <Navbar activeSection={activeSection} />
       <main
         key={pathname}
@@ -43,6 +44,7 @@ export function ClientShell({ children }: { children: ReactNode }) {
         </div>
       </main>
       <Footer />
+    </div>
     </div>
   )
 }

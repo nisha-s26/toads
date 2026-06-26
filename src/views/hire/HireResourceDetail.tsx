@@ -1052,7 +1052,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                     alt="Monitor code visual"
                     width={520}
                     height={360}
-                    className="w-full max-w-[420px] lg:max-w-full h-auto drop-shadow-xl"
+                    className="h-auto w-full max-w-full object-contain drop-shadow-xl lg:max-w-full"
                     unoptimized
                   />
                 </div>
@@ -1123,7 +1123,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                     alt="Phones visualization"
                     width={340}
                     height={260}
-                    className="object-contain"
+                    className="h-auto w-full max-w-full object-contain"
                     unoptimized
                   />
                 </div>

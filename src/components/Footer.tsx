@@ -339,7 +339,7 @@ function FooterColumn({
 
 const Footer = () => {
   return (
-    <footer className="section-full-bleed relative z-10 border-t border-white/10 bg-[#0a101f] text-white">
+    <footer className="section-full-bleed relative z-10 w-full max-w-full overflow-x-clip border-t border-white/10 bg-[#0a101f] text-white">
       <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-6 md:py-10 lg:px-10 lg:py-14 xl:px-12">
         {/* Mobile & tablet */}
         <div className="lg:hidden">

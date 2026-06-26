@@ -173,7 +173,7 @@ export default function AIDevelopmentPage() {
               practical AI solutions that generate measurable ROI.
             </p>
 
-            <ServiceStatRow stats={trustStats} ctaLabel={heroCta.label} ctaHref={heroCta.href} />
+            <ServiceStatRow stats={trustStats} ctaLabel={heroCta.label} ctaStatic />
           </div>
 
           <div style={{ maxHeight: "calc(100vh - 6rem)", overflow: "auto" }} className="service-hero-form hide-scrollbar">

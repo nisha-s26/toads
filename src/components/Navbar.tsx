@@ -181,13 +181,13 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
       {/* ── Mobile Right-Side Drawer ── */}
       <div
         aria-hidden={!mobileOpen}
-        className={`fixed top-0 z-[60] flex h-full w-[85%] max-w-[85vw] flex-col bg-page-card transition-[right,box-shadow,visibility] duration-300 ease-in-out lg:hidden ${mobileOpen
-          ? "right-0 visible shadow-2xl"
-          : "-right-full invisible shadow-none pointer-events-none"
+        className={`navbar-mobile-drawer fixed top-0 right-0 z-[60] box-border flex h-full w-[min(85vw,100%)] max-w-full min-w-0 flex-col overflow-x-hidden overflow-y-auto bg-page-card transition-[transform,box-shadow,visibility] duration-300 ease-in-out will-change-transform lg:hidden ${mobileOpen
+          ? "translate-x-0 visible shadow-2xl"
+          : "translate-x-full invisible shadow-none pointer-events-none"
           }`}
       >
         {/* Drawer Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-page-border shrink-0">
+        <div className="flex min-w-0 items-center justify-between gap-2 px-3 py-4 border-b border-page-border shrink-0 sm:px-5">
           <Link href="/" onClick={closeMobile} title="Toadster Home" className="flex items-center">
             <ToadsterLogo className="h-5 w-auto" />
           </Link>
@@ -205,7 +205,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
         </div>
 
         {/* Drawer Links */}
-        <nav className="flex-1 rounded-xl overflow-y-auto px-4 py-3 flex flex-col gap-0.5">
+        <nav className="flex min-w-0 w-full max-w-full flex-1 flex-col gap-0.5 overflow-y-auto overflow-x-hidden rounded-xl px-3 py-3 sm:px-4">
           {navLinks.map((link) => {
             if (link.dropdown) {
               if (link.label === "Services") {
@@ -229,13 +229,13 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                       />
                     </button>
                     {mobileServicesOpen && (
-                      <div className="mt-1 ml-3 pl-3 border-l-2 border-page-border flex flex-col gap-0.5">
+                      <div className="navbar-mobile-submenu mt-1 ml-2 flex min-w-0 w-full max-w-full flex-col gap-0.5 border-l-2 border-page-border pl-2 sm:ml-3 sm:pl-3">
                         {SERVICES_NAV.map((s) => (
                           <a
                             key={s.title}
                             href="#"
                             title={s.title}
-                            className={`px-3 py-2 rounded-lg text-sm transition-colors hover:bg-page-accent-soft ${isHirePage ? `${hireNavText} hover:opacity-80` : "text-page-fg-muted hover:text-page-fg"}`}
+                            className={`block min-w-0 max-w-full whitespace-normal break-words px-2 py-2 rounded-lg text-sm transition-colors hover:bg-page-accent-soft sm:px-3 ${isHirePage ? `${hireNavText} hover:opacity-80` : "text-page-fg-muted hover:text-page-fg"}`}
                             onClick={(e) => {
                               e.preventDefault()
                               closeMobile()
@@ -270,13 +270,13 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                       />
                     </button>
                     {mobileDedicatedOpen && (
-                      <div className="mt-1 ml-3 pl-3 border-l-2 border-page-border flex flex-col gap-0.5 max-h-72 overflow-y-auto">
+                      <div className="navbar-mobile-submenu mt-1 ml-2 flex min-w-0 w-full max-w-full flex-col gap-0.5 border-l-2 border-page-border pl-2 max-h-72 overflow-y-auto overflow-x-hidden sm:ml-3 sm:pl-3">
                         {HIRE_RESOURCES_NAV.map((s) => (
                           <a
                             key={s.href}
                             href={s.href}
                             title={s.navTitle}
-                            className={`px-3 py-2 rounded-lg text-sm transition-colors hover:bg-page-accent-soft ${isHirePage ? `${hireNavText} hover:opacity-80` : "text-page-fg-muted hover:text-page-fg"}`}
+                            className={`block min-w-0 max-w-full whitespace-normal break-words px-2 py-2 rounded-lg text-sm transition-colors hover:bg-page-accent-soft sm:px-3 ${isHirePage ? `${hireNavText} hover:opacity-80` : "text-page-fg-muted hover:text-page-fg"}`}
                             onClick={(e) => {
                               e.preventDefault()
                               closeMobile()
@@ -317,7 +317,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
         </nav>
 
         {/* Drawer Footer */}
-        <div className="px-5 py-4 border-t border-page-border shrink-0">
+        <div className="min-w-0 px-3 py-4 border-t border-page-border shrink-0 sm:px-5">
           <Button asChild className="w-full rounded-xl text-sm font-semibold">
             <a
               href={"/contact"}
@@ -334,7 +334,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
         className={`pointer-events-none fixed inset-x-0 top-0 z-50 flex max-w-[100vw] justify-center bg-transparent px-2 pt-2 sm:px-4 sm:pt-4 md:px-6${isHirePage ? " navbar-hire-route" : ""}`}
       >
         <nav
-          className="pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-2 rounded-2xl border border-page-border/70 bg-page-nav/85 px-3 py-2 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-3 lg:max-w-[88rem] lg:px-8"
+          className="navbar-root pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-2 rounded-2xl border border-page-border/70 bg-page-nav/85 px-3 py-2 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-3 lg:max-w-[88rem] lg:px-8"
           style={{ boxShadow: "var(--page-nav-shadow)" }}
         >
           {/* ── Logo ── */}
@@ -342,7 +342,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
             <ToadsterLogo
               width={132}
               height={34}
-              className="h-6 w-auto max-w-[7.5rem] sm:h-8 sm:max-w-none md:h-9"
+              className="h-6 w-auto max-w-[6.25rem] sm:h-8 sm:max-w-none md:h-9"
             />
           </Link>
 
