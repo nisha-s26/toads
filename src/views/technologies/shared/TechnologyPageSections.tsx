@@ -67,13 +67,14 @@ export function TechnologyServicesSection({
           }
 
           if (item.variant === "green") {
+            const GreenIcon = item.icon ?? Users
             return (
               <article key={item.title} className="da-bento-card da-bento-card--green">
+                <span className="da-bento-green-icon" aria-hidden="true">
+                  <GreenIcon size={28} strokeWidth={1.75} />
+                </span>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
-                <span className="da-bento-green-icon">
-                  <Users size={28} strokeWidth={1.75} />
-                </span>
               </article>
             )
           }
@@ -84,13 +85,13 @@ export function TechnologyServicesSection({
               key={item.title}
               className={`da-bento-card da-bento-card--white${item.variant === "outline" ? " da-bento-card--outline" : ""}`}
             >
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
               {Icon ? (
-                <span className="da-bento-white-icon">
+                <span className="da-bento-white-icon" aria-hidden="true">
                   <Icon size={24} strokeWidth={2} />
                 </span>
               ) : null}
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
             </article>
           )
         })}
@@ -197,7 +198,7 @@ export function TechnologyExploreSections({
 export function TechnologyFaqSection({ faqs }: { faqs: Faq[] }) {
   return (
     <section className="da-section da-faq-section">
-      <div className="faq-section-layout da-faq-wrap">
+      <div className="da-container da-faq-wrap">
         <div className="da-faq-heading">
           <SplitSectionHeading
             as="h2"

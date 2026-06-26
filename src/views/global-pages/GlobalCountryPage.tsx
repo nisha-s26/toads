@@ -20,6 +20,7 @@ import {
 import { ScrollReveal } from "@/components/ScrollReveal"
 import { HomepageFaqItem } from "@/components/homepage/HomepageFaqItem"
 import { GlobalExploreCities } from "@/components/global-pages/GlobalExploreCities"
+import { GlobalCountryProcessTrack } from "@/components/global-pages/GlobalCountryProcessTrack"
 import { getCitiesForCountry } from "@/views/global-pages/city-registry"
 import { GLOBAL_COUNTRY_PAGES } from "@/views/global-pages/registry"
 import type { GlobalCountryPageData } from "./types"
@@ -328,20 +329,10 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                 Our {processSteps.length}-Step AI Development Process
               </h2>
             </ScrollReveal>
-            <div
-              className="global-country-process-track"
-              style={{ "--gc-process-cols": processSteps.length } as React.CSSProperties}
-            >
-              {processSteps.map((step, index) => (
-                <ScrollReveal key={step.num} delay={index * 0.05} y={12} className="global-country-process-item">
-                  <div className="global-country-process-node">{step.num}</div>
-                  <h3 className="global-country-process-title mt-3 text-sm font-bold md:text-base">{step.title}</h3>
-                  <p className="global-country-process-desc mt-1.5 text-xs leading-snug text-page-fg-muted md:text-sm">
-                    {truncate(step.description, 100)}
-                  </p>
-                </ScrollReveal>
-              ))}
-            </div>
+            <GlobalCountryProcessTrack
+              steps={processSteps}
+              renderDescription={(step) => truncate(step.description, 100)}
+            />
           </SectionContainer>
         </section>
       )}

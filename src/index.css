@@ -3832,7 +3832,7 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
   padding-top: var(--section-heading-gap);
 }
 
-.data-analytics-landing .da-faq-section>.faq-section-layout:first-child {
+.data-analytics-landing .da-faq-section > .da-faq-wrap:first-child {
   padding-top: 0;
 }
 
@@ -3963,12 +3963,19 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
 
 @media (min-width: 900px) {
   .data-analytics-landing .da-bento-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: repeat(2, minmax(220px, auto));
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: repeat(3, minmax(0, auto));
+    align-items: stretch;
   }
 
   .data-analytics-landing .da-bento-card--featured {
-    grid-row: span 2;
+    grid-row: 1 / span 3;
+    grid-column: 1;
+  }
+
+  .data-analytics-landing .da-bento-card:not(.da-bento-card--featured) {
+    grid-column: 2;
+    min-height: 0;
   }
 }
 
@@ -3995,6 +4002,11 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
   font-weight: 700;
   line-height: 1.25;
   max-width: 18rem;
+}
+
+.data-analytics-landing .da-bento-card--green h3,
+.data-analytics-landing .da-bento-card--white h3 {
+  padding-right: 2.75rem;
 }
 
 .data-analytics-landing .da-bento-card p {
@@ -4066,7 +4078,11 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
 }
 
 .data-analytics-landing .da-bento-green-icon {
-  margin-top: auto;
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  z-index: 1;
+  margin-top: 0;
   color: rgba(255, 255, 255, 0.72);
 }
 
@@ -4089,7 +4105,11 @@ html:not(.dark) .data-analytics-landing .da-hero--devops .da-btn-outline:hover {
 }
 
 .data-analytics-landing .da-bento-white-icon {
-  margin-top: auto;
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  z-index: 1;
+  margin-top: 0;
   color: var(--da-green);
 }
 
@@ -4292,15 +4312,20 @@ html:not(.dark) .data-analytics-landing .da-process-section .da-process-num--alt
 .data-analytics-landing .da-faq-wrap {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
 }
 
 .data-analytics-landing .da-faq-heading {
+  width: 100%;
   text-align: center;
 }
 
-.data-analytics-landing .da-faq-heading h2 {
-  margin: 0;
+.data-analytics-landing .da-faq-heading .da-section-title {
+  margin: 0 auto;
+  max-width: none;
+  width: 100%;
+  text-align: center;
   font-size: clamp(1.85rem, 3vw, 2.5rem);
   font-weight: 800;
   line-height: 1.15;
@@ -4308,18 +4333,24 @@ html:not(.dark) .data-analytics-landing .da-process-section .da-process-num--alt
   color: var(--da-text);
 }
 
-.dark .data-analytics-landing .da-faq-heading h2 {
+.dark .data-analytics-landing .da-faq-heading .da-section-title {
   color: #ffffff;
 }
 
 .data-analytics-landing .da-faq-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
   width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
 }
 
 .data-analytics-landing .da-faq-item {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
   position: relative;
   isolation: isolate;
   border-radius: 1rem;
@@ -6943,6 +6974,10 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
   position: relative;
 }
 
+.global-country-process-line {
+  display: none;
+}
+
 @media (min-width: 480px) {
   .global-country-process-track {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -6960,16 +6995,52 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
     grid-template-columns: repeat(var(--gc-process-cols, 6), minmax(0, 1fr));
   }
 
-  .global-country-process-track::before {
-    content: "";
+  .global-country-process-line {
+    display: block;
     position: absolute;
     top: 1.15rem;
     left: calc(100% / var(--gc-process-cols, 6) / 2);
     right: calc(100% / var(--gc-process-cols, 6) / 2);
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(46, 204, 113, 0.45), transparent);
     z-index: 0;
+    pointer-events: none;
   }
+
+  .global-country-process-line-base {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--toadster-green) 24%, transparent);
+  }
+
+  .global-country-process-line-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--toadster-green);
+    transition: width 400ms ease;
+  }
+}
+
+.global-country-process-item-hit {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+}
+
+.global-country-process-item-hit:focus-visible {
+  outline: 2px solid var(--toadster-green);
+  outline-offset: 4px;
+  border-radius: 0.5rem;
 }
 
 .global-country-process-item {
@@ -7001,9 +7072,17 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
   transition: transform 0.25s ease, background 0.25s ease;
 }
 
+.global-country-process-item:hover .global-country-process-node,
+.global-country-process-item--reached .global-country-process-node {
+  background: var(--toadster-green);
+}
+
 .global-country-process-item:hover .global-country-process-node {
   transform: scale(1.08);
-  background: var(--toadster-green);
+}
+
+.global-country-process-item--current .global-country-process-node {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--toadster-green) 28%, transparent);
 }
 
 .global-country-process-title {
@@ -7121,5 +7200,24 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
   .global-country-industry-card:hover,
   .global-country-process-item:hover .global-country-process-node {
     transform: none;
+  }
+
+  .global-country-process-line-fill {
+    transition: none;
+  }
+}
+
+/* Data Analytics — services section title sizing */
+@media (max-width: 1439.98px) {
+  .data-analytics-landing #services .da-section-head .da-section-title {
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+  }
+}
+
+@media (min-width: 1440px) {
+  .data-analytics-landing #services .da-section-head .da-section-title,
+  .data-analytics-landing #services .da-section-head .da-section-title .heading-main,
+  .data-analytics-landing #services .da-section-head .da-section-title .heading-accent {
+    font-size: 48px;
   }
 }
