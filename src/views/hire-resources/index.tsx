@@ -62,8 +62,8 @@ const RESOURCE_TYPES_INITIAL_COUNT = 9
 const FAQ_INITIAL_COUNT = 5
 const REVEAL_COLLAPSE_MS = 420
 
-const CARD_GRID_CLASS = "grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-const FEATURE_GRID_CLASS = "grid gap-5 sm:grid-cols-2"
+const CARD_GRID_CLASS = "grid min-w-0 gap-5 md:grid-cols-2 lg:grid-cols-3"
+const FEATURE_GRID_CLASS = "grid min-w-0 gap-5 md:grid-cols-2"
 
 const EXPERT_CTA_CLASS =
   "inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-toadster-green shadow-md transition-all hover:-translate-y-0.5 hover:bg-white/90 dark:bg-primary dark:text-white dark:shadow-md dark:ring-1 dark:ring-white/15 dark:hover:bg-primary-hover"
@@ -277,7 +277,7 @@ function CtaPanel() {
     <div ref={ref} className="hire-page-container">
       <div
         className={cn(
-          "hire-resources-cta hire-hub-cta-panel relative overflow-hidden rounded-[1.75rem] px-6 py-10 text-center sm:px-10 sm:py-12 md:px-14 md:py-14",
+          "hire-resources-cta hire-hub-cta-panel relative overflow-hidden rounded-[1.75rem] px-5 py-8 text-center sm:px-8 sm:py-10 md:px-10 md:py-12 lg:px-14 lg:py-14",
           visible && "hire-hub-cta-panel--visible",
         )}
       >
@@ -301,7 +301,7 @@ function CtaPanel() {
 
 export default function HireResourcesHubPage() {
   return (
-    <main className="hire-resources-hub homepage-content relative min-h-screen font-sans text-page-fg">
+    <main className="hire-resources-hub homepage-content relative min-h-screen overflow-x-clip font-sans text-page-fg">
       {/* Hero - background extends behind fixed navbar */}
       <section className="hire-hub-hero-section section-full-bleed homepage-hero-viewport homepage-hero-viewport--image relative flex flex-col overflow-hidden">
         <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
@@ -336,10 +336,10 @@ export default function HireResourcesHubPage() {
           <div className="services-hub-hero-dark-tint pointer-events-none absolute inset-0 hidden dark:block" aria-hidden />
         </div>
 
-        <div className="relative z-10 flex w-full flex-1 flex-col items-start justify-center pb-4 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
-          <div className="hire-page-container">
-            <div className="flex w-full flex-col items-start py-6 text-left sm:py-8 lg:py-10">
-            <h1 className="hero-enter-delay-1 w-full text-3xl font-extrabold leading-[1.08] text-[var(--page-hero-fg)] sm:text-4xl md:text-5xl lg:text-[3.25rem] dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
+        <div className="relative z-10 flex w-full min-w-0 flex-1 flex-col items-start justify-center pb-4 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
+          <div className="hire-page-container w-full">
+            <div className="flex w-full min-w-0 flex-col items-start py-6 text-left sm:py-8 lg:py-10">
+            <h1 className="hero-enter-delay-1 w-full min-w-0 break-words text-3xl font-extrabold leading-[1.08] text-[var(--page-hero-fg)] sm:text-4xl md:text-5xl lg:text-[3.25rem] dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
               <span className="text-black dark:text-white">Hire Dedicated Developers & </span>
               <span className="text-toadster-green dark:text-[var(--page-hero-accent)]">Technology Resources</span>
             </h1>
@@ -355,8 +355,8 @@ export default function HireResourcesHubPage() {
               </p>
             ))}
 
-            <div className="hero-enter-delay-3 mt-8 flex w-full justify-start">
-              <Link href="/contact" title={heroContent.expertCta} className={HERO_EXPERT_CTA_CLASS}>
+            <div className="hero-enter-delay-3 mt-8 flex w-full min-w-0 justify-start">
+              <Link href="/contact" title={heroContent.expertCta} className={cn(HERO_EXPERT_CTA_CLASS, "w-full justify-center sm:w-auto")}>
                 {heroContent.expertCta}
                 <ArrowRight className="h-4 w-4" />
               </Link>
@@ -384,7 +384,7 @@ export default function HireResourcesHubPage() {
       </section>
 
       {/* Why Hire Dedicated Resources */}
-      <section className="hire-hub-section homepage-snap-section relative px-4 sm:px-0">
+      <section className="hire-hub-section homepage-snap-section relative">
         <div className="hire-page-container">
           <PageSectionHeading
             titleBefore="Why Hire "
@@ -409,7 +409,7 @@ export default function HireResourcesHubPage() {
       </section>
 
       {/* Resource Types Available */}
-      <section id="resource-types" className="hire-hub-section homepage-snap-section relative scroll-mt-28 px-4 sm:px-0">
+      <section id="resource-types" className="hire-hub-section homepage-snap-section relative scroll-mt-28">
         <div className="hire-page-container">
           <PageSectionHeading
             titleBefore="Resource Types "
@@ -423,7 +423,7 @@ export default function HireResourcesHubPage() {
       </section>
 
       {/* Why Choose Toadster */}
-      <section className="hire-hub-section homepage-snap-section relative px-4 sm:px-0">
+      <section className="hire-hub-section homepage-snap-section relative">
         <div className="hire-page-container">
           <PageSectionHeading
             titleBefore="Why Choose "
@@ -448,12 +448,12 @@ export default function HireResourcesHubPage() {
       </section>
 
       {/* CTA */}
-      <section id="hire-hub-cta" className="hire-hub-section homepage-snap-section scroll-mt-28 px-4 sm:px-0">
+      <section id="hire-hub-cta" className="hire-hub-section homepage-snap-section scroll-mt-28">
         <CtaPanel />
       </section>
 
       {/* FAQs */}
-      <section id="hire-hub-faq" className="hire-hub-section homepage-snap-section scroll-mt-28 px-4 sm:px-0">
+      <section id="hire-hub-faq" className="hire-hub-section homepage-snap-section scroll-mt-28">
         <div className="hire-page-container">
           <PageSectionHeading
             titleBefore="Frequently Asked "

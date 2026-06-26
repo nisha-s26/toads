@@ -46,7 +46,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
     <div className="min-h-screen text-page-fg">
 
       {/* Resources and Insights Section */}
-      <section className="py-12 px-3 sm:px-4 md:px-4 lg:px-5 pt-24 sm:pt-28 md:pt-32 relative">
+      <section className="py-12 page-x-gutter pt-24 sm:pt-28 md:pt-32 relative lg:px-5">
         <div className="max-w-7xl mx-auto relative z-10 mt-10">
           <div className="mb-8 sm:mb-12 md:mb-16">
             <div className={`text-center transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -138,7 +138,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
       </section>
 
       {/* Featured Blogs Section */}
-      <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-4 lg:px-5 relative">
+      <section className="py-12 sm:py-16 md:py-20 page-x-gutter relative lg:px-5">
         <div className="max-w-7xl mx-auto relative z-10">
           <SplitSectionHeading
             as="h2"
@@ -249,7 +249,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
 
 
       {/* Latest Blogs Section */}
-      <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-4 lg:px-5 relative">
+      <section className="py-12 sm:py-16 md:py-20 page-x-gutter relative lg:px-5">
         <div className="max-w-7xl mx-auto relative z-10">
           <SplitSectionHeading
             as="h2"
@@ -330,7 +330,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
       </section>
 
       {/* Explore Our Services & CTA */}
-      <section className="py-16 sm:py-20 px-3 sm:px-4 md:px-4 lg:px-5 relative">
+      <section className="py-16 sm:py-20 page-x-gutter relative lg:px-5">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-10 sm:mb-12">
             <p className="text-sm sm:text-xl tracking-[0.25em] text-toadster-green font-bold uppercase mb-3">

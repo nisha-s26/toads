@@ -339,13 +339,11 @@ function FooterColumn({
 
 const Footer = () => {
   return (
-    <footer className="section-full-bleed relative z-10 w-full max-w-full overflow-x-clip border-t border-white/10 bg-[#0a101f] text-white">
-      <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-6 md:py-10 lg:px-10 lg:py-14 xl:px-12">
+    <footer className="section-full-bleed relative z-10 border-t border-white/10 bg-[#0a101f] text-white">
+      <div className="mx-auto max-w-[1440px] page-x-gutter py-10 md:py-10 lg:px-10 lg:py-14 xl:px-12">
         {/* Mobile & tablet */}
         <div className="lg:hidden">
-          <div
-            className="mx-auto flex max-w-md flex-col items-center text-center"
-          >
+          <div className="mx-auto flex w-full max-w-md flex-col items-center text-center md:max-w-none">
             <Link href="/" aria-label="Toadster home" title="Toadster Home">
               <ToadsterLogo height={40} width={180} onDarkBackground />
             </Link>
@@ -371,7 +369,7 @@ const Footer = () => {
             <ClutchBadge className="mt-5" onDarkBackground />
           </div>
 
-          <div className="mx-auto mt-10 max-w-lg divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5 px-5 sm:px-6">
+          <div className="mx-auto mt-10 w-full max-w-lg divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5 page-x-gutter md:max-w-none">
             <FooterAccordionSection title="Services" defaultOpen>
               <FooterLinkList links={FOOTER_SERVICE_LINKS} viewMore={SERVICES_VIEW_MORE} />
             </FooterAccordionSection>
@@ -441,7 +439,7 @@ const Footer = () => {
       </div>
       {/* Bottom bar */}
       <div className="border-t border-white/10 bg-black">
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center justify-center gap-3 px-4 py-6 text-center sm:flex-row sm:gap-4 sm:px-6 lg:px-10 xl:px-12">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center justify-center gap-3 page-x-gutter py-6 text-center sm:flex-row sm:gap-4 lg:px-10 xl:px-12">
           <p className="text-xs leading-relaxed text-white">
             © {new Date().getFullYear()} Toadster Technologies Pvt. Ltd. All rights reserved.
           </p>

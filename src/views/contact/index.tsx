@@ -17,6 +17,7 @@ import { HireRoleCard } from "@/components/homepage/HireRoleCard";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { pageSectionContainer } from "@/lib/page-layout";
 
 type ContactFeature = {
     icon: LucideIcon;
@@ -197,7 +198,7 @@ export default function Contact() {
     return (
         <div className="contact-page relative isolate min-h-screen font-sans">
             {/* Contact Hero + Form */}
-            <section className="relative z-10 flex min-h-screen items-center overflow-hidden px-2 pb-16 pt-24 sm:px-4 sm:pt-28 md:px-6">
+            <section className="relative z-10 flex min-h-screen items-center overflow-hidden page-x-gutter pb-16 pt-24 sm:pt-28">
                 <div className="pointer-events-none absolute inset-0" aria-hidden="true">
                     <div
                         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-[filter] duration-500 brightness-[1.08] saturate-[0.92] contrast-[0.98] dark:brightness-[0.38] dark:saturate-[0.8] dark:contrast-[1.12]"
@@ -384,8 +385,8 @@ export default function Contact() {
             </section>
 
             {/* Explore More Section */}
-            <section className="section-full-bleed relative z-10 px-4 pb-20 pt-16 md:px-8 lg:px-12 xl:px-20">
-                <div className="mx-auto max-w-9xl">
+            <section className="section-full-bleed relative z-10 pb-20 pt-16">
+                <div className={pageSectionContainer}>
                     <ScrollReveal className="mb-12 text-center">
                         <p className="section-eyebrow mb-3 text-sm font-bold uppercase tracking-[0.3em] text-black md:text-base dark:text-white/70">
                             While You&apos;re Here

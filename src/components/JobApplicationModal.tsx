@@ -143,26 +143,26 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="theme-card rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto border shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 p-0 backdrop-blur-sm sm:items-center sm:p-4">
+      <div className="theme-card max-h-[92vh] w-full overflow-y-auto rounded-t-2xl border shadow-2xl sm:max-h-[90vh] sm:max-w-2xl sm:rounded-2xl">
 
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-page-border">
-          <div>
-            <h2 className="text-2xl font-bold text-page-fg">Apply for {jobTitle}</h2>
-            <p className="text-page-fg-muted mt-1">Fill in your details to apply for this position</p>
+        <div className="flex items-start justify-between gap-3 border-b border-page-border p-4 sm:p-6">
+          <div className="min-w-0 flex-1">
+            <h2 className="break-words text-lg font-bold text-page-fg sm:text-2xl">Apply for {jobTitle}</h2>
+            <p className="mt-1 text-sm text-page-fg-muted">Fill in your details to apply for this position</p>
           </div>
           <button
             onClick={handleClose}
             disabled={isSubmitting}
-            className="p-2 rounded-lg hover:bg-page-accent-soft transition-colors disabled:opacity-50"
+            className="shrink-0 rounded-lg p-2 transition-colors hover:bg-page-accent-soft disabled:opacity-50"
           >
             <X size={20} className="text-page-fg-muted" />
           </button>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-5 p-4 sm:space-y-6 sm:p-6">
           <div>
             <label className="block text-sm font-medium text-page-fg-subtle mb-2">
               Full Name *
@@ -255,7 +255,7 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
             <label className="block text-sm font-medium text-page-fg-subtle mb-2">
               Resume *
             </label>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <input
                 id="resume-upload"
                 type="file"
@@ -266,11 +266,11 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
               />
               <label
                 htmlFor="resume-upload"
-                className="cursor-pointer inline-flex shrink-0 items-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary-hover"
+                className="inline-flex shrink-0 cursor-pointer items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary-hover"
               >
                 Choose file
               </label>
-              <span className="text-sm text-page-fg-muted truncate">
+              <span className="truncate text-sm text-page-fg-muted">
                 {formData.resume ? formData.resume.name : "No file chosen"}
               </span>
             </div>
@@ -307,20 +307,20 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
             </div>
           )}
 
-          <div className="flex gap-4 pt-4">
+          <div className="flex flex-col-reverse gap-3 pt-2 sm:flex-row sm:gap-4 sm:pt-4">
             <Button
               type="button"
               variant="outline"
               onClick={handleClose}
               disabled={isSubmitting}
-              className="flex-1"
+              className="w-full sm:flex-1"
             >
               Cancel
             </Button>
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 bg-primary text-primary-foreground hover:bg-primary-hover"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary-hover sm:flex-1"
             >
               {isSubmitting ? (
                 "Processing..."

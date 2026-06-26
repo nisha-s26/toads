@@ -345,7 +345,7 @@ export default function ServicesHubPage() {
           <div className="services-hub-hero-dark-tint pointer-events-none absolute inset-0 hidden dark:block" aria-hidden />
         </div>
 
-        <div className="relative z-10 flex w-full flex-col items-start px-4 pb-4 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:px-6 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
+        <div className="relative z-10 flex w-full flex-col items-start page-x-gutter pb-4 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))] lg:px-6">
           <div className="hire-page-container w-full">
             <div className="services-hub-hero-copy flex w-full max-w-full flex-col items-start py-10 text-left sm:py-12 lg:py-14">
               <h1 className="hero-enter-delay-1 w-full text-3xl font-extrabold leading-[1.08] text-black dark:text-white dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] sm:text-4xl md:text-5xl lg:text-[3.25rem]">

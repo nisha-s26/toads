@@ -43,6 +43,56 @@ function getSection(resource: HireResource, heading: string) {
 const HIRE_DETAIL_HEADING_CLASS =
   "text-3xl font-extrabold leading-[1.08] tracking-tight sm:text-4xl md:text-5xl"
 
+const HIRE_HERO_CTA_CLASS =
+  "inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition-all w-full sm:w-auto"
+
+type ComparisonRow = {
+  feature: string
+  dedicated: string
+  staffAug: string
+  outsourcing: string
+}
+
+function ComparisonMobileCards({
+  rows,
+  labels,
+}: {
+  rows: ComparisonRow[]
+  labels: {
+    feature: string
+    dedicated: string
+    staffAug: string
+    outsourcing: string
+  }
+}) {
+  return (
+    <div className="space-y-4 md:hidden">
+      {rows.map((row) => (
+        <div
+          key={row.feature}
+          className="rounded-2xl border border-page-border bg-page-card p-4 shadow-[0_10px_35px_rgba(0,0,0,0.03)]"
+        >
+          <h4 className="mb-3 font-bold text-page-fg">{row.feature}</h4>
+          <dl className="space-y-3 text-sm">
+            <div>
+              <dt className="mb-0.5 font-semibold text-toadster-green">{labels.dedicated}</dt>
+              <dd className="font-medium text-page-fg">{row.dedicated}</dd>
+            </div>
+            <div>
+              <dt className="mb-0.5 font-semibold text-page-fg">{labels.staffAug}</dt>
+              <dd className="text-page-fg-muted">{row.staffAug}</dd>
+            </div>
+            <div>
+              <dt className="mb-0.5 font-semibold text-page-fg">{labels.outsourcing}</dt>
+              <dd className="text-page-fg-muted">{row.outsourcing}</dd>
+            </div>
+          </dl>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function splitHireDetailTitle(title: string) {
   const words = title.trim().split(/\s+/).filter(Boolean)
   if (words.length <= 2) {
@@ -715,6 +765,13 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                     ? AI_ML_COMPARISON_ROWS
                     : DEFAULT_COMPARISON_ROWS
 
+  const comparisonColumnLabels = {
+    feature: (isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? "Criteria" : "Feature",
+    dedicated: isIos ? "Dedicated iOS Team" : (isAndroid ? "Dedicated Android Team" : (isReact ? "Dedicated React Team" : (isFullStack ? "Dedicated Full Stack Team" : (isSoftwareDevelopers ? "Dedicated Team" : (isAiMlDevelopers ? "Dedicated AI/ML Team" : "Dedicated Developer"))))),
+    staffAug: isFlutter ? "Staff Augmentation" : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? "Freelancers" : "Staffing / Agency"),
+    outsourcing: (isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? "In-House Hiring" : "Project Outsourcing",
+  }
+
   const whyHireSection = isFlutter ? getSection(resource, "Why Hire Dedicated Flutter Developers?") : null
   const deliverablesSection = isFlutter ? getSection(resource, "What Your Dedicated Flutter Developers Will Deliver") : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? getSection(resource, "Production Deliverables") : null)
   const integrationSection = isFlutter ? getSection(resource, "Seamless 3-Step Integration") : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? getSection(resource, "Seamless 3-Step Integration") : null)
@@ -840,7 +897,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
             {/* Left Column (Hero Content) */}
             <div className="lg:col-span-7 flex flex-col justify-center gap-6 text-left">
-              <h1 className="text-[1.875rem] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-page-fg leading-[1.15]">
+              <h1 className="min-w-0 break-words text-[1.875rem] font-extrabold leading-[1.15] tracking-tight text-page-fg sm:text-5xl lg:text-6xl">
                 {isFlutter ? (
                   <>
                     Hire Expert{" "}
@@ -849,7 +906,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                 ) : (
                   <>
                     {titleInfo.prefix}
-                    <span className="text-toadster-green block">{titleInfo.highlight}{titleInfo.suffix}</span>
+                    <span className="text-toadster-green inline sm:block">{titleInfo.highlight}{titleInfo.suffix}</span>
                   </>
                 )}
               </h1>
@@ -876,20 +933,20 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
               )}
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-4 mt-2">
+              <div className="mt-2 flex w-full min-w-0 flex-wrap items-center gap-4">
                 {heroCtaData ? (
                   <>
                     <button
                       type="button"
                       onClick={scrollToForm}
-                      className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-toadster-green-foreground shadow-sm transition-all"
+                      className={cn(HIRE_HERO_CTA_CLASS, "bg-toadster-green text-toadster-green-foreground shadow-sm hover:bg-[var(--primary-hover)]")}
                     >
                       {heroCtaData.primary}
                     </button>
                     <button
                       type="button"
                       onClick={scrollToForm}
-                      className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-page-border hover:bg-page-accent-soft px-7 py-3.5 text-sm font-bold text-page-fg transition-all"
+                      className={cn(HIRE_HERO_CTA_CLASS, "border border-page-border text-page-fg hover:bg-page-accent-soft")}
                     >
                       {heroCtaData.secondary}
                     </button>
@@ -898,7 +955,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                   <button
                     type="button"
                     onClick={scrollToForm}
-                    className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-toadster-green hover:bg-[var(--primary-hover)] px-7 py-3.5 text-sm font-bold text-toadster-green-foreground shadow-sm transition-all"
+                    className={cn(HIRE_HERO_CTA_CLASS, "bg-toadster-green text-toadster-green-foreground shadow-sm hover:bg-[var(--primary-hover)]")}
                   >
                     {isFlutter ? "Hire Flutter Experts" : `Hire ${titleInfo.highlight} Experts`}
                     <ArrowUpRight size={16} />
@@ -920,7 +977,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
               {/* Stat Row */}
               {!heroCtaData && (
-                <div className={`grid gap-4 sm:gap-6 pt-8 sm:pt-10 border-t border-page-border mt-4 ${isFlutter ? "grid-cols-2 sm:grid-cols-4 max-w-3xl" : "grid-cols-3 max-w-xl"}`}>
+                <div className={`grid gap-4 border-t border-page-border pt-8 sm:gap-6 sm:pt-10 mt-4 ${isFlutter ? "grid-cols-2 sm:grid-cols-4 max-w-3xl" : "grid-cols-2 sm:grid-cols-3 max-w-xl"}`}>
                   {heroStats.map((stat) => (
                     <div key={stat.label}>
                       <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-page-fg">{stat.value}</p>
@@ -1227,6 +1284,18 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
               </p>
             </div>
 
+            <div className="space-y-3 md:hidden">
+              {rolesSection.items.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-page-border bg-page-card p-4 shadow-[0_10px_35px_rgba(0,0,0,0.03)]"
+                >
+                  <h4 className="font-bold text-page-fg">{item.title}</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-page-fg-muted">{item.body}</p>
+                </div>
+              ))}
+            </div>
+
             <div className="hidden md:block overflow-x-auto rounded-2xl border border-page-border shadow-[0_10px_35px_rgba(0,0,0,0.03)] bg-page-card">
               <table className="w-full text-left border-collapse min-w-[600px]">
                 <thead>
@@ -1317,14 +1386,16 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
             </p>
           </div>
 
+          <ComparisonMobileCards rows={comparisonRows} labels={comparisonColumnLabels} />
+
           <div className="hidden md:block overflow-x-auto rounded-2xl border border-page-border shadow-[0_10px_35px_rgba(0,0,0,0.03)] bg-page-card max-w-5xl mx-auto">
             <table className="w-full text-left border-collapse min-w-[600px]">
               <thead>
                 <tr className="bg-toadster-green text-white">
-                  <th className="px-6 py-4.5 font-bold text-sm">{(isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? "Criteria" : "Feature"}</th>
-                  <th className="px-6 py-4.5 font-bold text-sm">{isIos ? "Dedicated iOS Team" : (isAndroid ? "Dedicated Android Team" : (isReact ? "Dedicated React Team" : (isFullStack ? "Dedicated Full Stack Team" : (isSoftwareDevelopers ? "Dedicated Team" : (isAiMlDevelopers ? "Dedicated AI/ML Team" : "Dedicated Developer")))))}</th>
-                  <th className="px-6 py-4.5 font-bold text-sm">{isFlutter ? "Staff Augmentation" : ((isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? "Freelancers" : "Staffing / Agency")}</th>
-                  <th className="px-6 py-4.5 font-bold text-sm">{(isReactNative || isDevOps || isIos || isAndroid || isReact || isFullStack || isSoftwareDevelopers || isAiMlDevelopers) ? "In-House Hiring" : "Project Outsourcing"}</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{comparisonColumnLabels.feature}</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{comparisonColumnLabels.dedicated}</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{comparisonColumnLabels.staffAug}</th>
+                  <th className="px-6 py-4.5 font-bold text-sm">{comparisonColumnLabels.outsourcing}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-page-border text-page-fg-muted text-sm">

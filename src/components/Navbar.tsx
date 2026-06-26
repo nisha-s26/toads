@@ -41,7 +41,8 @@ import {
   Cloud,
 } from "lucide-react"
 import { HIRE_RESOURCES_NAV } from "@/config/hire-resources"
-import { SERVICES_NAV, SERVICE_ROUTES } from "@/config/services-nav"
+import { SERVICES_NAV } from "@/config/services-nav"
+import { cn } from "@/lib/utils"
 import {
   FaReact,
   FaNodeJs,
@@ -64,15 +65,35 @@ import {
 
 
 
-const globalNavLinks = [
-  { label: "Home", href: "#", section: "home" },
-  { label: "About Us", href: "#about", section: "about" },
-  { label: "Services", href: "#services", dropdown: true, section: "services" },
-  { label: "Hire Resources", href: "/hire-resources", dropdown: true, section: "hire-resources" },
+type NavLink = {
+  label: string
+  href: string
+  section: string
+  dropdown?: boolean
+  desktop?: boolean
+  shortLabel?: string
+}
+
+const globalNavLinks: NavLink[] = [
+  { label: "Home", href: "#", section: "home", desktop: false },
+  { label: "About Us", href: "#about", section: "about", shortLabel: "About" },
+  { label: "Services", href: "/services", dropdown: true, section: "services" },
+  { label: "Hire Resources", href: "/hire-resources", dropdown: true, section: "hire-resources", shortLabel: "Hire" },
   { label: "Blogs", href: "#blogs", section: "blogs" },
   { label: "Careers", href: "#careers", section: "careers" },
-  { label: "Contact Us", href: "#contact", section: "contact" },
+  { label: "Contact Us", href: "#contact", section: "contact", shortLabel: "Contact" },
 ]
+
+const desktopNavLinkClass =
+  "whitespace-nowrap px-2 py-2 text-xs font-medium lg:px-2.5 xl:px-3 xl:text-sm 2xl:px-4"
+
+const navDropdownPanelClass =
+  "navbar-mega-menu-panel rounded-2xl border border-page-border bg-page-card p-2 font-sans shadow-[0_10px_40px_rgba(0,0,0,0.08)]"
+
+const navDropdownGridClass = "navbar-mega-menu-grid grid gap-1"
+
+const navDropdownItemClass =
+  "navbar-mega-menu-item flex min-w-0 items-start gap-2 rounded-xl px-3 py-2.5 font-sans transition-colors hover:bg-page-accent-soft cursor-pointer xl:gap-3 xl:px-4 xl:py-3"
 
 const NAV_ICON_MAP = {
   Brain,
@@ -127,7 +148,18 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
   const isHirePage = pathname?.startsWith("/hire") || pathname === "/hire-resources";
 
   const activeSection = isHirePage ? "hire-resources" : incomingActiveSection;
-  const navLinks = globalNavLinks;
+  const navLinks = globalNavLinks
+  const desktopNavLinks = navLinks.filter((link) => link.desktop !== false)
+
+  const getDesktopNavLabel = (link: NavLink) =>
+    link.shortLabel ? (
+      <>
+        <span className="2xl:hidden">{link.shortLabel}</span>
+        <span className="hidden 2xl:inline">{link.label}</span>
+      </>
+    ) : (
+      link.label
+    )
 
   const hireNavText = "text-black dark:text-white"
   const hireNavInactive = `${hireNavText} hover:bg-page-accent-soft`
@@ -181,7 +213,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
       {/* ── Mobile Right-Side Drawer ── */}
       <div
         aria-hidden={!mobileOpen}
-        className={`navbar-mobile-drawer fixed top-0 right-0 z-[60] box-border flex h-full w-[min(85vw,100%)] max-w-full min-w-0 flex-col overflow-x-hidden overflow-y-auto bg-page-card transition-[transform,box-shadow,visibility] duration-300 ease-in-out will-change-transform lg:hidden ${mobileOpen
+        className={`navbar-mobile-drawer fixed top-0 right-0 z-[60] box-border flex h-full w-[min(85vw,100%)] max-w-full min-w-0 flex-col overflow-x-hidden overflow-y-auto bg-page-card font-sans transition-[transform,box-shadow,visibility] duration-300 ease-in-out will-change-transform lg:hidden ${mobileOpen
           ? "translate-x-0 visible shadow-2xl"
           : "translate-x-full invisible shadow-none pointer-events-none"
           }`}
@@ -211,39 +243,48 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
               if (link.label === "Services") {
                 return (
                   <div key={link.label}>
-                    <button
-                      className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${mobileNavClass("services")}`}
-                      onClick={() => {
-                        closeMobile()
-                        router.push("/services")
-                      }}
-                    >
-                      Services
-                      <ChevronDown
-                        size={16}
-                        className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          setMobileServicesOpen((p) => !p)
-                        }}
-                      />
-                    </button>
+                    <div className={`flex w-full items-center rounded-lg ${mobileNavClass("services")}`}>
+                      <Link
+                        href="/services"
+                        title="Services"
+                        className="min-w-0 flex-1 px-4 py-2.5 text-sm font-medium transition-colors"
+                        onClick={closeMobile}
+                      >
+                        Services
+                      </Link>
+                      <button
+                        type="button"
+                        aria-expanded={mobileServicesOpen}
+                        aria-label="Toggle services menu"
+                        className="shrink-0 px-3 py-2.5 transition-colors"
+                        onClick={() => setMobileServicesOpen((p) => !p)}
+                      >
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                    </div>
                     {mobileServicesOpen && (
                       <div className="navbar-mobile-submenu mt-1 ml-2 flex min-w-0 w-full max-w-full flex-col gap-0.5 border-l-2 border-page-border pl-2 sm:ml-3 sm:pl-3">
+                        <Link
+                          href="/services"
+                          title="All Services"
+                          className={`block min-w-0 max-w-full whitespace-normal break-words px-2 py-2 rounded-lg text-sm font-semibold transition-colors hover:bg-page-accent-soft sm:px-3 ${isHirePage ? `${hireNavText} hover:opacity-80` : "text-page-fg hover:text-page-fg"}`}
+                          onClick={closeMobile}
+                        >
+                          All Services
+                        </Link>
                         {SERVICES_NAV.map((s) => (
-                          <a
+                          <Link
                             key={s.title}
-                            href="#"
+                            href={s.href}
                             title={s.title}
                             className={`block min-w-0 max-w-full whitespace-normal break-words px-2 py-2 rounded-lg text-sm transition-colors hover:bg-page-accent-soft sm:px-3 ${isHirePage ? `${hireNavText} hover:opacity-80` : "text-page-fg-muted hover:text-page-fg"}`}
-                            onClick={(e) => {
-                              e.preventDefault()
-                              closeMobile()
-                              router.push(SERVICE_ROUTES[s.title] || "/services")
-                            }}
+                            onClick={closeMobile}
                           >
                             {s.title}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
@@ -252,39 +293,48 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
               } else if (link.label === "Hire Resources") {
                 return (
                   <div key={link.label}>
-                    <button
-                      className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${mobileNavClass("hire-resources")}`}
-                      onClick={() => {
-                        closeMobile()
-                        router.push("/hire-resources")
-                      }}
-                    >
-                      Hire Resources
-                      <ChevronDown
-                        size={16}
-                        className={`transition-transform duration-200 ${mobileDedicatedOpen ? "rotate-180" : ""}`}
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          setMobileDedicatedOpen((p) => !p)
-                        }}
-                      />
-                    </button>
+                    <div className={`flex w-full items-center rounded-lg ${mobileNavClass("hire-resources")}`}>
+                      <Link
+                        href="/hire-resources"
+                        title="Hire Resources"
+                        className="min-w-0 flex-1 px-4 py-2.5 text-sm font-medium transition-colors"
+                        onClick={closeMobile}
+                      >
+                        Hire Resources
+                      </Link>
+                      <button
+                        type="button"
+                        aria-expanded={mobileDedicatedOpen}
+                        aria-label="Toggle hire resources menu"
+                        className="shrink-0 px-3 py-2.5 transition-colors"
+                        onClick={() => setMobileDedicatedOpen((p) => !p)}
+                      >
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-200 ${mobileDedicatedOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                    </div>
                     {mobileDedicatedOpen && (
                       <div className="navbar-mobile-submenu mt-1 ml-2 flex min-w-0 w-full max-w-full flex-col gap-0.5 border-l-2 border-page-border pl-2 max-h-72 overflow-y-auto overflow-x-hidden sm:ml-3 sm:pl-3">
+                        <Link
+                          href="/hire-resources"
+                          title="All Hire Resources"
+                          className={`block min-w-0 max-w-full whitespace-normal break-words px-2 py-2 rounded-lg text-sm font-semibold transition-colors hover:bg-page-accent-soft sm:px-3 ${isHirePage ? `${hireNavText} hover:opacity-80` : "text-page-fg hover:text-page-fg"}`}
+                          onClick={closeMobile}
+                        >
+                          All Hire Resources
+                        </Link>
                         {HIRE_RESOURCES_NAV.map((s) => (
-                          <a
+                          <Link
                             key={s.href}
                             href={s.href}
                             title={s.navTitle}
                             className={`block min-w-0 max-w-full whitespace-normal break-words px-2 py-2 rounded-lg text-sm transition-colors hover:bg-page-accent-soft sm:px-3 ${isHirePage ? `${hireNavText} hover:opacity-80` : "text-page-fg-muted hover:text-page-fg"}`}
-                            onClick={(e) => {
-                              e.preventDefault()
-                              closeMobile()
-                              router.push(s.href)
-                            }}
+                            onClick={closeMobile}
                           >
                             {s.navTitle}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
@@ -331,10 +381,10 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
       </div>
 
       <header
-        className={`pointer-events-none fixed inset-x-0 top-0 z-50 flex max-w-[100vw] justify-center bg-transparent px-2 pt-2 sm:px-4 sm:pt-4 md:px-6${isHirePage ? " navbar-hire-route" : ""}`}
+        className={`pointer-events-none fixed inset-x-0 top-0 z-50 flex max-w-[100vw] justify-center bg-transparent px-2 pt-2 sm:px-3 sm:pt-3 lg:px-4 lg:pt-3 xl:px-6 xl:pt-4${isHirePage ? " navbar-hire-route" : ""}`}
       >
         <nav
-          className="navbar-root pointer-events-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-2 rounded-2xl border border-page-border/70 bg-page-nav/85 px-3 py-2 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-3 lg:max-w-[88rem] lg:px-8"
+          className="pointer-events-auto relative flex w-full max-w-7xl min-w-0 items-center justify-between gap-1 overflow-visible rounded-2xl border border-page-border/70 bg-page-nav/85 px-2.5 py-2 font-sans shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:gap-2 sm:px-4 sm:py-2.5 lg:gap-2 lg:px-4 lg:py-2.5 xl:max-w-[88rem] xl:gap-3 xl:px-6 xl:py-3 2xl:px-8"
           style={{ boxShadow: "var(--page-nav-shadow)" }}
         >
           {/* ── Logo ── */}
@@ -342,51 +392,48 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
             <ToadsterLogo
               width={132}
               height={34}
-              className="h-6 w-auto max-w-[6.25rem] sm:h-8 sm:max-w-none md:h-9"
+              className="h-6 w-auto max-w-[6.75rem] sm:h-7 sm:max-w-[7.25rem] md:h-8 xl:h-9 xl:max-w-none"
             />
           </Link>
 
           {/* ── Desktop Nav ── */}
-          <div className="hidden min-w-0 flex-1 items-center justify-center overflow-visible lg:flex">
-            <NavigationMenu>
-              <NavigationMenuList className="gap-0">
-                {navLinks.map((link) => (
+          <div className="navbar-desktop-nav hidden min-w-0 flex-1 basis-0 items-center justify-center lg:flex">
+            <NavigationMenu className="navbar-mega-menu static min-w-0 max-w-full flex-1 justify-center">
+              <NavigationMenuList className="min-w-0 flex-nowrap gap-0">
+                {desktopNavLinks.map((link) => (
                   link.dropdown ? (
-                    <NavigationMenuItem className="relative" key={link.label}>
+                    <NavigationMenuItem className="relative shrink-0" key={link.label}>
                       <NavigationMenuTrigger
-                        className={`px-4 py-2 text-sm font-medium bg-transparent rounded-full transition-colors hover:bg-page-accent-soft data-[state=open]:bg-page-accent-soft ${isHirePage ? "data-[state=open]:text-black dark:data-[state=open]:text-white" : "data-[state=open]:text-page-fg"} ${desktopNavClass(link.section ?? "")}`}
+                        className={`${desktopNavLinkClass} bg-transparent rounded-full transition-colors hover:bg-page-accent-soft data-[state=open]:bg-page-accent-soft ${isHirePage ? "data-[state=open]:text-black dark:data-[state=open]:text-white" : "data-[state=open]:text-page-fg"} ${desktopNavClass(link.section ?? "")}`}
                         onClick={() => {
-                          if (link.label === "Hire Resources") router.push("/hire-resources")
-                          if (link.label === "Services") router.push("/services")
+                          router.push(link.href)
                         }}
                       >
                         <span className="relative">
-                          {link.label}
+                          {getDesktopNavLabel(link)}
                           {activeSection === link.section && (
                             <span className={`block mx-auto h-0.5 rounded-full ${desktopNavUnderlineClass}`} style={{ width: "100%", marginTop: 0 }} />
                           )}
                         </span>
                       </NavigationMenuTrigger>
-                      <NavigationMenuContent className="left-auto! top-auto! w-auto!">
+                      <NavigationMenuContent className="left-auto! top-auto! w-auto! p-0">
                         {link.label === "Services" ? (
-                          <div className="bg-page-card rounded-2xl p-2 w-260">
-                            <ul className="grid grid-cols-4 gap-1">
+                          <div className={navDropdownPanelClass}>
+                            <ul className={navDropdownGridClass}>
                               {SERVICES_NAV.map((s) => {
                                 const Icon = NAV_ICON_MAP[s.icon as keyof typeof NAV_ICON_MAP]
                                 return (
                                   <li key={s.title}>
-                                    <NavigationMenuLink
-                                      href={SERVICE_ROUTES[s.title] || "/services"}
-                                      title={s.title}
-                                      className="flex items-start gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-page-accent-soft cursor-pointer"
-                                    >
-                                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-brand-green">
-                                        {Icon && <Icon className="size-8" />}
-                                      </span>
-                                      <div>
-                                        <div className="text-base font-semibold text-page-fg leading-tight mb-0.5">{s.title}</div>
-                                        <div className="text-sm text-page-fg-muted leading-snug">{s.description}</div>
-                                      </div>
+                                    <NavigationMenuLink asChild>
+                                      <Link href={s.href} title={s.title} className={navDropdownItemClass}>
+                                        <span className="navbar-mega-menu-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-brand-green xl:h-12 xl:w-12">
+                                          {Icon && <Icon className="size-6 xl:size-8" />}
+                                        </span>
+                                        <div className="min-w-0">
+                                          <div className="navbar-mega-menu-title mb-0.5 text-sm font-semibold leading-tight text-page-fg xl:text-base">{s.title}</div>
+                                          <div className="navbar-mega-menu-desc text-xs leading-snug text-page-fg-muted xl:text-sm">{s.description}</div>
+                                        </div>
+                                      </Link>
                                     </NavigationMenuLink>
                                   </li>
                                 )
@@ -394,24 +441,22 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                             </ul>
                           </div>
                         ) : (
-                          <div className="bg-page-card rounded-2xl p-2 w-260 max-h-[70vh] overflow-y-auto">
-                            <ul className="grid grid-cols-4 gap-1">
+                          <div className={cn(navDropdownPanelClass, "max-h-[70vh] overflow-y-auto")}>
+                            <ul className={navDropdownGridClass}>
                               {HIRE_RESOURCES_NAV.map((s) => {
                                 const Icon = NAV_ICON_MAP[s.icon as keyof typeof NAV_ICON_MAP]
                                 return (
                                   <li key={s.href}>
-                                    <NavigationMenuLink
-                                      href={s.href}
-                                      title={s.navTitle}
-                                      className="flex items-start gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-page-accent-soft cursor-pointer"
-                                    >
-                                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-brand-green">
-                                        {Icon && <Icon className="size-8" />}
-                                      </span>
-                                      <div>
-                                        <div className="text-sm font-semibold text-page-fg leading-tight mb-0.5">{s.navTitle}</div>
-                                        <div className="text-xs text-page-fg-muted leading-snug">{s.navDescription}</div>
-                                      </div>
+                                    <NavigationMenuLink asChild>
+                                      <Link href={s.href} title={s.navTitle} className={navDropdownItemClass}>
+                                        <span className="navbar-mega-menu-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-brand-green xl:h-12 xl:w-12">
+                                          {Icon && <Icon className="size-6 xl:size-8" />}
+                                        </span>
+                                        <div className="min-w-0">
+                                          <div className="navbar-mega-menu-title mb-0.5 text-xs font-semibold leading-tight text-page-fg xl:text-sm">{s.navTitle}</div>
+                                          <div className="navbar-mega-menu-desc text-[0.6875rem] leading-snug text-page-fg-muted xl:text-xs">{s.navDescription}</div>
+                                        </div>
+                                      </Link>
                                     </NavigationMenuLink>
                                   </li>
                                 )
@@ -422,7 +467,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                       </NavigationMenuContent>
                     </NavigationMenuItem>
                   ) : (
-                    <NavigationMenuItem key={link.label}>
+                    <NavigationMenuItem className="shrink-0" key={link.label}>
                       <NavigationMenuLink
                         href={link.href}
                         title={link.label}
@@ -435,14 +480,14 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                           else if (link.label === "Careers") router.push("/careers");
                         }}
                         className={`
-                        relative px-4 py-2 text-sm font-medium rounded-full transition-colors
+                        relative ${desktopNavLinkClass} rounded-full transition-colors
                         ${desktopNavClass(link.section ?? "")}
                         hover:bg-page-accent-soft
                         ${activeSection === link.section ? "relative" : ""}
                       `}
                       >
                         <span className="relative">
-                          {link.label}
+                          {getDesktopNavLabel(link)}
                           {activeSection === link.section && (
                             <span
                               className={`block mx-auto h-0.5 rounded-full ${desktopNavUnderlineClass}`}
@@ -459,12 +504,13 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
           </div>
 
           {/* ── CTA + Theme ── */}
-          <div className="navbar-utilities hidden shrink-0 items-center lg:flex">
+          <div className="navbar-utilities relative z-10 hidden shrink-0 items-center bg-page-nav/95 pl-1 lg:flex xl:pl-2">
             <GlobalPagesMenu />
             <ThemeToggle />
-            <Button asChild className="rounded-xl px-5 py-5 text-sm font-semibold">
+            <Button asChild className="rounded-xl px-3 py-4 text-xs font-semibold xl:px-4 xl:py-4 xl:text-sm 2xl:px-5 2xl:py-5">
               <a href={"/contact"} title="Email us to schedule a call">
-                Schedule a Call
+                <span className="xl:hidden">Schedule Call</span>
+                <span className="hidden xl:inline">Schedule a Call</span>
               </a>
             </Button>
           </div>

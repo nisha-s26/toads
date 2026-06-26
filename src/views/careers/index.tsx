@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Users, Target, Heart, Zap, Mail, MapPin, Clock, ArrowUpRight, BookOpen, Cpu, Info } from "lucide-react"
 import JobApplicationModal from "@/components/JobApplicationModal"
+import { pageSectionContainer } from "@/lib/page-layout"
 
 export default function Careers() {
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -87,35 +88,37 @@ export default function Careers() {
         }
     ]
 
+    const sectionContainer = pageSectionContainer
+
     return (
-        <div className="min-h-screen pt-20">
+        <div className="min-h-screen overflow-x-clip pt-20">
             {/* Hero Section */}
-            <section className="pt-16 pb-8 flex flex-col items-center text-center">
-                <span className="text-xl font-semibold tracking-widest text-green-400 mb-2">JOIN OUR TEAM</span>
-                <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
+            <section className="flex flex-col items-center page-x-gutter pb-8 pt-16 text-center lg:px-8 xl:px-10 2xl:px-14">
+                <span className="mb-2 text-sm font-semibold tracking-widest text-green-400 sm:text-xl">JOIN OUR TEAM</span>
+                <h1 className="mb-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
                     <span className="text-black dark:text-white">Build the </span>
                     <span className="text-toadster-green">Future</span>
                     <span className="text-black dark:text-white"> with Us</span>
                 </h1>
-                <p className="text-page-fg-subtle text-lg max-w-2xl mx-auto">
+                <p className="mx-auto max-w-2xl text-base text-page-fg-subtle sm:text-lg">
                     Join a team of passionate innovators shaping the future of AI and technology.
                 </p>
             </section>
 
             {/* Values Section */}
-            <section className="py-20">
-                <div className="max-w-9xl mx-20">
-                    <div className="text-center mb-16">
-                        <p className="text-xl tracking-widest text-green-400 font-medium mb-3">
+            <section className="py-12 sm:py-20">
+                <div className={sectionContainer}>
+                    <div className="mb-10 text-center sm:mb-16">
+                        <p className="mb-3 text-sm font-medium tracking-widest text-green-400 sm:text-xl">
                             OUR VALUES
                         </p>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                        <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
                             <span className="text-black dark:text-white">Why Work at </span>
                             <span className="text-toadster-green">Toadster</span>
                         </h2>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid min-w-0 gap-6 sm:gap-8 lg:grid-cols-2 xl:grid-cols-4">
                         {values.map((value, index) => (
                             <motion.div
                                 key={index}
@@ -123,7 +126,7 @@ export default function Careers() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="text-center p-6 rounded-xl bg-white/5 border border-page-border"
+                                className="min-w-0 rounded-xl border border-page-border bg-white/5 p-5 text-center sm:p-6"
                             >
                                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-toadster-green/10 flex items-center justify-center text-toadster-green">
                                     {value.icon}
@@ -137,42 +140,42 @@ export default function Careers() {
             </section>
 
             {/* Job Openings Section */}
-            <section className="py-20">
-                <div className="max-w-9xl mx-20">
-                    <div className="text-center mb-16">
-                        <p className="text-xl tracking-widest text-green-400 font-medium mb-3">
+            <section className="py-12 sm:py-20">
+                <div className={sectionContainer}>
+                    <div className="mb-10 text-center sm:mb-16">
+                        <p className="mb-3 text-sm font-medium tracking-widest text-green-400 sm:text-xl">
                             OPEN POSITIONS
                         </p>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                        <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
                             <span className="text-black dark:text-white">Current </span>
                             <span className="text-toadster-green">Opportunities</span>
                         </h2>
-                        <p className="text-page-fg-subtle text-lg max-w-2xl mx-auto">
+                        <p className="mx-auto max-w-2xl text-base text-page-fg-subtle sm:text-lg">
                             Join our growing team and help shape the future of AI technology.
                         </p>
                     </div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
                         {jobOpenings.map((job, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="bg-white/5 rounded-xl p-8 border border-page-border hover:border-toadster-green/50 transition-all duration-300"
+                                className="min-w-0 rounded-xl border border-page-border bg-white/5 p-4 transition-all duration-300 hover:border-toadster-green/50 sm:p-6 md:p-8"
                             >
-                                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                                    <div className="flex-1">
-                                        <div className="flex items-center gap-3 mb-3">
-                                            <h3 className="text-2xl font-bold text-page-fg">{job.title}</h3>
-                                            <span className="px-3 py-1 bg-toadster-green/10 text-toadster-green text-sm font-medium rounded-full">
+                                <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
+                                    <div className="min-w-0 flex-1">
+                                        <div className="mb-3 flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+                                            <h3 className="text-xl font-bold text-page-fg sm:text-2xl">{job.title}</h3>
+                                            <span className="rounded-full bg-toadster-green/10 px-3 py-1 text-sm font-medium text-toadster-green">
                                                 {job.type}
                                             </span>
                                         </div>
-                                        <p className="text-page-fg-subtle mb-4">{job.description}</p>
+                                        <p className="mb-4 text-sm text-page-fg-subtle sm:text-base">{job.description}</p>
 
-                                        <div className="flex flex-wrap items-center gap-6 text-sm text-page-fg-muted mb-4">
+                                        <div className="mb-4 flex flex-col gap-2 text-sm text-page-fg-muted sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
                                             <div className="flex items-center gap-2">
                                                 <MapPin className="w-4 h-4" />
                                                 {job.location}
@@ -195,10 +198,10 @@ export default function Careers() {
                                         </div>
                                     </div>
 
-                                    <div className="lg:shrink-0">
+                                    <div className="w-full shrink-0 lg:w-auto">
                                         <Button 
                                             onClick={() => openModal(job.title)}
-                                            className="px-8 py-3"
+                                            className="w-full px-8 py-3 sm:w-auto"
                                         >
                                             Apply Now
                                         </Button>
@@ -211,26 +214,26 @@ export default function Careers() {
             </section>
 
             {/* Contact Section */}
-            <section className="py-20">
-                <div className="max-w-9xl mx-20 text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <section className="py-12 sm:py-20">
+                <div className={`${sectionContainer} text-center`}>
+                    <h2 className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl">
                         <span className="text-black dark:text-white">Ready to Join Our </span>
                         <span className="text-toadster-green">Team?</span>
                     </h2>
-                    <p className="text-page-fg-subtle text-lg mb-8 max-w-2xl mx-auto">
+                    <p className="mx-auto mb-8 max-w-2xl text-base text-page-fg-subtle sm:text-lg">
                         Don't see a position that matches your skills? We're always looking for talented individuals.
                         Send us your resume and let's discuss opportunities.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <div className="flex w-full flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
                         <Button 
                             onClick={() => openModal("General Application")}
-                            className="px-8 py-5"
+                            className="w-full px-8 py-5 sm:w-auto"
                         >
-                            <Mail className="w-5 h-5 mr-2 " />
+                            <Mail className="mr-2 h-5 w-5" />
                             Send Resume
                         </Button>
-                        <Button asChild variant="outline" className="border-page-border-strong text-black hover:bg-page-fg/10 px-8 py-5">
+                        <Button asChild variant="outline" className="w-full border-white bg-white px-8 py-5 text-slate-900 hover:bg-white/90 sm:w-auto">
                             <Link href="/about" title="Learn more about Toadster">
                                 Learn More
                             </Link>
@@ -249,9 +252,9 @@ export default function Careers() {
             </section>
 
             {/* Explore More Section */}
-            <section className="pb-20">
-                <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-10">
+            <section className="pb-12 sm:pb-20">
+                <div className={sectionContainer}>
+                    <div className="mb-8 text-center sm:mb-10">
                         <p className="text-sm font-semibold tracking-[0.25em] text-toadster-green uppercase mb-2">
                             Get to Know Us
                         </p>
@@ -263,7 +266,7 @@ export default function Careers() {
                             See what we build, who we are, and how we share what we learn.
                         </p>
                     </div>
-                    <div className="grid sm:grid-cols-3 gap-4">
+                    <div className="grid min-w-0 gap-4 md:grid-cols-2 lg:grid-cols-3">
                         {[
                             {
                                 icon: Cpu,

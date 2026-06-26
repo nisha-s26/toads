@@ -20,6 +20,7 @@ import {
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { pageSectionContainer } from "@/lib/page-layout"
 
 const MISSION_STATS = [
   {
@@ -114,7 +115,7 @@ const EXPLORE_LINKS = [
 
 export default function AboutPage() {
   return (
-    <div className="about-page min-h-screen">
+    <div className="about-page min-h-screen overflow-x-clip">
       <section className="homepage-hero-viewport homepage-hero-viewport--image relative flex flex-col overflow-hidden text-page-fg">
         <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
           <div className="homepage-hero-bg-image absolute inset-0">
@@ -148,9 +149,9 @@ export default function AboutPage() {
           <div className="services-hub-hero-dark-tint pointer-events-none absolute inset-0 hidden dark:block" aria-hidden />
         </div>
 
-        <div className="relative z-10 flex w-full flex-col px-4 pb-12 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:px-6 sm:pb-16 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
-          <div className="about-hero-copy relative z-10 mx-auto w-full max-w-9xl transition-transform duration-700 md:mx-28 md:px-0 md:hover:translate-x-2">
-            <h1 className="mb-5 text-3xl font-extrabold leading-tight text-black dark:text-white dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] sm:mb-6 sm:text-4xl md:mb-8 md:text-7xl">
+        <div className="relative z-10 flex w-full min-w-0 flex-col page-x-gutter pb-12 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:pb-16 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
+          <div className="about-hero-copy relative z-10 mx-auto min-w-0 max-w-9xl break-words transition-transform duration-700 xl:ml-12 xl:hover:translate-x-2 2xl:ml-16">
+            <h1 className="mb-5 text-3xl font-extrabold leading-tight text-black dark:text-white dark:drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] sm:mb-6 sm:text-4xl md:mb-8 md:text-5xl lg:text-6xl xl:text-7xl">
               AI-Powered Engineering for the
               <br />
               <span className="text-toadster-green dark:text-[var(--page-hero-accent)] dark:drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
@@ -193,8 +194,8 @@ export default function AboutPage() {
       <div className="relative">
         <div className="homepage-content relative z-10">
           <section className="pt-6 sm:pt-8 md:pt-10">
-            <div className="mx-auto grid max-w-9xl items-stretch gap-6 px-4 sm:gap-8 sm:px-6 md:mx-20 md:grid-cols-2 md:gap-12 md:px-0">
-              <div>
+            <div className={cn(pageSectionContainer, "grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12")}>
+              <div className="min-w-0">
               
                 <SplitSectionHeading
                   as="h2"
@@ -234,8 +235,8 @@ export default function AboutPage() {
                   })}
                 </div>
               </div>
-              <div className="grid min-h-[220px] grid-cols-2 grid-rows-2 gap-3 sm:min-h-[280px] sm:gap-4 md:min-h-0 md:h-full">
-                <div className="group relative col-span-2 row-span-1 min-h-[120px] overflow-hidden rounded-2xl border border-page-border shadow-lg sm:min-h-0 sm:rounded-3xl">
+              <div className="grid min-w-0 grid-cols-2 gap-3 sm:gap-4 lg:min-h-[360px] lg:h-full">
+                <div className="group relative col-span-2 aspect-[16/10] overflow-hidden rounded-2xl border border-page-border shadow-lg sm:rounded-3xl lg:aspect-auto lg:min-h-[160px]">
                   <Image
                     src="/about2.webp"
                     alt="Collaboration"
@@ -244,11 +245,11 @@ export default function AboutPage() {
                     loading="lazy"
                     quality={80}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-page-bg/10 transition-colors duration-500 group-hover:bg-transparent" />
                 </div>
-                <div className="group relative col-span-1 row-span-1 min-h-[100px] overflow-hidden rounded-2xl border border-page-border shadow-lg sm:min-h-0 sm:rounded-3xl">
+                <div className="group relative aspect-square overflow-hidden rounded-2xl border border-page-border shadow-lg sm:rounded-3xl lg:aspect-auto lg:min-h-[140px]">
                   <Image
                     src="/about3.webp"
                     alt="Team Work"
@@ -257,11 +258,11 @@ export default function AboutPage() {
                     loading="lazy"
                     quality={80}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-page-bg/10 transition-colors duration-500 group-hover:bg-transparent" />
                 </div>
-                <div className="group relative col-span-1 row-span-1 min-h-[100px] overflow-hidden rounded-2xl border border-page-border shadow-lg drop-shadow-xl sm:min-h-0 sm:rounded-3xl">
+                <div className="group relative aspect-square overflow-hidden rounded-2xl border border-page-border shadow-lg drop-shadow-xl sm:rounded-3xl lg:aspect-auto lg:min-h-[140px]">
                   <Image
                     src="/about1.webp"
                     alt="Innovation"
@@ -270,7 +271,7 @@ export default function AboutPage() {
                     loading="lazy"
                     quality={80}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-page-bg/10 transition-colors duration-500 group-hover:bg-transparent" />
                 </div>
@@ -279,7 +280,7 @@ export default function AboutPage() {
           </section>
 
           <section className="py-10 sm:py-14 md:py-20">
-            <div className="mx-auto max-w-9xl px-4 sm:px-6 md:mx-20 md:px-0">
+            <div className={pageSectionContainer}>
               <div className="mb-8 text-center sm:mb-10 md:mb-12">
               
                 <SplitSectionHeading
@@ -321,7 +322,7 @@ export default function AboutPage() {
               <div className="absolute bottom-20 right-10 h-96 w-96 rounded-full bg-toadster-green blur-[120px]" />
             </div>
 
-            <div className="relative z-10 mx-auto max-w-9xl px-4 sm:px-6 md:mx-20 md:px-0">
+            <div className={cn("relative z-10", pageSectionContainer)}>
               <div className="mb-8 text-center sm:mb-12 md:mb-16">
                
                 <SplitSectionHeading
@@ -466,7 +467,7 @@ export default function AboutPage() {
           </section>
 
           <section className="pb-10 sm:pb-14 md:pb-20">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-0">
+            <div className={pageSectionContainer}>
               <div className="mb-8 text-center sm:mb-10 md:mb-12">
                
                 <SplitSectionHeading
