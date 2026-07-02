@@ -6,9 +6,9 @@ export interface PageMetadata {
   description: string
 }
 
-export const SITE_URL = "https://toadster.com"
+export const SITE_URL = "https://toadster.ai"
 
-export const SITE_OG_IMAGE = `${SITE_URL}/og-image.jpg`
+export const SITE_OG_IMAGE = `${SITE_URL}/homepage-hero-preview.jpg`
 export const SITE_OG_IMAGE_TYPE = "image/jpeg"
 export const SITE_OG_IMAGE_WIDTH = 1200
 export const SITE_OG_IMAGE_HEIGHT = 630

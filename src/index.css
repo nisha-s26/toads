@@ -2,6 +2,16 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Hide the Next.js DevTools badge if the deployment runtime injects it. */
+#devtools-indicator,
+#nextjs-dev-tools-menu,
+[data-next-badge-root],
+[data-nextjs-dev-tools-button="true"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
