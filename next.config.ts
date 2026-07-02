@@ -57,6 +57,7 @@ const removedServiceRedirects: { source: string; destination: string }[] = [
 const nextConfig: NextConfig = {
   // Parent folder also has a package-lock.json; pin tracing/bundling to this app.
   outputFileTracingRoot: projectRoot,
+  devIndicators: false,
   turbopack: {
     root: projectRoot,
   },
