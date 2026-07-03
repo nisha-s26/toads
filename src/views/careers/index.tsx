@@ -3,320 +3,362 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  BookOpen,
+  BriefcaseBusiness,
+  Clock,
+  Cpu,
+  Heart,
+  Info,
+  Mail,
+  MapPin,
+  Search,
+  Target,
+  Users,
+  Zap,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Users, Target, Heart, Zap, Mail, MapPin, Clock, ArrowUpRight, BookOpen, Cpu, Info } from "lucide-react"
+import { Input } from "@/components/ui/input"
 import JobApplicationModal from "@/components/JobApplicationModal"
-import { pageSectionContainer } from "@/lib/page-layout"
+import type { JobPosition, JobsPagination } from "@/lib/jobs"
 
-export default function Careers() {
-    const [isModalOpen, setIsModalOpen] = useState(false)
-    const [selectedJob, setSelectedJob] = useState("")
+type CareersProps = {
+  initialJobs: JobPosition[]
+  pagination: JobsPagination
+  filters: {
+    search: string
+    status: string
+  }
+}
 
-    const openModal = (jobTitle: string) => {
-        setSelectedJob(jobTitle)
-        setIsModalOpen(true)
-    }
+const values = [
+  {
+    icon: Target,
+    title: "Innovation First",
+    description: "We push boundaries and embrace cutting-edge technologies to solve complex problems.",
+  },
+  {
+    icon: Users,
+    title: "Collaborative Culture",
+    description: "Work with talented individuals who share your passion for AI and technology.",
+  },
+  {
+    icon: Heart,
+    title: "Work-Life Balance",
+    description: "Flexible working hours, remote options, and a supportive environment.",
+  },
+  {
+    icon: Zap,
+    title: "Continuous Learning",
+    description: "Access to conferences, training programs, and the latest tools and technologies.",
+  },
+]
 
-    const closeModal = () => {
-        setIsModalOpen(false)
-        setSelectedJob("")
-    }
+const exploreLinks = [
+  {
+    icon: Cpu,
+    title: "Our AI Services",
+    desc: "From agentic systems to custom ML - see what our teams ship.",
+    to: "/services/ai-development",
+  },
+  {
+    icon: BookOpen,
+    title: "Engineering Blog",
+    desc: "Tutorials, research notes, and insights from our engineers.",
+    to: "/blogs",
+  },
+  {
+    icon: Info,
+    title: "About Toadster",
+    desc: "Our mission, values, and the people leading the company.",
+    to: "/about",
+  },
+]
 
-    const jobOpenings = [
-        {
-            title: "Senior AI Engineer",
-            type: "Full-time",
-            location: "Noida, India",
-            department: "Engineering",
-            description: "Lead development of cutting-edge AI solutions and mentor junior engineers.",
-            requirements: ["5+ years ML experience", "Python, TensorFlow/PyTorch", "Team leadership"]
-        },
-        {
-            title: "Machine Learning Engineer",
-            type: "Full-time",
-            location: "Noida, India",
-            department: "Engineering",
-            description: "Build and deploy production ML models for enterprise clients.",
-            requirements: ["3+ years ML experience", "Python, Scikit-learn", "MLOps knowledge"]
-        },
-        {
-            title: "Full Stack Developer",
-            type: "Full-time",
-            location: "Noida, India",
-            department: "Engineering",
-            description: "Develop scalable web applications using modern technologies.",
-            requirements: ["React, Node.js", "MongoDB/PostgreSQL", "3+ years experience"]
-        },
-        {
-            title: "Data Scientist",
-            type: "Full-time",
-            location: "Noida, India",
-            department: "Data Science",
-            description: "Analyze complex datasets and build predictive models.",
-            requirements: ["Statistics & ML knowledge", "Python/R", "SQL expertise"]
-        },
-        {
-            title: "AI Product Manager",
-            type: "Full-time",
-            location: "Noida, India",
-            department: "Product",
-            description: "Drive product strategy for AI-powered solutions.",
-            requirements: ["Product management experience", "Technical background", "AI/ML knowledge"]
-        }
-    ]
+function stripHtml(value?: string): string {
+  if (!value) return ""
+  return value
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ")
+    .trim()
+}
 
-    const values = [
-        {
-            icon: <Target className="w-8 h-8" />,
-            title: "Innovation First",
-            description: "We push boundaries and embrace cutting-edge technologies to solve complex problems."
-        },
-        {
-            icon: <Users className="w-8 h-8" />,
-            title: "Collaborative Culture",
-            description: "Work with talented individuals who share your passion for AI and technology."
-        },
-        {
-            icon: <Heart className="w-8 h-8" />,
-            title: "Work-Life Balance",
-            description: "Flexible working hours, remote options, and a supportive environment."
-        },
-        {
-            icon: <Zap className="w-8 h-8" />,
-            title: "Continuous Learning",
-            description: "Access to conferences, training programs, and the latest tools and technologies."
-        }
-    ]
+function buildPageHref(page: number, filters: CareersProps["filters"]): string {
+  const params = new URLSearchParams()
+  if (page > 1) params.set("page", String(page))
+  if (filters.search) params.set("search", filters.search)
+  const query = params.toString()
+  return query ? `/careers?${query}` : "/careers"
+}
 
-    const sectionContainer = pageSectionContainer
+export default function Careers({ initialJobs, pagination, filters }: CareersProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedJob, setSelectedJob] = useState<{ id?: string; title: string }>({ title: "" })
+  const activeJobs = initialJobs.filter((job) => job.isActive !== false)
+  const hasJobs = activeJobs.length > 0
+  const currentPage = pagination.page || 1
+  const totalPages = pagination.pages || 1
 
-    return (
-        <div className="min-h-screen overflow-x-clip pt-20">
-            {/* Hero Section */}
-            <section className="flex flex-col items-center page-x-gutter pb-8 pt-16 text-center lg:px-8 xl:px-10 2xl:px-14">
-                <span className="mb-2 text-sm font-semibold tracking-widest text-green-400 sm:text-xl">JOIN OUR TEAM</span>
-                <h1 className="mb-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
-                    <span className="text-black dark:text-white">Build the </span>
-                    <span className="text-toadster-green">Future</span>
-                    <span className="text-black dark:text-white"> with Us</span>
-                </h1>
-                <p className="mx-auto max-w-2xl text-base text-page-fg-subtle sm:text-lg">
-                    Join a team of passionate innovators shaping the future of AI and technology.
-                </p>
-            </section>
+  const openModal = (jobTitle: string, jobId?: string) => {
+    setSelectedJob({ id: jobId, title: jobTitle })
+    setIsModalOpen(true)
+  }
 
-            {/* Values Section */}
-            <section className="py-12 sm:py-20">
-                <div className={sectionContainer}>
-                    <div className="mb-10 text-center sm:mb-16">
-                        <p className="mb-3 text-sm font-medium tracking-widest text-green-400 sm:text-xl">
-                            OUR VALUES
-                        </p>
-                        <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
-                            <span className="text-black dark:text-white">Why Work at </span>
-                            <span className="text-toadster-green">Toadster</span>
-                        </h2>
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setSelectedJob({ title: "" })
+  }
+
+  return (
+    <div className="min-h-screen overflow-x-clip pt-20">
+      <section className="mx-auto flex w-[90%] max-w-7xl flex-col items-center pb-8 pt-16 text-center">
+        <span className="mb-2 text-sm font-semibold tracking-widest text-green-400 sm:text-xl">JOIN OUR TEAM</span>
+        <h1 className="mb-4 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl">
+          <span className="text-black dark:text-white">Build the </span>
+          <span className="text-toadster-green">Future</span>
+          <span className="text-black dark:text-white"> with Us</span>
+        </h1>
+        <p className="mx-auto max-w-2xl text-base text-page-fg-subtle sm:text-lg">
+          Join a team of passionate innovators shaping the future of AI and technology.
+        </p>
+      </section>
+
+      <section className="py-12 sm:py-20">
+        <div className="mx-auto w-[90%] max-w-7xl">
+          <div className="mb-10 text-center sm:mb-16">
+            <p className="mb-3 text-sm font-medium tracking-widest text-green-400 sm:text-xl">OUR VALUES</p>
+            <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
+              <span className="text-black dark:text-white">Why Work at </span>
+              <span className="text-toadster-green">Toadster</span>
+            </h2>
+          </div>
+
+          <div className="grid min-w-0 gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-4">
+            {values.map((value, index) => {
+              const Icon = value.icon
+              return (
+                <motion.div
+                  key={value.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="min-w-0 rounded-xl border border-page-border bg-white/5 p-5 text-center sm:p-6"
+                >
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-toadster-green/10 text-toadster-green">
+                    <Icon className="h-8 w-8" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-page-fg">{value.title}</h3>
+                  <p className="text-sm leading-relaxed text-page-fg-muted">{value.description}</p>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 sm:py-20">
+        <div className="mx-auto w-[90%] max-w-7xl">
+          <div className="mb-8 text-center sm:mb-12">
+            <p className="mb-3 text-sm font-medium tracking-widest text-green-400 sm:text-xl">OPEN POSITIONS</p>
+            <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
+              <span className="text-black dark:text-white">Current </span>
+              <span className="text-toadster-green">Opportunities</span>
+            </h2>
+            <p className="mx-auto max-w-2xl text-base text-page-fg-subtle sm:text-lg">
+              Browse active roles from our hiring API and apply for the position that fits your skills.
+            </p>
+          </div>
+
+          <form action="/careers" className="mb-8 grid gap-3 rounded-2xl border border-page-border bg-page-card/70 p-3 shadow-sm backdrop-blur sm:grid-cols-[minmax(0,1fr)_auto] sm:p-4">
+            <label className="relative block min-w-0">
+              <span className="sr-only">Search jobs</span>
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-page-fg-muted" />
+              <Input
+                name="search"
+                defaultValue={filters.search}
+                placeholder="Search jobs..."
+                className="h-11 rounded-xl bg-white/70 pl-9 dark:bg-white/5"
+              />
+            </label>
+            <Button type="submit" className="h-11 rounded-xl px-6">
+              Search
+            </Button>
+          </form>
+
+          <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <h3 className="text-xl font-bold text-page-fg">Open Positions ({pagination.total})</h3>
+            <p className="text-sm text-page-fg-muted">
+              Page {currentPage} of {totalPages}
+            </p>
+          </div>
+
+          {hasJobs ? (
+            <div className="grid gap-4 lg:grid-cols-2">
+              {activeJobs.map((job, index) => {
+                const excerpt = stripHtml(job.summary)
+                return (
+                  <motion.article
+                    key={job._id}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.06 }}
+                    viewport={{ once: true }}
+                    className="flex min-w-0 flex-col rounded-2xl border border-page-border bg-page-card/70 p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-toadster-green/50 hover:shadow-lg sm:p-6"
+                  >
+                    <div className="mb-4 flex items-start justify-between gap-4">
+                      <div className="min-w-0">
+                        <Link
+                          href={`/careers/${job._id}`}
+                          className="text-xl font-bold text-page-fg transition-colors hover:text-toadster-green sm:text-2xl"
+                        >
+                          {job.title}
+                        </Link>
+                        <div className="mt-2 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wide text-page-fg-muted">
+                          {job.employmentType ? <span>{job.employmentType}</span> : null}
+                          <span>Active</span>
+                        </div>
+                      </div>
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-toadster-green/10 text-toadster-green">
+                        <BriefcaseBusiness size={18} />
+                      </span>
                     </div>
 
-                    <div className="grid min-w-0 gap-6 sm:gap-8 lg:grid-cols-2 xl:grid-cols-4">
-                        {values.map((value, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="min-w-0 rounded-xl border border-page-border bg-white/5 p-5 text-center sm:p-6"
-                            >
-                                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-toadster-green/10 flex items-center justify-center text-toadster-green">
-                                    {value.icon}
-                                </div>
-                                <h3 className="text-xl font-bold text-page-fg mb-3">{value.title}</h3>
-                                <p className="text-page-fg-muted text-sm leading-relaxed">{value.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Job Openings Section */}
-            <section className="py-12 sm:py-20">
-                <div className={sectionContainer}>
-                    <div className="mb-10 text-center sm:mb-16">
-                        <p className="mb-3 text-sm font-medium tracking-widest text-green-400 sm:text-xl">
-                            OPEN POSITIONS
-                        </p>
-                        <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
-                            <span className="text-black dark:text-white">Current </span>
-                            <span className="text-toadster-green">Opportunities</span>
-                        </h2>
-                        <p className="mx-auto max-w-2xl text-base text-page-fg-subtle sm:text-lg">
-                            Join our growing team and help shape the future of AI technology.
-                        </p>
-                    </div>
-
-                    <div className="space-y-4 sm:space-y-6">
-                        {jobOpenings.map((job, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 24 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="min-w-0 rounded-xl border border-page-border bg-white/5 p-4 transition-all duration-300 hover:border-toadster-green/50 sm:p-6 md:p-8"
-                            >
-                                <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
-                                    <div className="min-w-0 flex-1">
-                                        <div className="mb-3 flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
-                                            <h3 className="text-xl font-bold text-page-fg sm:text-2xl">{job.title}</h3>
-                                            <span className="rounded-full bg-toadster-green/10 px-3 py-1 text-sm font-medium text-toadster-green">
-                                                {job.type}
-                                            </span>
-                                        </div>
-                                        <p className="mb-4 text-sm text-page-fg-subtle sm:text-base">{job.description}</p>
-
-                                        <div className="mb-4 flex flex-col gap-2 text-sm text-page-fg-muted sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
-                                            <div className="flex items-center gap-2">
-                                                <MapPin className="w-4 h-4" />
-                                                {job.location}
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <Clock className="w-4 h-4" />
-                                                {job.department}
-                                            </div>
-                                        </div>
-
-                                        <div className="flex flex-wrap gap-2">
-                                            {job.requirements.map((req, reqIndex) => (
-                                                <span
-                                                    key={reqIndex}
-                                                    className="px-3 py-1 bg-page-fg/10 text-page-fg-subtle text-sm rounded-full"
-                                                >
-                                                    {req}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div className="w-full shrink-0 lg:w-auto">
-                                        <Button 
-                                            onClick={() => openModal(job.title)}
-                                            className="w-full px-8 py-3 sm:w-auto"
-                                        >
-                                            Apply Now
-                                        </Button>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Contact Section */}
-            <section className="py-12 sm:py-20">
-                <div className={`${sectionContainer} text-center`}>
-                    <h2 className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl">
-                        <span className="text-black dark:text-white">Ready to Join Our </span>
-                        <span className="text-toadster-green">Team?</span>
-                    </h2>
-                    <p className="mx-auto mb-8 max-w-2xl text-base text-page-fg-subtle sm:text-lg">
-                        Don't see a position that matches your skills? We're always looking for talented individuals.
-                        Send us your resume and let's discuss opportunities.
+                    <p className="mb-4 line-clamp-3 text-sm leading-relaxed text-page-fg-subtle sm:text-base">
+                      {excerpt || "View the full role details and apply for this position."}
                     </p>
 
-                    <div className="flex w-full flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
-                        <Button 
-                            onClick={() => openModal("General Application")}
-                            className="w-full px-8 py-5 sm:w-auto"
-                        >
-                            <Mail className="mr-2 h-5 w-5" />
-                            Send Resume
-                        </Button>
-                        <Button asChild variant="outline" className="w-full border-white bg-white px-8 py-5 text-slate-900 hover:bg-white/90 sm:w-auto">
-                            <Link href="/about" title="Learn more about Toadster">
-                                Learn More
-                            </Link>
-                        </Button>
+                    <div className="mb-5 grid gap-2 text-sm text-page-fg-muted sm:grid-cols-2">
+                      {job.location ? (
+                        <div className="flex items-center gap-2">
+                          <MapPin className="h-4 w-4 shrink-0" />
+                          <span>{job.location}</span>
+                        </div>
+                      ) : null}
+                      {job.experience ? (
+                        <div className="flex items-center gap-2">
+                          <Clock className="h-4 w-4 shrink-0" />
+                          <span>{job.experience}</span>
+                        </div>
+                      ) : null}
                     </div>
 
-                    <div className="mt-12 pt-8 border-t border-page-border">
-                        <p className="text-page-fg-muted text-sm">
-                            Questions about careers at Toadster? Contact us at{" "}
-                            <a href="mailto:business@toadsters.com" title="Email business@toadsters.com" className="text-toadster-green hover:underline">
-                                business@toadsters.com
-                            </a>
-                        </p>
+                    <div className="mt-auto flex flex-col gap-3 sm:flex-row">
+                      <Button asChild variant="outline" className="w-full sm:w-auto">
+                        <Link href={`/careers/${job._id}`}>View Details</Link>
+                      </Button>
+                      <Button onClick={() => openModal(job.title, job._id)} className="w-full sm:w-auto">
+                        Apply Now
+                      </Button>
                     </div>
-                </div>
-            </section>
+                  </motion.article>
+                )
+              })}
+            </div>
+          ) : (
+            <div className="rounded-2xl border border-page-border bg-page-card/70 p-8 text-center">
+              <h3 className="text-xl font-bold text-page-fg">No positions found</h3>
+              <p className="mt-2 text-page-fg-muted">Try changing your search filters or check back later.</p>
+            </div>
+          )}
 
-            {/* Explore More Section */}
-            <section className="pb-12 sm:pb-20">
-                <div className={sectionContainer}>
-                    <div className="mb-8 text-center sm:mb-10">
-                        <p className="text-sm font-semibold tracking-[0.25em] text-toadster-green uppercase mb-2">
-                            Get to Know Us
-                        </p>
-                        <h2 className="text-2xl font-bold md:text-3xl">
-                            <span className="text-black dark:text-white">Before You </span>
-                            <span className="text-toadster-green">Apply</span>
-                        </h2>
-                        <p className="text-page-fg-muted mt-2 max-w-xl mx-auto text-sm">
-                            See what we build, who we are, and how we share what we learn.
-                        </p>
-                    </div>
-                    <div className="grid min-w-0 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                        {[
-                            {
-                                icon: Cpu,
-                                title: "Our AI Services",
-                                desc: "From agentic systems to custom ML - see what our teams ship.",
-                                to: "/services/ai-development",
-                            },
-                            {
-                                icon: BookOpen,
-                                title: "Engineering Blog",
-                                desc: "Tutorials, research notes, and insights from our engineers.",
-                                to: "/blogs",
-                            },
-                            {
-                                icon: Info,
-                                title: "About Toadster",
-                                desc: "Our mission, values, and the people leading the company.",
-                                to: "/about",
-                            },
-                        ].map(({ icon: Icon, title, desc, to }) => (
-                            <Link
-                                key={title}
-                                href={to}
-                                title={title}
-                                className="group flex h-full items-start gap-4 rounded-2xl border border-page-border bg-white/[0.03] p-5 hover:border-toadster-green/40 hover:-translate-y-0.5 hover:bg-white/[0.05] transition-all"
-                            >
-                                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-toadster-green/10 text-toadster-green">
-                                    <Icon size={18} />
-                                </span>
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex items-center justify-between gap-2">
-                                        <p className="text-page-fg font-semibold group-hover:text-toadster-green transition-colors">
-                                            {title}
-                                        </p>
-                                        <ArrowUpRight size={16} className="text-gray-500 group-hover:text-toadster-green transition-colors" />
-                                    </div>
-                                    <p className="text-page-fg-muted text-sm mt-1 leading-relaxed">{desc}</p>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-        {/* Job Application Modal */}
-        <JobApplicationModal 
-            isOpen={isModalOpen}
-            onClose={closeModal}
-            jobTitle={selectedJob}
-        />
+          {totalPages > 1 ? (
+            <div className="mt-8 flex flex-col items-center justify-between gap-3 sm:flex-row">
+              <Button asChild variant="outline" className={currentPage <= 1 ? "pointer-events-none opacity-50" : ""}>
+                <Link href={buildPageHref(Math.max(1, currentPage - 1), filters)}>
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Previous
+                </Link>
+              </Button>
+              <span className="text-sm text-page-fg-muted">
+                Showing {activeJobs.length} of {pagination.total} roles
+              </span>
+              <Button asChild variant="outline" className={currentPage >= totalPages ? "pointer-events-none opacity-50" : ""}>
+                <Link href={buildPageHref(Math.min(totalPages, currentPage + 1), filters)}>
+                  Next
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          ) : null}
         </div>
-    )
+      </section>
+
+      <section className="py-12 sm:py-20">
+        <div className="mx-auto w-[90%] max-w-7xl text-center">
+          <h2 className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl">
+            <span className="text-black dark:text-white">Ready to Join Our </span>
+            <span className="text-toadster-green">Team?</span>
+          </h2>
+          <p className="mx-auto mb-8 max-w-2xl text-base text-page-fg-subtle sm:text-lg">
+            Don&apos;t see a position that matches your skills? Send us your resume and let&apos;s discuss future opportunities.
+          </p>
+
+          <div className="flex w-full flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
+            <Button onClick={() => openModal("General Application")} className="w-full px-8 py-5 sm:w-auto">
+              <Mail className="mr-2 h-5 w-5" />
+              Send Resume
+            </Button>
+            <Button asChild variant="outline" className="w-full px-8 py-5 sm:w-auto">
+              <Link href="/about" title="Learn more about Toadster">
+                Learn More
+              </Link>
+            </Button>
+          </div>
+
+          <div className="mt-12 border-t border-page-border pt-8">
+            <p className="text-sm text-page-fg-muted">
+              Questions about careers at Toadster? Contact us at{" "}
+              <a href="mailto:business@toadsters.com" className="text-toadster-green hover:underline">
+                business@toadsters.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-12 sm:pb-20">
+        <div className="mx-auto w-[90%] max-w-7xl">
+          <div className="mb-8 text-center sm:mb-10">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-toadster-green">Get to Know Us</p>
+            <h2 className="text-2xl font-bold md:text-3xl">
+              <span className="text-black dark:text-white">Before You </span>
+              <span className="text-toadster-green">Apply</span>
+            </h2>
+            <p className="mx-auto mt-2 max-w-xl text-sm text-page-fg-muted">
+              See what we build, who we are, and how we share what we learn.
+            </p>
+          </div>
+          <div className="grid min-w-0 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {exploreLinks.map(({ icon: Icon, title, desc, to }) => (
+              <Link
+                key={title}
+                href={to}
+                title={title}
+                className="group flex h-full items-start gap-4 rounded-2xl border border-page-border bg-white/[0.03] p-5 transition-all hover:-translate-y-0.5 hover:border-toadster-green/40 hover:bg-white/[0.05]"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-toadster-green/10 text-toadster-green">
+                  <Icon size={18} />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="font-semibold text-page-fg transition-colors group-hover:text-toadster-green">{title}</p>
+                    <ArrowUpRight size={16} className="text-gray-500 transition-colors group-hover:text-toadster-green" />
+                  </div>
+                  <p className="mt-1 text-sm leading-relaxed text-page-fg-muted">{desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <JobApplicationModal isOpen={isModalOpen} onClose={closeModal} jobTitle={selectedJob.title} jobId={selectedJob.id} />
+    </div>
+  )
 }

@@ -10,9 +10,10 @@ interface JobApplicationModalProps {
   isOpen: boolean
   onClose: () => void
   jobTitle: string
+  jobId?: string
 }
 
-export default function JobApplicationModal({ isOpen, onClose, jobTitle }: JobApplicationModalProps) {
+export default function JobApplicationModal({ isOpen, onClose, jobTitle, jobId }: JobApplicationModalProps) {
   const [formData, setFormData] = useState({
     name: "",
     fromEmail: "",
@@ -39,73 +40,33 @@ export default function JobApplicationModal({ isOpen, onClose, jobTitle }: JobAp
     }
   }
 
-  const convertToBase64 = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.readAsDataURL(file)
-
-      reader.onload = () => {
-        const result = reader.result as string
-        resolve(result.split(",")[1])
-      }
-
-      reader.onerror = (error) => reject(error)
-    })
-  }
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus("idle")
 
     try {
-      let base64File = null
+      const applicationData = new FormData()
+      if (jobId) applicationData.append("jobId", jobId)
+      applicationData.append("jobTitle", jobTitle)
+      applicationData.append("name", formData.name)
+      applicationData.append("fromEmail", formData.fromEmail)
+      applicationData.append("email", formData.fromEmail)
+      applicationData.append("currentLocation", formData.currentLocation)
+      applicationData.append("currentCTC", formData.currentCTC)
+      applicationData.append("expectedCTC", formData.expectedCTC)
+      applicationData.append("joiningTime", formData.joiningTime)
+      applicationData.append("noticePeriod", formData.joiningTime)
+      applicationData.append("additionalInfo", formData.additionalInfo)
+      if (formData.resume) applicationData.append("resume", formData.resume)
 
-      if (formData.resume) {
-        base64File = await convertToBase64(formData.resume)
-      }
-
-      const emailContent = `
-Job Application for: ${jobTitle}
-
-Name: ${formData.name}
-Current Location: ${formData.currentLocation}
-Current CTC: ${formData.currentCTC}
-Expected CTC: ${formData.expectedCTC}
-How soon can join: ${formData.joiningTime} days
-Additional Information: ${formData.additionalInfo}
-Resume: ${formData.resume?.name || 'No resume uploaded'}
-      `.trim()
-
-      const response = await fetch("/api/send-email", {
+      const response = await fetch("/api/job-applications", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          formData: {
-            name: formData.name,
-            fromEmail: formData.fromEmail,
-            currentLocation: formData.currentLocation,
-            currentCTC: formData.currentCTC,
-            expectedCTC: formData.expectedCTC,
-            joiningTime: formData.joiningTime,
-            additionalInfo: formData.additionalInfo,
-            jobTitle,
-            emailContent
-          },
-          file: base64File
-            ? {
-              name: formData.resume?.name,
-              content: base64File,
-              type: formData.resume?.type
-            }
-            : null
-        })
+        body: applicationData,
       })
 
       if (!response.ok) {
-        throw new Error("Failed to send email")
+        throw new Error("Failed to submit application")
       }
 
       setSubmitStatus("success")
@@ -143,26 +104,29 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 p-0 backdrop-blur-sm sm:items-center sm:p-4">
-      <div className="theme-card max-h-[92vh] w-full overflow-y-auto rounded-t-2xl border shadow-2xl sm:max-h-[90vh] sm:max-w-2xl sm:rounded-2xl">
+    <div className="fixed inset-0 z-[100] flex items-end justify-center bg-slate-950/55 p-0 backdrop-blur-md sm:items-start sm:px-4 sm:pb-6 sm:pt-24">
+      <div className="theme-card flex max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-2xl border border-page-border shadow-2xl sm:max-h-[calc(100dvh-7rem)] sm:max-w-3xl sm:rounded-2xl">
 
         {/* Header */}
-        <div className="flex items-start justify-between gap-3 border-b border-page-border p-4 sm:p-6">
+        <div className="flex shrink-0 items-start justify-between gap-3 border-b border-page-border bg-page-card/95 p-4 backdrop-blur sm:p-5">
           <div className="min-w-0 flex-1">
-            <h2 className="break-words text-lg font-bold text-page-fg sm:text-2xl">Apply for {jobTitle}</h2>
+            <h2 className="break-words text-lg font-bold leading-tight text-page-fg sm:text-2xl">Apply for {jobTitle}</h2>
             <p className="mt-1 text-sm text-page-fg-muted">Fill in your details to apply for this position</p>
           </div>
           <button
+            type="button"
             onClick={handleClose}
             disabled={isSubmitting}
-            className="shrink-0 rounded-lg p-2 transition-colors hover:bg-page-accent-soft disabled:opacity-50"
+            aria-label="Close application form"
+            className="shrink-0 rounded-full p-2 transition-colors hover:bg-page-accent-soft disabled:opacity-50"
           >
             <X size={20} className="text-page-fg-muted" />
           </button>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-5 p-4 sm:space-y-6 sm:p-6">
+        <form onSubmit={handleSubmit} className="min-h-0 flex-1 overflow-y-auto p-4 sm:p-5">
+          <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label className="block text-sm font-medium text-page-fg-subtle mb-2">
               Full Name *
@@ -173,7 +137,7 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
               onChange={handleInputChange}
               required
               placeholder="Enter your full name"
-              className="w-full"
+              className="h-10 w-full bg-white/70 dark:bg-white/5"
             />
           </div>
 
@@ -188,11 +152,11 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
               onChange={handleInputChange}
               required
               placeholder="your.email@example.com"
-              className="w-full"
+              className="h-10 w-full bg-white/70 dark:bg-white/5"
             />
           </div>
 
-          <div>
+          <div className="sm:col-span-2">
             <label className="block text-sm font-medium text-page-fg-subtle mb-2">
               Current Location *
             </label>
@@ -202,11 +166,10 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
               onChange={handleInputChange}
               required
               placeholder="City, Country"
-              className="w-full"
+              className="h-10 w-full bg-white/70 dark:bg-white/5"
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-page-fg-subtle mb-2">
                 Current CTC *
@@ -217,7 +180,7 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
                 onChange={handleInputChange}
                 required
                 placeholder="e.g., 12 LPA"
-                className="w-full"
+                className="h-10 w-full bg-white/70 dark:bg-white/5"
               />
             </div>
             <div>
@@ -230,12 +193,11 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
                 onChange={handleInputChange}
                 required
                 placeholder="e.g., 15 LPA"
-                className="w-full"
+                className="h-10 w-full bg-white/70 dark:bg-white/5"
               />
             </div>
-          </div>
 
-          <div>
+          <div className="sm:col-span-2">
             <label className="block text-sm font-medium text-page-fg-subtle mb-2">
               How soon can you join? (in days) *
             </label>
@@ -247,15 +209,15 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
               type="number"
               min="1"
               placeholder="e.g., 30"
-              className="w-full"
+              className="h-10 w-full bg-white/70 dark:bg-white/5"
             />
           </div>
 
-          <div>
+          <div className="sm:col-span-2">
             <label className="block text-sm font-medium text-page-fg-subtle mb-2">
               Resume *
             </label>
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="flex flex-col gap-3 rounded-xl border border-page-border bg-white/60 p-3 dark:bg-white/5 sm:flex-row sm:items-center">
               <input
                 id="resume-upload"
                 type="file"
@@ -266,7 +228,7 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
               />
               <label
                 htmlFor="resume-upload"
-                className="inline-flex shrink-0 cursor-pointer items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary-hover"
+                className="inline-flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground transition-all hover:bg-primary-hover"
               >
                 Choose file
               </label>
@@ -277,7 +239,7 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
             <p className="mt-1.5 text-xs text-page-fg-muted">Accepted formats: PDF, DOC, DOCX</p>
           </div>
 
-          <div>
+          <div className="sm:col-span-2">
             <label className="block text-sm font-medium text-page-fg-subtle mb-2">
               Additional Information (Optional)
             </label>
@@ -286,13 +248,13 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
               value={formData.additionalInfo}
               onChange={handleInputChange}
               placeholder="Any additional information you'd like to share..."
-              className="w-full"
-              rows={4}
+              className="min-h-24 w-full bg-white/70 dark:bg-white/5"
+              rows={3}
             />
           </div>
 
           {submitStatus === "success" && (
-            <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+            <div className="rounded-lg border border-green-200 bg-green-50 p-4 sm:col-span-2">
               <p className="text-green-800 text-sm">
                 Application submitted successfully!
               </p>
@@ -300,27 +262,28 @@ Resume: ${formData.resume?.name || 'No resume uploaded'}
           )}
 
           {submitStatus === "error" && (
-            <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+            <div className="rounded-lg border border-red-200 bg-red-50 p-4 sm:col-span-2">
               <p className="text-red-800 text-sm">
                 There was an error processing your application. Please try again.
               </p>
             </div>
           )}
+          </div>
 
-          <div className="flex flex-col-reverse gap-3 pt-2 sm:flex-row sm:gap-4 sm:pt-4">
+          <div className="sticky bottom-0 -mx-4 mt-5 flex shrink-0 flex-col-reverse gap-3 border-t border-page-border bg-page-card/95 p-4 backdrop-blur sm:-mx-5 sm:flex-row sm:gap-4 sm:px-5">
             <Button
               type="button"
               variant="outline"
               onClick={handleClose}
               disabled={isSubmitting}
-              className="w-full sm:flex-1"
+              className="h-11 w-full sm:flex-1"
             >
               Cancel
             </Button>
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-primary text-primary-foreground hover:bg-primary-hover sm:flex-1"
+              className="h-11 w-full bg-primary text-primary-foreground hover:bg-primary-hover sm:flex-1"
             >
               {isSubmitting ? (
                 "Processing..."

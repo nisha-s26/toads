@@ -504,7 +504,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
           </div>
 
           {/* ── CTA + Theme ── */}
-          <div className="navbar-utilities relative z-10 hidden shrink-0 items-center bg-page-nav/95 pl-1 lg:flex xl:pl-2">
+          <div className="navbar-utilities relative z-10 hidden shrink-0 items-center pl-1 lg:flex xl:pl-2">
             <GlobalPagesMenu />
             <ThemeToggle />
             <Button asChild className="rounded-xl px-3 py-4 text-xs font-semibold xl:px-4 xl:py-4 xl:text-sm 2xl:px-5 2xl:py-5">
