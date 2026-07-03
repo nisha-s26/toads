@@ -21,6 +21,7 @@ export default async function Page({ searchParams }: { searchParams?: CareersSea
 
   return (
     <PageComponent
+      key={`${search}:${page}`}
       initialJobs={jobsResponse.jobs}
       pagination={jobsResponse.pagination}
       filters={{ search, status }}

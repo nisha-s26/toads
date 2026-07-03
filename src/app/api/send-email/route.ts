@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer"
 import { NextResponse } from "next/server"
 
-const CAREERS_RECIPIENT = "nisha.r@toadsters.com"
+const CAREERS_RECIPIENT = "hr@toadsters.com"
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export async function POST(request: Request) {

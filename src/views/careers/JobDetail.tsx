@@ -12,7 +12,7 @@ export function JobDetail({ job }: { job: JobPosition }) {
 
   return (
     <div className="min-h-screen overflow-x-clip pt-24">
-      <main className="mx-auto w-[90%] max-w-6xl pb-16 pt-8 sm:pb-24">
+      <main className="mx-auto w-[85%] max-w-9xl pb-16 pt-8 sm:pb-24">
         <Link
           href="/careers"
           className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-page-fg-muted transition-colors hover:text-toadster-green"

@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { createPortal } from "react-dom"
 import { X, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -28,6 +29,29 @@ export default function JobApplicationModal({ isOpen, onClose, jobTitle, jobId, 
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    const previousOverflow = document.body.style.overflow
+    const previousPaddingRight = document.body.style.paddingRight
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+
+    document.body.style.overflow = "hidden"
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      document.body.style.paddingRight = previousPaddingRight
+    }
+  }, [isOpen])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -103,11 +127,12 @@ export default function JobApplicationModal({ isOpen, onClose, jobTitle, jobId, 
     }
   }
 
-  if (!isOpen) return null
+  if (!isOpen || !mounted) return null
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-end justify-center bg-slate-950/55 p-0 backdrop-blur-md sm:items-start sm:px-4 sm:pb-6 sm:pt-24">
-      <div className="theme-card flex max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-2xl border border-page-border shadow-2xl sm:max-h-[calc(100dvh-7rem)] sm:max-w-3xl sm:rounded-2xl">
+  return createPortal(
+    <div className="fixed inset-0 z-[200] overflow-y-auto overscroll-contain bg-slate-950/55 backdrop-blur-md">
+      <div className="flex min-h-full items-center justify-center p-4 sm:p-6">
+        <div className="theme-card flex max-h-[min(92dvh,calc(100vh-2rem))] w-full flex-col overflow-hidden rounded-2xl border border-page-border shadow-2xl sm:max-w-3xl">
 
         {/* Header */}
         <div className="flex shrink-0 items-start justify-between gap-3 border-b border-page-border bg-page-card/95 p-4 backdrop-blur sm:p-5">
@@ -299,8 +324,10 @@ export default function JobApplicationModal({ isOpen, onClose, jobTitle, jobId, 
           </div>
 
         </form>
+        </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
 

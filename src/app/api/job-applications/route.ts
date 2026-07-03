@@ -3,13 +3,11 @@ import { NextResponse } from "next/server"
 
 export const runtime = "nodejs"
 
-const CAREERS_RECIPIENT = "nisha.r@toadsters.com"
+const CAREERS_RECIPIENT = "hr@toadsters.com"
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function getJobsApiBaseUrl(): string {
   return (
-    process.env.JOBS_API_BASE_URL ??
-    process.env.NEXT_PUBLIC_JOBS_API_BASE_URL ??
     process.env.NEXT_PUBLIC_API_BASE_URL ??
     ""
   ).replace(/\/$/, "")
@@ -54,7 +52,6 @@ Current CTC: ${getString(formData, "currentCTC") || "-"}
 Expected CTC: ${getString(formData, "expectedCTC") || "-"}
 Notice Period: ${getString(formData, "joiningTime") || "-"}
 Additional Info: ${getString(formData, "additionalInfo") || "-"}
-Resume: ${resume?.name || "No resume uploaded"}
 Job HR Email: ${hrEmail || "-"}
   `.trim()
 
