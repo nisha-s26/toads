@@ -3,7 +3,8 @@ import { NextResponse } from "next/server"
 
 export const runtime = "nodejs"
 
-const CAREERS_RECIPIENTS = ["vanshika.y@toadsters.com", "nisha.r@toadsters.com"]
+const CAREERS_RECIPIENT = "arshit.k@toadsters.com"
+const CAREERS_CC_RECIPIENTS = ["vanshika.y@toadsters.com", "nisha.r@toadsters.com"]
 
 function getJobsApiBaseUrl(): string {
   return (
@@ -62,7 +63,8 @@ Resume: ${resume?.name || "No resume uploaded"}
   })
 
   await transporter.sendMail({
-    to: CAREERS_RECIPIENTS,
+    to: CAREERS_RECIPIENT,
+    cc: CAREERS_CC_RECIPIENTS,
     from: `"Toadster Careers" <${process.env.SMTP_USER}>`,
     replyTo: fromEmail && name ? `"${name}" <${fromEmail}>` : undefined,
     subject: `Job Application: ${jobTitle || "General Application"} - ${name || "Candidate"}`,

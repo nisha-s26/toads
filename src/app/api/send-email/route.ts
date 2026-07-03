@@ -1,7 +1,8 @@
 import nodemailer from "nodemailer"
 import { NextResponse } from "next/server"
 
-const CAREERS_RECIPIENTS = ["vanshika.y@toadsters.com", "nisha.r@toadsters.com"]
+const CAREERS_RECIPIENT = "arshit.k@toadsters.com"
+const CAREERS_CC_RECIPIENTS = ["vanshika.y@toadsters.com", "nisha.r@toadsters.com"]
 
 export async function POST(request: Request) {
   try {
@@ -30,7 +31,8 @@ Additional Info: ${formData.additionalInfo}
     })
 
     const mailOptions: nodemailer.SendMailOptions = {
-      to: CAREERS_RECIPIENTS,
+      to: CAREERS_RECIPIENT,
+      cc: CAREERS_CC_RECIPIENTS,
       from: `"Toadster Careers" <${process.env.SMTP_USER}>`,
       replyTo: `"${formData.name}" <${formData.fromEmail}>`,
       subject: `Job Application: ${formData.jobTitle} - ${formData.name}`,
