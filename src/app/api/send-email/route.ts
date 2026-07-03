@@ -1,12 +1,15 @@
 import nodemailer from "nodemailer"
 import { NextResponse } from "next/server"
 
-const CAREERS_RECIPIENT = "arshit.k@toadsters.com"
-const CAREERS_CC_RECIPIENTS = ["vanshika.y@toadsters.com", "nisha.r@toadsters.com"]
+const CAREERS_RECIPIENT = "nisha.r@toadsters.com"
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export async function POST(request: Request) {
   try {
     const { formData, file } = await request.json()
+    const hrEmail = typeof formData.hrEmail === "string" && EMAIL_PATTERN.test(formData.hrEmail)
+      ? formData.hrEmail
+      : undefined
 
     const emailContent = `
 Job Application for: ${formData.jobTitle}
@@ -18,6 +21,7 @@ Current CTC: ${formData.currentCTC}
 Expected CTC: ${formData.expectedCTC}
 Notice Period: ${formData.joiningTime}
 Additional Info: ${formData.additionalInfo}
+Job HR Email: ${hrEmail || "-"}
     `
 
     const transporter = nodemailer.createTransport({
@@ -32,7 +36,7 @@ Additional Info: ${formData.additionalInfo}
 
     const mailOptions: nodemailer.SendMailOptions = {
       to: CAREERS_RECIPIENT,
-      cc: CAREERS_CC_RECIPIENTS,
+      cc: hrEmail,
       from: `"Toadster Careers" <${process.env.SMTP_USER}>`,
       replyTo: `"${formData.name}" <${formData.fromEmail}>`,
       subject: `Job Application: ${formData.jobTitle} - ${formData.name}`,

@@ -98,14 +98,14 @@ function buildPageHref(page: number, filters: CareersProps["filters"]): string {
 
 export default function Careers({ initialJobs, pagination, filters }: CareersProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedJob, setSelectedJob] = useState<{ id?: string; title: string }>({ title: "" })
+  const [selectedJob, setSelectedJob] = useState<{ id?: string; title: string; hrEmail?: string }>({ title: "" })
   const activeJobs = initialJobs.filter((job) => job.isActive !== false)
   const hasJobs = activeJobs.length > 0
   const currentPage = pagination.page || 1
   const totalPages = pagination.pages || 1
 
-  const openModal = (jobTitle: string, jobId?: string) => {
-    setSelectedJob({ id: jobId, title: jobTitle })
+  const openModal = (jobTitle: string, jobId?: string, hrEmail?: string) => {
+    setSelectedJob({ id: jobId, title: jobTitle, hrEmail })
     setIsModalOpen(true)
   }
 
@@ -252,7 +252,7 @@ export default function Careers({ initialJobs, pagination, filters }: CareersPro
                       <Button asChild variant="outline" className="w-full sm:w-auto">
                         <Link href={`/careers/${job._id}`}>View Details</Link>
                       </Button>
-                      <Button onClick={() => openModal(job.title, job._id)} className="w-full sm:w-auto">
+                      <Button onClick={() => openModal(job.title, job._id, job.hrEmail)} className="w-full sm:w-auto">
                         Apply Now
                       </Button>
                     </div>
@@ -358,7 +358,13 @@ export default function Careers({ initialJobs, pagination, filters }: CareersPro
         </div>
       </section>
 
-      <JobApplicationModal isOpen={isModalOpen} onClose={closeModal} jobTitle={selectedJob.title} jobId={selectedJob.id} />
+      <JobApplicationModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        jobTitle={selectedJob.title}
+        jobId={selectedJob.id}
+        hrEmail={selectedJob.hrEmail}
+      />
     </div>
   )
 }

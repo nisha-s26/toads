@@ -8,6 +8,7 @@ export interface JobPosition {
   graduationYear?: string
   summary?: string
   isActive?: boolean
+  hrEmail?: string
   createdAt?: string
   updatedAt?: string
   slug?: string
@@ -57,6 +58,22 @@ function normalizeJob(raw: unknown): JobPosition | null {
   const record = raw as Record<string, unknown>
   const id = String(record._id ?? record.id ?? "")
   const title = String(record.title ?? "")
+  const hr = record.hr && typeof record.hr === "object" ? record.hr as Record<string, unknown> : {}
+  const recruiter = record.recruiter && typeof record.recruiter === "object" ? record.recruiter as Record<string, unknown> : {}
+  const assignedHr = record.assignedHr && typeof record.assignedHr === "object" ? record.assignedHr as Record<string, unknown> : {}
+  const hrEmail = [
+    record.hrEmail,
+    record.hr_email,
+    record.recruiterEmail,
+    record.recruiter_email,
+    record.contactEmail,
+    record.contact_email,
+    record.assignedHrEmail,
+    record.assigned_hr_email,
+    hr.email,
+    recruiter.email,
+    assignedHr.email,
+  ].find((value) => typeof value === "string" && value.trim())
 
   if (!id || !title) return null
 
@@ -70,6 +87,7 @@ function normalizeJob(raw: unknown): JobPosition | null {
     graduationYear: typeof record.graduationYear === "string" ? record.graduationYear : undefined,
     summary: typeof record.summary === "string" ? record.summary : undefined,
     isActive: typeof record.isActive === "boolean" ? record.isActive : undefined,
+    hrEmail: typeof hrEmail === "string" ? hrEmail.trim() : undefined,
     createdAt: typeof record.createdAt === "string" ? record.createdAt : undefined,
     updatedAt: typeof record.updatedAt === "string" ? record.updatedAt : undefined,
     slug: typeof record.slug === "string" ? record.slug : undefined,

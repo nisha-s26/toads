@@ -3,8 +3,8 @@ import { NextResponse } from "next/server"
 
 export const runtime = "nodejs"
 
-const CAREERS_RECIPIENT = "arshit.k@toadsters.com"
-const CAREERS_CC_RECIPIENTS = ["vanshika.y@toadsters.com", "nisha.r@toadsters.com"]
+const CAREERS_RECIPIENT = "nisha.r@toadsters.com"
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function getJobsApiBaseUrl(): string {
   return (
@@ -18,6 +18,10 @@ function getJobsApiBaseUrl(): string {
 function getString(formData: FormData, key: string): string {
   const value = formData.get(key)
   return typeof value === "string" ? value.trim() : ""
+}
+
+function getValidEmail(value: string): string | undefined {
+  return EMAIL_PATTERN.test(value) ? value : undefined
 }
 
 function buildForwardFormData(formData: FormData, resume: File | null): FormData {
@@ -38,6 +42,7 @@ function buildForwardFormData(formData: FormData, resume: File | null): FormData
 async function sendCareersEmail(formData: FormData, resume: File | null) {
   const name = getString(formData, "name")
   const fromEmail = getString(formData, "fromEmail") || getString(formData, "email")
+  const hrEmail = getValidEmail(getString(formData, "hrEmail"))
   const jobTitle = getString(formData, "jobTitle")
   const emailContent = `
 Job Application for: ${jobTitle || "-"}
@@ -50,6 +55,7 @@ Expected CTC: ${getString(formData, "expectedCTC") || "-"}
 Notice Period: ${getString(formData, "joiningTime") || "-"}
 Additional Info: ${getString(formData, "additionalInfo") || "-"}
 Resume: ${resume?.name || "No resume uploaded"}
+Job HR Email: ${hrEmail || "-"}
   `.trim()
 
   const transporter = nodemailer.createTransport({
@@ -64,7 +70,7 @@ Resume: ${resume?.name || "No resume uploaded"}
 
   await transporter.sendMail({
     to: CAREERS_RECIPIENT,
-    cc: CAREERS_CC_RECIPIENTS,
+    cc: hrEmail,
     from: `"Toadster Careers" <${process.env.SMTP_USER}>`,
     replyTo: fromEmail && name ? `"${name}" <${fromEmail}>` : undefined,
     subject: `Job Application: ${jobTitle || "General Application"} - ${name || "Candidate"}`,

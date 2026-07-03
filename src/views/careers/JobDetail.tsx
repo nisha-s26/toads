@@ -91,7 +91,13 @@ export function JobDetail({ job }: { job: JobPosition }) {
         </div>
       </main>
 
-      <JobApplicationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} jobTitle={job.title} jobId={job._id} />
+      <JobApplicationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        jobTitle={job.title}
+        jobId={job._id}
+        hrEmail={job.hrEmail}
+      />
     </div>
   )
 }

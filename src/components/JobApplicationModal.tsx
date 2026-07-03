@@ -11,9 +11,10 @@ interface JobApplicationModalProps {
   onClose: () => void
   jobTitle: string
   jobId?: string
+  hrEmail?: string
 }
 
-export default function JobApplicationModal({ isOpen, onClose, jobTitle, jobId }: JobApplicationModalProps) {
+export default function JobApplicationModal({ isOpen, onClose, jobTitle, jobId, hrEmail }: JobApplicationModalProps) {
   const [formData, setFormData] = useState({
     name: "",
     fromEmail: "",
@@ -48,6 +49,7 @@ export default function JobApplicationModal({ isOpen, onClose, jobTitle, jobId }
     try {
       const applicationData = new FormData()
       if (jobId) applicationData.append("jobId", jobId)
+      if (hrEmail) applicationData.append("hrEmail", hrEmail)
       applicationData.append("jobTitle", jobTitle)
       applicationData.append("name", formData.name)
       applicationData.append("fromEmail", formData.fromEmail)
