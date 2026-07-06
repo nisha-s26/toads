@@ -213,7 +213,7 @@ export function LegalLinkParagraph({
   return (
     <p className="legal-copy">
       {before}
-      <Link href={href} className="legal-contact-link">
+      <Link href={href} title={linkText} className="legal-contact-link">
         {linkText}
       </Link>
       {after}
@@ -233,7 +233,7 @@ export function LegalContactBlock({
   return (
     <div className="legal-contact-block">
       <p className="legal-contact-company">{company}</p>
-      <a href={`mailto:${email}`} className="legal-contact-link">
+      <a href={`mailto:${email}`} title={`Email ${email}`} className="legal-contact-link">
         Email: {email}
       </a>
       <Link href={contactHref} className="legal-contact-form-link" title="Contact form">

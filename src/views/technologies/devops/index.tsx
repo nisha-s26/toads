@@ -25,8 +25,9 @@ export default function DevOpsPage() {
   return (
     <div className="data-analytics-landing">
       <TechnologyHeroSection
-        lightImageSrc="/devops-hero-light.png"
-        darkImageSrc="/devops-hero-dark.png"
+        lightImageSrc="/devops-hero-light.webp"
+        darkImageSrc="/devops-hero-dark.webp"
+        imageAlt="Toadster DevOps engineering services"
         heroVariant="devops"
       >
         <span className="da-badge">

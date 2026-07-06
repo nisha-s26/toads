@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState, useTransition } from "react"
-import { motion } from "framer-motion"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import {
@@ -152,15 +151,11 @@ export default function Careers({ initialJobs, pagination, filters }: CareersPro
         <div className="mx-auto w-[90%] max-w-7xl">
 
           <div className="grid min-w-0 gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-4">
-            {values.map((value, index) => {
+            {values.map((value) => {
               const Icon = value.icon
               return (
-                <motion.div
+                <div
                   key={value.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
                   className="min-w-0 rounded-xl border border-page-border bg-white/5 p-5 text-center sm:p-6"
                 >
                   <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-toadster-green/10 text-toadster-green">
@@ -168,7 +163,7 @@ export default function Careers({ initialJobs, pagination, filters }: CareersPro
                   </div>
                   <h3 className="mb-3 text-xl font-bold text-page-fg">{value.title}</h3>
                   <p className="text-sm leading-relaxed text-page-fg-muted">{value.description}</p>
-                </motion.div>
+                </div>
               )
             })}
           </div>
@@ -215,33 +210,25 @@ export default function Careers({ initialJobs, pagination, filters }: CareersPro
 
           {hasJobs ? (
             <div className="mx-auto flex w-full flex-col gap-5 sm:gap-6">
-              {activeJobs.map((job, index) => {
+              {activeJobs.map((job) => {
                 const excerpt = stripHtml(job.summary)
                 return (
-                  <motion.article
+                  <article
                     key={job._id}
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.06 }}
-                    viewport={{ once: true }}
-                    role="link"
-                    tabIndex={0}
-                    onClick={() => router.push(`/careers/${job._id}`)}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter" || event.key === " ") {
-                        event.preventDefault()
-                        router.push(`/careers/${job._id}`)
-                      }
-                    }}
-                    className="group isolate relative flex w-full min-w-0 cursor-pointer flex-col gap-4 overflow-hidden rounded-xl border border-toadster-green/25 bg-gradient-to-r from-toadster-green/12 via-emerald-50/50 to-white/80 px-4 py-5 shadow-sm transition-shadow duration-300 hover:shadow-md dark:from-toadster-green/20 dark:via-toadster-green/8 dark:to-transparent sm:px-6 sm:py-6 lg:flex-row lg:items-center lg:justify-between lg:gap-6"
+                    className="group isolate relative flex w-full min-w-0 flex-col gap-4 overflow-hidden rounded-xl border border-toadster-green/25 bg-gradient-to-r from-toadster-green/12 via-emerald-50/50 to-white/80 px-4 py-5 shadow-sm transition-shadow duration-300 hover:shadow-md dark:from-toadster-green/20 dark:via-toadster-green/8 dark:to-transparent sm:px-6 sm:py-6 lg:flex-row lg:items-center lg:justify-between lg:gap-6"
                   >
+                    <Link
+                      href={`/careers/${job._id}`}
+                      aria-label={`View details for ${job.title}`}
+                      className="absolute inset-0 z-0 rounded-xl"
+                    />
                     <div className="relative z-10 flex min-w-0 flex-1 items-center gap-4 lg:gap-5">
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-toadster-green/15 text-toadster-green sm:h-12 sm:w-12">
                         <BriefcaseBusiness size={18} />
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3">
-                          <h3 className="text-xl font-bold text-page-fg transition-colors group-hover:text-toadster-green sm:text-2xl">
+                          <h3 className="relative z-10 text-xl font-bold text-page-fg transition-colors group-hover:text-toadster-green sm:text-2xl">
                             {job.title}
                           </h3>
                           <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wide text-page-fg-muted">
@@ -282,7 +269,7 @@ export default function Careers({ initialJobs, pagination, filters }: CareersPro
                         Apply Now
                       </Button>
                     </div>
-                  </motion.article>
+                  </article>
                 )
               })}
             </div>
@@ -296,7 +283,7 @@ export default function Careers({ initialJobs, pagination, filters }: CareersPro
           {totalPages > 1 ? (
             <div className="mt-8 flex flex-col items-center justify-between gap-3 sm:flex-row">
               <Button asChild variant="outline" className={currentPage <= 1 ? "pointer-events-none opacity-50" : ""}>
-                <Link href={buildPageHref(Math.max(1, currentPage - 1), filters)}>
+                <Link href={buildPageHref(Math.max(1, currentPage - 1), filters)} title="Go to previous page">
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   Previous
                 </Link>
@@ -305,7 +292,7 @@ export default function Careers({ initialJobs, pagination, filters }: CareersPro
                 Showing {activeJobs.length} of {pagination.total} roles
               </span>
               <Button asChild variant="outline" className={currentPage >= totalPages ? "pointer-events-none opacity-50" : ""}>
-                <Link href={buildPageHref(Math.min(totalPages, currentPage + 1), filters)}>
+                <Link href={buildPageHref(Math.min(totalPages, currentPage + 1), filters)} title="Go to next page">
                   Next
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -340,7 +327,7 @@ export default function Careers({ initialJobs, pagination, filters }: CareersPro
           <div className="mt-12 border-t border-page-border pt-8">
             <p className="text-sm text-page-fg-muted">
               Questions about careers at Toadster? Contact us at{" "}
-              <a href="mailto:business@toadsters.com" className="text-toadster-green hover:underline">
+              <a href="mailto:business@toadsters.com" title="Email the Toadster business team" className="text-toadster-green hover:underline">
                 business@toadsters.com
               </a>
             </p>

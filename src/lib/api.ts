@@ -1,3 +1,4 @@
+import { cache } from "react"
 import type { BlogPost } from "@/views/blogs/blogData"
 
 interface BlogsListResponse {
@@ -79,7 +80,7 @@ export async function apiFetch(path: string, init?: RequestInit): Promise<Respon
   }
 }
 
-export async function fetchAllBlogs(): Promise<BlogPost[]> {
+export const fetchAllBlogs = cache(async (): Promise<BlogPost[]> => {
   try {
     const response = await apiFetch("/api/public/blogs")
     if (!response.ok) return []
@@ -91,9 +92,9 @@ export async function fetchAllBlogs(): Promise<BlogPost[]> {
     }
     return []
   }
-}
+})
 
-export async function fetchBlogBySlug(slug: string): Promise<BlogPost | null> {
+export const fetchBlogBySlug = cache(async (slug: string): Promise<BlogPost | null> => {
   try {
     const response = await apiFetch(`/api/public/blogs/${slug}`)
     if (!response.ok) return null
@@ -104,4 +105,4 @@ export async function fetchBlogBySlug(slug: string): Promise<BlogPost | null> {
     }
     return null
   }
-}
+})

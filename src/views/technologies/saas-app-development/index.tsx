@@ -25,8 +25,9 @@ export default function SaasAppDevelopmentPage() {
   return (
     <div className="data-analytics-landing">
       <TechnologyHeroSection
-        lightImageSrc="/technologies/saas-app-development-hero-light.png"
-        darkImageSrc="/technologies/saas-app-development-hero-dark.png"
+        lightImageSrc="/technologies/saas-app-development-hero-light.webp"
+        darkImageSrc="/technologies/saas-app-development-hero-dark.webp"
+        imageAlt="Toadster SaaS application development services"
         heroVariant="devops"
       >
         <span className="da-badge">

@@ -15,10 +15,12 @@ interface BlogsProps {
 
 export default function Blogs({ initialBlogs = [] }: BlogsProps) {
   const [, setHoveredCard] = useState<string | null>(null)
-  const [isLoaded, setIsLoaded] = useState(initialBlogs.length > 0)
+  const hasInitialData = initialBlogs.length > 0
+  const [isLoaded, setIsLoaded] = useState(hasInitialData)
   const router = useRouter()
   const [blogs, setBlogs] = useState<BlogPost[]>(initialBlogs)
-  const [isLoadingBlogs, setIsLoadingBlogs] = useState(initialBlogs.length === 0)
+  const [isLoadingBlogs, setIsLoadingBlogs] = useState(!hasInitialData)
+  const contentReady = hasInitialData || isLoaded
 
   useEffect(() => {
     if (initialBlogs.length > 0) return
@@ -49,7 +51,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
       <section className="py-12 page-x-gutter pt-24 sm:pt-28 md:pt-32 relative lg:px-5">
         <div className="max-w-7xl mx-auto relative z-10 mt-10">
           <div className="mb-8 sm:mb-12 md:mb-16">
-            <div className={`text-center transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`text-center transition-all duration-300 transform ${contentReady ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <SplitSectionHeading
                 as="h1"
                 titleBefore="Resources and "
@@ -69,7 +71,7 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
             </div>
           ) : featuredBlog ? (
             <div
-              className={`theme-card rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-700 group border cursor-pointer transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+              className={`theme-card rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 group border cursor-pointer transform ${contentReady ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
               style={{ transitionDelay: '200ms' }}
               onClick={() => router.push(`/blogs/${featuredBlog.slug}`)}
             >
@@ -144,13 +146,13 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
             as="h2"
             titleBefore="Featured "
             titleAccent="Blogs"
-            className={`mb-8 text-center text-2xl font-bold sm:mb-12 sm:text-3xl md:text-4xl transition-all duration-1000 transform ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            className={`mb-8 text-center text-2xl font-bold sm:mb-12 sm:text-3xl md:text-4xl transition-all duration-1000 transform ${contentReady ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {featuredBlogs.map((blog, index) => (
               <div
                 key={index}
-                className={`group relative theme-card rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border hover:border-toadster-green/40 hover:shadow-toadster-green/10 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`group relative theme-card rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border hover:border-toadster-green/40 hover:shadow-toadster-green/10 cursor-pointer transform transition-all duration-500 hover:-translate-y-1 ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${600 + index * 100}ms` }}
                 onMouseEnter={() => setHoveredCard(`featured-${index}`)}
                 onMouseLeave={() => setHoveredCard(null)}
@@ -255,13 +257,13 @@ export default function Blogs({ initialBlogs = [] }: BlogsProps) {
             as="h2"
             titleBefore="Latest "
             titleAccent="Blogs"
-            className={`mb-8 text-center text-2xl font-bold sm:mb-12 sm:text-3xl md:text-4xl transition-all duration-1000 transform ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            className={`mb-8 text-center text-2xl font-bold sm:mb-12 sm:text-3xl md:text-4xl transition-all duration-1000 transform ${contentReady ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {latestBlogs.map((blog, index) => (
               <div
                 key={index}
-                className={`theme-card rounded-lg sm:rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-700 group border hover:shadow-toadster-green/10 hover:scale-105 cursor-pointer transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`theme-card rounded-lg sm:rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-700 group border hover:shadow-toadster-green/10 hover:scale-105 cursor-pointer transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${1200 + index * 100}ms` }}
                 onMouseEnter={() => setHoveredCard(`latest-${index}`)}
                 onMouseLeave={() => setHoveredCard(null)}

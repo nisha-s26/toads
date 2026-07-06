@@ -12,7 +12,7 @@ const STATS = [
   { value: "Zero-trust", label: "Security by design", Icon: ShieldCheck },
 ]
 
-const TECH_IMAGE = "/parallax-bg.jpg"
+const TECH_IMAGE = "/parallax-bg.webp"
 
 const ParallaxShowcase = () => {
   const sectionRef = useRef<HTMLElement | null>(null)
@@ -40,6 +40,7 @@ const ParallaxShowcase = () => {
         <Image
           src={TECH_IMAGE}
           alt="Abstract AI technology circuit"
+          title="Abstract AI technology circuit"
           fill
           unoptimized
           className="object-cover opacity-40"

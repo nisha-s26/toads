@@ -45,6 +45,7 @@ export function GlobalPagesMenu({ size = "default" }: { size?: "sm" | "default" 
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
+                  title={item.label}
                   className="global-pages-menu-link flex items-center gap-2.5 whitespace-nowrap px-3.5 py-2.5 text-sm transition hover:bg-page-accent-soft"
                 >
                   <span className="shrink-0 text-lg leading-none" aria-hidden>

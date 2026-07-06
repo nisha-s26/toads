@@ -1014,14 +1014,14 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                   (isFullStack || isAndroid || isReact || isSoftwareDevelopers || isAiMlDevelopers) ? (
                     <span>
                       We&apos;ll review your CV details.{" "}
-                      <a href="/contact" className="text-toadster-green hover:underline">
+                      <a href="/contact" title="Schedule a call with Toadster" className="text-toadster-green hover:underline">
                         Schedule a call instead
                       </a>
                     </span>
                   ) : isFlutter ? (
                     <span>
                       We&apos;ll review your requirements within one business day.{" "}
-                      <a href="/contact" className="text-toadster-green hover:underline">
+                      <a href="/contact" title="Schedule a call with Toadster" className="text-toadster-green hover:underline">
                         Schedule a call instead
                       </a>
                     </span>
@@ -1105,8 +1105,9 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                 {/* Desktop graphic – no border/background, just the green computer */}
                 <div className="mt-4 flex justify-center lg:justify-start">
                   <Image
-                    src="/monitor_code_graphic.png"
-                    alt="Monitor code visual"
+                    src="/monitor_code_graphic.webp"
+                    alt="Developer writing code on a monitor"
+                    title="Developer writing code on a monitor"
                     width={520}
                     height={360}
                     className="h-auto w-full max-w-full object-contain drop-shadow-xl lg:max-w-full"
@@ -1176,8 +1177,9 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
                 {/* Dual phone image graphic absolute placed */}
                 <div className="mt-8 flex justify-center -mb-7">
                   <Image
-                    src="/phones_app_graphic.png"
-                    alt="Phones visualization"
+                    src="/phones_app_graphic.webp"
+                    alt="Mobile app screens on smartphones"
+                    title="Mobile app screens on smartphones"
                     width={340}
                     height={260}
                     className="h-auto w-full max-w-full object-contain"

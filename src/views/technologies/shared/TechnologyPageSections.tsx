@@ -57,7 +57,7 @@ export function TechnologyServicesSection({
                 <span className="da-bento-badge">{item.badge}</span>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
-                <Link href={item.href ?? "/contact"} className="da-bento-link">
+                <Link href={item.href ?? "/contact"} title={`Learn more about ${item.title}`} className="da-bento-link">
                   Learn More
                   <ArrowRight size={16} />
                 </Link>

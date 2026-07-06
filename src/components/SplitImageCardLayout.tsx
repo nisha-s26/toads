@@ -43,6 +43,7 @@ function SideImagePanel({
         <Image
           src={image}
           alt={imageAlt}
+          title={imageAlt}
           fill
           quality={90}
           sizes="(min-width: 768px) 360px, 0px"
@@ -61,7 +62,7 @@ function SideImagePanel({
 function MobileImageBanner({ image, imageAlt }: { image: string; imageAlt: string }) {
   return (
     <div className="section-side-image-mobile relative mb-6 h-52 w-full overflow-hidden rounded-2xl border border-page-border shadow-lg md:hidden">
-      <Image src={image} alt={imageAlt} fill quality={90} sizes="100vw" className="object-cover" />
+      <Image src={image} alt={imageAlt} title={imageAlt} fill quality={90} sizes="100vw" className="object-cover" />
       <div className="section-side-image-overlay pointer-events-none absolute inset-0" aria-hidden />
     </div>
   )

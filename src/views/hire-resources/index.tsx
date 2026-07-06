@@ -308,7 +308,8 @@ export default function HireResourcesHubPage() {
           <div className="homepage-hero-bg-image absolute inset-0">
             <Image
               src="/hire-resources-hero-light.webp"
-              alt=""
+              alt="Hire dedicated developers and engineering teams with Toadster"
+              title="Hire dedicated developers and engineering teams with Toadster"
               fill
               priority
               fetchPriority="high"
@@ -318,7 +319,8 @@ export default function HireResourcesHubPage() {
             />
             <Image
               src="/hire-resources-hero-dark.webp"
-              alt=""
+              alt="Hire dedicated developers and engineering teams with Toadster"
+              title="Hire dedicated developers and engineering teams with Toadster"
               fill
               priority
               fetchPriority="high"

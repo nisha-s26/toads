@@ -27,7 +27,7 @@ export function ToadsterLogo({
 
   return (
     <Image
-      src={useWhiteLogo ? "/toadster-logo-white.svg" : "/toadster-logo-green.png"}
+      src={useWhiteLogo ? "/toadster-logo-white.svg" : "/toadster-logo-green.webp"}
       alt={alt}
       title="Toadster Logo"
       className={`toadster-logo select-none ${className}`}

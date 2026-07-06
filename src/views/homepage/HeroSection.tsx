@@ -1,34 +1,14 @@
 "use client"
 
-import { useEffect, useState, useSyncExternalStore, type ComponentType } from "react"
+import dynamic from "next/dynamic"
+import { useEffect, useState, useSyncExternalStore } from "react"
 import Link from "next/link"
-import {
-  Brain,
-  Database,
-  Cpu,
-  BarChart3,
-  Cloud,
-  Workflow,
-  Network,
-  Bot,
-  Server,
-  Layers,
-} from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-interface Ring {
-  radius: { desktop: number; mobile: number }
-  duration: number
-  direction: 1 | -1
-  icons: ComponentType<{ size?: number; className?: string }>[]
-}
-
-const rings: Ring[] = [
-  { radius: { desktop: 180, mobile: 80 }, duration: 18, direction: 1, icons: [Brain, Cpu, Bot, Network, Brain] },
-  { radius: { desktop: 350, mobile: 180 }, duration: 28, direction: -1, icons: [Database, Cloud, Workflow, Server] },
-  { radius: { desktop: 440, mobile: 240 }, duration: 40, direction: 1, icons: [BarChart3, Layers, Brain, Cpu, Brain, Cpu, Bot, Network] },
-  { radius: { desktop: 550, mobile: 300 }, duration: 40, direction: -1, icons: [BarChart3, Layers, Brain, Cpu, Brain, Cpu, Bot, Network] },
-]
+const DesktopHeroOrbits = dynamic(
+  () => import("./DesktopHeroOrbits").then((mod) => mod.DesktopHeroOrbits),
+  { ssr: false },
+)
 
 const FADE_WORD_INTERVAL_MS = 2800
 const FADE_WORDS = ["Custom AI Development", "Machine Learning", "AI Automation", "Predictive Analytics"]
@@ -44,6 +24,20 @@ function getReducedMotionSnapshot() {
 }
 
 function getReducedMotionServerSnapshot() {
+  return false
+}
+
+function subscribeDesktop(onStoreChange: () => void) {
+  const media = window.matchMedia("(min-width: 768px)")
+  media.addEventListener("change", onStoreChange)
+  return () => media.removeEventListener("change", onStoreChange)
+}
+
+function getDesktopSnapshot() {
+  return window.matchMedia("(min-width: 768px)").matches
+}
+
+function getDesktopServerSnapshot() {
   return false
 }
 
@@ -91,49 +85,6 @@ function FadeText({ words }: { words: string[] }) {
   return <AnimatedFadeText words={words} />
 }
 
-interface OrbitsProps {
-  variant: "desktop" | "mobile"
-}
-
-function Orbits({ variant }: OrbitsProps) {
-  const containerSize = variant === "desktop" ? "w-[650px]" : "w-[320px]"
-  const iconSize = variant === "desktop" ? 22 : 18
-  const padding = variant === "desktop" ? "p-3" : "p-2"
-
-  return (
-    <div className={`relative ${containerSize}`} style={{ contain: "layout paint" }}>
-      {rings.map((ring, ringIndex) => (
-        <div
-          key={ringIndex}
-          className="hero-orbit-ring absolute inset-0"
-          style={{
-            animationDuration: `${ring.duration}s`,
-            animationDirection: ring.direction === -1 ? "reverse" : "normal",
-          }}
-        >
-          {ring.icons.map((Icon, i) => {
-            const angle = (i / ring.icons.length) * 2 * Math.PI
-            const radius = variant === "desktop" ? ring.radius.desktop : ring.radius.mobile
-            const x = radius * Math.cos(angle)
-            const y = radius * Math.sin(angle)
-            return (
-              <div
-                key={i}
-                className="absolute"
-                style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)`, transform: "translate(-50%, -50%)" }}
-              >
-                <div className={`bg-page-bg-alt shadow-md border border-page-border rounded-xl ${padding} hover:scale-110`}>
-                  <Icon size={iconSize} className="text-toadster-green" />
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      ))}
-    </div>
-  )
-}
-
 export default function HeroSection() {
   const [showOrbits, setShowOrbits] = useState(false)
   const reduceMotion = useSyncExternalStore(
@@ -141,9 +92,10 @@ export default function HeroSection() {
     getReducedMotionSnapshot,
     getReducedMotionServerSnapshot,
   )
+  const isDesktop = useSyncExternalStore(subscribeDesktop, getDesktopSnapshot, getDesktopServerSnapshot)
 
   useEffect(() => {
-    if (reduceMotion) return
+    if (reduceMotion || !isDesktop) return
 
     const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 1200))
     const handle = idle(() => setShowOrbits(true))
@@ -153,49 +105,36 @@ export default function HeroSection() {
         cancelIdle(handle)
       }
     }
-  }, [reduceMotion])
+  }, [isDesktop, reduceMotion])
 
   return (
-    <div className="relative z-10 flex w-full flex-col items-center px-4 pb-3 pt-[calc(5.25rem+env(safe-area-inset-top,0px))] sm:min-h-0 sm:flex-1 sm:justify-center sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:px-6 sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))]">
-      <div className="hero-enter relative z-20 mx-auto w-full max-w-9xl text-center py-6 max-md:max-w-md md:py-10">
-        <div className="hero-enter-delay-1 mb-2 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 shadow-sm hero-badge backdrop-blur-md sm:mb-3 sm:px-4 sm:py-2 [@media(max-height:720px)]:mb-1.5 [@media(max-height:720px)]:px-2.5 [@media(max-height:720px)]:py-1">
-          <span className="h-2.5 w-2.5 rounded-full bg-toadster-green" />
-          <span className="text-xs font-medium sm:text-sm">Agentic AI and Data Transformation</span>
+    <div className="homepage-hero-content relative z-10 flex w-full flex-col items-center px-3 sm:min-h-0 sm:flex-1 sm:justify-center sm:px-4 sm:pb-[calc(var(--hero-bottom-offset,3.5rem)+0.25rem)] sm:pt-[calc(4.75rem+env(safe-area-inset-top,0px))] md:px-6">
+      <div className="hero-enter relative z-20 mx-auto w-full max-w-9xl text-center py-20 sm:py-6 md:py-10">
+        <div className="hero-enter-delay-1 mb-1.5 inline-flex max-w-[calc(100%-0.5rem)] items-center gap-1.5 rounded-full border px-2.5 py-1 shadow-sm hero-badge backdrop-blur-md sm:mb-3 sm:gap-2 sm:px-4 sm:py-2 [@media(max-height:720px)]:mb-1 [@media(max-height:720px)]:px-2 [@media(max-height:720px)]:py-0.5">
+          <span className="h-2 w-2 shrink-0 rounded-full bg-toadster-green sm:h-2.5 sm:w-2.5" />
+          <span className="text-[0.6875rem] font-medium leading-tight sm:text-sm">Agentic AI and Data Transformation</span>
         </div>
 
-        <h1 className="hero-enter-delay-2 hero-title w-full text-[clamp(1.55rem,4vw+0.65rem,4.5rem)] font-extrabold leading-[1.08] drop-shadow-[0_1px_12px_rgba(255,255,255,0.85)] dark:drop-shadow-[0_1px_14px_rgba(0,0,0,0.55)] [@media(max-height:720px)]:text-[clamp(1.35rem,3.6vw+0.45rem,2.1rem)]">
+        <h1 className="hero-enter-delay-2 hero-title w-full text-[clamp(1.3rem,5.2vw+0.45rem,4.5rem)] font-extrabold leading-[1.06] drop-shadow-[0_1px_12px_rgba(255,255,255,0.85)] dark:drop-shadow-[0_1px_14px_rgba(0,0,0,0.55)] sm:leading-[1.08] [@media(max-height:720px)]:text-[clamp(1.2rem,4.8vw+0.35rem,2rem)]">
           Build Smarter Enterprises With
-          <div className="mt-1.5 italic sm:mt-2 [@media(max-height:720px)]:mt-1">
+          <div className="mt-1 italic sm:mt-2 [@media(max-height:720px)]:mt-0.5">
             <FadeText words={FADE_WORDS} />
           </div>
         </h1>
 
-        <p className="hero-enter-delay-3 hero-subtitle mx-auto mt-1.5 max-w-2xl px-1 text-sm font-semibold leading-snug drop-shadow-[0_1px_10px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)] md:max-w-4xl lg:max-w-5xl sm:mt-2 sm:px-0 sm:text-base md:text-lg [@media(max-height:720px)]:mt-1 [@media(max-height:720px)]:text-xs [@media(max-height:720px)]:sm:text-sm">
+        <p className="hero-enter-delay-3 hero-subtitle mx-auto mt-1.5 max-w-[18.5rem] px-0.5 text-xs font-semibold leading-snug drop-shadow-[0_1px_10px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)] sm:mt-2 sm:max-w-2xl sm:px-0 sm:text-sm md:max-w-4xl md:text-base lg:max-w-5xl lg:text-lg [@media(max-height:720px)]:mt-1 [@media(max-height:720px)]:text-[0.6875rem]">
           We engineer production-ready AI agents, LLM-powered applications, and scalable data platforms -
           purpose-built for startups, mid-market, and enterprise teams across globe.
         </p>
 
-        <div className="hero-enter-delay-4 mx-auto mt-4 flex w-full flex-col items-center justify-center gap-2.5 sm:mt-6 sm:flex-row sm:gap-3 [@media(max-height:720px)]:mt-3 [@media(max-height:720px)]:gap-2">
-          <Button asChild className="w-auto rounded-xl px-6 py-4 text-sm shadow-lg sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs">
+        <div className="hero-enter-delay-4 mx-auto mt-3 flex w-full flex-col items-center justify-center sm:mt-6 sm:flex-row sm:gap-3 [@media(max-height:720px)]:mt-2">
+          <Button asChild className="w-auto rounded-xl px-5 py-3 text-sm shadow-lg sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-2.5 [@media(max-height:720px)]:text-xs">
             <Link href="/contact" title="Get Started">Start Your Project</Link>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="hero-outline-btn w-auto rounded-xl px-6 py-4 text-sm shadow-md backdrop-blur-md sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-3.5 [@media(max-height:720px)]:text-xs"
-          >
           </Button>
         </div>
       </div>
 
-      {showOrbits && !reduceMotion ? (
-        <div
-          className="hero-orbits pointer-events-none absolute inset-0 z-[1] hidden items-center justify-center opacity-40 md:flex [@media(max-height:720px)]:hidden"
-          aria-hidden="true"
-        >
-          <Orbits variant="desktop" />
-        </div>
-      ) : null}
+      {showOrbits && !reduceMotion && isDesktop ? <DesktopHeroOrbits /> : null}
     </div>
   )
 }

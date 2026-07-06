@@ -445,7 +445,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("/services light mode.png");
+  background-image: url("/services light mode.webp");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -455,7 +455,7 @@
 .dark .service-hero-viewport--image .software-development-hero::before,
 .dark .service-hero-viewport--image .service-page-hero::before,
 .dark .service-hero-viewport--image .hire-hub-hero-section::before {
-  background-image: url("/services dark mode.png");
+  background-image: url("/services dark mode.webp");
 }
 
 .service-hero-viewport--image .software-development-hero>*,
@@ -796,6 +796,13 @@
 
 #homepage-sections>.homepage-snap-section+.homepage-snap-section>div {
   padding-top: 0;
+}
+
+@media (max-width: 639px) {
+  #homepage-sections>.homepage-snap-section+.homepage-snap-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 720px;
+  }
 }
 
 .homepage-snap-section {
@@ -1319,63 +1326,71 @@
 }
 
 @media (max-width: 639px) {
-  .homepage-content .homepage-hero-viewport--image {
+  /* Homepage mobile hero — content-height layout, logos directly below CTA */
+  #homepage-hero-viewport.homepage-hero-viewport--image {
     --hero-bottom-offset: 0;
+    --homepage-hero-marquee-offset: 3rem;
     overflow-x: clip;
   }
 
-  /* Accent strip: lower, wider, behind the text column */
-  .homepage-content .homepage-hero-viewport--image .homepage-hero-bg-image {
-    inset: auto;
-    top: 38%;
+  #homepage-hero-viewport .homepage-hero-content {
+    padding-top: calc(4.25rem + env(safe-area-inset-top, 0px));
+    padding-bottom: 0.25rem;
+  }
+
+  #homepage-hero-viewport .homepage-hero-content .hero-enter {
+    padding-top: 0.75rem;
+    padding-bottom: 0.25rem;
+  }
+
+  #homepage-hero-viewport .trusted-by-marquee {
+    padding-top: 0;
+    padding-bottom: 0.25rem;
+  }
+
+  #homepage-hero-viewport.homepage-hero-viewport--image .homepage-hero-bg {
+    bottom: var(--homepage-hero-marquee-offset);
+  }
+
+  #homepage-hero-viewport.homepage-hero-viewport--image .homepage-hero-bg-image {
+    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
-    left: 50%;
-    width: 122%;
-    height: 46%;
-    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    transform: none;
     background-color: transparent;
   }
 
-  .homepage-content .homepage-hero-viewport--image .homepage-hero-bg-image img,
-  .homepage-content .homepage-hero-viewport--image .homepage-hero-bg-img {
-    object-fit: contain;
-    object-position: center 100%;
-    opacity: 0.28;
-    -webkit-mask-image: linear-gradient(
-      to right,
-      #000 0%,
-      #000 26%,
-      transparent 34%,
-      transparent 66%,
-      #000 74%,
-      #000 100%
-    );
-    mask-image: linear-gradient(
-      to right,
-      #000 0%,
-      #000 26%,
-      transparent 34%,
-      transparent 66%,
-      #000 74%,
-      #000 100%
-    );
+  #homepage-hero-viewport.homepage-hero-viewport--image .homepage-hero-bg-image img,
+  #homepage-hero-viewport.homepage-hero-viewport--image .homepage-hero-bg-img {
+    object-fit: cover;
+    object-position: left center;
+    opacity: 1;
+    transform: scale(1.08);
+    transform-origin: left center;
+    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 38%, transparent 68%);
+    mask-image: linear-gradient(to right, #000 0%, #000 38%, transparent 68%);
   }
 
-  /* Bottom fade only — center stays clear for content */
-  .homepage-content .homepage-hero-viewport--image .homepage-hero-bg-overlay {
-    background: linear-gradient(180deg,
-      transparent 0%,
-      transparent 62%,
-      rgba(0, 0, 0, 0.1) 88%,
-      rgba(0, 0, 0, 0.22) 100%);
+  #homepage-hero-viewport.homepage-hero-viewport--image .homepage-hero-bg-overlay {
+    background:
+      linear-gradient(180deg,
+        rgba(255, 255, 255, 0.55) 0%,
+        rgba(255, 255, 255, 0.28) 28%,
+        rgba(255, 255, 255, 0.12) 58%,
+        rgba(255, 255, 255, 0.18) 100%);
   }
 
-  :not(.dark) .homepage-content .homepage-hero-viewport--image .homepage-hero-bg-overlay {
-    background: linear-gradient(180deg,
-      transparent 0%,
-      transparent 62%,
-      rgba(255, 255, 255, 0.1) 88%,
-      rgba(255, 255, 255, 0.22) 100%);
+  .dark #homepage-hero-viewport.homepage-hero-viewport--image .homepage-hero-bg-overlay {
+    background:
+      linear-gradient(180deg,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.28) 28%,
+        rgba(0, 0, 0, 0.12) 58%,
+        rgba(0, 0, 0, 0.22) 100%);
   }
 }
 
@@ -3346,12 +3361,24 @@ section.trusted-by-marquee+section.section-padding+section.section-padding {
 
 @keyframes logo-marquee-scroll {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(calc(-1 * var(--marquee-offset, 50%)));
+    transform: translate3d(-50%, 0, 0);
   }
+}
+
+.logo-marquee {
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+}
+
+.logo-marquee--compact {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 0.5%, black 99.5%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 0.5%, black 99.5%, transparent);
 }
 
 .logo-marquee__track {
@@ -3361,7 +3388,11 @@ section.trusted-by-marquee+section.section-padding+section.section-padding {
 .logo-marquee-track,
 .animate-logo-marquee {
   animation: logo-marquee-scroll var(--marquee-duration, 40s) linear infinite;
+  -webkit-animation: logo-marquee-scroll var(--marquee-duration, 40s) linear infinite;
   will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes trusted-by-scroll {

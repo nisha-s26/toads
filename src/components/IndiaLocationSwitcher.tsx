@@ -41,6 +41,7 @@ export function IndiaLocationSwitcher({
                 <Link
                   key={location.label}
                   href={location.href}
+                  title={location.label}
                   aria-current={isActive ? "page" : undefined}
                   className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                     isActive

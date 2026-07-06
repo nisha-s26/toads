@@ -30,8 +30,7 @@ export function ClientShell({ children }: { children: ReactNode }) {
     <div className={isHomePage ? "homepage-route min-w-0 w-full max-w-full" : undefined}>
       <Navbar activeSection={activeSection} />
       <main
-        key={pathname}
-        className={`page-route-enter relative isolate w-full max-w-full overflow-x-clip font-sans page-ambient-shell homepage-mesh-shell${
+        className={`relative isolate w-full max-w-full overflow-x-clip font-sans page-ambient-shell homepage-mesh-shell${
           isContentPage ? " services-mesh-shell" : ""
         }${isBlogsPage ? " blogs-mesh-shell" : ""}${
           isCareersPage ? " careers-mesh-shell" : ""

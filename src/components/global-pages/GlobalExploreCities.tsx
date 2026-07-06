@@ -60,6 +60,7 @@ export function GlobalExploreCities({ countryKey, countryLabel, cities, activeCi
               <ScrollReveal key={city.key} delay={index * 0.06} y={16} className="global-country-city-card-wrap">
                 <Link
                   href={city.slug}
+                  title={`Explore Toadster services in ${city.country}`}
                   aria-current={isActive ? "page" : undefined}
                   className={`global-country-city-card group ${isActive ? "global-country-city-card--active" : ""}`}
                 >
@@ -67,6 +68,7 @@ export function GlobalExploreCities({ countryKey, countryLabel, cities, activeCi
                     <Image
                       src={image}
                       alt={`${city.country} landmark`}
+                      title={`${city.country} landmark`}
                       fill
                       referrerPolicy="no-referrer"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"

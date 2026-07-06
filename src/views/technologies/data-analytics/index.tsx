@@ -25,8 +25,9 @@ export default function DataAnalyticsPage() {
   return (
     <div className="data-analytics-landing">
       <TechnologyHeroSection
-        lightImageSrc="/data-analytics-hero-light.png"
-        darkImageSrc="/data-analytics-hero-dark.png"
+        lightImageSrc="/data-analytics-hero-light.webp"
+        darkImageSrc="/data-analytics-hero-dark.webp"
+        imageAlt="Toadster enterprise data analytics services"
         heroVariant="devops"
       >
         <span className="da-badge">

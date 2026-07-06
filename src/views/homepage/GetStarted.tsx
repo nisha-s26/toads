@@ -17,7 +17,8 @@ export default function GetStarted() {
         >
           <Image
             src={GET_STARTED_QUESTION_IMAGE}
-            alt=""
+            alt="Illustration of a person considering their next project"
+            title="Illustration of a person considering their next project"
             fill
             loading="lazy"
             quality={80}

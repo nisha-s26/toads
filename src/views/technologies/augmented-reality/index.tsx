@@ -25,8 +25,9 @@ export default function AugmentedRealityPage() {
   return (
     <div className="data-analytics-landing">
       <TechnologyHeroSection
-        lightImageSrc="/technologies/augmented-reality-hero-light.png"
-        darkImageSrc="/technologies/augmented-reality-hero-dark.png"
+        lightImageSrc="/technologies/augmented-reality-hero-light.webp"
+        darkImageSrc="/technologies/augmented-reality-hero-dark.webp"
+        imageAlt="Toadster augmented reality development services"
         heroVariant="devops"
       >
         <span className="da-badge">

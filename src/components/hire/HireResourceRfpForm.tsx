@@ -214,6 +214,7 @@ export function HireResourceRfpForm({
               <Image
                 src="https://www.gstatic.com/recaptcha/api2/logo_48.png"
                 alt="reCAPTCHA logo"
+                title="Protected by reCAPTCHA"
                 width={16}
                 height={16}
                 className="h-4 w-4 opacity-80"

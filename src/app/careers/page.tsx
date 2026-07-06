@@ -3,7 +3,7 @@ import { createStaticMetadata } from "@/lib/next-metadata"
 import { fetchJobs } from "@/lib/jobs"
 
 export const metadata = createStaticMetadata("/careers")
-export const dynamic = "force-dynamic"
+export const revalidate = 60
 
 type CareersSearchParams = Promise<Record<string, string | string[] | undefined>>
 

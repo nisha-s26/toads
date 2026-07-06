@@ -114,6 +114,7 @@ export default function HireResources() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/hire-resources"
+                title="View all hire resources"
                 className="inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-toadster-green shadow-md transition-all hover:-translate-y-0.5 hover:bg-white/90 dark:bg-primary dark:text-white dark:shadow-md dark:ring-1 dark:ring-white/15 dark:hover:bg-primary-hover"
               >
                 View All Resources
@@ -121,6 +122,7 @@ export default function HireResources() {
               </Link>
               <Link
                 href="/contact"
+                title="Talk to our team"
                 className="inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full border border-white/90 px-7 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
               >
                 Talk to Us

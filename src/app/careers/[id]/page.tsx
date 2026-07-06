@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { JobDetail } from "@/views/careers/JobDetail"
 import { fetchJobById } from "@/lib/jobs"
 
-export const dynamic = "force-dynamic"
+export const revalidate = 60
 
 type JobDetailParams = Promise<{ id: string }>
 

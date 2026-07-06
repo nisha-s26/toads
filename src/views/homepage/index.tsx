@@ -1,69 +1,56 @@
-"use client"
-
 import { HeroScrollIndicator } from "./HeroScrollIndicator"
 import TrustedBy from "./TrustedBy"
-import { useTheme } from "@/hooks/theme"
 import Image from "next/image"
 import type { BlogPost } from "@/views/blogs/blogData"
 import HeroSection from "./HeroSection"
 import AiCap from "./AiCap"
-import WhyUs from "./WhyUs"
-import HireResources from "./HireResources"
-import HomepageFaq from "./HomepageFaq"
-import HomepageBlogs from "./HomepageBlogs"
-import GetStarted from "./GetStarted"
+import { HomepageDeferredSections } from "./HomepageDeferredSections"
 
 type HomePageProps = {
   initialBlogs?: BlogPost[]
 }
 
 const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
-  const { theme } = useTheme()
-  const heroOnDarkBackground = theme === "dark"
-
   return (
     <div className="homepage-content relative font-sans">
       <section
         id="homepage-hero-viewport"
-        className="homepage-snap-section homepage-hero-viewport homepage-hero-viewport--image relative flex flex-col overflow-hidden"
+        className="homepage-snap-section homepage-hero-viewport homepage-hero-viewport--image relative flex flex-col overflow-hidden max-sm:min-h-0"
       >
         <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
           <div className="homepage-hero-bg-image absolute inset-0">
             <Image
-              src="/lightmodepart3.png"
-              alt=""
+              src="/lightmodepart3.webp"
+              alt="Toadster AI and data engineering technology backdrop"
+              title="Toadster AI and data engineering technology backdrop"
               fill
               priority
               fetchPriority="high"
-              quality={95}
+              quality={75}
               sizes="100vw"
-              className="homepage-hero-bg-img object-cover object-center dark:hidden"
+              className="homepage-hero-bg-img object-cover object-left dark:hidden sm:object-center"
             />
             <Image
-              src="/bgblack2.png"
-              alt=""
+              src="/bgblack2.webp"
+              alt="Toadster AI and data engineering technology backdrop"
+              title="Toadster AI and data engineering technology backdrop"
               fill
-              priority
-              fetchPriority="high"
-              quality={95}
+              loading="lazy"
+              quality={75}
               sizes="100vw"
-              className="homepage-hero-bg-img hidden object-cover object-center dark:block"
+              className="homepage-hero-bg-img hidden object-cover object-left dark:block sm:object-center"
             />
           </div>
           <div className="homepage-hero-bg-overlay absolute inset-0" />
         </div>
         <HeroSection />
-        <TrustedBy compact onDarkBackground={heroOnDarkBackground} />
-        <HeroScrollIndicator targetId="#homepage-sections" onDarkBackground={heroOnDarkBackground} />
+        <TrustedBy compact />
+        <HeroScrollIndicator targetId="#homepage-sections" />
       </section>
 
       <div id="homepage-sections" className="homepage-sections">
         <AiCap />
-        <WhyUs />
-        <HireResources />
-        <HomepageFaq />
-        <HomepageBlogs initialBlogs={initialBlogs} />
-        <GetStarted />
+        <HomepageDeferredSections initialBlogs={initialBlogs} />
       </div>
     </div>
   )

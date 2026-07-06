@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 export const CLUTCH_PROFILE_URL =
   "https://clutch.co/profile/toadster-technologies-private"
 
-const CLUTCH_LOGO = "/clutch-logo.png"
+const CLUTCH_LOGO = "/clutch-logo.webp"
 
 type ClutchBadgeProps = {
   className?: string
@@ -37,7 +37,8 @@ export function ClutchBadge({ className, compact = false, onDarkBackground = fal
       >
         <Image
           src={CLUTCH_LOGO}
-          alt="Clutch"
+          alt="Toadster verified reviews on Clutch"
+          title="Toadster verified reviews on Clutch"
           fill
           unoptimized
           className="object-contain"

@@ -48,7 +48,7 @@ export function ServiceStatRow({
               <ArrowRight size={16} />
             </span>
           ) : (
-            <Link href={ctaHref} className={`${ctaClassName} transition-colors hover:bg-primary/90`}>
+            <Link href={ctaHref} title={ctaLabel} className={`${ctaClassName} transition-colors hover:bg-primary/90`}>
               {ctaLabel}
               <ArrowRight size={16} />
             </Link>

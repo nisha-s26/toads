@@ -140,7 +140,7 @@ function ContactFeatureCard({
 
     if (href) {
         return (
-            <a href={href} className={cardClassName}>
+            <a href={href} title={title} className={cardClassName}>
                 {content}
             </a>
         );
@@ -202,7 +202,7 @@ export default function Contact() {
                 <div className="pointer-events-none absolute inset-0" aria-hidden="true">
                     <div
                         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-[filter] duration-500 brightness-[1.08] saturate-[0.92] contrast-[0.98] dark:brightness-[0.38] dark:saturate-[0.8] dark:contrast-[1.12]"
-                        style={{ backgroundImage: "url('/contact-bg.png')" }}
+                        style={{ backgroundImage: "url('/contact-bg.webp')" }}
                     />
                     <div className="absolute inset-0 bg-white/30 dark:bg-slate-950/55" />
                     <div className="absolute inset-0 contact-hero-fade" />
@@ -244,6 +244,7 @@ export default function Contact() {
                                         </p>
                                         <a
                                             href="mailto:business@toadsters.com"
+                                            title="Email the Toadster business team"
                                             className="mt-2 block text-base font-medium text-slate-900 transition-colors hover:text-slate-700 dark:text-page-fg dark:hover:text-white"
                                         >
                                             business@toadsters.com
@@ -255,6 +256,7 @@ export default function Contact() {
                                         </p>
                                         <a
                                             href="tel:+919220517988"
+                                            title="Call Toadster"
                                             className="mt-2 block text-base font-medium text-slate-900 transition-colors hover:text-slate-700 dark:text-page-fg dark:hover:text-white"
                                         >
                                             +91 92205 17988

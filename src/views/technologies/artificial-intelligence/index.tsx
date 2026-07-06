@@ -25,8 +25,9 @@ export default function ArtificialIntelligencePage() {
   return (
     <div className="data-analytics-landing">
       <TechnologyHeroSection
-        lightImageSrc="/artificial-intelligence-hero-light.png"
-        darkImageSrc="/artificial-intelligence-hero-dark.png"
+        lightImageSrc="/artificial-intelligence-hero-light.webp"
+        darkImageSrc="/artificial-intelligence-hero-dark.webp"
+        imageAlt="Toadster artificial intelligence development services"
         heroVariant="devops"
       >
         <span className="da-badge">

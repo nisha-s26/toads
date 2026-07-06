@@ -6,13 +6,15 @@ type TechnologyHeroSectionProps = {
   children: ReactNode
   lightImageSrc?: string
   darkImageSrc?: string
+  imageAlt?: string
   heroVariant?: "default" | "devops"
 }
 
 export function TechnologyHeroSection({
   children,
-  lightImageSrc = "/lightmodepart3.png",
-  darkImageSrc = "/bgblack2.png",
+  lightImageSrc = "/lightmodepart3.webp",
+  darkImageSrc = "/bgblack2.webp",
+  imageAlt = "Toadster technology solutions backdrop",
   heroVariant = "default",
 }: TechnologyHeroSectionProps) {
   const isDevOpsHero = heroVariant === "devops"
@@ -28,7 +30,8 @@ export function TechnologyHeroSection({
         <div className="homepage-hero-bg-image absolute inset-0">
           <Image
             src={lightImageSrc}
-            alt=""
+            alt={imageAlt}
+            title={imageAlt}
             fill
             priority
             fetchPriority="high"
@@ -38,7 +41,8 @@ export function TechnologyHeroSection({
           />
           <Image
             src={darkImageSrc}
-            alt=""
+            alt={imageAlt}
+            title={imageAlt}
             fill
             priority
             fetchPriority="high"

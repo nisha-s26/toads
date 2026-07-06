@@ -149,6 +149,7 @@ function FaqCard({
             {entry.cta ? (
               <Link
                 href={entry.cta.href}
+                title={entry.cta.label}
                 className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-toadster-green transition-colors hover:underline md:text-base"
               >
                 {entry.cta.label}

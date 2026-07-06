@@ -120,8 +120,9 @@ export default function AboutPage() {
         <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
           <div className="homepage-hero-bg-image absolute inset-0">
             <Image
-              src="/about us light mode.png"
-              alt=""
+              src="/about us light mode.webp"
+              alt="Toadster team and office backdrop"
+              title="Toadster team and office backdrop"
               fill
               priority
               fetchPriority="high"
@@ -130,8 +131,9 @@ export default function AboutPage() {
               className="object-cover object-center dark:hidden"
             />
             <Image
-              src="/about us dark  mode.png"
-              alt=""
+              src="/about us dark  mode.webp"
+              alt="Toadster team and office backdrop"
+              title="Toadster team and office backdrop"
               fill
               priority
               fetchPriority="high"
@@ -343,16 +345,18 @@ export default function AboutPage() {
                 <div className="relative overflow-hidden rounded-2xl border border-page-border transition-all duration-300 group-hover:border-toadster-green/20 sm:rounded-3xl founder-profile-card">
                   <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
                     <Image
-                      src="/naveen sir bg img light mode.png"
-                      alt=""
+                      src="/naveen sir bg img light mode.webp"
+                      alt="Toadster leadership profile backdrop"
+                      title="Toadster leadership profile backdrop"
                       fill
                       quality={95}
                       sizes="(max-width: 1024px) 100vw, 1024px"
                       className="object-cover object-center dark:hidden"
                     />
                     <Image
-                      src="/naveen sir bg dark mode.png"
-                      alt=""
+                      src="/naveen sir bg dark mode.webp"
+                      alt="Toadster leadership profile backdrop"
+                      title="Toadster leadership profile backdrop"
                       fill
                       quality={95}
                       sizes="(max-width: 1024px) 100vw, 1024px"

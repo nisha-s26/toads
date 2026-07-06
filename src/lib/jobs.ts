@@ -1,3 +1,5 @@
+import { cache } from "react"
+
 export interface JobPosition {
   _id: string
   title: string
@@ -34,9 +36,13 @@ export interface JobsQuery {
 }
 
 const JOBS_API_TIMEOUT_MS = 8_000
+const JOBS_REVALIDATE_SECONDS = 60
 
 function getJobsApiBaseUrl(): string {
   return (
+    process.env.JOBS_API_BASE_URL ??
+    process.env.API_BASE_URL ??
+    process.env.NEXT_PUBLIC_JOBS_API_BASE_URL ??
     process.env.NEXT_PUBLIC_API_BASE_URL ??
     ""
   ).replace(/\/$/, "")
@@ -121,7 +127,7 @@ async function fetchJobsApi(path: string): Promise<Response> {
   try {
     return await fetch(`${baseUrl}${path}`, {
       headers: getRequestHeaders(),
-      cache: "no-store",
+      next: { revalidate: JOBS_REVALIDATE_SECONDS },
       signal: controller.signal,
     })
   } finally {
@@ -129,7 +135,7 @@ async function fetchJobsApi(path: string): Promise<Response> {
   }
 }
 
-export async function fetchJobs(query: JobsQuery = {}): Promise<JobsListResponse> {
+export const fetchJobs = cache(async (query: JobsQuery = {}): Promise<JobsListResponse> => {
   const params = new URLSearchParams({
     page: String(normalizePositiveInteger(query.page, 1)),
     limit: String(normalizePositiveInteger(query.limit, 10)),
@@ -162,9 +168,9 @@ export async function fetchJobs(query: JobsQuery = {}): Promise<JobsListResponse
     }
     return emptyJobsResponse(query)
   }
-}
+})
 
-export async function fetchJobById(id: string): Promise<JobPosition | null> {
+export const fetchJobById = cache(async (id: string): Promise<JobPosition | null> => {
   if (!id) return null
 
   try {
@@ -178,4 +184,4 @@ export async function fetchJobById(id: string): Promise<JobPosition | null> {
     }
     return null
   }
-}
+})

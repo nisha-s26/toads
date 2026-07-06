@@ -131,8 +131,9 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
         <div className="global-country-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
           <div className="global-country-hero-bg-image absolute inset-0">
             <Image
-              src="/global-country-hero-light.png"
-              alt=""
+              src="/global-country-hero-light.webp"
+              alt={`Toadster software development and AI services in ${data.country}`}
+              title={`Toadster software development and AI services in ${data.country}`}
               fill
               priority
               fetchPriority="high"
@@ -141,8 +142,9 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
               className="object-cover object-center dark:hidden"
             />
             <Image
-              src="/global-country-hero-dark.png"
-              alt=""
+              src="/global-country-hero-dark.webp"
+              alt={`Toadster software development and AI services in ${data.country}`}
+              title={`Toadster software development and AI services in ${data.country}`}
               fill
               priority
               fetchPriority="high"
@@ -159,7 +161,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
             <nav className="mb-4 flex flex-wrap items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-page-fg-muted dark:text-white/75">
               {parentCountry ? (
                 <>
-                  <Link href={parentCountry.slug} className="hover:text-toadster-green">
+                  <Link href={parentCountry.slug} title={parentCountry.country} className="hover:text-toadster-green">
                     {parentCountry.country}
                   </Link>
                   <ChevronRight className="h-3 w-3" aria-hidden />
@@ -172,7 +174,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
             </h1>
             <p className="mt-4 text-base leading-relaxed text-black dark:text-white/85 md:text-lg">{heroText}</p>
             <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
-              <Link href="/contact" className="global-country-btn-primary">
+              <Link href="/contact" title="Book a strategy call" className="global-country-btn-primary">
                 Book a Strategy Call
                 <ArrowRight className="h-4 w-4" />
               </Link>
@@ -266,10 +268,10 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                       </p>
                       {isFeatured ? (
                         <div className="mt-4 flex flex-wrap gap-4 text-sm font-semibold">
-                          <Link href="/contact" className="underline-offset-2 hover:underline">
+                          <Link href="/contact" title="Get a quote" className="underline-offset-2 hover:underline">
                             Get a Quote
                           </Link>
-                          <Link href="/contact" className="underline-offset-2 hover:underline">
+                          <Link href="/contact" title="Contact sales" className="underline-offset-2 hover:underline">
                             Contact Sales
                           </Link>
                         </div>
@@ -378,6 +380,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
               <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <Link
                   href="/contact"
+                  title="Book a strategy call"
                   className="inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-toadster-green transition-all hover:-translate-y-0.5 hover:bg-white/90"
                 >
                   Book a Strategy Call

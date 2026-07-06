@@ -276,7 +276,9 @@ interface BlogDetailProps {
 
 export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs = [] }: BlogDetailProps) {
   const router = useRouter()
-  const [isLoaded, setIsLoaded] = useState(Boolean(initialBlog))
+  const hasInitialData = Boolean(initialBlog)
+  const [isLoaded, setIsLoaded] = useState(hasInitialData)
+  const contentReady = hasInitialData || isLoaded
   const [blog, setBlog] = useState<BlogPost | null>(initialBlog)
   const [allBlogs, setAllBlogs] = useState<BlogPost[]>(initialAllBlogs)
   const [isLoading, setIsLoading] = useState(!initialBlog)
@@ -352,7 +354,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
       <section className="relative pt-28 pb-16 px-3 sm:px-4 lg:px-5 overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10">
           {/* Breadcrumb */}
-          <nav className={`flex items-center gap-2 text-sm text-page-fg-subtle mb-8 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
+          <nav className={`flex items-center gap-2 text-sm text-page-fg-subtle mb-8 transition-all duration-1000 transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
             <Link href="/" title="Home" className="hover:text-toadster-green transition-colors duration-200">Home</Link>
             <ChevronRight size={14} className="text-page-fg-muted" />
             <Link href="/blogs" title="Blogs" className="hover:text-toadster-green transition-colors duration-200">Blogs</Link>
@@ -363,7 +365,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
           {/* Back Button */}
           <button
             onClick={() => router.push("/blogs")}
-            className={`flex items-center gap-2 text-toadster-green font-medium mb-8 group hover:gap-3 transition-all duration-300 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '400ms' }}
+            className={`flex items-center gap-2 text-toadster-green font-medium mb-8 group hover:gap-3 transition-all duration-300 transition-all duration-1000 transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '400ms' }}
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform duration-300" />
             Back to Blogs
@@ -380,17 +382,17 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
           )}
 
           {/* Title */}
-          <h1 className={`text-4xl md:text-5xl font-bold mb-6 leading-tight text-page-fg transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '600ms' }}>
+          <h1 className={`text-4xl md:text-5xl font-bold mb-6 leading-tight text-page-fg transition-all duration-1000 transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '600ms' }}>
             {blog.title}
           </h1>
 
           {/* Description */}
-          <p className={`text-lg text-page-fg-subtle mb-8 leading-relaxed max-w-3xl transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '800ms' }}>
+          <p className={`text-lg text-page-fg-subtle mb-8 leading-relaxed max-w-3xl transition-all duration-1000 transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '800ms' }}>
             {blog.description}
           </p>
 
           {/* Meta Row */}
-          <div className={`flex flex-wrap items-center gap-6 text-sm text-page-fg-subtle border-y border-page-border-strong py-5 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1000ms' }}>
+          <div className={`flex flex-wrap items-center gap-6 text-sm text-page-fg-subtle border-y border-page-border-strong py-5 transition-all duration-1000 transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1000ms' }}>
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-toadster-green rounded-full flex items-center justify-center">
                 <User size={14} className="text-white" />
@@ -699,7 +701,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
 
               {/* Tags */}
               {blog.tags && blog.tags.length > 0 && (
-                <div className={`mt-12 pt-8 border-t border-page-border-strong transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1600ms' }}>
+                <div className={`mt-12 pt-8 border-t border-page-border-strong transition-all duration-1000 transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1600ms' }}>
                   <p className="text-sm font-semibold text-page-fg-subtle mb-3 transition-all duration-1000 transform opacity-0 translate-y-8" style={{ transitionDelay: '1800ms' }}>Tags</p>
                   <div className="flex flex-wrap gap-2">
                     {blog.tags.map((tag, index) => (
@@ -716,7 +718,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
               )}
 
               {/* Author Card */}
-              <div className={`mt-10 p-6 theme-card rounded-2xl border transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '2000ms' }}>
+              <div className={`mt-10 p-6 theme-card rounded-2xl border transition-all duration-1000 transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '2000ms' }}>
                 <div className="flex items-start gap-4">
                   <div className="w-14 h-14 bg-toadster-green rounded-full flex items-center justify-center flex-shrink-0">
                     <User size={22} className="text-white" />
@@ -735,7 +737,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
             {/* Sidebar */}
             <aside className="lg:col-span-1 space-y-8">
               {/* Article Info Card */}
-              <div className={`theme-card p-6 rounded-2xl border sticky top-28 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1200ms' }}>
+              <div className={`theme-card p-6 rounded-2xl border sticky top-28 transition-all duration-1000 transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1200ms' }}>
                 <h3 className="font-bold text-page-fg mb-4 text-lg" >Article Info</h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-sm text-page-fg-muted">
@@ -841,7 +843,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                   key={relatedBlog.slug}
                   href={`/blogs/${relatedBlog.slug}`}
                   title={relatedBlog.title}
-                  className={`theme-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group border hover:border-toadster-green/20 hover:-translate-y-1 block transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  className={`theme-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group border hover:border-toadster-green/20 hover:-translate-y-1 block transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                   style={{ transitionDelay: `${2800 + index * 100}ms` }}
                 >
                   <div className="h-44 relative overflow-hidden flex items-center justify-center bg-page-bg-deep">
@@ -907,7 +909,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
           {/* Section Header */}
           {slug && staticComments[slug] && staticComments[slug].length > 0 && (
             <>
-              <div className={`flex items-center gap-3 mb-10 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <div className={`flex items-center gap-3 mb-10 transition-all duration-1000 transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <div className="w-10 h-10 brand-gradient-br rounded-xl flex items-center justify-center">
                   <MessageCircle size={20} className="text-white" />
                 </div>
@@ -922,7 +924,7 @@ export default function BlogDetail({ slug, initialBlog = null, initialAllBlogs =
                 {staticComments[slug].map((comment, index) => (
                   <div
                     key={comment.id}
-                    className={`theme-card border rounded-2xl p-5 hover:border-page-border-strong transition-all duration-300 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                    className={`theme-card border rounded-2xl p-5 hover:border-page-border-strong transition-all duration-300 transform ${contentReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                     style={{ transitionDelay: `${index * 80}ms` }}
                   >
                     <div className="flex items-start gap-4">

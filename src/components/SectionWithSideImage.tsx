@@ -19,6 +19,7 @@ function SideImage({ image, imageAlt, mobile }: { image: string; imageAlt: strin
         <Image
           src={image}
           alt={imageAlt}
+          title={imageAlt}
           fill
           quality={90}
           sizes="100vw"
@@ -35,6 +36,7 @@ function SideImage({ image, imageAlt, mobile }: { image: string; imageAlt: strin
         <Image
           src={image}
           alt={imageAlt}
+          title={imageAlt}
           fill
           quality={90}
           sizes="(min-width: 768px) 360px, 0px"

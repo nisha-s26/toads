@@ -25,8 +25,9 @@ export default function IotPage() {
   return (
     <div className="data-analytics-landing">
       <TechnologyHeroSection
-        lightImageSrc="/iot-hero-light.png"
-        darkImageSrc="/iot-hero-dark.png"
+        lightImageSrc="/iot-hero-light.webp"
+        darkImageSrc="/iot-hero-dark.webp"
+        imageAlt="Toadster IoT development services"
         heroVariant="devops"
       >
         <span className="da-badge">

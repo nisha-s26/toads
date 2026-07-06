@@ -287,6 +287,7 @@ function CtaPanel() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/contact"
+            title={ctaSection.primaryCta}
             className="inline-flex min-w-[11rem] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-toadster-green transition-all hover:-translate-y-0.5 hover:bg-white/90"
           >
             {ctaSection.primaryCta}
@@ -316,8 +317,9 @@ export default function ServicesHubPage() {
         <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
           <div className="homepage-hero-bg-image absolute inset-0">
             <Image
-              src="/services light mode.png"
-              alt=""
+              src="/services light mode.webp"
+              alt="Toadster software development and engineering services"
+              title="Toadster software development and engineering services"
               fill
               priority
               fetchPriority="high"
@@ -326,8 +328,9 @@ export default function ServicesHubPage() {
               className="object-cover object-center dark:hidden"
             />
             <Image
-              src="/services dark mode.png"
-              alt=""
+              src="/services dark mode.webp"
+              alt="Toadster software development and engineering services"
+              title="Toadster software development and engineering services"
               fill
               priority
               fetchPriority="high"
@@ -374,6 +377,7 @@ export default function ServicesHubPage() {
                 </button>
                 <Link
                   href="/contact"
+                  title={heroContent.secondaryCta}
                   className="inline-flex h-11 items-center justify-center rounded-xl border border-white bg-white px-7 py-3.5 text-sm font-semibold text-slate-900 shadow-sm transition-all hover:-translate-y-0.5 hover:bg-white/90"
                 >
                   {heroContent.secondaryCta}

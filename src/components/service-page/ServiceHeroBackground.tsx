@@ -6,8 +6,9 @@ export function ServiceHeroBackground() {
     <div className="homepage-hero-bg pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
       <div className="homepage-hero-bg-image absolute inset-0">
         <Image
-          src="/services light mode.png"
-          alt=""
+          src="/services light mode.webp"
+          alt="Toadster services background visual"
+          title="Toadster services background visual"
           fill
           priority
           fetchPriority="high"
@@ -16,8 +17,9 @@ export function ServiceHeroBackground() {
           className="object-cover object-center dark:hidden"
         />
         <Image
-          src="/services dark mode.png"
-          alt=""
+          src="/services dark mode.webp"
+          alt="Toadster services background visual"
+          title="Toadster services background visual"
           fill
           priority
           fetchPriority="high"

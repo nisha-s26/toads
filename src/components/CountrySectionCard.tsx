@@ -29,6 +29,7 @@ export function CountrySectionCard({
         <Image
           src={image}
           alt={imageAlt}
+          title={imageAlt}
           fill
           referrerPolicy="no-referrer"
           className="object-cover transition-transform duration-700 group-hover:scale-105"

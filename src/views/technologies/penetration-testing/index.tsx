@@ -25,8 +25,9 @@ export default function PenetrationTestingPage() {
   return (
     <div className="data-analytics-landing">
       <TechnologyHeroSection
-        lightImageSrc="/technologies/penetration-testing-hero-light.png"
-        darkImageSrc="/technologies/penetration-testing-hero-dark.png"
+        lightImageSrc="/technologies/penetration-testing-hero-light.webp"
+        darkImageSrc="/technologies/penetration-testing-hero-dark.webp"
+        imageAlt="Toadster penetration testing and security services"
         heroVariant="devops"
       >
         <span className="da-badge">

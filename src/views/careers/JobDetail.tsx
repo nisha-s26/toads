@@ -15,6 +15,7 @@ export function JobDetail({ job }: { job: JobPosition }) {
       <main className="mx-auto w-[85%] max-w-9xl pb-16 pt-8 sm:pb-24">
         <Link
           href="/careers"
+          title="Back to all careers"
           className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-page-fg-muted transition-colors hover:text-toadster-green"
         >
           <ArrowLeft className="h-4 w-4" />
