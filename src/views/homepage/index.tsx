@@ -4,7 +4,11 @@ import Image from "next/image"
 import type { BlogPost } from "@/views/blogs/blogData"
 import HeroSection from "./HeroSection"
 import AiCap from "./AiCap"
-import { HomepageDeferredSections } from "./HomepageDeferredSections"
+import WhyUs from "./WhyUs"
+import HireResources from "./HireResources"
+import HomepageFaq from "./HomepageFaq"
+import HomepageBlogs from "./HomepageBlogs"
+import GetStarted from "./GetStarted"
 
 type HomePageProps = {
   initialBlogs?: BlogPost[]
@@ -50,7 +54,11 @@ const HomePage = ({ initialBlogs = [] }: HomePageProps) => {
 
       <div id="homepage-sections" className="homepage-sections">
         <AiCap />
-        <HomepageDeferredSections initialBlogs={initialBlogs} />
+        <WhyUs />
+        <HireResources />
+        <HomepageFaq />
+        <HomepageBlogs initialBlogs={initialBlogs} />
+        <GetStarted />
       </div>
     </div>
   )
