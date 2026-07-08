@@ -261,7 +261,7 @@ export default function AgenticAIPage() {
             <div className="service-process-timeline-card">
               <p className="service-process-timeline-label">Typical pilot timeline</p>
               <div className="service-process-timeline-value">
-                6–10 <span className="service-process-timeline-unit">weeks</span>
+                6-10 <span className="service-process-timeline-unit">weeks</span>
               </div>
               <p className="service-process-timeline-desc">
                 for a single, well-bounded agent with guardrails and human oversight

@@ -289,7 +289,7 @@ export const faqs = [
   {
     question: "How long does a DevOps implementation take?",
     answer:
-      "A focused CI/CD pipeline build typically takes 4–8 weeks. A full infrastructure-as-code and Kubernetes migration, including observability and security integration, generally takes 3–6 months depending on the number of services and existing infrastructure complexity.",
+      "A focused CI/CD pipeline build typically takes 4-8 weeks. A full infrastructure-as-code and Kubernetes migration, including observability and security integration, generally takes 3-6 months depending on the number of services and existing infrastructure complexity.",
   },
   {
     question: "What is infrastructure as code and why does it matter?",

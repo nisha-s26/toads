@@ -374,7 +374,7 @@ export const benefits: {
   {
     icon: Workflow,
     title: "Predictive maintenance & reduced downtime",
-    desc: "Sensor data from equipment reveals early signs of failure - vibration patterns, temperature drift, current draw anomalies - before the equipment breaks. Moving to predictive maintenance typically reduces unplanned downtime by 30–50%.",
+    desc: "Sensor data from equipment reveals early signs of failure - vibration patterns, temperature drift, current draw anomalies - before the equipment breaks. Moving to predictive maintenance typically reduces unplanned downtime by 30-50%.",
   },
   {
     icon: LayoutDashboard,
@@ -384,7 +384,7 @@ export const benefits: {
   {
     icon: TrendingDown,
     title: "Energy & resource cost reduction",
-    desc: "Automated monitoring and control of energy consumption, water usage, HVAC, and lighting typically reduces utility costs by 15–35% in commercial and industrial environments - with the data to prove it.",
+    desc: "Automated monitoring and control of energy consumption, water usage, HVAC, and lighting typically reduces utility costs by 15-35% in commercial and industrial environments - with the data to prove it.",
   },
   {
     icon: ShieldCheck,
@@ -408,7 +408,7 @@ export const engagementModels = [
     featured: false,
     title: "IoT Discovery & Proof of Concept",
     who: "Best for: validating feasibility before full build",
-    desc: "A time-boxed engagement (typically 4–8 weeks) to validate the technical feasibility of your IoT use case before committing to full development.",
+    desc: "A time-boxed engagement (typically 4-8 weeks) to validate the technical feasibility of your IoT use case before committing to full development.",
     benefits: [
       "Use case analysis and requirements definition",
       "Hardware selection and sourcing",
@@ -462,12 +462,12 @@ export const faqs = [
   {
     question: "How much does an IoT solution cost to build?",
     answer:
-      "A focused proof of concept with off-the-shelf hardware typically runs $15,000–$40,000 USD. A full production IoT system - custom firmware, cloud platform, data pipeline, and dashboard - is usually $80,000–$300,000+ depending on device count, protocol complexity, real-time requirements, and whether custom hardware is involved. We provide a detailed estimate after a discovery conversation.",
+      "A focused proof of concept with off-the-shelf hardware typically runs $15,000-$40,000 USD. A full production IoT system - custom firmware, cloud platform, data pipeline, and dashboard - is usually $80,000-$300,000+ depending on device count, protocol complexity, real-time requirements, and whether custom hardware is involved. We provide a detailed estimate after a discovery conversation.",
   },
   {
     question: "How long does an IoT project take?",
     answer:
-      "A proof of concept is typically 4–8 weeks. A full production system - including field testing and phased deployment - usually takes 4–9 months. Hardware introduces lead times that pure software projects don't have, and field testing in real conditions always surfaces things that lab testing misses.",
+      "A proof of concept is typically 4-8 weeks. A full production system - including field testing and phased deployment - usually takes 4-9 months. Hardware introduces lead times that pure software projects don't have, and field testing in real conditions always surfaces things that lab testing misses.",
   },
   {
     question: "Do you handle the hardware side, or only the software?",

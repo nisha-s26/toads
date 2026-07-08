@@ -310,7 +310,7 @@ export const faqs = [
   {
     question: "How long does it take to build a SaaS MVP?",
     answer:
-      "A focused SaaS MVP, covering core functionality and basic billing, typically takes 8–14 weeks. A full enterprise-ready platform, including multi-tenancy, SSO, advanced billing, and compliance controls, generally takes 5–9 months depending on feature scope.",
+      "A focused SaaS MVP, covering core functionality and basic billing, typically takes 8-14 weeks. A full enterprise-ready platform, including multi-tenancy, SSO, advanced billing, and compliance controls, generally takes 5-9 months depending on feature scope.",
   },
   {
     question: "Should I build single-tenant or multi-tenant architecture?",

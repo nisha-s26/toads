@@ -350,7 +350,7 @@ export const benefits: {
   {
     icon: Zap,
     title: "Significant Reduction in Multi-Step Process Time",
-    desc: "Workflows that require checking multiple systems, cross-referencing data, and making a decision based on combined context - work that previously took a person 20–30 minutes per case - can often be completed by an agent in seconds, with human review only for genuine exceptions.",
+    desc: "Workflows that require checking multiple systems, cross-referencing data, and making a decision based on combined context - work that previously took a person 20-30 minutes per case - can often be completed by an agent in seconds, with human review only for genuine exceptions.",
   },
   {
     icon: Scale,
@@ -378,7 +378,7 @@ export const engagementModels = [
   {
     featured: false,
     title: "Agentic AI Feasibility Assessment",
-    timeline: "2–4 weeks",
+    timeline: "2-4 weeks",
     desc: "A focused engagement where we evaluate whether your candidate use case is genuinely suited to an agentic approach, assess what tool access and data the agent would need, define realistic autonomy boundaries, and give you a clear recommendation and cost estimate before you commit to building.",
     benefits: [
       "Use case suitability assessment",
@@ -391,7 +391,7 @@ export const engagementModels = [
   {
     featured: true,
     title: "Pilot Agent Development",
-    timeline: "6–10 weeks",
+    timeline: "6-10 weeks",
     desc: "A focused build of a single, well-bounded agent deployed to a limited pilot with active human oversight. The right starting point for most organisations - proves the concept works reliably before expanding scope or building multi-agent systems.",
     benefits: [
       "Agent design and guardrail implementation",
@@ -404,7 +404,7 @@ export const engagementModels = [
   {
     featured: false,
     title: "Full Agentic System Development",
-    timeline: "12–20+ weeks",
+    timeline: "12-20+ weeks",
     desc: "End-to-end development of a multi-agent system or a fleet of task-specific agents, including full orchestration, comprehensive guardrails, evaluation infrastructure, and production MLOps. For organisations that have validated the approach and are ready to deploy at scale.",
     benefits: [
       "Multi-agent architecture and orchestration",
@@ -430,9 +430,9 @@ export const engagementModels = [
 ]
 
 export const costTimelines = [
-  { scope: "Agentic AI Feasibility Assessment", timeline: "2–4 weeks", investment: "$8,000 – $20,000" },
-  { scope: "Pilot Agent (single, well-bounded use case)", timeline: "6–10 weeks", investment: "$30,000 – $80,000" },
-  { scope: "Full Multi-Agent System", timeline: "12–20+ weeks", investment: "$100,000 – $350,000+" },
+  { scope: "Agentic AI Feasibility Assessment", timeline: "2-4 weeks", investment: "$8,000 - $20,000" },
+  { scope: "Pilot Agent (single, well-bounded use case)", timeline: "6-10 weeks", investment: "$30,000 - $80,000" },
+  { scope: "Full Multi-Agent System", timeline: "12-20+ weeks", investment: "$100,000 - $350,000+" },
   { scope: "Embedded Team Augmentation", timeline: "Ongoing", investment: "Custom monthly rate" },
 ]
 
@@ -450,7 +450,7 @@ export const faqs = [
   {
     question: "How much does an agentic AI project cost?",
     answer:
-      "A feasibility assessment typically costs $8,000–$20,000 USD. A pilot agent - a single, well-bounded use case with guardrails and a limited deployment - usually runs $30,000–$80,000. A full multi-agent system with comprehensive orchestration, evaluation infrastructure, and production deployment ranges from $100,000 to $350,000+ depending on the number of agents, integration complexity, and autonomy level. We give a detailed estimate after understanding your specific use case and requirements.",
+      "A feasibility assessment typically costs $8,000-$20,000 USD. A pilot agent - a single, well-bounded use case with guardrails and a limited deployment - usually runs $30,000-$80,000. A full multi-agent system with comprehensive orchestration, evaluation infrastructure, and production deployment ranges from $100,000 to $350,000+ depending on the number of agents, integration complexity, and autonomy level. We give a detailed estimate after understanding your specific use case and requirements.",
   },
   {
     question: "How do you prevent an agent from taking the wrong action?",

@@ -276,7 +276,7 @@ export const benefits: {
   {
     icon: TrendingDown,
     title: "Lower Total Cost of Ownership",
-    desc: "Outsourced application support is typically 40–60% less expensive than maintaining an equivalent in-house team - without sacrificing coverage quality. You pay for the support capacity you need, scaled up or down as your application portfolio changes.",
+    desc: "Outsourced application support is typically 40-60% less expensive than maintaining an equivalent in-house team - without sacrificing coverage quality. You pay for the support capacity you need, scaled up or down as your application portfolio changes.",
   },
   {
     icon: Users,
@@ -300,7 +300,7 @@ export const engagementModels = [
     title: "Essential Support Plan",
     desc: "Business-hours support with monitoring, incident response, and monthly maintenance for applications with moderate uptime requirements. Best for internal tools, staging environments, and applications where same-day response is acceptable.",
     includes: [
-      "Business-hours monitoring and alerting (Mon–Fri)",
+      "Business-hours monitoring and alerting (Mon-Fri)",
       "Incident response within agreed SLA windows",
       "Monthly preventive maintenance and health checks",
       "Security patch management on a scheduled cadence",
@@ -392,7 +392,7 @@ export const faqs = [
   {
     question: "How is application support priced?",
     answer:
-      "Support is typically priced as a monthly retainer based on application complexity, number of applications, required SLA tier, and tech stack. Essential plans start from approximately $2,500–$5,000 USD per month for a single application. Professional plans for customer-facing applications typically run $5,000–$15,000 per month. Enterprise plans with dedicated teams and custom SLAs are scoped individually. Project-based stabilisation engagements are quoted as fixed-price projects.",
+      "Support is typically priced as a monthly retainer based on application complexity, number of applications, required SLA tier, and tech stack. Essential plans start from approximately $2,500-$5,000 USD per month for a single application. Professional plans for customer-facing applications typically run $5,000-$15,000 per month. Enterprise plans with dedicated teams and custom SLAs are scoped individually. Project-based stabilisation engagements are quoted as fixed-price projects.",
   },
   {
     question: "Do we need to give you full access to our codebase and infrastructure?",
@@ -402,7 +402,7 @@ export const faqs = [
   {
     question: "What happens during the onboarding period?",
     answer:
-      "Onboarding typically takes 1–2 weeks depending on application complexity. We review architecture and documentation, set up or improve monitoring, create initial runbooks, identify known issues, establish communication channels and escalation paths, and agree SLAs. During onboarding, we're learning your systems - response times may be slightly longer until knowledge transfer is complete. We aim for 48-hour functional onboarding for straightforward applications.",
+      "Onboarding typically takes 1-2 weeks depending on application complexity. We review architecture and documentation, set up or improve monitoring, create initial runbooks, identify known issues, establish communication channels and escalation paths, and agree SLAs. During onboarding, we're learning your systems - response times may be slightly longer until knowledge transfer is complete. We aim for 48-hour functional onboarding for straightforward applications.",
   },
   {
     question: "Can you support multiple applications under one plan?",

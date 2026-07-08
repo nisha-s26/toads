@@ -3397,6 +3397,20 @@ section.trusted-by-marquee+section.section-padding+section.section-padding {
   margin-left: -100%;
 }
 
+.logo-marquee-image {
+  backface-visibility: hidden;
+  transform-origin: center;
+  image-rendering: auto;
+}
+
+@media (hover: none) and (pointer: coarse), (max-width: 767px) {
+  .logo-marquee,
+  .logo-marquee--compact {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
 @keyframes trusted-by-scroll {
   from {
     transform: translateX(0);
@@ -5232,7 +5246,7 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
 }
 
 /* ─────────────────────────────────────────────
-   HIRE RESOURCES – RESPONSIVE (Mobile & Tablet)
+   HIRE RESOURCES - RESPONSIVE (Mobile & Tablet)
    ───────────────────────────────────────────── */
 
 /* Small mobile adjustments */
@@ -5247,7 +5261,7 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
     padding-top: 0;
   }
 
-  /* Consultation form – compact padding on tiny screens */
+  /* Consultation form - compact padding on tiny screens */
   .hire-page-shell .capability-card-surface {
     padding: 1rem;
   }
@@ -5315,7 +5329,7 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
     display: none;
   }
 
-  /* Skill matrix – 1 col on mobile */
+  /* Skill matrix - 1 col on mobile */
   .hire-page-shell [class*="md:grid-cols-3"] {
     grid-template-columns: 1fr;
   }
@@ -5375,13 +5389,13 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
     padding: 1rem 1.25rem;
   }
 
-  /* Stats row – wrap 2 per row on mobile */
+  /* Stats row - wrap 2 per row on mobile */
   .hire-page-shell .grid-cols-3.max-w-xl {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
   }
 
-  /* The monitor graphic – center and don't overflow */
+  /* The monitor graphic - center and don't overflow */
   .hire-page-shell img[alt="Monitor code visual"] {
     max-width: 100%;
     height: auto;
@@ -5403,7 +5417,7 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
   }
 }
 
-/* Tablet (640px – 1023px) adjustments */
+/* Tablet (640px - 1023px) adjustments */
 @media (min-width: 640px) and (max-width: 1023px) {
 
   .hire-page-shell .hire-challenges-grid {
@@ -5427,12 +5441,12 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
     font-size: clamp(2rem, 5vw, 3.25rem);
   }
 
-  /* Form panel – ensure proper sizing on tablet */
+  /* Form panel - ensure proper sizing on tablet */
   #hire-rfp-form {
     max-width: 100%;
   }
 
-  /* Process steps – show horizontal on tablet */
+  /* Process steps - show horizontal on tablet */
   .hire-page-shell .hidden[class*="md:block"] {
     display: block;
   }
@@ -6275,7 +6289,7 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
     padding: 0.75rem 0.875rem;
   }
 
-  /* Deliverables bottom row – 1 col on mobile */
+  /* Deliverables bottom row - 1 col on mobile */
   .hire-page-shell [class*="sm:grid-cols-2"].grid-cols-1.gap-6 {
     grid-template-columns: 1fr;
   }
@@ -6323,7 +6337,7 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
   }
 }
 
-/* Extra-small phones (320px–479px) */
+/* Extra-small phones (320px-479px) */
 @media (max-width: 479px) {
   .navbar-root {
     gap: 0.375rem;

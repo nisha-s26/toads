@@ -216,13 +216,13 @@ export const whyToadster: {
 export const processSteps = [
   {
     num: "01",
-    title: "Discovery & Audit (Week 1–2)",
+    title: "Discovery & Audit (Week 1-2)",
     desc: "We understand your product, team, current processes, and the problems you're actually trying to solve. We audit documentation, interview stakeholders, and assess the roadmap, backlog, and delivery cadence.",
     deliverables: ["Current state audit", "Stakeholder interviews", "Gap analysis"],
   },
   {
     num: "02",
-    title: "Alignment & Planning (Week 2–3)",
+    title: "Alignment & Planning (Week 2-3)",
     desc: "We present findings, agree on engagement scope and priorities, establish communication rhythms, and set up tooling and process infrastructure. Everything is explicit and agreed upfront.",
     deliverables: ["Engagement scope", "Communication plan", "Tooling setup"],
   },
@@ -348,7 +348,7 @@ export const benefits: {
   {
     icon: TrendingDown,
     title: "Fewer wasted development cycles",
-    desc: "The average software team spends 30–40% of engineering capacity on features that are never used or quickly deprecated. Rigorous discovery, prioritisation, and requirements discipline dramatically reduces that waste.",
+    desc: "The average software team spends 30-40% of engineering capacity on features that are never used or quickly deprecated. Rigorous discovery, prioritisation, and requirements discipline dramatically reduces that waste.",
   },
   {
     icon: Rocket,
@@ -394,7 +394,7 @@ export const engagementModels = [
     featured: false,
     title: "Fractional CPO / Product Leadership",
     who: "Best for: startups pre-Series B",
-    desc: "Senior product leadership on a part-time basis - typically 2–3 days per week. Strategic input, executive stakeholder management, and investor-level product narrative.",
+    desc: "Senior product leadership on a part-time basis - typically 2-3 days per week. Strategic input, executive stakeholder management, and investor-level product narrative.",
     benefits: [
       "C-suite calibre thinking without full-time cost",
       "Investor and board-level communication support",
@@ -409,7 +409,7 @@ export const engagementModels = [
     desc: "A focused, time-boxed engagement with a defined output - product strategy, roadmap, discovery sprint, backlog rebuild, or go-to-market plan. Clear brief, fixed deliverable, defined timeline.",
     benefits: [
       "Output-based, not time-based pricing",
-      "Delivered in 2–6 weeks depending on scope",
+      "Delivered in 2-6 weeks depending on scope",
       "Full documentation and handover",
       "Optional follow-on embedded support",
     ],
@@ -422,7 +422,7 @@ export const engagementModels = [
     benefits: [
       "Right seniority for the specific need",
       "Embedded in your tools and processes",
-      "Start within 48–72 hours",
+      "Start within 48-72 hours",
       "No long-term commitment required",
     ],
   },
@@ -432,12 +432,12 @@ export const faqs = [
   {
     question: "How much does product management consulting cost?",
     answer:
-      "Embedded PM engagements typically start from $8,000–$15,000 per month depending on seniority, hours, and scope. Fractional CPO engagements range from $5,000–$12,000 per month. Fixed-scope sprints are quoted per deliverable, typically $10,000–$40,000 depending on complexity. We provide a detailed scope and cost estimate after an initial discovery call.",
+      "Embedded PM engagements typically start from $8,000-$15,000 per month depending on seniority, hours, and scope. Fractional CPO engagements range from $5,000-$12,000 per month. Fixed-scope sprints are quoted per deliverable, typically $10,000-$40,000 depending on complexity. We provide a detailed scope and cost estimate after an initial discovery call.",
   },
   {
     question: "How quickly can a PM embed with our team?",
     answer:
-      "In most cases, we can have a PM embedded and productive within 48–72 hours of agreement. We interview key stakeholders, review existing documentation, and join your tools before the first working day.",
+      "In most cases, we can have a PM embedded and productive within 48-72 hours of agreement. We interview key stakeholders, review existing documentation, and join your tools before the first working day.",
   },
   {
     question: "Do we really need external PM support if we already have developers?",

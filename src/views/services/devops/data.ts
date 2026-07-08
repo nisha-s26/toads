@@ -73,7 +73,7 @@ export const capabilities: {
   {
     icon: TrendingDown,
     title: "Cloud Cost Optimisation",
-    desc: "Audit your existing cloud spend, identify waste, and implement rightsizing, reserved instance planning, spot instance strategies, and automated resource scheduling. Most clients recover 30–50% of cloud cost within the first quarter.",
+    desc: "Audit your existing cloud spend, identify waste, and implement rightsizing, reserved instance planning, spot instance strategies, and automated resource scheduling. Most clients recover 30-50% of cloud cost within the first quarter.",
     value: "Cuts cloud waste without sacrificing performance",
     tags: ["Rightsizing", "Reserved instances", "Spot instances", "Scheduling"],
   },
@@ -315,7 +315,7 @@ export const benefits: {
   {
     icon: TrendingDown,
     title: "Lower infrastructure costs",
-    desc: "Cloud environments without governance tend to accumulate waste. Rightsized instances, auto-scaling policies, reserved capacity planning, and scheduled shutdowns of non-production environments typically reduce cloud spend by 30–50%.",
+    desc: "Cloud environments without governance tend to accumulate waste. Rightsized instances, auto-scaling policies, reserved capacity planning, and scheduled shutdowns of non-production environments typically reduce cloud spend by 30-50%.",
   },
   {
     icon: Workflow,
@@ -339,7 +339,7 @@ export const engagementModels = [
     featured: false,
     title: "DevOps Assessment & Roadmap",
     who: "Best for: teams needing clarity before investing",
-    desc: "A structured 2–4 week engagement where we audit your current state, identify the highest-priority gaps, and produce a concrete, costed implementation roadmap.",
+    desc: "A structured 2-4 week engagement where we audit your current state, identify the highest-priority gaps, and produce a concrete, costed implementation roadmap.",
     benefits: [
       "CI/CD, infrastructure, and security audit",
       "Cloud cost analysis",
@@ -398,7 +398,7 @@ export const faqs = [
   {
     question: "How much do DevOps services cost?",
     answer:
-      "A DevOps assessment typically runs $5,000–$15,000 USD. A project-based implementation - building a CI/CD pipeline, migrating to Kubernetes, or standing up an observability stack - usually costs $20,000–$80,000 depending on complexity. Embedded engineers are typically $4,000–$8,000 per month per person. Managed retainers vary based on environment size and SLA requirements. We provide a detailed quote after understanding your specific situation.",
+      "A DevOps assessment typically runs $5,000-$15,000 USD. A project-based implementation - building a CI/CD pipeline, migrating to Kubernetes, or standing up an observability stack - usually costs $20,000-$80,000 depending on complexity. Embedded engineers are typically $4,000-$8,000 per month per person. Managed retainers vary based on environment size and SLA requirements. We provide a detailed quote after understanding your specific situation.",
   },
   {
     question: "We already have some DevOps practices in place. Can you improve what we have rather than rebuild it?",
@@ -413,7 +413,7 @@ export const faqs = [
   {
     question: "How long does a typical DevOps engagement take?",
     answer:
-      "An assessment is 2–4 weeks. A focused implementation project (e.g. building a CI/CD pipeline or migrating to Kubernetes) typically takes 6–12 weeks. A cloud migration or full DevOps transformation is usually a 3–6 month engagement. Embedded and managed engagements are ongoing. We'll give you a realistic timeline after a scoping conversation.",
+      "An assessment is 2-4 weeks. A focused implementation project (e.g. building a CI/CD pipeline or migrating to Kubernetes) typically takes 6-12 weeks. A cloud migration or full DevOps transformation is usually a 3-6 month engagement. Embedded and managed engagements are ongoing. We'll give you a realistic timeline after a scoping conversation.",
   },
   {
     question: "Will our engineers be able to maintain what you build?",

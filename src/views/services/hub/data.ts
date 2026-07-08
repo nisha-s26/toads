@@ -103,7 +103,7 @@ export const deliveryProcess = {
 export const engagementModels = {
   headers: ["Model", "Best For", "Typical Duration", "Billing"],
   rows: [
-    ["Fixed-Scope Project", "Well-defined deliverables", "8–16 Weeks", "Milestone-Based"],
+    ["Fixed-Scope Project", "Well-defined deliverables", "8-16 Weeks", "Milestone-Based"],
     ["Dedicated Team", "Ongoing product development", "3+ Months", "Fixed Monthly"],
     ["Time & Materials", "Evolving or exploratory scope", "Flexible", "Hourly / Monthly"],
     ["Managed Service", "Continuous support & operations", "Ongoing", "SLA-Based Retainer"],

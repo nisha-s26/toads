@@ -348,7 +348,7 @@ export const benefits: {
   {
     icon: Workflow,
     title: "Operational efficiency gains",
-    desc: "Automating document processing, data extraction, and repetitive decision workflows typically reduces processing time by 60–80%, allowing teams to focus on higher-value work.",
+    desc: "Automating document processing, data extraction, and repetitive decision workflows typically reduces processing time by 60-80%, allowing teams to focus on higher-value work.",
   },
   {
     icon: LineChart,
@@ -398,7 +398,7 @@ export const engagementModels = [
     benefits: [
       "Engineers embedded in your team",
       "No long-term commitment required",
-      "Start within 48–72 hours",
+      "Start within 48-72 hours",
       "Ramp up or down as project demands change",
     ],
   },
@@ -432,12 +432,12 @@ export const faqs = [
   {
     question: "How much does AI development cost?",
     answer:
-      "A focused proof of concept typically starts from $15,000–$30,000. A full production AI system with data pipelines, model development, integration, and MLOps infrastructure typically ranges from $50,000–$250,000+. We scope every project in detail before providing a fixed estimate.",
+      "A focused proof of concept typically starts from $15,000-$30,000. A full production AI system with data pipelines, model development, integration, and MLOps infrastructure typically ranges from $50,000-$250,000+. We scope every project in detail before providing a fixed estimate.",
   },
   {
     question: "How long does an AI project take?",
     answer:
-      "A well-scoped AI proof of concept can be delivered in 4–8 weeks. A production-ready system typically takes 3–6 months from discovery to deployment, depending on data readiness and integration complexity. We'll give you a realistic timeline after discovery - not an optimistic one.",
+      "A well-scoped AI proof of concept can be delivered in 4-8 weeks. A production-ready system typically takes 3-6 months from discovery to deployment, depending on data readiness and integration complexity. We'll give you a realistic timeline after discovery - not an optimistic one.",
   },
   {
     question: "Is AI right for my business right now?",

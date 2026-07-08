@@ -157,7 +157,7 @@ export const platformComparison = {
 }
 
 export const analyticsMaturityIntro =
-  "Descriptive analytics explains what happened using historical dashboards and reports. Predictive analytics forecasts what is likely to happen using statistical and ML models. Prescriptive analytics recommends specific actions based on those predictions, often through automated rules or optimization models. Most enterprises start descriptive and mature toward prescriptive over 18–36 months."
+  "Descriptive analytics explains what happened using historical dashboards and reports. Predictive analytics forecasts what is likely to happen using statistical and ML models. Prescriptive analytics recommends specific actions based on those predictions, often through automated rules or optimization models. Most enterprises start descriptive and mature toward prescriptive over 18-36 months."
 
 export const analyticsMaturity = [
   { title: "Descriptive Analytics", desc: "Sales dashboards, monthly KPI reports, historical trend lines" },
@@ -256,7 +256,7 @@ export const faqs = [
   {
     question: "How long does a data analytics implementation take?",
     answer:
-      "A focused BI/dashboard implementation typically takes 6–10 weeks. A full data warehouse modernization or lakehouse build, including governance, generally takes 4–9 months depending on the number of source systems and compliance requirements.",
+      "A focused BI/dashboard implementation typically takes 6-10 weeks. A full data warehouse modernization or lakehouse build, including governance, generally takes 4-9 months depending on the number of source systems and compliance requirements.",
   },
   {
     question: "What tools does Toadster use for data analytics?",

@@ -106,7 +106,7 @@ export const SERVICE_CATALOG: ServiceMeta[] = [
     path: "/services/application-support-and-maintenance",
     title: "Application Support & Maintenance Services",
     shortTitle: "Application Support",
-    description: "Proactive monitoring, L1–L3 support, patching, performance optimisation, and SLA-based application maintenance.",
+    description: "Proactive monitoring, L1-L3 support, patching, performance optimisation, and SLA-based application maintenance.",
     icon: LifeBuoy,
     relatedSlugs: ["software-development", "devops", "saas-app-development"],
   },

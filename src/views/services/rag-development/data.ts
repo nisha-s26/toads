@@ -388,10 +388,10 @@ export const hireRoles: {
 ]
 
 export const costTimelines = [
-  { scope: "MVP / Proof of Concept", timeline: "3–6 weeks", investment: "Starting from $8,000" },
-  { scope: "Single-Source RAG System", timeline: "6–10 weeks", investment: "$12,000 – $30,000" },
-  { scope: "Multi-Source Enterprise RAG", timeline: "10–16 weeks", investment: "$30,000 – $80,000+" },
-  { scope: "Agentic RAG + Integrations", timeline: "12–20 weeks", investment: "$50,000 – $120,000+" },
+  { scope: "MVP / Proof of Concept", timeline: "3-6 weeks", investment: "Starting from $8,000" },
+  { scope: "Single-Source RAG System", timeline: "6-10 weeks", investment: "$12,000 - $30,000" },
+  { scope: "Multi-Source Enterprise RAG", timeline: "10-16 weeks", investment: "$30,000 - $80,000+" },
+  { scope: "Agentic RAG + Integrations", timeline: "12-20 weeks", investment: "$50,000 - $120,000+" },
   { scope: "Managed RAG Services", timeline: "Ongoing", investment: "Monthly retainer from $3,000/month" },
 ]
 
@@ -415,7 +415,7 @@ export const engagementModels = [
     desc: "Add RAG-specific expertise to your existing team without a full agency engagement. Ideal when you have engineering capacity but lack specialized RAG or LLM infrastructure experience.",
     benefits: [
       "RAG engineers embedded in your tools and workflows",
-      "Start within 48–72 hours",
+      "Start within 48-72 hours",
       "Scale seniority up or down as needed",
       "No long-term commitment required",
     ],
@@ -427,7 +427,7 @@ export const engagementModels = [
     desc: "A defined RAG development engagement with clear deliverables, timelines, and pricing. Best for well-scoped use cases where requirements are reasonably understood upfront.",
     benefits: [
       "Output-based pricing with clear milestones",
-      "Delivered in 6–16 weeks depending on scope",
+      "Delivered in 6-16 weeks depending on scope",
       "Full documentation and handover",
       "Optional ongoing managed support",
     ],

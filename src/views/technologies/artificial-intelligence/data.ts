@@ -289,7 +289,7 @@ export const faqs = [
   {
     question: "How long does an AI implementation take?",
     answer:
-      "A focused pilot - one predictive model or one RAG assistant - typically takes 6–12 weeks. A full agentic workflow automation system, including governance and integration with legacy systems, generally takes 4–9 months.",
+      "A focused pilot - one predictive model or one RAG assistant - typically takes 6-12 weeks. A full agentic workflow automation system, including governance and integration with legacy systems, generally takes 4-9 months.",
   },
   {
     question: "What is RAG (retrieval-augmented generation) and why does it matter?",

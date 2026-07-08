@@ -47,18 +47,18 @@ function truncate(text: string, max: number): string {
 
 function firstParagraph(text: string): string {
   const parts = text.split(/\n\n+/).map((p) => p.trim()).filter(Boolean)
-  if (parts.length <= 1) return truncate(text.replace(/\n+/g, " "), 260)
-  return truncate(`${parts[0]} ${parts[1]}`, 260)
+  if (parts.length <= 1) return text.replace(/\n+/g, " ")
+  return `${parts[0]} ${parts[1]}`
 }
 
 function cardTitleFromPoint(point: string): { title: string; body: string } {
   const bold = point.match(/^\*\*(.+?)\*\*\s*([\s\S]*)/)
-  if (bold) return { title: bold[1], body: truncate(bold[2], 130) }
+  if (bold) return { title: bold[1], body: bold[2].trim() }
   const dot = point.indexOf(". ")
   if (dot > 0 && dot < 100) {
-    return { title: point.slice(0, dot), body: truncate(point.slice(dot + 2), 130) }
+    return { title: point.slice(0, dot), body: point.slice(dot + 2).trim() }
   }
-  return { title: truncate(point, 48), body: truncate(point, 130) }
+  return { title: truncate(point, 48), body: point }
 }
 
 function extractChallengeBullets(text: string): { title: string; body: string }[] {
@@ -66,13 +66,13 @@ function extractChallengeBullets(text: string): { title: string; body: string }[
   if (boldItems.length >= 3) {
     return boldItems.slice(0, 3).map((m) => ({
       title: m[1].replace(/\.$/, ""),
-      body: truncate(m[2].trim(), 100),
+      body: m[2].trim(),
     }))
   }
   const sentences = text.split(/(?<=[.!?])\s+/).filter((s) => s.length > 20)
   return sentences.slice(0, 3).map((s, i) => ({
     title: `Challenge ${i + 1}`,
-    body: truncate(s, 100),
+    body: s,
   }))
 }
 
@@ -206,7 +206,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                 Why Businesses in {data.country} Choose Toadster
               </h2>
               {data.whyChooseIntro ? (
-                <p className="mx-auto mt-4 max-w-4xl text-base text-page-fg-muted md:text-lg">{truncate(data.whyChooseIntro, 160)}</p>
+                <p className="mx-auto mt-4 max-w-9xl text-base text-page-fg-muted md:text-lg">{data.whyChooseIntro}</p>
               ) : null}
             </ScrollReveal>
             <div className="global-country-card-grid">
@@ -263,9 +263,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                           <Icon size={20} strokeWidth={2} />
                         </span>
                       </div>
-                      <p className="mt-3 flex-1 text-sm leading-relaxed opacity-90 md:text-base">
-                        {truncate(service.description, isFeatured ? 180 : 110)}
-                      </p>
+                      <p className="mt-3 flex-1 text-sm leading-relaxed opacity-90 md:text-base">{service.description}</p>
                       {isFeatured ? (
                         <div className="mt-4 flex flex-wrap gap-4 text-sm font-semibold">
                           <Link href="/contact" title="Get a quote" className="underline-offset-2 hover:underline">
@@ -374,9 +372,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
               <h2 className="mx-auto max-w-7xl text-2xl font-bold leading-tight text-white md:text-3xl lg:text-5xl">
                 {data.ctaTitle}
               </h2>
-              <p className="mx-auto mt-5 max-w-7xl text-base leading-relaxed text-white/80 md:text-lg">
-                {truncate(data.ctaBody, 180)}
-              </p>
+              <p className="mx-auto mt-5 max-w-7xl text-base leading-relaxed text-white/80 md:text-lg">{data.ctaBody}</p>
               <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <Link
                   href="/contact"

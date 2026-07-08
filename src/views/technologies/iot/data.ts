@@ -16,7 +16,7 @@ import {
 
 export const heroStats = [
   { value: "70%", label: "Operational latency cut in fleet tracking deployments" },
-  { value: "2–3 wks", label: "Average lead time before equipment failure detection" },
+  { value: "2-3 wks", label: "Average lead time before equipment failure detection" },
   { value: "40%", label: "ER wait time reduction with connected patient monitoring" },
   { value: "99.5%", label: "Device connectivity uptime across multi-site fleets" },
 ]
@@ -216,7 +216,7 @@ export const industryUseCases = [
   },
   {
     title: "Manufacturing - Predictive Maintenance on Production Equipment",
-    desc: "Vibration and temperature sensors combined with predictive models reduced unplanned downtime by identifying equipment degradation an average of 2–3 weeks before failure.",
+    desc: "Vibration and temperature sensors combined with predictive models reduced unplanned downtime by identifying equipment degradation an average of 2-3 weeks before failure.",
   },
   {
     title: "Healthcare - Connected Patient Monitoring Devices",
@@ -296,7 +296,7 @@ export const faqs = [
   {
     question: "How long does an IoT implementation take?",
     answer:
-      "A focused pilot deployment on a single site typically takes 6–12 weeks. A full multi-site rollout with edge computing, device management, and predictive analytics generally takes 4–9 months depending on device scale and existing infrastructure.",
+      "A focused pilot deployment on a single site typically takes 6-12 weeks. A full multi-site rollout with edge computing, device management, and predictive analytics generally takes 4-9 months depending on device scale and existing infrastructure.",
   },
   {
     question: "What is predictive maintenance and how does IoT enable it?",

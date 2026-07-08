@@ -13,7 +13,7 @@ const LOGO_CELL_CLASS = {
   compact: "h-9 w-28 sm:h-14 sm:w-44 md:h-16 md:w-48",
 } as const
 
-const MARQUEE_REPEAT_COUNT = 8
+const MARQUEE_REPEAT_COUNT = 4
 
 type LogoMarqueeProps = {
   compact?: boolean
@@ -37,6 +37,9 @@ function LogoItem({
   scale?: number
 }) {
   const cellClass = compact ? LOGO_CELL_CLASS.compact : LOGO_CELL_CLASS.default
+  const imageScale = Math.max(scale, 1)
+  const imageWidth = Math.round(208 * imageScale)
+  const imageHeight = Math.round(80 * imageScale)
 
   return (
     <span className={cn("inline-flex shrink-0 items-center justify-center", cellClass)}>
@@ -45,16 +48,16 @@ function LogoItem({
           src={src}
           alt={`${label} logo`}
           title={`${label} logo`}
-          width={208}
-          height={80}
-          sizes="208px"
-          quality={75}
+          width={imageWidth}
+          height={imageHeight}
+          sizes={compact ? `${Math.round(128 * imageScale)}px` : `${imageWidth}px`}
+          quality={95}
           loading="lazy"
           draggable={false}
           aria-hidden={decorative}
           style={scale !== 1 ? { transform: `scale(${scale})` } : undefined}
           className={cn(
-            "block max-h-[88%] max-w-[92%] object-contain opacity-100 transition-opacity duration-200",
+            "logo-marquee-image block max-h-[88%] max-w-[92%] object-contain opacity-100 transition-opacity duration-200",
             onDarkBackground ? "brightness-0 invert" : "brightness-0 dark:invert",
           )}
         />
@@ -71,7 +74,7 @@ export function LogoMarquee({
   className,
 }: LogoMarqueeProps) {
   const marqueeLogos = Array.from({ length: MARQUEE_REPEAT_COUNT }, () => TRUSTED_BY_CLIENTS).flat()
-  const scrollAmount = compact ? 3 : 4
+  const scrollAmount = compact ? 1 : 2
 
   return (
     <div
@@ -88,7 +91,8 @@ export function LogoMarquee({
           behavior: "scroll",
           direction: "left",
           scrollamount: scrollAmount,
-          scrolldelay: 0,
+          scrolldelay: 16,
+          truespeed: "true",
           className: "logo-marquee-track block",
         },
         <span

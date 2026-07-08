@@ -391,7 +391,7 @@ export const benefits: {
 export const engagementModels = [
   {
     title: "Security Assessment & Roadmap",
-    desc: "A focused 1–3 week engagement to understand your current security posture, identify the highest-priority gaps, and produce a concrete, costed remediation roadmap. Best for teams who know they need to improve security but aren't sure where to start or what to prioritise.",
+    desc: "A focused 1-3 week engagement to understand your current security posture, identify the highest-priority gaps, and produce a concrete, costed remediation roadmap. Best for teams who know they need to improve security but aren't sure where to start or what to prioritise.",
     includes: [
       "Environment and asset discovery",
       "Threat modelling and risk assessment",
@@ -444,12 +444,12 @@ export const faqs = [
   {
     question: "How much do cybersecurity services cost?",
     answer:
-      "A focused security assessment typically runs $8,000–$25,000 USD depending on scope. A comprehensive penetration test for a web application or cloud environment is usually $15,000–$45,000. Ongoing managed security programmes and SOC-as-a-Service start from $5,000–$15,000 per month. Compliance readiness engagements (ISO 27001, SOC 2) vary significantly based on your current state. We provide a detailed quote after understanding your specific environment and requirements - no generic pricing pages.",
+      "A focused security assessment typically runs $8,000-$25,000 USD depending on scope. A comprehensive penetration test for a web application or cloud environment is usually $15,000-$45,000. Ongoing managed security programmes and SOC-as-a-Service start from $5,000-$15,000 per month. Compliance readiness engagements (ISO 27001, SOC 2) vary significantly based on your current state. We provide a detailed quote after understanding your specific environment and requirements - no generic pricing pages.",
   },
   {
     question: "How long does a typical security engagement take?",
     answer:
-      "A security assessment and roadmap runs 1–3 weeks. A targeted penetration test typically takes 1–2 weeks. A comprehensive security programme covering multiple environments may run 4–6 weeks initially, with ongoing periodic testing thereafter. Compliance readiness projects vary from 8 weeks to several months depending on your starting point. We'll give you a clear timeline during scoping.",
+      "A security assessment and roadmap runs 1-3 weeks. A targeted penetration test typically takes 1-2 weeks. A comprehensive security programme covering multiple environments may run 4-6 weeks initially, with ongoing periodic testing thereafter. Compliance readiness projects vary from 8 weeks to several months depending on your starting point. We'll give you a clear timeline during scoping.",
   },
   {
     question: "Will security testing disrupt our production systems?",

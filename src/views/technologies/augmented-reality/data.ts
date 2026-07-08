@@ -303,7 +303,7 @@ export const faqs = [
   {
     question: "How long does an AR implementation take?",
     answer:
-      "A focused mobile AR pilot for a single use case typically takes 6–10 weeks. A full head-mounted display deployment with custom 3D content and live data integration generally takes 4–8 months depending on content volume and device rollout scale.",
+      "A focused mobile AR pilot for a single use case typically takes 6-10 weeks. A full head-mounted display deployment with custom 3D content and live data integration generally takes 4-8 months depending on content volume and device rollout scale.",
   },
   {
     question: "Do I need a head-mounted display, or will mobile AR work?",

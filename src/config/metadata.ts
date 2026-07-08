@@ -58,15 +58,15 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
   "/hire-resources": {
     title: "Hire Dedicated Developers | IT Staff Augmentation Services - Toadster Technologies",
     description:
-      "Hire dedicated developers and technology resources from Toadster Technologies. Flexible staff augmentation across software, mobile, AI/ML, DevOps, and more - onboarded in 5–7 days. Serving India, UAE, Saudi Arabia & the US.",
+      "Hire dedicated developers and technology resources from Toadster Technologies. Flexible staff augmentation across software, mobile, AI/ML, DevOps, and more - onboarded in 5-7 days. Serving India, UAE, Saudi Arabia & the US.",
   },
   "/ai-development-company-australia": {
-    title: "AI Development Company in Australia | Custom AI & GenAI Solutions – Toadster",
-    description: "Toadster is an AI development company helping Australian businesses build custom AI agents, GenAI apps, and enterprise automation – secure, scalable, and built for ROI.",
+    title: "AI Development Company in Australia | Custom AI & GenAI Solutions - Toadster",
+    description: "Toadster is an AI development company helping Australian businesses build custom AI agents, GenAI apps, and enterprise automation - secure, scalable, and built for ROI.",
   },
   "/ai-development-company-abu-dhabi": {
-    title: "AI Development Company in Abu Dhabi | Custom AI & GenAI Solutions – Toadster",
-    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Abu Dhabi businesses – aligned with UAE PDPL and ADGM requirements.",
+    title: "AI Development Company in Abu Dhabi | Custom AI & GenAI Solutions - Toadster",
+    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Abu Dhabi businesses - aligned with UAE PDPL and ADGM requirements.",
   },
   "/ai-development-company-bangalore": {
     title: "AI Development Company in Bangalore | Toadster Technologies",
@@ -85,24 +85,24 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description: "Toadster Technologies is a leading AI development company in Delhi, building custom AI agents, LLMs, RAG systems, and enterprise automation for Delhi NCR startups, SMBs, and enterprises. Trusted AI partner for India's fastest-growing tech hub.",
   },
   "/ai-development-company-dubai": {
-    title: "AI Development Company in Dubai | Custom AI & GenAI Solutions – Toadster",
-    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Dubai businesses – UAE AI Strategy and ADGM/DIFC regulatory framework aligned, built for banking, real estate, logistics, and government sectors across the Emirates.",
+    title: "AI Development Company in Dubai | Custom AI & GenAI Solutions - Toadster",
+    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Dubai businesses - UAE AI Strategy and ADGM/DIFC regulatory framework aligned, built for banking, real estate, logistics, and government sectors across the Emirates.",
   },
   "/ai-development-company-frankfurt": {
     title: "AI Development Company in Frankfurt | Toadster Technologies",
     description: "Toadster Technologies builds custom AI agents, RAG systems & LLM solutions for Frankfurt businesses. Talk to an AI engineer, not a sales rep. Book a call.",
   },
   "/ai-development-company-melbourne": {
-    title: "AI Development Company in Melbourne | Custom AI & GenAI Solutions – Toadster",
-    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Melbourne businesses – Privacy Act and APS AI Ethics Framework aligned, built for APRA-regulated sectors.",
+    title: "AI Development Company in Melbourne | Custom AI & GenAI Solutions - Toadster",
+    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Melbourne businesses - Privacy Act and APS AI Ethics Framework aligned, built for APRA-regulated sectors.",
   },
   "/ai-development-company-montreal": {
-    title: "AI Development Company in Montreal | Custom AI & GenAI Solutions – Toadster",
-    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Montreal businesses – Bill 25 aligned and built for regulated sectors across Quebec.",
+    title: "AI Development Company in Montreal | Custom AI & GenAI Solutions - Toadster",
+    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Montreal businesses - Bill 25 aligned and built for regulated sectors across Quebec.",
   },
   "/ai-development-company-germany": {
-    title: "AI Development Company in Germany | Custom AI & GenAI Solutions – Toadster",
-    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for German businesses – GDPR and EU AI Act compliant by design.",
+    title: "AI Development Company in Germany | Custom AI & GenAI Solutions - Toadster",
+    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for German businesses - GDPR and EU AI Act compliant by design.",
   },
   "/ai-development-company-hyderabad": {
     title: "AI Development Company in Hyderabad | Toadster Technologies",
@@ -121,11 +121,11 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description: "Toadster Technologies builds custom AI agents, RAG systems & LLM solutions for London businesses. Talk to an AI engineer, not a sales rep. Book a call.",
   },
   "/ai-development-company-manchester": {
-    title: "AI Development Company in Manchester | Custom AI & GenAI Solutions – Toadster",
-    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Manchester businesses – UK GDPR aligned and built for FCA-regulated sectors.",
+    title: "AI Development Company in Manchester | Custom AI & GenAI Solutions - Toadster",
+    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Manchester businesses - UK GDPR aligned and built for FCA-regulated sectors.",
   },
   "/ai-development-company-mumbai": {
-    title: "AI Development Company in Mumbai | Custom AI & GenAI Solutions – Toadster",
+    title: "AI Development Company in Mumbai | Custom AI & GenAI Solutions - Toadster",
     description: "Toadster is an AI development company in Mumbai building custom AI agents, GenAI apps, and enterprise automation aligned with RBI, SEBI, and DPDP Act requirements.",
   },
   "/ai-development-company-munich": {
@@ -133,15 +133,15 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description: "Toadster Technologies builds custom AI agents, RAG systems & LLM solutions for Munich businesses. Talk to an AI engineer, not a sales rep. Book a call.",
   },
   "/ai-development-company-new-york": {
-    title: "AI Development Company in New York | Custom AI & GenAI Solutions – Toadster",
-    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for New York businesses – compliant with NYC Local Law 144 and NYDFS guidance.",
+    title: "AI Development Company in New York | Custom AI & GenAI Solutions - Toadster",
+    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for New York businesses - compliant with NYC Local Law 144 and NYDFS guidance.",
   },
   "/ai-development-company-riyadh": {
     title: "AI Development Company in Riyadh | Toadster Technologies",
     description: "Toadster Technologies builds custom AI agents, RAG systems & LLM solutions for Riyadh businesses. Talk to an AI engineer, not a sales rep. Book a call.",
   },
   "/ai-development-company-saudi-arabia": {
-    title: "AI Development Company in Saudi Arabia | Custom AI & GenAI Solutions – Toadster",
+    title: "AI Development Company in Saudi Arabia | Custom AI & GenAI Solutions - Toadster",
     description: "Toadster is an AI development company in Saudi Arabia building custom AI agents, GenAI apps, and enterprise automation aligned with Vision 2030, SDAIA, and PDPL requirements.",
   },
   "/ai-development-company-seattle": {
@@ -157,11 +157,11 @@ export const STATIC_PAGE_METADATA: Record<string, PageMetadata> = {
     description: "Toadster Technologies builds custom AI agents, RAG systems & LLM solutions for Sydney businesses. Talk to an AI engineer, not a sales rep. Book a call.",
   },
   "/ai-development-company-toronto": {
-    title: "AI Development Company in Toronto | Custom AI & GenAI Solutions – Toadster",
-    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Toronto businesses – PIPEDA aligned and built for OSFI-regulated sectors.",
+    title: "AI Development Company in Toronto | Custom AI & GenAI Solutions - Toadster",
+    description: "Toadster is an AI development company building custom AI agents, GenAI apps, and enterprise automation for Toronto businesses - PIPEDA aligned and built for OSFI-regulated sectors.",
   },
   "/ai-development-company-uae": {
-    title: "AI Development Company in UAE | Custom AI & GenAI Solutions – Toadster",
+    title: "AI Development Company in UAE | Custom AI & GenAI Solutions - Toadster",
     description: "Toadster is an AI development company in the UAE building custom AI agents, GenAI apps, and enterprise automation aligned with UAE PDPL, DIFC, and ADGM requirements.",
   },
   "/ai-development-company-uk": {

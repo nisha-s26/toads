@@ -43,14 +43,14 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Cross-platform iOS & Android with shared codebase",
     "ReactNative",
     "Hire React Native Developers | Dedicated Cross-Platform App Experts - Toadster Technologies",
-    "Hire expert React Native developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days - iOS, Android, Expo, and native modules. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire expert React Native developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5-7 days - iOS, Android, Expo, and native modules. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert React Native Developers",
     "Scale your mobile engineering team with pre-vetted, senior React Native developers who embed directly into your workflow. Build cross-platform apps that feel genuinely native - without maintaining two codebases.",
     [
       "React Native & Expo Specialists",
       "Vetted Senior Developers",
       "4.9/5 Client Satisfaction",
-      "5–7 Days Average Onboarding",
+      "5-7 Days Average Onboarding",
     ],
     "Hire React Native Experts",
     [
@@ -104,7 +104,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "React Native App Development Services",
       "Native Module Integration Developers",
     ],
-    { name: "Hire React Native Developers", description: "Hire expert React Native developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days - iOS, Android, Expo, and native modules.", serviceType: "Staff Augmentation" },
+    { name: "Hire React Native Developers", description: "Hire expert React Native developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5-7 days - iOS, Android, Expo, and native modules.", serviceType: "Staff Augmentation" },
   ),
   hirePage(
     "nodejs-developers",
@@ -155,7 +155,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "200+ MERN Projects Delivered",
       "60+ Vetted MERN Developers",
       "4.9/5 Client Satisfaction",
-      "5–7 Days Average Onboarding",
+      "5-7 Days Average Onboarding",
     ],
     "Hire MERN Experts",
     [
@@ -172,7 +172,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
         heading: "Why Hire Dedicated MERN Stack Developers?",
         body: "Businesses building web products face a common set of engineering challenges. Dedicated MERN developers solve them.",
         items: [
-          { title: "Slow Hiring Cycles", body: "Traditional full-stack hiring takes 3–6 months. Our vetted MERN developers are ready to onboard in 5–7 days." },
+          { title: "Slow Hiring Cycles", body: "Traditional full-stack hiring takes 3-6 months. Our vetted MERN developers are ready to onboard in 5-7 days." },
           { title: "Full-Stack Talent Shortages", body: "Finding engineers who are strong across React, Node, and MongoDB is rare. We've already vetted them for you." },
           { title: "Project Delivery Delays", body: "Missing engineers means missed deadlines. Fill resource gaps instantly with dedicated MERN specialists." },
           { title: "Rising Recruitment Costs", body: "Job boards, agencies, and HR overhead are expensive. Our model eliminates hidden hiring costs entirely." },
@@ -225,7 +225,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
         items: [
           { title: "Full-Time Dedicated (Most Popular)", body: "160 hrs/month. A MERN developer working exclusively on your product, fully aligned with your team's sprints, architecture, and delivery goals. Dedicated 8 hrs/day, Full sprint participation, Direct team integration, Monthly or quarterly billing." },
           { title: "Part-Time Dedicated (Great for Startups)", body: "80 hrs/month. A senior MERN developer contributing 4 hours daily - ideal for MVPs, ongoing feature development, or maintenance projects. 4 hrs/day commitment, Flexible task assignment, Weekly sync included, Scale to full-time anytime." },
-          { title: "Dedicated MERN Team (For Scale-Ups)", body: "Custom Team Size. A fully managed MERN team - frontend, backend, QA, DevOps, and PM - operating as your embedded product squad. 2–15 member teams, Team lead included, Full project ownership, Managed delivery model." },
+          { title: "Dedicated MERN Team (For Scale-Ups)", body: "Custom Team Size. A fully managed MERN team - frontend, backend, QA, DevOps, and PM - operating as your embedded product squad. 2-15 member teams, Team lead included, Full project ownership, Managed delivery model." },
         ],
       },
       {
@@ -250,8 +250,8 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
         heading: "How Much Does It Cost to Hire Dedicated MERN Stack Developers?",
         body: "Transparent pricing guidance to help you plan your engineering budget confidently.",
         items: [
-          { title: "Junior MERN Developer", body: "1–3 years experience. Best for: Feature development, bug fixes, UI components, API integration support." },
-          { title: "Mid-Level MERN Developer", body: "3–5 years experience. Best for: Full-cycle web app development, database design, independent module ownership." },
+          { title: "Junior MERN Developer", body: "1-3 years experience. Best for: Feature development, bug fixes, UI components, API integration support." },
+          { title: "Mid-Level MERN Developer", body: "3-5 years experience. Best for: Full-cycle web app development, database design, independent module ownership." },
           { title: "Senior MERN Developer", body: "5+ years, system design expertise. Best for: Architecture design, performance optimization, technical leadership, code reviews." },
         ],
       },
@@ -260,7 +260,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       { question: "How much does it cost to hire dedicated MERN stack developers?", answer: "Costs depend on seniority, stack depth, and engagement model. Toadster Technologies offers fixed monthly pricing with zero hidden fees. Contact us for a tailored quote based on your team and project requirements." },
       { question: "When should a company hire dedicated MERN stack developers?", answer: "Hire dedicated MERN developers when you need to accelerate web product delivery, fill specialized full-stack gaps, scale engineering teams rapidly, or reduce recruitment and operational overhead." },
       { question: "What is the difference between staff augmentation and outsourcing?", answer: "Staff augmentation embeds skilled developers into your team under your management. Outsourcing hands over the project entirely. Dedicated MERN resources give you embedded talent with full control and partner-level support." },
-      { question: "How quickly can a dedicated MERN developer join my project?", answer: "Toadster Technologies can onboard a vetted MERN stack developer within 5–7 business days, depending on role seniority and requirements alignment." },
+      { question: "How quickly can a dedicated MERN developer join my project?", answer: "Toadster Technologies can onboard a vetted MERN stack developer within 5-7 business days, depending on role seniority and requirements alignment." },
       { question: "Can dedicated MERN developers work with my internal team?", answer: "Absolutely. Our MERN developers integrate directly with your existing team, tools (Jira, GitHub, Slack), sprint cadence, and time zone requirements." },
       { question: "What engagement models are available for MERN developers?", answer: "We offer full-time dedicated (160 hrs/month), part-time dedicated (80 hrs/month), and managed MERN team models. Month-to-month flexibility available across all plans." },
       { question: "What is the MERN stack and why should I use it?", answer: "MERN stands for MongoDB, Express.js, React, and Node.js. It is a JavaScript-only stack that enables fast, scalable web development with one language across frontend and backend - reducing context switching and hiring complexity." },
@@ -280,14 +280,14 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Build beautiful, high-performance cross-platform apps",
     "Flutter",
     "Hire Flutter Developers | Dedicated Cross-Platform App Experts - Toadster Technologies",
-    "Hire expert Flutter developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days - iOS, Android, web, desktop, and native modules. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire expert Flutter developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5-7 days - iOS, Android, web, desktop, and native modules. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert Flutter Developers",
     "Launch on iOS, Android, web, and desktop from a single Dart codebase - with dedicated Flutter developers who build beautiful, high-performance apps that ship faster without compromising on native feel.",
     [
       "150+ Flutter Apps Delivered",
       "50+ Vetted Flutter Developers",
       "4.9/5 Client Satisfaction",
-      "5–7 Days Average Onboarding",
+      "5-7 Days Average Onboarding",
     ],
     "Hire Flutter Experts",
     [
@@ -304,7 +304,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
         heading: "Why Hire Dedicated Flutter Developers?",
         body: "Businesses building mobile products face a common set of challenges. Dedicated Flutter developers solve them.",
         items: [
-          { title: "Slow Hiring Cycles", body: "Traditional tech hiring takes 3–6 months. Our vetted Flutter developers are ready to onboard in 5–7 days." },
+          { title: "Slow Hiring Cycles", body: "Traditional tech hiring takes 3-6 months. Our vetted Flutter developers are ready to onboard in 5-7 days." },
           { title: "Talent Shortages", body: "Quality Flutter talent is scarce. Access our curated pool of senior developers without spending months searching." },
           { title: "Project Delivery Delays", body: "Missing engineers means missed deadlines. Plug resource gaps instantly with dedicated Flutter specialists." },
           { title: "Rising Recruitment Costs", body: "Job boards, agencies, and in-house HR are expensive. Our model eliminates hidden hiring costs." },
@@ -355,7 +355,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
         items: [
           { title: "Full-Time Dedicated (Most Popular)", body: "160 hrs/month. A Flutter developer working exclusively on your product, fully aligned with your team and sprint cycles. Dedicated 8 hrs/day, Full sprint participation, Direct team integration, Monthly or quarterly billing." },
           { title: "Part-Time Dedicated (Great for Startups)", body: "80 hrs/month. A senior Flutter developer contributing 4 hours daily - ideal for MVPs, ongoing feature development, or maintenance. 4 hrs/day commitment, Flexible task assignment, Weekly sync included, Scale to full-time anytime." },
-          { title: "Dedicated Team (For Scale-Ups)", body: "Custom Team Size. A fully managed Flutter development team - developers, QA, designer, and PM - operating as your embedded product squad. 2–15 member teams, Team lead included, Full project ownership, Managed delivery model." },
+          { title: "Dedicated Team (For Scale-Ups)", body: "Custom Team Size. A fully managed Flutter development team - developers, QA, designer, and PM - operating as your embedded product squad. 2-15 member teams, Team lead included, Full project ownership, Managed delivery model." },
         ],
       },
       {
@@ -395,8 +395,8 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
         heading: "How Much Does It Cost to Hire Dedicated Flutter Developers?",
         body: "Transparent pricing guidance to help you budget confidently.",
         items: [
-          { title: "Junior Flutter Developer", body: "1–3 years Flutter experience. Best for: Entry-level mobile apps, feature support, bug fixes." },
-          { title: "Mid-Level Flutter Developer", body: "3–5 years Flutter experience. Best for: Full-cycle app development, API integrations." },
+          { title: "Junior Flutter Developer", body: "1-3 years Flutter experience. Best for: Entry-level mobile apps, feature support, bug fixes." },
+          { title: "Mid-Level Flutter Developer", body: "3-5 years Flutter experience. Best for: Full-cycle app development, API integrations." },
           { title: "Senior Flutter Developer", body: "5+ years, system design expertise. Best for: Complex architecture, performance optimization, team leading." },
         ],
       },
@@ -404,7 +404,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     [
       { question: "What does a dedicated Flutter developer do?", answer: "A dedicated Flutter developer builds and maintains cross-platform applications for iOS, Android, web, and desktop from a single Dart codebase. This includes custom UI design system integration, native module bridging, and app store deployment." },
       { question: "Is Flutter a good choice for my app, or should I build native apps separately?", answer: "Flutter is the ideal choice for most consumer and business apps, offering over 90% code reuse across platforms. This reduces development time and costs significantly while maintaining a high-performance, native look-and-feel." },
-      { question: "How quickly can a dedicated Flutter developer join my project?", answer: "We can match you with a pre-vetted senior Flutter developer and start onboarding within 5–7 business days." },
+      { question: "How quickly can a dedicated Flutter developer join my project?", answer: "We can match you with a pre-vetted senior Flutter developer and start onboarding within 5-7 business days." },
       { question: "How much does it cost to hire a dedicated Flutter developer?", answer: "Toadster offers transparent monthly retainer rates based on developer seniority. Contact us for a quote tailored to your specific project needs." },
       { question: "Can Flutter apps access native device features like camera, biometrics, or Bluetooth?", answer: "Yes. Flutter accesses native device features seamlessly using either official plugins or custom platform channels written in Swift (iOS) and Kotlin (Android)." },
       { question: "Which state management approach do your developers recommend?", answer: "Our developers are proficient in all major state management patterns, including Riverpod, BLoC, and Provider, and will align with your existing codebase." },
@@ -421,7 +421,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "Flutter App Development Services",
       "Native Module Integration Developers",
     ],
-    { name: "Hire Dedicated Flutter Developers", description: "Hire expert Flutter developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5–7 days - iOS, Android, web, desktop, and native modules.", serviceType: "Staff Augmentation" },
+    { name: "Hire Dedicated Flutter Developers", description: "Hire expert Flutter developers from Toadster Technologies. Get dedicated cross-platform mobile engineers onboarded in 5-7 days - iOS, Android, web, desktop, and native modules.", serviceType: "Staff Augmentation" },
   ),
   hirePage(
     "ai-ml-developers",
@@ -429,7 +429,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Production ML, LLMs, computer vision & predictive analytics",
     "AiMl",
     "Hire AI/ML Developers | Dedicated Machine Learning Engineers - Toadster Technologies",
-    "Hire expert AI/ML developers from Toadster Technologies. Get dedicated machine learning engineers onboarded in 5–7 days - RAG pipelines, LLMs, computer vision, and MLOps. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire expert AI/ML developers from Toadster Technologies. Get dedicated machine learning engineers onboarded in 5-7 days - RAG pipelines, LLMs, computer vision, and MLOps. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert AI/ML Developers",
     "Put proven AI and machine learning engineers on your product - developers who have shipped real models, not just run notebooks. From data pipelines to production inference, they hit the ground running.",
     [
@@ -501,7 +501,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "MLOps Engineers",
       "AI Staff Augmentation Services",
     ],
-    { name: "Hire AI/ML Developers", description: "Hire expert AI/ML developers from Toadster Technologies. Get dedicated machine learning engineers onboarded in 5–7 days.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+    { name: "Hire AI/ML Developers", description: "Hire expert AI/ML developers from Toadster Technologies. Get dedicated machine learning engineers onboarded in 5-7 days.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
   ),
   hirePage(
     "full-stack-developers",
@@ -509,7 +509,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "React, Node.js, Next.js, Python full stack engineers",
     "FullStack",
     "Hire Full Stack Developers | Dedicated End-to-End Web Engineers - Toadster Technologies",
-    "Hire expert full stack developers from Toadster Technologies. Get dedicated end-to-end web engineers onboarded in 5–7 days - frontend, backend, databases, and DevOps. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire expert full stack developers from Toadster Technologies. Get dedicated end-to-end web engineers onboarded in 5-7 days - frontend, backend, databases, and DevOps. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert Full Stack Developers",
     "Ship complete features end-to-end - frontend, backend, database, and deployment - with dedicated full stack developers who own the entire pipeline without the coordination overhead of separate frontend and backend hires.",
     [
@@ -569,7 +569,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "Full Stack App Development Services",
       "API Integration Developers",
     ],
-    { name: "Hire Full Stack Developers", description: "Hire expert full stack developers from Toadster Technologies. Get dedicated end-to-end web engineers onboarded in 5–7 days.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] },
+    { name: "Hire Full Stack Developers", description: "Hire expert full stack developers from Toadster Technologies. Get dedicated end-to-end web engineers onboarded in 5-7 days.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] },
   ),
   hirePage(
     "software-developers",
@@ -577,7 +577,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Web, backend, cloud & AI software engineering",
     "Software",
     "Hire Software Developers | Dedicated Development Team - Toadster Technologies",
-    "Hire expert software developers from Toadster Technologies. Get dedicated engineers onboarded in 5–7 days across web, backend, cloud, and AI. Flexible models. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire expert software developers from Toadster Technologies. Get dedicated engineers onboarded in 5-7 days across web, backend, cloud, and AI. Flexible models. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert Software Developers",
     "Build faster, ship smarter, and close the talent gap - with dedicated software developers who plug into your team and start contributing from day one.",
     [
@@ -648,7 +648,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "Hire Backend Developers",
       "Hire Full Stack Developers",
     ],
-    { name: "Hire Software Developers", description: "Hire expert software developers from Toadster Technologies. Get dedicated engineers onboarded in 5–7 days across web, backend, cloud, and AI.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+    { name: "Hire Software Developers", description: "Hire expert software developers from Toadster Technologies. Get dedicated engineers onboarded in 5-7 days across web, backend, cloud, and AI.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
   )
 
   ,
@@ -658,7 +658,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Kubernetes, CI/CD, AWS/GCP infrastructure",
     "DevOps",
     "Hire DevOps Engineers | Dedicated Cloud & Infrastructure Experts - Toadster Technologies",
-    "Hire expert DevOps engineers from Toadster Technologies. Get dedicated infrastructure and CI/CD specialists onboarded in 5–7 days - Kubernetes, Terraform, AWS, GCP, Azure, and more. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire expert DevOps engineers from Toadster Technologies. Get dedicated infrastructure and CI/CD specialists onboarded in 5-7 days - Kubernetes, Terraform, AWS, GCP, Azure, and more. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert DevOps Engineers",
     "Ship faster, break less, and recover instantly - with dedicated DevOps engineers who build the infrastructure, pipelines, and reliability systems your product needs to run at scale.",
     [
@@ -719,7 +719,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Swift & SwiftUI native iOS app experts",
     "Ios",
     "Hire iOS Developers | Dedicated Swift & SwiftUI Experts - Toadster Technologies",
-    "Hire expert iOS developers from Toadster Technologies. Get dedicated Swift and SwiftUI engineers onboarded in 5–7 days - App Store ready, Apple ecosystem integrations included. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire expert iOS developers from Toadster Technologies. Get dedicated Swift and SwiftUI engineers onboarded in 5-7 days - App Store ready, Apple ecosystem integrations included. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert iOS Developers",
     "Build polished, high-performance iOS apps with dedicated Swift developers who know Apple's platform deeply - from Human Interface Guidelines to App Store review, so your app gets approved and feels right at home on iPhone.",
     [
@@ -779,7 +779,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "iOS App Development Services",
       "Apple Ecosystem Integration Developers"
     ],
-    { name: "Hire iOS Developers", description: "Hire expert iOS developers from Toadster Technologies. Get dedicated Swift and SwiftUI engineers onboarded in 5–7 days - App Store ready, Apple ecosystem integrations included.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+    { name: "Hire iOS Developers", description: "Hire expert iOS developers from Toadster Technologies. Get dedicated Swift and SwiftUI engineers onboarded in 5-7 days - App Store ready, Apple ecosystem integrations included.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
   ),
   hirePage(
     "android-developers",
@@ -787,7 +787,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "Kotlin & Jetpack Compose Android app experts",
     "Android",
     "Hire Android Developers | Dedicated Kotlin & Compose Experts - Toadster Technologies",
-    "Hire expert Android developers from Toadster Technologies. Get dedicated Kotlin and Jetpack Compose engineers onboarded in 5–7 days - Play Store ready, Google ecosystem integrations included. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire expert Android developers from Toadster Technologies. Get dedicated Kotlin and Jetpack Compose engineers onboarded in 5-7 days - Play Store ready, Google ecosystem integrations included. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert Android Developers",
     "Build Android apps that perform reliably across thousands of device configurations - with dedicated Kotlin developers who understand fragmentation, battery constraints, and what it actually takes to pass Play Store review.",
     [
@@ -847,7 +847,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "Android App Development Services",
       "Google Ecosystem Integration Developers"
     ],
-    { name: "Hire Android Developers", description: "Hire expert Android developers from Toadster Technologies. Get dedicated Kotlin and Jetpack Compose engineers onboarded in 5–7 days - Play Store ready, Google ecosystem integrations included.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+    { name: "Hire Android Developers", description: "Hire expert Android developers from Toadster Technologies. Get dedicated Kotlin and Jetpack Compose engineers onboarded in 5-7 days - Play Store ready, Google ecosystem integrations included.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
   ),
   hirePage(
     "reactjs-developers",
@@ -855,7 +855,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
     "React, Next.js, and modern UI architecture",
     "Reactjs",
     "Hire React.js Developers | Dedicated Frontend Engineers - Toadster Technologies",
-    "Hire expert React.js developers from Toadster Technologies. Get dedicated frontend engineers onboarded in 5–7 days - React, Next.js, TypeScript, and modern UI architecture. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire expert React.js developers from Toadster Technologies. Get dedicated frontend engineers onboarded in 5-7 days - React, Next.js, TypeScript, and modern UI architecture. Serving India, UAE, Saudi Arabia & the US.",
     "Hire Expert React.js Developers",
     "Build fast, responsive, and scalable web interfaces with dedicated React developers who write component architecture that survives your product's next five feature releases - not just the demo.",
     [
@@ -915,7 +915,7 @@ export const HIRE_RESOURCES_DATA: HireResource[] = [
       "Hire React TypeScript Developers",
       "React UI Development Services"
     ],
-    { name: "Hire React.js Developers", description: "Hire expert React.js developers from Toadster Technologies. Get dedicated frontend engineers onboarded in 5–7 days - React, Next.js, TypeScript, and modern UI architecture.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
+    { name: "Hire React.js Developers", description: "Hire expert React.js developers from Toadster Technologies. Get dedicated frontend engineers onboarded in 5-7 days - React, Next.js, TypeScript, and modern UI architecture.", serviceType: "Staff Augmentation", areaServed: ["India", "United States", "United Arab Emirates", "Saudi Arabia"] }
   )
 ]
 

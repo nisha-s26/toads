@@ -151,7 +151,7 @@ const FLUTTER_HERO_STATS = [
   { value: "150+", label: "Flutter Apps Delivered" },
   { value: "50+", label: "Vetted Flutter Developers" },
   { value: "4.9/5", label: "Client Satisfaction" },
-  { value: "5–7 Days", label: "Average Onboarding" },
+  { value: "5-7 Days", label: "Average Onboarding" },
 ]
 
 const FLUTTER_COMPARISON_ROWS = [
@@ -163,7 +163,7 @@ const FLUTTER_COMPARISON_ROWS = [
 
 
 const REACT_NATIVE_COMPARISON_ROWS = [
-  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "30–90 Days" },
+  { feature: "Time to Start", dedicated: "5-7 Days", staffAug: "1-3 Days", outsourcing: "30-90 Days" },
   { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
   { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Varies" },
   { feature: "Cross-Platform Coverage", dedicated: "Single Codebase", staffAug: "Variable", outsourcing: "Single Codebase" },
@@ -173,7 +173,7 @@ const REACT_NATIVE_COMPARISON_ROWS = [
 ]
 
 const DEVOPS_COMPARISON_ROWS = [
-  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "45–90 Days" },
+  { feature: "Time to Start", dedicated: "5-7 Days", staffAug: "1-3 Days", outsourcing: "45-90 Days" },
   { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
   { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Hard to Retain" },
   { feature: "Infrastructure Ownership", dedicated: "Full Client Control", staffAug: "Shared Risk", outsourcing: "Full Client Control" },
@@ -183,7 +183,7 @@ const DEVOPS_COMPARISON_ROWS = [
 ]
 
 const IOS_COMPARISON_ROWS = [
-  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "30–90 Days" },
+  { feature: "Time to Start", dedicated: "5-7 Days", staffAug: "1-3 Days", outsourcing: "30-90 Days" },
   { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
   { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Varies" },
   { feature: "App Store Compliance Knowledge", dedicated: "High", staffAug: "Variable", outsourcing: "Varies" },
@@ -193,7 +193,7 @@ const IOS_COMPARISON_ROWS = [
 ]
 
 const ANDROID_COMPARISON_ROWS = [
-  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "30–90 Days" },
+  { feature: "Time to Start", dedicated: "5-7 Days", staffAug: "1-3 Days", outsourcing: "30-90 Days" },
   { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
   { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Varies" },
   { feature: "Device Fragmentation Handling", dedicated: "High", staffAug: "Variable", outsourcing: "Varies" },
@@ -203,7 +203,7 @@ const ANDROID_COMPARISON_ROWS = [
 ]
 
 const REACT_COMPARISON_ROWS = [
-  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "30–90 Days" },
+  { feature: "Time to Start", dedicated: "5-7 Days", staffAug: "1-3 Days", outsourcing: "30-90 Days" },
   { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
   { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Varies" },
   { feature: "UI/UX Consistency", dedicated: "High", staffAug: "Variable", outsourcing: "High" },
@@ -213,7 +213,7 @@ const REACT_COMPARISON_ROWS = [
 ]
 
 const FULL_STACK_COMPARISON_ROWS = [
-  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "30–90 Days" },
+  { feature: "Time to Start", dedicated: "5-7 Days", staffAug: "1-3 Days", outsourcing: "30-90 Days" },
   { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
   { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Varies" },
   { feature: "Frontend + Backend Coverage", dedicated: "Single Engineer/Team", staffAug: "Variable", outsourcing: "Often Split Roles" },
@@ -223,7 +223,7 @@ const FULL_STACK_COMPARISON_ROWS = [
 ]
 
 const SOFTWARE_COMPARISON_ROWS = [
-  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "30–90 Days" },
+  { feature: "Time to Start", dedicated: "5-7 Days", staffAug: "1-3 Days", outsourcing: "30-90 Days" },
   { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
   { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Varies" },
   { feature: "Team Continuity", dedicated: "High", staffAug: "Low", outsourcing: "High" },
@@ -233,7 +233,7 @@ const SOFTWARE_COMPARISON_ROWS = [
 ]
 
 const AI_ML_COMPARISON_ROWS = [
-  { feature: "Time to Start", dedicated: "5–7 Days", staffAug: "1–3 Days", outsourcing: "60–120 Days" },
+  { feature: "Time to Start", dedicated: "5-7 Days", staffAug: "1-3 Days", outsourcing: "60-120 Days" },
   { feature: "Cost Predictability", dedicated: "Fixed Monthly", staffAug: "Variable", outsourcing: "High Fixed Cost" },
   { feature: "Skill Depth", dedicated: "Senior Vetted", staffAug: "Mixed", outsourcing: "Hard to Find" },
   { feature: "Model Ownership", dedicated: "Full Client IP", staffAug: "Shared Risk", outsourcing: "Full Client IP" },
@@ -1102,7 +1102,7 @@ export default function HireResourceDetail({ resource }: { resource: HireResourc
 
               {/* Left Info & Graphic Column */}
               <div className="flex min-w-0 flex-col gap-5 text-left lg:col-span-5">
-                {/* Desktop graphic – no border/background, just the green computer */}
+                {/* Desktop graphic - no border/background, just the green computer */}
                 <div className="mt-4 flex justify-center lg:justify-start">
                   <Image
                     src="/monitor_code_graphic.webp"

@@ -1,7 +1,7 @@
 export const HIRE_RESOURCES_META = {
   title: "Hire Dedicated Developers | IT Staff Augmentation Services - Toadster Technologies",
   description:
-    "Hire dedicated developers and technology resources from Toadster Technologies. Flexible staff augmentation across software, mobile, AI/ML, DevOps, and more - onboarded in 5–7 days. Serving India, UAE, Saudi Arabia & the US.",
+    "Hire dedicated developers and technology resources from Toadster Technologies. Flexible staff augmentation across software, mobile, AI/ML, DevOps, and more - onboarded in 5-7 days. Serving India, UAE, Saudi Arabia & the US.",
 }
 
 export const heroContent = {

@@ -340,7 +340,7 @@ export const benefits: {
     {
       icon: GraduationCap,
       title: "Faster, More Effective Training",
-      desc: "AR-guided training reduces time-to-competency for complex procedures by 30–50% compared to traditional video or manual-based training. Trainees retain more because they're doing, not watching - and they make fewer errors because guidance is overlaid on the actual equipment they're learning to operate.",
+      desc: "AR-guided training reduces time-to-competency for complex procedures by 30-50% compared to traditional video or manual-based training. Trainees retain more because they're doing, not watching - and they make fewer errors because guidance is overlaid on the actual equipment they're learning to operate.",
     },
     {
       icon: Wrench,
@@ -367,7 +367,7 @@ export const benefits: {
 export const engagementModels = [
   {
     title: "AR Discovery & Proof of Concept",
-    desc: "A focused 3–6 week engagement to validate your AR concept with real users in a real environment. We design the experience, build a working prototype, test it with actual users, and give you a clear view of whether and how to proceed. Best for teams exploring AR for the first time or validating a specific use case before full investment.",
+    desc: "A focused 3-6 week engagement to validate your AR concept with real users in a real environment. We design the experience, build a working prototype, test it with actual users, and give you a clear view of whether and how to proceed. Best for teams exploring AR for the first time or validating a specific use case before full investment.",
     includes: [
       "Use case analysis and platform recommendation",
       "Spatial UX concept and interaction design",
@@ -420,7 +420,7 @@ export const faqs = [
   {
     question: "How much does an AR application cost to build?",
     answer:
-      "A focused AR proof of concept - basic 3D assets, core interaction, real environment testing - typically costs $15,000–$40,000 USD. A production-grade mobile AR or WebAR experience with quality 3D assets, backend integration, and CMS for content updates is usually $50,000–$180,000. Enterprise wearable applications for HoloLens or Magic Leap tend to run $80,000–$250,000+ depending on complexity. 3D asset volume is one of the biggest cost drivers - the more products or environments you need modelled, the higher the cost. We'll give you a precise estimate after understanding your scope.",
+      "A focused AR proof of concept - basic 3D assets, core interaction, real environment testing - typically costs $15,000-$40,000 USD. A production-grade mobile AR or WebAR experience with quality 3D assets, backend integration, and CMS for content updates is usually $50,000-$180,000. Enterprise wearable applications for HoloLens or Magic Leap tend to run $80,000-$250,000+ depending on complexity. 3D asset volume is one of the biggest cost drivers - the more products or environments you need modelled, the higher the cost. We'll give you a precise estimate after understanding your scope.",
   },
   {
     question: "Do users need to download an app to use AR?",
@@ -435,7 +435,7 @@ export const faqs = [
   {
     question: "What devices will the AR experience work on?",
     answer:
-      "This depends on the platform we build for. Mobile AR via ARKit and ARCore covers the majority of modern iPhones and Android devices - typically anything from the last 4–5 years. WebAR via 8th Wall works on most modern iOS and Android browsers. HoloLens and Magic Leap are enterprise wearables with specific hardware requirements. We design for your target user's actual device profile, and we'll be upfront about any minimum hardware requirements that affect your audience coverage.",
+      "This depends on the platform we build for. Mobile AR via ARKit and ARCore covers the majority of modern iPhones and Android devices - typically anything from the last 4-5 years. WebAR via 8th Wall works on most modern iOS and Android browsers. HoloLens and Magic Leap are enterprise wearables with specific hardware requirements. We design for your target user's actual device profile, and we'll be upfront about any minimum hardware requirements that affect your audience coverage.",
   },
   {
     question: "How does AR work in poor lighting or difficult environments?",
@@ -450,6 +450,6 @@ export const faqs = [
   {
     question: "How long does an AR project take?",
     answer:
-      "A proof of concept runs 3–6 weeks. A full production mobile AR or WebAR experience with moderate 3D complexity typically takes 10–18 weeks from discovery to deployment. Enterprise wearable applications for HoloLens usually take 14–24 weeks. The biggest variables are 3D asset volume (more products to model means more time), backend integration complexity, and how quickly design decisions get made. We'll give you a realistic timeline during scoping.",
+      "A proof of concept runs 3-6 weeks. A full production mobile AR or WebAR experience with moderate 3D complexity typically takes 10-18 weeks from discovery to deployment. Enterprise wearable applications for HoloLens usually take 14-24 weeks. The biggest variables are 3D asset volume (more products to model means more time), backend integration complexity, and how quickly design decisions get made. We'll give you a realistic timeline during scoping.",
   },
 ]
