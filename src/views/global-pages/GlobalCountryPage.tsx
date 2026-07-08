@@ -199,10 +199,10 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
 
       {/* Why Choose */}
       {whyCards.length > 0 && (
-        <section className="global-country-section" style={{ padding: "4rem 2rem"}}>
+        <section className="global-country-section global-country-why-section" style={{ padding: "2rem 2rem"}}>
           <SectionContainer>
             <ScrollReveal className="global-country-section-header text-center">
-              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-5xl">
+              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg text-3xl md:text-4xl lg:text-5xl">
                 Why Businesses in {data.country} Choose Toadster
               </h2>
               {data.whyChooseIntro ? (
@@ -214,7 +214,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                 const { title, body } = cardTitleFromPoint(point)
                 const Icon = WHY_ICONS[index % WHY_ICONS.length]
                 return (
-                  <ScrollReveal key={point.slice(0, 32)} delay={index * 0.07} y={18}>
+                  <ScrollReveal key={`${data.key}-why-${index}-${title}`} delay={index * 0.07} y={18}>
                     <article className="global-country-why-card group h-full">
                       <Icon className="h-6 w-6 text-toadster-green" strokeWidth={2} />
                       <div className="global-country-card-header mt-4">
@@ -233,10 +233,10 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
 
       {/* Services bento */}
       {services.length > 0 && (
-        <section className="global-country-section global-country-services-wrap" style={{ padding: "4rem 2rem"}}>
+        <section className="global-country-section global-country-services-wrap" style={{ padding: "2rem 2rem"}}>
           <SectionContainer>
             <ScrollReveal className="global-country-section-header">
-              <h2 className="text-2xl font-extrabold text-white md:text-5xl">Enterprise AI Development Services</h2>
+              <h2 className="text-2xl font-extrabold text-white text-3xl md:text-4xl lg:text-5xl">Enterprise AI Development Services</h2>
               <p className="mt-3 max-w-xl text-base text-white/80 md:text-lg">
                 Production-grade AI built for {data.country} - compliance, scale, and measurable ROI.
               </p>
@@ -248,7 +248,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                 const isFeatured = index === 0
                 return (
                   <ScrollReveal
-                    key={service.title}
+                    key={`${data.key}-service-${index}-${service.title}`}
                     delay={index * 0.06}
                     y={16}
                     className={isFeatured ? "global-country-bento-featured" : undefined}
@@ -287,15 +287,15 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
 
       {/* Challenges */}
       {challenges.length > 0 && (
-        <section className="global-country-section global-country-challenges" style={{ padding: "4rem 2rem"}}>
+        <section className="global-country-section global-country-challenges" style={{ padding: "2rem 2rem"}}>
           <SectionContainer className="global-country-split-grid">
             <ScrollReveal y={18}>
-              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-5xl">
+              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg text-3xl md:text-4xl lg:text-5xl">
                 Navigating {data.country}&apos;s AI Adoption Challenges
               </h2>
               <ul className="global-country-challenge-list">
                 {challenges.map((item, index) => (
-                  <li key={item.title} className="global-country-challenge-item" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <li key={`${data.key}-challenge-${index}-${item.title}`} className="global-country-challenge-item" style={{ animationDelay: `${index * 0.1}s` }}>
                     <span className="global-country-check">
                       <Check className="h-4 w-4" strokeWidth={3} />
                     </span>
@@ -327,7 +327,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
         <section className="global-country-section global-country-process-section">
           <SectionContainer>
             <ScrollReveal className="global-country-section-header text-center">
-              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-5xl">
+              <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg text-3xl md:text-4xl lg:text-5xl">
                 Our {processSteps.length}-Step AI Development Process
               </h2>
             </ScrollReveal>
@@ -357,7 +357,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
             </ScrollReveal>
             <div className="global-country-faq-list">
               {faqs.map((faq, index) => (
-                <ScrollReveal key={faq.question} delay={index * 0.04} y={10}>
+                <ScrollReveal key={`${data.key}-faq-${index}-${faq.question}`} delay={index * 0.04} y={10}>
                   <HomepageFaqItem question={faq.question} answer={truncate(faq.answer, 320)} />
                 </ScrollReveal>
               ))}

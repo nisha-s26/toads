@@ -202,10 +202,9 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
 
   return (
     <>
-      {/* ── Blur Backdrop ── */}
+      {/* ── Mobile Backdrop ── */}
       <div
-        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
+        className={`navbar-mobile-backdrop fixed inset-0 z-40 bg-black/40 lg:hidden ${mobileOpen ? "navbar-mobile-backdrop--open" : ""}`}
         onClick={closeMobile}
         aria-hidden="true"
       />
@@ -213,10 +212,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
       {/* ── Mobile Right-Side Drawer ── */}
       <div
         aria-hidden={!mobileOpen}
-        className={`navbar-mobile-drawer fixed top-0 right-0 z-[60] box-border flex h-full w-[min(85vw,100%)] max-w-full min-w-0 flex-col overflow-x-hidden overflow-y-auto bg-page-card font-sans transition-[transform,box-shadow,visibility] duration-300 ease-in-out will-change-transform lg:hidden ${mobileOpen
-          ? "translate-x-0 visible shadow-2xl"
-          : "translate-x-full invisible shadow-none pointer-events-none"
-          }`}
+        className={`navbar-mobile-drawer fixed top-0 right-0 z-[60] box-border flex h-full w-[min(85vw,100%)] max-w-full min-w-0 flex-col overflow-x-hidden overflow-y-auto bg-page-card font-sans shadow-2xl lg:hidden ${mobileOpen ? "navbar-mobile-drawer--open" : ""}`}
       >
         {/* Drawer Header */}
         <div className="flex min-w-0 items-center justify-between gap-2 px-3 py-4 border-b border-page-border shrink-0 sm:px-5">

@@ -4,6 +4,7 @@ import dynamic from "next/dynamic"
 import { useEffect, useState, useSyncExternalStore } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { ArrowRightIcon } from "lucide-react"
 
 const DesktopHeroOrbits = dynamic(
   () => import("./DesktopHeroOrbits").then((mod) => mod.DesktopHeroOrbits),
@@ -128,8 +129,8 @@ export default function HeroSection() {
         </p>
 
         <div className="hero-enter-delay-4 mx-auto mt-3 flex w-full flex-col items-center justify-center sm:mt-6 sm:flex-row sm:gap-3 [@media(max-height:720px)]:mt-2">
-          <Button asChild className="w-auto rounded-xl px-5 py-3 text-sm shadow-lg sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-2.5 [@media(max-height:720px)]:text-xs">
-            <Link href="/contact" title="Get Started">Start Your Project</Link>
+          <Button asChild className="w-auto rounded-xl px-7 py-5 text-sm shadow-lg sm:px-6 sm:py-6 sm:text-base [@media(max-height:720px)]:px-4 [@media(max-height:720px)]:py-2.5 [@media(max-height:720px)]:text-xs">
+            <Link href="/contact" title="Get Started">Start Your Project <ArrowRightIcon/> </Link>
           </Button>
         </div>
       </div>

@@ -42,7 +42,7 @@ export function GlobalCountryProcessTrack({ steps, renderDescription }: GlobalCo
 
       {steps.map((step, index) => (
         <ScrollReveal
-          key={step.num}
+          key={`${step.num}-${index}-${step.title}`}
           delay={index * 0.05}
           y={12}
           className={cn(

@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { createElement } from "react"
 import { cn } from "@/lib/utils"
 import { TRUSTED_BY_CLIENTS } from "@/constants/trustedByClients"
 
@@ -12,10 +13,7 @@ const LOGO_CELL_CLASS = {
   compact: "h-9 w-28 sm:h-14 sm:w-44 md:h-16 md:w-48",
 } as const
 
-const MARQUEE_DURATION = {
-  default: "40s",
-  compact: "32s",
-} as const
+const MARQUEE_REPEAT_COUNT = 8
 
 type LogoMarqueeProps = {
   compact?: boolean
@@ -41,7 +39,7 @@ function LogoItem({
   const cellClass = compact ? LOGO_CELL_CLASS.compact : LOGO_CELL_CLASS.default
 
   return (
-    <div className={cn("flex shrink-0 items-center justify-center", cellClass)}>
+    <span className={cn("inline-flex shrink-0 items-center justify-center", cellClass)}>
       {src ? (
         <Image
           src={src}
@@ -56,14 +54,14 @@ function LogoItem({
           aria-hidden={decorative}
           style={scale !== 1 ? { transform: `scale(${scale})` } : undefined}
           className={cn(
-            "block max-h-[88%] max-w-[92%] object-contain opacity-70 transition-opacity duration-200 hover:opacity-100",
+            "block max-h-[88%] max-w-[92%] object-contain opacity-100 transition-opacity duration-200",
             onDarkBackground ? "brightness-0 invert" : "brightness-0 dark:invert",
           )}
         />
       ) : (
         <span className="text-sm font-semibold text-page-fg opacity-70">{label}</span>
       )}
-    </div>
+    </span>
   )
 }
 
@@ -72,7 +70,8 @@ export function LogoMarquee({
   onDarkBackground = false,
   className,
 }: LogoMarqueeProps) {
-  const marqueeLogos = [...TRUSTED_BY_CLIENTS, ...TRUSTED_BY_CLIENTS]
+  const marqueeLogos = Array.from({ length: MARQUEE_REPEAT_COUNT }, () => TRUSTED_BY_CLIENTS).flat()
+  const scrollAmount = compact ? 3 : 4
 
   return (
     <div
@@ -83,25 +82,34 @@ export function LogoMarquee({
       )}
       aria-label="Trusted by leading companies"
     >
-      <div
-        className={cn(
-          "logo-marquee-track flex w-max items-center",
-          compact ? LOGO_GAP.compact : LOGO_GAP.default,
-        )}
-        style={{ "--marquee-duration": compact ? MARQUEE_DURATION.compact : MARQUEE_DURATION.default } as React.CSSProperties}
-      >
-        {marqueeLogos.map(({ label, src, scale }, index) => (
-          <LogoItem
-            key={`${label}-${index}`}
-            label={label}
-            src={src}
-            scale={scale}
-            onDarkBackground={onDarkBackground}
-            compact={compact}
-            decorative={index >= TRUSTED_BY_CLIENTS.length}
-          />
-        ))}
-      </div>
+      {createElement(
+        "marquee",
+        {
+          behavior: "scroll",
+          direction: "left",
+          scrollamount: scrollAmount,
+          scrolldelay: 0,
+          className: "logo-marquee-track block",
+        },
+        <span
+          className={cn(
+            "logo-marquee-content inline-flex w-max items-center align-middle",
+            compact ? LOGO_GAP.compact : LOGO_GAP.default,
+          )}
+        >
+          {marqueeLogos.map(({ label, src, scale }, index) => (
+            <LogoItem
+              key={`${label}-${index}`}
+              label={label}
+              src={src}
+              scale={scale}
+              onDarkBackground={onDarkBackground}
+              compact={compact}
+              decorative={index >= TRUSTED_BY_CLIENTS.length}
+            />
+          ))}
+        </span>,
+      )}
     </div>
   )
 }

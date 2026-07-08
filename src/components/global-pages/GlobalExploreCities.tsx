@@ -39,7 +39,7 @@ export function GlobalExploreCities({ countryKey, countryLabel, cities, activeCi
       <div className="global-country-container global-country-explore-cities">
         <ScrollReveal>
           <div className="global-country-explore-cities-header text-center">
-            <h2 className="global-country-explore-cities-title text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg md:text-5xl">
+            <h2 className="global-country-explore-cities-title text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg text-3xl md:text-4xl lg:text-5xl">
               {title}
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-page-fg-muted md:text-lg">{intro}</p>
@@ -57,7 +57,7 @@ export function GlobalExploreCities({ countryKey, countryLabel, cities, activeCi
             const descriptionText = description.length >= 100 ? `${description}…` : description
 
             return (
-              <ScrollReveal key={city.key} delay={index * 0.06} y={16} className="global-country-city-card-wrap">
+              <ScrollReveal key={`${countryKey}-city-${index}-${city.key}`} delay={index * 0.06} y={16} className="global-country-city-card-wrap">
                 <Link
                   href={city.slug}
                   title={`Explore Toadster services in ${city.country}`}
@@ -72,7 +72,7 @@ export function GlobalExploreCities({ countryKey, countryLabel, cities, activeCi
                       fill
                       referrerPolicy="no-referrer"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 640px) 75vw, 260px"
+                      sizes="(max-width: 767px) calc(100vw - 2rem), (max-width: 1023px) calc((100vw - 1rem) / 2), 260px"
                     />
                     <div className="global-country-city-card-overlay" />
                   </div>
