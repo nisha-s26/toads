@@ -9,7 +9,7 @@ const GET_STARTED_QUESTION_IMAGE = "/get-started-question.webp"
 
 export default function GetStarted() {
   return (
-    <section className="homepage-snap-section relative isolate flex w-full flex-col justify-center overflow-hidden px-4 pt-4 sm:pt-5">
+    <section className="homepage-snap-section homepage-get-started-section relative isolate flex w-full flex-col justify-center overflow-hidden px-0 pt-4 sm:pt-5">
       <div className="homepage-cta-box section-full-bleed relative z-10 w-full overflow-hidden px-5 py-10 text-center sm:px-10 sm:py-14 md:px-16 md:py-16 lg:px-20">
         <div
           className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-[42%] max-w-[480px] md:block"

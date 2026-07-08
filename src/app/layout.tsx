@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Plus_Jakarta_Sans } from "next/font/google"
 import "@/index.css"
 import { ThemeProvider } from "@/hooks/ThemeProvider"
@@ -26,6 +26,14 @@ export const metadata: Metadata = {
     "max-snippet": -1,
     "max-video-preview": -1,
   },
+}
+
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ECF0F1" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 }
 
 const organizationJsonLd = {
@@ -87,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem("toadster-theme");var d=s==="dark";var r=document.documentElement;r.classList.toggle("dark",d);r.style.colorScheme=d?"dark":"light";var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",d?"#000000":"#ECF0F1");}catch(e){document.documentElement.style.colorScheme="light";document.documentElement.classList.remove("dark");}})();`,
+            __html: `(function(){try{var s=localStorage.getItem("toadster-theme");var d=s==="dark";var r=document.documentElement;r.classList.toggle("dark",d);r.style.colorScheme=d?"dark":"light";r.style.backgroundColor=d?"#000000":"#ECF0F1";var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",d?"#000000":"#ECF0F1");}catch(e){document.documentElement.style.colorScheme="light";document.documentElement.style.backgroundColor="#ECF0F1";document.documentElement.classList.remove("dark");}})();`,
           }}
         />
         <script

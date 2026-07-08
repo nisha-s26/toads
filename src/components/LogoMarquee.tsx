@@ -45,8 +45,8 @@ function LogoItem({
       {src ? (
         <Image
           src={src}
-          alt={decorative ? "" : `${label} logo`}
-          title={decorative ? undefined : label}
+          alt={`${label} logo`}
+          title={`${label} logo`}
           width={208}
           height={80}
           sizes="208px"

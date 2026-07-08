@@ -754,6 +754,7 @@
 }
 
 .dark html {
+  color-scheme: dark;
   background-color: #000000;
 }
 
@@ -796,6 +797,21 @@
 
 #homepage-sections>.homepage-snap-section+.homepage-snap-section>div {
   padding-top: 0;
+}
+
+@media (min-width: 1440px) {
+  #homepage-sections>.homepage-snap-section:not(.homepage-get-started-section) {
+    width: 90%;
+    max-width: 90%;
+    margin-inline: auto;
+    padding-inline: 0 !important;
+  }
+
+  #homepage-sections>.homepage-get-started-section {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+  }
 }
 
 @media (max-width: 639px) {
@@ -1329,7 +1345,7 @@
   /* Homepage mobile hero — content-height layout, logos directly below CTA */
   #homepage-hero-viewport.homepage-hero-viewport--image {
     --hero-bottom-offset: 0;
-    --homepage-hero-marquee-offset: 3rem;
+    --homepage-hero-marquee-offset: 4.25rem;
     overflow-x: clip;
   }
 
@@ -1344,12 +1360,12 @@
   }
 
   #homepage-hero-viewport .trusted-by-marquee {
-    padding-top: 0;
-    padding-bottom: 0.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
   }
 
   #homepage-hero-viewport.homepage-hero-viewport--image .homepage-hero-bg {
-    bottom: var(--homepage-hero-marquee-offset);
+    bottom: 0;
   }
 
   #homepage-hero-viewport.homepage-hero-viewport--image .homepage-hero-bg-image {
@@ -3052,6 +3068,8 @@
     font-family: var(--font-sans);
     overflow-x: clip;
     max-width: 100%;
+    color-scheme: light;
+    background-color: #ecf0f1;
   }
 
   body {
@@ -6998,17 +7016,29 @@ html:not(.dark) .data-analytics-landing .da-explore-section .da-btn-explore:hove
 
 @media (min-width: 1280px) {
   :root {
-    --navbar-mega-menu-width: 56rem;
+    --navbar-mega-menu-width: 68rem;
   }
 
   .navbar-mega-menu-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .navbar-mega-menu-item {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+  }
+
+  .navbar-mega-menu-desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 }
 
 @media (min-width: 1536px) {
   :root {
-    --navbar-mega-menu-width: 65rem;
+    --navbar-mega-menu-width: 74rem;
   }
 }
 

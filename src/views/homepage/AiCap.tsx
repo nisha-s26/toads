@@ -73,7 +73,7 @@ export default function AiCap() {
         </p>
       </div>
 
-      <div className="mx-auto grid w-full max-w-9xl grid-cols-1 gap-5 px-4 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
+      <div className="mx-auto grid w-full max-w-9xl grid-cols-1 gap-2 px-0 sm:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-5">
         {visibleServices.map((service, index) => {
           const Icon = SERVICE_NAV_ICON_MAP[service.icon]
 

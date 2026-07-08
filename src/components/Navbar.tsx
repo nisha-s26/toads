@@ -418,7 +418,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
                       </NavigationMenuTrigger>
                       <NavigationMenuContent className="left-auto! top-auto! w-auto! p-0">
                         {link.label === "Services" ? (
-                          <div className={navDropdownPanelClass}>
+                          <div className={cn(navDropdownPanelClass, "max-h-[calc(100vh-6rem)] overflow-y-auto")}>
                             <ul className={navDropdownGridClass}>
                               {SERVICES_NAV.map((s) => {
                                 const Icon = NAV_ICON_MAP[s.icon as keyof typeof NAV_ICON_MAP]

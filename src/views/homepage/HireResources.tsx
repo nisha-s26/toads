@@ -75,8 +75,8 @@ const HIRE_ROLES: HireRole[] = [
 
 export default function HireResources() {
   return (
-    <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center px-4 pb-8 pt-0 sm:px-0">
-      <div className="hire-page-container">
+    <section id="hire-resources" className="homepage-snap-section relative flex flex-col justify-center px-4 pb-8 pt-0 lg:px-0">
+      <div className="hire-page-container lg:!w-full lg:px-6 xl:px-0">
         <ScrollReveal className="mb-8 text-center md:mb-10">
           <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl md:text-5xl">
             <span className="text-black dark:text-white">Hire </span>
