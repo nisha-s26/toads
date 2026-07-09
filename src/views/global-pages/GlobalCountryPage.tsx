@@ -18,6 +18,7 @@ import {
   type LucideIcon,
 } from "lucide-react"
 import { ScrollReveal } from "@/components/ScrollReveal"
+import { LastWordAccent, SplitSectionHeading } from "@/components/SplitSectionHeading"
 import { HomepageFaqItem } from "@/components/homepage/HomepageFaqItem"
 import { GlobalExploreCities } from "@/components/global-pages/GlobalExploreCities"
 import { GlobalCountryProcessTrack } from "@/components/global-pages/GlobalCountryProcessTrack"
@@ -26,6 +27,7 @@ import { GLOBAL_COUNTRY_PAGES } from "@/views/global-pages/registry"
 import type { GlobalCountryPageData } from "./types"
 
 const WHY_ICONS = [Shield, MapPin, Cog] as const
+const ON_DARK_ACCENT_CLASS = "text-[#22c55e]"
 
 const SERVICE_ICONS: Record<string, LucideIcon> = {
   "Generative AI Development": Sparkles,
@@ -169,10 +171,15 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
               ) : null}
               <span>{data.country}</span>
             </nav>
-            <h1 className="mt-4 text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-[#0a2f1f] drop-shadow-[0_1px_12px_rgba(255,255,255,0.65)] dark:text-white dark:drop-shadow-[0_2px_16px_rgba(0,0,0,0.75)] sm:text-3xl md:text-4xl lg:text-6xl">
-              {data.heroTitle}
-            </h1>
-            <p className="mt-4 text-base leading-relaxed text-black dark:text-white/85 md:text-lg">{heroText}</p>
+            <SplitSectionHeading
+              as="h1"
+              title={data.heroTitle}
+              className="mt-4 text-[1.75rem] font-extrabold leading-[1.1] tracking-tight drop-shadow-[0_1px_12px_rgba(255,255,255,0.65)] dark:drop-shadow-[0_2px_16px_rgba(0,0,0,0.75)] sm:text-3xl md:text-4xl lg:text-6xl"
+              mainClassName="text-[#0a2f1f] dark:text-white"
+            />
+            <p className="mt-4 text-base leading-relaxed text-black dark:text-white/85 md:text-lg">
+              <LastWordAccent text={heroText} />
+            </p>
             <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
               <Link href="/contact" title="Book a strategy call" className="global-country-btn-primary">
                 Book a Strategy Call
@@ -203,10 +210,12 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
           <SectionContainer>
             <ScrollReveal className="global-country-section-header text-center">
               <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg text-3xl md:text-4xl lg:text-5xl">
-                Why Businesses in {data.country} Choose Toadster
+                <LastWordAccent text={`Why Businesses in ${data.country} Choose Toadster`} />
               </h2>
               {data.whyChooseIntro ? (
-                <p className="mx-auto mt-4 max-w-9xl text-base text-page-fg-muted md:text-lg">{data.whyChooseIntro}</p>
+                <p className="mx-auto mt-4 max-w-9xl text-base text-page-fg-muted md:text-lg">
+                  <LastWordAccent text={data.whyChooseIntro} />
+                </p>
               ) : null}
             </ScrollReveal>
             <div className="global-country-card-grid">
@@ -218,7 +227,9 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                     <article className="global-country-why-card group h-full">
                       <Icon className="h-6 w-6 text-toadster-green" strokeWidth={2} />
                       <div className="global-country-card-header mt-4">
-                        <h3 className="text-base font-bold text-page-fg md:text-lg">{title}</h3>
+                        <h3 className="text-base font-bold text-page-fg md:text-lg">
+                          <LastWordAccent text={title} />
+                        </h3>
                         <span className="global-country-title-rule" aria-hidden />
                       </div>
                       <p className="mt-3 text-sm leading-relaxed text-page-fg-muted md:text-base">{body}</p>
@@ -236,9 +247,14 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
         <section className="global-country-section global-country-services-wrap" style={{ padding: "2rem 2rem"}}>
           <SectionContainer>
             <ScrollReveal className="global-country-section-header">
-              <h2 className="text-2xl font-extrabold text-white text-3xl md:text-4xl lg:text-5xl">Enterprise AI Development Services</h2>
+              <h2 className="text-2xl font-extrabold text-white text-3xl md:text-4xl lg:text-5xl">
+                <LastWordAccent text="Enterprise AI Development Services" accentClassName={ON_DARK_ACCENT_CLASS} />
+              </h2>
               <p className="mt-3 max-w-xl text-base text-white/80 md:text-lg">
-                Production-grade AI built for {data.country} - compliance, scale, and measurable ROI.
+                <LastWordAccent
+                  text={`Production-grade AI built for ${data.country} - compliance, scale, and measurable ROI.`}
+                  accentClassName={ON_DARK_ACCENT_CLASS}
+                />
               </p>
             </ScrollReveal>
             <div className="global-country-bento">
@@ -256,7 +272,12 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                     <article className={`global-country-service-card global-country-service-card--${variant} group h-full`}>
                       <div className="flex items-start justify-between gap-2">
                         <div className="global-country-card-header min-w-0 flex-1">
-                          <h3 className="text-base font-bold leading-snug md:text-lg">{service.title}</h3>
+                          <h3 className="text-base font-bold leading-snug md:text-lg">
+                            <LastWordAccent
+                              text={service.title}
+                              accentClassName={isFeatured ? ON_DARK_ACCENT_CLASS : undefined}
+                            />
+                          </h3>
                           <span className="global-country-title-rule global-country-title-rule--on-dark" aria-hidden />
                         </div>
                         <span className="global-country-service-icon shrink-0">
@@ -289,7 +310,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
           <SectionContainer className="global-country-split-grid">
             <ScrollReveal y={18}>
               <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg text-3xl md:text-4xl lg:text-5xl">
-                Navigating {data.country}&apos;s AI Adoption Challenges
+                <LastWordAccent text={`Navigating ${data.country}'s AI Adoption Challenges`} />
               </h2>
               <ul className="global-country-challenge-list">
                 {challenges.map((item, index) => (
@@ -298,7 +319,9 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
                       <Check className="h-4 w-4" strokeWidth={3} />
                     </span>
                     <div>
-                      <p className="text-base font-bold text-page-fg md:text-lg">{item.title}</p>
+                      <p className="text-base font-bold text-page-fg md:text-lg">
+                        <LastWordAccent text={item.title} />
+                      </p>
                       <p className="mt-1 text-sm leading-relaxed text-page-fg-muted md:text-base">{item.body}</p>
                     </div>
                   </li>
@@ -309,7 +332,10 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
               <div className="global-country-stat-panel rounded-2xl">
                 <p className="text-4xl font-extrabold leading-none text-toadster-green md:text-5xl">86%</p>
                 <p className="mt-3 text-base leading-relaxed text-white/90 md:text-lg">
-                  of enterprise AI initiatives fail to reach production without the right architecture and delivery partner.
+                  <LastWordAccent
+                    text="of enterprise AI initiatives fail to reach production without the right architecture and delivery partner."
+                    accentClassName={ON_DARK_ACCENT_CLASS}
+                  />
                 </p>
                 <blockquote className="mt-5 border-l-2 border-toadster-green pl-4 text-sm italic leading-relaxed text-white/80 md:text-base">
                   &ldquo;We build AI that survives compliance review, real data volume, and the six-month mark after launch.&rdquo;
@@ -326,7 +352,7 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
           <SectionContainer>
             <ScrollReveal className="global-country-section-header text-center">
               <h2 className="text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg text-3xl md:text-4xl lg:text-5xl">
-                Our {processSteps.length}-Step AI Development Process
+                <LastWordAccent text={`Our ${processSteps.length}-Step AI Development Process`} />
               </h2>
             </ScrollReveal>
             <GlobalCountryProcessTrack
@@ -351,7 +377,9 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
         <section id="faq" className="max-w-7xl mx-auto">
           <SectionContainer className="max-w-4xl">
             <ScrollReveal className="global-country-section-header text-center">
-              <h2 className="text-2xl font-extrabold md:text-5xl">Frequently Asked Questions</h2>
+              <h2 className="text-2xl font-extrabold md:text-5xl">
+                <LastWordAccent text="Frequently Asked Questions" />
+              </h2>
             </ScrollReveal>
             <div className="global-country-faq-list">
               {faqs.map((faq, index) => (
@@ -370,9 +398,11 @@ export function GlobalCountryPage({ data }: { data: GlobalCountryPageData }) {
           <ScrollReveal>
             <div className="hire-resources-cta relative overflow-hidden rounded-[1.75rem] px-6 py-10 text-center sm:px-10 sm:py-12 md:px-14 md:py-14">
               <h2 className="mx-auto max-w-7xl text-2xl font-bold leading-tight text-white md:text-3xl lg:text-5xl">
-                {data.ctaTitle}
+                <LastWordAccent text={data.ctaTitle} accentClassName={ON_DARK_ACCENT_CLASS} />
               </h2>
-              <p className="mx-auto mt-5 max-w-7xl text-base leading-relaxed text-white/80 md:text-lg">{data.ctaBody}</p>
+              <p className="mx-auto mt-5 max-w-7xl text-base leading-relaxed text-white/80 md:text-lg">
+                <LastWordAccent text={data.ctaBody} accentClassName={ON_DARK_ACCENT_CLASS} />
+              </p>
               <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <Link
                   href="/contact"

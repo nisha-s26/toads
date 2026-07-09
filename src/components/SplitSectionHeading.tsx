@@ -31,6 +31,24 @@ type SplitSectionHeadingProps = {
   inverted?: boolean
 }
 
+type LastWordAccentProps = {
+  text: string
+  accent?: string
+  mainClassName?: string
+  accentClassName?: string
+}
+
+export function LastWordAccent({ text, accent, mainClassName, accentClassName }: LastWordAccentProps) {
+  const parts = splitSectionTitle(text, accent)
+
+  return (
+    <>
+      {parts.titleBefore ? <span className={mainClassName}>{parts.titleBefore}</span> : null}
+      <span className={cn("text-toadster-green", accentClassName)}>{parts.titleAccent}</span>
+    </>
+  )
+}
+
 export function SplitSectionHeading({
   as: Tag = "h2",
   title,

@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { ScrollReveal } from "@/components/ScrollReveal"
+import { LastWordAccent } from "@/components/SplitSectionHeading"
 import { CITY_CARD_IMAGES, COUNTRY_HERO_IMAGES } from "@/constants/countryTechImages"
 import type { GlobalCityPageData } from "@/views/global-pages/types"
 
@@ -17,6 +18,8 @@ const EXPLORE_CITIES_INTROS: Record<string, string> = {
   uk: "Explore AI development across the UK's most dynamic cities, from global finance to northern innovation hubs.",
   usa: "From coast to coast - explore AI development in America's most competitive business markets.",
 }
+
+const ON_DARK_ACCENT_CLASS = "text-[#22c55e]"
 
 type GlobalExploreCitiesProps = {
   countryKey: string
@@ -40,9 +43,11 @@ export function GlobalExploreCities({ countryKey, countryLabel, cities, activeCi
         <ScrollReveal>
           <div className="global-country-explore-cities-header text-center">
             <h2 className="global-country-explore-cities-title text-2xl font-extrabold text-[#0a2f1f] dark:text-page-fg text-3xl md:text-4xl lg:text-5xl">
-              {title}
+              <LastWordAccent text={title} />
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-page-fg-muted md:text-lg">{intro}</p>
+            <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-page-fg-muted md:text-lg">
+              <LastWordAccent text={intro} />
+            </p>
           </div>
         </ScrollReveal>
 
@@ -78,9 +83,11 @@ export function GlobalExploreCities({ countryKey, countryLabel, cities, activeCi
                   </div>
                   <div className="global-country-city-card-content">
                     <h3 className="global-country-city-card-title text-lg font-bold text-white md:text-xl">
-                      {city.country}
+                      <LastWordAccent text={city.country} accentClassName={ON_DARK_ACCENT_CLASS} />
                     </h3>
-                    <p className="mt-1.5 text-xs leading-relaxed text-white/85 md:text-sm">{descriptionText}</p>
+                    <p className="mt-1.5 text-xs leading-relaxed text-white/85 md:text-sm">
+                      <LastWordAccent text={descriptionText} accentClassName={ON_DARK_ACCENT_CLASS} />
+                    </p>
                     <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-white md:text-sm">
                       Explore
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

@@ -2,6 +2,7 @@
 
 import { useState, type CSSProperties } from "react"
 import { ScrollReveal } from "@/components/ScrollReveal"
+import { LastWordAccent } from "@/components/SplitSectionHeading"
 import { cn } from "@/lib/utils"
 import type { GlobalCountryProcessStep } from "@/views/global-pages/types"
 
@@ -59,9 +60,11 @@ export function GlobalCountryProcessTrack({ steps, renderDescription }: GlobalCo
             onClick={() => setActiveIndex(index)}
           >
             <div className="global-country-process-node">{step.num}</div>
-            <h3 className="global-country-process-title mt-3 text-sm font-bold md:text-base">{step.title}</h3>
+            <h3 className="global-country-process-title mt-3 text-sm font-bold md:text-base">
+              <LastWordAccent text={step.title} />
+            </h3>
             <p className="global-country-process-desc mt-1.5 text-xs leading-snug text-page-fg-muted md:text-sm">
-              {renderDescription(step)}
+              <LastWordAccent text={renderDescription(step)} />
             </p>
           </button>
         </ScrollReveal>

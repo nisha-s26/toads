@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { ChevronDown, Menu, X } from "lucide-react"
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { GlobalPagesMenu } from "@/components/GlobalPagesMenu"
@@ -193,10 +193,26 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
 
   useEffect(() => {
     if (!mobileOpen) return
+    const scrollY = window.scrollY
     const previousOverflow = document.body.style.overflow
+    const previousPosition = document.body.style.position
+    const previousTop = document.body.style.top
+    const previousWidth = document.body.style.width
+    const previousHtmlOverflow = document.documentElement.style.overflow
+
     document.body.style.overflow = "hidden"
+    document.body.style.position = "fixed"
+    document.body.style.top = `-${scrollY}px`
+    document.body.style.width = "100%"
+    document.documentElement.style.overflow = "hidden"
+
     return () => {
       document.body.style.overflow = previousOverflow
+      document.body.style.position = previousPosition
+      document.body.style.top = previousTop
+      document.body.style.width = previousWidth
+      document.documentElement.style.overflow = previousHtmlOverflow
+      window.scrollTo(0, scrollY)
     }
   }, [mobileOpen])
 
@@ -204,7 +220,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
     <>
       {/* ── Mobile Backdrop ── */}
       <div
-        className={`navbar-mobile-backdrop fixed inset-0 z-40 bg-black/40 lg:hidden ${mobileOpen ? "navbar-mobile-backdrop--open" : ""}`}
+        className={`navbar-mobile-backdrop fixed inset-0 z-[55] lg:hidden ${mobileOpen ? "navbar-mobile-backdrop--open" : ""}`}
         onClick={closeMobile}
         aria-hidden="true"
       />
@@ -212,18 +228,16 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
       {/* ── Mobile Right-Side Drawer ── */}
       <div
         aria-hidden={!mobileOpen}
-        className={`navbar-mobile-drawer fixed top-0 right-0 z-[60] box-border flex h-full w-[min(85vw,100%)] max-w-full min-w-0 flex-col overflow-x-hidden overflow-y-auto bg-page-card font-sans shadow-2xl lg:hidden ${mobileOpen ? "navbar-mobile-drawer--open" : ""}`}
+        className={`navbar-mobile-drawer fixed top-0 right-0 z-[60] box-border flex h-dvh w-[85vw] max-w-[85vw] min-w-0 flex-col overflow-hidden border-l border-page-border/70 bg-page-card/95 font-sans shadow-2xl backdrop-blur-xl lg:hidden ${mobileOpen ? "navbar-mobile-drawer--open" : ""}`}
       >
         {/* Drawer Header */}
-        <div className="flex min-w-0 items-center justify-between gap-2 px-3 py-4 border-b border-page-border shrink-0 sm:px-5">
-          <Link href="/" onClick={closeMobile} title="Toadster Home" className="flex items-center">
-            <ToadsterLogo className="h-5 w-auto" />
+        <div className="navbar-mobile-drawer-header flex min-w-0 shrink-0 items-center justify-between gap-3 border-b border-page-border px-4 py-5 sm:px-5">
+          <Link href="/" onClick={closeMobile} title="Toadster Home" className="navbar-mobile-drawer-logo flex min-w-0 items-center rounded-2xl px-1">
+            <ToadsterLogo className="h-8 w-auto max-w-[10.5rem]" />
           </Link>
-          <div className="navbar-utilities flex items-center">
-            <GlobalPagesMenu size="sm" />
-            <ThemeToggle size="sm" />
+          <div className="navbar-mobile-drawer-actions flex shrink-0 items-center">
             <button
-              className="p-1.5 rounded-lg text-page-fg-muted hover:bg-page-accent-soft transition-colors"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-page-border bg-page-card/80 text-page-fg-muted shadow-sm transition-colors hover:bg-page-accent-soft hover:text-page-fg"
               onClick={closeMobile}
               aria-label="Close menu"
             >
@@ -233,7 +247,7 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
         </div>
 
         {/* Drawer Links */}
-        <nav className="flex min-w-0 w-full max-w-full flex-1 flex-col gap-0.5 overflow-y-auto overflow-x-hidden rounded-xl px-3 py-3 sm:px-4">
+        <nav className="navbar-mobile-drawer-nav flex min-w-0 w-full max-w-full flex-1 flex-col gap-1 overflow-y-auto overflow-x-hidden px-5 py-4 sm:px-6">
           {navLinks.map((link) => {
             if (link.dropdown) {
               if (link.label === "Services") {
@@ -363,16 +377,28 @@ export function Navbar({ activeSection: incomingActiveSection }: { activeSection
         </nav>
 
         {/* Drawer Footer */}
-        <div className="min-w-0 px-3 py-4 border-t border-page-border shrink-0 sm:px-5">
-          <Button asChild className="w-full rounded-xl text-sm font-semibold">
-            <a
-              href={"/contact"}
-              title="Email us to schedule a call"
-              onClick={closeMobile}
-            >
-              Schedule a Call
-            </a>
-          </Button>
+        <div className="navbar-mobile-drawer-footer min-w-0 shrink-0 border-t border-page-border px-4 py-4 sm:px-5">
+          <div className="navbar-mobile-drawer-cta-card">
+            <div className="min-w-0">
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-toadster-green">
+                Ready to leap?
+              </p>
+              <p className="mt-1 text-sm font-semibold leading-snug text-page-fg">
+                Talk to our team about your next build.
+              </p>
+            </div>
+            <Button asChild className="navbar-mobile-drawer-cta mt-3 w-full rounded-2xl text-sm font-semibold">
+              <a
+                href={"/contact"}
+                title="Email us to schedule a call"
+                onClick={closeMobile}
+                className="inline-flex items-center justify-center gap-2"
+              >
+                Schedule a Call
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
 
